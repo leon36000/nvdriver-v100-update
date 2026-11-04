@@ -1,0 +1,156 @@
+{
+  "fixed_header_abi": {
+    "R580": {
+      "compile_flags": [
+        "-std=gnu11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-DNVRM=1"
+      ],
+      "compiler": "/usr/bin/cc",
+      "finn_rm_api_offsets": {
+        "interface": 16,
+        "message": 24,
+        "payloadSize": 8,
+        "version": 0
+      },
+      "finn_rm_api_size_bytes": 32,
+      "nv2081_alloc_params_size_bytes": 4,
+      "nv2081_alloc_reserved_offset": 0,
+      "nv2081_binapi_interface_id": 2130177,
+      "nv2081_class_id": 8321,
+      "nvos54_finn_serialized_flag": 4
+    },
+    "R595": {
+      "compile_flags": [
+        "-std=gnu11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-DNVRM=1"
+      ],
+      "compiler": "/usr/bin/cc",
+      "finn_rm_api_offsets": {
+        "interface": 16,
+        "message": 24,
+        "payloadSize": 8,
+        "version": 0
+      },
+      "finn_rm_api_size_bytes": 32,
+      "nv2081_alloc_params_size_bytes": 4,
+      "nv2081_alloc_reserved_offset": 0,
+      "nv2081_binapi_interface_id": 2130177,
+      "nv2081_class_id": 8321,
+      "nvos54_finn_serialized_flag": 4
+    }
+  },
+  "hardware_observations": [
+    {
+      "case": "v100",
+      "client_root_class_id": 65,
+      "client_root_is_nv01_root_client": true,
+      "command": 545325320,
+      "entry_status": 0,
+      "exit_status": 0,
+      "flags": 0,
+      "nested_payload_read": false,
+      "object_class_id": 8321,
+      "object_is_nv2081_binapi": true,
+      "outer_finn_serialized_flag_set": false,
+      "params_size": 992,
+      "record_index": 31,
+      "sanitized_correlation_sha256": "c71d994fbd86b4ed822fb3fa81b12530ce17b673a36dc4f14636eca4f845b43d",
+      "trace_source_sha256": "1367ff5bab656223879f367c4ec3cc21fdae84d02763a28e741bbd3adaaa60eb",
+      "transport_success": true
+    },
+    {
+      "case": "rtx5080",
+      "client_root_class_id": 65,
+      "client_root_is_nv01_root_client": true,
+      "command": 545325320,
+      "entry_status": 0,
+      "exit_status": 0,
+      "flags": 0,
+      "nested_payload_read": false,
+      "object_class_id": 8321,
+      "object_is_nv2081_binapi": true,
+      "outer_finn_serialized_flag_set": false,
+      "params_size": 992,
+      "record_index": 31,
+      "sanitized_correlation_sha256": "b48b03fac79f2c4d46d1b557972fe12659802be34ddd171d0036588ebee59b1b",
+      "trace_source_sha256": "28da47a8ae2c992161f5e0e8299c601b0bb04fd03437e0d620f543ee3a7fd6a5",
+      "transport_success": true
+    }
+  ],
+  "nested_payload_read": false,
+  "observed_command_decode": {
+    "command": 545325320,
+    "interface_id": 2130177,
+    "matches_r580_binapi_interface": true,
+    "matches_r595_binapi_interface": true,
+    "message_id": 8
+  },
+  "payload_boundary": {
+    "finn_rm_api_header_is_the_992_byte_payload": false,
+    "finn_serialized_flag_mask": 4,
+    "nested_payload_read": false,
+    "observed_outer_flags": 0,
+    "observed_outer_params_size_bytes": 992,
+    "outer_finn_serialized_flag_set": false,
+    "payload_pointer_fields_and_message_08_type": "unresolved",
+    "routing_policy": "keep generic NV2081_BINAPI RM_CONTROL denied until a typed payload contract is established"
+  },
+  "qualification": "opaque-control-payload-unresolved",
+  "schema": "nvidia-hybrid-nv2081-control-boundary-v1",
+  "source_comparison": {
+    "binary_api_c_byte_identical": true,
+    "dispatch_facts": {
+      "R580": {
+        "firmware_client_routes_to_physical_rm": true,
+        "null_command_returns_ok": true,
+        "ordinary_physical_default_is_ok_without_rm_call": true,
+        "virtual_gpu_routes_to_rpc": true
+      },
+      "R595": {
+        "firmware_client_routes_to_physical_rm": true,
+        "null_command_returns_ok": true,
+        "ordinary_physical_default_is_ok_without_rm_call": true,
+        "virtual_gpu_routes_to_rpc": true
+      }
+    },
+    "generated_finn_serializer_mentions_nv2081_interface": {
+      "R580": false,
+      "R595": false
+    },
+    "interpretation": "Open source identifies class and dispatch branches, but does not expose the observed proprietary command's 992-byte parameter structure.",
+    "nv2081_alloc_class_optional": {
+      "R580": true,
+      "R595": true
+    },
+    "releases": {
+      "R580": "580.178.04",
+      "R595": "595.99.02"
+    },
+    "source_sha256": {
+      "R580": {
+        "src/common/sdk/nvidia/inc/class/cl2081.h": "cff48618a6175c82ba293a907e1aa5717157fea4870527c7e71a4f777219da0f",
+        "src/common/sdk/nvidia/inc/g_finn_rm_api.h": "ea207b36d98e7c1cbda17e2a06f77d8c1e528031ee12e9ccf2e2af75af3beae9",
+        "src/common/sdk/nvidia/inc/nvos.h": "07f9f453afbf080750663abc9e04e2d3b55500887303ba03bd6855916d2405bd",
+        "src/nvidia/interface/rmapi/src/g_finn_rm_api.c": "61123beaad406ced73410440dce1d80a0e0cb2facd30ad666bd31ea056b42153",
+        "src/nvidia/src/kernel/rmapi/binary_api.c": "1706e910cff19671d91410681501642e930c66e406e3cbfbc9148b4a9da2cdcd",
+        "src/nvidia/src/kernel/rmapi/resource_list.h": "19f365cf1c4492483a02172c1298f7ba54ae0571b156ac4b58c0c7522ba729b8",
+        "src/nvidia/src/kernel/rmapi/rmapi_finn.c": "ce92b7d99507116ff1e2c1627a432a32c27fcf30503ed90b0001dc1bee770e08"
+      },
+      "R595": {
+        "src/common/sdk/nvidia/inc/class/cl2081.h": "cff48618a6175c82ba293a907e1aa5717157fea4870527c7e71a4f777219da0f",
+        "src/common/sdk/nvidia/inc/g_finn_rm_api.h": "a7483fda3fb0c3066a2df0ef5c7dbe67ca02fe6fca8c6c6026c04b26132564c1",
+        "src/common/sdk/nvidia/inc/nvos.h": "5786e4c046f08dd627f13760474599624d578325938fe269cb4321c2e3502c02",
+        "src/nvidia/interface/rmapi/src/g_finn_rm_api.c": "61123beaad406ced73410440dce1d80a0e0cb2facd30ad666bd31ea056b42153",
+        "src/nvidia/src/kernel/rmapi/binary_api.c": "1706e910cff19671d91410681501642e930c66e406e3cbfbc9148b4a9da2cdcd",
+        "src/nvidia/src/kernel/rmapi/resource_list.h": "c1b97739068af98c4360bf75dff014a8503b572fd4a5b223db2f103e936c1c6a",
+        "src/nvidia/src/kernel/rmapi/rmapi_finn.c": "ce92b7d99507116ff1e2c1627a432a32c27fcf30503ed90b0001dc1bee770e08"
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "binary": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/vmm-peer-probe-v1-20261031/hybrid_cuda_vmm_peer_probe",
+    "sha256": "9ee6f81f09e854664682951ed9a79e837d5f836e014e41efabdfb007e006aa91"
+  },
+  "checks": [
+    {
+      "diagnostics": "",
+      "name": "GCC 15 -fanalyzer -fsyntax-only",
+      "return_code": 0
+    },
+    {
+      "name": "ELF has no direct libcuda dependency",
+      "passed": true
+    },
+    {
+      "name": "ELF has no undefined CUDA Driver API imports",
+      "passed": true
+    },
+    {
+      "name": "CLI help path returns without CUDA initialization",
+      "return_code": 0,
+      "stdout": "Usage: /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/vmm-peer-probe-v1-20261031/hybrid_cuda_vmm_peer_probe --module FILE --expected-device 70=PCI --expected-device 120=PCI [--count N]\n"
+    }
+  ],
+  "observed_at_utc": "2026-10-31T21:58:14.788169+00:00",
+  "qualification": "static-analysis-only-no-hardware-validation",
+  "schema": "nvidia-hybrid-vmm-peer-static-review-v1",
+  "scope": "host-source-only; no CUDA API was invoked",
+  "source": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/hybrid_cuda_vmm_peer_probe.cpp",
+    "sha256": "16548dbe8e7f27b78d1c97015a5772e5d4f502f01f0a132d585147deb45db704"
+  }
+}

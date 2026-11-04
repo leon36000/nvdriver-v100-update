@@ -1,0 +1,70 @@
+{
+  "schema": "claude-pc6-r580-irq-source-audit-validation-v1",
+  "generated_utc": "2026-10-22T02:12:00Z",
+  "qualification": "independently-source-checked-static-audit",
+  "report": {
+    "path": "evidence/claude-pc6-r580-irq-source-audit-v1-20261022.md",
+    "bytes": 27262,
+    "sha256": "631d17d7e89ac810d9e0deadbac9727882c8e875db4d13c3e09d09638b4f9373",
+    "remote_path": "/tmp/codex-nvidia-irq-audit-v1-20261022/workspace/output/IRQ_SOURCE_AUDIT.md"
+  },
+  "execution": {
+    "host": "PC6 / gx10-e526",
+    "claude_code_version": "2.1.307",
+    "main_model": "claude-opus-5-5",
+    "subagents": ["claude-sonnet-5-5", "claude-sonnet-5-5"],
+    "ralph_loop_plugin": "claude-plugins-official/ralph-loop 1.0.0",
+    "max_iterations": 8,
+    "completion_marker_observed": "<promise>R580_IRQ_AUDIT_COMPLETE</promise>",
+    "monitor_checks": 5,
+    "hardware_or_driver_operations": false
+  },
+  "input_snapshot": {
+    "file_count": 20,
+    "manifest_sha256": "f4e5702b4afd7da58cd669659ec524833816a052f38bb99615c6560d20bfeccd",
+    "archive_sha256": "b06e8138c18229e07d5e6353f13769d3223032172cdc0d10bc8d0fabd7b46c1a",
+    "canonical_files_rehashed": 20,
+    "canonical_sizes_matched": 20,
+    "canonical_hashes_matched": 20
+  },
+  "independent_spot_checks": [
+    {
+      "source": "build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv.c",
+      "sha256": "3fddec7956bd263ac1d238a82861894c93cd9ca904067b770cca5a7beec2631a",
+      "observations": [
+        "PCI/legacy IRQ request at 1416 and MSI-X request dispatch at 1423 precede bottom_half_q setup at 1447-1448 and rm_init_adapter at 1468; NV_FLAG_OPEN is set at 1493.",
+        "The ISR calls RM MMU-fault handling before UVM and RM ISR paths; it may enqueue bottom_half_q at 2918 when RM reports serviceable faults.",
+        "Adapter shutdown calls rm_disable_adapter at 1947, stops bottom_half_q at 1950, frees the unlocked ISR mutex at 1958-1961, then frees IRQs at 1967 or releases MSI-X at 1982-1986.",
+        "Persistent SW-state last close calls rm_disable_adapter without releasing IRQs; native PM stops bottom_half_q at 6560 and recreates it on resume at 6569-6572 while the handler remains registered.",
+        "nvidia_suspend holds ldata_lock at 6718; the deferred open worker takes it at 1743, so queue flush while holding it is a potential lock-order/liveness concern, not a reproduced deadlock."
+      ]
+    },
+    {
+      "source": "build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv-kthread-q.c",
+      "sha256": "13222c7db5bd1e57c5d36d0125d4cca4da1d288e5e52ac679f005668bc2e6274",
+      "observations": [
+        "Queue stop flushes before setting main_loop_should_exit (119-141); scheduling checks that flag before raw enqueue (282-292), not inside the q_lock section (252-270)."
+      ]
+    },
+    {
+      "source": "src/hybrid_frontend.c",
+      "observations": [
+        "The canonical frontend validates the backend and returns -EOPNOTSUPP from its IRQ drain callback at lines 300-314."
+      ]
+    },
+    {
+      "source": "build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv-platform.c and kernel-open/nvidia/nv-gpio.c",
+      "observations": [
+        "Explicit Linux enable_irq/disable_irq controls in these paths apply to SoC/platform or GPIO IRQ lines; they are not a mask for the PCI main-GPU interrupt source."
+      ]
+    }
+  ],
+  "limitations": [
+    "Source ordering does not prove an interrupt ran in any initialization, queue-stop, or resume window.",
+    "The PC6 20-file snapshot excluded the proprietary RM binary and several source files; claims about excluded inputs are not used as primary proof.",
+    "The existing bounded Ghidra reports are decompiler reconstructions, not NVIDIA source; indirect callback targets and hardware IRQ semantics remain unresolved.",
+    "No provider module, kernel driver, GPU, UVM transition, suspend/resume cycle, CUDA kernel, or performance test was run for this audit."
+  ],
+  "decision": "Retain the hybrid frontend drain_irqs -EOPNOTSUPP guard. Do not reorder free_irq or add synchronize_irq until the PCI source-mask, threaded-handler completion, queue ownership, and provider teardown lifetime are source-backed and tested.",
+  "next_experiment": "Use the exact pinned nv-kernel.o_binary to inspect the direct rm_init_adapter and rm_isr callees, then follow only unresolved interrupt-enable or readiness dispatches. Reconcile with the existing rm_disable_adapter and rm_power_management decompilations before modifying either provider."
+}

@@ -1,0 +1,77 @@
+{
+  "architecture": "sm_120a",
+  "binary_executed": false,
+  "compile": {
+    "artifact_created": true,
+    "artifact_sha256": "a12240f91f20aef2a57f27e3f70cc2d6a368c28c2e3d60825cbff7cfd19f27a1",
+    "command": [
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/tools/cuda-12.9.2-toolchain-v2/toolkit/bin/nvcc",
+      "-std=c++17",
+      "-arch=sm_120a",
+      "-U_GNU_SOURCE",
+      "-Xcompiler",
+      "-Wall,-Wextra,-Werror",
+      "-ccbin",
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/tools/host-gcc14/usr/bin/g++-14",
+      "/tmp/nvdriver-cuda-smoke-4n53odjv/smoke.cu",
+      "-o",
+      "/tmp/nvdriver-cuda-smoke-4n53odjv/smoke"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "gpu_accessed": false,
+  "image_inspection": {
+    "architectures": [
+      "sm_120a"
+    ],
+    "command": [
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/tools/cuda-12.9.2-toolchain-v2/toolkit/bin/cuobjdump",
+      "--list-elf",
+      "/tmp/nvdriver-cuda-smoke-4n53odjv/smoke"
+    ],
+    "exit_code": 0,
+    "output": "ELF file    1: smoke.1.sm_120a.cubin\nELF file    2: smoke.2.sm_120a.cubin\n",
+    "requested_architecture_present": true
+  },
+  "loaded_or_installed": false,
+  "observed_at_utc": "2026-11-02T08:29:13.171387+00:00",
+  "passed": true,
+  "qualification": "compiler-and-image-inspection-only",
+  "runtime_or_hardware_validated": false,
+  "schema": "nvdriver-cuda-compiler-smoke-v1",
+  "source_sha256": "dace882dfa545e328284e488819c2b101013b5837d0463588831f9068f40044d",
+  "toolchain": {
+    "cuobjdump": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/tools/cuda-12.9.2-toolchain-v2/toolkit/bin/cuobjdump",
+    "cuobjdump_version": {
+      "command": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/tools/cuda-12.9.2-toolchain-v2/toolkit/bin/cuobjdump",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "cuobjdump: NVIDIA (R) fat binary listing tool\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Mon_May_19_08:50:03_PDT_2025\nCuda compilation tools, release 12.9, V12.9.82\nBuild cuda_12.9.r12.9/compiler.36001619_0"
+    },
+    "host_cxx": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/tools/host-gcc14/usr/bin/g++-14",
+    "host_cxx_version": {
+      "command": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/tools/host-gcc14/usr/bin/g++-14",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "g++-14 (Ubuntu 14.3.0-14ubuntu1) 14.3.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
+    },
+    "nvcc": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/tools/cuda-12.9.2-toolchain-v2/toolkit/bin/nvcc",
+    "nvcc_version": {
+      "command": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/tools/cuda-12.9.2-toolchain-v2/toolkit/bin/nvcc",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Tue_May_27_02:21:03_PDT_2025\nCuda compilation tools, release 12.9, V12.9.86\nBuild cuda_12.9.r12.9/compiler.36037853_0"
+    }
+  }
+}

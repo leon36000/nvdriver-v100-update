@@ -1,0 +1,37 @@
+{
+  "experimental_modules_loaded": false,
+  "fresh_review_tests": {
+    "bundle": 10,
+    "extra_independent_ABA_reproductions": 2,
+    "firmware": 4
+  },
+  "gpu_accessed": false,
+  "observations": [
+    "11 firmware/cache/report records size and digest match",
+    "APT snapshot and package control agree on pinned package/version/source",
+    "both actual backend module firmware declarations covered exactly",
+    "no further concrete defect established"
+  ],
+  "observed_at_utc": "2026-10-19T21:01:39.954609+00:00",
+  "qualification": "PASS within source/CPU/archive scope only",
+  "raw_review_report": "Review messages in this task; this JSON records their scoped outcome, not a new runtime test.",
+  "redistribution_assessed": false,
+  "resolved_findings": [
+    {
+      "defect": "expected SHA was computed from separately reopened paths rather than parsed stream; real ABA substitution accepted wrong payload",
+      "regression_log": "evidence/logs/canary-package-aba-negative-20261019.log",
+      "resolution": "one open; compressed bytes consumed by gzip are hashed; drain EOF and CRC before expected SHA comparison"
+    }
+  ],
+  "review_type": "independent read-only source and CPU reproduction review",
+  "reviewer_agent": "/root/root_payload_observer",
+  "schema": "nvidia-hybrid-independent-review-v1",
+  "source_sha256": {
+    "tests/test_canary_bundle.py": "f1be4c29a44b9000d7b5d275ff75a92dbd50df053093af30b38e722b5c2aa920",
+    "tests/test_canary_firmware.py": "d29c50d32614e8d879e57c5bfa362c7fbe7740e33bafa4e230d01002c837c87c",
+    "tools/acquire_canary_firmware.py": "8f3b18015b0f28f0bd2bb3f57b3b3f11378fa20014e2df039aa8c029c2e8036c",
+    "tools/package_hybrid_canary.py": "335b65590e010f17432500a5e552077c0b9c0084e8b9475b6f846bc349ccca8e",
+    "tools/verify_canary_bundle.py": "630763350d52d0d34e612ddda7685487f4c105c061b84abb2dd10ec3a1db82f9"
+  },
+  "vm_or_ssh_accessed": false
+}

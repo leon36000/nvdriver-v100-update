@@ -1,0 +1,68 @@
+{
+  "architecture": "sm_120a",
+  "binary_executed": false,
+  "compile": {
+    "artifact_created": true,
+    "artifact_sha256": "3a4c7c1db8f91104b04da9359d2cf6961bd1f4172c020a5d2d72bfddcb5ec56a",
+    "command": [
+      "/usr/local/cuda/bin/nvcc",
+      "-std=c++17",
+      "-arch=sm_120a",
+      "-U_GNU_SOURCE",
+      "-Xcompiler",
+      "-Wall,-Wextra,-Werror",
+      "-ccbin",
+      "/usr/bin/g++",
+      "/tmp/nvdriver-cuda-smoke-2odz7oms/smoke.cu",
+      "-o",
+      "/tmp/nvdriver-cuda-smoke-2odz7oms/smoke"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "gpu_accessed": false,
+  "image_inspection": {
+    "architectures": [
+      "sm_120a"
+    ],
+    "command": [
+      "/usr/local/cuda/bin/cuobjdump",
+      "--list-elf",
+      "/tmp/nvdriver-cuda-smoke-2odz7oms/smoke"
+    ],
+    "exit_code": 0,
+    "output": "ELF file    1: smoke.1.sm_120a.cubin\nELF file    2: smoke.2.sm_120a.cubin\n",
+    "requested_architecture_present": true
+  },
+  "loaded_or_installed": false,
+  "observed_at_utc": "2026-11-02T05:55:01.966360+00:00",
+  "passed": true,
+  "qualification": "compiler-and-image-inspection-only",
+  "runtime_or_hardware_validated": false,
+  "schema": "nvdriver-cuda-compiler-smoke-v1",
+  "source_sha256": "dace882dfa545e328284e488819c2b101013b5837d0463588831f9068f40044d",
+  "toolchain": {
+    "cuobjdump": "/usr/local/cuda/bin/cuobjdump",
+    "host_cxx": "/usr/bin/g++",
+    "host_cxx_version": {
+      "command": [
+        "/usr/bin/g++",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0\nCopyright (C) 2025 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
+    },
+    "nvcc": "/usr/local/cuda/bin/nvcc",
+    "nvcc_version": {
+      "command": [
+        "/usr/local/cuda/bin/nvcc",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Tue_Dec_16_07:23:41_PM_PST_2025\nCuda compilation tools, release 13.1, V13.1.115\nBuild cuda_13.1.r13.1/compiler.37061995_0"
+    }
+  }
+}

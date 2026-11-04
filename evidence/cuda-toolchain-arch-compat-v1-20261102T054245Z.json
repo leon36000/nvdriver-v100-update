@@ -1,0 +1,75 @@
+{
+  "attempts": [
+    {
+      "artifact_created": false,
+      "command": [
+        "nvcc",
+        "--fatbin",
+        "-std=c++17",
+        "-arch=sm_70",
+        "probe.cu",
+        "-o",
+        "sm_70.fatbin"
+      ],
+      "diagnostic_lines": [
+        "nvcc fatal   : Unsupported gpu architecture 'sm_70'"
+      ],
+      "exit_code": 1,
+      "label": "sm_70"
+    },
+    {
+      "artifact_created": false,
+      "command": [
+        "nvcc",
+        "--fatbin",
+        "-std=c++17",
+        "-arch=sm_120a",
+        "probe.cu",
+        "-o",
+        "sm_120a.fatbin"
+      ],
+      "diagnostic_lines": [
+        "/usr/include/x86_64-linux-gnu/bits/mathcalls.h(206): error: exception specification is incompatible with that of previous function \"rsqrt\" (declared at line 629 of /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/math_functions.h)",
+        "extern double rsqrt (double __x) noexcept (true); extern double __rsqrt (double __x) noexcept (true);",
+        "/usr/include/x86_64-linux-gnu/bits/mathcalls.h(206): error: exception specification is incompatible with that of previous function \"rsqrtf\" (declared at line 653 of /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/math_functions.h)",
+        "extern float rsqrtf (float __x) noexcept (true); extern float __rsqrtf (float __x) noexcept (true);",
+        "2 errors detected in the compilation of \"<tmp>/probe.cu\"."
+      ],
+      "exit_code": 1,
+      "label": "sm_120a"
+    },
+    {
+      "artifact_created": false,
+      "command": [
+        "nvcc",
+        "--fatbin",
+        "-std=c++17",
+        "-D_POSIX_C_SOURCE=200809L",
+        "-arch=sm_120a",
+        "probe.cu",
+        "-o",
+        "sm_120a_posix.fatbin"
+      ],
+      "diagnostic_lines": [
+        "/usr/include/x86_64-linux-gnu/bits/mathcalls.h(206): error: exception specification is incompatible with that of previous function \"rsqrt\" (declared at line 629 of /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/math_functions.h)",
+        "extern double rsqrt (double __x) noexcept (true); extern double __rsqrt (double __x) noexcept (true);",
+        "/usr/include/x86_64-linux-gnu/bits/mathcalls.h(206): error: exception specification is incompatible with that of previous function \"rsqrtf\" (declared at line 653 of /usr/local/cuda/bin/../targets/x86_64-linux/include/crt/math_functions.h)",
+        "extern float rsqrtf (float __x) noexcept (true); extern float __rsqrtf (float __x) noexcept (true);",
+        "2 errors detected in the compilation of \"<tmp>/probe.cu\"."
+      ],
+      "exit_code": 1,
+      "label": "sm_120a_posix"
+    }
+  ],
+  "observed_at_utc": "2026-11-02T05:42:45.031756+00:00",
+  "qualification": "compiler-architecture probe only; no GPU or driver was accessed",
+  "schema": "cuda-toolchain-arch-compat-v1",
+  "source_sha256": "285ed93e3601fa85a63fd81725a939963910ac28cf17b06d226a8de93bb8dcbb",
+  "source_text": "extern \"C\" __global__ void probe() {}",
+  "toolchain": {
+    "host_compiler": "g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+    "libc6_dev": "2.43-2ubuntu2.4",
+    "nvcc": "/usr/local/cuda/bin/nvcc",
+    "nvcc_version": "Build cuda_13.1.r13.1/compiler.37061995_0"
+  }
+}

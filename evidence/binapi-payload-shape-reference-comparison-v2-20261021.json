@@ -1,0 +1,134 @@
+{
+  "capture_scope": "Only the fixed top-level 992-byte payload shape was read. Contained pointers were not followed; raw bytes, addresses, handles, credentials, and TIDs are omitted.",
+  "hybrid_same_linux_validated": false,
+  "interpretation": "Both independent stock-driver probes issued one successful RM_CONTROL command 0x20810108 on a resolved NV2081_BINAPI object. The observed 992-byte top-level payload had zero nonzero 32-bit words at entry and zero changed bytes across entry/exit on both systems. This does not establish payload semantics, forwarding to physical RM, or same-kernel V100+Blackwell operation.",
+  "observed_at_utc": "2026-10-21T14:22:42+00:00",
+  "qualification": "hardware-observation-on-separate-linux-kernels",
+  "references": {
+    "RTX5080_R595": {
+      "binapi_payload_snapshots_read": 2,
+      "device": {
+        "driver": "595.99.02",
+        "name": "NVIDIA GeForce RTX 5080",
+        "pci": "00000000:02:00.0",
+        "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77"
+      },
+      "driver_api": 13020,
+      "driver_version": "595.99.02",
+      "evidence": "evidence/pc3-rtx5080-binapi-payload-shape-v3-20261021.json",
+      "gpu_descriptor": "/dev/nvidia0",
+      "host": "pc3",
+      "hybrid_validated": false,
+      "kernel_release": "7.0.0-38-generic",
+      "missing_sm": [
+        70
+      ],
+      "observer_schema": "nvidia-hybrid-rm-ioctl-observer-v18",
+      "probe_status": "incomplete",
+      "qualification": "rtx5080-reference-validated-hybrid-incomplete",
+      "records": [
+        {
+          "operation": "binapi_control",
+          "packet_size": 32,
+          "phases": {
+            "entry": {
+              "changed_byte_count": 0,
+              "command": 545325320,
+              "entry_exit_payload_equal": null,
+              "nonzero_u32_count": 0,
+              "object_class": 8321,
+              "outer_params_size_bytes": 992,
+              "payload_bytes": 992,
+              "payload_valid": true,
+              "status": 0
+            },
+            "exit": {
+              "changed_byte_count": 0,
+              "command": 545325320,
+              "entry_exit_payload_equal": true,
+              "nonzero_u32_count": 0,
+              "object_class": 8321,
+              "outer_params_size_bytes": 992,
+              "payload_bytes": 992,
+              "payload_valid": true,
+              "status": 0
+            }
+          },
+          "request": 3223340586,
+          "syscall_return": 0
+        }
+      ],
+      "required_sm": [
+        70,
+        120
+      ],
+      "sha256": "7f67524e9ce02bd864240e9553ac2eda5764326c192fd3757603b93388dc1de4",
+      "trace_complete": true
+    },
+    "V100_R580": {
+      "binapi_payload_snapshots_read": 2,
+      "device": {
+        "driver_version": "580.178.04",
+        "hostname": "pc3-v100",
+        "kernel_release": "6.8.0-147-generic",
+        "memory_total_mib": "16384",
+        "memory_used_mib_before": "0",
+        "name": "Tesla V100-SXM2-16GB",
+        "pci": "0000:00:05.0",
+        "temperature_c_before": "50",
+        "utilization_percent_before": "0",
+        "uuid": "GPU-42d06a85-027a-75ea-7857-a8de27ad465e"
+      },
+      "driver_api": 13000,
+      "driver_version": "580.178.04",
+      "evidence": "evidence/pc3-v100-binapi-payload-shape-v1-20261021.json",
+      "gpu_descriptor": "/dev/nvidia0",
+      "host": "pc3-v100",
+      "hybrid_validated": false,
+      "kernel_release": "6.8.0-147-generic",
+      "missing_sm": [],
+      "observer_schema": "nvidia-hybrid-rm-ioctl-observer-v18",
+      "probe_status": "control-passed",
+      "qualification": "v100-reference-validated",
+      "records": [
+        {
+          "operation": "binapi_control",
+          "packet_size": 32,
+          "phases": {
+            "entry": {
+              "changed_byte_count": 0,
+              "command": 545325320,
+              "entry_exit_payload_equal": null,
+              "nonzero_u32_count": 0,
+              "object_class": 8321,
+              "outer_params_size_bytes": 992,
+              "payload_bytes": 992,
+              "payload_valid": true,
+              "status": 0
+            },
+            "exit": {
+              "changed_byte_count": 0,
+              "command": 545325320,
+              "entry_exit_payload_equal": true,
+              "nonzero_u32_count": 0,
+              "object_class": 8321,
+              "outer_params_size_bytes": 992,
+              "payload_bytes": 992,
+              "payload_valid": true,
+              "status": 0
+            }
+          },
+          "request": 3223340586,
+          "syscall_return": 0
+        }
+      ],
+      "required_sm": [
+        70
+      ],
+      "sha256": "c7c9dd952bdb137d0c03dbd3b6d2c69da88a8934a3c838f560863478ece28440",
+      "trace_complete": true
+    }
+  },
+  "schema": "nvidia-hybrid-binapi-payload-shape-reference-comparison-v1",
+  "supersedes": "binapi-payload-shape-reference-comparison-v1-20261021.json: its RTX qualification label used the outer transport object and was null; raw hardware observations are unchanged."
+}

@@ -1,0 +1,221 @@
+{
+  "schema": "nvidia-cuda-graphs-hardware-summary-v1",
+  "source_reports": [
+    {
+      "cuda_driver_api": 13020,
+      "cuda_graph_api": "cuGraphInstantiateWithFlags",
+      "cuda_graphs_requested": true,
+      "cuda_graphs_validated": true,
+      "devices": [
+        {
+          "architecture_kernel_passed": true,
+          "asynchronous_passed": true,
+          "asynchronous_sizes": [
+            1,
+            31,
+            256,
+            4096,
+            65537
+          ],
+          "cleanup_passed": true,
+          "cuda_graph_launches": 2,
+          "cuda_graphs_passed": true,
+          "managed_memory_passed": false,
+          "managed_prefetch_passed": false,
+          "name": "NVIDIA GeForce RTX 5080",
+          "pci_bus_id": "0000:02:00.0",
+          "sm": 120,
+          "synchronous_passed": true,
+          "synchronous_sizes": [
+            1,
+            31,
+            256,
+            4096,
+            65537
+          ],
+          "targeted": true
+        }
+      ],
+      "driver_version": "595.99.02",
+      "gpu_name": "NVIDIA GeForce RTX 5080",
+      "guest": null,
+      "guest_cleanup_passed": null,
+      "host": "pc3",
+      "managed_prefetch_api": "not-requested",
+      "managed_prefetch_requested": false,
+      "memory_mode": "device",
+      "missing_sm": [
+        70
+      ],
+      "payload_cleanup_passed": null,
+      "probe_status": "incomplete",
+      "qualification": "rtx5080-reference-validated-hybrid-incomplete",
+      "report_mode_octal": "0o600",
+      "report_path": "evidence/pc3-rtx5080-cuda-graphs-v2-20261021.json",
+      "runner_exit_code": 77,
+      "sha256": "5d8e39bda072f84116dd634dc97a60ed1ebb26ffaf6d947d9332e1a3a7f9792a",
+      "validation_errors": null
+    },
+    {
+      "cuda_driver_api": 13000,
+      "cuda_graph_api": "cuGraphInstantiateWithFlags",
+      "cuda_graphs_requested": true,
+      "cuda_graphs_validated": null,
+      "devices": [
+        {
+          "architecture_kernel_passed": true,
+          "asynchronous_passed": true,
+          "asynchronous_sizes": [
+            1,
+            31,
+            256,
+            4096,
+            65537
+          ],
+          "cleanup_passed": true,
+          "cuda_graph_launches": 2,
+          "cuda_graphs_passed": true,
+          "managed_memory_passed": false,
+          "managed_prefetch_passed": false,
+          "name": "Tesla V100-SXM2-16GB",
+          "pci_bus_id": "0000:00:05.0",
+          "sm": 70,
+          "synchronous_passed": true,
+          "synchronous_sizes": [
+            1,
+            31,
+            256,
+            4096,
+            65537
+          ],
+          "targeted": true
+        }
+      ],
+      "driver_version": "580.178.04",
+      "gpu_name": "Tesla V100-SXM2-16GB",
+      "guest": "pc3-v100",
+      "guest_cleanup_passed": true,
+      "host": "pc3",
+      "managed_prefetch_api": "not-requested",
+      "managed_prefetch_requested": false,
+      "memory_mode": "device",
+      "missing_sm": [],
+      "payload_cleanup_passed": true,
+      "probe_status": "control-passed",
+      "qualification": "v100-reference-validated",
+      "report_mode_octal": "0o600",
+      "report_path": "evidence/pc3-v100-cuda-graphs-v2-20261021.json",
+      "runner_exit_code": 0,
+      "sha256": "40ab827f9c2298c450151208156396d1f6a91b45c0077304ace49c1bdf3c5947",
+      "validation_errors": null
+    },
+    {
+      "cuda_driver_api": 13020,
+      "cuda_graph_api": "cuGraphInstantiateWithFlags",
+      "cuda_graphs_requested": true,
+      "cuda_graphs_validated": true,
+      "devices": [
+        {
+          "architecture_kernel_passed": true,
+          "asynchronous_passed": true,
+          "asynchronous_sizes": [
+            1,
+            31,
+            256,
+            4096,
+            65537
+          ],
+          "cleanup_passed": true,
+          "cuda_graph_launches": 2,
+          "cuda_graphs_passed": true,
+          "managed_memory_passed": true,
+          "managed_prefetch_passed": true,
+          "name": "NVIDIA GeForce RTX 5080",
+          "pci_bus_id": "0000:02:00.0",
+          "sm": 120,
+          "synchronous_passed": true,
+          "synchronous_sizes": [
+            1,
+            31,
+            256,
+            4096,
+            65537
+          ],
+          "targeted": true
+        }
+      ],
+      "driver_version": "595.99.02",
+      "gpu_name": "NVIDIA GeForce RTX 5080",
+      "guest": null,
+      "guest_cleanup_passed": null,
+      "host": "pc3",
+      "managed_prefetch_api": "cuMemPrefetchAsync_v2",
+      "managed_prefetch_requested": true,
+      "memory_mode": "managed",
+      "missing_sm": [
+        70
+      ],
+      "payload_cleanup_passed": null,
+      "probe_status": "incomplete",
+      "qualification": "rtx5080-reference-validated-hybrid-incomplete",
+      "report_mode_octal": "0o600",
+      "report_path": "evidence/pc3-rtx5080-managed-graphs-v2-20261021.json",
+      "runner_exit_code": 77,
+      "sha256": "96bdb94d2cb5ec88ca42d3c3c60c80d8b1d24eba63627a49a54ff508449f7322",
+      "validation_errors": null
+    },
+    {
+      "cuda_driver_api": 13000,
+      "cuda_graph_api": "cuGraphInstantiateWithFlags",
+      "cuda_graphs_requested": true,
+      "cuda_graphs_validated": null,
+      "devices": [
+        {
+          "architecture_kernel_passed": true,
+          "asynchronous_passed": true,
+          "asynchronous_sizes": [
+            1,
+            31,
+            256,
+            4096,
+            65537
+          ],
+          "cleanup_passed": true,
+          "cuda_graph_launches": 2,
+          "cuda_graphs_passed": true,
+          "managed_memory_passed": true,
+          "managed_prefetch_passed": true,
+          "name": "Tesla V100-SXM2-16GB",
+          "pci_bus_id": "0000:00:05.0",
+          "sm": 70,
+          "synchronous_passed": true,
+          "synchronous_sizes": [
+            1,
+            31,
+            256,
+            4096,
+            65537
+          ],
+          "targeted": true
+        }
+      ],
+      "driver_version": "580.178.04",
+      "gpu_name": "Tesla V100-SXM2-16GB",
+      "guest": "pc3-v100",
+      "guest_cleanup_passed": true,
+      "host": "pc3",
+      "managed_prefetch_api": "cuMemPrefetchAsync_v2",
+      "managed_prefetch_requested": true,
+      "memory_mode": "managed",
+      "missing_sm": [],
+      "payload_cleanup_passed": true,
+      "probe_status": "control-passed",
+      "qualification": "v100-reference-validated",
+      "report_mode_octal": "0o600",
+      "report_path": "evidence/pc3-v100-managed-graphs-v2-20261021.json",
+      "runner_exit_code": 0,
+      "sha256": "1d3d375d3ff957f88a181826f80eed6fccb241e90e84cbe78085a0277c43bf82",
+      "validation_errors": null
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "schema": "nvdriver-cuda-toolchain-lock-v1",
+  "toolkit": "12.9.2",
+  "release_label": "CUDA Toolkit 12.9 Update 2",
+  "platform": "linux-x86_64",
+  "license": "CUDA Toolkit",
+  "manifest": {
+    "url": "https://developer.download.nvidia.com/compute/cuda/redist/redistrib_12.9.2.json",
+    "sha256": "236b051e6c7915a31ed9da369ea74ddb5b0fbf77eb1dffc10640e7ce6ed10257",
+    "bytes": 54261
+  },
+  "components": [
+    {
+      "name": "cuda_nvcc",
+      "version": "12.9.86",
+      "path": "cuda_nvcc/linux-x86_64/cuda_nvcc-linux-x86_64-12.9.86-archive.tar.xz",
+      "sha256": "7a1a5b652e5ef85c82b721d10672fc9a2dbaab44e9bd3c65a69517bf53998c35",
+      "bytes": 81100244
+    },
+    {
+      "name": "cuda_cccl",
+      "version": "12.9.27",
+      "path": "cuda_cccl/linux-x86_64/cuda_cccl-linux-x86_64-12.9.27-archive.tar.xz",
+      "sha256": "8b1a5095669e94f2f9afd7715533314d418179e9452be61e2fde4c82a3e542aa",
+      "bytes": 997888
+    },
+    {
+      "name": "cuda_cudart",
+      "version": "12.9.79",
+      "path": "cuda_cudart/linux-x86_64/cuda_cudart-linux-x86_64-12.9.79-archive.tar.xz",
+      "sha256": "1f6ad42d4f530b24bfa35894ccf6b7209d2354f59101fd62ec4a6192a184ce99",
+      "bytes": 1514676
+    },
+    {
+      "name": "cuda_cuobjdump",
+      "version": "12.9.82",
+      "path": "cuda_cuobjdump/linux-x86_64/cuda_cuobjdump-linux-x86_64-12.9.82-archive.tar.xz",
+      "sha256": "ee0de40e8c18068bfcc53e73510e7e7a1a80555205347940df67fa525d24452f",
+      "bytes": 214896
+    },
+    {
+      "name": "cuda_nvdisasm",
+      "version": "12.9.88",
+      "path": "cuda_nvdisasm/linux-x86_64/cuda_nvdisasm-linux-x86_64-12.9.88-archive.tar.xz",
+      "sha256": "49296dd550e05434185a8588ec639f1325b2de413e2321ddd7e56c5182a476ff",
+      "bytes": 5483340
+    },
+    {
+      "name": "libnvfatbin",
+      "version": "12.9.82",
+      "path": "libnvfatbin/linux-x86_64/libnvfatbin-linux-x86_64-12.9.82-archive.tar.xz",
+      "sha256": "315be969a303437329bf72d7141babed024fc54f90a10aa748b03be8f826d57b",
+      "bytes": 930820
+    },
+    {
+      "name": "libnvjitlink",
+      "version": "12.9.86",
+      "path": "libnvjitlink/linux-x86_64/libnvjitlink-linux-x86_64-12.9.86-archive.tar.xz",
+      "sha256": "392cac3144b52ba14900bc7259ea6405ae6da88a8c704eab9bbbcc9ba4824b07",
+      "bytes": 54021940
+    },
+    {
+      "name": "libcublas",
+      "version": "12.9.2.10",
+      "path": "libcublas/linux-x86_64/libcublas-linux-x86_64-12.9.2.10-archive.tar.xz",
+      "sha256": "c80a724aafa1ee49110b0d3385316ea54d418b03e796e91e8f0b47d52f8022fd",
+      "bytes": 944339140
+    }
+  ],
+  "excluded_components": [
+    "nvidia_driver",
+    "cuda_compat",
+    "fabricmanager",
+    "nvidia_fs"
+  ]
+}

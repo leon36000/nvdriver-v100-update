@@ -1,0 +1,27 @@
+{
+  "argv": [
+    "g++",
+    "-std=c++17",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Werror",
+    "-I",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/tools/cuda13.1-front/usr/local/cuda-13.1/include",
+    "src/hybrid_cuda_probe.cpp",
+    "-pthread",
+    "-ldl",
+    "-o",
+    "/tmp/hybrid_cuda_probe_peer_v2_werror"
+  ],
+  "compiler": "/usr/bin/x86_64-linux-gnu-g++-15",
+  "compiler_version": "x86_64-linux-gnu-g++-15 (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+  "exit_code": 0,
+  "matches_pinned_artifact": true,
+  "observed_at_utc": "2026-10-31T21:28:52.168506+00:00",
+  "output_sha256": "39e98d860219baac20c6693c4fd2525c797e743c6f231edd82dc895360242972",
+  "pinned_artifact_sha256": "39e98d860219baac20c6693c4fd2525c797e743c6f231edd82dc895360242972",
+  "schema": "cuda-peer-transfer-host-werror-build-v1",
+  "source_sha256": "8015081ab5075acb7c0062949e3c379077a670548e980a0365d84543505d7951"
+}

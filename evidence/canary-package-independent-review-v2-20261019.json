@@ -1,0 +1,31 @@
+{
+  "additional_independent_cases": {
+    "extra10240_zero_record_rejected": true,
+    "nonzero_byte_in_extra_padding_rejected": true,
+    "padding10752_accepted": true,
+    "single512_byte_terminator_rejected": true
+  },
+  "experimental_modules_loaded": false,
+  "fresh_tests": {
+    "bundle": 11,
+    "padding_block_positions_inside_one_method": 21
+  },
+  "gpu_accessed": false,
+  "negative_log": "evidence/logs/canary-package-valid-padding-negative-20261019.log",
+  "observed_at_utc": "2026-10-19T21:04:12.807203+00:00",
+  "previous_review": "evidence/canary-package-independent-review-v1-20261019.json",
+  "qualification": "PASS within source/CPU/archive scope only",
+  "redistribution_assessed": false,
+  "remaining_negative_contracts": "CRC/truncation/nonpadding-tail/ABA tests pass freshly",
+  "resolved_finding": "Valid USTAR padding could be10752bytes, exceeding old10240cap; bounded1024<=pad<11264 with unchanged512/10240alignment is correct. Failed v2 outputs were not published.",
+  "reviewer_agent": "/root/root_payload_observer",
+  "schema": "nvidia-hybrid-independent-review-v2",
+  "source_sha256": {
+    "tests/test_canary_bundle.py": "296ceb706af6d0a86b6038a6e54f8ed2512d921fd00faa8de4ae2187a92ce61c",
+    "tests/test_canary_firmware.py": "d29c50d32614e8d879e57c5bfa362c7fbe7740e33bafa4e230d01002c837c87c",
+    "tools/acquire_canary_firmware.py": "8f3b18015b0f28f0bd2bb3f57b3b3f11378fa20014e2df039aa8c029c2e8036c",
+    "tools/package_hybrid_canary.py": "335b65590e010f17432500a5e552077c0b9c0084e8b9475b6f846bc349ccca8e",
+    "tools/verify_canary_bundle.py": "045853d4970489555d9757ba555afbca3fbd2cc8dee08876ba97f87297884918"
+  },
+  "vm_or_ssh_accessed": false
+}

@@ -1,0 +1,89 @@
+{
+  "license": "CUDA Toolkit",
+  "lock_sha256": "cf6655e5707cd58219e4e936d83c94e9684050be303cdf2605f2a69925f0e001",
+  "manifest": {
+    "components": [
+      "cuda_nvcc",
+      "cuda_cccl",
+      "cuda_cudart",
+      "cuda_cuobjdump",
+      "cuda_nvdisasm",
+      "libnvfatbin",
+      "libnvjitlink",
+      "libcublas"
+    ],
+    "sha256": "236b051e6c7915a31ed9da369ea74ddb5b0fbf77eb1dffc10640e7ce6ed10257"
+  },
+  "observed_at_utc": "2026-11-02T08:26:13.729968+00:00",
+  "packages": [
+    {
+      "archive": "cuda_nvcc-linux-x86_64-12.9.86-archive.tar.xz",
+      "bytes": 81100244,
+      "name": "cuda_nvcc",
+      "sha256": "7a1a5b652e5ef85c82b721d10672fc9a2dbaab44e9bd3c65a69517bf53998c35",
+      "version": "12.9.86"
+    },
+    {
+      "archive": "cuda_cccl-linux-x86_64-12.9.27-archive.tar.xz",
+      "bytes": 997888,
+      "name": "cuda_cccl",
+      "sha256": "8b1a5095669e94f2f9afd7715533314d418179e9452be61e2fde4c82a3e542aa",
+      "version": "12.9.27"
+    },
+    {
+      "archive": "cuda_cudart-linux-x86_64-12.9.79-archive.tar.xz",
+      "bytes": 1514676,
+      "name": "cuda_cudart",
+      "sha256": "1f6ad42d4f530b24bfa35894ccf6b7209d2354f59101fd62ec4a6192a184ce99",
+      "version": "12.9.79"
+    },
+    {
+      "archive": "cuda_cuobjdump-linux-x86_64-12.9.82-archive.tar.xz",
+      "bytes": 214896,
+      "name": "cuda_cuobjdump",
+      "sha256": "ee0de40e8c18068bfcc53e73510e7e7a1a80555205347940df67fa525d24452f",
+      "version": "12.9.82"
+    },
+    {
+      "archive": "cuda_nvdisasm-linux-x86_64-12.9.88-archive.tar.xz",
+      "bytes": 5483340,
+      "name": "cuda_nvdisasm",
+      "sha256": "49296dd550e05434185a8588ec639f1325b2de413e2321ddd7e56c5182a476ff",
+      "version": "12.9.88"
+    },
+    {
+      "archive": "libnvfatbin-linux-x86_64-12.9.82-archive.tar.xz",
+      "bytes": 930820,
+      "name": "libnvfatbin",
+      "sha256": "315be969a303437329bf72d7141babed024fc54f90a10aa748b03be8f826d57b",
+      "version": "12.9.82"
+    },
+    {
+      "archive": "libnvjitlink-linux-x86_64-12.9.86-archive.tar.xz",
+      "bytes": 54021940,
+      "name": "libnvjitlink",
+      "sha256": "392cac3144b52ba14900bc7259ea6405ae6da88a8c704eab9bbbcc9ba4824b07",
+      "version": "12.9.86"
+    },
+    {
+      "archive": "libcublas-linux-x86_64-12.9.2.10-archive.tar.xz",
+      "bytes": 944339140,
+      "name": "libcublas",
+      "sha256": "c80a724aafa1ee49110b0d3385316ea54d418b03e796e91e8f0b47d52f8022fd",
+      "version": "12.9.2.10"
+    }
+  ],
+  "platform": "linux-x86_64",
+  "qualification": "local-user-space-toolchain-stage-only",
+  "release_label": "CUDA Toolkit 12.9 Update 2",
+  "schema": "nvdriver-cuda-toolchain-stage-v1",
+  "state": {
+    "binary_executed": false,
+    "driver_package_included": false,
+    "gpu_accessed": false,
+    "package_manager_used_for_install": false,
+    "system_files_modified": false
+  },
+  "toolkit": "12.9.2",
+  "toolkit_root": "build/tools/cuda-12.9.2-toolchain/toolkit"
+}

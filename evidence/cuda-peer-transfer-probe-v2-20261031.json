@@ -1,0 +1,52 @@
+{
+  "build": {
+    "fatbin": {
+      "path": "build/probe-peer-transfer-v2-20261031/hybrid_probe.sm70-sm120.fatbin",
+      "sha256": "b5b4fa31e18e1fb5f3c9d1e9fd8f0d36a43ca413ed63ad17b98387167e52727f"
+    },
+    "host_source_sha256": "8015081ab5075acb7c0062949e3c379077a670548e980a0365d84543505d7951",
+    "kernel_source_sha256": "ea78132abd5bb370f388496b49c7470af8222add4d664606c611478c3d137d66",
+    "links_libcuda": false,
+    "manifest": {
+      "path": "build/probe-peer-transfer-v2-20261031/build-manifest.json",
+      "sha256": "ccdf62316242a659be483d70a4f0e945fb7a7a0c7903039c7b797fa39abc4379"
+    },
+    "probe": {
+      "path": "build/probe-peer-transfer-v2-20261031/hybrid_cuda_probe",
+      "sha256": "39e98d860219baac20c6693c4fd2525c797e743c6f231edd82dc895360242972"
+    },
+    "sm_images": [
+      "sm_70",
+      "sm_120"
+    ],
+    "status": "built-static-images"
+  },
+  "hardware": {
+    "access_evidence": "evidence/pc3-access-probe-v7-20261031.json",
+    "module_installed_or_loaded": false,
+    "pc3_reachable": false,
+    "peer_transfer_test": "not-run",
+    "runtime_or_hardware_validated": false,
+    "same_linux_v100_blackwell_test": "not-run"
+  },
+  "observed_at_utc": "2026-10-31T21:28:04.086708+00:00",
+  "schema": "cuda-peer-transfer-probe-software-evidence-v2",
+  "software_tests": {
+    "focused": {
+      "log": "evidence/logs/cuda-peer-transfer-focused-tests-v2-20261031.log",
+      "log_sha256": "d8d5983244f856e137f710776e48cce518491c3c2dfe4f6ba49a4671c322b8cc",
+      "status": "pass",
+      "tests_run": 155
+    },
+    "full_suite": {
+      "log": "evidence/logs/software-verification-openrm-hal-matrix-v1-20261031T212534Z.log",
+      "log_sha256": "a31e2609c329e3f083137e4494636fedbca32977170a3900a27d0c32b1210f00",
+      "qualification": "software-suite-only",
+      "report": "evidence/software-verification-openrm-hal-matrix-v1-20261031T212534Z.json",
+      "report_sha256": "4488c9b947967d9edcbc80e19062b79fc99100c5755ef7a8f03736eac74d880d",
+      "reported_seconds": 142.552,
+      "status": "pass",
+      "tests_run": 2247
+    }
+  }
+}

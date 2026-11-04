@@ -1,0 +1,66 @@
+{
+  "build": {
+    "fatbin": {
+      "path": "build/probe-peer-transfer-v3-20261031/hybrid_probe.sm70-sm120.fatbin",
+      "sha256": "9b6c772590c0e7ce6a95e36fb637b769eceef69856979761d739028d8b45675f"
+    },
+    "host_source_sha256": "59b6b057e7b122b4e3d9882c4304e9818660ec4dd2f8a13d268958fb97a26384",
+    "kernel_source_sha256": "eb08482739ac2f601bb1954ac8a88035e7752b91e8188aaba6730b952c48c22a",
+    "links_libcuda": false,
+    "manifest": {
+      "path": "build/probe-peer-transfer-v3-20261031/build-manifest.json",
+      "sha256": "0114ae7268b639d3703e044ddf9f9589483c4152a7db95dfd1a657d5969d3bbb"
+    },
+    "probe": {
+      "path": "build/probe-peer-transfer-v3-20261031/hybrid_cuda_probe",
+      "sha256": "d7cdbd528cbf4665a1ffe2ca0d5792e8e70de98cb88fd368f4a1e496abdcac13"
+    },
+    "sm_images": [
+      "sm_70",
+      "sm_120"
+    ],
+    "status": "built-static-images"
+  },
+  "fatbin_symbol_inspection": {
+    "command": "tools/cuda13.1-front/usr/local/cuda-13.1/bin/cuobjdump --dump-elf-symbols build/probe-peer-transfer-v3-20261031/hybrid_probe.sm70-sm120.fatbin",
+    "hybrid_peer_read": {
+      "sm_70": "STT_FUNC STB_GLOBAL STO_ENTRY",
+      "sm_120": "STT_FUNC STB_GLOBAL STO_ENTRY"
+    },
+    "log": "evidence/logs/cuda-peer-memory-fatbin-symbols-v3-20261031.log",
+    "log_sha256": "4083fa1efc30808e3860ec035b8f855c5082a18df9e12d0cf41ee1579b2da8ba",
+    "qualification": "static-image-symbols-only"
+  },
+  "hardware": {
+    "access_evidence": "evidence/pc3-access-probe-v8-20261031.json",
+    "module_installed_or_loaded": false,
+    "pc3_reachable": false,
+    "peer_transfer_test": "not-run",
+    "runtime_or_hardware_validated": false,
+    "same_linux_v100_blackwell_test": "not-run"
+  },
+  "observed_at_utc": "2026-10-31T21:44:20+00:00",
+  "schema": "cuda-peer-memory-probe-software-evidence-v3",
+  "software_tests": {
+    "focused": {
+      "log": "evidence/logs/cuda-peer-memory-focused-tests-v3-final2-20261031.log",
+      "log_sha256": "b7a3c338cc7821cc132f405bcd71e38e4e248d1ba68679bcf717ba50db180a7b",
+      "status": "pass",
+      "tests_run": 163
+    },
+    "full_suite": {
+      "log": "evidence/logs/software-verification-openrm-hal-matrix-v1-20261031T214157Z.log",
+      "log_sha256": "171365177fabe06c827622814527df12cde328d88b39e3b0916895faa048373c",
+      "qualification": "software-suite-only",
+      "report": "evidence/software-verification-openrm-hal-matrix-v1-20261031T214157Z.json",
+      "report_sha256": "120b277c6c49c9a7b5c7bd8f53eb864dc8bf16e8cec3bf4b3e04dd423d347ddc",
+      "reported_seconds": 142.471,
+      "status": "pass",
+      "tests_run": 2255
+    },
+    "werror_build_receipt": {
+      "path": "evidence/cuda-peer-memory-werror-build-v1-20261031.json",
+      "sha256": "5253745027bc0b1398c35fff1756210b71436501e0929841f93066e56dae45d9"
+    }
+  }
+}

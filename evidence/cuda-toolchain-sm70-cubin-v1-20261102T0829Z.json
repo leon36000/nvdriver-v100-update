@@ -1,0 +1,69 @@
+{
+  "architecture": "sm_70",
+  "binary_executed": false,
+  "compile": {
+    "artifact_created": false,
+    "artifact_sha256": null,
+    "command": [
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/tools/cuda-12.9.2-toolchain/toolkit/bin/nvcc",
+      "-std=c++17",
+      "-arch=sm_70",
+      "-U_GNU_SOURCE",
+      "-Xcompiler",
+      "-Wall,-Wextra,-Werror",
+      "-ccbin",
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/tools/host-gcc14/usr/bin/g++-14",
+      "/tmp/nvdriver-cuda-smoke-ha9j95q7/smoke.cu",
+      "-o",
+      "/tmp/nvdriver-cuda-smoke-ha9j95q7/smoke"
+    ],
+    "exit_code": 1,
+    "stderr": "nvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).\n/usr/bin/x86_64-linux-gnu-ld.bfd: cannot find -lcudadevrt: No such file or directory\n/usr/bin/x86_64-linux-gnu-ld.bfd: cannot find -lcudart_static: No such file or directory\ncollect2: error: ld returned 1 exit status\n",
+    "stdout": ""
+  },
+  "gpu_accessed": false,
+  "image_inspection": {
+    "architectures": [],
+    "requested_architecture_present": false,
+    "skipped": "compilation did not create a successful executable"
+  },
+  "loaded_or_installed": false,
+  "observed_at_utc": "2026-11-02T08:26:49.186595+00:00",
+  "passed": false,
+  "qualification": "compiler-and-image-inspection-only",
+  "runtime_or_hardware_validated": false,
+  "schema": "nvdriver-cuda-compiler-smoke-v1",
+  "source_sha256": "dace882dfa545e328284e488819c2b101013b5837d0463588831f9068f40044d",
+  "toolchain": {
+    "cuobjdump": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/tools/cuda-12.9.2-toolchain/toolkit/bin/cuobjdump",
+    "cuobjdump_version": {
+      "command": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/tools/cuda-12.9.2-toolchain/toolkit/bin/cuobjdump",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "cuobjdump: NVIDIA (R) fat binary listing tool\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Mon_May_19_08:50:03_PDT_2025\nCuda compilation tools, release 12.9, V12.9.82\nBuild cuda_12.9.r12.9/compiler.36001619_0"
+    },
+    "host_cxx": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/tools/host-gcc14/usr/bin/g++-14",
+    "host_cxx_version": {
+      "command": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/tools/host-gcc14/usr/bin/g++-14",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "g++-14 (Ubuntu 14.3.0-14ubuntu1) 14.3.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
+    },
+    "nvcc": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/tools/cuda-12.9.2-toolchain/toolkit/bin/nvcc",
+    "nvcc_version": {
+      "command": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/tools/cuda-12.9.2-toolchain/toolkit/bin/nvcc",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Tue_May_27_02:21:03_PDT_2025\nCuda compilation tools, release 12.9, V12.9.86\nBuild cuda_12.9.r12.9/compiler.36037853_0"
+    }
+  }
+}

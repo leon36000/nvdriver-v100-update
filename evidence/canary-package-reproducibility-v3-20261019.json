@@ -1,0 +1,71 @@
+{
+  "archives": [
+    {
+      "bytes": 190866683,
+      "manifest_sha256": "5073b16f41427c1d455e062ef8bbfd60e56a070e8bd925d882a6bc485ce9ffe7",
+      "path": "build/packages/hybrid580-local-v3-20261019.tar.gz",
+      "sha256": "7036ad5d942ffd09c689018dd63865480175366f156a3943be1487736b29eac0",
+      "verification": {
+        "files_extracted": false,
+        "files_verified": 94,
+        "kernel_release": "7.0.0-38-generic",
+        "modules_loaded": false,
+        "payload_bytes": 290888527,
+        "qualification": "integrity-verified-against-expected-sha256",
+        "runtime_validated": false,
+        "schema": "nvidia-hybrid-canary-bundle-verification-v1",
+        "sha256": "7036ad5d942ffd09c689018dd63865480175366f156a3943be1487736b29eac0"
+      }
+    },
+    {
+      "bytes": 190866683,
+      "manifest_sha256": "5073b16f41427c1d455e062ef8bbfd60e56a070e8bd925d882a6bc485ce9ffe7",
+      "path": "build/packages/hybrid580-local-repro-v3-20261019.tar.gz",
+      "sha256": "7036ad5d942ffd09c689018dd63865480175366f156a3943be1487736b29eac0",
+      "verification": {
+        "files_extracted": false,
+        "files_verified": 94,
+        "kernel_release": "7.0.0-38-generic",
+        "modules_loaded": false,
+        "payload_bytes": 290888527,
+        "qualification": "integrity-verified-against-expected-sha256",
+        "runtime_validated": false,
+        "schema": "nvidia-hybrid-canary-bundle-verification-v1",
+        "sha256": "7036ad5d942ffd09c689018dd63865480175366f156a3943be1487736b29eac0"
+      }
+    }
+  ],
+  "final_source_inputs_unchanged": true,
+  "gpu_accessed": false,
+  "independent_review": {
+    "path": "evidence/canary-package-independent-review-v2-20261019.json",
+    "sha256": "ed2a7c75ba4998380a08d4c6a6d6b15b6f45bbd3c46ac65ac24f7f757d50f661"
+  },
+  "modules_loaded": false,
+  "next_discriminating_experiment": "Actual initialized dual-RM exclusive-session/ROOT allocation/free/close behavior requires released V100 and Blackwell under the same Linux plus separately authorized recovery/install plan. No generic CUDA routing before this evidence.",
+  "observed_at_utc": "2026-10-19T21:04:44.679170+00:00",
+  "qualification": "identical-byte local archive builds and isolated standalone verification; compile-only",
+  "redistribution_assessed": false,
+  "runtime_validated": false,
+  "same_sha256_and_size": true,
+  "schema": "nvidia-hybrid-canary-package-reproducibility-v3",
+  "software_verification": {
+    "path": "evidence/software-verification-v12-20261019.json",
+    "sha256": "fe733340afbb748272a1af1a4e9038f1e942181b0b4ddbdcc0cefd85da0eb3d0",
+    "tests_run": 141,
+    "tests_skipped": 0
+  },
+  "source_inputs_checked": 88,
+  "standalone_python_isolated_outside_repository": {
+    "files_extracted": false,
+    "files_verified": 94,
+    "kernel_release": "7.0.0-38-generic",
+    "modules_loaded": false,
+    "payload_bytes": 290888527,
+    "qualification": "integrity-verified-against-expected-sha256",
+    "runtime_validated": false,
+    "schema": "nvidia-hybrid-canary-bundle-verification-v1",
+    "sha256": "7036ad5d942ffd09c689018dd63865480175366f156a3943be1487736b29eac0"
+  },
+  "v100_or_vm_accessed": false
+}

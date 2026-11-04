@@ -1,0 +1,162 @@
+{
+  "apt_index_metadata": {
+    "Architecture": "amd64",
+    "Breaks": "nvidia-firmware-580-server-580.178.04",
+    "Bugs": "https://bugs.launchpad.net/ubuntu/+filebug",
+    "Description-en": "Firmware files used by the kernel module\nThis package installs required firmware files for the NVIDIA kernel\nmodule.",
+    "Description-md5": "a9f4cc74ba3faebf0cac0795ed2434bf",
+    "Filename": "pool/restricted/n/nvidia-graphics-drivers-580/nvidia-firmware-580-580.178.04_580.178.04-0ubuntu0.26.04.1_amd64.deb",
+    "Homepage": "http://www.nvidia.com",
+    "Installed-Size": "103085",
+    "MD5sum": "bfb347581694db2aaf343024d597c38c",
+    "Maintainer": "Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>",
+    "Origin": "Ubuntu",
+    "Package": "nvidia-firmware-580-580.178.04",
+    "Priority": "optional",
+    "Replaces": "nvidia-firmware-580-server-580.178.04",
+    "SHA1": "4f7c9f486a80fc772a0cb3c0db883c5a4148535b",
+    "SHA256": "e79b39a7e395ffc02696de453f302cdaae31d193b5d81c0b9562a3af2dd94636",
+    "SHA512": "8b648d009e24d48de5a309abe79c576c159f189a13ce871f56358838dadcc7a0cff331a54f3e7f17cc521f8b2b705b7f585ebb0219e5d1eb2e24e30fee0e517a",
+    "Section": "restricted/libs",
+    "Size": "76005520",
+    "Source": "nvidia-graphics-drivers-580",
+    "Version": "580.178.04-0ubuntu0.26.04.1"
+  },
+  "apt_update_executed": false,
+  "blob_executed": false,
+  "extracted_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/canary-firmware580/extracted-20261019T205817860827Z",
+  "firmware_blobs": [
+    {
+      "bytes": 30483544,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/canary-firmware580/extracted-20261019T205817860827Z/lib/firmware/nvidia/580.178.04/gsp_tu10x.bin",
+      "request": "nvidia/580.178.04/gsp_tu10x.bin",
+      "sha256": "369602eb3c63a398c0532052317938389a3d29e0f5660179dd15b47cda177df2"
+    },
+    {
+      "bytes": 75028464,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/canary-firmware580/extracted-20261019T205817860827Z/lib/firmware/nvidia/580.178.04/gsp_ga10x.bin",
+      "request": "nvidia/580.178.04/gsp_ga10x.bin",
+      "sha256": "3b89a63f2e7a0b496113d6e727564e902456fd81017b21d35d3eaba76b24dab2"
+    }
+  ],
+  "gpu_accessed": false,
+  "hardware_validated": false,
+  "license_files": [
+    {
+      "bytes": 29736,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/canary-firmware580/extracted-20261019T205817860827Z/usr/share/doc/nvidia-firmware-580-580.178.04/copyright",
+      "sha256": "d088d505751b1a2246744d16bdb5846d0df1a804700ab8d09330b6e79165edef"
+    }
+  ],
+  "loaded_or_installed": false,
+  "maintainer_scripts_executed": false,
+  "observed_at_utc": "20261019T205817860827Z",
+  "package": {
+    "architecture": "amd64",
+    "bytes": 76005520,
+    "name": "nvidia-firmware-580-580.178.04",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/canary-firmware580/download-0t0ls5ub/nvidia-firmware-580-580.178.04_580.178.04-0ubuntu0.26.04.1_amd64.deb",
+    "sha256": "e79b39a7e395ffc02696de453f302cdaae31d193b5d81c0b9562a3af2dd94636",
+    "source": "nvidia-graphics-drivers-580",
+    "version": "580.178.04-0ubuntu0.26.04.1"
+  },
+  "package_control": {
+    "Architecture": "amd64",
+    "Breaks": "nvidia-firmware-580-server-580.178.04",
+    "Description": "Firmware files used by the kernel module\nThis package installs required firmware files for the NVIDIA kernel\nmodule.",
+    "Homepage": "http://www.nvidia.com",
+    "Installed-Size": "103085",
+    "Maintainer": "Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>",
+    "Package": "nvidia-firmware-580-580.178.04",
+    "Priority": "optional",
+    "Replaces": "nvidia-firmware-580-server-580.178.04",
+    "Section": "non-free/libs",
+    "Source": "nvidia-graphics-drivers-580",
+    "Version": "580.178.04-0ubuntu0.26.04.1"
+  },
+  "package_reused": false,
+  "provenance_files": [
+    {
+      "bytes": 1573,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/canary-firmware580/extracted-20261019T205817860827Z/usr/share/doc/nvidia-firmware-580-580.178.04/changelog.Debian.gz",
+      "sha256": "452a7c12c6a3fcd840ed1c27aaa5cea8b3c5a429ed250fdb61395db05cce58da"
+    }
+  ],
+  "qualification": "downloaded-extracted-hash-verified-never-loaded",
+  "rejected_local_candidates": [],
+  "schema": "nvidia-hybrid-canary-firmware-v1",
+  "scope": "exact same-branch original firmware data snapshot for local canary packaging",
+  "ssh_or_vm_operation": false,
+  "status": "acquired-original-firmware-data-only",
+  "steps": [
+    {
+      "argv": [
+        "apt-cache",
+        "show",
+        "nvidia-firmware-580-580.178.04=580.178.04-0ubuntu0.26.04.1"
+      ],
+      "bytes": 1100,
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 0.011,
+      "exit_code": 0,
+      "name": "apt-index",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/canary-firmware580-apt-index-20261019T205817860827Z.log",
+      "sha256": "6ec9ebe5fb16e09c2c38c0411204f1a8686a04edd6b54ff73c89ba68323c5fe9"
+    },
+    {
+      "argv": [
+        "apt-get",
+        "download",
+        "nvidia-firmware-580-580.178.04=580.178.04-0ubuntu0.26.04.1"
+      ],
+      "bytes": 201,
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/canary-firmware580/download-0t0ls5ub",
+      "duration_seconds": 1.629,
+      "exit_code": 0,
+      "name": "download-only",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/canary-firmware580-download-only-20261019T205817860827Z.log",
+      "sha256": "699230a41da0ca9576249d5af585edf5e9d45519ea4096c804b44ad2f29f1a56"
+    },
+    {
+      "argv": [
+        "dpkg-deb",
+        "--field",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/canary-firmware580/download-0t0ls5ub/nvidia-firmware-580-580.178.04_580.178.04-0ubuntu0.26.04.1_amd64.deb"
+      ],
+      "bytes": 547,
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 0.003,
+      "exit_code": 0,
+      "name": "package-control",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/canary-firmware580-package-control-20261019T205817860827Z.log",
+      "sha256": "9599d0399345b6b4f6f5966bc9d8f89e08f3e0d3171f8f7dc8d84e61a8747844"
+    },
+    {
+      "argv": [
+        "dpkg-deb",
+        "--extract",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/canary-firmware580/download-0t0ls5ub/nvidia-firmware-580-580.178.04_580.178.04-0ubuntu0.26.04.1_amd64.deb",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/canary-firmware580/extracted-20261019T205817860827Z"
+      ],
+      "bytes": 16,
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 0.057,
+      "exit_code": 0,
+      "name": "extract-data-only",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/canary-firmware580-extract-data-only-20261019T205817860827Z.log",
+      "sha256": "d8760763be63067f00789fcf42648cb7e89259b37690e733415676ec0b8b6596"
+    }
+  ],
+  "system_firmware_modified": false,
+  "test_source": {
+    "bytes": 4325,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests/test_canary_firmware.py",
+    "sha256": "d29c50d32614e8d879e57c5bfa362c7fbe7740e33bafa4e230d01002c837c87c"
+  },
+  "tool": {
+    "bytes": 10404,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/acquire_canary_firmware.py",
+    "sha256": "8f3b18015b0f28f0bd2bb3f57b3b3f11378fa20014e2df039aa8c029c2e8036c"
+  },
+  "trust_basis": "existing configured APT index metadata plus pinned package SHA256/size; no index refresh"
+}
