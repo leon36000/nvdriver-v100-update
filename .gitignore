@@ -1,0 +1,74 @@
+# Local builds, extracted NVIDIA distributions, experiment trees, REA/Ghidra data.
+/build/
+/.cache/
+
+# Large or non-redistributable evidence payloads; keep compact receipts in evidence/.
+/evidence/logs/
+/evidence/rea/
+/evidence/rea-*.json*
+/evidence/*-rea-*.json*
+/evidence/*ghidra*.json*
+/evidence/*decomp*.json*
+/evidence/*pseudocode*.json*
+/evidence/*targeted-analysis*.json*
+# Sanitized toolchain-health receipt only; contains no analyzed binary output.
+!/evidence/rea-ghidra-doctor-v1-20261102.json
+# Sanitized targeted REA summary only; no pseudocode, local paths, or raw analysis output.
+!/evidence/r595112-hybrid-gv100-read-get-rea-sanitized-v1-20261103.json
+!/evidence/r595112-hybrid-gv100-read-get-rea-sanitized-v2-20261103.json
+# Sanitized Ghidra call-route summary for the project-built MIT/GPL UVM module; no pseudocode.
+!/evidence/r595112-prefixmap-uvm-ioctl-ghidra-sanitized-v1-20261102.json
+# Sanitized static call-edge summary for the project-built open UVM module.
+!/evidence/r595112-open-uvm-add-gpu-ghidra-sanitized-v1-20261103.json
+# Sanitized RETHUNK instruction-offset correlation; no pseudocode or paths.
+!/evidence/r595099-open-rm-rethunk-ghidra-v1-20261103.json
+# Sanitized, hash-pinned GPL Nouveau call summaries only; contain no pseudocode.
+!/evidence/nouveau-gv100-static-source-audit-v5-20261102.json
+!/evidence/nouveau-gv100-static-source-audit-v6-20261102.json
+# Sanitized hash-pinned Linux-source lifecycle audit; no code excerpts or paths.
+!/evidence/nouveau-gv100-fault-lifecycle-source-audit-v1-20261103.json
+!/evidence/nouveau-gv100-fault-lifecycle-source-audit-v2-20261103.json
+!/evidence/nouveau-gv100-fault-lifecycle-source-audit-v3-20261103.json
+# Sanitized software-suite summary only; raw report and log stay local.
+!/evidence/software-verification-nouveau-rea-sanitized-v2-20261103.json
+!/evidence/software-verification-nouveau-fault-lifecycle-sanitized-v1-20261103.json
+!/evidence/software-verification-nouveau-fault-lifecycle-sanitized-v2-20261103.json
+!/evidence/software-verification-nouveau-fault-lifecycle-sanitized-v3-20261103.json
+
+# Raw local traces and saved analysis outputs are not source-control inputs.
+*.log
+*.gz
+*.tar
+*.jsonl
+*.strace
+/evidence/software-verification-openrm-hal-matrix-v1-*.json
+
+# Kernel build products.
+*.o
+*.ko
+*.ko.*
+*.cmd
+*.mod
+*.mod.c
+*.symvers
+modules.order
+Module.symvers
+
+# Python/test/editor state.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.swp
+*~
+/evidence/pc3-libcuda-metadata-v1-20261102T0426Z.json
+/evidence/pc3-user-gpu-inventory-v*.json
+/evidence/pc3-v100-stock-kernel-phase-v1-20261102T1529Z.json
+/evidence/pc3-rtx5080-stock-benchmark-v1-20261102T1532Z.json
+# Keep raw path-bearing mixed-bundle and PC3 transport reports local; commit sanitized receipts only.
+/evidence/hybrid-bundle-static-r59599-open-legacy-r595112-uvm-v1-20261103.json
+/evidence/hybrid-bundle-depmod-r59599-open-legacy-r595112-uvm-v1-20261103.json
+/evidence/pc3-rtx5080-r59599-kernel-phase-v2-20261103.json
+/evidence/pc3-rtx5080-r59599-kernel-reference-v1-20261103.json
+/evidence/pc3-rtx5080-r59599-kernel-reference-v2-20261103.json
