@@ -1,0 +1,184 @@
+{
+  "collection_scope": "compiler/binutils version availability, /tmp free bytes and inodes, and running-kernel Kbuild inputs",
+  "credential_host": "gx10-e526",
+  "guest": {
+    "architecture": "x86_64",
+    "build_prerequisites_ready": false,
+    "hostname": "pc3-v100",
+    "kernel_build": {
+      "build_link": "/lib/modules/6.8.0-147-generic/build",
+      "generated_autoconf_exists": true,
+      "makefile_exists": true,
+      "module_symvers_bytes": 2214587,
+      "module_symvers_sha256": "8e7eb5798789b9610c324b3d9b13373d88c30ae17bb9e41e622efd05e0277a87",
+      "ready": false,
+      "required_inputs": {
+        "Makefile": {
+          "entry_exists": true,
+          "is_symlink": false,
+          "regular_file": true,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/Makefile",
+          "target_exists": true
+        },
+        "Module.symvers": {
+          "entry_exists": true,
+          "is_symlink": false,
+          "regular_file": true,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/Module.symvers",
+          "target_exists": true
+        },
+        "include/config/auto.conf": {
+          "entry_exists": true,
+          "is_symlink": false,
+          "regular_file": true,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/include/config/auto.conf",
+          "target_exists": true
+        },
+        "include/generated/autoconf.h": {
+          "entry_exists": true,
+          "is_symlink": false,
+          "regular_file": true,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/include/generated/autoconf.h",
+          "target_exists": true
+        },
+        "include/generated/utsrelease.h": {
+          "entry_exists": true,
+          "is_symlink": false,
+          "regular_file": true,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/include/generated/utsrelease.h",
+          "target_exists": true
+        },
+        "scripts/Makefile.build": {
+          "entry_exists": true,
+          "is_symlink": true,
+          "regular_file": true,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147/scripts/Makefile.build",
+          "target_exists": true
+        },
+        "scripts/Makefile.modpost": {
+          "entry_exists": true,
+          "is_symlink": true,
+          "regular_file": true,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147/scripts/Makefile.modpost",
+          "target_exists": true
+        },
+        "scripts/basic/fixdep": {
+          "entry_exists": true,
+          "is_symlink": false,
+          "regular_file": true,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/scripts/basic/fixdep",
+          "target_exists": true
+        },
+        "scripts/mod/modpost": {
+          "entry_exists": true,
+          "is_symlink": false,
+          "regular_file": true,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/scripts/mod/modpost",
+          "target_exists": true
+        }
+      },
+      "resolved_build_path": "/usr/src/linux-headers-6.8.0-147-generic",
+      "scripts_fixdep_exists": true,
+      "scripts_modpost_exists": true
+    },
+    "kernel_release": "6.8.0-147-generic",
+    "mutation_performed": false,
+    "observed_at_utc": "2026-10-28T22:55:40+00:00",
+    "read_only_guest_query": true,
+    "schema": "nvidia-hybrid-pc3-v100-build-prerequisites-v1",
+    "temporary_filesystem": {
+      "available_bytes": 4968804352,
+      "available_inodes": 7450756,
+      "path": "/tmp"
+    },
+    "tools": {
+      "as": {
+        "path": "/usr/bin/as",
+        "version": "GNU assembler (GNU Binutils for Ubuntu) 2.42"
+      },
+      "bc": {
+        "path": "/usr/bin/bc",
+        "version": "bc 1.07.1"
+      },
+      "bison": {
+        "path": null,
+        "version": null
+      },
+      "depmod": {
+        "path": "/usr/sbin/depmod",
+        "version": "kmod version 31"
+      },
+      "flex": {
+        "path": null,
+        "version": null
+      },
+      "gcc": {
+        "path": "/usr/bin/gcc",
+        "version": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0"
+      },
+      "ld": {
+        "path": "/usr/bin/ld",
+        "version": "GNU ld (GNU Binutils for Ubuntu) 2.42"
+      },
+      "make": {
+        "path": "/usr/bin/make",
+        "version": "GNU Make 4.3"
+      },
+      "modinfo": {
+        "path": "/usr/sbin/modinfo",
+        "version": "kmod version 31"
+      },
+      "nm": {
+        "path": "/usr/bin/nm",
+        "version": "GNU nm (GNU Binutils for Ubuntu) 2.42"
+      },
+      "objcopy": {
+        "path": "/usr/bin/objcopy",
+        "version": "GNU objcopy (GNU Binutils for Ubuntu) 2.42"
+      },
+      "patch": {
+        "path": "/usr/bin/patch",
+        "version": "GNU patch 2.7.6"
+      },
+      "perl": {
+        "path": "/usr/bin/perl",
+        "version": null
+      },
+      "python3": {
+        "path": "/usr/bin/python3",
+        "version": "Python 3.12.3"
+      },
+      "rsync": {
+        "path": "/usr/bin/rsync",
+        "version": "rsync  version 3.2.7  protocol version 31"
+      },
+      "strip": {
+        "path": "/usr/bin/strip",
+        "version": "GNU strip (GNU Binutils for Ubuntu) 2.42"
+      },
+      "tar": {
+        "path": "/usr/bin/tar",
+        "version": "tar (GNU tar) 1.35"
+      },
+      "xz": {
+        "path": "/usr/bin/xz",
+        "version": "xz (XZ Utils) 5.4.5"
+      },
+      "zstd": {
+        "path": "/usr/bin/zstd",
+        "version": "*** Zstandard CLI (64-bit) v1.5.5, by Yann Collet ***"
+      }
+    }
+  },
+  "guest_hostkey_fingerprint": "SHA256:wqpBfvwVW7iYhOk7LWB8y438NOQHSgfcUgnOGaRK6ts",
+  "guest_script_sha256": "5864605e50a19b836d0fc624d08e1770e67a6a54b7326d987d0edbe40693708e",
+  "guest_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "host_or_guest_mutation_performed": false,
+  "module_built_or_loaded": false,
+  "observed_at_utc": "2026-10-28T22:55:40+00:00",
+  "read_only_guest_query": true,
+  "schema": "nvidia-hybrid-pc3-v100-build-prerequisites-capture-v1",
+  "status": "collected",
+  "target": "pc3@pc3",
+  "transport_script_sha256": "444a7b9e346b80d60fa9ef0e39b0de9452885a25f3b1b1ac2ca1d9d6ebaae446"
+}

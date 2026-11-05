@@ -1,0 +1,134 @@
+{
+  "credential_file": "/home/pc6/Desktop/ACCES-BANC-GPU.env",
+  "credential_host": "gx10-e526",
+  "event_group": "codex_v100_elf_probe_d66483987f7d",
+  "finished_utc": "2026-10-22T06:01:49+00:00",
+  "host_key_alias": "pc3",
+  "kprobe_attached": false,
+  "operation_scope": "exact ELF section-base-derived absolute address; temporary disabled kprobes only",
+  "pc3_ssh_returncode": 0,
+  "pci_binding_changed": false,
+  "probe_source_sha256": "f93720f146205d552ce77a54b950d331fdfe9a694faf7eda4213a9f974440afb",
+  "read_only": false,
+  "remote": {
+    "experimental_module_loaded": false,
+    "guest": {
+      "control_probe": {
+        "cleanup_verified": true,
+        "definition_added": true,
+        "definition_removed": true,
+        "event_enabled": false,
+        "event_name": "control",
+        "operation_stage": "remove_definition",
+        "resolution": "resolved_by_kernel",
+        "target_kind": "kernel_symbol"
+      },
+      "effective_uid": 0,
+      "event_group": "codex_v100_elf_probe_d66483987f7d",
+      "gpus": [
+        {
+          "driver_version": "580.178.04",
+          "name": "Tesla V100-SXM2-16GB",
+          "pci": "00000000:00:05.0"
+        }
+      ],
+      "hostname": "pc3-v100",
+      "kernel_release": "6.8.0-147-generic",
+      "kprobe_attached": false,
+      "module_elf": {
+        "compressed_bytes": 82127431,
+        "decompressed_bytes": 113902159,
+        "decompressed_sha256": "dc6abc8c7624c97446c04108d493378d2cabc820adda65d2ef09a8baeb1c4fcd",
+        "elf_class": "ELF64",
+        "elf_type": "REL",
+        "machine": "Advanced Micro Devices X86-64",
+        "runtime_section_address_persisted": false,
+        "target_symbol": {
+          "address_inside_loaded_section": true,
+          "binding": "GLOBAL",
+          "name": "rm_init_adapter",
+          "runtime_section_base_readable": true,
+          "section": ".text",
+          "section_allocated": true,
+          "section_executable": true,
+          "section_index": 3,
+          "section_size": 15356484,
+          "size": 228,
+          "type": "FUNC",
+          "value_offset": 14201792
+        },
+        "version": "580.178.04"
+      },
+      "nvidia_absolute_probe": {
+        "cleanup_verified": true,
+        "definition_added": false,
+        "definition_removed": false,
+        "error_class": "OSError",
+        "error_errno": 22,
+        "error_operation": "write_definition",
+        "event_enabled": false,
+        "event_name": "nvidia_absolute",
+        "operation_stage": "write_definition",
+        "resolution": "failed",
+        "target_kind": "elf_section_plus_loaded_base",
+        "trace_error_log_excerpt": [
+          "[279794.855065] trace_kprobe: error: Failed to register probe event",
+          "Command: p:codex_v100_elf_probe_d66483987f7d/nvidia_absolute <address>",
+          "^"
+        ]
+      },
+      "nvidia_named_probe": {
+        "cleanup_verified": true,
+        "definition_added": false,
+        "definition_removed": false,
+        "error_class": "OSError",
+        "error_errno": 22,
+        "error_operation": "write_definition",
+        "event_enabled": false,
+        "event_name": "nvidia_named",
+        "operation_stage": "write_definition",
+        "resolution": "failed",
+        "target_kind": "module_symbol",
+        "trace_error_log_excerpt": [
+          "[279794.854580] trace_kprobe: error: Failed to register probe event",
+          "Command: p:codex_v100_elf_probe_d66483987f7d/nvidia_named nvidia:rm_init_adapter",
+          "^"
+        ]
+      },
+      "pci_binding_changed": false,
+      "schema": "nvidia-hybrid-pc3-v100-elf-kprobe-address-v1",
+      "status": "completed",
+      "stock_driver_changed": false
+    },
+    "guest_transport": {
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 2375,
+      "stdout_sha256": "934d122f1e48b77010885a1b49866687f423028d4edc81fb792fab706e15005a"
+    },
+    "host": {
+      "guest_host_key_verified": true,
+      "hostname": "pc3",
+      "kernel_release": "7.0.0-38-generic",
+      "sudo_identity_verified": true
+    },
+    "kprobe_attached": false,
+    "pci_binding_changed": false,
+    "read_only": false,
+    "schema": "nvidia-hybrid-pc3-v100-trace-capability-v1",
+    "status": "observed",
+    "stock_driver_changed": false,
+    "trace_event_definition_write_attempted": true,
+    "vm_management_issued": false
+  },
+  "remote_stderr_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+  "remote_stdout_bytes": 3049,
+  "remote_stdout_sha256": "247267ec3a68a72e8c0997ff86908b4e0da74178306bbf77ae05dd9d5bf27d70",
+  "schema": "nvidia-hybrid-pc3-v100-elf-kprobe-address-transport-v1",
+  "started_utc": "2026-10-22T06:01:47+00:00",
+  "status": "observed",
+  "stock_driver_changed": false,
+  "target": "pc3@pc3",
+  "trace_event_definition_write_attempted": true,
+  "transport_helper_sha256": "cc721874f86406260575d425ea292847dcb2af10b19aec8b6ce4127dea251901"
+}

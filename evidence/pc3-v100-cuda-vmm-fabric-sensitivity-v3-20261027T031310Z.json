@@ -1,0 +1,1581 @@
+{
+  "all_process_capability_pairs_equal": true,
+  "api_outcomes_equal": false,
+  "caller_chain_capture_requested": false,
+  "capability_queries_complete": true,
+  "complete": true,
+  "control_outcomes_equal": true,
+  "credential_value_logged": false,
+  "credential_value_persisted": false,
+  "execution_scope": {
+    "firmware_changed": false,
+    "gpu_reset_requested": false,
+    "pci_binding_changed": false,
+    "system_module_loaded_or_changed": false
+  },
+  "guest": {
+    "caller_chain_capture_requested": false,
+    "cleanup_passed": true,
+    "controls": [
+      {
+        "cuda": {
+          "allocation_bytes": 2097152,
+          "allocation_created": false,
+          "attribute_support": {
+            "status": 0,
+            "value": 1
+          },
+          "child": null,
+          "child_writeback_match": null,
+          "child_writeback_sha256": null,
+          "cleanup_errors": [],
+          "cleanup_passed": true,
+          "completed_operations": [
+            "cuInit",
+            "cuDriverGetVersion",
+            "cuDeviceGetCount",
+            "cuDeviceGet",
+            "cuDeviceGetName",
+            "cuDeviceGetPCIBusId",
+            "cuDeviceComputeCapability",
+            "cuDeviceGetAttribute",
+            "cuCtxCreate_v2",
+            "cuMemGetAllocationGranularity",
+            "cuCtxDestroy_v2"
+          ],
+          "device": {
+            "compute_capability": "7.0",
+            "fabric_handle_support": {
+              "status": 0,
+              "value": 1
+            },
+            "name": "Tesla V100-SXM2-16GB",
+            "pci_bus_id": "0000:00:05.0",
+            "posix_fd_handle_support": {
+              "status": 0,
+              "value": 1
+            },
+            "sm": 70,
+            "unified_addressing": 1
+          },
+          "driver_api": 13000,
+          "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+          "error_class": null,
+          "expected_pci": "0000:00:05.0",
+          "export_attempted": false,
+          "export_succeeded": false,
+          "failure_code": 800,
+          "failure_name": "CUDA_ERROR_NOT_PERMITTED",
+          "failure_operation": "cuMemCreate",
+          "imex_preflight": {
+            "channel_nodes_seen": 0,
+            "character_nodes_seen": 0,
+            "directory_present": false,
+            "driver_registered": true,
+            "effective_uid": 0,
+            "read_write_accessible_nodes": 0
+          },
+          "import_attempted": false,
+          "import_succeeded": false,
+          "initial_values_match": null,
+          "initial_values_sha256": "c40c3f67744bb955a66b026a233c7f55fc7a7f0153d82da6c85ea51adeeda195",
+          "observation_valid": true,
+          "parent_readback_sha256": null,
+          "phase": "vmm-fabric-share",
+          "posix_shareable_fd_closed": true,
+          "posix_shareable_fd_opened": false,
+          "schema": "nvidia-hybrid-v100-driver-api-vmm-share-v1",
+          "shareable_handle_bytes": 64,
+          "shareable_handle_kind": "fabric",
+          "shareable_handle_type": 8,
+          "status": "phase-failed"
+        },
+        "mode": "stock",
+        "probe_exit_code": 0,
+        "stderr_bytes": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 1728,
+        "stdout_sha256": "2541ada868d1bad40df3256b37edea33502846705b476b43a2c1ef75a79ebdc0"
+      },
+      {
+        "cuda": {
+          "allocation_bytes": 2097152,
+          "allocation_created": false,
+          "attribute_support": {
+            "status": 0,
+            "value": 1
+          },
+          "child": null,
+          "child_writeback_match": null,
+          "child_writeback_sha256": null,
+          "cleanup_errors": [],
+          "cleanup_passed": true,
+          "completed_operations": [
+            "cuInit",
+            "cuDriverGetVersion",
+            "cuDeviceGetCount",
+            "cuDeviceGet",
+            "cuDeviceGetName",
+            "cuDeviceGetPCIBusId",
+            "cuDeviceComputeCapability",
+            "cuDeviceGetAttribute",
+            "cuCtxCreate_v2",
+            "cuMemGetAllocationGranularity",
+            "cuCtxDestroy_v2"
+          ],
+          "device": {
+            "compute_capability": "7.0",
+            "fabric_handle_support": {
+              "status": 0,
+              "value": 1
+            },
+            "name": "Tesla V100-SXM2-16GB",
+            "pci_bus_id": "0000:00:05.0",
+            "posix_fd_handle_support": {
+              "status": 0,
+              "value": 1
+            },
+            "sm": 70,
+            "unified_addressing": 1
+          },
+          "driver_api": 13000,
+          "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+          "error_class": null,
+          "expected_pci": "0000:00:05.0",
+          "export_attempted": false,
+          "export_succeeded": false,
+          "failure_code": 800,
+          "failure_name": "CUDA_ERROR_NOT_PERMITTED",
+          "failure_operation": "cuMemCreate",
+          "imex_preflight": {
+            "channel_nodes_seen": 0,
+            "character_nodes_seen": 0,
+            "directory_present": false,
+            "driver_registered": true,
+            "effective_uid": 0,
+            "read_write_accessible_nodes": 0
+          },
+          "import_attempted": false,
+          "import_succeeded": false,
+          "initial_values_match": null,
+          "initial_values_sha256": "c40c3f67744bb955a66b026a233c7f55fc7a7f0153d82da6c85ea51adeeda195",
+          "observation_valid": true,
+          "parent_readback_sha256": null,
+          "phase": "vmm-fabric-share",
+          "posix_shareable_fd_closed": true,
+          "posix_shareable_fd_opened": false,
+          "schema": "nvidia-hybrid-v100-driver-api-vmm-share-v1",
+          "shareable_handle_bytes": 64,
+          "shareable_handle_kind": "fabric",
+          "shareable_handle_type": 8,
+          "status": "phase-failed"
+        },
+        "mode": "preload_passthrough",
+        "probe_exit_code": 0,
+        "stderr_bytes": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 1728,
+        "stdout_sha256": "2541ada868d1bad40df3256b37edea33502846705b476b43a2c1ef75a79ebdc0"
+      }
+    ],
+    "driver_or_module_changed": false,
+    "execution_scope": {
+      "experimental_module_loaded": false,
+      "gpu_reset_requested": false,
+      "pci_binding_changed": false,
+      "read_only": true,
+      "stock_driver_changed": false,
+      "vm_management_issued": false
+    },
+    "gpu": {
+      "driver_version": "580.178.04",
+      "name": "Tesla V100-SXM2-16GB",
+      "pci": "0000:00:05.0",
+      "uuid": "GPU-42d06a85-027a-75ea-7857-a8de27ad465e"
+    },
+    "gpu_compute_processes_after": [],
+    "gpu_compute_processes_before": [],
+    "gpu_reset_requested": false,
+    "hostname": "pc3-v100",
+    "kernel_release": "6.8.0-147-generic",
+    "libcuda": {
+      "driver_api": 13000,
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+      "sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9"
+    },
+    "module_identity_after": {
+      "loaded": true,
+      "path": "/lib/modules/6.8.0-147-generic/updates/dkms/nvidia.ko.zst",
+      "sha256": "d8e9d365ebd61e6bfddabb16d103134973ea9c3a7e95dc6ad8d2a2a08c99aa0c",
+      "version": "580.178.04"
+    },
+    "module_identity_before": {
+      "loaded": true,
+      "path": "/lib/modules/6.8.0-147-generic/updates/dkms/nvidia.ko.zst",
+      "sha256": "d8e9d365ebd61e6bfddabb16d103134973ea9c3a7e95dc6ad8d2a2a08c99aa0c",
+      "version": "580.178.04"
+    },
+    "runs": [
+      {
+        "cuda": {
+          "allocation_bytes": 2097152,
+          "allocation_created": false,
+          "attribute_support": {
+            "status": 0,
+            "value": 1
+          },
+          "child": null,
+          "child_writeback_match": null,
+          "child_writeback_sha256": null,
+          "cleanup_errors": [],
+          "cleanup_passed": true,
+          "completed_operations": [
+            "cuInit",
+            "cuDriverGetVersion",
+            "cuDeviceGetCount",
+            "cuDeviceGet",
+            "cuDeviceGetName",
+            "cuDeviceGetPCIBusId",
+            "cuDeviceComputeCapability",
+            "cuDeviceGetAttribute",
+            "cuCtxCreate_v2",
+            "cuMemGetAllocationGranularity",
+            "cuCtxDestroy_v2"
+          ],
+          "device": {
+            "compute_capability": "7.0",
+            "fabric_handle_support": {
+              "status": 0,
+              "value": 1
+            },
+            "name": "Tesla V100-SXM2-16GB",
+            "pci_bus_id": "0000:00:05.0",
+            "posix_fd_handle_support": {
+              "status": 0,
+              "value": 1
+            },
+            "sm": 70,
+            "unified_addressing": 1
+          },
+          "driver_api": 13000,
+          "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+          "error_class": null,
+          "expected_pci": "0000:00:05.0",
+          "export_attempted": false,
+          "export_succeeded": false,
+          "failure_code": 800,
+          "failure_name": "CUDA_ERROR_NOT_PERMITTED",
+          "failure_operation": "cuMemCreate",
+          "imex_preflight": {
+            "channel_nodes_seen": 0,
+            "character_nodes_seen": 0,
+            "directory_present": false,
+            "driver_registered": true,
+            "effective_uid": 0,
+            "read_write_accessible_nodes": 0
+          },
+          "import_attempted": false,
+          "import_succeeded": false,
+          "initial_values_match": null,
+          "initial_values_sha256": "c40c3f67744bb955a66b026a233c7f55fc7a7f0153d82da6c85ea51adeeda195",
+          "observation_valid": true,
+          "parent_readback_sha256": null,
+          "phase": "vmm-fabric-share",
+          "posix_shareable_fd_closed": true,
+          "posix_shareable_fd_opened": false,
+          "schema": "nvidia-hybrid-v100-driver-api-vmm-share-v1",
+          "shareable_handle_bytes": 64,
+          "shareable_handle_kind": "fabric",
+          "shareable_handle_type": 8,
+          "status": "phase-failed"
+        },
+        "ioctl_records": [
+          {
+            "caller_image": "libcuda.so.580.178.04",
+            "caller_offset": "0x48bc88",
+            "exposed_mask": 9,
+            "kernel_mask": 9,
+            "transport": "direct"
+          }
+        ],
+        "probe_exit_code": 0,
+        "requested_mask": 9,
+        "stderr_bytes": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 1728,
+        "stdout_sha256": "2541ada868d1bad40df3256b37edea33502846705b476b43a2c1ef75a79ebdc0"
+      },
+      {
+        "cuda": {
+          "allocation_bytes": 2097152,
+          "allocation_created": false,
+          "attribute_support": {
+            "status": 0,
+            "value": 1
+          },
+          "child": null,
+          "child_writeback_match": null,
+          "child_writeback_sha256": null,
+          "cleanup_errors": [],
+          "cleanup_passed": true,
+          "completed_operations": [
+            "cuInit",
+            "cuDriverGetVersion",
+            "cuDeviceGetCount",
+            "cuDeviceGet",
+            "cuDeviceGetName",
+            "cuDeviceGetPCIBusId",
+            "cuDeviceComputeCapability",
+            "cuDeviceGetAttribute",
+            "cuCtxCreate_v2",
+            "cuMemGetAllocationGranularity",
+            "cuCtxDestroy_v2"
+          ],
+          "device": {
+            "compute_capability": "7.0",
+            "fabric_handle_support": {
+              "status": 0,
+              "value": 1
+            },
+            "name": "Tesla V100-SXM2-16GB",
+            "pci_bus_id": "0000:00:05.0",
+            "posix_fd_handle_support": {
+              "status": 0,
+              "value": 1
+            },
+            "sm": 70,
+            "unified_addressing": 1
+          },
+          "driver_api": 13000,
+          "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+          "error_class": null,
+          "expected_pci": "0000:00:05.0",
+          "export_attempted": false,
+          "export_succeeded": false,
+          "failure_code": 800,
+          "failure_name": "CUDA_ERROR_NOT_PERMITTED",
+          "failure_operation": "cuMemCreate",
+          "imex_preflight": {
+            "channel_nodes_seen": 0,
+            "character_nodes_seen": 0,
+            "directory_present": false,
+            "driver_registered": true,
+            "effective_uid": 0,
+            "read_write_accessible_nodes": 0
+          },
+          "import_attempted": false,
+          "import_succeeded": false,
+          "initial_values_match": null,
+          "initial_values_sha256": "c40c3f67744bb955a66b026a233c7f55fc7a7f0153d82da6c85ea51adeeda195",
+          "observation_valid": true,
+          "parent_readback_sha256": null,
+          "phase": "vmm-fabric-share",
+          "posix_shareable_fd_closed": true,
+          "posix_shareable_fd_opened": false,
+          "schema": "nvidia-hybrid-v100-driver-api-vmm-share-v1",
+          "shareable_handle_bytes": 64,
+          "shareable_handle_kind": "fabric",
+          "shareable_handle_type": 8,
+          "status": "phase-failed"
+        },
+        "ioctl_records": [
+          {
+            "caller_image": "libcuda.so.580.178.04",
+            "caller_offset": "0x48bc88",
+            "exposed_mask": 8,
+            "kernel_mask": 9,
+            "transport": "direct"
+          }
+        ],
+        "probe_exit_code": 0,
+        "requested_mask": 8,
+        "stderr_bytes": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 1728,
+        "stdout_sha256": "2541ada868d1bad40df3256b37edea33502846705b476b43a2c1ef75a79ebdc0"
+      },
+      {
+        "cuda": {
+          "allocation_bytes": 2097152,
+          "allocation_created": false,
+          "attribute_support": {
+            "status": 0,
+            "value": 0
+          },
+          "child": null,
+          "child_writeback_match": null,
+          "child_writeback_sha256": null,
+          "cleanup_errors": [],
+          "cleanup_passed": true,
+          "completed_operations": [
+            "cuInit",
+            "cuDriverGetVersion",
+            "cuDeviceGetCount",
+            "cuDeviceGet",
+            "cuDeviceGetName",
+            "cuDeviceGetPCIBusId",
+            "cuDeviceComputeCapability",
+            "cuDeviceGetAttribute",
+            "cuCtxCreate_v2",
+            "cuMemGetAllocationGranularity",
+            "cuCtxDestroy_v2"
+          ],
+          "device": {
+            "compute_capability": "7.0",
+            "fabric_handle_support": {
+              "status": 0,
+              "value": 0
+            },
+            "name": "Tesla V100-SXM2-16GB",
+            "pci_bus_id": "0000:00:05.0",
+            "posix_fd_handle_support": {
+              "status": 0,
+              "value": 1
+            },
+            "sm": 70,
+            "unified_addressing": 1
+          },
+          "driver_api": 13000,
+          "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+          "error_class": null,
+          "expected_pci": "0000:00:05.0",
+          "export_attempted": false,
+          "export_succeeded": false,
+          "failure_code": 1,
+          "failure_name": "CUDA_ERROR_INVALID_VALUE",
+          "failure_operation": "cuMemCreate",
+          "imex_preflight": {
+            "channel_nodes_seen": 0,
+            "character_nodes_seen": 0,
+            "directory_present": false,
+            "driver_registered": true,
+            "effective_uid": 0,
+            "read_write_accessible_nodes": 0
+          },
+          "import_attempted": false,
+          "import_succeeded": false,
+          "initial_values_match": null,
+          "initial_values_sha256": "c40c3f67744bb955a66b026a233c7f55fc7a7f0153d82da6c85ea51adeeda195",
+          "observation_valid": true,
+          "parent_readback_sha256": null,
+          "phase": "vmm-fabric-share",
+          "posix_shareable_fd_closed": true,
+          "posix_shareable_fd_opened": false,
+          "schema": "nvidia-hybrid-v100-driver-api-vmm-share-v1",
+          "shareable_handle_bytes": 64,
+          "shareable_handle_kind": "fabric",
+          "shareable_handle_type": 8,
+          "status": "phase-failed"
+        },
+        "ioctl_records": [
+          {
+            "caller_image": "libcuda.so.580.178.04",
+            "caller_offset": "0x48bc88",
+            "exposed_mask": 1,
+            "kernel_mask": 9,
+            "transport": "direct"
+          }
+        ],
+        "probe_exit_code": 0,
+        "requested_mask": 1,
+        "stderr_bytes": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 1726,
+        "stdout_sha256": "76d624ce1ca8bacdcc640426b9d982d84e387e5808d9e9a927a73a9f3b58ac49"
+      },
+      {
+        "cuda": {
+          "allocation_bytes": 2097152,
+          "allocation_created": false,
+          "attribute_support": {
+            "status": 0,
+            "value": 0
+          },
+          "child": null,
+          "child_writeback_match": null,
+          "child_writeback_sha256": null,
+          "cleanup_errors": [],
+          "cleanup_passed": true,
+          "completed_operations": [
+            "cuInit",
+            "cuDriverGetVersion",
+            "cuDeviceGetCount",
+            "cuDeviceGet",
+            "cuDeviceGetName",
+            "cuDeviceGetPCIBusId",
+            "cuDeviceComputeCapability",
+            "cuDeviceGetAttribute",
+            "cuCtxCreate_v2",
+            "cuMemGetAllocationGranularity",
+            "cuCtxDestroy_v2"
+          ],
+          "device": {
+            "compute_capability": "7.0",
+            "fabric_handle_support": {
+              "status": 0,
+              "value": 0
+            },
+            "name": "Tesla V100-SXM2-16GB",
+            "pci_bus_id": "0000:00:05.0",
+            "posix_fd_handle_support": {
+              "status": 0,
+              "value": 1
+            },
+            "sm": 70,
+            "unified_addressing": 1
+          },
+          "driver_api": 13000,
+          "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+          "error_class": null,
+          "expected_pci": "0000:00:05.0",
+          "export_attempted": false,
+          "export_succeeded": false,
+          "failure_code": 1,
+          "failure_name": "CUDA_ERROR_INVALID_VALUE",
+          "failure_operation": "cuMemCreate",
+          "imex_preflight": {
+            "channel_nodes_seen": 0,
+            "character_nodes_seen": 0,
+            "directory_present": false,
+            "driver_registered": true,
+            "effective_uid": 0,
+            "read_write_accessible_nodes": 0
+          },
+          "import_attempted": false,
+          "import_succeeded": false,
+          "initial_values_match": null,
+          "initial_values_sha256": "c40c3f67744bb955a66b026a233c7f55fc7a7f0153d82da6c85ea51adeeda195",
+          "observation_valid": true,
+          "parent_readback_sha256": null,
+          "phase": "vmm-fabric-share",
+          "posix_shareable_fd_closed": true,
+          "posix_shareable_fd_opened": false,
+          "schema": "nvidia-hybrid-v100-driver-api-vmm-share-v1",
+          "shareable_handle_bytes": 64,
+          "shareable_handle_kind": "fabric",
+          "shareable_handle_type": 8,
+          "status": "phase-failed"
+        },
+        "ioctl_records": [
+          {
+            "caller_image": "libcuda.so.580.178.04",
+            "caller_offset": "0x48bc88",
+            "exposed_mask": 0,
+            "kernel_mask": 9,
+            "transport": "direct"
+          }
+        ],
+        "probe_exit_code": 0,
+        "requested_mask": 0,
+        "stderr_bytes": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 1726,
+        "stdout_sha256": "76d624ce1ca8bacdcc640426b9d982d84e387e5808d9e9a927a73a9f3b58ac49"
+      }
+    ],
+    "schema": "nvidia-hybrid-v100-system-features-vmm-fabric-sensitivity-guest-v1",
+    "status": "observed",
+    "temporary_payload_remaining": false,
+    "vmm_fabric_artifacts": {
+      "probe_source_sha256": "b304618b3803511ae0364bc86b32fe1b303cc6bc09f4c09ee1aa90120c2a0f45"
+    },
+    "workload": "vmm-fabric-share"
+  },
+  "interposer": {
+    "bytes": 20728,
+    "compiled_with": "cc -std=gnu11 -Wall -Wextra -Werror -DNVRM=1 -fPIC -shared",
+    "sha256": "f0c84da75d4cc51e55da3789cc45ad3858da20db37f4ef6ebddb3aec37dbba69"
+  },
+  "interposer_source_sha256": "9835b2c45264cd15ee355dd1fdf1d0f3e8a203ecb6a494b66641ced1f9014e31",
+  "mask_9_vs_1_fabric_capability_equal": false,
+  "mask_9_vs_1_handle_capability_equal": false,
+  "mask_9_vs_1_vmm_fabric_transfer_equal": false,
+  "mask_9_vs_1_vmm_share_transfer_equal": false,
+  "masks": [
+    9,
+    8,
+    1,
+    0
+  ],
+  "observed_at_utc": "2026-10-27T03:13:12+00:00",
+  "remote_guest_code_sha256": "d750e3333d14a09d5b22270c2b30c21228ab356c6709702d71e96361e9654bdf",
+  "remote_report": {
+    "experimental_module_loaded": false,
+    "guest": {
+      "caller_chain_capture_requested": false,
+      "cleanup_passed": true,
+      "controls": [
+        {
+          "cuda": {
+            "allocation_bytes": 2097152,
+            "allocation_created": false,
+            "attribute_support": {
+              "status": 0,
+              "value": 1
+            },
+            "child": null,
+            "child_writeback_match": null,
+            "child_writeback_sha256": null,
+            "cleanup_errors": [],
+            "cleanup_passed": true,
+            "completed_operations": [
+              "cuInit",
+              "cuDriverGetVersion",
+              "cuDeviceGetCount",
+              "cuDeviceGet",
+              "cuDeviceGetName",
+              "cuDeviceGetPCIBusId",
+              "cuDeviceComputeCapability",
+              "cuDeviceGetAttribute",
+              "cuCtxCreate_v2",
+              "cuMemGetAllocationGranularity",
+              "cuCtxDestroy_v2"
+            ],
+            "device": {
+              "compute_capability": "7.0",
+              "fabric_handle_support": {
+                "status": 0,
+                "value": 1
+              },
+              "name": "Tesla V100-SXM2-16GB",
+              "pci_bus_id": "0000:00:05.0",
+              "posix_fd_handle_support": {
+                "status": 0,
+                "value": 1
+              },
+              "sm": 70,
+              "unified_addressing": 1
+            },
+            "driver_api": 13000,
+            "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+            "error_class": null,
+            "expected_pci": "0000:00:05.0",
+            "export_attempted": false,
+            "export_succeeded": false,
+            "failure_code": 800,
+            "failure_name": "CUDA_ERROR_NOT_PERMITTED",
+            "failure_operation": "cuMemCreate",
+            "imex_preflight": {
+              "channel_nodes_seen": 0,
+              "character_nodes_seen": 0,
+              "directory_present": false,
+              "driver_registered": true,
+              "effective_uid": 0,
+              "read_write_accessible_nodes": 0
+            },
+            "import_attempted": false,
+            "import_succeeded": false,
+            "initial_values_match": null,
+            "initial_values_sha256": "c40c3f67744bb955a66b026a233c7f55fc7a7f0153d82da6c85ea51adeeda195",
+            "observation_valid": true,
+            "parent_readback_sha256": null,
+            "phase": "vmm-fabric-share",
+            "posix_shareable_fd_closed": true,
+            "posix_shareable_fd_opened": false,
+            "schema": "nvidia-hybrid-v100-driver-api-vmm-share-v1",
+            "shareable_handle_bytes": 64,
+            "shareable_handle_kind": "fabric",
+            "shareable_handle_type": 8,
+            "status": "phase-failed"
+          },
+          "mode": "stock",
+          "probe_exit_code": 0,
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 1728,
+          "stdout_sha256": "2541ada868d1bad40df3256b37edea33502846705b476b43a2c1ef75a79ebdc0"
+        },
+        {
+          "cuda": {
+            "allocation_bytes": 2097152,
+            "allocation_created": false,
+            "attribute_support": {
+              "status": 0,
+              "value": 1
+            },
+            "child": null,
+            "child_writeback_match": null,
+            "child_writeback_sha256": null,
+            "cleanup_errors": [],
+            "cleanup_passed": true,
+            "completed_operations": [
+              "cuInit",
+              "cuDriverGetVersion",
+              "cuDeviceGetCount",
+              "cuDeviceGet",
+              "cuDeviceGetName",
+              "cuDeviceGetPCIBusId",
+              "cuDeviceComputeCapability",
+              "cuDeviceGetAttribute",
+              "cuCtxCreate_v2",
+              "cuMemGetAllocationGranularity",
+              "cuCtxDestroy_v2"
+            ],
+            "device": {
+              "compute_capability": "7.0",
+              "fabric_handle_support": {
+                "status": 0,
+                "value": 1
+              },
+              "name": "Tesla V100-SXM2-16GB",
+              "pci_bus_id": "0000:00:05.0",
+              "posix_fd_handle_support": {
+                "status": 0,
+                "value": 1
+              },
+              "sm": 70,
+              "unified_addressing": 1
+            },
+            "driver_api": 13000,
+            "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+            "error_class": null,
+            "expected_pci": "0000:00:05.0",
+            "export_attempted": false,
+            "export_succeeded": false,
+            "failure_code": 800,
+            "failure_name": "CUDA_ERROR_NOT_PERMITTED",
+            "failure_operation": "cuMemCreate",
+            "imex_preflight": {
+              "channel_nodes_seen": 0,
+              "character_nodes_seen": 0,
+              "directory_present": false,
+              "driver_registered": true,
+              "effective_uid": 0,
+              "read_write_accessible_nodes": 0
+            },
+            "import_attempted": false,
+            "import_succeeded": false,
+            "initial_values_match": null,
+            "initial_values_sha256": "c40c3f67744bb955a66b026a233c7f55fc7a7f0153d82da6c85ea51adeeda195",
+            "observation_valid": true,
+            "parent_readback_sha256": null,
+            "phase": "vmm-fabric-share",
+            "posix_shareable_fd_closed": true,
+            "posix_shareable_fd_opened": false,
+            "schema": "nvidia-hybrid-v100-driver-api-vmm-share-v1",
+            "shareable_handle_bytes": 64,
+            "shareable_handle_kind": "fabric",
+            "shareable_handle_type": 8,
+            "status": "phase-failed"
+          },
+          "mode": "preload_passthrough",
+          "probe_exit_code": 0,
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 1728,
+          "stdout_sha256": "2541ada868d1bad40df3256b37edea33502846705b476b43a2c1ef75a79ebdc0"
+        }
+      ],
+      "driver_or_module_changed": false,
+      "execution_scope": {
+        "experimental_module_loaded": false,
+        "gpu_reset_requested": false,
+        "pci_binding_changed": false,
+        "read_only": true,
+        "stock_driver_changed": false,
+        "vm_management_issued": false
+      },
+      "gpu": {
+        "driver_version": "580.178.04",
+        "name": "Tesla V100-SXM2-16GB",
+        "pci": "0000:00:05.0",
+        "uuid": "GPU-42d06a85-027a-75ea-7857-a8de27ad465e"
+      },
+      "gpu_compute_processes_after": [],
+      "gpu_compute_processes_before": [],
+      "gpu_reset_requested": false,
+      "hostname": "pc3-v100",
+      "kernel_release": "6.8.0-147-generic",
+      "libcuda": {
+        "driver_api": 13000,
+        "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+        "sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9"
+      },
+      "module_identity_after": {
+        "loaded": true,
+        "path": "/lib/modules/6.8.0-147-generic/updates/dkms/nvidia.ko.zst",
+        "sha256": "d8e9d365ebd61e6bfddabb16d103134973ea9c3a7e95dc6ad8d2a2a08c99aa0c",
+        "version": "580.178.04"
+      },
+      "module_identity_before": {
+        "loaded": true,
+        "path": "/lib/modules/6.8.0-147-generic/updates/dkms/nvidia.ko.zst",
+        "sha256": "d8e9d365ebd61e6bfddabb16d103134973ea9c3a7e95dc6ad8d2a2a08c99aa0c",
+        "version": "580.178.04"
+      },
+      "runs": [
+        {
+          "cuda": {
+            "allocation_bytes": 2097152,
+            "allocation_created": false,
+            "attribute_support": {
+              "status": 0,
+              "value": 1
+            },
+            "child": null,
+            "child_writeback_match": null,
+            "child_writeback_sha256": null,
+            "cleanup_errors": [],
+            "cleanup_passed": true,
+            "completed_operations": [
+              "cuInit",
+              "cuDriverGetVersion",
+              "cuDeviceGetCount",
+              "cuDeviceGet",
+              "cuDeviceGetName",
+              "cuDeviceGetPCIBusId",
+              "cuDeviceComputeCapability",
+              "cuDeviceGetAttribute",
+              "cuCtxCreate_v2",
+              "cuMemGetAllocationGranularity",
+              "cuCtxDestroy_v2"
+            ],
+            "device": {
+              "compute_capability": "7.0",
+              "fabric_handle_support": {
+                "status": 0,
+                "value": 1
+              },
+              "name": "Tesla V100-SXM2-16GB",
+              "pci_bus_id": "0000:00:05.0",
+              "posix_fd_handle_support": {
+                "status": 0,
+                "value": 1
+              },
+              "sm": 70,
+              "unified_addressing": 1
+            },
+            "driver_api": 13000,
+            "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+            "error_class": null,
+            "expected_pci": "0000:00:05.0",
+            "export_attempted": false,
+            "export_succeeded": false,
+            "failure_code": 800,
+            "failure_name": "CUDA_ERROR_NOT_PERMITTED",
+            "failure_operation": "cuMemCreate",
+            "imex_preflight": {
+              "channel_nodes_seen": 0,
+              "character_nodes_seen": 0,
+              "directory_present": false,
+              "driver_registered": true,
+              "effective_uid": 0,
+              "read_write_accessible_nodes": 0
+            },
+            "import_attempted": false,
+            "import_succeeded": false,
+            "initial_values_match": null,
+            "initial_values_sha256": "c40c3f67744bb955a66b026a233c7f55fc7a7f0153d82da6c85ea51adeeda195",
+            "observation_valid": true,
+            "parent_readback_sha256": null,
+            "phase": "vmm-fabric-share",
+            "posix_shareable_fd_closed": true,
+            "posix_shareable_fd_opened": false,
+            "schema": "nvidia-hybrid-v100-driver-api-vmm-share-v1",
+            "shareable_handle_bytes": 64,
+            "shareable_handle_kind": "fabric",
+            "shareable_handle_type": 8,
+            "status": "phase-failed"
+          },
+          "ioctl_records": [
+            {
+              "caller_image": "libcuda.so.580.178.04",
+              "caller_offset": "0x48bc88",
+              "exposed_mask": 9,
+              "kernel_mask": 9,
+              "transport": "direct"
+            }
+          ],
+          "probe_exit_code": 0,
+          "requested_mask": 9,
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 1728,
+          "stdout_sha256": "2541ada868d1bad40df3256b37edea33502846705b476b43a2c1ef75a79ebdc0"
+        },
+        {
+          "cuda": {
+            "allocation_bytes": 2097152,
+            "allocation_created": false,
+            "attribute_support": {
+              "status": 0,
+              "value": 1
+            },
+            "child": null,
+            "child_writeback_match": null,
+            "child_writeback_sha256": null,
+            "cleanup_errors": [],
+            "cleanup_passed": true,
+            "completed_operations": [
+              "cuInit",
+              "cuDriverGetVersion",
+              "cuDeviceGetCount",
+              "cuDeviceGet",
+              "cuDeviceGetName",
+              "cuDeviceGetPCIBusId",
+              "cuDeviceComputeCapability",
+              "cuDeviceGetAttribute",
+              "cuCtxCreate_v2",
+              "cuMemGetAllocationGranularity",
+              "cuCtxDestroy_v2"
+            ],
+            "device": {
+              "compute_capability": "7.0",
+              "fabric_handle_support": {
+                "status": 0,
+                "value": 1
+              },
+              "name": "Tesla V100-SXM2-16GB",
+              "pci_bus_id": "0000:00:05.0",
+              "posix_fd_handle_support": {
+                "status": 0,
+                "value": 1
+              },
+              "sm": 70,
+              "unified_addressing": 1
+            },
+            "driver_api": 13000,
+            "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+            "error_class": null,
+            "expected_pci": "0000:00:05.0",
+            "export_attempted": false,
+            "export_succeeded": false,
+            "failure_code": 800,
+            "failure_name": "CUDA_ERROR_NOT_PERMITTED",
+            "failure_operation": "cuMemCreate",
+            "imex_preflight": {
+              "channel_nodes_seen": 0,
+              "character_nodes_seen": 0,
+              "directory_present": false,
+              "driver_registered": true,
+              "effective_uid": 0,
+              "read_write_accessible_nodes": 0
+            },
+            "import_attempted": false,
+            "import_succeeded": false,
+            "initial_values_match": null,
+            "initial_values_sha256": "c40c3f67744bb955a66b026a233c7f55fc7a7f0153d82da6c85ea51adeeda195",
+            "observation_valid": true,
+            "parent_readback_sha256": null,
+            "phase": "vmm-fabric-share",
+            "posix_shareable_fd_closed": true,
+            "posix_shareable_fd_opened": false,
+            "schema": "nvidia-hybrid-v100-driver-api-vmm-share-v1",
+            "shareable_handle_bytes": 64,
+            "shareable_handle_kind": "fabric",
+            "shareable_handle_type": 8,
+            "status": "phase-failed"
+          },
+          "ioctl_records": [
+            {
+              "caller_image": "libcuda.so.580.178.04",
+              "caller_offset": "0x48bc88",
+              "exposed_mask": 8,
+              "kernel_mask": 9,
+              "transport": "direct"
+            }
+          ],
+          "probe_exit_code": 0,
+          "requested_mask": 8,
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 1728,
+          "stdout_sha256": "2541ada868d1bad40df3256b37edea33502846705b476b43a2c1ef75a79ebdc0"
+        },
+        {
+          "cuda": {
+            "allocation_bytes": 2097152,
+            "allocation_created": false,
+            "attribute_support": {
+              "status": 0,
+              "value": 0
+            },
+            "child": null,
+            "child_writeback_match": null,
+            "child_writeback_sha256": null,
+            "cleanup_errors": [],
+            "cleanup_passed": true,
+            "completed_operations": [
+              "cuInit",
+              "cuDriverGetVersion",
+              "cuDeviceGetCount",
+              "cuDeviceGet",
+              "cuDeviceGetName",
+              "cuDeviceGetPCIBusId",
+              "cuDeviceComputeCapability",
+              "cuDeviceGetAttribute",
+              "cuCtxCreate_v2",
+              "cuMemGetAllocationGranularity",
+              "cuCtxDestroy_v2"
+            ],
+            "device": {
+              "compute_capability": "7.0",
+              "fabric_handle_support": {
+                "status": 0,
+                "value": 0
+              },
+              "name": "Tesla V100-SXM2-16GB",
+              "pci_bus_id": "0000:00:05.0",
+              "posix_fd_handle_support": {
+                "status": 0,
+                "value": 1
+              },
+              "sm": 70,
+              "unified_addressing": 1
+            },
+            "driver_api": 13000,
+            "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+            "error_class": null,
+            "expected_pci": "0000:00:05.0",
+            "export_attempted": false,
+            "export_succeeded": false,
+            "failure_code": 1,
+            "failure_name": "CUDA_ERROR_INVALID_VALUE",
+            "failure_operation": "cuMemCreate",
+            "imex_preflight": {
+              "channel_nodes_seen": 0,
+              "character_nodes_seen": 0,
+              "directory_present": false,
+              "driver_registered": true,
+              "effective_uid": 0,
+              "read_write_accessible_nodes": 0
+            },
+            "import_attempted": false,
+            "import_succeeded": false,
+            "initial_values_match": null,
+            "initial_values_sha256": "c40c3f67744bb955a66b026a233c7f55fc7a7f0153d82da6c85ea51adeeda195",
+            "observation_valid": true,
+            "parent_readback_sha256": null,
+            "phase": "vmm-fabric-share",
+            "posix_shareable_fd_closed": true,
+            "posix_shareable_fd_opened": false,
+            "schema": "nvidia-hybrid-v100-driver-api-vmm-share-v1",
+            "shareable_handle_bytes": 64,
+            "shareable_handle_kind": "fabric",
+            "shareable_handle_type": 8,
+            "status": "phase-failed"
+          },
+          "ioctl_records": [
+            {
+              "caller_image": "libcuda.so.580.178.04",
+              "caller_offset": "0x48bc88",
+              "exposed_mask": 1,
+              "kernel_mask": 9,
+              "transport": "direct"
+            }
+          ],
+          "probe_exit_code": 0,
+          "requested_mask": 1,
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 1726,
+          "stdout_sha256": "76d624ce1ca8bacdcc640426b9d982d84e387e5808d9e9a927a73a9f3b58ac49"
+        },
+        {
+          "cuda": {
+            "allocation_bytes": 2097152,
+            "allocation_created": false,
+            "attribute_support": {
+              "status": 0,
+              "value": 0
+            },
+            "child": null,
+            "child_writeback_match": null,
+            "child_writeback_sha256": null,
+            "cleanup_errors": [],
+            "cleanup_passed": true,
+            "completed_operations": [
+              "cuInit",
+              "cuDriverGetVersion",
+              "cuDeviceGetCount",
+              "cuDeviceGet",
+              "cuDeviceGetName",
+              "cuDeviceGetPCIBusId",
+              "cuDeviceComputeCapability",
+              "cuDeviceGetAttribute",
+              "cuCtxCreate_v2",
+              "cuMemGetAllocationGranularity",
+              "cuCtxDestroy_v2"
+            ],
+            "device": {
+              "compute_capability": "7.0",
+              "fabric_handle_support": {
+                "status": 0,
+                "value": 0
+              },
+              "name": "Tesla V100-SXM2-16GB",
+              "pci_bus_id": "0000:00:05.0",
+              "posix_fd_handle_support": {
+                "status": 0,
+                "value": 1
+              },
+              "sm": 70,
+              "unified_addressing": 1
+            },
+            "driver_api": 13000,
+            "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+            "error_class": null,
+            "expected_pci": "0000:00:05.0",
+            "export_attempted": false,
+            "export_succeeded": false,
+            "failure_code": 1,
+            "failure_name": "CUDA_ERROR_INVALID_VALUE",
+            "failure_operation": "cuMemCreate",
+            "imex_preflight": {
+              "channel_nodes_seen": 0,
+              "character_nodes_seen": 0,
+              "directory_present": false,
+              "driver_registered": true,
+              "effective_uid": 0,
+              "read_write_accessible_nodes": 0
+            },
+            "import_attempted": false,
+            "import_succeeded": false,
+            "initial_values_match": null,
+            "initial_values_sha256": "c40c3f67744bb955a66b026a233c7f55fc7a7f0153d82da6c85ea51adeeda195",
+            "observation_valid": true,
+            "parent_readback_sha256": null,
+            "phase": "vmm-fabric-share",
+            "posix_shareable_fd_closed": true,
+            "posix_shareable_fd_opened": false,
+            "schema": "nvidia-hybrid-v100-driver-api-vmm-share-v1",
+            "shareable_handle_bytes": 64,
+            "shareable_handle_kind": "fabric",
+            "shareable_handle_type": 8,
+            "status": "phase-failed"
+          },
+          "ioctl_records": [
+            {
+              "caller_image": "libcuda.so.580.178.04",
+              "caller_offset": "0x48bc88",
+              "exposed_mask": 0,
+              "kernel_mask": 9,
+              "transport": "direct"
+            }
+          ],
+          "probe_exit_code": 0,
+          "requested_mask": 0,
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 1726,
+          "stdout_sha256": "76d624ce1ca8bacdcc640426b9d982d84e387e5808d9e9a927a73a9f3b58ac49"
+        }
+      ],
+      "schema": "nvidia-hybrid-v100-system-features-vmm-fabric-sensitivity-guest-v1",
+      "status": "observed",
+      "temporary_payload_remaining": false,
+      "vmm_fabric_artifacts": {
+        "probe_source_sha256": "b304618b3803511ae0364bc86b32fe1b303cc6bc09f4c09ee1aa90120c2a0f45"
+      },
+      "workload": "vmm-fabric-share"
+    },
+    "guest_transport": {
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 14091,
+      "stdout_sha256": "0561eae33c5254d8308625fdb17c8f6feca56f4dfb85dada98536470c5e7f3c0"
+    },
+    "host": {
+      "guest_host_key_verified": true,
+      "hostname": "pc3",
+      "kernel_release": "7.0.0-38-generic",
+      "sudo_identity_verified": true
+    },
+    "kprobe_attached": false,
+    "pci_binding_changed": false,
+    "read_only": true,
+    "schema": "nvidia-hybrid-pc3-v100-trace-capability-v3",
+    "status": "observed",
+    "stock_driver_changed": false,
+    "trace_event_definition_write_attempted": false,
+    "vm_management_issued": false
+  },
+  "remote_script_sha256": "12a68d0a87775ad9cc4802cc33940c3cc6fb2112fb30fbb16c28e9385a0d1a6f",
+  "runner_sha256": "21ef30782cea46825b0ea07afc123e86e8f034e4ff40a8078d013ffd5f2b491f",
+  "runs": [
+    {
+      "cuda": {
+        "allocation_bytes": 2097152,
+        "allocation_created": false,
+        "attribute_support": {
+          "status": 0,
+          "value": 1
+        },
+        "child": null,
+        "child_writeback_match": null,
+        "child_writeback_sha256": null,
+        "cleanup_errors": [],
+        "cleanup_passed": true,
+        "completed_operations": [
+          "cuInit",
+          "cuDriverGetVersion",
+          "cuDeviceGetCount",
+          "cuDeviceGet",
+          "cuDeviceGetName",
+          "cuDeviceGetPCIBusId",
+          "cuDeviceComputeCapability",
+          "cuDeviceGetAttribute",
+          "cuCtxCreate_v2",
+          "cuMemGetAllocationGranularity",
+          "cuCtxDestroy_v2"
+        ],
+        "device": {
+          "compute_capability": "7.0",
+          "fabric_handle_support": {
+            "status": 0,
+            "value": 1
+          },
+          "name": "Tesla V100-SXM2-16GB",
+          "pci_bus_id": "0000:00:05.0",
+          "posix_fd_handle_support": {
+            "status": 0,
+            "value": 1
+          },
+          "sm": 70,
+          "unified_addressing": 1
+        },
+        "driver_api": 13000,
+        "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+        "error_class": null,
+        "expected_pci": "0000:00:05.0",
+        "export_attempted": false,
+        "export_succeeded": false,
+        "failure_code": 800,
+        "failure_name": "CUDA_ERROR_NOT_PERMITTED",
+        "failure_operation": "cuMemCreate",
+        "imex_preflight": {
+          "channel_nodes_seen": 0,
+          "character_nodes_seen": 0,
+          "directory_present": false,
+          "driver_registered": true,
+          "effective_uid": 0,
+          "read_write_accessible_nodes": 0
+        },
+        "import_attempted": false,
+        "import_succeeded": false,
+        "initial_values_match": null,
+        "initial_values_sha256": "c40c3f67744bb955a66b026a233c7f55fc7a7f0153d82da6c85ea51adeeda195",
+        "observation_valid": true,
+        "parent_readback_sha256": null,
+        "phase": "vmm-fabric-share",
+        "posix_shareable_fd_closed": true,
+        "posix_shareable_fd_opened": false,
+        "schema": "nvidia-hybrid-v100-driver-api-vmm-share-v1",
+        "shareable_handle_bytes": 64,
+        "shareable_handle_kind": "fabric",
+        "shareable_handle_type": 8,
+        "status": "phase-failed"
+      },
+      "ioctl_records": [
+        {
+          "caller_image": "libcuda.so.580.178.04",
+          "caller_offset": "0x48bc88",
+          "exposed_mask": 9,
+          "kernel_mask": 9,
+          "transport": "direct"
+        }
+      ],
+      "probe_exit_code": 0,
+      "requested_mask": 9,
+      "vmm_share_observation_valid": true,
+      "vmm_share_succeeded": false
+    },
+    {
+      "cuda": {
+        "allocation_bytes": 2097152,
+        "allocation_created": false,
+        "attribute_support": {
+          "status": 0,
+          "value": 1
+        },
+        "child": null,
+        "child_writeback_match": null,
+        "child_writeback_sha256": null,
+        "cleanup_errors": [],
+        "cleanup_passed": true,
+        "completed_operations": [
+          "cuInit",
+          "cuDriverGetVersion",
+          "cuDeviceGetCount",
+          "cuDeviceGet",
+          "cuDeviceGetName",
+          "cuDeviceGetPCIBusId",
+          "cuDeviceComputeCapability",
+          "cuDeviceGetAttribute",
+          "cuCtxCreate_v2",
+          "cuMemGetAllocationGranularity",
+          "cuCtxDestroy_v2"
+        ],
+        "device": {
+          "compute_capability": "7.0",
+          "fabric_handle_support": {
+            "status": 0,
+            "value": 1
+          },
+          "name": "Tesla V100-SXM2-16GB",
+          "pci_bus_id": "0000:00:05.0",
+          "posix_fd_handle_support": {
+            "status": 0,
+            "value": 1
+          },
+          "sm": 70,
+          "unified_addressing": 1
+        },
+        "driver_api": 13000,
+        "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+        "error_class": null,
+        "expected_pci": "0000:00:05.0",
+        "export_attempted": false,
+        "export_succeeded": false,
+        "failure_code": 800,
+        "failure_name": "CUDA_ERROR_NOT_PERMITTED",
+        "failure_operation": "cuMemCreate",
+        "imex_preflight": {
+          "channel_nodes_seen": 0,
+          "character_nodes_seen": 0,
+          "directory_present": false,
+          "driver_registered": true,
+          "effective_uid": 0,
+          "read_write_accessible_nodes": 0
+        },
+        "import_attempted": false,
+        "import_succeeded": false,
+        "initial_values_match": null,
+        "initial_values_sha256": "c40c3f67744bb955a66b026a233c7f55fc7a7f0153d82da6c85ea51adeeda195",
+        "observation_valid": true,
+        "parent_readback_sha256": null,
+        "phase": "vmm-fabric-share",
+        "posix_shareable_fd_closed": true,
+        "posix_shareable_fd_opened": false,
+        "schema": "nvidia-hybrid-v100-driver-api-vmm-share-v1",
+        "shareable_handle_bytes": 64,
+        "shareable_handle_kind": "fabric",
+        "shareable_handle_type": 8,
+        "status": "phase-failed"
+      },
+      "ioctl_records": [
+        {
+          "caller_image": "libcuda.so.580.178.04",
+          "caller_offset": "0x48bc88",
+          "exposed_mask": 8,
+          "kernel_mask": 9,
+          "transport": "direct"
+        }
+      ],
+      "probe_exit_code": 0,
+      "requested_mask": 8,
+      "vmm_share_observation_valid": true,
+      "vmm_share_succeeded": false
+    },
+    {
+      "cuda": {
+        "allocation_bytes": 2097152,
+        "allocation_created": false,
+        "attribute_support": {
+          "status": 0,
+          "value": 0
+        },
+        "child": null,
+        "child_writeback_match": null,
+        "child_writeback_sha256": null,
+        "cleanup_errors": [],
+        "cleanup_passed": true,
+        "completed_operations": [
+          "cuInit",
+          "cuDriverGetVersion",
+          "cuDeviceGetCount",
+          "cuDeviceGet",
+          "cuDeviceGetName",
+          "cuDeviceGetPCIBusId",
+          "cuDeviceComputeCapability",
+          "cuDeviceGetAttribute",
+          "cuCtxCreate_v2",
+          "cuMemGetAllocationGranularity",
+          "cuCtxDestroy_v2"
+        ],
+        "device": {
+          "compute_capability": "7.0",
+          "fabric_handle_support": {
+            "status": 0,
+            "value": 0
+          },
+          "name": "Tesla V100-SXM2-16GB",
+          "pci_bus_id": "0000:00:05.0",
+          "posix_fd_handle_support": {
+            "status": 0,
+            "value": 1
+          },
+          "sm": 70,
+          "unified_addressing": 1
+        },
+        "driver_api": 13000,
+        "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+        "error_class": null,
+        "expected_pci": "0000:00:05.0",
+        "export_attempted": false,
+        "export_succeeded": false,
+        "failure_code": 1,
+        "failure_name": "CUDA_ERROR_INVALID_VALUE",
+        "failure_operation": "cuMemCreate",
+        "imex_preflight": {
+          "channel_nodes_seen": 0,
+          "character_nodes_seen": 0,
+          "directory_present": false,
+          "driver_registered": true,
+          "effective_uid": 0,
+          "read_write_accessible_nodes": 0
+        },
+        "import_attempted": false,
+        "import_succeeded": false,
+        "initial_values_match": null,
+        "initial_values_sha256": "c40c3f67744bb955a66b026a233c7f55fc7a7f0153d82da6c85ea51adeeda195",
+        "observation_valid": true,
+        "parent_readback_sha256": null,
+        "phase": "vmm-fabric-share",
+        "posix_shareable_fd_closed": true,
+        "posix_shareable_fd_opened": false,
+        "schema": "nvidia-hybrid-v100-driver-api-vmm-share-v1",
+        "shareable_handle_bytes": 64,
+        "shareable_handle_kind": "fabric",
+        "shareable_handle_type": 8,
+        "status": "phase-failed"
+      },
+      "ioctl_records": [
+        {
+          "caller_image": "libcuda.so.580.178.04",
+          "caller_offset": "0x48bc88",
+          "exposed_mask": 1,
+          "kernel_mask": 9,
+          "transport": "direct"
+        }
+      ],
+      "probe_exit_code": 0,
+      "requested_mask": 1,
+      "vmm_share_observation_valid": true,
+      "vmm_share_succeeded": false
+    },
+    {
+      "cuda": {
+        "allocation_bytes": 2097152,
+        "allocation_created": false,
+        "attribute_support": {
+          "status": 0,
+          "value": 0
+        },
+        "child": null,
+        "child_writeback_match": null,
+        "child_writeback_sha256": null,
+        "cleanup_errors": [],
+        "cleanup_passed": true,
+        "completed_operations": [
+          "cuInit",
+          "cuDriverGetVersion",
+          "cuDeviceGetCount",
+          "cuDeviceGet",
+          "cuDeviceGetName",
+          "cuDeviceGetPCIBusId",
+          "cuDeviceComputeCapability",
+          "cuDeviceGetAttribute",
+          "cuCtxCreate_v2",
+          "cuMemGetAllocationGranularity",
+          "cuCtxDestroy_v2"
+        ],
+        "device": {
+          "compute_capability": "7.0",
+          "fabric_handle_support": {
+            "status": 0,
+            "value": 0
+          },
+          "name": "Tesla V100-SXM2-16GB",
+          "pci_bus_id": "0000:00:05.0",
+          "posix_fd_handle_support": {
+            "status": 0,
+            "value": 1
+          },
+          "sm": 70,
+          "unified_addressing": 1
+        },
+        "driver_api": 13000,
+        "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+        "error_class": null,
+        "expected_pci": "0000:00:05.0",
+        "export_attempted": false,
+        "export_succeeded": false,
+        "failure_code": 1,
+        "failure_name": "CUDA_ERROR_INVALID_VALUE",
+        "failure_operation": "cuMemCreate",
+        "imex_preflight": {
+          "channel_nodes_seen": 0,
+          "character_nodes_seen": 0,
+          "directory_present": false,
+          "driver_registered": true,
+          "effective_uid": 0,
+          "read_write_accessible_nodes": 0
+        },
+        "import_attempted": false,
+        "import_succeeded": false,
+        "initial_values_match": null,
+        "initial_values_sha256": "c40c3f67744bb955a66b026a233c7f55fc7a7f0153d82da6c85ea51adeeda195",
+        "observation_valid": true,
+        "parent_readback_sha256": null,
+        "phase": "vmm-fabric-share",
+        "posix_shareable_fd_closed": true,
+        "posix_shareable_fd_opened": false,
+        "schema": "nvidia-hybrid-v100-driver-api-vmm-share-v1",
+        "shareable_handle_bytes": 64,
+        "shareable_handle_kind": "fabric",
+        "shareable_handle_type": 8,
+        "status": "phase-failed"
+      },
+      "ioctl_records": [
+        {
+          "caller_image": "libcuda.so.580.178.04",
+          "caller_offset": "0x48bc88",
+          "exposed_mask": 0,
+          "kernel_mask": 9,
+          "transport": "direct"
+        }
+      ],
+      "probe_exit_code": 0,
+      "requested_mask": 0,
+      "vmm_share_observation_valid": true,
+      "vmm_share_succeeded": false
+    }
+  ],
+  "schema": "nvidia-hybrid-pc3-v100-cuda-vmm-fabric-sensitivity-v1",
+  "status": "complete",
+  "target": "pc3@pc3",
+  "transport": {
+    "experimental_module_loaded": false,
+    "host": {
+      "guest_host_key_verified": true,
+      "hostname": "pc3",
+      "kernel_release": "7.0.0-38-generic",
+      "sudo_identity_verified": true
+    },
+    "kprobe_attached": false,
+    "pci_binding_changed": false,
+    "read_only": true,
+    "stock_driver_changed": false,
+    "vm_management_issued": false
+  },
+  "transport_helpers": {
+    "reference_runner_sha256": "ff4572c4cc1feea88526de12a57404f5707c248d436b492cade025d157a8e79e",
+    "trace_audit_sha256": "fa486b2c0c5d818bde34de5e29b61bfe5579ecb8f01e792613df2245fdd540bf"
+  },
+  "transport_io": {
+    "returncode": 0,
+    "stderr_bytes": 1,
+    "stderr_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "stdout_bytes": 14766,
+    "stdout_sha256": "7228a0ef3e9b1e9a5c279282ae3090810a4ff68635dec268b1947560fa1819eb"
+  },
+  "vmm_fabric_capability_outcomes_equal": false,
+  "vmm_fabric_succeeded_for_all_masks": false,
+  "vmm_fabric_transfer_outcomes_equal": false,
+  "vmm_share_capability_outcomes_equal": false,
+  "vmm_share_kind": "fabric",
+  "vmm_share_succeeded_for_all_masks": false,
+  "vmm_share_transfer_outcomes_equal": false,
+  "workload": "vmm-fabric-share"
+}

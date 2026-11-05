@@ -1,0 +1,273 @@
+{
+  "captures": [
+    {
+      "capture": "pc3-v100-context-ioctl-sequence-v1-20261028.json",
+      "capture_sha256": "8c7c9c2cb9369afcb7f0139ae03f82054103b35de485324022ddd566d1427588",
+      "driver_version": "580.178.04",
+      "first_seen_request_order": [
+        "UVM_INITIALIZE",
+        "UVM_MM_INITIALIZE",
+        "UVM_PAGEABLE_MEM_ACCESS",
+        "UVM_REGISTER_GPU",
+        "UVM_CREATE_RANGE_GROUP",
+        "UVM_REGISTER_GPU_VASPACE",
+        "UVM_CREATE_EXTERNAL_RANGE",
+        "UVM_MAP_EXTERNAL_ALLOCATION",
+        "UVM_REGISTER_CHANNEL",
+        "UVM_ALLOC_SEMAPHORE_POOL",
+        "UVM_VALIDATE_VA_RANGE",
+        "UVM_MAP_DYNAMIC_PARALLELISM_REGION",
+        "UVM_FREE",
+        "UVM_DESTROY_RANGE_GROUP",
+        "UVM_UNREGISTER_CHANNEL",
+        "UVM_UNREGISTER_GPU_VASPACE"
+      ],
+      "gpu_pci": "0000:00:05.0",
+      "guest_name": "Tesla V100-SXM2-16GB",
+      "kernel_release": "6.8.0-147-generic",
+      "node_ioctl_counts": {
+        "nvidia-uvm": 136,
+        "nvidia0": 36,
+        "nvidiactl": 416
+      },
+      "observed_at_utc": "2026-10-28T08:50:31+00:00",
+      "requests": [
+        {
+          "count": 1,
+          "name": "UVM_INITIALIZE",
+          "request": "0x30000001"
+        },
+        {
+          "count": 1,
+          "name": "UVM_MM_INITIALIZE",
+          "request": "0x4b"
+        },
+        {
+          "count": 1,
+          "name": "UVM_PAGEABLE_MEM_ACCESS",
+          "request": "0x27"
+        },
+        {
+          "count": 1,
+          "name": "UVM_REGISTER_GPU",
+          "request": "0x25"
+        },
+        {
+          "count": 8,
+          "name": "UVM_CREATE_RANGE_GROUP",
+          "request": "0x17"
+        },
+        {
+          "count": 1,
+          "name": "UVM_REGISTER_GPU_VASPACE",
+          "request": "0x19"
+        },
+        {
+          "count": 26,
+          "name": "UVM_CREATE_EXTERNAL_RANGE",
+          "request": "0x49"
+        },
+        {
+          "count": 26,
+          "name": "UVM_MAP_EXTERNAL_ALLOCATION",
+          "request": "0x21"
+        },
+        {
+          "count": 16,
+          "name": "UVM_REGISTER_CHANNEL",
+          "request": "0x1b"
+        },
+        {
+          "count": 1,
+          "name": "UVM_ALLOC_SEMAPHORE_POOL",
+          "request": "0x44"
+        },
+        {
+          "count": 1,
+          "name": "UVM_VALIDATE_VA_RANGE",
+          "request": "0x48"
+        },
+        {
+          "count": 1,
+          "name": "UVM_MAP_DYNAMIC_PARALLELISM_REGION",
+          "request": "0x41"
+        },
+        {
+          "count": 28,
+          "name": "UVM_FREE",
+          "request": "0x22"
+        },
+        {
+          "count": 7,
+          "name": "UVM_DESTROY_RANGE_GROUP",
+          "request": "0x18"
+        },
+        {
+          "count": 16,
+          "name": "UVM_UNREGISTER_CHANNEL",
+          "request": "0x1c"
+        },
+        {
+          "count": 1,
+          "name": "UVM_UNREGISTER_GPU_VASPACE",
+          "request": "0x1a"
+        }
+      ],
+      "trace_event_count": 675,
+      "trace_sha256": "aa547cde39273b8796c54c0b45cb4d3ffe130bd52f6985e0d71134970b29c1c2",
+      "uvm_ioctl_count": 136,
+      "uvm_ioctl_negative_returns": 0
+    },
+    {
+      "capture": "pc3-v100-context-ioctl-sequence-v2-20261028.json",
+      "capture_sha256": "b7857cabab5f2b121c79a7134a76f856462af7355f29a5b1ac60673a3694244a",
+      "driver_version": "580.178.04",
+      "first_seen_request_order": [
+        "UVM_INITIALIZE",
+        "UVM_MM_INITIALIZE",
+        "UVM_PAGEABLE_MEM_ACCESS",
+        "UVM_REGISTER_GPU",
+        "UVM_CREATE_RANGE_GROUP",
+        "UVM_REGISTER_GPU_VASPACE",
+        "UVM_CREATE_EXTERNAL_RANGE",
+        "UVM_MAP_EXTERNAL_ALLOCATION",
+        "UVM_REGISTER_CHANNEL",
+        "UVM_ALLOC_SEMAPHORE_POOL",
+        "UVM_VALIDATE_VA_RANGE",
+        "UVM_MAP_DYNAMIC_PARALLELISM_REGION",
+        "UVM_FREE",
+        "UVM_DESTROY_RANGE_GROUP",
+        "UVM_UNREGISTER_CHANNEL",
+        "UVM_UNREGISTER_GPU_VASPACE"
+      ],
+      "gpu_pci": "0000:00:05.0",
+      "guest_name": "Tesla V100-SXM2-16GB",
+      "kernel_release": "6.8.0-147-generic",
+      "node_ioctl_counts": {
+        "nvidia-uvm": 136,
+        "nvidia0": 36,
+        "nvidiactl": 416
+      },
+      "observed_at_utc": "2026-10-28T08:51:20+00:00",
+      "requests": [
+        {
+          "count": 1,
+          "name": "UVM_INITIALIZE",
+          "request": "0x30000001"
+        },
+        {
+          "count": 1,
+          "name": "UVM_MM_INITIALIZE",
+          "request": "0x4b"
+        },
+        {
+          "count": 1,
+          "name": "UVM_PAGEABLE_MEM_ACCESS",
+          "request": "0x27"
+        },
+        {
+          "count": 1,
+          "name": "UVM_REGISTER_GPU",
+          "request": "0x25"
+        },
+        {
+          "count": 8,
+          "name": "UVM_CREATE_RANGE_GROUP",
+          "request": "0x17"
+        },
+        {
+          "count": 1,
+          "name": "UVM_REGISTER_GPU_VASPACE",
+          "request": "0x19"
+        },
+        {
+          "count": 26,
+          "name": "UVM_CREATE_EXTERNAL_RANGE",
+          "request": "0x49"
+        },
+        {
+          "count": 26,
+          "name": "UVM_MAP_EXTERNAL_ALLOCATION",
+          "request": "0x21"
+        },
+        {
+          "count": 16,
+          "name": "UVM_REGISTER_CHANNEL",
+          "request": "0x1b"
+        },
+        {
+          "count": 1,
+          "name": "UVM_ALLOC_SEMAPHORE_POOL",
+          "request": "0x44"
+        },
+        {
+          "count": 1,
+          "name": "UVM_VALIDATE_VA_RANGE",
+          "request": "0x48"
+        },
+        {
+          "count": 1,
+          "name": "UVM_MAP_DYNAMIC_PARALLELISM_REGION",
+          "request": "0x41"
+        },
+        {
+          "count": 28,
+          "name": "UVM_FREE",
+          "request": "0x22"
+        },
+        {
+          "count": 7,
+          "name": "UVM_DESTROY_RANGE_GROUP",
+          "request": "0x18"
+        },
+        {
+          "count": 16,
+          "name": "UVM_UNREGISTER_CHANNEL",
+          "request": "0x1c"
+        },
+        {
+          "count": 1,
+          "name": "UVM_UNREGISTER_GPU_VASPACE",
+          "request": "0x1a"
+        }
+      ],
+      "trace_event_count": 675,
+      "trace_sha256": "1bd8f491532373361c2c0f729014530c03d299493ae05c3eb7406b9ab419f233",
+      "uvm_ioctl_count": 136,
+      "uvm_ioctl_negative_returns": 0
+    }
+  ],
+  "comparison": {
+    "capture_count": 2,
+    "first_seen_order": [
+      "UVM_INITIALIZE",
+      "UVM_MM_INITIALIZE",
+      "UVM_PAGEABLE_MEM_ACCESS",
+      "UVM_REGISTER_GPU",
+      "UVM_CREATE_RANGE_GROUP",
+      "UVM_REGISTER_GPU_VASPACE",
+      "UVM_CREATE_EXTERNAL_RANGE",
+      "UVM_MAP_EXTERNAL_ALLOCATION",
+      "UVM_REGISTER_CHANNEL",
+      "UVM_ALLOC_SEMAPHORE_POOL",
+      "UVM_VALIDATE_VA_RANGE",
+      "UVM_MAP_DYNAMIC_PARALLELISM_REGION",
+      "UVM_FREE",
+      "UVM_DESTROY_RANGE_GROUP",
+      "UVM_UNREGISTER_CHANNEL",
+      "UVM_UNREGISTER_GPU_VASPACE"
+    ],
+    "first_seen_order_identical": true,
+    "request_counts_identical": true
+  },
+  "gpu_kernel_execution_validated": false,
+  "hybrid_validated": false,
+  "pinned_linux_uapi_headers": {
+    "uvm_ioctl_h_sha256": "937a3fe1c0b2f4d8cfc18443d41ad10ee85c4445f954cc5c67b460ded2dd4916",
+    "uvm_linux_ioctl_h_sha256": "0ffb5cf3679fb5e150745e54b72fab861e319823e419f36376468a60862c2748"
+  },
+  "qualification": "repeated-stock-driver-context-ioctl-metadata-only",
+  "schema": "nvidia-hybrid-pc3-v100-context-uvm-sequence-v1",
+  "scope": "UVM ioctl request metadata only; no ioctl payload, pointer, FD, task, or file identity retained",
+  "uvm_payloads_observed": false
+}

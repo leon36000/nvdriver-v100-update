@@ -1,0 +1,275 @@
+{
+  "attached_ids_capture_requested": false,
+  "binapi_control_capture_requested": true,
+  "channel_alloc_capture_requested": false,
+  "credential_file": "/home/pc6/Desktop/ACCES-BANC-GPU.env",
+  "credential_host": "gx10-e526",
+  "credential_value_logged": false,
+  "credential_value_persisted": false,
+  "exit_code": 0,
+  "gpu_id_info_capture_requested": false,
+  "ioctl_observer": {
+    "bytes": 206320,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/rm-ioctl-observer-v18-binapi-shape-v1-20261021/rm_ioctl_observer",
+    "sha256": "19fd4c0e6175420d46d605f19b3f90c2411f40b250b653019e3e2377547e6e20"
+  },
+  "ioctl_observer_after": {
+    "bytes": 206320,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/rm-ioctl-observer-v18-binapi-shape-v1-20261021/rm_ioctl_observer",
+    "sha256": "19fd4c0e6175420d46d605f19b3f90c2411f40b250b653019e3e2377547e6e20"
+  },
+  "managed_prefetch_requested": false,
+  "map_memory_capture_requested": false,
+  "memory_mode": "device",
+  "module": {
+    "bytes": 15608,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-phase-v1-20261021/hybrid_probe.sm70-sm120.fatbin",
+    "sha256": "fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305"
+  },
+  "module_after": {
+    "bytes": 15608,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-phase-v1-20261021/hybrid_probe.sm70-sm120.fatbin",
+    "sha256": "fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305"
+  },
+  "observed_at_utc": "2026-10-21T14:36:57+00:00",
+  "p2p_alloc_capture_requested": false,
+  "p2p_control_capture_requested": false,
+  "payload_cleanup_passed": true,
+  "payload_staging": {
+    "bytes": 445057,
+    "path": "/tmp/codex-v100-payload-aec1946b82a34d04a615378e1e03e1ea.json",
+    "sha256": "0fec5fdeace6be821d9224c98a6b23230f8257204309cf6606fd79da1861edfb",
+    "uploaded": true
+  },
+  "pc3_ssh_exit_code": 0,
+  "phase": "context",
+  "phase_capture_requested": true,
+  "probe": {
+    "bytes": 111336,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-phase-v1-20261021/hybrid_cuda_probe",
+    "sha256": "c67b11fc27e16dd88a282464910aa5533a75a67547744ca39cc4c9c6bc52971e"
+  },
+  "probe_after": {
+    "bytes": 111336,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-phase-v1-20261021/hybrid_cuda_probe",
+    "sha256": "c67b11fc27e16dd88a282464910aa5533a75a67547744ca39cc4c9c6bc52971e"
+  },
+  "probed_ids_capture_requested": false,
+  "qualification": "v100-cuda-phase-validated",
+  "remote": {
+    "artifacts_after": {
+      "/tmp/codex-v100-ref-a8973290e7de4b2882e25b7fe3b33365.fatbin": {
+        "bytes": 15608,
+        "sha256": "fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305"
+      },
+      "/tmp/codex-v100-ref-a8973290e7de4b2882e25b7fe3b33365.observer": {
+        "bytes": 206320,
+        "sha256": "19fd4c0e6175420d46d605f19b3f90c2411f40b250b653019e3e2377547e6e20"
+      },
+      "/tmp/codex-v100-ref-a8973290e7de4b2882e25b7fe3b33365.probe": {
+        "bytes": 111336,
+        "sha256": "c67b11fc27e16dd88a282464910aa5533a75a67547744ca39cc4c9c6bc52971e"
+      }
+    },
+    "artifacts_before": {
+      "module": {
+        "bytes": 15608,
+        "guest_path": "/tmp/codex-v100-ref-a8973290e7de4b2882e25b7fe3b33365.fatbin",
+        "sha256": "fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305"
+      },
+      "observer": {
+        "bytes": 206320,
+        "guest_path": "/tmp/codex-v100-ref-a8973290e7de4b2882e25b7fe3b33365.observer",
+        "sha256": "19fd4c0e6175420d46d605f19b3f90c2411f40b250b653019e3e2377547e6e20"
+      },
+      "probe": {
+        "bytes": 111336,
+        "guest_path": "/tmp/codex-v100-ref-a8973290e7de4b2882e25b7fe3b33365.probe",
+        "sha256": "c67b11fc27e16dd88a282464910aa5533a75a67547744ca39cc4c9c6bc52971e"
+      }
+    },
+    "attached_ids_capture_requested": false,
+    "attached_ids_records_seen": false,
+    "binapi_control_capture_requested": true,
+    "binapi_control_records_seen": true,
+    "binapi_payload_snapshots_read": 2,
+    "channel_alloc_capture_requested": false,
+    "channel_alloc_records_seen": false,
+    "driver_library": {
+      "bytes": 96284520,
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+      "sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9"
+    },
+    "execution_scope": {
+      "guest_driver_changed": false,
+      "module_loaded": false,
+      "pci_binding_changed": false,
+      "vm_management_issued": false
+    },
+    "gpu_id_info_capture_requested": false,
+    "gpu_id_info_records_seen": false,
+    "guest": {
+      "driver_version": "580.178.04",
+      "hostname": "pc3-v100",
+      "kernel_release": "6.8.0-147-generic",
+      "memory_total_mib": "16384",
+      "memory_used_mib_before": "0",
+      "name": "Tesla V100-SXM2-16GB",
+      "pci": "0000:00:05.0",
+      "temperature_c_before": "50",
+      "utilization_percent_before": "0",
+      "uuid": "GPU-42d06a85-027a-75ea-7857-a8de27ad465e"
+    },
+    "guest_after": {
+      "memory_used_mib": "0",
+      "temperature_c": "50",
+      "utilization_percent": "0"
+    },
+    "guest_cleanup_passed": true,
+    "guest_hostkey_fingerprint": "SHA256:wqpBfvwVW7iYhOk7LWB8y438NOQHSgfcUgnOGaRK6ts",
+    "host": "pc3",
+    "host_kernel_release": "7.0.0-38-generic",
+    "ioctl_observation": {
+      "architecture": "x86_64",
+      "binapi_payload_snapshots_read": 2,
+      "child_exit_code": 0,
+      "control_path": "/dev/nvidiactl",
+      "errors": [],
+      "fd_identity_tracking": false,
+      "gpu_path": "/dev/nvidia0",
+      "nested_pointer_scope": "exact 992-byte top-level NV2081_BINAPI control payload for command 0x20810108; no contained pointer is followed; raw bytes, addresses, and handles omitted",
+      "nested_pointers_read": true,
+      "object_class_resolution_scope": "successful prior RM_ALLOC and RM_FREE packets observed on the explicitly selected control and GPU paths; keyed by root and handle; unresolved means no unique live object was observed",
+      "payload_scope": "RM_CONTROL headers plus exact 992-byte NV2081_BINAPI payload-shape metadata; contained pointers are never followed; raw bytes, addresses, and handles omitted",
+      "pointer_bits": 64,
+      "records": [
+        {
+          "entry": {
+            "binapiPayload": {
+              "changedByteCount": 0,
+              "changedByteMaskLsbFirst": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+              "entryExitPayloadEqual": null,
+              "nonzeroU32Count": 0,
+              "nonzeroU32MaskLsbFirst": "00000000000000000000000000000000000000000000000000000000000000",
+              "payloadBytes": 992,
+              "payloadValid": true
+            },
+            "client_matches_prior_root_allocation": true,
+            "client_object_equal": false,
+            "command": 545325320,
+            "flags": 0,
+            "hClientPresent": true,
+            "hObjectPresent": true,
+            "objectClass": {
+              "classId": 8321,
+              "resolution": "resolved"
+            },
+            "object_matches_prior_root_allocation": false,
+            "params_size": 992,
+            "status": 0
+          },
+          "exit": {
+            "binapiPayload": {
+              "changedByteCount": 0,
+              "changedByteMaskLsbFirst": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+              "entryExitPayloadEqual": true,
+              "nonzeroU32Count": 0,
+              "nonzeroU32MaskLsbFirst": "00000000000000000000000000000000000000000000000000000000000000",
+              "payloadBytes": 992,
+              "payloadValid": true
+            },
+            "client_matches_prior_root_allocation": true,
+            "client_object_equal": false,
+            "command": 545325320,
+            "flags": 0,
+            "hClientPresent": true,
+            "hObjectPresent": true,
+            "objectClass": {
+              "classId": 8321,
+              "resolution": "resolved"
+            },
+            "object_matches_prior_root_allocation": false,
+            "params_size": 992,
+            "status": 0
+          },
+          "fd": 8,
+          "fd_role": "control",
+          "operation": "binapi_control",
+          "packet_size": 32,
+          "request": 3223340586,
+          "syscall_return": 0,
+          "tid": 353895
+        }
+      ],
+      "schema": "nvidia-hybrid-rm-ioctl-observer-v18",
+      "snapshot_consistency": "per-task syscall stop; other threads may mutate shared packet memory",
+      "trace_complete": true
+    },
+    "managed_prefetch_requested": false,
+    "map_memory_capture_requested": false,
+    "map_memory_records_seen": false,
+    "memory_mode": "device",
+    "observer_exit_code": 0,
+    "p2p_alloc_capture_requested": false,
+    "p2p_alloc_records_seen": false,
+    "p2p_control_capture_requested": false,
+    "p2p_control_records_seen": false,
+    "payload_file_cleanup_passed": true,
+    "phase": "context",
+    "phase_capture_requested": true,
+    "probe": {
+      "cleanup_errors": [],
+      "cleanup_passed": true,
+      "completed_operations": [
+        "cuInit",
+        "cuDriverGetVersion",
+        "cuDeviceGetCount",
+        "cuDeviceGet",
+        "cuDeviceGetName",
+        "cuDeviceGetPCIBusId",
+        "cuDeviceGetAttribute.major",
+        "cuDeviceGetAttribute.minor",
+        "cuCtxCreate_v2",
+        "cuCtxSetCurrent",
+        "cuCtxGetDevice"
+      ],
+      "driver_api": 13000,
+      "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+      "error": "",
+      "expected_pci": "00000000:00:05.0",
+      "expected_result": null,
+      "numeric_result_passed": false,
+      "phase": "context",
+      "result_value": null,
+      "schema": "nvidia-cuda-driver-phase-v1",
+      "selected_device": {
+        "compute_capability": "7.0",
+        "name": "Tesla V100-SXM2-16GB",
+        "pci_bus_id": "0000:00:05.0",
+        "sm": 70
+      },
+      "status": "phase-passed"
+    },
+    "probe_exit_code": 0,
+    "probe_stderr": "",
+    "probe_stdout": "{\"schema\":\"nvidia-cuda-driver-phase-v1\",\"status\":\"phase-passed\",\"phase\":\"context\",\"expected_pci\":\"00000000:00:05.0\",\"driver_library_path\":\"/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04\",\"driver_api\":13000,\"selected_device\":{\"name\":\"Tesla V100-SXM2-16GB\",\"pci_bus_id\":\"0000:00:05.0\",\"sm\":70,\"compute_capability\":\"7.0\"},\"completed_operations\":[\"cuInit\",\"cuDriverGetVersion\",\"cuDeviceGetCount\",\"cuDeviceGet\",\"cuDeviceGetName\",\"cuDeviceGetPCIBusId\",\"cuDeviceGetAttribute.major\",\"cuDeviceGetAttribute.minor\",\"cuCtxCreate_v2\",\"cuCtxSetCurrent\",\"cuCtxGetDevice\"],\"numeric_result_passed\":false,\"result_value\":null,\"expected_result\":null,\"cleanup_passed\":true,\"cleanup_errors\":[],\"error\":\"\"}\n",
+    "probed_ids_capture_requested": false,
+    "probed_ids_records_seen": false,
+    "qualification": "v100-cuda-phase-validated",
+    "rm_control_capture_requested": true,
+    "rm_control_records_seen": true,
+    "rusd_alloc_capture_requested": false,
+    "rusd_alloc_records_seen": false,
+    "schema": "nvidia-hybrid-pc3-v100-guest-reference-v1"
+  },
+  "remote_script_sha256": "c445853e6ba5938aa45b7552a42fe9b8917ee8c6246cd9f521101c86b3e1a426",
+  "rm_control_capture_requested": true,
+  "runner_source": {
+    "bytes": 119940,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/run_pc3_v100_guest_reference.py",
+    "sha256": "3b2f131e8dcb3712617917cad12c34b3528688d815dfcc6379e99c6e89d5d9ad"
+  },
+  "rusd_alloc_capture_requested": false,
+  "schema": "nvidia-hybrid-pc3-v100-reference-transport-v1",
+  "target": "pc3@pc3"
+}

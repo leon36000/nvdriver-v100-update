@@ -1,0 +1,26 @@
+{
+  "classification_scope": "Fixed transport and sudo result only; no raw diagnostics, credentials, or machine paths.",
+  "observed_at_utc": "2026-11-03T09:39:49+00:00",
+  "pc3_host": {
+    "failure_class": "sudo_interactive_auth_required",
+    "ssh_public_key_authentication_passed": true,
+    "sudo_exit_code": 1,
+    "sudo_noninteractive_passed": false
+  },
+  "private_report_sha256": "fd28c84af8ee0947347dfa123669d17b7a140db1c8c743bf14c5cc91e1f49409",
+  "runner_sha256": "d0028ad31c74cf43198ffbecd10be0df8d2dd04e890202d07386a2f946da7574",
+  "schema": "nvidia-hybrid-pc3-v100-direct-access-preflight-v2",
+  "v100_guest": {
+    "cuda_execution_validated": false,
+    "guest_command_executed": false,
+    "inventory_observed": false,
+    "payload_uploaded": false
+  },
+  "validation": {
+    "credential_value_logged": false,
+    "credential_value_persisted": false,
+    "driver_or_module_changed": false,
+    "same_process_sm70_sm120_validated": false,
+    "vm_or_pci_state_changed": false
+  }
+}

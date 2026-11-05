@@ -1,0 +1,31 @@
+{
+  "caller_chain_capture_requested": false,
+  "credential_value_logged": false,
+  "credential_value_persisted": false,
+  "error": "pinned helper hash mismatch for run_pc3_v100_guest_reference.py: ed8398e8a62eaddc9d2953ab49687f0fed58cca374543ebf5f84237a09e60684",
+  "error_class": "RuntimeError",
+  "execution_scope": {
+    "firmware_changed": false,
+    "gpu_reset_requested": false,
+    "pci_binding_changed": false,
+    "system_module_loaded_or_changed": false
+  },
+  "gpu_name_caller_trace_requested": true,
+  "interposer_source_sha256": "87f5420543052fe7122052d076f174455c2f69f8ed0481b10e0f809f35e745d0",
+  "masks": [
+    9,
+    8,
+    1,
+    0
+  ],
+  "observed_at_utc": "2026-10-28T10:10:30+00:00",
+  "runner_sha256": "a410dc265bb79f4c67f1e8a1c99cdc0f9c6f6cbb53e724794f1872eb781e3131",
+  "schema": "nvidia-hybrid-v100-system-features-sensitivity-v1",
+  "status": "failed",
+  "target": "pc3@pc3",
+  "transport_helpers": {
+    "reference_runner_sha256": "ff4572c4cc1feea88526de12a57404f5707c248d436b492cade025d157a8e79e",
+    "trace_audit_sha256": "fa486b2c0c5d818bde34de5e29b61bfe5579ecb8f01e792613df2245fdd540bf"
+  },
+  "workload": "enumeration"
+}

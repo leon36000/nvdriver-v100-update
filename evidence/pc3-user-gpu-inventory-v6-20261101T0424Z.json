@@ -1,0 +1,167 @@
+{
+  "host": {
+    "commands": {
+      "compute_processes": {
+        "argv": [
+          "nvidia-smi",
+          "--query-compute-apps=pid,process_name,gpu_uuid",
+          "--format=csv,noheader"
+        ],
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "",
+        "stdout_truncated": false
+      },
+      "gpu_list": {
+        "argv": [
+          "nvidia-smi",
+          "-L"
+        ],
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "GPU 0: NVIDIA GeForce RTX 5080 (UUID: GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77)\n",
+        "stdout_truncated": false
+      },
+      "gpu_query": {
+        "argv": [
+          "nvidia-smi",
+          "--query-gpu=index,name,uuid,pci.bus_id,driver_version,memory.total,compute_cap",
+          "--format=csv,noheader"
+        ],
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "0, NVIDIA GeForce RTX 5080, GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77, 00000000:02:00.0, 595.99.02, 16303 MiB, 12.0\n",
+        "stdout_truncated": false
+      },
+      "gpu_status_and_all_visible_processes": {
+        "argv": [
+          "nvidia-smi"
+        ],
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Sun Nov  1 04:24:10 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 595.99.02              Driver Version: 595.99.02      CUDA Version: 13.2     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA GeForce RTX 5080        Off |   00000000:02:00.0 Off |                  N/A |\n|  0%   31C    P8              8W /  360W |       2MiB /  16303MiB |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|  No running processes found                                                             |\n+-----------------------------------------------------------------------------------------+\n",
+        "stdout_truncated": false
+      },
+      "pci_nvidia": {
+        "argv": [
+          "lspci",
+          "-Dnnk",
+          "-d",
+          "10de:"
+        ],
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "0000:02:00.0 VGA compatible controller [0300]: NVIDIA Corporation GB203 [GeForce RTX 5080] [10de:2c02] (rev a1)\n\tSubsystem: ASUSTeK Computer Inc. Device [1043:89e1]\n\tKernel driver in use: nvidia\n\tKernel modules: nvidiafb, nouveau, nvidia_drm, nvidia\n0000:02:00.1 Audio device [0403]: NVIDIA Corporation GB203 High Definition Audio Controller [10de:22e9] (rev a1)\n\tSubsystem: NVIDIA Corporation Device [10de:0000]\n\tKernel driver in use: snd_hda_intel\n\tKernel modules: snd_hda_intel\n0000:81:00.0 3D controller [0302]: NVIDIA Corporation GV100GL [Tesla V100 SXM2 16GB] [10de:1db1] (rev a1)\n\tSubsystem: NVIDIA Corporation Device [10de:1212]\n\tKernel driver in use: vfio-pci\n\tKernel modules: nvidiafb, nouveau, nvidia_drm, nvidia\n",
+        "stdout_truncated": false
+      },
+      "topology": {
+        "argv": [
+          "nvidia-smi",
+          "topo",
+          "-m"
+        ],
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "\t\u001b[4mGPU0\tCPU Affinity\tNUMA Affinity\tGPU NUMA ID\u001b[0m\nGPU0\t X \t0-19\t0\t\tN/A\n\nLegend:\n\n  X    = Self\n  SYS  = Connection traversing PCIe as well as the SMP interconnect between NUMA nodes (e.g., QPI/UPI)\n  NODE = Connection traversing PCIe as well as the interconnect between PCIe Host Bridges within a NUMA node\n  PHB  = Connection traversing PCIe as well as a PCIe Host Bridge (typically the CPU)\n  PXB  = Connection traversing multiple PCIe bridges (without traversing the PCIe Host Bridge)\n  PIX  = Connection traversing at most a single PCIe bridge\n  NV#  = Connection traversing a bonded set of # NVLinks\n",
+        "stdout_truncated": false
+      },
+      "v100_guest_dns": {
+        "argv": [
+          "getent",
+          "hosts",
+          "pc3-v100"
+        ],
+        "exit_code": 2,
+        "stderr": "",
+        "stdout": "",
+        "stdout_truncated": false
+      },
+      "v100_vm_libvirt_list": {
+        "argv": [
+          "virsh",
+          "list",
+          "--all"
+        ],
+        "error": "FileNotFoundError"
+      },
+      "v100_vm_service": {
+        "argv": [
+          "systemctl",
+          "show",
+          "pc3-v100-qemu.service",
+          "--property=ActiveState,SubState,MainPID",
+          "--no-pager"
+        ],
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "ActiveState=active\nSubState=running\nMainPID=2074\n",
+        "stdout_truncated": false
+      }
+    },
+    "hostname": "pc3",
+    "kernel_release": "7.0.0-38-generic",
+    "loaded_nvidia_modules": [
+      [
+        "nvidia_drm",
+        "147456",
+        "0",
+        "-",
+        "Live",
+        "0x0000000000000000"
+      ],
+      [
+        "nvidia_uvm",
+        "2088960",
+        "8",
+        "-",
+        "Live",
+        "0x0000000000000000"
+      ],
+      [
+        "nvidia_modeset",
+        "1748992",
+        "1",
+        "nvidia_drm,",
+        "Live",
+        "0x0000000000000000"
+      ],
+      [
+        "nvidia",
+        "14823424",
+        "22",
+        "nvidia_uvm,nvidia_modeset,",
+        "Live",
+        "0x0000000000000000"
+      ]
+    ],
+    "os_release": "PRETTY_NAME=\"Ubuntu 26.04.1 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"26.04\"\nVERSION=\"26.04.1 LTS (Resolute Raccoon)\"\nVERSION_CODENAME=resolute\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=resolute\nLOGO=ubuntu-logo\n",
+    "qemu_process_names": [
+      {
+        "comm": "qemu-system-x86",
+        "pid": 2074
+      }
+    ],
+    "schema": "pc3-user-gpu-inventory-payload-v1",
+    "uid": 1000,
+    "username": "pc3"
+  },
+  "observed_at_utc": "2026-11-01T04:24:10.526601+00:00",
+  "qualification": "unprivileged-read-only-pc3-inventory",
+  "schema": "pc3-user-gpu-inventory-v1",
+  "scope": {
+    "driver_installed_or_loaded": false,
+    "read_only": true,
+    "runtime_or_hardware_workload_tested": false,
+    "sudo_only_state_not_visible": true
+  },
+  "transport": {
+    "host_key_alias": "pc3",
+    "host_key_verified_against_pinned_known_hosts": true,
+    "identity_file_basename": "gitspace_pc3_20261009",
+    "local_tool_sha256": "0fb520239ade587e98da89bfa344301014c8153c7061fcc8a53bd6feb3a9daf0",
+    "mode": "pc3-direct-key-only",
+    "remote_script_sha256": "423ece3a39939a9f119f35dd4e4fd3c6230d1cb81513f262dffe6138fdc66ec5",
+    "sudo_used": false,
+    "target": "pc3@pc3"
+  }
+}

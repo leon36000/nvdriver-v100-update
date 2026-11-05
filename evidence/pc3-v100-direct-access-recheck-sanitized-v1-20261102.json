@@ -1,0 +1,25 @@
+{
+  "classification_scope": "fixed SSH diagnostic category; raw stderr remains in a mode-0600 local log",
+  "observed_at_utc": "2026-11-02T23:39:10+00:00",
+  "runner_sha256": "79ba3e3570d45de4ea79a2cc04289382576e4e35e1e6deba2b7ba33835132e75",
+  "schema": "nvidia-hybrid-pc3-v100-guest-access-recheck-v1",
+  "transport": {
+    "cleanup_attempted": true,
+    "cleanup_passed": false,
+    "failure_class": "ssh_public_key_auth_denied",
+    "payload_uploaded": false,
+    "remote_payload_created": false,
+    "route": "PC3 direct SSH, public-key-only, strict host-key checking",
+    "ssh_exit_code": 255,
+    "stage": "payload upload preflight",
+    "stderr_sha256": "c975643ec88d17039cec137da52d867cfd4abecc3988e94df68203aa5db7342c"
+  },
+  "validation": {
+    "credential_value_logged": false,
+    "credential_value_persisted": false,
+    "cuda_execution_validated": false,
+    "device_inventory_observed": false,
+    "driver_or_vm_modified": false,
+    "v100_guest_reached": false
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "credential_file": "/home/pc6/Desktop/ACCES-BANC-GPU.env",
+  "credential_host": "gx10-e526",
+  "error": "guest identity, probe scope, or cleanup failed",
+  "error_class": "ValueError",
+  "event_group": "codex_v100_elf_probe_055272f5cd9f",
+  "failure_stage": "execution_or_validation",
+  "finished_utc": "2026-10-22T06:01:21+00:00",
+  "host_key_alias": "pc3",
+  "kprobe_attached": false,
+  "operation_scope": "exact ELF section-base-derived absolute address; temporary disabled kprobes only",
+  "pc3_ssh_returncode": 0,
+  "pci_binding_changed": false,
+  "probe_source_sha256": "19e39f78e128dfcab8ca48af58cbb7d05899b7074eae4107097de46aa3ada4cc",
+  "read_only": false,
+  "remote": {
+    "experimental_module_loaded": false,
+    "guest": {
+      "effective_uid": 0,
+      "error_class": "RuntimeError",
+      "event_group": "codex_v100_elf_probe_055272f5cd9f",
+      "gpus": [
+        {
+          "driver_version": "580.178.04",
+          "name": "Tesla V100-SXM2-16GB",
+          "pci": "00000000:00:05.0"
+        }
+      ],
+      "hostname": "pc3-v100",
+      "kernel_release": "6.8.0-147-generic",
+      "kprobe_attached": false,
+      "pci_binding_changed": false,
+      "schema": "nvidia-hybrid-pc3-v100-elf-kprobe-address-v1",
+      "status": "preflight_failed",
+      "stock_driver_changed": false
+    },
+    "guest_transport": {
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 445,
+      "stdout_sha256": "661d51a421c68a3de5205cf63a14df965ec95a453367f7e7d45d7bf03e5584a7"
+    },
+    "host": {
+      "guest_host_key_verified": true,
+      "hostname": "pc3",
+      "kernel_release": "7.0.0-38-generic",
+      "sudo_identity_verified": true
+    },
+    "kprobe_attached": false,
+    "pci_binding_changed": false,
+    "read_only": false,
+    "schema": "nvidia-hybrid-pc3-v100-trace-capability-v1",
+    "status": "observed",
+    "stock_driver_changed": false,
+    "trace_event_definition_write_attempted": true,
+    "vm_management_issued": false
+  },
+  "remote_stderr_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+  "remote_stdout_bytes": 1118,
+  "remote_stdout_sha256": "b351e2cfc11f8674334083f0ca0b64b39f96a952a52695dd01ae807cfc8dc667",
+  "schema": "nvidia-hybrid-pc3-v100-elf-kprobe-address-transport-v1",
+  "started_utc": "2026-10-22T06:01:18+00:00",
+  "status": "failed",
+  "stock_driver_changed": false,
+  "target": "pc3@pc3",
+  "trace_event_definition_write_attempted": true,
+  "transport_helper_sha256": "cc721874f86406260575d425ea292847dcb2af10b19aec8b6ce4127dea251901"
+}

@@ -1,0 +1,33 @@
+{
+  "classification_scope": "Fixed failure classes and public host-key pin only; no raw stderr, credentials, or local paths.",
+  "observed_at_utc": "2026-11-03T00:07:49+00:00",
+  "pc3_host": {
+    "driver": "595.99.02",
+    "failure_class": "sudo_interactive_auth_required",
+    "kernel": "7.0.0-38-generic",
+    "os": "Ubuntu 26.04",
+    "ssh_public_key_authentication_passed": true,
+    "stderr_sha256": "22ec28b719ddc7acd09a592c9aea4f348617380367a144e71fc120cc9bbb4f37",
+    "sudo_exit_code": 1,
+    "sudo_noninteractive_passed": false,
+    "visible_gpu": "NVIDIA GeForce RTX 5080",
+    "visible_gpu_pci": "00000000:02:00.0"
+  },
+  "raw_report_sha256": "a5542259b1771c0efe8d16877fc93017d22d05c3b079f845140a9c3916572712",
+  "runner_sha256": "d0028ad31c74cf43198ffbecd10be0df8d2dd04e890202d07386a2f946da7574",
+  "schema": "nvidia-hybrid-pc3-v100-direct-access-preflight-v1",
+  "v100_guest": {
+    "guest_command_executed": false,
+    "guest_host_key_fingerprint": "SHA256:wqpBfvwVW7iYhOk7LWB8y438NOQHSgfcUgnOGaRK6ts",
+    "guest_host_key_matches_project_pin": true,
+    "guest_user_authentication_failure_class": "ssh_public_key_auth_denied",
+    "ssh_port_22223_listening_on_loopback": true,
+    "v100_inventory_observed": false
+  },
+  "validation": {
+    "cuda_execution_validated": false,
+    "payload_uploaded": false,
+    "same_process_sm70_sm120_validated": false,
+    "vm_or_driver_modified": false
+  }
+}

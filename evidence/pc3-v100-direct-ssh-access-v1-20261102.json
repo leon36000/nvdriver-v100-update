@@ -1,0 +1,16 @@
+{
+  "guest_authentication": "publickey-denied",
+  "guest_command_executed": false,
+  "guest_cuda_executed": false,
+  "guest_endpoint": "PC3 loopback SSH forwarding port",
+  "guest_host_key_matches_project_pin": true,
+  "observed_at_utc": "2026-11-02T15:56:44.437509+00:00",
+  "pc3_transport": "pinned-host-key-verified",
+  "qualification": "guest-host-key-pinned-but-user-key-denied",
+  "schema": "pc3-v100-direct-ssh-access-v1",
+  "scope": "one host-key scan and one batch-mode authentication attempt through a temporary PC3-only local tunnel; no credential or key material retained",
+  "source_inventory_sha256": "2cb4907e913df975713d8076c24ac0c149e90e47b1bed6fabae09d1ee2353e44",
+  "sudo_required_by_existing_reference_runner": "noninteractive sudo authentication unavailable",
+  "tunnel_closed_and_local_listener_absent": true,
+  "vm_driver_or_pci_state_changed": false
+}
