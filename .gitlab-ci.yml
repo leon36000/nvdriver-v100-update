@@ -59,7 +59,9 @@ gitguardian-secret-history:
 sonarqube-analysis:
   stage: quality
   when: always
-  dependencies: []
+  needs:
+    - job: sonarqube-runner-network-preflight
+      artifacts: true
   image:
     name: sonarsource/sonar-scanner-cli:11.2.1.1844_7.0.2
     entrypoint: [""]
@@ -69,7 +71,11 @@ sonarqube-analysis:
     - test -n "$SONAR_HOST_URL"
     - test -n "$SONAR_TOKEN"
     - >-
-      sonar-scanner
+      node tools/run_sonar_scanner_with_hosts_override.mjs
+      --preflight sonar-runner-preflight.json
+      --endpoint "$SONAR_HOST_URL"
+      --fallback-ip "${SONAR_HOST_IP:-}"
+      --
       -Dsonar.projectKey=nvdriver-v100-update
       -Dsonar.projectName=NVIDIA_V100_Blackwell_Hybrid_Driver
       -Dsonar.sources=src,kernels,probes,tools
@@ -82,6 +88,22 @@ sonarqube-analysis:
       when: never
     - if: '$CI_PIPELINE_SOURCE == "push" && $SONAR_HOST_URL && $SONAR_TOKEN'
   allow_failure: true
+
+sonarqube-launcher-regression:
+  stage: quality
+  when: always
+  dependencies: []
+  image:
+    name: sonarsource/sonar-scanner-cli:11.2.1.1844_7.0.2
+    entrypoint: [""]
+  script:
+    - node --version
+    - node --test tests/test_sonar_scanner_hosts_override.mjs
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_OPEN_MERGE_REQUESTS'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "push"'
 
 sonarqube-runner-network-preflight:
   stage: preflight

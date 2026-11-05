@@ -1,0 +1,50 @@
+{
+  "authority": "shipped-artifact",
+  "confidence": "observed",
+  "coverage": "symbol_search_only",
+  "evidence_id": "ev_ac1f6658e47df0434ce0ae3f96f23c76b1a28bff3795368efbbb807c3a502fda",
+  "input": {
+    "architecture": "x86_64",
+    "artifact": "project-built R595.112.07 nvidia-uvm.ko",
+    "format": "ELF64",
+    "sha256": "9f0275643bd38b588d56906cc7ca946f30bc77bd1b6a876f9b45645d7b55ad0c"
+  },
+  "limitations": [
+    "No function body, call edges, pseudocode, IOCTL dispatch table, or runtime behavior was analyzed.",
+    "Symbol presence does not establish which caller reaches the function or what it does.",
+    "No source was reconstructed from this result."
+  ],
+  "observations": [
+    {
+      "address": "0x108b20",
+      "dynamic": false,
+      "external": false,
+      "name": "__pfx_uvm_ioctl",
+      "source": "imported symbol table",
+      "type": "function"
+    },
+    {
+      "address": "0x108b30",
+      "dynamic": false,
+      "external": false,
+      "name": "uvm_ioctl",
+      "source": "imported symbol table",
+      "type": "function"
+    }
+  ],
+  "provider": {
+    "name": "Ghidra",
+    "version": "12.1.4"
+  },
+  "query": {
+    "case_sensitive": true,
+    "mode": "literal",
+    "operation": "search_procedures",
+    "pattern": "uvm_ioctl"
+  },
+  "schema": "nvidia-hybrid-ghidra-symbol-search-v1",
+  "tool": {
+    "name": "Reverse Engineering Anything",
+    "version": "6.8.0"
+  }
+}

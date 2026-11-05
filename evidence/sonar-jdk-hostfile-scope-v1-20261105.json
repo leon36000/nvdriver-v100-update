@@ -1,0 +1,27 @@
+{
+  "conclusion": "In this JVM, supplying jdk.net.hosts.file replaced normal DNS resolution for names not present in the custom file. The workaround is suitable only if SonarScanner needs no additional DNS-only hostname during analysis.",
+  "environment": {
+    "os": "Linux",
+    "runtime": "OpenJDK 25.0.4.1"
+  },
+  "limitations": [
+    "Observed on the local OpenJDK 25 runtime, not yet on the pinned SonarScanner image running Java 17.",
+    "The example.com lookup is a point-in-time resolver check and does not guarantee all network behavior.",
+    "This is a local JVM behavior receipt, not a GitLab runner or Sonar analysis result."
+  ],
+  "observation": "observed",
+  "results": {
+    "dns_only_name_with_override": "UnknownHostException",
+    "dns_only_name_without_override": "resolved",
+    "synthetic_name_with_override": "resolved_to_synthetic_entry"
+  },
+  "schema": "nvidia-hybrid-sonar-jdk-hostfile-scope-v1",
+  "test": {
+    "dns_only_name": "example.com",
+    "resolver_property": "jdk.net.hosts.file",
+    "synthetic_hosts_entry": {
+      "address": "192.0.2.77",
+      "name": "resolver-fixture.invalid"
+    }
+  }
+}
