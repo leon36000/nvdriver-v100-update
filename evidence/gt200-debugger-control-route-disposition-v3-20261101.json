@@ -1,0 +1,85 @@
+{
+  "schema": "nvidia-gt200-debugger-control-route-disposition-v3",
+  "created_utc": "2026-11-01T12:18:48Z",
+  "decision": {
+    "selected_r580_behavior": "keep the ordinary NV04_CONTROL exception-mask bridge in the default R580 patch series",
+    "experimental_alternative": "retain the fail-closed guard only as an isolated compiled experiment",
+    "rationale": "The source-only null-object composition does not establish runtime failure. A prior R580 V100 capture reports RM status 0 for public command 0x83DE0309, but does not resolve the target class. A separate R595 RTX 5080 capture resolves GT200_DEBUGGER and reports status 0. The guarded route would deliberately replace the RM result with NV_ERR_NOT_SUPPORTED, so it is not selected without a discriminating Volta observation."
+  },
+  "observations": {
+    "r580_v100": {
+      "evidence": "evidence/gt200-debugger-r580-r595-runtime-route-reconciliation-v2-20261101.json",
+      "driver": "580.178.04",
+      "gpu": "Tesla V100 / SM70",
+      "public_control": "0x83DE0309",
+      "syscall_return": 0,
+      "rm_entry_status": 0,
+      "rm_exit_status": 0,
+      "client_matched_prior_root_allocation": true,
+      "hObject_nonzero": true,
+      "debugger_class_resolved": false,
+      "interpretation": "successful public control was observed, but the target class is unresolved"
+    },
+    "r595_blackwell": {
+      "evidence": "evidence/pc3-rtx5080-gt200-debugger-lifecycle-v2-20261101T1106Z.json",
+      "gpu": "GeForce RTX 5080 / SM120",
+      "public_control": "0x83DE0309",
+      "resolved_class": "GT200_DEBUGGER",
+      "syscall_return": 0,
+      "rm_exit_status": 0,
+      "interpretation": "stock Blackwell control path succeeds; does not validate the hybrid provider or identify the Volta route"
+    }
+  },
+  "implementation": {
+    "default_patch_count": 48,
+    "default_patch_manifest_sha256": "fe87e5bffc0bcd91b382ef72ef9194416d6f82ac436d113a23d27ba7c2e716fd",
+    "default_exact_provider_build": "evidence/r58019607-debugger-bridge-provider-build-v3-20261101.json",
+    "default_exact_provider_build_sha256": "76e15357a700734df8d60c0c4186aae09d1876fb7983d698b8632261dc4321a1",
+    "default_module_sha256": "f38e9bf452d4d28c6ac1281eaa5095523daf231a129721db2176a4e8fa2ee02f",
+    "experimental_guard_patch": "patches/r580.178.04/proprietary/0049-private-legacy-debugger-mask-fail-closed.patch",
+    "experimental_guard_patch_sha256": "6f1d50df5944feea40a00916bd06f9f8f1ff007f35c992852e126efcbd4833a4",
+    "experimental_source_port_report": "evidence/r58019607-debugger-bridge-source-port-v3-20261101.json",
+    "experimental_source_port_report_sha256": "0735f6c9ba57894392708c1b8e5d7fb0e125067494e2d96068cd403eaddfe28f",
+    "experimental_patches_applied": 49,
+    "experimental_exact_provider_build": "evidence/r58019607-debugger-bridge-provider-build-v2-20261101.json",
+    "experimental_exact_provider_build_sha256": "b78e9fd1de2f79fd5ea1e39c0c5d9750eebdc8bd6749d359c232141cc28bcca3",
+    "experimental_module_sha256": "74a540927b85bd721d9e553e84deca858b4700635be306770bc74ed2835724d0",
+    "experimental_guard_effect": "returns NV_OK transport with control_status=NV_ERR_NOT_SUPPORTED and does not issue NV04_CONTROL"
+  },
+  "integrated_frontend": {
+    "report": "evidence/r595-r580-debugger-hybrid-frontend-v4-20261101.json",
+    "report_sha256": "c93680de59e7e3375b7d8b4aa8be09530908bbaf12588006cbc9506802f27462",
+    "module_sha256": "9353f69fab5152b91c82d86b9e5390ac8314a7b2f3686c62640b6cc34b62a174",
+    "unresolved_imports": [],
+    "backend_import_crc_validation": "verified",
+    "inputs_unchanged": true,
+    "loaded_or_installed": false,
+    "gpu_accessed": false,
+    "real_rm_executed": false,
+    "cuda_compatibility_established": false
+  },
+  "software_validation": {
+    "report": "evidence/software-verification-debugger-guard-reconciliation-v2-20261101.json",
+    "report_sha256": "e60ea86b7cfb685b8bd0da32fee1d9aab9a539e826a0ef0cd31430f0b74e90b9",
+    "log": "evidence/logs/software-verification-debugger-guard-reconciliation-v2-20261101.log",
+    "log_sha256": "810cd3186456075676b4d70bd7904169997346c135d855aa6e4dce29fcbddf07",
+    "tests_passed": 2430,
+    "tests_failed": 0,
+    "duration_seconds": 171.277,
+    "qualification": "software-suite-only",
+    "hardware_or_runtime_validated": false
+  },
+  "scope": {
+    "pc3_contacted_this_increment": false,
+    "other_pcs_contacted": false,
+    "candidate_module_installed_or_loaded": false,
+    "driver_vm_pci_firmware_or_boot_changed": false,
+    "proprietary_core_modified": false,
+    "proprietary_binary_reverse_engineered_or_redistributed": false
+  },
+  "next_discriminating_experiment": {
+    "action": "On an explicitly available PC3 window with an authorized V100 guest route, repeat stock R580 context capture and resolve public 0x83DE0309 to the same-root allocation class using redacted class, owner, and RM status only.",
+    "decision_rule": "If it is GT200_DEBUGGER and succeeds, retain the normal route and investigate the R580 runtime dispatch. If it is another class, inspect only that class/control relation. If the normal hybrid provider then fails on a permitted canary, compare an isolated guarded build only after proving the specific context impact.",
+    "safety": "stock reference first; no experimental module installation or loading in this step"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "command": "python3 -B -m unittest tests.test_rm_handle_registry tests.test_rm_ioctl_observer tests.test_gt200_debugger_alloc_contract tests.test_remote_selected_gpu tests.test_acceptance_contract tests.test_audit_gt200_debugger_alloc_static",
+  "duration_seconds": 7.113,
+  "errors": 0,
+  "exit_code": 0,
+  "failures": 0,
+  "log": {
+    "bytes": 50150,
+    "mode": "0600",
+    "path": "evidence/logs/gt200-debugger-parent-class-tests-v3-20261101T032643Z.log",
+    "sha256": "8c213c4e3d8e74a3d03954c5c5f6d8a05b990bbb3536bae90283512438a23170"
+  },
+  "qualification": "focused-tests-passed",
+  "run_at_utc": "20261101T032643Z",
+  "schema": "nvidia-hybrid-focused-test-receipt-v1",
+  "scope": "CPU unit, remote runner contract, and pinned-source static-audit tests only",
+  "source_sha256": {
+    "src/rm_handle_registry.h": "ae96a612fb5115fb4e7be4368eaee5e8058d81d5ff687b799f5f10aaad3d1321",
+    "src/rm_ioctl_observer.c": "ce1c4e355d74a139161a80efe491ba0904b8a35d085ce63cc2f08d79759f908b",
+    "tests/fixtures/rm_handle_registry_test.c": "05ce9c84a16898aebe585e77f2dd3d76325af329c17447d631580f27702ec350",
+    "tests/run_hybrid_acceptance.py": "941860f06b8108858c45ac1d46314c1531fb3330ed773b8722732bce5da18770",
+    "tests/test_audit_gt200_debugger_alloc_static.py": "5f00dde247e9d213e8cf2287c09fdd90408f5c58a9ea08292f32e2a9f1d845b1",
+    "tests/test_gt200_debugger_alloc_contract.py": "86707ebd6ecbdb8627e13e5fc2831886b1a928a57d317599ce166db257e748cd",
+    "tests/test_remote_selected_gpu.py": "97fe9f49a22ad3c111b5aaf91b59d9421dff70585292d69956cc3d77ca665ad0",
+    "tests/test_rm_handle_registry.py": "d515771835a7d68964b2db8037692618e4899c19d1e86e73c33fb25b150df534",
+    "tests/test_rm_ioctl_observer.py": "165378553822a8efb12f7de018dbaee71e784d014c33d84b7de7fbe1e57ac4ce",
+    "tools/audit_gt200_debugger_alloc_static.py": "f0fe4732b8ea986aeda6091b25999970c6ad7c2bba6d37b5c35776d6ba597eca",
+    "tools/run_remote_selected_gpu.py": "5280a6930a26764a7b0b84c05d8da272e717c2526ad59c99ba54fc94affa9988"
+  },
+  "static_audit": {
+    "path": "evidence/gt200-debugger-alloc-static-v6-20261101T032643Z.json",
+    "qualification": "static-binary-and-open-source-correlation-only",
+    "sha256": "140be00bdb3351796335110b7205d5b9c4f7f82546b45a3c6576db223761832c"
+  },
+  "tests_passed": 210
+}

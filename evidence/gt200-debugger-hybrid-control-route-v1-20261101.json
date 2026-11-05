@@ -1,0 +1,67 @@
+{
+  "evidence": {
+    "frontend_source": {
+      "path": "src/hybrid_frontend.c",
+      "sha256": "fbd58920739764d0be486185b701ba3828f88f92cf7b3444cbe2e310001d92c0"
+    },
+    "providers": {
+      "R580.196.07": {
+        "bridge_source": "build/experiments/r58019607-debugger-bridge-provider-build-v1-20261101/source/nvidia/nv.c",
+        "bridge_source_sha256": "6886fff8eed6d5869b3240860e61a1d9fddec8a9a77055a52ed71ebaebe13c11",
+        "build_report": "evidence/r58019607-debugger-bridge-provider-build-v1-20261101.json",
+        "build_report_sha256": "fde1bd894e4ad085105b809cc745455db742b722cdfd643c74d8fa3fdf4aba91",
+        "module": "build/experiments/r58019607-debugger-bridge-provider-build-v1-20261101/source/hybrid580_legacy.ko",
+        "module_sha256": "1081ffe6b9cc826a770d2ed8a8ab9cba8e0adca4c44df85522f14f414a49fc70",
+        "upstream_source_archive_sha256": "21914a460f17190c43cffb75f0c35aef957e267bfefea267bc18638beae17084"
+      },
+      "R595.99.02": {
+        "bridge_source": "build/experiments/r595-debugger-bridge-provider-build-v4-20261101/source/kernel-open/nvidia/nv.c",
+        "bridge_source_sha256": "f7ef137ac93e2afed2efb3a44348dba97436d496d67f65216d9c84ec6f331de5",
+        "build_report": "evidence/r595-debugger-bridge-provider-build-v4-20261101.json",
+        "build_report_sha256": "63d8e30b652186c9736f6bccb1ce6518f3a87ceae945f5b2a5a33778cfc4f5ac",
+        "module": "build/experiments/r595-debugger-bridge-provider-build-v4-20261101/source/kernel-open/hybrid580_open.ko",
+        "module_sha256": "67052f19d331f10f463f8b04dc8746819fbc4040487009fa7a079c97cd2d4d05",
+        "upstream_source_archive_sha256": "b8891cb617683e28ef1e4c3add8dbc30e648b8cd6429a3d521f20dde44633262"
+      }
+    },
+    "regression_file": {
+      "path": "tests/test_gt200_debugger_dispatch_source.py",
+      "sha256": "669ffddbbbd7a6e7629cd874a022ccddc15e4dd20877d32050c79ce49b44c22d"
+    },
+    "regression_report": {
+      "log": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/hybrid-bundle-r595-uvm-regressions-v2-20261101T1016Z.log",
+        "sha256": "7a6e65be681ed6bafc216998056645f64effcc87ce0311b5bda4067aa75572a4"
+      },
+      "path": "evidence/hybrid-bundle-r595-uvm-regressions-v2-20261101T1016Z.json",
+      "sha256": "a643b1bb32441e76be075beb0e67b4939ebfcd5ab9cf908c5dd0f29e972614a0",
+      "status": "passed",
+      "tests_run": 93
+    }
+  },
+  "inference": "The current bridge path is predicted to fail with NV_ERR_OBJECT_NOT_FOUND for the internal null object handle unless an uninspected runtime path changes the observed dispatch. This is a source-derived prediction, not a hardware observation.",
+  "next_experiment": "Determine whether either provider can issue the equivalent operation with a valid provider-owned internal client/subdevice context through an existing supported RM API, without modifying or reverse-engineering the proprietary RM core. If no such interface exists, keep this control unsupported and test whether CUDA context creation actually requires it on a permitted canary.",
+  "observations": [
+    "The frontend routes the fixed exception-mask control to the selected provider bridge.",
+    "Both provider bridges submit NV04_CONTROL with the backend root client and allocated debugger object handle.",
+    "Pinned R580.196.07 and R595.99.02 RM source maps the public control to an internal debugger control and forwards it through the physical RM API with NV01_NULL_OBJECT.",
+    "The physical RM callback's fallback enters serverControl, which resolves hObject through the client's resource map before class dispatch.",
+    "The pinned RM resource-server code gives clients a nonzero handle base, registers the client proxy at its nonzero client handle, and generates nonzero resource handles when an allocation requests zero; the resource map lookup of zero therefore has no observed source path that can succeed."
+  ],
+  "observed_at_utc": "2026-11-01T10:17:46.004803+00:00",
+  "qualification_boundary": {
+    "analyzed_statically": true,
+    "compiled_new_fix": false,
+    "cuda_execution_validated": false,
+    "gpu_accessed": false,
+    "implemented_fix": false,
+    "module_installed": false,
+    "module_loaded": false,
+    "runtime_or_hardware_validated": false,
+    "tested_on_hardware": false
+  },
+  "result": "hypothesis_expected_NV_ERR_OBJECT_NOT_FOUND",
+  "schema": "nvidia-gt200-debugger-hybrid-control-route-audit-v1",
+  "scope": "GT200_DEBUGGER DEBUG_SET_EXCEPTION_MASK control through the R595 frontend and R595/R580 providers",
+  "status": "analyzed_statically"
+}

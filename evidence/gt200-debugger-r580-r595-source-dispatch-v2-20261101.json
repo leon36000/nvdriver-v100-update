@@ -1,0 +1,94 @@
+{
+  "schema": "gt200-debugger-r580-r595-source-dispatch-v2",
+  "observed_at_utc": "2026-11-01T06:56:49Z",
+  "qualification": "pinned-source-static-comparison",
+  "source_files": {
+    "R580.178.04": {
+      "public_header": {
+        "path": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/ctrl/ctrl83de/ctrl83dedebug.h",
+        "sha256": "716ea7c8ef9f92bad00b69ce87da79e8fc655b771a6a9922824562739ab16d19",
+        "bytes": 48449
+      },
+      "method_table": {
+        "path": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/generated/g_kernel_sm_debugger_session_nvoc.c",
+        "sha256": "a58cf91fa8a236281e15ab8c70c39046fd9081c6bfceda1a6bf9a837122fd9d3",
+        "bytes": 87783
+      },
+      "internal_wrapper": {
+        "path": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/generated/g_kernel_sm_debugger_session_nvoc.h",
+        "sha256": "58531f830a80328fa0dddb997e85ad9d4c34e2d531f9a1ba17f91b669094aa2d",
+        "bytes": 50433
+      },
+      "debugger_session": {
+        "path": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/src/kernel/gpu/gr/kernel_sm_debugger_session.c",
+        "sha256": "4f86fb6f2982a0b4074b5e83ca57903b3085bc479f8908643945ecb17ba9adba",
+        "bytes": 19177
+      },
+      "resource_forwarder": {
+        "path": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/src/kernel/gpu/gpu_resource.c",
+        "sha256": "7c809c340fea10858a26fe97905546048ec7840257af110f957d8ee895751aca",
+        "bytes": 15499
+      }
+    },
+    "R595.99.02": {
+      "public_header": {
+        "path": "build/research/open-gpu-kernel-modules-595.99.02/source/open-gpu-kernel-modules-595.99.02/src/common/sdk/nvidia/inc/ctrl/ctrl83de/ctrl83dedebug.h",
+        "sha256": "716ea7c8ef9f92bad00b69ce87da79e8fc655b771a6a9922824562739ab16d19",
+        "bytes": 48449
+      },
+      "method_table": {
+        "path": "build/research/open-gpu-kernel-modules-595.99.02/source/open-gpu-kernel-modules-595.99.02/src/nvidia/generated/g_kernel_sm_debugger_session_nvoc.c",
+        "sha256": "2f92b6932d74c17bf58598f40e4531ecaced678f17daaf13df61ef8700b2c3fd",
+        "bytes": 90841
+      },
+      "internal_wrapper": {
+        "path": "build/research/open-gpu-kernel-modules-595.99.02/source/open-gpu-kernel-modules-595.99.02/src/nvidia/generated/g_kernel_sm_debugger_session_nvoc.h",
+        "sha256": "c02461e6902e838f5131b13512ff64c5ed0b393d861c478f95ba07b0a070c05d",
+        "bytes": 50836
+      },
+      "debugger_session": {
+        "path": "build/research/open-gpu-kernel-modules-595.99.02/source/open-gpu-kernel-modules-595.99.02/src/nvidia/src/kernel/gpu/gr/kernel_sm_debugger_session.c",
+        "sha256": "4f86fb6f2982a0b4074b5e83ca57903b3085bc479f8908643945ecb17ba9adba",
+        "bytes": 19177
+      },
+      "resource_forwarder": {
+        "path": "build/research/open-gpu-kernel-modules-595.99.02/source/open-gpu-kernel-modules-595.99.02/src/nvidia/src/kernel/gpu/gpu_resource.c",
+        "sha256": "d66833ed45f8aca9ce47f95129dd42e45a431e13572404007e8784cab191a6d5",
+        "bytes": 15636
+      }
+    }
+  },
+  "byte_identical": {
+    "public_header": true,
+    "method_table": false,
+    "internal_wrapper": false,
+    "debugger_session": true,
+    "resource_forwarder": false
+  },
+  "checks": {
+    "R580.178.04": {
+      "public_command_0x83de0309": true,
+      "nvoc_method_row_0x83de0309": true,
+      "generated_internal_forward_2212365317": true,
+      "internal_id_is_0x83de0405": true,
+      "get_internal_object_returns_null": true,
+      "generic_forward_uses_physical_control_api": true
+    },
+    "R595.99.02": {
+      "public_command_0x83de0309": true,
+      "nvoc_method_row_0x83de0309": true,
+      "generated_internal_forward_2212365317": true,
+      "internal_id_is_0x83de0405": true,
+      "get_internal_object_returns_null": true,
+      "generic_forward_uses_physical_control_api": true
+    }
+  },
+  "dispatch": {
+    "public_id": "0x83de0309",
+    "internal_forward_decimal": 2212365317,
+    "internal_forward_hex": "0x83de0405",
+    "internal_object_handle": "NV01_NULL_OBJECT",
+    "route": "Physical RM Control with debugger client handle and GetInternalObjectHandle result"
+  },
+  "runtime_or_hardware_validated": false
+}

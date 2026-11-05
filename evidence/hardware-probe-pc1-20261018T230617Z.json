@@ -1,0 +1,59 @@
+{
+  "command": [
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/hybrid_cuda_probe",
+    "--module",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/hybrid_probe.sm70-sm120.fatbin",
+    "--require-sm",
+    "70,120"
+  ],
+  "exit_code": 77,
+  "host": "pc1",
+  "kernel_release": "7.0.0-38-generic",
+  "observed_at_utc": "2026-10-18T23:06:17+00:00",
+  "probe": {
+    "devices": [
+      {
+        "architecture_kernel_passed": true,
+        "asynchronous_passed": true,
+        "asynchronous_sizes": [
+          1,
+          31,
+          256,
+          4096,
+          65537
+        ],
+        "compute_capability": "12.0",
+        "error": "",
+        "name": "NVIDIA GeForce RTX 5090",
+        "ordinal": 0,
+        "pci_bus_id": "0000:01:00.0",
+        "sm": 120,
+        "synchronous_passed": true,
+        "synchronous_sizes": [
+          1,
+          31,
+          256,
+          4096,
+          65537
+        ],
+        "targeted": true,
+        "tested": true
+      }
+    ],
+    "driver_api": 13020,
+    "hybrid_validated": false,
+    "missing_sm": [
+      70
+    ],
+    "required_set_passed": false,
+    "required_sm": [
+      70,
+      120
+    ],
+    "schema": "nvidia-hybrid-probe-v1",
+    "status": "incomplete"
+  },
+  "qualification": "incomplete-hardware-missing",
+  "schema": "nvidia-hybrid-hardware-acceptance-v1",
+  "stderr": ""
+}

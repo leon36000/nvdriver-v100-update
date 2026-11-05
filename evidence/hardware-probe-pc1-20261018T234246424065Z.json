@@ -1,0 +1,84 @@
+{
+  "artifacts": {
+    "driver_library_observed_after_run": {
+      "bytes": 91505672,
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+      "sha256": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d"
+    },
+    "module": {
+      "bytes": 15608,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/hybrid_probe.sm70-sm120.fatbin",
+      "sha256": "fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305"
+    },
+    "probe": {
+      "bytes": 78376,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/hybrid_cuda_probe",
+      "sha256": "f5cc183d37b81754b07b169127cfe6df6fc0c6a19b1cc76cf21b0a89596d3762"
+    }
+  },
+  "command": [
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/hybrid_cuda_probe",
+    "--module",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/hybrid_probe.sm70-sm120.fatbin",
+    "--require-sm",
+    "70,120"
+  ],
+  "exit_code": 77,
+  "host": "pc1",
+  "kernel_release": "7.0.0-38-generic",
+  "observed_at_utc": "2026-10-18T23:42:46+00:00",
+  "probe": {
+    "concurrent_kernel_execution_validated": false,
+    "context_coexistence_passed": false,
+    "devices": [
+      {
+        "architecture_kernel_passed": true,
+        "asynchronous_passed": true,
+        "asynchronous_sizes": [
+          1,
+          31,
+          256,
+          4096,
+          65537
+        ],
+        "cleanup_errors": [],
+        "cleanup_passed": true,
+        "compute_capability": "12.0",
+        "error": "",
+        "name": "NVIDIA GeForce RTX 5090",
+        "ordinal": 0,
+        "pci_bus_id": "0000:01:00.0",
+        "sm": 120,
+        "synchronous_passed": true,
+        "synchronous_sizes": [
+          1,
+          31,
+          256,
+          4096,
+          65537
+        ],
+        "targeted": true,
+        "tested": true
+      }
+    ],
+    "driver_api": 13020,
+    "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+    "execution_mode": "resident-contexts-sequential-kernels",
+    "hybrid_validated": false,
+    "missing_sm": [
+      70
+    ],
+    "required_set_passed": false,
+    "required_sm": [
+      70,
+      120
+    ],
+    "schema": "nvidia-hybrid-probe-v2",
+    "status": "incomplete"
+  },
+  "qualification": "incomplete-hardware-missing",
+  "schema": "nvidia-hybrid-hardware-acceptance-v2",
+  "stderr": "",
+  "stdout": "{\"schema\":\"nvidia-hybrid-probe-v2\",\"status\":\"incomplete\",\"hybrid_validated\":false,\"required_set_passed\":false,\"context_coexistence_passed\":false,\"execution_mode\":\"resident-contexts-sequential-kernels\",\"concurrent_kernel_execution_validated\":false,\"driver_library_path\":\"/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02\",\"driver_api\":13020,\"required_sm\":[70,120],\"missing_sm\":[70],\"devices\":[{\"ordinal\":0,\"name\":\"NVIDIA GeForce RTX 5090\",\"pci_bus_id\":\"0000:01:00.0\",\"compute_capability\":\"12.0\",\"sm\":120,\"targeted\":true,\"tested\":true,\"architecture_kernel_passed\":true,\"synchronous_passed\":true,\"synchronous_sizes\":[1,31,256,4096,65537],\"asynchronous_passed\":true,\"asynchronous_sizes\":[1,31,256,4096,65537],\"cleanup_passed\":true,\"cleanup_errors\":[],\"error\":\"\"}]}\n",
+  "validation_errors": []
+}

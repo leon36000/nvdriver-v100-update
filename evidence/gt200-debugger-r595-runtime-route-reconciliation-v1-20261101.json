@@ -1,0 +1,109 @@
+{
+  "hardware_evidence": {
+    "capture": "evidence/pc3-rtx5080-gt200-debugger-lifecycle-v2-20261101T1106Z.json",
+    "cleanup_passed": true,
+    "control": {
+      "command": "0x83DE0309",
+      "exception_mask": "0x3A",
+      "ioctl": "0xc020462a",
+      "matches_prior_debugger_allocation": true,
+      "raw_handles_or_pointers_recorded": false,
+      "rm_status_entry": 0,
+      "rm_status_exit": 0,
+      "syscall_return": 0,
+      "target_class": "0x83DE",
+      "user_payload_entry_exit_equal": true
+    },
+    "cuda_driver_api": 13020,
+    "driver": "595.99.02",
+    "gpu": "NVIDIA GeForce RTX 5080, SM120, PCI 0000:02:00.0",
+    "host": "pc3",
+    "inventory": "evidence/pc3-user-gpu-inventory-v22-20261101110655Z.json",
+    "inventory_sha256": "adccae3a67078f202486b7bdf2205fb9d772735c6db8dae5b211cae90449a4a3",
+    "numeric_kernel_executed": false,
+    "phase": "context",
+    "phase_status": "phase-passed",
+    "sha256": "3ebe6d88ee769e2966bc1ff48a7bd54b785cfac053b5c043d050e49c67aef1e9",
+    "v100_host_binding": "vfio-pci",
+    "v100_vm_service": "active/running"
+  },
+  "interpretation": {
+    "not_proven": [
+      "candidate hybrid module behavior",
+      "Volta/R580 result",
+      "same-Linux mixed-GPU CUDA",
+      "kernel execution in this capture",
+      "exception-mask state readback or behavioral effect",
+      "UVM or P2P",
+      "performance"
+    ],
+    "result": "The static null-object failure prediction is falsified for this observed stock R595.99.02 context path: the public control reached a live GT200_DEBUGGER target and returned RM status 0.",
+    "unresolved": "The exact mechanism allowing the source-level NV01_NULL_OBJECT internal call to succeed is not identified; runtime Resource Server versus GSP/provider dispatch must be traced before modifying the bridge."
+  },
+  "observed_at_utc": "2026-11-01T11:16:29.634340+00:00",
+  "previous_static_prediction": {
+    "prediction": "The inspected null-object Resource Server lookup composition predicts NV_ERR_OBJECT_NOT_FOUND.",
+    "receipt": "evidence/gt200-debugger-hybrid-control-route-v1-20261101.json",
+    "sha256": "b521bee737525c869a069565129f02d94926bb58b1b90135e9b5b34ee5664173",
+    "status_after_live_observation": "Not valid as a universal prediction for the observed stock R595.99.02 RTX path."
+  },
+  "safety": {
+    "candidate_driver_installed_or_loaded": false,
+    "driver_vm_pci_firmware_or_boot_changed": false,
+    "other_pcs_contacted": false
+  },
+  "schema": "gt200-debugger-r595-runtime-route-reconciliation-v1",
+  "scope": "pinned R595.99.02 open-source method dispatch compared with an isolated stock RTX 5080 context capture on PC3",
+  "source_dispatch": {
+    "generated_method": "ksmdbgssnCtrlCmdDebugSetExceptionMask_fcf1ac",
+    "internal_control": "0x83DE0405",
+    "physical_rm_call": "gpuresInternalControlForward_IMPL invokes pRmApi->Control with the session client and internal-object getter",
+    "public_control": "0x83DE0309",
+    "session_internal_object": "NV01_NULL_OBJECT",
+    "source_fact_limit": "These open-source bodies establish the declared call chain; they do not identify every runtime RM/GSP dispatch branch."
+  },
+  "source_facts": {
+    "debugger_session": {
+      "bytes": 19177,
+      "path": "build/experiments/r595-debugger-bridge-provider-build-v4-20261101/source/src/nvidia/src/kernel/gpu/gr/kernel_sm_debugger_session.c",
+      "sha256": "4f86fb6f2982a0b4074b5e83ca57903b3085bc479f8908643945ecb17ba9adba",
+      "verified_literals": [
+        "ksmdbgssnInternalControlForward_IMPL",
+        "gpuresInternalControlForward_IMPL",
+        "return NV01_NULL_OBJECT"
+      ]
+    },
+    "generated_inline_wrapper": {
+      "bytes": 50836,
+      "path": "build/experiments/r595-debugger-bridge-provider-build-v4-20261101/source/src/nvidia/generated/g_kernel_sm_debugger_session_nvoc.h",
+      "sha256": "c02461e6902e838f5131b13512ff64c5ed0b393d861c478f95ba07b0a070c05d",
+      "verified_literals": [
+        "ksmdbgssnCtrlCmdDebugSetExceptionMask_fcf1ac",
+        "2212365317U",
+        "ksmdbgssnInternalControlForward"
+      ]
+    },
+    "generated_method_table": {
+      "bytes": 90841,
+      "path": "build/experiments/r595-debugger-bridge-provider-build-v4-20261101/source/src/nvidia/generated/g_kernel_sm_debugger_session_nvoc.c",
+      "sha256": "2f92b6932d74c17bf58598f40e4531ecaced678f17daaf13df61ef8700b2c3fd",
+      "verified_literals": [
+        "0x83de0309u",
+        "ksmdbgssnCtrlCmdDebugSetExceptionMask_fcf1ac",
+        "sizeof(NV83DE_CTRL_DEBUG_SET_EXCEPTION_MASK_PARAMS)"
+      ]
+    },
+    "gpu_resource": {
+      "bytes": 15636,
+      "path": "build/experiments/r595-debugger-bridge-provider-build-v4-20261101/source/src/nvidia/src/kernel/gpu/gpu_resource.c",
+      "sha256": "d66833ed45f8aca9ce47f95129dd42e45a431e13572404007e8784cab191a6d5",
+      "verified_literals": [
+        "gpuresInternalControlForward_IMPL",
+        "RES_GET_CLIENT_HANDLE(pGpuResource)",
+        "gpuresGetInternalObjectHandle(pGpuResource)",
+        "pRmApi->Control"
+      ]
+    }
+  },
+  "source_tree": "build/experiments/r595-debugger-bridge-provider-build-v4-20261101/source"
+}

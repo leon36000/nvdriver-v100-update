@@ -1,0 +1,223 @@
+{
+  "binary_analysis_log": {
+    "path": "evidence/logs/r580-rmapiControl-binutils-v1-20261101.log",
+    "scope": "selected ELF symbols and relocation lines only; no runtime handles or pseudocode",
+    "sha256": "80a87de219d2cfa8f23806f3d96529312dcc8e5b70b98e4d9bebf0af60df33ce"
+  },
+  "created_utc": "2026-11-01T11:27:34Z",
+  "decision": {
+    "implementation_decision": "Do not add an alternate backend handle or suppress the debugger control based on the contradicted static composition alone.",
+    "invalidated": "The previous claim that the observed R595 stock RTX path must return NV_ERR_OBJECT_NOT_FOUND is false; the live class-resolved RTX capture records success.",
+    "not_established": "The historical R580 V100 capture does not resolve the target class to GT200_DEBUGGER, so it does not yet prove that the same null-internal-object debugger path succeeded on Volta.",
+    "remaining_hypotheses": [
+      "The V100 public control targeted a different non-root resource class.",
+      "If the target was GT200_DEBUGGER, an R580 monolithic RM path or class-specific behavior not reconstructed from the current source/binary observation accounts for success."
+    ]
+  },
+  "gsp_generation_boundary": {
+    "interpretation": "The GSP path cannot explain the historical R580 V100 result under the documented support model; the V100 target-class identity remains unresolved.",
+    "official_fact": "NVIDIA documents Turing and later GPUs as GSP-capable. This excludes Volta/GV100 from that documented generation boundary.",
+    "official_source": "https://download.nvidia.com/XFree86/Linux-aarch64/510.108.03/README/gsp.html"
+  },
+  "inputs": {
+    "historical_v100_capture": {
+      "path": "evidence/pc3-v100-rm-control-v1-20261021.json",
+      "sha256": "0bf93bda818387f0f6e5e68aa1fc3f7df32d95c036dac3e6d3faedb78bd11199"
+    },
+    "historical_v100_observation": {
+      "path": "evidence/pc3-v100-rm-control-observation-v1-20261021.json",
+      "sha256": "1367ff5bab656223879f367c4ec3cc21fdae84d02763a28e741bbd3adaaa60eb"
+    },
+    "pc3_inventory": {
+      "path": "evidence/pc3-user-gpu-inventory-v22-20261101110655Z.json",
+      "sha256": "adccae3a67078f202486b7bdf2205fb9d772735c6db8dae5b211cae90449a4a3"
+    },
+    "prior_reconciliation": {
+      "path": "evidence/gt200-debugger-r595-runtime-route-reconciliation-v1-20261101.json",
+      "sha256": "e8a0936b716b5c4362ed3c6d3c5f8186e686f108a894cb7ff69dfe344ae93ddb"
+    },
+    "r580_binary": {
+      "path": "build/experiments/private-open-usermode-object-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv-kernel.o_binary",
+      "sha256": "5e9219a4a263315d20757159852b35be61dfd2ce75dcd2ca90b1cd1764d6bb8a"
+    },
+    "r580_client": {
+      "path": "build/experiments/private-open-usermode-object-v2-20261021/NVIDIA-kernel-module-source-580.178.04/src/nvidia/src/libraries/resserv/src/rs_client.c",
+      "sha256": "6037c267cc6bbca8f511c9d0b3a6adbac1aa6eb8b176eaef6ca4d8e0045eb8c1"
+    },
+    "r580_debugger": {
+      "path": "build/experiments/private-open-usermode-object-v2-20261021/NVIDIA-kernel-module-source-580.178.04/src/nvidia/src/kernel/gpu/gr/kernel_sm_debugger_session.c",
+      "sha256": "4f86fb6f2982a0b4074b5e83ca57903b3085bc479f8908643945ecb17ba9adba"
+    },
+    "r580_debugger_generated": {
+      "path": "build/experiments/private-open-usermode-object-v2-20261021/NVIDIA-kernel-module-source-580.178.04/src/nvidia/generated/g_kernel_sm_debugger_session_nvoc.c",
+      "sha256": "a58cf91fa8a236281e15ab8c70c39046fd9081c6bfceda1a6bf9a837122fd9d3"
+    },
+    "r580_gpu": {
+      "path": "build/experiments/private-open-usermode-object-v2-20261021/NVIDIA-kernel-module-source-580.178.04/src/nvidia/src/kernel/gpu/gpu.c",
+      "sha256": "c62b32827688a02f14a31b20ee824951d44e544440af951f1802f3db03bfc729"
+    },
+    "r580_gpu_resource": {
+      "path": "build/experiments/private-open-usermode-object-v2-20261021/NVIDIA-kernel-module-source-580.178.04/src/nvidia/src/kernel/gpu/gpu_resource.c",
+      "sha256": "7c809c340fea10858a26fe97905546048ec7840257af110f957d8ee895751aca"
+    },
+    "r580_rmapi": {
+      "path": "build/experiments/private-open-usermode-object-v2-20261021/NVIDIA-kernel-module-source-580.178.04/src/nvidia/src/kernel/rmapi/rmapi.c",
+      "sha256": "2d78fa2704e6745f493458794630665bf69e740429933c2272b66ceea6071136"
+    },
+    "r580_rpc_common": {
+      "path": "build/experiments/private-open-usermode-object-v2-20261021/NVIDIA-kernel-module-source-580.178.04/src/nvidia/src/kernel/rmapi/rpc_common.c",
+      "sha256": "af711be5a3cfa2608d537426290f26429152d63b897f15711a8b32dc52053e5b"
+    },
+    "r580_server": {
+      "path": "build/experiments/private-open-usermode-object-v2-20261021/NVIDIA-kernel-module-source-580.178.04/src/nvidia/src/libraries/resserv/src/rs_server.c",
+      "sha256": "246b6011cc34230765eccbdda040ce5a305f4f429f57b759f74f830aaa41b2dd"
+    },
+    "r595_binary": {
+      "path": "build/experiments/r595-debugger-bridge-provider-build-v4-20261101/source/kernel-open/nvidia/nv-kernel.o_binary",
+      "sha256": "c19870e43606b4358d9274c4d3dec2adb1822d65ce1203520a8184cf043cafe8"
+    },
+    "r595_client": {
+      "path": "build/experiments/r595-debugger-bridge-provider-build-v4-20261101/source/src/nvidia/src/libraries/resserv/src/rs_client.c",
+      "sha256": "8658e31561093e0fef2554eef99328193f52e4d8ffef2c7b58b57fe9c8683eb4"
+    },
+    "r595_rpc": {
+      "path": "build/experiments/r595-debugger-bridge-provider-build-v4-20261101/source/src/nvidia/src/kernel/vgpu/rpc.c",
+      "sha256": "215146dc9b5e2d2c20195c9b9a51e0a500424f9fbe8362d64bd80e57e137e13b"
+    },
+    "r595_rpc_common": {
+      "path": "build/experiments/r595-debugger-bridge-provider-build-v4-20261101/source/src/nvidia/src/kernel/rmapi/rpc_common.c",
+      "sha256": "af711be5a3cfa2608d537426290f26429152d63b897f15711a8b32dc52053e5b"
+    },
+    "r595_server": {
+      "path": "build/experiments/r595-debugger-bridge-provider-build-v4-20261101/source/src/nvidia/src/libraries/resserv/src/rs_server.c",
+      "sha256": "daebeff8d57e459054bb3694b815c1f1c7decec3c95fb06360d1d8527daaa8c5"
+    },
+    "rtx5080_capture": {
+      "path": "evidence/pc3-rtx5080-gt200-debugger-lifecycle-v2-20261101T1106Z.json",
+      "sha256": "3ebe6d88ee769e2966bc1ff48a7bd54b785cfac053b5c043d050e49c67aef1e9"
+    }
+  },
+  "next_discriminating_experiment": {
+    "action": "Repeat the stock R580.178.04 single-V100 probe with the v39 debugger lifecycle observer, correlate the public control target to the successful GT200_DEBUGGER allocation within the same root, and emit only redacted class/owner/status facts.",
+    "pass_condition": "Either class resolution proves the R580 control was not a debugger request, or it proves a class-resolved GT200_DEBUGGER public control returned success; in the latter case continue targeted analysis of the R580 internal RM binary before changing the provider.",
+    "safety": "Stock driver only; no experimental module load/install; no VM management or PCI assignment changes.",
+    "when": "After PC3 is available and V100 guest is accessible; user reports PC3 currently powered off."
+  },
+  "official_references": [
+    {
+      "fact": "As of the cited page, Volta SM70 last toolkit support is CUDA 12.x and last driver support is R580.",
+      "title": "NVIDIA CUDA Toolkit, Driver, and Architecture Matrix",
+      "url": "https://docs.nvidia.com/datacenter/tesla/drivers/latest/cuda-toolkit-driver-and-architecture-matrix.html"
+    },
+    {
+      "fact": "R580.196.07 lists Tesla V100/Volta and CUDA 13.x API support; separate compiler/library architecture support must still be evaluated.",
+      "title": "NVIDIA R580.196.07 Data Center Driver Release Notes",
+      "url": "https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-580-196-07/index.html"
+    },
+    {
+      "fact": "R595 release notes include CUDA 13.x API support text for Volta but do not list V100 in the supported data-center GPU table; use the architecture matrix for last driver support.",
+      "title": "NVIDIA R595.112.07 Data Center Driver Release Notes",
+      "url": "https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-595-112-07/index.html"
+    },
+    {
+      "fact": "The repository publishes distinct R580, R595, R610 and R615 versioned tags; R595.99.02 was the exact PC3 source/hardware baseline in this capture.",
+      "title": "NVIDIA open-gpu-kernel-modules releases",
+      "url": "https://github.com/NVIDIA/open-gpu-kernel-modules/releases"
+    },
+    {
+      "fact": "REA is not installed in this environment; native binary pseudocode analysis requires an available Hopper, Ghidra, IDA or Kuna engine. GNU binutils 2.46 are available and were used for this bounded ELF/symbol/relocation inspection.",
+      "title": "REA upstream repository",
+      "url": "https://github.com/morluto/rea"
+    }
+  ],
+  "r580_178_04_source_facts": [
+    {
+      "fact": "KernelSMDebuggerSession maps public 0x83DE0309 to the fixed-size exception-mask method; that wrapper requests internal control 0x83DE0405.",
+      "status": "source-confirmed"
+    },
+    {
+      "fact": "The R580 debugger internal-control implementation delegates to gpuresInternalControlForward_IMPL, while its internal-object-handle implementation returns NV01_NULL_OBJECT.",
+      "status": "source-confirmed"
+    },
+    {
+      "fact": "gpuresInternalControlForward_IMPL passes RES_GET_CLIENT_HANDLE and the virtual internal-object handle to GPU_GET_PHYSICAL_RMAPI(pGpu)->Control.",
+      "status": "source-confirmed"
+    },
+    {
+      "fact": "The monolithic physical API fast path directly invokes a cached subdevice method only when hClient equals the GPU internal client and hObject equals its internal subdevice; otherwise it delegates to the internal RM_API control.",
+      "status": "source-confirmed"
+    },
+    {
+      "fact": "rmapi.c installs rmapiControl as the internal RM_API Control entrypoint. The implementation body is in nv-kernel.o_binary, not the inspected C sources.",
+      "status": "source-confirmed"
+    },
+    {
+      "fact": "GNU nm/objdump identify rmapiControl and _rmapiRmControl in the R580 binary; rmapiControlWithSecInfo relocates to _rmapiRmControl, and _rmapiRmControl contains relocations to serverControl. This establishes a source-to-binary control route, not the exact arguments or runtime branch for the observed V100 call.",
+      "status": "binary-static-observation"
+    },
+    {
+      "fact": "The inspected Resource Server serverControl path calls clientGetResourceRef with RmCtrlParams.hObject; clientGetResourceRef returns NV_ERR_OBJECT_NOT_FOUND when the client resource map lacks that handle.",
+      "status": "source-confirmed"
+    }
+  ],
+  "r580_v100_hardware_observation": {
+    "async_numeric_sizes": [
+      1,
+      31,
+      256,
+      4096,
+      65537
+    ],
+    "cleanup_passed": true,
+    "concurrent_kernel_execution_validated": false,
+    "driver": "580.178.04",
+    "gpu_compute_capability": "7.0",
+    "kernel": "6.8.0-147-generic",
+    "probe_status": "control-passed",
+    "public_control": {
+      "client_matched_prior_root_allocation": true,
+      "command": "0x83DE0309",
+      "debugger_class_resolved": false,
+      "hObject_was_nonzero": true,
+      "object_matched_prior_root_allocation": false,
+      "params_size": 4,
+      "raw_handles_retained": false,
+      "rm_entry_status": 0,
+      "rm_exit_status": 0,
+      "syscall_return": 0
+    },
+    "qualification": "v100-reference-validated",
+    "sync_numeric_sizes": [
+      1,
+      31,
+      256,
+      4096,
+      65537
+    ]
+  },
+  "r595_blackwell_route": {
+    "capture_phase": "context only; no numerical kernel executed in this capture",
+    "hardware_fact": "The stock PC3 RTX 5080/R595.99.02 capture resolved public 0x83DE0309 to a live GT200_DEBUGGER and recorded syscall/RM status 0; the same capture reports GPU firmware 595.99.02.",
+    "interpretation": "GSP is a plausible explanation for the RTX path, but the capture does not prove that this specific request traversed rpcRmApiControl_GSP.",
+    "source_fact": "rpcRmApiSetup selects rpcRmApiControl_GSP only when IS_GSP_CLIENT(pGpu); the GSP RM-control routine serializes hClient, hObject, command and parameters into RPC and returns the GSP RM status.",
+    "status": "source-plus-prior-hardware-observation; exact dispatch branch not runtime-traced"
+  },
+  "schema": "nvidia-hybrid-gt200-control-route-reconciliation-v2",
+  "scope": {
+    "candidate_module_installed_or_loaded": false,
+    "driver_vm_pci_firmware_or_boot_changed": false,
+    "local_static_analysis_only": true,
+    "raw_rm_handles_or_credentials_in_this_report": false,
+    "remote_pc_access_this_increment": false,
+    "user_reported_pc3_powered_off": true
+  },
+  "tools": {
+    "ghidra": "not installed",
+    "hopper": "not installed",
+    "ida": "not installed",
+    "nm": "GNU Binutils for Ubuntu 2.46",
+    "objdump": "GNU Binutils for Ubuntu 2.46",
+    "rea": "not installed",
+    "readelf": "GNU Binutils for Ubuntu 2.46"
+  }
+}

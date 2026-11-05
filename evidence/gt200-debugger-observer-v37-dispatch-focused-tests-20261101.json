@@ -1,0 +1,30 @@
+{
+  "schema": "gt200-debugger-observer-v37-dispatch-focused-tests-v1",
+  "observed_at_utc": "2026-11-01T06:53:02Z",
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "tests.test_rm_ioctl_observer",
+    "tests.test_remote_selected_gpu",
+    "tests.test_gt200_debugger_dispatch_source",
+    "-v"
+  ],
+  "exit_code": 0,
+  "tests_run": 166,
+  "reported_seconds": 3.325,
+  "status": "pass",
+  "qualification": "software-focused-tests-only",
+  "runtime_or_hardware_validated": false,
+  "loaded_or_installed": false,
+  "input_sha256": {
+    "src/rm_ioctl_observer.c": "802c9694de3da6afd83d20eae55ffa0c401f97ebf035467619be067ce3548bef",
+    "tests/test_rm_ioctl_observer.py": "4130a67c491ce29bc118aba0601a175fdc55b30bfeca80a6445cb9e6ca8d78c9",
+    "tests/test_remote_selected_gpu.py": "9aeb798c5b3852bf46eb20967b1a43b5e7d82662f4f65b0017f480256c909ffc",
+    "tests/test_gt200_debugger_dispatch_source.py": "289a1e5d0044b93fd07449a7327f4a3c71c17e94529933112e71c2f62363902d",
+    "tests/run_hybrid_acceptance.py": "2e1e7084e84faf25f3f16be12100bce00326c6eeb89e082e8d9f8d6013258003"
+  },
+  "log": "evidence/logs/gt200-debugger-observer-v37-dispatch-focused-tests-20261101.log",
+  "log_sha256": "dbe681e89c36a501d3ec820a63894c4c7267548455dbd3deb2cac406172b7678"
+}

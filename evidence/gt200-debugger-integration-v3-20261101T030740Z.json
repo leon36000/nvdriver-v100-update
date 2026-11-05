@@ -1,0 +1,26 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "tests.test_audit_gt200_debugger_alloc_static",
+    "tests.test_gt200_debugger_alloc_contract",
+    "tests.test_rm_ioctl_observer",
+    "tests.test_remote_selected_gpu",
+    "tests.test_acceptance_contract"
+  ],
+  "exit_code": 0,
+  "log": "control/runs/gt200-debugger-integration-v3-20261101T030740Z.log",
+  "log_sha256": "13c071ea9b874860e8314c6117630e40a16d17ca971b1eb425133e2a1602fe9f",
+  "observed_at_utc": "2026-11-01T03:07:47.887112+00:00",
+  "qualification": "local-software-tests-only-no-driver-execution",
+  "schema": "gt200-debugger-integration-test-run-v3",
+  "tests": [
+    "tests.test_audit_gt200_debugger_alloc_static",
+    "tests.test_gt200_debugger_alloc_contract",
+    "tests.test_rm_ioctl_observer",
+    "tests.test_remote_selected_gpu",
+    "tests.test_acceptance_contract"
+  ]
+}

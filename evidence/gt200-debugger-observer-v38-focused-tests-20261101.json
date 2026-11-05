@@ -1,0 +1,34 @@
+{
+  "schema": "gt200-debugger-observer-v38-focused-tests-v1",
+  "observed_at_utc": "2026-11-01T07:03:42Z",
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "tests.test_rm_ioctl_observer",
+    "tests.test_remote_selected_gpu",
+    "tests.test_gt200_debugger_dispatch_source",
+    "tests.test_gt200_debugger_relation_harness",
+    "-v"
+  ],
+  "exit_code": 0,
+  "tests_run": 168,
+  "reported_seconds": 3.439,
+  "status": "pass",
+  "qualification": "software-focused-tests-only",
+  "runtime_or_hardware_validated": false,
+  "loaded_or_installed": false,
+  "input_sha256": {
+    "src/rm_ioctl_observer.c": "6c876e008dbbb478298f0285cc4c4dc7d016d324d4e1e7def8427de159ebaa2d",
+    "tests/test_rm_ioctl_observer.py": "993e08346c752f2a01bd04292046377e16b30c96d5105d41f8f7fb66123ecec6",
+    "tests/test_remote_selected_gpu.py": "de0f5a66940c0c336088847c73142c9268961d29bc0d5c32689c03c01dc1f3da",
+    "tests/test_gt200_debugger_dispatch_source.py": "050b2cdd52a4931eda80e52925bebf8a5703675320934ea2157967b9fde27fdf",
+    "tests/test_gt200_debugger_relation_harness.py": "c2f5a22d1d48a7a06b1d90ce0704d96cb8570a62ac463a0873d7dcf260a4db9e",
+    "tests/fixtures/gt200_debugger_relation_test.c": "7ee56a873a374241082c270fbe87b1e0bb0a6a9b7a179cb9ba083553681c4689",
+    "tests/run_hybrid_acceptance.py": "21e525abc44587e1d79c48b0a0c82bd0842324268c744ecc56dd39e15fc2a5f9",
+    "tools/run_remote_selected_gpu.py": "89c0e31191638191fd53d002eda0fc4baf9d517805127b0ad878100cbe9c677c"
+  },
+  "log": "evidence/logs/gt200-debugger-observer-v38-focused-tests-20261101.log",
+  "log_sha256": "3ed4eef68982bd661f747662ebb49252c3d9f61eadd514cdec4d7f4ff67485c5"
+}

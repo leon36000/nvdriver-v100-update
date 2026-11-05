@@ -1,0 +1,36 @@
+{
+  "schema": "gt200-debugger-r580-r595-public-source-identity-v1",
+  "observed_at_utc": "2026-11-01T06:55:47Z",
+  "qualification": "pinned-source-static-comparison",
+  "versions": [
+    "R580.178.04",
+    "R595.99.02"
+  ],
+  "files": {
+    "R580.178.04/common/sdk/nvidia/inc/ctrl/ctrl83de/ctrl83dedebug.h": {
+      "path": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/ctrl/ctrl83de/ctrl83dedebug.h",
+      "sha256": "716ea7c8ef9f92bad00b69ce87da79e8fc655b771a6a9922824562739ab16d19",
+      "bytes": 48449
+    },
+    "R580.178.04/nvidia/src/kernel/gpu/gr/kernel_sm_debugger_session.c": {
+      "path": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/src/kernel/gpu/gr/kernel_sm_debugger_session.c",
+      "sha256": "4f86fb6f2982a0b4074b5e83ca57903b3085bc479f8908643945ecb17ba9adba",
+      "bytes": 19177
+    },
+    "R595.99.02/common/sdk/nvidia/inc/ctrl/ctrl83de/ctrl83dedebug.h": {
+      "path": "build/research/open-gpu-kernel-modules-595.99.02/source/open-gpu-kernel-modules-595.99.02/src/common/sdk/nvidia/inc/ctrl/ctrl83de/ctrl83dedebug.h",
+      "sha256": "716ea7c8ef9f92bad00b69ce87da79e8fc655b771a6a9922824562739ab16d19",
+      "bytes": 48449
+    },
+    "R595.99.02/nvidia/src/kernel/gpu/gr/kernel_sm_debugger_session.c": {
+      "path": "build/research/open-gpu-kernel-modules-595.99.02/source/open-gpu-kernel-modules-595.99.02/src/nvidia/src/kernel/gpu/gr/kernel_sm_debugger_session.c",
+      "sha256": "4f86fb6f2982a0b4074b5e83ca57903b3085bc479f8908643945ecb17ba9adba",
+      "bytes": 19177
+    }
+  },
+  "byte_identical": {
+    "common/sdk/nvidia/inc/ctrl/ctrl83de/ctrl83dedebug.h": true,
+    "nvidia/src/kernel/gpu/gr/kernel_sm_debugger_session.c": true
+  },
+  "runtime_or_hardware_validated": false
+}

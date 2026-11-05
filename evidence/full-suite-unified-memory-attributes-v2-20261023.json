@@ -1,0 +1,40 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-v",
+    "-s",
+    "tests"
+  ],
+  "duration_seconds": 45.666,
+  "environment_overrides": {
+    "HYBRID_CUDA_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-unified-memory-attributes-v1-20261023/hybrid_cuda_probe",
+    "HYBRID_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-unified-memory-attributes-v1-20261023/hybrid_cuda_probe"
+  },
+  "exit_code": 0,
+  "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/full-suite-unified-memory-attributes-v2-20261023.log",
+  "log_sha256": "d469da6710d1f56d1cc7cbf0030c2b3f2ba5415f3eb182f07b650d189b9cfe61",
+  "observed_at_utc": "2026-10-23T15:48:37.535854+00:00",
+  "probe_sha256": "41ff0dadd20d5a0546e271bc1f9f6bc49306914ae10d3cab7fb35d01f2ab2aa6",
+  "schema": "nvidia-hybrid-full-software-verification-v1",
+  "source_inputs_sha256": {
+    "src/hybrid_cuda_probe.cpp": "51341efc439f73395603f4e8161d10103c230590b16d62947cccd7aa539ab1e0",
+    "tests/fixtures/fake_cuda_driver.cpp": "195d7c2cd2d014dcc7e7d177ae773cb5c868c8cdd12859f25a087ed7e8e4803b",
+    "tests/run_hybrid_acceptance.py": "fc0b611db791d58afc0fbc216b11e005aec14f785c02fd948856a3fc9beff442",
+    "tests/test_acceptance_contract.py": "39a5aa192653642e8ab8c1e6860fac4a69b3d8fecb4c0527aaebc31a24232ec0",
+    "tests/test_cuda_probe_contract.py": "ec04e3e745f818ef9c7eeab37eba3327ed8183df7d6594dd2954a2c3859a3204",
+    "tests/test_probe_fake_driver.py": "6ee024bce32025cd52f9127ea2a6b59f9367f9ac40aaa10606692c1e882dc1f4",
+    "tests/test_remote_selected_gpu.py": "440c280d8f7f03639b86faefe48b40ad7d79831638a8967f9a56850072c965ee",
+    "tests/test_rm_control_header_comparison.py": "bbcb64b43d83506969e1a02ab06388f284b49591cd2428f72355ee2e1ab832a5",
+    "tests/test_run_pc3_v100_guest_reference.py": "92326b331861b06b7906dc2f7c58a7094c759feb32ecbb6fac62c25f95437d6d",
+    "tools/cuda_probe_contract.py": "7cfd55cf6a5b70551472d23c4b925794b4336234ccbc2124ee0dd8902a81959e",
+    "tools/run_pc3_v100_guest_reference.py": "3d16f42ba82b2d287254f15a36b6c3d557e4337c0b9d78b60b7b127e2fc53810"
+  },
+  "summary_line": "OK",
+  "tests_run": 1081,
+  "tests_skipped": 0,
+  "working_directory": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid"
+}

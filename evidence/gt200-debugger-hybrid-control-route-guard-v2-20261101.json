@@ -1,0 +1,69 @@
+{
+  "blackwell_provider": {
+    "r595_provider_build": "evidence/r595-debugger-bridge-provider-build-v4-20261101.json",
+    "status": "unchanged_by_this_patch; its separate stock RTX 5080 trace is not hybrid-provider validation"
+  },
+  "finding": "The fail-closed guard is compiled only in the R580.178.04-source private-provider candidate. It reports NV_ERR_NOT_SUPPORTED through control_status and returns NV_OK transport without issuing NV04_CONTROL. The selected R580.196.07 provider is not yet patched; CUDA context behavior remains unknown.",
+  "implementation": {
+    "all_imports_resolved_non_gpl": true,
+    "api_header": "src/hybrid580-control-session.h",
+    "api_header_sha256": "d6ce56f2a44e7ee8fc83ec81d47b84e8c7627e82cb257ca49ed562fb5f26c848",
+    "exports": 150,
+    "gpl_only_imports": {},
+    "kernel_imports": 303,
+    "module_bytes": 136952400,
+    "module_path": "build/experiments/r58019607-debugger-mask-guard-build-v6-20261101/nvidia-580.178.04/hybrid580_legacy.ko",
+    "module_sha256": "05960a0b9600ad69bf630209905b6bcd4e1a6cea3479fbc92d375e365464a78c",
+    "patch": "patches/r580.178.04/proprietary/0049-private-legacy-debugger-mask-fail-closed.patch",
+    "patch_sha256": "6f1d50df5944feea40a00916bd06f9f8f1ff007f35c992852e126efcbd4833a4",
+    "proprietary_core_modified": false,
+    "provider": "R580.178.04-source private provider candidate; not the selected R580.196.07 provider",
+    "target_kernel_release": "7.0.0-38-generic"
+  },
+  "next_experiment": "Port the fail-closed guard into the exact selected R580.196.07 provider build, compile and verify its exports, then use only PC3 when available and an already authorized V100 guest login path exists to measure whether stock R580 CUDA context creation requires 0x83DE0309. Keep both candidate modules unloaded.",
+  "observed_at_utc": "2026-11-01T12:04:59Z",
+  "schema": "nvidia-gt200-debugger-hybrid-control-route-guard-v2",
+  "status": "compiled_guard_not_hardware_validated",
+  "validation": {
+    "build_report": "evidence/r58019607-debugger-mask-guard-build-v6-20261101.json",
+    "build_report_sha256": "65bc3888f2b00e015ffb42e9255413de90b33fcf5f444e6fe999c3ca88b9cf4c",
+    "build_tool_sha256": "2d4a0a9edab5e946d1f62ad427b0dc8710c59ba8251491de46ef67ee31935492",
+    "cuda_execution_validated": false,
+    "gpu_accessed": false,
+    "module_installed": false,
+    "runtime_or_hardware_validated": false,
+    "source_test_sha256": "c588792e9a80e9450886c1b7b3be2ce1418a82358dc188949e2fb629fe7e027b",
+    "tests_and_build_steps": {
+      "cpu-contracts": {
+        "exit_code": 0,
+        "log": "evidence/logs/private-proprietary-cpu-contracts-20261101T120413357238Z.log",
+        "log_sha256": "357d5095e694f3c7a3d2badffed5818ccac4cdd81b6798bf9f99cb8803db1a3f"
+      },
+      "debugger-route-contracts": {
+        "exit_code": 0,
+        "log": "evidence/logs/private-proprietary-debugger-route-contracts-20261101T120413357238Z.log",
+        "log_sha256": "f91f5a86792bc0f91f43d4911f24727b1ad18cc98fb8ed72f57f86d718a236bc"
+      },
+      "export-strings": {
+        "exit_code": 0,
+        "log": "evidence/logs/private-proprietary-export-strings-20261101T120413357238Z.log",
+        "log_sha256": "cbf58e8baced7fcb3a5ffeb4eef0f2cfa4b05dc95b9abac1fe84a97f3f0c1bf5"
+      },
+      "modinfo": {
+        "exit_code": 0,
+        "log": "evidence/logs/private-proprietary-modinfo-20261101T120413357238Z.log",
+        "log_sha256": "d33727cee1181e98f725968a03e047d776bd99e783000a2546ff49e6ccd4e54b"
+      },
+      "module-build": {
+        "exit_code": 0,
+        "log": "evidence/logs/private-proprietary-module-build-20261101T120413357238Z.log",
+        "log_sha256": "6fd269c926ff637ebfd5f4f6de2afefe5ae3dbd8352ecb3b26ba64c0f6f7098d"
+      },
+      "target-kernel-objtool": {
+        "exit_code": 0,
+        "log": "evidence/logs/private-proprietary-target-kernel-objtool-20261101T120413357238Z.log",
+        "log_sha256": "56d5ba2183e3cd5232424b91353f1552df1e5b4a0ccc33c6c46527c62e2052e7"
+      }
+    }
+  }
+}

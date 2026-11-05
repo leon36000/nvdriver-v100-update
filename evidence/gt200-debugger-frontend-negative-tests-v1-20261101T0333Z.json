@@ -1,0 +1,19 @@
+{
+  "assertions": [
+    "observed GT200_DEBUGGER typed allocation returns NV_ERR_NOT_SUPPORTED without reading payload",
+    "frontend object count remains unchanged and no provider engine allocator is called",
+    "known GT200_DEBUGGER SM_DEBUG_MODE_ENABLE control remains rejected with ENOTTY"
+  ],
+  "command": "PYTHONPATH=tests python3 -B -m unittest tests.test_hybrid_frontend",
+  "evidence_level": "isolated-cpu-frontend-harness",
+  "exit_code": 0,
+  "failures": 0,
+  "hardware_tested": false,
+  "log_path": "evidence/logs/gt200-debugger-frontend-negative-tests-v1-20261101T0333Z.log",
+  "log_sha256": "8b317096a1f5f50b18cab242d2c56e9e977ef3f41d665539c87c9aec3a531f60",
+  "pc3_accessed": false,
+  "schema": "hybrid-gt200-debugger-frontend-negative-tests-v1",
+  "source_sha256": "36db949406ea8c18b98c3bbf18a6454e6ce2581c26602418e222996097eb1c81",
+  "test_source_sha256": "b4f5f9f6f74eb55bac4c505ef575651e0baf7bf56230f75daf0aeb561d2c6ad6",
+  "tests": 22
+}

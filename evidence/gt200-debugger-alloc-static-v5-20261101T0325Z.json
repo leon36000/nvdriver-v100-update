@@ -1,0 +1,514 @@
+{
+  "channel_ancestry": {
+    "580.178.04": {
+      "BLACKWELL_CHANNEL_GPFIFO_A": {
+        "class_id": "0xc96f",
+        "header": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/class/clc96f.h",
+        "header_sha256": "d1c1c233b6f04206c66cebed0fd90b03491c5441925294eb823fb85482a349a6",
+        "internal_class": "KernelChannel",
+        "multi_instance": true,
+        "parents": [
+          "Device",
+          "KernelChannelGroupApi"
+        ],
+        "required_channel_alloc_params": true,
+        "resource_entry_sha256": "6f178d86fda78dca279f1c3fe28dc1569d7980f5c38047814ceadd1d382c6e97",
+        "resource_list_sha256": "19f365cf1c4492483a02172c1298f7ba54ae0571b156ac4b58c0c7522ba729b8"
+      },
+      "BLACKWELL_COMPUTE_B": {
+        "class_id": "0xcec0",
+        "header": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/class/clcec0.h",
+        "header_sha256": "bbe3bcabc7f129972ed5ed635f58251b657d6e5616cac8cfc5bd817293da7d2e",
+        "internal_class": "KernelGraphicsObject",
+        "multi_instance": true,
+        "parents": [
+          "KernelChannel"
+        ],
+        "required_channel_alloc_params": false,
+        "resource_entry_sha256": "2b2a37c1484f6c8c7f06cb940d5022c3c9b499c038bc49d4f7a9d9065d6eedb2",
+        "resource_list_sha256": "19f365cf1c4492483a02172c1298f7ba54ae0571b156ac4b58c0c7522ba729b8"
+      },
+      "VOLTA_CHANNEL_GPFIFO_A": {
+        "class_id": "0xc36f",
+        "header": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/class/clc36f.h",
+        "header_sha256": "56cbabbaf8c63cb2e2c0200dec3c18371d46772b0fcf903ab230d0de3b36c70b",
+        "internal_class": "KernelChannel",
+        "multi_instance": true,
+        "parents": [
+          "Device",
+          "KernelChannelGroupApi"
+        ],
+        "required_channel_alloc_params": true,
+        "resource_entry_sha256": "ac02ec05656ec5e48e6bf769307c0273393b1c2618c3ffe691b865a43845a1b6",
+        "resource_list_sha256": "19f365cf1c4492483a02172c1298f7ba54ae0571b156ac4b58c0c7522ba729b8"
+      }
+    },
+    "580.196.07": {
+      "BLACKWELL_CHANNEL_GPFIFO_A": {
+        "class_id": "0xc96f",
+        "header": "build/experiments/r58019607-uvm-consumer-v10-20261029/NVIDIA-kernel-module-source-580.196.07/src/common/sdk/nvidia/inc/class/clc96f.h",
+        "header_sha256": "d1c1c233b6f04206c66cebed0fd90b03491c5441925294eb823fb85482a349a6",
+        "internal_class": "KernelChannel",
+        "multi_instance": true,
+        "parents": [
+          "Device",
+          "KernelChannelGroupApi"
+        ],
+        "required_channel_alloc_params": true,
+        "resource_entry_sha256": "6f178d86fda78dca279f1c3fe28dc1569d7980f5c38047814ceadd1d382c6e97",
+        "resource_list_sha256": "19f365cf1c4492483a02172c1298f7ba54ae0571b156ac4b58c0c7522ba729b8"
+      },
+      "BLACKWELL_COMPUTE_B": {
+        "class_id": "0xcec0",
+        "header": "build/experiments/r58019607-uvm-consumer-v10-20261029/NVIDIA-kernel-module-source-580.196.07/src/common/sdk/nvidia/inc/class/clcec0.h",
+        "header_sha256": "bbe3bcabc7f129972ed5ed635f58251b657d6e5616cac8cfc5bd817293da7d2e",
+        "internal_class": "KernelGraphicsObject",
+        "multi_instance": true,
+        "parents": [
+          "KernelChannel"
+        ],
+        "required_channel_alloc_params": false,
+        "resource_entry_sha256": "2b2a37c1484f6c8c7f06cb940d5022c3c9b499c038bc49d4f7a9d9065d6eedb2",
+        "resource_list_sha256": "19f365cf1c4492483a02172c1298f7ba54ae0571b156ac4b58c0c7522ba729b8"
+      },
+      "VOLTA_CHANNEL_GPFIFO_A": {
+        "class_id": "0xc36f",
+        "header": "build/experiments/r58019607-uvm-consumer-v10-20261029/NVIDIA-kernel-module-source-580.196.07/src/common/sdk/nvidia/inc/class/clc36f.h",
+        "header_sha256": "56cbabbaf8c63cb2e2c0200dec3c18371d46772b0fcf903ab230d0de3b36c70b",
+        "internal_class": "KernelChannel",
+        "multi_instance": true,
+        "parents": [
+          "Device",
+          "KernelChannelGroupApi"
+        ],
+        "required_channel_alloc_params": true,
+        "resource_entry_sha256": "ac02ec05656ec5e48e6bf769307c0273393b1c2618c3ffe691b865a43845a1b6",
+        "resource_list_sha256": "19f365cf1c4492483a02172c1298f7ba54ae0571b156ac4b58c0c7522ba729b8"
+      }
+    },
+    "595.99.02": {
+      "BLACKWELL_CHANNEL_GPFIFO_A": {
+        "class_id": "0xc96f",
+        "header": "build/experiments/r595-syncboost-replay-v3/source/src/common/sdk/nvidia/inc/class/clc96f.h",
+        "header_sha256": "d1c1c233b6f04206c66cebed0fd90b03491c5441925294eb823fb85482a349a6",
+        "internal_class": "KernelChannel",
+        "multi_instance": true,
+        "parents": [
+          "Device",
+          "KernelChannelGroupApi"
+        ],
+        "required_channel_alloc_params": true,
+        "resource_entry_sha256": "6f178d86fda78dca279f1c3fe28dc1569d7980f5c38047814ceadd1d382c6e97",
+        "resource_list_sha256": "c1b97739068af98c4360bf75dff014a8503b572fd4a5b223db2f103e936c1c6a"
+      },
+      "BLACKWELL_COMPUTE_B": {
+        "class_id": "0xcec0",
+        "header": "build/experiments/r595-syncboost-replay-v3/source/src/common/sdk/nvidia/inc/class/clcec0.h",
+        "header_sha256": "bbe3bcabc7f129972ed5ed635f58251b657d6e5616cac8cfc5bd817293da7d2e",
+        "internal_class": "KernelGraphicsObject",
+        "multi_instance": true,
+        "parents": [
+          "KernelChannel"
+        ],
+        "required_channel_alloc_params": false,
+        "resource_entry_sha256": "2b2a37c1484f6c8c7f06cb940d5022c3c9b499c038bc49d4f7a9d9065d6eedb2",
+        "resource_list_sha256": "c1b97739068af98c4360bf75dff014a8503b572fd4a5b223db2f103e936c1c6a"
+      },
+      "VOLTA_CHANNEL_GPFIFO_A": {
+        "class_id": "0xc36f",
+        "header": "build/experiments/r595-syncboost-replay-v3/source/src/common/sdk/nvidia/inc/class/clc36f.h",
+        "header_sha256": "56cbabbaf8c63cb2e2c0200dec3c18371d46772b0fcf903ab230d0de3b36c70b",
+        "internal_class": "KernelChannel",
+        "multi_instance": true,
+        "parents": [
+          "Device",
+          "KernelChannelGroupApi"
+        ],
+        "required_channel_alloc_params": true,
+        "resource_entry_sha256": "ac02ec05656ec5e48e6bf769307c0273393b1c2618c3ffe691b865a43845a1b6",
+        "resource_list_sha256": "c1b97739068af98c4360bf75dff014a8503b572fd4a5b223db2f103e936c1c6a"
+      }
+    },
+    "615.71.10": {
+      "BLACKWELL_CHANNEL_GPFIFO_A": {
+        "class_id": "0xc96f",
+        "header": ".cache/upstream/extracted-r615-71-10-20261023/open-gpu-kernel-modules-6f3be8c9c3fb4ed6ffc607a0d32d31ce4db7fba5/src/common/sdk/nvidia/inc/class/clc96f.h",
+        "header_sha256": "d1c1c233b6f04206c66cebed0fd90b03491c5441925294eb823fb85482a349a6",
+        "internal_class": "KernelChannel",
+        "multi_instance": true,
+        "parents": [
+          "Device",
+          "KernelChannelGroupApi"
+        ],
+        "required_channel_alloc_params": true,
+        "resource_entry_sha256": "6f178d86fda78dca279f1c3fe28dc1569d7980f5c38047814ceadd1d382c6e97",
+        "resource_list_sha256": "9f377bffcc2fb1ac8190dc3c04a61a8fca869cc3d6dee044470c75b3c3476e8e"
+      },
+      "BLACKWELL_COMPUTE_B": {
+        "class_id": "0xcec0",
+        "header": ".cache/upstream/extracted-r615-71-10-20261023/open-gpu-kernel-modules-6f3be8c9c3fb4ed6ffc607a0d32d31ce4db7fba5/src/common/sdk/nvidia/inc/class/clcec0.h",
+        "header_sha256": "bbe3bcabc7f129972ed5ed635f58251b657d6e5616cac8cfc5bd817293da7d2e",
+        "internal_class": "KernelGraphicsObject",
+        "multi_instance": true,
+        "parents": [
+          "KernelChannel"
+        ],
+        "required_channel_alloc_params": false,
+        "resource_entry_sha256": "2b2a37c1484f6c8c7f06cb940d5022c3c9b499c038bc49d4f7a9d9065d6eedb2",
+        "resource_list_sha256": "9f377bffcc2fb1ac8190dc3c04a61a8fca869cc3d6dee044470c75b3c3476e8e"
+      },
+      "VOLTA_CHANNEL_GPFIFO_A": {
+        "class_id": "0xc36f",
+        "header": ".cache/upstream/extracted-r615-71-10-20261023/open-gpu-kernel-modules-6f3be8c9c3fb4ed6ffc607a0d32d31ce4db7fba5/src/common/sdk/nvidia/inc/class/clc36f.h",
+        "header_sha256": "56cbabbaf8c63cb2e2c0200dec3c18371d46772b0fcf903ab230d0de3b36c70b",
+        "internal_class": "KernelChannel",
+        "multi_instance": true,
+        "parents": [
+          "Device",
+          "KernelChannelGroupApi"
+        ],
+        "required_channel_alloc_params": true,
+        "resource_entry_sha256": "ac02ec05656ec5e48e6bf769307c0273393b1c2618c3ffe691b865a43845a1b6",
+        "resource_list_sha256": "9f377bffcc2fb1ac8190dc3c04a61a8fca869cc3d6dee044470c75b3c3476e8e"
+      }
+    }
+  },
+  "driver_installed_or_loaded": false,
+  "gpu_accessed_by_this_audit": false,
+  "interpretation": {
+    "cross_client_locking": "RM lookup takes hAppClient as the second client",
+    "parent_note": "NVOS64 hObjectParent is a separate incoming argument; the captures classify it as NV01_DEVICE_0 while the debuggee 3D handle is nested in pAllocParms",
+    "payload_layout_static": {
+      "NV83DE_ALLOC_PARAMETERS": {
+        "fields": {
+          "hAppClient": {
+            "offset": 4,
+            "source": "incoming ECX"
+          },
+          "hClass3dObject": {
+            "offset": 8,
+            "source": "incoming R8D"
+          },
+          "hDebuggerClient_Obsolete": {
+            "offset": 0,
+            "value": 0
+          }
+        },
+        "size_bytes": 12
+      },
+      "caveat": "Static register-to-stack assignments only; runtime values and handle ownership were not observed."
+    },
+    "remaining_unknowns": [
+      "runtime values and frontend/backend ownership of hAppClient and hClass3dObject",
+      "whether the observed allocation is required for ordinary CUDA initialization",
+      "successful allocation under the hybrid frontend"
+    ]
+  },
+  "libraries": {
+    "580.178.04": {
+      "alloc_params_first_handle": "literal zero",
+      "alloc_params_second_handle_source": "incoming ECX",
+      "alloc_params_third_handle_source": "incoming R8D",
+      "candidate_function_range": [
+        "0x47a9b0",
+        "0x47aa80"
+      ],
+      "instruction_count_checked": 16,
+      "ioctl_payload_bytes": 48,
+      "ioctl_request": "NV_ESC_RM_ALLOC (0xc030462b)",
+      "nvOS64_paramsSize": 0,
+      "nvos64_hclass": "0x83de",
+      "nvos64_packet_layout": {
+        "fields": {
+          "flags": {
+            "offset": 36,
+            "value": 0
+          },
+          "hClass": {
+            "offset": 12,
+            "value": "0x83de"
+          },
+          "hObjectNew": {
+            "offset": 8,
+            "source": "incoming EDX"
+          },
+          "hObjectParent": {
+            "offset": 4,
+            "source": "incoming ESI"
+          },
+          "hRoot": {
+            "offset": 0,
+            "source": "incoming EDI"
+          },
+          "pAllocParms": {
+            "offset": 16,
+            "value": "non-null local payload pointer"
+          },
+          "pRightsRequested": {
+            "offset": 24,
+            "value": "NULL"
+          },
+          "paramsSize": {
+            "offset": 32,
+            "value": 0
+          },
+          "status": {
+            "initial_value": 0,
+            "offset": 40
+          }
+        },
+        "packet_size": 48
+      },
+      "p_alloc_parms_non_null": true,
+      "path": "build/staging/r58017804-compute-userland-v1/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+      "sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9"
+    },
+    "595.99.02": {
+      "alloc_params_first_handle": "literal zero",
+      "alloc_params_second_handle_source": "incoming ECX",
+      "alloc_params_third_handle_source": "incoming R8D",
+      "candidate_function_range": [
+        "0x430730",
+        "0x430810"
+      ],
+      "instruction_count_checked": 16,
+      "ioctl_payload_bytes": 48,
+      "ioctl_request": "NV_ESC_RM_ALLOC (0xc030462b)",
+      "nvOS64_paramsSize": 0,
+      "nvos64_hclass": "0x83de",
+      "nvos64_packet_layout": {
+        "fields": {
+          "flags": {
+            "offset": 36,
+            "value": 0
+          },
+          "hClass": {
+            "offset": 12,
+            "value": "0x83de"
+          },
+          "hObjectNew": {
+            "offset": 8,
+            "source": "incoming EDX"
+          },
+          "hObjectParent": {
+            "offset": 4,
+            "source": "incoming ESI"
+          },
+          "hRoot": {
+            "offset": 0,
+            "source": "incoming EDI"
+          },
+          "pAllocParms": {
+            "offset": 16,
+            "value": "non-null local payload pointer"
+          },
+          "pRightsRequested": {
+            "offset": 24,
+            "value": "NULL"
+          },
+          "paramsSize": {
+            "offset": 32,
+            "value": 0
+          },
+          "status": {
+            "initial_value": 0,
+            "offset": 40
+          }
+        },
+        "packet_size": 48
+      },
+      "p_alloc_parms_non_null": true,
+      "path": "build/staging/r595.99.02-compute-userland-v1-20261031/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+      "sha256": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d"
+    }
+  },
+  "observed_at_utc": "2026-11-01T03:25:07.307873+00:00",
+  "qualification": "static-binary-and-open-source-correlation-only",
+  "runtime_or_hardware_validated": false,
+  "schema": "gt200-debugger-allocation-static-audit-v5",
+  "source_branches": {
+    "580.178.04": {
+      "allocation_fields": [
+        "hDebuggerClient_Obsolete",
+        "hAppClient",
+        "hClass3dObject"
+      ],
+      "class_header_sha256": "44835665d85dd315f6cb398e6f4a016eea4756acf6088f0c7e800c22c159d21a",
+      "class_registration": {
+        "allocation_parameters": "NV83DE_ALLOC_PARAMETERS",
+        "dual_client_lock": true,
+        "internal_class": "KernelSMDebuggerSession",
+        "multi_instance": true,
+        "parent_external_class": "NV01_DEVICE_0"
+      },
+      "debugger_constructor": {
+        "app_channel_derived_from_debuggee_parent": true,
+        "app_client_zero_falls_back_to_caller": true,
+        "cleanup_helper_declared_in_file": false,
+        "constructor_failure_cleanup": false,
+        "constructor_sha256": "2f06411071de6e9f3a0b662db85f7bc74fedad5c095f780cf30fb7bcd30e09c8",
+        "debuggee_must_be_kernel_graphics_object": true,
+        "debuggee_object_resolved_within_app_client": true,
+        "debugger_and_debuggee_gpu_equality_checked": true,
+        "debugger_session_registered_to_debuggee_graphics_context": true,
+        "init_client_precedes_context_registration": false,
+        "path": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/src/kernel/gpu/gr/kernel_sm_debugger_session.c",
+        "permission_paths": [
+          "matching-security-token",
+          "RS_ACCESS_DEBUG"
+        ],
+        "source_sha256": "4f86fb6f2982a0b4074b5e83ca57903b3085bc479f8908643945ecb17ba9adba",
+        "subdevice_selected_from_debuggee_device_and_gpu_instance": true
+      },
+      "gt200_debugger_resource_entry_sha256": "59c50239f2437ae512846c8a03ebbcfde7f7d3dfdf9b7cd3a2b0810b50aac537",
+      "resource_list_sha256": "19f365cf1c4492483a02172c1298f7ba54ae0571b156ac4b58c0c7522ba729b8",
+      "rmapi_source_sha256": "cef3ea5e0510cf4296d7f5654f9e4eb77c6b3e9e0e8f19442ecbf814b6f6004f",
+      "second_client_from_payload": "hAppClient",
+      "second_client_lookup_body_sha256": "0066c8396db3fa1d1dcee37a1bfa66418c19f55f2e754669e07f27e792639d94"
+    },
+    "580.196.07": {
+      "allocation_fields": [
+        "hDebuggerClient_Obsolete",
+        "hAppClient",
+        "hClass3dObject"
+      ],
+      "class_header_sha256": "44835665d85dd315f6cb398e6f4a016eea4756acf6088f0c7e800c22c159d21a",
+      "class_registration": {
+        "allocation_parameters": "NV83DE_ALLOC_PARAMETERS",
+        "dual_client_lock": true,
+        "internal_class": "KernelSMDebuggerSession",
+        "multi_instance": true,
+        "parent_external_class": "NV01_DEVICE_0"
+      },
+      "debugger_constructor": {
+        "app_channel_derived_from_debuggee_parent": true,
+        "app_client_zero_falls_back_to_caller": true,
+        "cleanup_helper_declared_in_file": true,
+        "constructor_failure_cleanup": true,
+        "constructor_sha256": "84fc5f4f784411cf9734ed9a891939455980c8f371377054d0f134aa32fa8b40",
+        "debuggee_must_be_kernel_graphics_object": true,
+        "debuggee_object_resolved_within_app_client": true,
+        "debugger_and_debuggee_gpu_equality_checked": true,
+        "debugger_session_registered_to_debuggee_graphics_context": true,
+        "init_client_precedes_context_registration": true,
+        "path": "build/experiments/r58019607-uvm-consumer-v10-20261029/NVIDIA-kernel-module-source-580.196.07/src/nvidia/src/kernel/gpu/gr/kernel_sm_debugger_session.c",
+        "permission_paths": [
+          "matching-security-token",
+          "RS_ACCESS_DEBUG"
+        ],
+        "source_sha256": "839617bea661447a58131ffdc0b635257cd2582fbeec8eaf17de148aa72ce376",
+        "subdevice_selected_from_debuggee_device_and_gpu_instance": true
+      },
+      "gt200_debugger_resource_entry_sha256": "59c50239f2437ae512846c8a03ebbcfde7f7d3dfdf9b7cd3a2b0810b50aac537",
+      "resource_list_sha256": "19f365cf1c4492483a02172c1298f7ba54ae0571b156ac4b58c0c7522ba729b8",
+      "rmapi_source_sha256": "cef3ea5e0510cf4296d7f5654f9e4eb77c6b3e9e0e8f19442ecbf814b6f6004f",
+      "second_client_from_payload": "hAppClient",
+      "second_client_lookup_body_sha256": "0066c8396db3fa1d1dcee37a1bfa66418c19f55f2e754669e07f27e792639d94"
+    },
+    "595.99.02": {
+      "allocation_fields": [
+        "hDebuggerClient_Obsolete",
+        "hAppClient",
+        "hClass3dObject"
+      ],
+      "class_header_sha256": "44835665d85dd315f6cb398e6f4a016eea4756acf6088f0c7e800c22c159d21a",
+      "class_registration": {
+        "allocation_parameters": "NV83DE_ALLOC_PARAMETERS",
+        "dual_client_lock": true,
+        "internal_class": "KernelSMDebuggerSession",
+        "multi_instance": true,
+        "parent_external_class": "NV01_DEVICE_0"
+      },
+      "debugger_constructor": {
+        "app_channel_derived_from_debuggee_parent": true,
+        "app_client_zero_falls_back_to_caller": true,
+        "cleanup_helper_declared_in_file": false,
+        "constructor_failure_cleanup": false,
+        "constructor_sha256": "2f06411071de6e9f3a0b662db85f7bc74fedad5c095f780cf30fb7bcd30e09c8",
+        "debuggee_must_be_kernel_graphics_object": true,
+        "debuggee_object_resolved_within_app_client": true,
+        "debugger_and_debuggee_gpu_equality_checked": true,
+        "debugger_session_registered_to_debuggee_graphics_context": true,
+        "init_client_precedes_context_registration": false,
+        "path": "build/experiments/r595-syncboost-replay-v3/source/src/nvidia/src/kernel/gpu/gr/kernel_sm_debugger_session.c",
+        "permission_paths": [
+          "matching-security-token",
+          "RS_ACCESS_DEBUG"
+        ],
+        "source_sha256": "4f86fb6f2982a0b4074b5e83ca57903b3085bc479f8908643945ecb17ba9adba",
+        "subdevice_selected_from_debuggee_device_and_gpu_instance": true
+      },
+      "gt200_debugger_resource_entry_sha256": "59c50239f2437ae512846c8a03ebbcfde7f7d3dfdf9b7cd3a2b0810b50aac537",
+      "resource_list_sha256": "c1b97739068af98c4360bf75dff014a8503b572fd4a5b223db2f103e936c1c6a",
+      "rmapi_source_sha256": "2622372217127a4ba2f5ff5ca40308b8fb5a7afd0457928e781ce68bb465a892",
+      "second_client_from_payload": "hAppClient",
+      "second_client_lookup_body_sha256": "0066c8396db3fa1d1dcee37a1bfa66418c19f55f2e754669e07f27e792639d94"
+    },
+    "615.71.10": {
+      "allocation_fields": [
+        "hDebuggerClient_Obsolete",
+        "hAppClient",
+        "hClass3dObject"
+      ],
+      "class_header_sha256": "44835665d85dd315f6cb398e6f4a016eea4756acf6088f0c7e800c22c159d21a",
+      "class_registration": {
+        "allocation_parameters": "NV83DE_ALLOC_PARAMETERS",
+        "dual_client_lock": true,
+        "internal_class": "KernelSMDebuggerSession",
+        "multi_instance": true,
+        "parent_external_class": "NV01_DEVICE_0"
+      },
+      "debugger_constructor": {
+        "app_channel_derived_from_debuggee_parent": true,
+        "app_client_zero_falls_back_to_caller": true,
+        "cleanup_helper_declared_in_file": false,
+        "constructor_failure_cleanup": false,
+        "constructor_sha256": "2f06411071de6e9f3a0b662db85f7bc74fedad5c095f780cf30fb7bcd30e09c8",
+        "debuggee_must_be_kernel_graphics_object": true,
+        "debuggee_object_resolved_within_app_client": true,
+        "debugger_and_debuggee_gpu_equality_checked": true,
+        "debugger_session_registered_to_debuggee_graphics_context": true,
+        "init_client_precedes_context_registration": false,
+        "path": ".cache/upstream/extracted-r615-71-10-20261023/open-gpu-kernel-modules-6f3be8c9c3fb4ed6ffc607a0d32d31ce4db7fba5/src/nvidia/src/kernel/gpu/gr/kernel_sm_debugger_session.c",
+        "permission_paths": [
+          "matching-security-token",
+          "RS_ACCESS_DEBUG"
+        ],
+        "source_sha256": "4f86fb6f2982a0b4074b5e83ca57903b3085bc479f8908643945ecb17ba9adba",
+        "subdevice_selected_from_debuggee_device_and_gpu_instance": true
+      },
+      "gt200_debugger_resource_entry_sha256": "59c50239f2437ae512846c8a03ebbcfde7f7d3dfdf9b7cd3a2b0810b50aac537",
+      "resource_list_sha256": "9f377bffcc2fb1ac8190dc3c04a61a8fca869cc3d6dee044470c75b3c3476e8e",
+      "rmapi_source_sha256": "2622372217127a4ba2f5ff5ca40308b8fb5a7afd0457928e781ce68bb465a892",
+      "second_client_from_payload": "hAppClient",
+      "second_client_lookup_body_sha256": "0066c8396db3fa1d1dcee37a1bfa66418c19f55f2e754669e07f27e792639d94"
+    }
+  },
+  "tool": {
+    "name": "GNU objdump",
+    "version": "GNU objdump (GNU Binutils for Ubuntu) 2.46"
+  },
+  "trace_observations": {
+    "rtx5080": {
+      "allocation_count": 1,
+      "allocation_status": "NV_OK",
+      "class_id": "0x83de",
+      "nested_payload_observed": false,
+      "object_handles_recorded": false,
+      "outer_params_size": 0,
+      "p_alloc_parms_non_null": true,
+      "parent_class_id": "0x80"
+    },
+    "v100": {
+      "allocation_count": 1,
+      "allocation_status": "NV_OK",
+      "class_id": "0x83de",
+      "nested_payload_observed": false,
+      "object_handles_recorded": false,
+      "outer_params_size": 0,
+      "p_alloc_parms_non_null": true,
+      "parent_class_id": "0x80"
+    }
+  },
+  "trace_summary_sha256": "ea06aaf20ee7b6fe8833a047b20e6152e12bfa2cb4ac05b16e525be9e70617db"
+}

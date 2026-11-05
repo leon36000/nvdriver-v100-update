@@ -1,0 +1,36 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-v",
+    "-s",
+    "tests"
+  ],
+  "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+  "duration_seconds": 45.975,
+  "environment": {
+    "HYBRID_CUDA_PROBE": {
+      "path": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+      "sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808"
+    },
+    "HYBRID_PROBE": {
+      "path": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+      "sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808"
+    }
+  },
+  "exit_code": 0,
+  "log": {
+    "mode": "0600",
+    "path": "evidence/logs/full-suite-observed-node-ioctls-v1-20261023T152812Z.log",
+    "sha256": "edbe652ee9fcb11531324371f62c24bf25c5f679d5824b0b69c0614c49003d50"
+  },
+  "observed_at_utc": "2026-10-23T15:28:58.305380+00:00",
+  "result": "pass",
+  "schema": "software-test-run-v1",
+  "scope_note": "software tests only; fake backend/provider harness; no experimental driver load/install or GPU hardware validation",
+  "summary": "Ran 1076 tests in 45.726s; OK",
+  "tests_run": 1076
+}
