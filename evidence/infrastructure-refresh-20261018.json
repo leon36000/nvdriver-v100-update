@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "record_type": "read_only_infrastructure_refresh",
+  "captured_at_utc": "2026-10-18T23:46:39Z",
+  "scope": {
+    "canonical_project_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+    "filesystem_mount_observation": {
+      "command": "findmnt -T /run/media/pc1/Infrastructure/Naos/60_travaux -o TARGET,SOURCE,FSTYPE,OPTIONS",
+      "observed_summary": "Target /run/media/pc1/Infrastructure was mounted from /dev/nvme0n1p1 as ext4 with rw,relatime options.",
+      "observation_time_utc": null
+    },
+    "read_only": true,
+    "project_files_modified_by_audit": false,
+    "infrastructure_changed": false,
+    "existing_naos_sessions_read_or_controlled": false,
+    "raw_stdout_retained": false,
+    "evidence_note": "For command outputs not retained verbatim, this record contains only the observed summary; it does not reconstruct or claim raw stdout. No IP addresses, key material, credentials, or session contents are included."
+  },
+  "naos": {
+    "tools_used": [
+      "mcp__codex_apps__naos_technologie_list",
+      "mcp__codex_apps__naos_technologie_status"
+    ],
+    "list_call": {
+      "arguments": {},
+      "observed_summary": "Returned a metadata page with has_more=true and observation_incomplete=false (limit 10). Two returned sessions were RUNNING; the page was not a complete session inventory. No remote host endpoint was present in the inspected metadata.",
+      "observation_time_utc": null
+    },
+    "sessions_status_metadata": [
+      {
+        "session_id": "94c07f37-3b18-4c54-95e5-c77f9131b656",
+        "operation_id": "3f626b02-00e4-4d4c-97d0-d15ddc76e7f9",
+        "state": "RUNNING",
+        "created_at": "2026-10-18T22:51:04.401198948+00:00",
+        "updated_at": "2026-10-18T23:33:30.738214527+00:00",
+        "cwd": "/tmp/agent-duel-20261018",
+        "shell": "/bin/bash"
+      },
+      {
+        "session_id": "7adcbf9f-f579-46cb-b402-81a2c39bab98",
+        "operation_id": "f3796be0-ec0a-4dd8-a9fe-f07560440914",
+        "state": "RUNNING",
+        "created_at": "2026-10-18T22:33:18.983684230+00:00",
+        "updated_at": "2026-10-18T23:33:30.741059146+00:00",
+        "cwd": "/tmp",
+        "shell": "/bin/bash"
+      }
+    ],
+    "session_io_performed": false,
+    "interpretation": "The inspected NAOS sessions were left untouched. Their metadata does not establish that either session is a route to a V100 host."
+  },
+  "local_ssh_configuration": {
+    "source": "/home/pc1/.ssh/config",
+    "inspection_method": "Read-only sanitized extraction of host directives; identity contents were not read or emitted.",
+    "aliases": [
+      {
+        "alias": "pc6",
+        "configured_user": "pc6",
+        "identity_file_basename": "id_ed25519_naos_gx10",
+        "identities_only": true,
+        "strict_host_key_checking": true,
+        "connect_timeout_seconds": 10
+      },
+      {
+        "alias": "gx10-e526",
+        "configured_user": "pc6",
+        "port": 22,
+        "identity_file_basename": "id_ed25519_naos_gx10",
+        "strict_host_key_checking": true
+      },
+      {
+        "alias": "labos",
+        "configured_user": "pc2",
+        "identity_file_basename": "id_ed25519_naos_labos",
+        "strict_host_key_checking": true,
+        "connect_timeout_seconds": 8,
+        "batch_mode": true
+      }
+    ],
+    "pc3_alias_configured": false,
+    "pc3_identity_note": "A local key file named gitspace_pc3_20261009 was observed, but no SSH host/login alias mapping was configured for PC3. It was not used as a host-login key and no key contents were read.",
+    "known_hosts_note": "Read-only ssh-keygen -F checks found a known-host entry for alias pc3; the Tailscale DNS name used by the tailscale ssh wrapper had no matching trusted host key. Address-based known-host identifiers, if any, are intentionally omitted."
+  },
+  "tailscale_observations": {
+    "local_command": "tailscale status --json (filtered in-process to self and matching PC3/PC2/V100/Volta peers)",
+    "local_observed_summary": "Backend Running; self pc1 online; peer pc3 online with DNS name pc3.tail0c55ff.ts.net. The filtered result did not include a PC2-matching peer.",
+    "pc6_command": "timeout-bounded SSH to configured alias pc6, then tailscale status --json filtered to self and matching peers",
+    "pc6_observed_summary": "Backend Running; self gx10-e526 online; peer pc3 online with the same DNS name.",
+    "dns_command": "getent ahostsv4 pc3",
+    "dns_observed_summary": "The local resolver returned pc3.tail0c55ff.ts.net for pc3; resolved address omitted.",
+    "observation_time_utc": null
+  },
+  "bounded_read_only_connection_attempts": [
+    {
+      "target": "pc6",
+      "command": "timeout 20s ssh -T -o BatchMode=yes -o ConnectTimeout=8 -o ConnectionAttempts=1 -o PreferredAuthentications=publickey -o PasswordAuthentication=no -o ControlMaster=no -o ControlPath=none pc6 '<read-only Python probe: hostname, kernel release, nvidia-smi GPU UUID/name/driver/compute capability>'",
+      "exit_code": 0,
+      "observed_result": {
+        "hostname": "gx10-e526",
+        "kernel_release": "7.0.0-1019-nvidia",
+        "nvidia_smi_exit_code": 0,
+        "gpu_inventory": [
+          {
+            "name": "NVIDIA GB10",
+            "driver_version": "580.178.04",
+            "compute_capability": "12.1"
+          }
+        ],
+        "probe_error": null
+      },
+      "evidence_boundary": "Direct fresh read-only probe completed successfully on PC6. It establishes that this endpoint currently exposes an NVIDIA GB10 to nvidia-smi; it does not establish any V100 availability or hybrid CUDA behavior."
+    },
+    {
+      "target": "labos (configured as PC2)",
+      "command": "timeout 20s ssh -T -o BatchMode=yes -o ConnectTimeout=8 -o ConnectionAttempts=1 -o PreferredAuthentications=publickey -o PasswordAuthentication=no -o ControlMaster=no -o ControlPath=none labos '<same read-only Python probe>'",
+      "exit_code": 255,
+      "observed_error": "ssh: connect to configured host on port 22: No route to host",
+      "evidence_boundary": "The configured endpoint was unreachable from PC1 during this bounded attempt. No remote inventory was obtained; this does not prove the machine is absent or permanently inaccessible. Configured endpoint addresses are omitted."
+    },
+    {
+      "target": "pc3 over direct SSH using the existing known-host alias",
+      "command": "timeout 20s ssh -T -F /dev/null -o BatchMode=yes -o ConnectTimeout=8 -o ConnectionAttempts=1 -o PreferredAuthentications=publickey -o PasswordAuthentication=no -o KbdInteractiveAuthentication=no -o StrictHostKeyChecking=yes -o UserKnownHostsFile=/home/pc1/.ssh/known_hosts -o HostKeyAlias=pc3 -o ControlMaster=no -o ControlPath=none pc1@pc3 '<same read-only Python probe>'",
+      "exit_code": 255,
+      "observed_error": "pc1@pc3: Permission denied (publickey,password).",
+      "evidence_boundary": "Host-key verification passed, but authentication for the explicitly attempted login was refused. No remote inventory was obtained. This establishes neither that all credentials/users fail nor that PC3 is unreachable."
+    },
+    {
+      "target": "pc3 via Tailscale SSH wrapper",
+      "command": "timeout-bounded tailscale ssh pc1@pc3 '<same read-only Python probe>'",
+      "exit_code": 255,
+      "observed_error": "No ED25519 host key is known for pc3.tail0c55ff.ts.net. and strict checking is enabled; Host key verification failed.",
+      "evidence_boundary": "This wrapper attempt stopped at host-key verification. No key was accepted, no authentication occurred, and no remote inventory was obtained."
+    }
+  ],
+  "pc3_state_separation": {
+    "current_observation": "PC3 appeared online in filtered Tailscale status from PC1 and PC6. A fresh direct SSH attempt reached host-key verification but authentication for pc1@pc3 was refused. The Tailscale SSH wrapper separately failed strict host-key verification. Current GPU and driver state were not refreshed.",
+    "historical_observation_not_refreshed": {
+      "source": "Earlier inventory note in the active project/task context; original raw command output and timestamp were not retained in this refresh record.",
+      "reported_os": "Ubuntu 26.04.1",
+      "reported_kernel": "7.0.0-38",
+      "reported_gpu_and_driver": "RTX 5080 under NVIDIA Open 595.99.02",
+      "reported_v100": "Tesla V100 SXM2 16 GB at BDF 81:00.0, bound to vfio-pci",
+      "status": "Historical report only; not independently verified in this refresh. Do not treat the V100 presence, binding, or driver state as current."
+    }
+  },
+  "naos_local_service_metadata": {
+    "command": "systemctl --user show naos-pc1-tunnel.service naos-pc1-host.service naos-pc1-gateway.service -p Id -p ActiveState -p SubState -p MainPID",
+    "observed_summary": "All three user services reported active/running: NAOS PC1 Secure MCP Tunnel, owner terminal broker, and authenticated loopback MCP gateway. The gateway metadata indicated a loopback listener. No remote V100 route was established from these service states.",
+    "observation_time_utc": null
+  },
+  "conclusion": {
+    "confirmed_configured_or_online": [
+      "PC6 is configured under SSH aliases pc6 and gx10-e526 and was reached successfully for a read-only probe; it reported NVIDIA GB10, driver 580.178.04, compute capability 12.1.",
+      "labos is configured as PC2 but the bounded SSH attempt returned No route to host.",
+      "PC3 is currently represented as online in the filtered Tailscale peer observations, but this audit did not authenticate to it or inspect its current GPUs/driver.",
+      "NAOS metadata showed two RUNNING sessions in a partial page; metadata did not identify a V100 route and sessions were not touched."
+    ],
+    "not_established": [
+      "A currently reachable V100 host.",
+      "Current PC3 V100 presence, vfio binding, or driver state.",
+      "CUDA execution or simultaneous Volta/Blackwell operation on any host."
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "schema": "hybrid580-r580-p2p-clean-fixture-v1",
+  "observed_at_utc": "2026-11-02T18:38:20.748325Z",
+  "scope": "R580 P2P adapter and provider-route CPU fixture against pinned R595.112.07 ABI excerpts",
+  "upstream": {
+    "repository": "NVIDIA/open-gpu-kernel-modules",
+    "tag": "595.112.07",
+    "commit": "d8257d95ae5fed364163e4df51db66df8b1ee0d2",
+    "source_file": "src/nvidia/interface/nv_uvm_types.h",
+    "source_file_sha256": "9bbe94713cfd6215ecb74e4626c19077e386009fe340fe156f94de9693ea635e",
+    "p2p_struct_excerpt_sha256": "5a5574d7b316e03e87fe8efe7783cd1c59911d1a5045d538ee7338eee8fbe250",
+    "link_enum_excerpt_sha256": "cc5606011d716126df95192e9a317ec0ff763b4e518d08c832fdfd4c3b8c38b7"
+  },
+  "focused_test": {
+    "command": "python3 tests/test_hybrid580_r580_p2p_route.py",
+    "tests_run": 5,
+    "status": "pass",
+    "production_route_compiled": true,
+    "mutation_cases_rejected": 3,
+    "hardware_used": false
+  },
+  "clean_index_export": {
+    "command": "git checkout-index --all --prefix=<temporary-directory>/",
+    "build_directory_present": false,
+    "focused_tests_run": 5,
+    "status": "pass"
+  },
+  "full_software_suite": {
+    "command": "/usr/bin/python3 -B -m unittest discover -v -s tests",
+    "tests_run": 2588,
+    "reported_seconds": 176.077,
+    "process_exit_code": 0,
+    "status": "pass",
+    "test_source_inputs": 384,
+    "implementation_source_inputs": 91,
+    "source_changes_during_run": false,
+    "raw_report_sha256": "0c37a24380006f142af551d134cd711cb8cda024ed8b1580b4985c485c6de1b5",
+    "log_sha256": "20c209c416f9ee96b1d98445f92754577b09f621184b953b6a1ba66c45e2aaa9",
+    "local_raw_report_path": "evidence/logs/software-verification-openrm-hal-matrix-v1-20261102T183524Z.json",
+    "local_log_path": "evidence/logs/software-verification-openrm-hal-matrix-v1-20261102T183524Z.log"
+  },
+  "qualification": "software-suite-only",
+  "runtime_or_hardware_validated": false,
+  "loaded_or_installed": false,
+  "notes": [
+    "The test uses exact R595.112.07 MIT source excerpts and a clearly labeled, minimal test shim; it does not depend on the ignored build/ source cache.",
+    "The C fixture uses a fake RM callback. It proves source-level adapter and route behavior only, not NVIDIA RM, CUDA, GPU P2P, or hardware behavior."
+  ]
+}

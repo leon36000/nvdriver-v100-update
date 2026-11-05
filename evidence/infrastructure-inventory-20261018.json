@@ -1,0 +1,45 @@
+{
+  "schema": "nvidia-hybrid-infrastructure-inventory-v1",
+  "observed_at_utc": "2026-10-18T23:01:39Z",
+  "local": {
+    "hostname": "pc1",
+    "os": "Ubuntu 26.04.1 LTS",
+    "kernel": "7.0.0-38-generic",
+    "gpu_query": "nvidia-smi --query-gpu=name,pci.bus_id,compute_cap,driver_version --format=csv,noheader",
+    "gpus": [
+      {
+        "name": "NVIDIA GeForce RTX 5090",
+        "pci_bus_id": "00000000:01:00.0",
+        "compute_capability": "12.0",
+        "driver_version": "595.99.02"
+      }
+    ],
+    "nvidia_smi_cuda_banner": "13.2",
+    "nvidia_module_license": "Dual MIT/GPL",
+    "loaded_nvidia_modules": ["nvidia_uvm", "nvidia_drm", "nvidia_modeset", "nvidia"],
+    "pci_devices": ["0000:01:00.0 0300: 10de:2b85 (rev a1)", "0000:01:00.1 0403: 10de:22e8 (rev a1)"],
+    "cuda_toolkit_used_for_probe_build": "13.1"
+  },
+  "ssh_aliases": {
+    "gx10-e526": {
+      "exit_code": 0,
+      "hostname": "gx10-e526",
+      "kernel": "Linux 7.0.0-1019-nvidia",
+      "gpu_query": "NVIDIA GB10, 0000000F:01:00.0, 12.1, 580.178.04"
+    },
+    "pc6": {
+      "exit_code": 0,
+      "hostname": "gx10-e526",
+      "kernel": "Linux 7.0.0-1019-nvidia",
+      "gpu_query": "NVIDIA GB10, 0000000F:01:00.0, 12.1, 580.178.04",
+      "same_host_as": "gx10-e526"
+    },
+    "labos": {
+      "exit_code": 255,
+      "error": "ssh connection to 192.168.1.164:22 failed: No route to host"
+    }
+  },
+  "ssh_config_aliases_observed": ["gx10-e526", "labos", "pc6"],
+  "pc2_pc3_access": "No direct aliases were present; direct access was not established in this run.",
+  "safety_note": "No driver module was unloaded, loaded, installed, or rebound. A previous run reported a PC3 V100 bound to vfio-pci; it was not rechecked or changed here."
+}
