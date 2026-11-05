@@ -189,12 +189,31 @@ def _semgrep(document: Any, limit: int, *, group_key: bytes) -> dict[str, Any]:
 def _trivy(document: Any, limit: int, *, group_key: bytes) -> dict[str, Any]:
     if (not isinstance(document, dict)
             or type(document.get("SchemaVersion")) is not int
-            or document.get("SchemaVersion") != 2
-            or not isinstance(document.get("Results"), list)):
-        raise ValueError("Trivy report must use schema version 2 and contain a Results array")
+            or document.get("SchemaVersion") != 2):
+        raise ValueError("Trivy report must use schema version 2 and contain scan results")
+
+    if "Results" not in document:
+        trivy_info = document.get("Trivy")
+        valid_empty_report = (
+            isinstance(trivy_info, dict)
+            and isinstance(trivy_info.get("Version"), str)
+            and bool(trivy_info["Version"])
+            and isinstance(document.get("CreatedAt"), str)
+            and bool(document["CreatedAt"])
+            and isinstance(document.get("ArtifactName"), str)
+            and isinstance(document.get("ArtifactType"), str)
+        )
+        if not valid_empty_report:
+            raise ValueError(
+                "Trivy report without Results lacks the versioned empty-report metadata")
+        results = []
+    else:
+        results = document["Results"]
+        if not isinstance(results, list):
+            raise ValueError("Trivy report Results field must be an array")
 
     findings: list[_Finding] = []
-    for result in document["Results"]:
+    for result in results:
         if not isinstance(result, dict):
             raise ValueError("Trivy report contains a malformed result")
         filename = _required_text(result, "Target", "Trivy")

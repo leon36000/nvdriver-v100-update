@@ -1,5 +1,6 @@
 stages:
   - software
+  - preflight
   - quality
 
 variables:
@@ -19,6 +20,7 @@ cpu-focused-regression:
       tests.test_transfer_manifest
       tests.test_compressed_evidence
       tests.test_ci_security_report_summary
+      tests.test_sonar_runner_endpoint_probe
       -v
     - python3 -B tools/audit_transfer_document_links.py --root "$CI_PROJECT_DIR"
   rules:
@@ -80,6 +82,29 @@ sonarqube-analysis:
       when: never
     - if: '$CI_PIPELINE_SOURCE == "push" && $SONAR_HOST_URL && $SONAR_TOKEN'
   allow_failure: true
+
+sonarqube-runner-network-preflight:
+  stage: preflight
+  when: always
+  allow_failure: true
+  dependencies: []
+  image: python:3.12-bookworm
+  script:
+    - >-
+      python3 -B tools/probe_sonar_runner_endpoint.py
+      --endpoint "$SONAR_HOST_URL"
+      --fallback-ip "${SONAR_HOST_IP:-}"
+      --output sonar-runner-preflight.json
+  artifacts:
+    when: always
+    expire_in: 30 days
+    paths:
+      - sonar-runner-preflight.json
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $SONAR_HOST_URL'
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_OPEN_MERGE_REQUESTS'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "push" && $SONAR_HOST_URL'
 
 security-report-summary:
   stage: quality

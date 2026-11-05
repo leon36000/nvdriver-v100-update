@@ -136,6 +136,25 @@ class CiSecurityReportSummaryTests(unittest.TestCase):
             [0, 0, 0],
         )
 
+    def test_trivy_empty_results_may_be_omitted_from_versioned_report(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "gitleaks-report.json").write_text("[]", encoding="utf-8")
+            (root / "semgrep-report.json").write_text(
+                '{"results": [], "errors": [], "paths": {"scanned": [], "skipped": []}}',
+                encoding="utf-8")
+            (root / "trivy-report.json").write_text(json.dumps({
+                "SchemaVersion": 2,
+                "Trivy": {"Version": "0.76.1"},
+                "CreatedAt": "2026-11-05T04:00:35Z",
+                "ArtifactName": ".",
+                "ArtifactType": "filesystem",
+            }), encoding="utf-8")
+            result = summarize_reports(root)
+
+        self.assertEqual(result["status"], "reports_complete")
+        self.assertEqual(result["reports"]["trivy"]["finding_count"], 0)
+
     def test_missing_reports_are_partial_and_cli_fails(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
@@ -253,6 +272,11 @@ class CiSecurityReportSummaryTests(unittest.TestCase):
                 "Semgrep report contains malformed skipped paths",
             ),
             ("trivy-report.json", "{}", "Trivy report must use schema version 2"),
+            (
+                "trivy-report.json",
+                '{"SchemaVersion": 2, "Results": null}',
+                "Trivy report Results field must be an array",
+            ),
             (
                 "trivy-report.json",
                 '{"SchemaVersion": 2, "Results": false}',
