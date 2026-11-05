@@ -1,0 +1,87 @@
+{
+  "build": {
+    "artifacts": [
+      {
+        "name": "llama-cli",
+        "relative_path": "build/inference/llama-1c5ed702-cuda129-sm70v-sm120a-v3/bin/llama-cli",
+        "sha256": "dae9ecad641276bd119d9f37b563e4f7deb4bb4a1bc823ed80d13414d7c8a387",
+        "size_bytes": 1320400
+      },
+      {
+        "name": "libggml-cuda.so.0.28.0",
+        "relative_path": "build/inference/llama-1c5ed702-cuda129-sm70v-sm120a-v3/bin/libggml-cuda.so.0.28.0",
+        "sha256": "5447160cd52047262e1192ea7bbdae7dda9030d5f1b4782d5654838f881e8041",
+        "size_bytes": 52485552
+      }
+    ],
+    "cmake_cache_sha256": "77bb08cfe6689cbb1b850b7b912669d3353393e488fc488e5818605dcec12f77",
+    "cmake_cuda_toolkit_detail": "[/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/tools/cuda-12.9.2-toolchain-v2/toolkit/targets/x86_64-linux/include][/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/tools/cuda-12.9.2-toolchain-v2/toolkit/lib/libcudart.so][/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/tools/cuda-12.9.2-toolchain-v2/toolkit/bin][v12.9.86()]",
+    "cmake_settings": {
+      "CMAKE_CUDA_ARCHITECTURES": "70-virtual;120a-real",
+      "GGML_CUDA": "ON",
+      "GGML_CUDA_FA": "OFF",
+      "GGML_CUDA_GRAPHS": "OFF",
+      "GGML_CUDA_NCCL": "OFF",
+      "GGML_CUDA_NO_PEER_COPY": "ON",
+      "GGML_CUDA_NO_VMM": "ON",
+      "GGML_NATIVE": "OFF"
+    },
+    "cuda_images": {
+      "sm_120a_cubin_count": 146,
+      "sm_70_ptx_count": 146
+    },
+    "cuobjdump_sha256": "5a26d5abd391fb60e1d95f8d3d15d3467bd9515c496e187f1b1cbec225f67d9c",
+    "toolchain_lock": {
+      "cmake_version": "4.4.5",
+      "cuda_version": "12.9.2",
+      "host_compiler": "GCC 14.3.0",
+      "nvcc_version": "12.9.86"
+    },
+    "toolchain_versions_observed": {
+      "cmake": {
+        "expected_fragment_observed": "4.4.5",
+        "relative_path": "build/tools/cmake-4.4.5/cmake-4.4.5-linux-x86_64/bin/cmake",
+        "sha256": "556cd627cb9f88bee5572bd3ccc55d8549945f685584aa8f4f1692a4e538b918",
+        "version_line": "cmake version 4.4.5"
+      },
+      "host_compiler": {
+        "expected_fragment_observed": "14.3.0",
+        "relative_path": "build/tools/host-gcc14/usr/bin/x86_64-linux-gnu-g++-14",
+        "sha256": "b9e051b66efc70e4dc437c35a4f946eaaa78440dd34df3bf087aead8c533d3e5",
+        "version_line": "x86_64-linux-gnu-g++-14 (Ubuntu 14.3.0-14ubuntu1) 14.3.0"
+      },
+      "nvcc": {
+        "expected_fragment_observed": "V12.9.86",
+        "relative_path": "build/tools/cuda-12.9.2-toolchain-v2/components/cuda_nvcc/cuda_nvcc-linux-x86_64-12.9.86-archive/bin/nvcc",
+        "sha256": "df9974db233a0b7a6c6d59c0e5d74e011566104098bcb3553495ff1b95bdeaf6",
+        "version_line": "nvcc: NVIDIA (R) Cuda compiler driver"
+      }
+    }
+  },
+  "cli_version_smoke": {
+    "cuda_visible_devices_empty": true,
+    "exit_code": 0,
+    "inference_run": false,
+    "log_sha256": "ea8fc8c944a99cb1bb34d0635fdf998864c3c33e9a2ea8908887c71d24898373",
+    "model_loaded": false
+  },
+  "created_at_utc": "2026-11-02T09:25:41+00:00",
+  "cuda_driver_runtime_validated": false,
+  "gpu_accessed_by_this_audit": false,
+  "limitations": [
+    "The tool inspects files and cuobjdump output; it does not execute the application or initialize CUDA.",
+    "The CLI version smoke was recorded with CUDA_VISIBLE_DEVICES empty and is not inference validation.",
+    "This CUDA 12.9.2 build is separate from the proposed pinned CUDA 12.8 profile."
+  ],
+  "p2p_enabled": false,
+  "profile_id": "llama.cpp-1c5ed702-cuda129-sm70v-sm120a",
+  "proof_level": "COMPILED_AND_STATIC_IMAGES_INSPECTED",
+  "record_type": "llama_cpp_cuda_artifact_inventory",
+  "same_process_v100_blackwell_validated": false,
+  "schema_version": 1,
+  "source": {
+    "commit": "1c5ed702c9e540ac14cc8c78100ea3984bc0e227",
+    "repository": "https://github.com/ggml-org/llama.cpp",
+    "tree_clean": true
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "added_paths": [],
+  "added_source_count": 0,
+  "archives": [
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/open-gpu-kernel-modules-615.71.10-6f3be8c9.tar.gz",
+      "sha256": "c01605048cab3d988b1b3028fbee0646ba0937407949dc43514b3e4694f40f6c",
+      "source_files": 222,
+      "source_manifest_sha256": "994da262850e82910b5e9a9fa980f96a03fd33142b1ed6ad0fc44109347a2fbf",
+      "version": "615.71.10"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/open-gpu-kernel-modules-1a82fbfda8f321b056eb3568850f9316c5e465c5.tar.gz",
+      "sha256": "590ee6a5a780f946322edd17f9d235c6664eb7e6839073ac0d68c0f263e7184f",
+      "source_files": 222,
+      "source_manifest_sha256": "994da262850e82910b5e9a9fa980f96a03fd33142b1ed6ad0fc44109347a2fbf",
+      "version": "615.78.08"
+    }
+  ],
+  "byte_identical": true,
+  "changed_common_source_count": 0,
+  "changed_paths": [],
+  "limitations": [
+    "The comparison is restricted to C and H files under kernel-open/nvidia-uvm.",
+    "Byte equality does not prove that either release supports GV100 or works at runtime.",
+    "Generated RM HAL admission is covered by a separate exact-release CPU source harness."
+  ],
+  "observed_at_utc": "2026-10-31T22:50:11.318982+00:00",
+  "qualification": "hash-pinned-source-comparison",
+  "removed_paths": [],
+  "removed_source_count": 0,
+  "runtime_or_hardware_validated": false,
+  "schema": "openrm-uvm-release-delta-v1",
+  "scope": "kernel-open/nvidia-uvm/**/*.[ch]"
+}

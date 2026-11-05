@@ -1,0 +1,24 @@
+{
+  "binary_sha256": "50e08c75955bd9c3d7084f1fdba7a665c0ebe0f9037db4fae21a2e3ec2e48981",
+  "command": [
+    "test-backend-ops",
+    "test",
+    "-b",
+    "CUDA0",
+    "-j",
+    "1"
+  ],
+  "cuda_kernel_executed": false,
+  "cuda_visible_devices": "",
+  "exit_code": 0,
+  "gpu_context_created": false,
+  "host": "pc1",
+  "log": "evidence/logs/llama-backend-ops-no-device-v1-20261102T095447194680Z.log",
+  "log_sha256": "57ee37984c5dc912b86dd968210e2787595081cc6a71dfb7f97cd23cd742815b",
+  "no_cuda_device_visible": true,
+  "observed_at_utc": "2026-11-02T09:54:47+00:00",
+  "schema": "llama-backend-ops-missing-device-reproduction-v1",
+  "strict_contract_reason": "requested CUDA backend was not enumerated exactly once",
+  "strict_contract_rejected": true,
+  "upstream_exit_was_success": true
+}

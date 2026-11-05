@@ -1,0 +1,144 @@
+{
+  "current_software_validation": {
+    "build_report": {
+      "bytes": 148195,
+      "path": "evidence/frontend-nvos64-class-size-v1-20261021.json",
+      "sha256": "cd2cad9c9465b9781f169c421775754351025ff45ff7656a5bf2b9b319caf581"
+    },
+    "loaded_or_installed": false,
+    "module": {
+      "bytes": 1000680,
+      "path": "build/experiments/frontend-nvos64-class-size-v1-20261021/hybrid580_frontend.ko",
+      "sha256": "d5f3bdf599cc9b2fd13d8157a3d1adcc21ca06a42e23a90a7766d2ee41dde5f4"
+    },
+    "suite_log": {
+      "bytes": 42732,
+      "path": "evidence/logs/software-verification-nvos64-class-size-v1-20261021.log",
+      "sha256": "d007f3432fb713a88e94828fcd1074b5a11c9c2b0ec8be5df54949cd60b62df8"
+    },
+    "tests_passed": 495,
+    "tests_skipped": 0
+  },
+  "finding": {
+    "frontend_rule": "For a supported typed class, validate the finite outer forms observed for that route, derive a present nested copy length from the pinned SDK/resource-class layout, accept null only when the class metadata permits it, and stop on copy_from_user failure before backend dispatch.",
+    "observed_binapi_shape": {
+      "class_payload_bytes": 4,
+      "entry_exit_stable": true,
+      "outer_params_size": 0,
+      "pAllocParms_present": true,
+      "reserved_zero": true,
+      "syscall_and_embedded_status": 0
+    },
+    "source_mechanism": "The allocation entry point forwards pAllocParms and the outer paramsSize. serverAllocApiCopyIn initializes RMAPI_PARAM_COPY; rmapiParamsCopyInit asks rmapiGetClassAllocParamSize using the external class ID; the resource descriptor supplies allocParamSize and optional-null policy; rmapiParamsAcquire copies/validates that derived class size.",
+    "summary": "Outer NVOS64 paramsSize is not the class-specific nested allocation-copy size in the inspected Open R580 Resource Manager path."
+  },
+  "hardware_references": {
+    "normalized_comparison": {
+      "bytes": 3079,
+      "path": "evidence/nv2081-binapi-allocation-comparison-v2-20261021.json",
+      "sha256": "ddda5cb47c8cbac129103970c6f9ef463a13fcebe233963e503fcfe494e59928"
+    },
+    "rtx5080": {
+      "capture": {
+        "bytes": 141918,
+        "path": "evidence/pc3-rtx5080-binapi-alloc-context-v1-20261021.json",
+        "sha256": "1786f4368077fb853490b94291840a779abb5035edf04a437eb8f36a3cd15a9a"
+      },
+      "driver": "595.99.02",
+      "gpu": "NVIDIA GeForce RTX 5080",
+      "kernel": "7.0.0-38-generic"
+    },
+    "separation": "The V100 and RTX5080 ran stock drivers on separate Linux kernels; the experimental module was not loaded.",
+    "v100": {
+      "capture": {
+        "bytes": 11185,
+        "path": "evidence/pc3-v100-binapi-alloc-context-v1-20261021.json",
+        "sha256": "eb6a44d3cfc0a5496cfae2e78f4ea5eba22f566b033afd8b2a3ea2c0d6a58e34"
+      },
+      "driver": "580.178.04",
+      "gpu": "Tesla V100-SXM2-16GB",
+      "kernel": "6.8.0-147-generic"
+    }
+  },
+  "limits": [
+    "This does not demonstrate the experimental module on hardware.",
+    "This does not validate a same-kernel V100 plus Blackwell CUDA process, UVM, P2P, stability, or performance.",
+    "The opaque 992-byte NV2081_BINAPI control body remains denied and unparsed."
+  ],
+  "observed_at_utc": "2026-10-21T15:43:42.419821+00:00",
+  "qualification": "paired-stock-hardware-observations-plus-static-open-r580-source-analysis",
+  "rejected_experiment": {
+    "build_report": {
+      "bytes": 148181,
+      "path": "evidence/frontend-binapi-size-pair-v1-20261021.json",
+      "sha256": "666742d941f5408d507136aef8967c9d6d2fc99d9f959edea7aae6d7912a4dc1"
+    },
+    "falsified_by": "Both hardware captures have outer paramsSize=0 and a present four-byte class payload.",
+    "historical_test_log": {
+      "bytes": 42732,
+      "path": "evidence/logs/software-verification-binapi-size-pair-v1-20261021.log",
+      "sha256": "3c0d95900fbee07088ba6589e4cc5014e6f7249873f0e5fb8c19a83f16dbf5c2"
+    },
+    "hypothesis": "Require outer paramsSize and pAllocParms presence to match for optional BINAPI input.",
+    "module": {
+      "bytes": 1001016,
+      "path": "build/experiments/frontend-binapi-size-pair-v1-20261021/hybrid580_frontend.ko",
+      "sha256": "a7ad79c38b3e2826eaefbc7e2a40a04e534efe9289b1ef7db1486df9f3e8baef"
+    },
+    "status": "rejected-never-installed-or-loaded"
+  },
+  "schema": "nvidia-hybrid-nvos64-class-allocation-copy-contract-v1",
+  "source_pin": {
+    "archive": {
+      "bytes": 22267204,
+      "path": ".cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+      "sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8"
+    },
+    "scope_limit": "Static evidence applies to this Open R580 source path; it does not establish proprietary RM internals or R595 source behavior.",
+    "source_files": [
+      {
+        "bytes": 26388,
+        "lines": "260-278",
+        "path": "build/experiments/private-open-binapi-object-v1-20261021/NVIDIA-kernel-module-source-580.178.04/src/nvidia/src/kernel/rmapi/entry_points.c",
+        "role": "entry_point_forwarding",
+        "sha256": "8c8c10a392ba3f79e6637c3192a5b85bd1404526ef7326af8a8eab80fc190368"
+      },
+      {
+        "bytes": 54430,
+        "lines": "110-150",
+        "path": "build/experiments/private-open-binapi-object-v1-20261021/NVIDIA-kernel-module-source-580.178.04/src/nvidia/src/kernel/rmapi/alloc_free.c",
+        "role": "class_copy_in",
+        "sha256": "4484ff47993b078565e4077a0e9dad63920a92090a3d42cdf52531e2c824432d"
+      },
+      {
+        "bytes": 6341,
+        "lines": "181-217",
+        "path": "build/experiments/private-open-binapi-object-v1-20261021/NVIDIA-kernel-module-source-580.178.04/src/nvidia/src/kernel/rmapi/resource_desc.c",
+        "role": "class_optional_size_lookup",
+        "sha256": "a28a419e5f12a44acdad3203fe639b22a730759e194e19cf3aac51b731ecb9f1"
+      },
+      {
+        "bytes": 10531,
+        "lines": "297-319",
+        "path": "build/experiments/private-open-binapi-object-v1-20261021/NVIDIA-kernel-module-source-580.178.04/src/nvidia/src/kernel/rmapi/param_copy.c",
+        "role": "parameter_copy_init",
+        "sha256": "4d0c2c3b8a4e5b0f1302f6c17e75ea372f50c32ee04d039c5aea9d07bf0b110a"
+      },
+      {
+        "bytes": 10531,
+        "lines": "42-53",
+        "path": "build/experiments/private-open-binapi-object-v1-20261021/NVIDIA-kernel-module-source-580.178.04/src/nvidia/src/kernel/rmapi/param_copy.c",
+        "role": "optional_payload_validation",
+        "sha256": "4d0c2c3b8a4e5b0f1302f6c17e75ea372f50c32ee04d039c5aea9d07bf0b110a"
+      },
+      {
+        "bytes": 119154,
+        "lines": "439-445",
+        "path": "build/experiments/private-open-binapi-object-v1-20261021/NVIDIA-kernel-module-source-580.178.04/src/nvidia/src/kernel/rmapi/resource_list.h",
+        "role": "binapi_resource_registration",
+        "sha256": "19f365cf1c4492483a02172c1298f7ba54ae0571b156ac4b58c0c7522ba729b8"
+      }
+    ],
+    "version": "NVIDIA Open GPU Kernel Modules R580.178.04"
+  }
+}

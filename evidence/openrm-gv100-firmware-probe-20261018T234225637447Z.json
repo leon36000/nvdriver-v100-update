@@ -1,0 +1,91 @@
+{
+  "schema": "openrm-gv100-firmware-probe-v1",
+  "source_tag": "595.104.02",
+  "source_commit": "ac24e02fc090c3e05c1fc03384b317ac2cc301b5",
+  "steps": [
+    {
+      "name": "policy-contract",
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_openrm_firmware_policy.py",
+        "-v"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "exit_code": 0,
+      "duration_seconds": 0.114,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/openrm-gv100-policy-contract-20261018T234225637447Z.log",
+      "log_sha256": "001bf4758c765ef6eaefc7dc4e6116217a1ee7522413a4c6d32486f631f94bf0"
+    },
+    {
+      "name": "patch",
+      "command": [
+        "patch",
+        "--batch",
+        "--forward",
+        "--fuzz=0",
+        "-p1",
+        "-i",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r595.104.02/0001-gv100-monolithic-firmware-policy.patch"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm-gv100-firmware-v1/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5",
+      "exit_code": 0,
+      "duration_seconds": 0.001,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/openrm-gv100-patch-20261018T234225637447Z.log",
+      "log_sha256": "5b2f63f4f412c32036a7f615a3ca8c22a23cb778ff7d926687f114b260fd4ff2"
+    },
+    {
+      "name": "modules",
+      "command": [
+        "make",
+        "modules",
+        "-j4",
+        "NV_KERNEL_MODULES=nvidia nvidia-uvm",
+        "EXTRA_CFLAGS=-DNV_HYBRID_EXPERIMENTAL_GV100"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm-gv100-firmware-v1/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5",
+      "exit_code": 0,
+      "duration_seconds": 48.926,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/openrm-gv100-modules-20261018T234225637447Z.log",
+      "log_sha256": "d7657321b8a0841dc6a007d5f11c3c8ae109eab5f6f762bd8eed189796c328d0"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm-gv100-firmware-v1/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5/src/nvidia/_out/Linux_x86_64/nv-kernel.o",
+      "bytes": 17801240,
+      "sha256": "f42cd4f7d174fe5ebce7cbb8fb884215dfece27f4eb51636c682db6b0c222c26"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm-gv100-firmware-v1/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5/kernel-open/nvidia.ko",
+      "bytes": 36790920,
+      "sha256": "ee662fc74c896d9ff356e9e37c7058562f730c31be9c45cb94fdba379d40b85a",
+      "modinfo_exit_code": 0,
+      "modinfo": "filename:       /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm-gv100-firmware-v1/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5/kernel-open/nvidia.ko\nimport_ns:      DMA_BUF\nalias:          char-major-195-*\ndescription:    NVIDIA core GPU kernel module\nversion:        595.104.02\nsupported:      external\nlicense:        Dual MIT/GPL\nfirmware:       nvidia/595.104.02/gsp_tu10x.bin\nfirmware:       nvidia/595.104.02/gsp_ga10x.bin\nsoftdep:        pre: ecdh_generic,ecdsa_generic\nsrcversion:     30CD3272F595CCB702EB9EF\nalias:          pci:v000010DEd*sv*sd*bc06sc80i00*\nalias:          pci:v000010DEd*sv*sd*bc03sc02i00*\nalias:          pci:v000010DEd*sv*sd*bc03sc00i00*\nalias:          of:N*T*Cnvidia,tegra264-displayC*\nalias:          of:N*T*Cnvidia,tegra264-display\nalias:          of:N*T*Cnvidia,tegra234-displayC*\nalias:          of:N*T*Cnvidia,tegra234-display\ndepends:        \nname:           nvidia\nretpoline:      Y\nvermagic:       7.0.0-38-generic SMP preempt mod_unload modversions \nparm:           NvSwitchRegDwords:NvSwitch regkey (charp)\nparm:           NvSwitchBlacklist:NvSwitchBlacklist=uuid[,uuid...] (charp)\nparm:           NVreg_ResmanDebugLevel:int\nparm:           NVreg_RmLogonRC:int\nparm:           NVreg_ModifyDeviceFiles:int\nparm:           NVreg_DeviceFileUID:int\nparm:           NVreg_DeviceFileGID:int\nparm:           NVreg_DeviceFileMode:int\nparm:           NVreg_InitializeSystemMemoryAllocations:int\nparm:           NVreg_UsePageAttributeTable:int\nparm:           NVreg_EnablePCIeGen3:int\nparm:           NVreg_EnableMSI:int\nparm:           NVreg_EnableStreamMemOPs:int\nparm:           NVreg_RestrictProfilingToAdminUsers:int\nparm:           NVreg_PreserveVideoMemoryAllocations:int\nparm:           NVreg_EnableS0ixPowerManagement:int\nparm:           NVreg_S0ixPowerManagementVideoMemoryThreshold:int\nparm:           NVreg_DynamicPowerManagement:int\nparm:           NVreg_DynamicPowerManagementVideoMemoryThreshold:int\nparm:           NVreg_EnableGpuFirmware:int\nparm:           NVreg_EnableGpuFirmwareLogs:int\nparm:           NVreg_OpenRmEnableUnsupportedGpus:int\nparm:           NVreg_EnableUserNUMAManagement:int\nparm:           NVreg_MemoryPoolSize:int\nparm:           NVreg_KMallocHeapMaxSize:int\nparm:           NVreg_VMallocHeapMaxSize:int\nparm:           NVreg_IgnoreMMIOCheck:int\nparm:           NVreg_NvLinkDisable:int\nparm:           NVreg_EnablePCIERelaxedOrderingMode:int\nparm:           NVreg_RegisterPCIDriver:int\nparm:           NVreg_RegisterPlatformDeviceDriver:int\nparm:           NVreg_EnableResizableBar:int\nparm:           NVreg_EnableDbgBreakpoint:int\nparm:           NVreg_TegraGpuPgMask:int\nparm:           NVreg_EnableNonblockingOpen:int\nparm:           NVreg_ExcludeAllGpus:int\nparm:           NVreg_GpuInitOnProbe:int\nparm:           NVreg_CoherentGPUMemoryMode:charp\nparm:           NVreg_RegistryDwords:charp\nparm:           NVreg_RegistryDwordsPerDevice:charp\nparm:           NVreg_RmMsg:charp\nparm:           NVreg_GpuBlacklist:charp\nparm:           NVreg_TemporaryFilePath:charp\nparm:           NVreg_ExcludedGpus:charp\nparm:           NVreg_DmaRemapPeerMmio:int\nparm:           NVreg_RmNvlinkBandwidth:charp\nparm:           NVreg_RmNvlinkBandwidthLinkCount:int\nparm:           NVreg_ImexChannelCount:int\nparm:           NVreg_CreateImexChannel0:int\nparm:           NVreg_EnableSystemMemoryPools:int\nparm:           NVreg_UseKernelSuspendNotifiers:int\nparm:           rm_firmware_active:charp\n"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm-gv100-firmware-v1/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5/kernel-open/nvidia-uvm.ko",
+      "bytes": 57144288,
+      "sha256": "3f190264b85233387e92a7ced271db06f1f1f6f0fdf2d25da8359cd1d8a638a3",
+      "modinfo_exit_code": 0,
+      "modinfo": "filename:       /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm-gv100-firmware-v1/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5/kernel-open/nvidia-uvm.ko\ndescription:    NVIDIA Unified Virtual Memory kernel module\nversion:        595.104.02\nsupported:      external\nlicense:        Dual MIT/GPL\nsrcversion:     5EE6DF4E4D0B746CE87DF19\ndepends:        nvidia\nname:           nvidia_uvm\nretpoline:      Y\nvermagic:       7.0.0-38-generic SMP preempt mod_unload modversions \nparm:           uvm_conf_computing_channel_iv_rotation_limit:ulong\nparm:           uvm_ats_mode:Set to 0 to disable ATS (Address Translation Services). Any other value is ignored. Has no effect unless the platform supports ATS. (int)\nparm:           uvm_perf_prefetch_enable:uint\nparm:           uvm_perf_prefetch_threshold:uint\nparm:           uvm_perf_prefetch_min_faults:uint\nparm:           uvm_perf_thrashing_enable:uint\nparm:           uvm_perf_thrashing_threshold:uint\nparm:           uvm_perf_thrashing_pin_threshold:uint\nparm:           uvm_perf_thrashing_lapse_usec:uint\nparm:           uvm_perf_lapse_vote_threshold:uint\nparm:           uvm_perf_thrashing_nap:uint\nparm:           uvm_perf_thrashing_epoch:uint\nparm:           uvm_perf_thrashing_pin:uint\nparm:           uvm_perf_thrashing_max_resets:uint\nparm:           uvm_perf_map_remote_on_native_atomics_fault:uint\nparm:           uvm_disable_hmm:Force-disable HMM functionality in the UVM driver. Default: false (HMM is enabled if possible). However, even with uvm_disable_hmm=false, HMM will not be enabled if is not supported in this driver build configuration, or if ATS settings conflict with HMM. (bool)\nparm:           uvm_perf_migrate_cpu_preunmap_enable:int\nparm:           uvm_perf_migrate_cpu_preunmap_block_order:uint\nparm:           uvm_global_oversubscription:Enable (1) or disable (0) global oversubscription support. (int)\nparm:           uvm_perf_pma_batch_nonpinned_order:uint\nparm:           uvm_cpu_chunk_allocation_sizes:OR'ed value of all CPU chunk allocation sizes. (uint)\nparm:           uvm_leak_checker:Enable uvm memory leak checking. 0 = disabled, 1 = count total bytes allocated and freed, 2 = per-allocation origin tracking. (int)\nparm:           uvm_debug_enable_push_desc:Enable push description tracking (uint)\nparm:           uvm_debug_enable_push_acquire_info:Enable push acquire information tracking (uint)\nparm:           uvm_page_table_location:Set the location for UVM-allocated page tables. Choices are: vid, sys. (charp)\nparm:           uvm_perf_access_counter_migration_enable:Whether access counters will trigger migrations.Valid values: <= -1 (default policy), 0 (off), >= 1 (on) (int)\nparm:           uvm_perf_access_counter_batch_count:uint\nparm:           uvm_perf_access_counter_threshold:Number of remote accesses on a region required to trigger a notification.Valid values: [1, 65535] (uint)\nparm:           uvm_perf_reenable_prefetch_faults_lapse_msec:uint\nparm:           uvm_perf_fault_batch_count:uint\nparm:           uvm_perf_fault_replay_policy:uint\nparm:           uvm_perf_fault_replay_update_put_ratio:uint\nparm:           uvm_perf_fault_max_batches_per_service:uint\nparm:           uvm_perf_fault_max_throttle_per_service:uint\nparm:           uvm_perf_fault_coalesce:uint\nparm:           uvm_fault_force_sysmem:Force (1) using sysmem storage for pages that faulted. Default: 0. (int)\nparm:           uvm_perf_map_remote_on_eviction:int\nparm:           uvm_block_cpu_to_cpu_copy_with_ce:Use GPU CEs for CPU-to-CPU migrations. (int)\nparm:           uvm_exp_gpu_cache_peermem:Force caching for mappings to peer memory. This is an experimental parameter that may cause correctness issues if used. (uint)\nparm:           uvm_exp_gpu_cache_sysmem:Force caching for mappings to system memory. This is an experimental parameter that may cause correctness issues if used. (uint)\nparm:           uvm_downgrade_force_membar_sys:Force all TLB invalidation downgrades to use MEMBAR_SYS (uint)\nparm:           uvm_channel_num_gpfifo_entries:uint\nparm:           uvm_channel_gpfifo_loc:charp\nparm:           uvm_channel_gpput_loc:charp\nparm:           uvm_channel_pushbuffer_loc:charp\nparm:           uvm_enable_va_space_mm:Set to 0 to disable UVM from using mmu_notifiers to create an association between a UVM VA space and a process. This will also disable pageable memory access via either ATS or HMM. (int)\nparm:           uvm_enable_debug_procfs:Enable debug procfs entries in /proc/driver/nvidia-uvm (int)\nparm:           uvm_peer_copy:Choose the addressing mode for peer copying, options: phys [default] or virt. Valid for Ampere+ GPUs. (charp)\nparm:           uvm_debug_prints:Enable uvm debug prints. (int)\nparm:           uvm_enable_builtin_tests:Enable the UVM built-in tests. (This is a security risk) (int)\nparm:           uvm_release_asserts:Enable uvm asserts included in release builds. (int)\nparm:           uvm_release_asserts_dump_stack:dump_stack() on failed UVM release asserts. (int)\nparm:           uvm_release_asserts_set_global_error:Set UVM global fatal error on failed release asserts. (int)\n"
+    }
+  ],
+  "loaded_or_installed": false,
+  "hardware_validated": false,
+  "gv100_hal_registered": false,
+  "uvm_volta_dispatch_integrated": false,
+  "source": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm-gv100-firmware-v1/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5",
+  "source_archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5.tar.gz",
+  "archive_sha256": "da4e454d493818027998fc9d7ef95fd5dd291d3d37119f1f81d12db85fc33190",
+  "patch": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r595.104.02/0001-gv100-monolithic-firmware-policy.patch",
+  "patch_sha256": "ade06b9e023cd0998c25efc044b53e9a4ea1cbd52bc56170576a41502d18e4df",
+  "patched_osinit_sha256": "b0a4aeb8e2e6e05ef3dcbff034ec00f7050f38a04b46a50c77366c1c33fc1760",
+  "status": "compiled-experimental-firmware-route",
+  "observed_at_utc": "2026-10-18T23:43:15.343881+00:00"
+}

@@ -1,0 +1,40 @@
+{
+  "actions": [
+    "read-only NAOS list/status/recovery inspection",
+    "no prepare, commit, input, retry, stop, detach, remote command, or GPU operation"
+  ],
+  "interpretation": "The catalogue does not prove a live PC3 shell or GPU access. The uncertain session was not resumed.",
+  "naos": {
+    "first_page_size": 10,
+    "guardian_reachable": {
+      "false": 10,
+      "true": 0
+    },
+    "has_more": true,
+    "reported_states": {
+      "EXITED": 8,
+      "INTERRUPTED": 1,
+      "LAUNCH_UNKNOWN": 1
+    },
+    "unknown_session": {
+      "guardian_reachable": false,
+      "observation_error": "FILES_UNSAFE_PATH: session directory ENOENT",
+      "operation_id": "ce1d39b7-52da-44a2-9635-d8c5a995a175",
+      "recovery": "NO_JOURNAL: this session has no durable terminal history",
+      "session_id": "76f2c8b3-3eb4-4687-953e-aff0518703dd",
+      "state": "LAUNCH_UNKNOWN"
+    }
+  },
+  "observed_at_utc": "2026-10-29T17:22:52.159247+00:00",
+  "qualification": "access-observation-only",
+  "schema": "naos-pc3-access-readonly-v1",
+  "ssh": {
+    "command": "ssh -o BatchMode=yes -o ConnectTimeout=5 pc3 ...",
+    "result": "connection timed out",
+    "target_alias": "pc3"
+  },
+  "tailscale": {
+    "last_seen": "2026-10-29T10:55:57.1Z",
+    "online": false
+  }
+}

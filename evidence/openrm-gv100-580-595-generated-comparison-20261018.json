@@ -1,0 +1,79 @@
+{
+  "schema": "openrm-gv100-generated-comparison-v1",
+  "observed_at_utc": "2026-10-18T23:53:45.047680+00:00",
+  "inputs": [
+    {
+      "version": "580.178.04",
+      "archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+      "archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+      "files": {
+        "src/nvidia/generated/rmconfig.h": {
+          "sha256": "f67a2a4ad7a7639925401159b474dabf1cfeff845a5646d7c6692db598e1f64a",
+          "bytes": 51512
+        },
+        "src/nvidia/generated/g_chips2halspec_nvoc.c": {
+          "sha256": "570b18afd7ac89ab066f190d6010cc2a0f3b91bbae28d07b4114682187b5ac9b",
+          "bytes": 5609
+        },
+        "src/nvidia/generated/g_hal_register.h": {
+          "sha256": "05fa8a99486fb7427b0c604f8d72a63bdafe895781005de9d71c88741be012d3",
+          "bytes": 6719
+        },
+        "src/nvidia/generated/g_hal_archimpl.h": {
+          "sha256": "560c6c4e51afe7e907269fd9901936f14b679fd3049e717669008c054ff77dfc",
+          "bytes": 8958
+        },
+        "src/nvidia/src/kernel/core/hal_mgr.c": {
+          "sha256": "80923fa0e9f519e2d40b02885d3d0e7ccd63d6842d89e8ba3c8e9c1d2f8c9c49",
+          "bytes": 5794
+        }
+      },
+      "chip_flags": {
+        "GV10X": 0,
+        "GV100": 0
+      },
+      "gv100_chip_id_row": "{                               0x0,                            0x0,   0x0 } , // GV100  (disabled)",
+      "chiphal_gv100_label_present": false,
+      "gv100_legacy_registration_symbol_present": false
+    },
+    {
+      "version": "595.104.02",
+      "archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5.tar.gz",
+      "archive_sha256": "da4e454d493818027998fc9d7ef95fd5dd291d3d37119f1f81d12db85fc33190",
+      "files": {
+        "src/nvidia/generated/rmconfig.h": {
+          "sha256": "52f6a2ed2c5dff0de85db4239b26658ded0fbf69297c0bbfa18367bc3c7e7912",
+          "bytes": 51452
+        },
+        "src/nvidia/generated/g_chips2halspec_nvoc.c": {
+          "sha256": "f112674d8191a09662bf8e1a3f5b920773a95d6aae6e61fe79382d405fbade3e",
+          "bytes": 5609
+        },
+        "src/nvidia/generated/g_hal_register.h": {
+          "sha256": "8399d29f4f8c1e56ce27f010fd1b066e38395ddffa6a00aad51d556b37fbd15a",
+          "bytes": 6691
+        },
+        "src/nvidia/generated/g_hal_archimpl.h": {
+          "sha256": "c261f6a4ef4363ecaabbf9604943c11e8c54678d32dadebf8e9a1c4c2112ada7",
+          "bytes": 8930
+        },
+        "src/nvidia/src/kernel/core/hal_mgr.c": {
+          "sha256": "80923fa0e9f519e2d40b02885d3d0e7ccd63d6842d89e8ba3c8e9c1d2f8c9c49",
+          "bytes": 5794
+        }
+      },
+      "chip_flags": {
+        "GV10X": 0,
+        "GV100": 0
+      },
+      "gv100_chip_id_row": "{                               0x0,                            0x0,   0x0 } , // GV100  (disabled)",
+      "chiphal_gv100_label_present": false,
+      "gv100_legacy_registration_symbol_present": false
+    }
+  ],
+  "legacy_hal_manager_source_identical": true,
+  "qualification": "analyzed-statically",
+  "physical_hal_completeness": "not-established",
+  "proprietary_r580_behavior_compared": false,
+  "loaded_or_installed": false
+}

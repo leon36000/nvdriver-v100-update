@@ -1,0 +1,237 @@
+{
+  "analysis_environment": {
+    "analysis_profile": "ghidra-default+disabled:Function ID,Decompiler Parameter ID,Decompiler Switch Analysis",
+    "binary_import": "ephemeral source-immutable project",
+    "deep_analysis_provider": "Ghidra 12.1.4",
+    "function_names": "FUN_* identifiers are Ghidra-generated labels, not recovered original source names",
+    "jdk": "21.0.13+9",
+    "node": "v24.22.2",
+    "pseudocode": "decompiler-generated non-source observations; original binaries were not modified",
+    "rea": "6.8.0"
+  },
+  "compiled_header_comparison": {
+    "command": "python3 tools/compare_uvm_payload_abi.py --r580-proprietary ... --r580-open ... --r595-open ...",
+    "compiler": "Ubuntu GCC 15.2.0, target x86_64-linux-gnu, -std=gnu11 -Wall -Wextra -Werror",
+    "full_command_set_identical_between_r580_and_r595": true,
+    "other_payload_delta": {
+      "command": "UVM_EVENT_CTRL",
+      "r580_fields": [
+        "sessionIndex@0:4",
+        "eventQueueIndex@4:4",
+        "eventType@8:4",
+        "enable@12:4",
+        "rmStatus@16:4"
+      ],
+      "r580_size_bytes": 20,
+      "r595_fields": [
+        "eventQueueIndex@0:4",
+        "eventType@4:4",
+        "enable@8:4",
+        "rmStatus@12:4"
+      ],
+      "r595_size_bytes": 16,
+      "request_value": "0x11"
+    },
+    "qualification": "compiled-exact-uapi-header-layout-only",
+    "report": "evidence/uvm-payload-abi-r580-r595-event-ctrl-v1-20261029.json",
+    "selected_layouts_identical": {
+      "UVM_CREATE_RANGE_GROUP_PARAMS": {
+        "fields": [
+          "rangeGroupId@0:8",
+          "rmStatus@8:4"
+        ],
+        "size_bytes": 16
+      },
+      "UVM_INITIALIZE_PARAMS": {
+        "fields": [
+          "flags@0:8",
+          "rmStatus@8:4"
+        ],
+        "size_bytes": 16
+      },
+      "UVM_MM_INITIALIZE_PARAMS": {
+        "fields": [
+          "uvmFd@0:4",
+          "rmStatus@4:4"
+        ],
+        "size_bytes": 8
+      }
+    },
+    "sha256": "f963aae678d23990e6f303b2d79552e47e04d83d648c9511b5ac5aea81899665",
+    "status": "differences"
+  },
+  "evidence_hashes": {
+    "uvm_init_linux_header_r580": "0ffb5cf3679fb5e150745e54b72fab861e319823e419f36376468a60862c2748",
+    "uvm_init_linux_header_r595": "0ffb5cf3679fb5e150745e54b72fab861e319823e419f36376468a60862c2748",
+    "uvm_ioctl_header_r580": "937a3fe1c0b2f4d8cfc18443d41ad10ee85c4445f954cc5c67b460ded2dd4916",
+    "uvm_ioctl_header_r595": "9cc909360f2d19135852390fb66a12fe4d22ca39c19e2609b2ff5e925df4bdf4"
+  },
+  "existing_r580_v100_runtime_reference": {
+    "captures": 2,
+    "create_range_group_count_per_capture": 8,
+    "driver": "R580.178.04",
+    "event_ctrl_0x11_observed": false,
+    "gpu": "Tesla V100 guest",
+    "payloads_captured": false,
+    "qualification": "repeated-stock-driver-context-ioctl-metadata-only",
+    "report": "evidence/pc3-v100-context-uvm-sequence-v1-20261028.json",
+    "sha256": "475fa6e4275328de55626161998e641dfe8de68ff246da6cf6e8ecc6dfc0c1bb",
+    "uvm_ioctl_count_per_capture": 136
+  },
+  "interpretation": [
+    "The three analyzed libcuda binaries use the same observed UVM_INITIALIZE, UVM_MM_INITIALIZE, and UVM_CREATE_RANGE_GROUP request numbers in the targeted context/setup paths.",
+    "The exact-header compiler probe confirms matching layouts for those three payload types between the pinned R580 and R595 UAPI trees.",
+    "This is a narrow compatibility result, not whole-UVM ABI closure or proof that the R595 library executes on the V100.",
+    "UVM_EVENT_CTRL has a same-number but different Linux payload layout across R580/R595; that request was absent from the two retained R580 context traces, so the changed payload was not exercised there.",
+    "Keep the selected R595 libcuda and R595 nvidia-uvm pairing; retain R580.196.07 as the backend-only Volta provider. Any cross-version UVM pairing still needs route/payload evidence and runtime validation."
+  ],
+  "next_executable_action": "Trace the R595 libcuda UVM paths beyond initialization/range-group into memory registration and event interfaces; compare those call contracts against the selected R595 UVM dispatcher before attempting a PC3 canary. PC3 was offline on the latest read-only status and the existing candidate preflight remains blocked.",
+  "observed_at_utc": "2026-10-29T14:38:04Z",
+  "preserved_analysis_artifacts": [
+    {
+      "path": "evidence/rea-r595-libcuda-ghidra-overview-v1-20261029.json",
+      "sha256": "688a038b4d1048900f2be0b7dbc037e5c8365c5df845e0b1887bc21228b8234e"
+    },
+    {
+      "path": "evidence/rea-r595-libcuda-uvm-string-trace-v1-20261029.json",
+      "sha256": "ce4ba8ef91a48d95c15bbeb335769c82d6127aabb1c3b305d3881a52580d567f"
+    },
+    {
+      "path": "evidence/rea-r595-libcuda-uvm-targeted-analysis-v1-20261029.json.gz",
+      "sha256": "18d6efbf9ea1085c2bda6b577831a91fd2e2bfa16e8e750f4798815d8bdc86a7",
+      "uncompressed_sha256": "fcaf2c584ab5ad4111827a35d94592af0086f487aca9113bab856d9d504648b6"
+    },
+    {
+      "path": "evidence/rea-r58017804-libcuda-uvm-string-trace-v1-20261029.json",
+      "sha256": "6b4c13fccac6c2f04a0e1692395770c1f1dccf4f7b6362742c9265f3a134f1cb"
+    },
+    {
+      "path": "evidence/rea-r58017804-libcuda-uvm-targeted-analysis-v1-20261029.json.gz",
+      "sha256": "8ae63ad69b53bf931dd76b9d232e9cae85f1e56f484dc199da63f828a922b6a9",
+      "uncompressed_sha256": "c275536eaff32a683c3fb021dd559267af3bd381c3c50335557e0cea826cac25"
+    },
+    {
+      "path": "evidence/rea-r58019607-libcuda-uvm-string-trace-v1-20261029.json",
+      "sha256": "750a003f8f3107d24d6310af62772395505f3ddaa6a6e63de07b31051504d315"
+    },
+    {
+      "path": "evidence/rea-r58019607-libcuda-uvm-targeted-analysis-v1-20261029.json.gz",
+      "sha256": "7ff330c8294e777d117b34ae50210175f08e7e55b7e5f965ed61fe081dd2e563",
+      "uncompressed_sha256": "4aaa58db9cf26f13926c542ab98d598efae915e8728a53f4f216ca666c219a7d"
+    }
+  ],
+  "qualification": "analyzed-statically-and-compiled-exact-uapi-layouts",
+  "same_host_same_process_volta_blackwell_validated": false,
+  "schema": "nvidia-hybrid-libcuda-uvm-static-differential-v1",
+  "source_binaries": {
+    "r580_178_04": {
+      "path": "build/staging/r58017804-compute-userland-v1/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+      "sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9"
+    },
+    "r580_196_07": {
+      "path": "build/experiments/r58019607-runfile-extract-v1-20261029/NVIDIA-Linux-x86_64-580.196.07/libcuda.so.580.196.07",
+      "sha256": "a5c77bf2de83c0ec06ecd368d224c3e0d653d658d6f99319921e976f21867b14"
+    },
+    "r595_99_02": {
+      "owner": "libnvidia-compute-595:amd64",
+      "package_version": "595.99.02-0ubuntu0.26.04.1",
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+      "sha256": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d"
+    }
+  },
+  "static_libcuda_observations": [
+    {
+      "binary": "r580_178_04",
+      "body_bytes": 3080,
+      "body_ranges": 7,
+      "direct_uvm_ioctl_requests": [
+        "0x30000001",
+        "0x17"
+      ],
+      "function_address": "0x56e830",
+      "function_name": "FUN_0056e830",
+      "helper_request": {
+        "callee": "FUN_00549e40",
+        "value": "0x4b"
+      },
+      "limitations": [
+        "decompiler output is not original source",
+        "no runtime fd or payload identity was captured"
+      ],
+      "uvm_node_string_references": [
+        "/dev/nvidia-uvm",
+        "/dev/nvidia-uvm-tools"
+      ]
+    },
+    {
+      "binary": "r580_196_07",
+      "body_bytes": 3080,
+      "body_ranges": 7,
+      "direct_uvm_ioctl_requests": [
+        "0x30000001",
+        "0x17"
+      ],
+      "function_address": "0x56e890",
+      "function_name": "FUN_0056e890",
+      "helper_request": {
+        "callee": "FUN_00549e80",
+        "value": "0x4b"
+      },
+      "limitations": [
+        "decompiler output is not original source",
+        "no runtime fd or payload identity was captured"
+      ],
+      "uvm_node_string_references": [
+        "/dev/nvidia-uvm",
+        "/dev/nvidia-uvm-tools"
+      ]
+    },
+    {
+      "binary": "r595_99_02",
+      "body_bytes": 3348,
+      "body_ranges": 7,
+      "direct_uvm_ioctl_requests": [
+        "0x30000001",
+        "0x17"
+      ],
+      "function_address": "0x524600",
+      "function_name": "FUN_00524600",
+      "helper_request": {
+        "callee": "FUN_005068f0",
+        "value": "0x4b"
+      },
+      "limitations": [
+        "decompiler output is not original source",
+        "high-pcode value flow is truncated by one operation",
+        "no runtime fd or payload identity was captured"
+      ],
+      "uvm_node_string_references": [
+        "/dev/nvidia-uvm",
+        "/dev/nvidia-uvm-tools"
+      ]
+    }
+  ],
+  "this_increment_hardware_execution": false,
+  "uapi_mapping": {
+    "0x11": {
+      "expression": "UVM_IOCTL_BASE(17)",
+      "linux_header": "uvm_ioctl.h",
+      "name": "UVM_EVENT_CTRL",
+      "note": "0x17 is not UVM_EVENT_CTRL; ioctl values are hexadecimal in the binaries"
+    },
+    "0x17": {
+      "expression": "UVM_IOCTL_BASE(23)",
+      "linux_header": "uvm_ioctl.h",
+      "name": "UVM_CREATE_RANGE_GROUP"
+    },
+    "0x30000001": {
+      "linux_header": "uvm_linux_ioctl.h",
+      "name": "UVM_INITIALIZE"
+    },
+    "0x4b": {
+      "expression": "UVM_IOCTL_BASE(75)",
+      "linux_header": "uvm_ioctl.h",
+      "name": "UVM_MM_INITIALIZE"
+    }
+  }
+}

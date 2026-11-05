@@ -1,0 +1,29 @@
+{
+  "candidate_module_installed_or_loaded": false,
+  "gpu_test_executed": false,
+  "observed_at_utc": "2026-10-30T05:30:35Z",
+  "remote_command_executed": false,
+  "schema": "pc3-access-probe-v4",
+  "ssh_from_pc1": {
+    "command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ConnectionAttempts=1 pc3 <read-only GPU inventory>",
+    "exit_code": 255,
+    "result": "connection timed out before authentication or remote command execution"
+  },
+  "ssh_second_hop_from_pc6": {
+    "command": "ssh pc6 ssh -o BatchMode=yes -o ConnectTimeout=5 -o ConnectionAttempts=1 pc3 <read-only GPU inventory>",
+    "exit_code": 255,
+    "result": "pc6 could not resolve hostname pc3"
+  },
+  "tailscale_from_pc1": {
+    "command_exit_code": 0,
+    "peer": {
+      "HostName": "pc3",
+      "LastSeen": "2026-10-29T10:55:57.1Z",
+      "Online": false,
+      "TailscaleIPs": [
+        "100.90.188.53",
+        "fd7a:115c:a1e0::fe2e:bc36"
+      ]
+    }
+  }
+}

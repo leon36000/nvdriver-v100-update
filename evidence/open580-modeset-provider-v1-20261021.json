@@ -1,0 +1,52 @@
+{
+  "build_command": [
+    "make",
+    "-C",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-modeset-provider-v1-20261021/kernel-open",
+    "KERNEL_UNAME=7.0.0-38-generic",
+    "NV_KERNEL_MODULES=nvidia-modeset",
+    "-j4",
+    "modules"
+  ],
+  "build_error_tail": [
+    "make: Entering directory '/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-modeset-provider-v1-20261021/kernel-open'",
+    "make[1]: Entering directory '/usr/src/linux-headers-7.0.0-38-generic'",
+    "make[2]: Entering directory '/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-modeset-provider-v1-20261021/kernel-open'",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-modeset-provider-v1-20261021/kernel-open/pahole.sh: 66: exec: pahole: not found",
+    "warning: pahole version differs from the one used to build the kernel",
+    "  The kernel was built with: 131",
+    "  You are using:             ",
+    "make[4]: *** No rule to make target 'nvidia-modeset/nv-modeset-kernel.o_binary', needed by 'nvidia-modeset/nv-modeset-kernel.o'.  Stop.",
+    "make[4]: *** Waiting for unfinished jobs....",
+    "make[3]: *** [/usr/src/linux-headers-7.0.0-38-generic/Makefile:2139: .] Error 2",
+    "make[2]: *** [/usr/src/linux-headers-7.0.0-38-generic/Makefile:248: __sub-make] Error 2",
+    "make[2]: Leaving directory '/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-modeset-provider-v1-20261021/kernel-open'",
+    "make[1]: *** [Makefile:248: __sub-make] Error 2",
+    "make[1]: Leaving directory '/usr/src/linux-headers-7.0.0-38-generic'",
+    "make: *** [Makefile:115: modules] Error 2",
+    "make: Leaving directory '/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-modeset-provider-v1-20261021/kernel-open'"
+  ],
+  "build_exit_code": 2,
+  "build_log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-modeset-provider-v1-20261021/nvidia-modeset-build.log",
+  "build_log_sha256": "47ab3ecf081eb1be24e1c2194493310ed25359c318430d24ff62581b07489205",
+  "created_utc": "2026-10-21T21:29:25.480742+00:00",
+  "hardware_validated": false,
+  "inputs": {
+    "Module.symvers": "87246357b0b97080fd62f5dd4b64a9994368876514c6f4c00d5047b0c2c82546",
+    "nvidia-modeset.Kbuild": "472c8caf8ea5d2ad2b4b1785a45243a047d6a4375671cd40f2674e95970de024",
+    "provider_module": "6108bb0221ac17fb435e918c4d0402406eb80f2f5739ebf81279d39f6bd2e2b1"
+  },
+  "installed": false,
+  "kernel_build_tree": "/usr/src/linux-headers-7.0.0-38-generic",
+  "kernel_release": "7.0.0-38-generic",
+  "loaded": false,
+  "namespace_define": "-Dnvidia_get_rm_ops=hybrid580_open_nvidia_get_rm_ops",
+  "provider_symbol": "hybrid580_open_nvidia_get_rm_ops",
+  "qualification": "build-failed",
+  "runtime_callback_validated": false,
+  "schema": "hybrid-open580-modeset-provider-build-v1",
+  "scratch_kbuild_sha256": "17b682c4cb249ec2229c3976b086c0971521ed4cc34691d5f6b40158e68c9f6f",
+  "scratch_namespace_applied": true,
+  "scratch_source": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-modeset-provider-v1-20261021/kernel-open",
+  "source": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-pm-channel-restart-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open"
+}

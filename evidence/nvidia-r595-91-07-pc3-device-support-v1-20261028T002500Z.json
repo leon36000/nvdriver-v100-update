@@ -1,0 +1,42 @@
+{
+  "hardware_support_runtime_test": false,
+  "interpretation": "Both exact PC3 PCI device IDs appear in the NVIDIA Linux 595.91.07 supported-products list. This documents per-driver-version product support only. It does not establish Ubuntu 595-server-open package-flavor behavior, simultaneous initialization, one-process CUDA, P2P, or hybrid operation.",
+  "matches": [
+    {
+      "nvidia_readme_match": "NVIDIA GeForce RTX 5080 | 2C02",
+      "pc3_device": "GeForce RTX 5080",
+      "pci_id": "10de:2c02",
+      "source_location": "Appendix A, line 795"
+    },
+    {
+      "nvidia_readme_match": "Tesla V100-SXM2-16GB | 1DB1",
+      "pc3_device": "Tesla V100 SXM2 16GB",
+      "pci_id": "10de:1db1",
+      "source_location": "Appendix A, line 1138"
+    }
+  ],
+  "module_inspection": "evidence/pc3-r595-server-fallback-module-inspection-v1-20261028T002428Z.json",
+  "module_inspection_sha256": "07e8e5a5974de0ab6aa03856a839aeb765b447b0d18fe90f76338f98cbc4ee25",
+  "observed_at_utc": "2026-10-28T00:25:10.454159+00:00",
+  "package_transaction_or_module_load": false,
+  "pc3_gpu_observations": [
+    {
+      "device_id": "2c02",
+      "model": "VGA compatible controller [0300]: NVIDIA Corporation GB203 [GeForce RTX 5080] [10de:2c02] (rev a1)",
+      "pci": "0000:02:00.0",
+      "vendor_id": "10de"
+    },
+    {
+      "device_id": "1db1",
+      "model": "3D controller [0302]: NVIDIA Corporation GV100GL [Tesla V100 SXM2 16GB] [10de:1db1] (rev a1)",
+      "pci": "0000:81:00.0",
+      "vendor_id": "10de"
+    }
+  ],
+  "pc3_snapshot": "evidence/pc3-canary-host-state-v37-20261028T001026Z.json",
+  "pc3_snapshot_sha256": "17d0e7360630ec3bda00467600c05ac65a835a9720369e2fd8adecd8041d3550",
+  "schema": "nvidia-r595-91-07-supported-products-check-v1",
+  "source": "NVIDIA Linux x86_64 driver 595.91.07 README Appendix A, Supported NVIDIA GPU Products",
+  "source_scope_note": "The README says its list indicates GPUs supported by the particular driver version; it also cautions that individual hardware designs can still be incompatible.",
+  "source_url": "https://download.nvidia.com/XFree86/Linux-x86_64/595.91.07/README/supportedchips.html"
+}

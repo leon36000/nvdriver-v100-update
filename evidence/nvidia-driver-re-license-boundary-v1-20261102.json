@@ -1,0 +1,27 @@
+{
+  "schema": "nvidia-driver-re-license-boundary-v1",
+  "observed_at_utc": "2026-11-02T03:43:05Z",
+  "status": "proprietary-binary-analysis-halted",
+  "qualification": "local-tool-setup-and-license-review",
+  "tools": {
+    "rea_agents": "6.8.0",
+    "ghidra": "12.1.4",
+    "jdk": "21",
+    "ghidra_provider_checks": "8/8 passed",
+    "installation_scope": "ignored project-local build directory"
+  },
+  "license_review": {
+    "source": "build/NVIDIA-Linux-x86_64-595.112.07-no-compat32/LICENSE",
+    "sha256": "c692fb14ad4f499c6aee1b9e144e6905148c420e6225b17cb2937366c1e507ad",
+    "clause": "2.2",
+    "finding": "The agreement restricts reverse engineering, decompilation, and disassembly of binary software."
+  },
+  "disposition": {
+    "earlier_local_query_outputs": "disqualified; not relied on or transferred",
+    "further_closed_nvidia_binary_analysis": "stopped",
+    "permitted_future_scope": "project-owned or expressly authorized targets",
+    "hardware_accessed": false,
+    "modules_loaded_or_installed": false,
+    "pseudocode_in_receipt": false
+  }
+}

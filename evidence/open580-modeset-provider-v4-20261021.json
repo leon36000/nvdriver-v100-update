@@ -1,0 +1,69 @@
+{
+  "binary_license_boundary": "Private R580 release object included for local build validation only; the combined module is not cleared for redistribution.",
+  "build_command": [
+    "make",
+    "-C",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-modeset-provider-v4-20261021/kernel-open",
+    "KERNEL_UNAME=7.0.0-38-generic",
+    "NV_KERNEL_MODULES=nvidia-modeset",
+    "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-modeset-provider-v4-20261021/provider-Module.symvers",
+    "-j4",
+    "modules"
+  ],
+  "build_exit_code": 0,
+  "build_log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-modeset-provider-v4-20261021/nvidia-modeset-build.log",
+  "build_log_sha256": "448e1a4d681f3416a31fb22868b96e05d1d2087fc27b7d229346a3fc7c717993",
+  "created_utc": "2026-10-21T21:31:49.147972+00:00",
+  "external_provider_symvers": {
+    "bytes": 10936,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-modeset-provider-v4-20261021/provider-Module.symvers",
+    "sha256": "87246357b0b97080fd62f5dd4b64a9994368876514c6f4c00d5047b0c2c82546",
+    "source": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-pm-channel-restart-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open/Module.symvers"
+  },
+  "fixed_char_device": {
+    "major": 195,
+    "minor": 254,
+    "source_reservation_verified": true
+  },
+  "hardware_validated": false,
+  "inputs": {
+    "Module.symvers": "87246357b0b97080fd62f5dd4b64a9994368876514c6f4c00d5047b0c2c82546",
+    "nv-modeset-kernel.o_binary": "9a8640a8f49c88cfcc0773d728d6b2a28b877794c95ec63a5e950b2d8385a83d",
+    "nvidia-modeset.Kbuild": "472c8caf8ea5d2ad2b4b1785a45243a047d6a4375671cd40f2674e95970de024",
+    "provider_module": "6108bb0221ac17fb435e918c4d0402406eb80f2f5739ebf81279d39f6bd2e2b1"
+  },
+  "installed": false,
+  "kernel_build_tree": "/usr/src/linux-headers-7.0.0-38-generic",
+  "kernel_release": "7.0.0-38-generic",
+  "loaded": false,
+  "module": {
+    "bytes": 3256104,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-modeset-provider-v4-20261021/kernel-open/nvidia-modeset.ko",
+    "sha256": "9c358878234af18c5aa773bdd0f1da0f38a4841684810eabb10b2c0c7ca3d572"
+  },
+  "module_license": "Dual MIT/GPL",
+  "namespace_define": "-Dnvidia_get_rm_ops=hybrid580_open_nvidia_get_rm_ops",
+  "provider_import": {
+    "crc": "0x3f7d91db",
+    "export": "EXPORT_SYMBOL_GPL",
+    "provider_module": "hybrid580_open",
+    "symbol": "hybrid580_open_nvidia_get_rm_ops"
+  },
+  "provider_symbol": "hybrid580_open_nvidia_get_rm_ops",
+  "qualification": "compiled-import-crc-closed-static-chardev-contract",
+  "runtime_callback_validated": false,
+  "schema": "hybrid-open580-modeset-provider-build-v1",
+  "scratch_kbuild_sha256": "17b682c4cb249ec2229c3976b086c0971521ed4cc34691d5f6b40158e68c9f6f",
+  "scratch_namespace_applied": true,
+  "scratch_source": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-modeset-provider-v4-20261021/kernel-open",
+  "source": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-pm-channel-restart-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open",
+  "staged_modeset_core": {
+    "bytes": 2085200,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-modeset-provider-v4-20261021/kernel-open/nvidia-modeset/nv-modeset-kernel.o_binary",
+    "sha256": "9a8640a8f49c88cfcc0773d728d6b2a28b877794c95ec63a5e950b2d8385a83d",
+    "source": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-proprietary-pm-channel-restart-v2-20261021/nvidia-580.178.04/nvidia-modeset/nv-modeset-kernel.o_binary"
+  },
+  "undefined_stock_provider_symbol": false,
+  "undefined_symbol_count": 105,
+  "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions"
+}

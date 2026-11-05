@@ -1,0 +1,521 @@
+{
+  "build_tree_parity": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/build-tree-parity-local-rm90e6-master-route-v3-20261030-v1.json",
+    "path_count": 4478,
+    "regular_file_bytes": 1055221563,
+    "regular_file_count": 4190,
+    "result": "byte-and-metadata-parity",
+    "sha256": "744ba424c267252188930ab974125723342cbe92143c31f9d60d46939c614942",
+    "symlink_count": 2,
+    "tree_manifest_sha256": "21e56eed52bf71586aa9d747bf10484119eaeaeaf7df76f12fb2af54676b2480"
+  },
+  "canonical_storage": {
+    "available_bytes": 45109436416,
+    "latest_patch": "v15 is the latest patch literally applied to canonical; v16-v20 were written there, exported, and applied to mirror",
+    "latest_patch_applied_to": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+    "writes_performed": true
+  },
+  "canonical_workspace": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+  "checkpoint": {
+    "canonical_matches_working_copy": true,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/docs/STATE.md",
+    "sha256": "39a4156b8b06fa5c19ae0a1a2b0c9f0496971da36fe2894afcdc7c5b1d9496ae"
+  },
+  "created_at_utc": "2026-10-30T01:02:44Z",
+  "integration_patch": {
+    "applied_to_canonical": false,
+    "bytes": 304878,
+    "dry_run": "patch --dry-run --batch -p1 -d /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+    "dry_run_exit_code": 0,
+    "modified_paths": 18,
+    "new_paths": 11,
+    "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/canonical-rm90e6.patch",
+    "sha256": "6a2cca0ba43f7dd54971964ff2e135eedb11d007c38a15ab4f8104cfabe7051c"
+  },
+  "integration_patches": [
+    {
+      "applied_to_canonical": true,
+      "apply_exit_code": 0,
+      "bytes": 559016,
+      "dry_run_exit_code": 0,
+      "label": "canonical-rm90e6-v4",
+      "modified_paths": 18,
+      "new_paths": 21,
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/canonical-rm90e6-v4.patch",
+      "path_count": 39,
+      "sha256": "53b1f89fec4dd51cc474a38a1c9a46914a3361671dee72b83e1f72e5c56f7fc4"
+    },
+    {
+      "applied_to_canonical": true,
+      "apply_exit_code": 0,
+      "bytes": 5757,
+      "dry_run_exit_code": 0,
+      "label": "canonical-rm90e6-v5",
+      "modified_paths": 2,
+      "new_paths": 0,
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/canonical-rm90e6-v5.patch",
+      "path_count": 2,
+      "sha256": "4059f5dd3f79113e14c1868eb28c4b9d1592f968ec26b3a8c64816694aabb7dc"
+    },
+    {
+      "applied_to_canonical": true,
+      "apply_exit_code": 0,
+      "bytes": 159455,
+      "dry_run_exit_code": 0,
+      "label": "canonical-rm90e6-v6",
+      "modified_paths": 2,
+      "new_paths": 7,
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/canonical-rm90e6-v6.patch",
+      "path_count": 9,
+      "sha256": "cb6123032b7f32e64b1df6a2aca4c471b02e5dd4ab100857aab7faf09a773e51"
+    },
+    {
+      "applied_to_canonical": true,
+      "apply_exit_code": 0,
+      "bytes": 1487,
+      "dry_run_exit_code": 0,
+      "label": "canonical-rm90e6-v7",
+      "modified_paths": 1,
+      "new_paths": 0,
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/canonical-rm90e6-v7.patch",
+      "path_count": 1,
+      "sha256": "101e84274e77757232eec28481fed9f5058d499b98fd4c8c59445c383a6d6902"
+    },
+    {
+      "applied_to_canonical": true,
+      "apply_exit_code": 0,
+      "bytes": 4167,
+      "dry_run_exit_code": 0,
+      "label": "canonical-rm90e6-v8",
+      "modified_paths": 1,
+      "new_paths": 2,
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/canonical-rm90e6-v8.patch",
+      "path_count": 3,
+      "sha256": "37d709a42eb15785cc3249b135e938f64e367693e8f3ca12c71a94c6b16ca704"
+    },
+    {
+      "applied_to_canonical": true,
+      "apply_exit_code": 0,
+      "bytes": 131634,
+      "dry_run_exit_code": 0,
+      "label": "canonical-rm90e6-v9",
+      "modified_paths": 2,
+      "new_paths": 4,
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/canonical-rm90e6-v9.patch",
+      "path_count": 6,
+      "sha256": "6d6e2c84018cec8be4f7796b6c5b3012debd0e13c9d2dfb9daf8a7443e8703dc"
+    },
+    {
+      "applied_to_canonical": true,
+      "apply_exit_code": 0,
+      "bytes": 518,
+      "dry_run_exit_code": 0,
+      "label": "canonical-rm90e6-v10",
+      "modified_paths": 1,
+      "new_paths": 0,
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/canonical-rm90e6-v10.patch",
+      "path_count": 1,
+      "sha256": "06cd6fa78c9b907fd745edcc23e90efe263b3c771ced49d30b1b14c253ffa603"
+    },
+    {
+      "applied_to_canonical": true,
+      "apply_exit_code": 0,
+      "bytes": 3836,
+      "dry_run_exit_code": 0,
+      "label": "canonical-rm90e6-v11",
+      "modified_paths": 1,
+      "new_paths": 0,
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/canonical-rm90e6-v11.patch",
+      "path_count": 1,
+      "sha256": "edc6ce821967f87036683546bfc25ac570b9a995cdc9fb0e7e190596fcdc54b4"
+    },
+    {
+      "applied_to_canonical": true,
+      "apply_exit_code": 0,
+      "bytes": 3914,
+      "dry_run_exit_code": 0,
+      "label": "canonical-rm90e6-v12",
+      "modified_paths": 1,
+      "new_paths": 0,
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/canonical-rm90e6-v12.patch",
+      "path_count": 1,
+      "sha256": "d07521909a07b8f2291c12cede85f88a3e7dfd54f837e37e6beb1b65200b45e1"
+    },
+    {
+      "applied_to_canonical": true,
+      "apply_exit_code": 0,
+      "bytes": 6024,
+      "dry_run_exit_code": 0,
+      "label": "canonical-rm90e6-v13",
+      "modified_paths": 1,
+      "new_paths": 1,
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/canonical-rm90e6-v13.patch",
+      "path_count": 2,
+      "sha256": "a9e265757a83b5d65b173b5b4d6ded28387b4c20aa71e5144b29da0ab1754bb5"
+    },
+    {
+      "applied_to_canonical": true,
+      "applied_to_working_copy": false,
+      "apply_exit_code": 0,
+      "bytes": 13196,
+      "dry_run_exit_code": 0,
+      "label": "canonical-rm90e6-v14",
+      "modified_paths": 6,
+      "new_paths": 0,
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/canonical-rm90e6-v14.patch",
+      "path_count": 6,
+      "sha256": "c30f47a36fd618e7eeba32cac74c310925b6f697cf457754e12416c751ce7ebc"
+    },
+    {
+      "applied_to_canonical": true,
+      "applied_to_working_copy": false,
+      "apply_exit_code": 0,
+      "bytes": 1195,
+      "dry_run_exit_code": 0,
+      "label": "canonical-rm90e6-v15",
+      "modified_paths": 1,
+      "new_paths": 0,
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/canonical-rm90e6-v15.patch",
+      "path_count": 1,
+      "sha256": "dd5c39025621e44869d27916bf70be3ff51f01dcb2002a5a41ee8aebf0f2b0cd"
+    },
+    {
+      "applied_to_canonical": false,
+      "applied_to_working_copy": true,
+      "apply_exit_code": null,
+      "bytes": 6125,
+      "dry_run_exit_code": 0,
+      "label": "canonical-rm90e6-v16",
+      "modified_paths": 2,
+      "new_paths": 0,
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/canonical-rm90e6-v16.patch",
+      "path_count": 2,
+      "sha256": "82dd33bd0aab6fb03df3f17a34a65cc2df21f491080983e7a420fe672bdf44da",
+      "working_copy_apply_exit_code": 0
+    },
+    {
+      "applied_to_canonical": false,
+      "applied_to_working_copy": true,
+      "apply_exit_code": null,
+      "bytes": 5336,
+      "dry_run_exit_code": 0,
+      "label": "canonical-rm90e6-v17",
+      "modified_paths": 2,
+      "new_paths": 0,
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/canonical-rm90e6-v17.patch",
+      "path_count": 2,
+      "sha256": "6991b1bc8f8f47fa00ad34830c5d8a2d84e432b0133bda9a88ad32e02737c7e8",
+      "working_copy_apply_exit_code": 0
+    },
+    {
+      "applied_to_canonical": false,
+      "applied_to_working_copy": true,
+      "bytes": 2750,
+      "canonical_source_state": true,
+      "dry_run_exit_code": 0,
+      "label": "canonical-rm90e6-v18",
+      "modified_paths": 2,
+      "new_paths": 0,
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/canonical-rm90e6-v18.patch",
+      "path_count": 2,
+      "sha256": "1dcf1e2c439833efa6522576dbcebb39291cea8a57622155f985dcabd7cbc90a",
+      "working_copy_apply_exit_code": 0
+    },
+    {
+      "applied_to_canonical": false,
+      "applied_to_working_copy": true,
+      "bytes": 13979,
+      "canonical_source_state": true,
+      "dry_run_exit_code": 0,
+      "label": "canonical-rm90e6-v19",
+      "modified_paths": 4,
+      "new_paths": 0,
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/canonical-rm90e6-v19.patch",
+      "path_count": 4,
+      "sha256": "f692648f2f2c42515d8b1ebc2284b645d34fc169ada576c1ddf8a69bebb6d828",
+      "working_copy_apply_exit_code": 0
+    },
+    {
+      "applied_to_canonical": false,
+      "applied_to_working_copy": true,
+      "bytes": 3074,
+      "canonical_source_state": true,
+      "dry_run_exit_code": 0,
+      "label": "canonical-rm90e6-v20",
+      "modified_paths": 2,
+      "new_paths": 0,
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/canonical-rm90e6-v20.patch",
+      "path_count": 2,
+      "sha256": "4427e8a8775217a3232444cdcc1021c4b497c2a0534946c87ae1b426d2a171f2",
+      "working_copy_apply_exit_code": 0
+    }
+  ],
+  "latest_access_probe": {
+    "gpu_test_executed": false,
+    "observed_at_utc": "2026-10-30T05:29:36Z",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-access-probe-v3-20261030.json",
+    "pc3_reachable_from_pc1": false,
+    "remote_command_executed": false,
+    "sha256": "f47cec076a41776f05e02c177a8742657cf6665fcdef8d3d94cf3a858680393e"
+  },
+  "latest_full_software_suite": {
+    "loaded_or_installed": false,
+    "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/software-verification-openrm-hal-matrix-v1-20261030T052604Z.log",
+    "log_sha256": "7b412221ba329d8372385fad220fabdd92852ad26a2e58160009f89e8977ffc9",
+    "process_exit_code": 0,
+    "qualification": "software-suite-only",
+    "report": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/software-verification-openrm-hal-matrix-v1-20261030T052604Z.json",
+    "report_sha256": "b8c0d8fd932ac63243d77299fb643d5a9a9049fa3eefcd22e9e50369e0eb3901",
+    "runtime_or_hardware_validated": false,
+    "seconds": 143.951,
+    "status": "pass",
+    "tests_errors": 0,
+    "tests_failed": 0,
+    "tests_run": 2229
+  },
+  "latest_p2p_fault_software_receipt": {
+    "hardware_execution_validated": false,
+    "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/driver-hybrid/evidence/rm-p2p-fault-software-validation-v6-20261030.json",
+    "qualification": "local-software-validation-only",
+    "sha256": "15932ca647ff5906144c9ccbec4dfeab84d976aff3a70de2b192a7fe9918b54a"
+  },
+  "latest_volta_mmu_candidate": {
+    "host_harness_checks_passed": 32,
+    "mutation_check": "two exact mutants rejected",
+    "profile": "r595-volta-system-noncoherent-aperture-extension",
+    "runtime_or_hardware_validated": false,
+    "static_audit_report": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/volta-mmu-adapter-audit-r595-v15-v2-20261030T0528Z.json",
+    "static_audit_report_sha256": "9db0dc96dd0dfab2d3dcd9f4269b8e4b5e17b017199ad4aa048df3ad8e4f755c"
+  },
+  "p2p_audit_record": {
+    "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/driver-hybrid/evidence/r580-third-party-p2p-necessity-audit-v1-20261030.json",
+    "sha256": "0fd3d315b37a4c34eed8369b19f67d0c12efbbf14824b3c58f2f75fa5a70d2ff"
+  },
+  "p2p_fault_artifact": {
+    "hardware_execution_validated": false,
+    "sha256": "5b019f0cbf34eac4e1dccfe59d7a2c784a20c1599e6e376b8601c4f48274d01c"
+  },
+  "p2p_fault_software_receipt": {
+    "latest_path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/driver-hybrid/evidence/rm-p2p-fault-software-validation-v6-20261030.json",
+    "latest_sha256": "15932ca647ff5906144c9ccbec4dfeab84d976aff3a70de2b192a7fe9918b54a",
+    "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/driver-hybrid/evidence/rm-p2p-fault-software-validation-v1-20261030.json",
+    "sha256": "16eb60d438a88ac599116d94677ede433672f4f3a5cbc3332a37d6ad7ae7dc2d"
+  },
+  "patch_set_verification": {
+    "all_apply_commands_exit_zero": true,
+    "all_dry_runs_passed": true,
+    "byte_differences": [],
+    "canonical_matches_working_copy": true,
+    "contains_binary_patch_payload": false,
+    "missing_canonical_paths": [],
+    "patch_application_boundary": "v4-v15 applied to canonical; v16-v20 applied to working copy after their contents were written to canonical; changed code/docs are byte-identical",
+    "patches_applied": 17,
+    "patches_applied_to_canonical": 12,
+    "patches_applied_to_working_copy": 14,
+    "patches_directly_applied_to_working_copy_this_update": 5,
+    "path_count_method": "git apply --numstat path-set union",
+    "unique_paths": 62
+  },
+  "runtime_boundary": {
+    "candidate_module_installed_or_loaded": false,
+    "gpu_test_this_increment": false,
+    "latest_pc3_access_probe_time_utc": "2026-10-30T05:29:36Z",
+    "naos_first_page_launch_unknown": 2,
+    "naos_first_page_reachable_guardians": 0,
+    "naos_first_page_sessions": 10,
+    "pc1_to_pc3_ssh": "timeout",
+    "pc3_last_seen_utc": "2026-10-29T10:55:57.1Z",
+    "pc3_tailscale_online": false,
+    "pc6_claude_cli_present": false,
+    "pc6_reachable": true,
+    "pc6_to_pc3_ssh": "timeout",
+    "same_process_volta_blackwell_cuda_validated": false
+  },
+  "schema": "nvidia-hybrid-driver-checkpoint-manifest-v9",
+  "updated_at_utc": "2026-10-30T05:30:14.425260Z",
+  "verification": [
+    {
+      "command": "python3 -m unittest tests.test_hybrid580_uvm_p2p_object_route tests.test_hybrid580_uvm_device_pair_route tests.test_hybrid580_uvm_gpu_provider tests.test_hybrid_frontend_gpu",
+      "exit_code": 0,
+      "root": "working copy",
+      "tests_passed": 52
+    },
+    {
+      "command": "python3 -m unittest tests.test_audit_r580_uvm_cross_provider",
+      "exit_code": 0,
+      "root": "canonical workspace",
+      "tests_passed": 4
+    },
+    {
+      "check": "pinned P2P captures, probe binaries/results, class payload, controls, R580 source parity, hybrid source hashes and access fields",
+      "result": "pass"
+    },
+    {
+      "check": "RM90E6 increment focused suite from prior build checkpoint",
+      "result": "175 tests passed; see docs/STATE.md"
+    },
+    {
+      "command": "python3 -B -m unittest -v tests.test_rm_p2p_fault_injector tests.test_pc3_v100_p2p_fault_contract",
+      "exit_code": 0,
+      "root": "working copy",
+      "tests_passed": 7
+    },
+    {
+      "command": "python3 -B -m unittest -v tests.test_run_pc3_v100_guest_reference",
+      "exit_code": 0,
+      "log_sha256": "9a622f78df1fb45c8a8fee38782500a26fcca395a33f91e75f9d37d58f2af688",
+      "root": "working copy",
+      "tests_passed": 110
+    },
+    {
+      "check": "canonical CUDA probe and fatbin copied into local mirror after exact manifest hash matches",
+      "fatbin_sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741",
+      "probe_sha256": "df4ab2558a7315680eb55d91cfacd807926d0adf15d9835424e256a5eb43b71d",
+      "result": "pass"
+    },
+    {
+      "check": "GCC -fanalyzer compile of P2P shim",
+      "result": "pass"
+    },
+    {
+      "check": "UBSan synthetic ioctl fixture, all four fault modes",
+      "modes": 4,
+      "result": "pass"
+    },
+    {
+      "command": "python3 -B -m unittest -v tests.test_rm_p2p_fault_injector tests.test_pc3_v100_p2p_fault_contract",
+      "exit_code": 0,
+      "log": "control/runs/rm-p2p-fault-canonical-focused-v6-20261030.log",
+      "log_sha256": "cb5f03fb3be2a9d7ea97fbcb5a94c4feadec23e577033065a63ff90a8953675e",
+      "root": "canonical workspace",
+      "scope": "UBSan synthetic ioctl, RTLD_NEXT resolver failure, source-root selection and runner contracts; no GPU/RM calls",
+      "tests_failed": 0,
+      "tests_passed": 13
+    },
+    {
+      "command": "python3 -B -m unittest -v tests.test_run_pc3_v100_guest_reference",
+      "exit_code": 0,
+      "log": "control/runs/rm-p2p-runner-contract-canonical-full-v2-20261030.log",
+      "log_sha256": "0ef34e5f56d9f5d4a58328e765052b155da05f9e9c2e3cdbe9ccfc638e6f8bc1",
+      "root": "canonical workspace",
+      "tests_failed": 0,
+      "tests_passed": 110
+    },
+    {
+      "command": "compile() over four Python source files; no bytecode emitted",
+      "exit_code": 0,
+      "log": "control/runs/rm-p2p-fault-python-source-compile-v4-20261030.log",
+      "log_sha256": "22ed9965ceefe4f308641a2299a41d89f978efcb1debd79f9c89cd6b9b6727b2"
+    },
+    {
+      "byte_differences": 0,
+      "check": "v4-v13 cumulative integration patches dry-run/apply and path parity",
+      "missing_paths": 0,
+      "result": "pass",
+      "unique_paths": 53
+    },
+    {
+      "check": "PC3 access probe over PC1 and PC6 routes",
+      "claude_cli_present": false,
+      "no_remote_command_executed": true,
+      "pc6_reachable": true,
+      "result": "unreachable"
+    },
+    {
+      "command": "python3 -B -m unittest -v [9 focused v14 regression tests]",
+      "exit_code": 0,
+      "root": "canonical workspace",
+      "scope": "keyring descriptor snapshot, modinfo descriptor path, refreshed pins",
+      "tests_failed": 0,
+      "tests_passed": 9
+    },
+    {
+      "command": "python3 -B -m unittest -v tests.test_build_hybrid_frontend tests.test_hybrid_frontend_gpu tests.test_r58019607_proprietary_port_build tests.test_run_pc3_v100_hybrid_frontend_build",
+      "exit_code": 0,
+      "root": "canonical workspace",
+      "runtime_or_hardware_validated": false,
+      "tests_failed": 0,
+      "tests_passed": 112
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-v",
+        "-s",
+        "tests"
+      ],
+      "exit_code": 0,
+      "loaded_or_installed": false,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/software-verification-openrm-hal-matrix-v1-20261030T051502Z.log",
+      "log_sha256": "ead316baee1eafb2fe97a1e373d111b5dd8cc834257362268d127f820bc22f55",
+      "qualification": "software-suite-only",
+      "report": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/software-verification-openrm-hal-matrix-v1-20261030T051502Z.json",
+      "report_sha256": "693f09f6e2483e8716140d34ca4fb63c8704ef71e560bb533df219eb1cc68701",
+      "root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "runtime_or_hardware_validated": false,
+      "seconds": 142.567,
+      "tests_errors": 0,
+      "tests_failed": 0,
+      "tests_passed": 2228,
+      "tests_skipped": 0
+    },
+    {
+      "check": "canonical local R580 provider build tree parity against working copy",
+      "paths": 4478,
+      "receipt": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/build-tree-parity-local-rm90e6-master-route-v3-20261030-v1.json",
+      "receipt_sha256": "744ba424c267252188930ab974125723342cbe92143c31f9d60d46939c614942",
+      "regular_file_bytes": 1055221563,
+      "regular_files": 4190,
+      "result": "pass",
+      "symlinks": 2
+    },
+    {
+      "command": "python3 -B -m unittest -v tests.test_volta_mmu_adapter_audit tests.test_volta_mmu_host_harness",
+      "exit_code": 0,
+      "root": "canonical workspace",
+      "scope": "profile positive/negative cases plus the existing exact R595 v5 red vector and adapted callback host vectors",
+      "tests_failed": 0,
+      "tests_passed": 13
+    },
+    {
+      "command": "python3 -B tools/audit_volta_mmu_adapter_contract.py --r580-uvm ... --r595-uvm ... --candidate-uvm r595-gv100-hal-standard-nvidia-frontend-v15 --report ...",
+      "exit_code": 0,
+      "report": "evidence/volta-mmu-adapter-audit-r595-v15-v2-20261030T0528Z.json",
+      "report_sha256": "9db0dc96dd0dfab2d3dcd9f4269b8e4b5e17b017199ad4aa048df3ad8e4f755c",
+      "result": "passed",
+      "root": "canonical workspace",
+      "runtime_or_hardware_validated": false
+    },
+    {
+      "assertion_guards_passed": 2,
+      "checks_passed": 32,
+      "command": "host callback harness on exact R580 and R595 v15 candidate source",
+      "exit_code": 0,
+      "hardware_validated": false,
+      "log": "evidence/logs/volta-mmu-host-harness-r595-v15-v1-20261030T0524Z.log",
+      "log_sha256": "bd0929135503447a49a6ee2b9fb7fba6801d909927865e427eeb12bc383503cc",
+      "report": "evidence/volta-mmu-host-harness-r595-v15-v1-20261030T0524Z.json",
+      "report_sha256": "6727be65ec104eb28d84925b9e85827b607ee84c60cf47996cf30f09f1135ca4",
+      "root": "canonical workspace"
+    },
+    {
+      "check": "two-source-mutant sensitivity of R595 v15 Volta MMU host harness",
+      "receipt": "evidence/volta-mmu-host-harness-r595-v15-mutation-check-v1-20261030T0525Z.json",
+      "receipt_sha256": "ddd6cef10ff1f05c3639a592531ab1fca49e2f32cf21d66087812cb36c9fd4f2",
+      "rejected_mutants": 2,
+      "result": "pass"
+    },
+    {
+      "command": "python3 -B -m unittest -v tests.test_volta_mmu_adapter_audit",
+      "exit_code": 0,
+      "root": "working copy",
+      "tests_failed": 0,
+      "tests_passed": 6
+    }
+  ],
+  "working_copy": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/driver-hybrid"
+}

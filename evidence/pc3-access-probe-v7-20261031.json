@@ -1,0 +1,31 @@
+{
+  "attempts": [
+    {
+      "operation": "tailscale ping 100.90.188.53",
+      "responses": 0,
+      "result": "timeout"
+    },
+    {
+      "exit_code": 255,
+      "operation": "ssh read-only identity and nvidia-smi query",
+      "remote_command_executed": false,
+      "result": "connect-timeout"
+    }
+  ],
+  "candidate_module_state_observed": false,
+  "gpu_test_executed": false,
+  "hardware_inventory_observed": false,
+  "observed_at_utc": "2026-10-31T21:23:12.332617+00:00",
+  "observer": "PC1",
+  "schema": "pc3-access-probe-v1",
+  "tailscale": {
+    "ips": [
+      "100.90.188.53",
+      "fd7a:115c:a1e0::fe2e:bc36"
+    ],
+    "last_seen": "2026-10-31T03:08:03.1Z",
+    "online": false,
+    "os": "linux"
+  },
+  "target": "pc3"
+}

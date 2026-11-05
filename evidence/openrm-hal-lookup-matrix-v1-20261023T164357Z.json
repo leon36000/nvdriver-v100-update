@@ -1,0 +1,94 @@
+{
+  "cases": [
+    {
+      "archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+      "archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+      "repository_commit": "c8e699821c23e4335bf23330a54a23d15cfb95e9",
+      "repository_tag": "580.178.04",
+      "result": "pass",
+      "scope": "The test iterates this exact pinned input as one subtest; any failed subtest makes the aggregate fail.",
+      "test_case": "test_exact_registration_and_lookup_paths_for_all_pinned_releases",
+      "version": "580.178.04"
+    },
+    {
+      "archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5.tar.gz",
+      "archive_sha256": "da4e454d493818027998fc9d7ef95fd5dd291d3d37119f1f81d12db85fc33190",
+      "repository_commit": "ac24e02fc090c3e05c1fc03384b317ac2cc301b5",
+      "repository_tag": "595.104.02",
+      "result": "pass",
+      "scope": "The test iterates this exact pinned input as one subtest; any failed subtest makes the aggregate fail.",
+      "test_case": "test_exact_registration_and_lookup_paths_for_all_pinned_releases",
+      "version": "595.104.02"
+    },
+    {
+      "archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/open-gpu-kernel-modules-595.112.07-d8257d95.tar.gz",
+      "archive_sha256": "567d4ba082a54ef733e7ce87c87401da488a3aabe29837c92feb19011c8250c4",
+      "repository_commit": "d8257d95ae5fed364163e4df51db66df8b1ee0d2",
+      "repository_tag": "595.112.07",
+      "result": "pass",
+      "scope": "The test iterates this exact pinned input as one subtest; any failed subtest makes the aggregate fail.",
+      "test_case": "test_exact_registration_and_lookup_paths_for_all_pinned_releases",
+      "version": "595.112.07"
+    },
+    {
+      "archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/open-gpu-kernel-modules-610.57.04-e4a5faa.tar.gz",
+      "archive_sha256": "619d7b5ce1f79c3211afdbf87d02b2174d268b10d005c5b8f994be22299be681",
+      "repository_commit": "e4a5faa2567f28c8eabe0ebb6422b6d0abcf37eb",
+      "repository_tag": "610.57.04",
+      "result": "pass",
+      "scope": "The test iterates this exact pinned input as one subtest; any failed subtest makes the aggregate fail.",
+      "test_case": "test_exact_registration_and_lookup_paths_for_all_pinned_releases",
+      "version": "610.57.04"
+    },
+    {
+      "archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/open-gpu-kernel-modules-615.71.10-6f3be8c9.tar.gz",
+      "archive_sha256": "c01605048cab3d988b1b3028fbee0646ba0937407949dc43514b3e4694f40f6c",
+      "repository_commit": "6f3be8c9c3fb4ed6ffc607a0d32d31ce4db7fba5",
+      "repository_tag": "615.71.10",
+      "result": "pass",
+      "scope": "The test iterates this exact pinned input as one subtest; any failed subtest makes the aggregate fail.",
+      "test_case": "test_exact_registration_and_lookup_paths_for_all_pinned_releases",
+      "version": "615.71.10"
+    },
+    {
+      "archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/open-gpu-kernel-modules-1a82fbfda8f321b056eb3568850f9316c5e465c5.tar.gz",
+      "archive_sha256": "590ee6a5a780f946322edd17f9d235c6664eb7e6839073ac0d68c0f263e7184f",
+      "repository_commit": "1a82fbfda8f321b056eb3568850f9316c5e465c5",
+      "repository_tag": "615.78.08",
+      "result": "pass",
+      "scope": "The test iterates this exact pinned input as one subtest; any failed subtest makes the aggregate fail.",
+      "test_case": "test_exact_registration_and_lookup_paths_for_all_pinned_releases",
+      "version": "615.78.08"
+    }
+  ],
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "tests.test_openrm_legacy_hal_lookup",
+    "-v"
+  ],
+  "implementation_sha256": {
+    "tests/test_openrm_legacy_hal_lookup.py": "80dc98c3d72536ecd5a68b42af81b976c76e6388eb572995c91a5aa07818d6d6",
+    "tools/compare_openrm_gv100.py": "629b66f889b430fa30eee8d35d0832c79e12da2df6c61ef724fa96e35d44770a",
+    "tools/run_openrm_hal_lookup_matrix.py": "de950a45dc183685d54a5d2872fc200d983b654d29af6b60e39cc22edd4bde3b"
+  },
+  "limitations": [
+    "The harness executes stock generated registration and lookup functions, but replaces registerHalModule_* with identity-only opaque tokens.",
+    "No HAL callback, RM initialization, kernel module, GPU, or hardware path is exercised.",
+    "A passing unittest aggregate establishes that every pinned subtest returned successfully; unittest does not emit a separate per-subtest pass line."
+  ],
+  "loaded_or_installed": false,
+  "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/openrm-hal-lookup-matrix-v1-20261023T164357Z.log",
+  "log_sha256": "21d0d5a36dc9a301a4a3ff13a108889fbca7b9412b373957f8a2e5a180c3c1fb",
+  "matrix_subtests": 6,
+  "observed_at_utc": "2026-10-23T16:43:59.398166+00:00",
+  "process_exit_code": 0,
+  "qualification": "executed-source-contract-on-cpu",
+  "reported_seconds": 2.215,
+  "runtime_or_hardware_validated": false,
+  "schema": "openrm-hal-lookup-matrix-v1",
+  "status": "pass",
+  "unittest_tests_reported": 3
+}

@@ -1,0 +1,41 @@
+{
+  "candidate_module_installed_or_loaded": false,
+  "gpu_test_executed": false,
+  "observed_at_utc": "2026-10-30T05:39:19Z",
+  "remote_command_executed": false,
+  "schema": "pc3-access-probe-v5",
+  "ssh_from_pc1": {
+    "command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ConnectionAttempts=1 pc3 \"hostname; nvidia-smi -L\"",
+    "exit_code": 255,
+    "remote_command_executed": false,
+    "stderr": "ssh: connect to host pc3 port 22: Connection timed out",
+    "stdout": ""
+  },
+  "ssh_second_hop_from_pc6": {
+    "command": "ssh pc6 \"timeout 4s ssh -o BatchMode=yes -o ConnectTimeout=3 -o ConnectionAttempts=1 100.90.188.53 hostname\"",
+    "inner_exit_code": 255,
+    "outer_exit_code": 0,
+    "pc6_reachable_from_pc1": true,
+    "remote_command_executed": false,
+    "stderr": "ssh: connect to host 100.90.188.53 port 22: Connection timed out",
+    "stdout": "__INNER_SSH_EXIT__=255"
+  },
+  "tailscale_from_pc1": {
+    "command": "tailscale status --json; tailscale ping --timeout=2s pc3",
+    "peer": {
+      "HostName": "pc3",
+      "LastSeen": "2026-10-29T10:55:57.1Z",
+      "Online": false,
+      "TailscaleIPs": [
+        "100.90.188.53",
+        "fd7a:115c:a1e0::fe2e:bc36"
+      ]
+    },
+    "ping": {
+      "exit_code": 124,
+      "stderr": "probe timed out",
+      "stdout": "ping \"100.90.188.53\" timed out\nping \"100.90.188.53\" timed out\nping \"100.90.188.53\" timed out\n"
+    },
+    "status_exit_code": 0
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "conclusion": "The isolated stock-driver context phases emitted the same redacted NV2081 allocation fields.",
+  "inputs": {
+    "rtx5080": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-rtx5080-binapi-alloc-context-v1-20261021.json",
+      "sha256": "1786f4368077fb853490b94291840a779abb5035edf04a437eb8f36a3cd15a9a"
+    },
+    "v100": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-v100-binapi-alloc-context-v1-20261021.json",
+      "sha256": "eb6a44d3cfc0a5496cfae2e78f4ea5eba22f566b033afd8b2a3ea2c0d6a58e34"
+    }
+  },
+  "limits": [
+    "The V100 guest and RTX5080 host ran on separate Linux kernels with separate installed driver branches.",
+    "The observer saw one NV2081_BINAPI allocation per context phase; it did not validate the full RM object graph.",
+    "Matching allocation fields do not establish Resource Manager ABI or backend compatibility.",
+    "This does not validate same-process dual-GPU enumeration, an experimental module, UVM, P2P, or hybrid operation."
+  ],
+  "observed_at_utc": "2026-10-21T15:27:22.089277+00:00",
+  "observer_binary_match": true,
+  "qualification": "paired-sanitized-installed-driver-observations-compared",
+  "references": {
+    "rtx5080": {
+      "branch": "rtx5080",
+      "capture_report_sha256": "e6a758a83f4824896ae91238521231651a8a349a1afd2c3964a98e3cc253e80c",
+      "driver": "595.99.02",
+      "gpu": "NVIDIA GeForce RTX 5080",
+      "kernel_release": "7.0.0-38-generic",
+      "observation": {
+        "allocation_parameters_present": true,
+        "entry_exit_stable": true,
+        "operation": "binapi_alloc",
+        "payload_snapshots": 2,
+        "records": 1,
+        "successful_status": 0,
+        "typed_payload": {
+          "classPayloadBytes": 4,
+          "reservedZero": true
+        }
+      },
+      "observer_sha256": "e5ffb20792078e7fea4be6401ebca38942bea11cc950a8a1c22216e96d3d97ef",
+      "pci": "0000:02:00.0",
+      "sm": 120
+    },
+    "v100": {
+      "branch": "v100",
+      "capture_report_sha256": null,
+      "driver": "580.178.04",
+      "gpu": "Tesla V100-SXM2-16GB",
+      "kernel_release": "6.8.0-147-generic",
+      "observation": {
+        "allocation_parameters_present": true,
+        "entry_exit_stable": true,
+        "operation": "binapi_alloc",
+        "payload_snapshots": 2,
+        "records": 1,
+        "successful_status": 0,
+        "typed_payload": {
+          "classPayloadBytes": 4,
+          "reservedZero": true
+        }
+      },
+      "observer_sha256": "e5ffb20792078e7fea4be6401ebca38942bea11cc950a8a1c22216e96d3d97ef",
+      "pci": "0000:00:05.0",
+      "sm": 70
+    }
+  },
+  "same_kernel_hybrid_validated": false,
+  "schema": "nvidia-hybrid-nv2081-binapi-allocation-comparison-v1",
+  "tool": {
+    "sha256": "238b0b1dbe0c3d63a7c6d8aca40e35f1bea7f421fd3886b33c54b4e639e57301"
+  },
+  "typed_payload_differences": [],
+  "typed_payload_match": true
+}

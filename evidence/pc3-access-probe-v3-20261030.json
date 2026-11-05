@@ -1,0 +1,25 @@
+{
+  "candidate_module_installed_or_loaded": false,
+  "gpu_test_executed": false,
+  "observed_at_utc": "2026-10-30T05:29:36Z",
+  "origin_host": "PC1",
+  "peer": {
+    "DNSName": "pc3.tail0c55ff.ts.net.",
+    "HostName": "pc3",
+    "LastSeen": "2026-10-29T10:55:57.1Z",
+    "Online": false,
+    "TailscaleIPs": [
+      "100.90.188.53",
+      "fd7a:115c:a1e0::fe2e:bc36"
+    ]
+  },
+  "remote_command_executed": false,
+  "schema": "pc3-access-probe-v3",
+  "scope": "PC1 Tailscale peer state and direct SSH only; PC6 was not queried in this follow-up",
+  "ssh_probe": {
+    "command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o ConnectionAttempts=1 pc3 <read-only hostname/kernel/GPU inventory>",
+    "exit_code": 255,
+    "result": "connection timed out before authentication or remote command execution"
+  },
+  "tailscale_status_command_exit_code": 0
+}

@@ -1,0 +1,135 @@
+{
+  "hardware_execution_validated": false,
+  "module": {
+    "basename": "nouveau.ko",
+    "kernel_release": "7.0.0-38-generic",
+    "license_gate": "GPL-prefixed modinfo value",
+    "license_metadata": "GPL and additional rights",
+    "sha256": "dee8078ff46dc1ad22900d7886bd21632327d4d84671632387144d19361cc0ea",
+    "srcversion": "09A96B5334F6840A698DA43",
+    "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions"
+  },
+  "observations": {
+    "decompiled_factory_summaries": {
+      "gv100_acr_new": {
+        "call_summary": "nvkm_acr_new_(gv100_acr_fwif)",
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "pseudocode_retained": false
+      },
+      "gv100_gsp_new": {
+        "call_summary": "nvkm_gsp_new_(gv100_gsps)",
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "pseudocode_retained": false
+      }
+    },
+    "decompiled_fault_buffer_worker": {
+      "procedure": "gv100_fault_buffer_process",
+      "provider": {
+        "id": "ghidra",
+        "version": "12.1.4"
+      },
+      "pseudocode_retained": false,
+      "related_calls": [
+        "nvkm_fifo_fault"
+      ]
+    },
+    "decompiled_gp100_vmm": {
+      "procedure": "gp100_vmm_new_",
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "pseudocode_retained": false,
+      "related_calls": [
+        "nvkm_vmm_new_"
+      ]
+    },
+    "decompiled_gr_sm_id": {
+      "procedure": "gv100_gr_oneinit_sm_id",
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "pseudocode_retained": false,
+      "related_calls": [
+        "gv100_gr_scg_estimate_perf"
+      ]
+    },
+    "decompiled_vmm": {
+      "call_summary": "gp100_vmm_new_(&gv100_vmm)",
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "pseudocode_retained": false
+    },
+    "decompiled_vmm_join": {
+      "procedure": "gv100_vmm_join",
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "pseudocode_retained": false,
+      "related_calls": [
+        "gp100_vmm_join"
+      ]
+    },
+    "gpu_accessed": false,
+    "gv100_firmware_declarations": {
+      "declared_firmware_count": 519,
+      "gv100_acr_count": 4,
+      "gv100_acr_examples": [
+        "nvidia/gv100/acr/ucode_load.bin",
+        "nvidia/gv100/acr/bl.bin",
+        "nvidia/gv100/acr/ucode_unload.bin",
+        "nvidia/gv100/acr/unload_bl.bin"
+      ],
+      "gv100_gsp_count": 0,
+      "gv100_gsp_examples": [],
+      "other_gsp_count": 152,
+      "other_gsp_examples": [
+        "nvidia/tu106/gsp/gsp-570.144.bin",
+        "nvidia/tu106/gsp/bootloader-570.144.bin",
+        "nvidia/tu106/gsp/booter_unload-570.144.bin",
+        "nvidia/tu106/gsp/booter_load-570.144.bin",
+        "nvidia/tu104/gsp/gsp-570.144.bin",
+        "nvidia/tu104/gsp/bootloader-570.144.bin",
+        "nvidia/tu104/gsp/booter_unload-570.144.bin",
+        "nvidia/tu104/gsp/booter_load-570.144.bin"
+      ]
+    },
+    "module_loaded": false,
+    "nv140_chipset_relocations": [
+      {
+        "offset": "0x159e0",
+        "symbol": "gv100_gsp_new"
+      },
+      {
+        "offset": "0x15b20",
+        "symbol": "gv100_acr_new"
+      }
+    ],
+    "pseudocode_retained": false,
+    "xrefs": "not used for ET_REL data-table proof; objdump relocations are recorded"
+  },
+  "observed_at_utc": "2026-11-03T01:39:02.039405+00:00",
+  "schema": "nvidia-hybrid.nouveau-gv100-rea-audit.v6",
+  "status": "ANALYZED_STATICALLY",
+  "tools": {
+    "ghidra": "12.1.4",
+    "jdk": "21.0.12.1",
+    "rea": "6.8.0"
+  }
+}

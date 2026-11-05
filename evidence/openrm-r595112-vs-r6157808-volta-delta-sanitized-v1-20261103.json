@@ -1,0 +1,69 @@
+{
+  "schema": "nvidia-openrm-branch-delta/v1",
+  "status": "analyzed_statically",
+  "observed_utc_date": "2026-11-03",
+  "repository": "https://github.com/NVIDIA/open-gpu-kernel-modules",
+  "revisions": {
+    "R595.112.07": {
+      "tag_object": "2e8dd6c0bbd2e08194b96abeb5c319717cd13682",
+      "commit": "d8257d95ae5fed364163e4df51db66df8b1ee0d2"
+    },
+    "R615.78.08": {
+      "tag_object": "4bfe30bb78e7364959e59c16cfefd88e8c14670e",
+      "commit": "1a82fbfda8f321b056eb3568850f9316c5e465c5"
+    }
+  },
+  "comparison": {
+    "source_trees": [
+      "kernel-open/common",
+      "kernel-open/nvidia",
+      "kernel-open/nvidia-uvm",
+      "src/common",
+      "src/nvidia"
+    ],
+    "changed_files": 1501,
+    "insertions": 685648,
+    "deletions": 480365,
+    "uvm": {
+      "changed_files": 89,
+      "insertions": 22681,
+      "deletions": 3942
+    }
+  },
+  "volta_coverage": {
+    "open_uvm_source_files_with_volta_in_name": {
+      "R595.112.07": [],
+      "R615.78.08": []
+    },
+    "gv100_literal_in_uvm_hal_dispatch_files": {
+      "R595.112.07": false,
+      "R615.78.08": false
+    },
+    "interpretation": "Neither compared open-UVM snapshot supplies the GV100-specific HAL rows or the R580-era Volta UVM sources used by the local compile candidate."
+  },
+  "reviewed_deltas": [
+    {
+      "path": "kernel-open/nvidia-uvm/uvm_hal.c",
+      "observation": "R615.78.08 adds GR100/Rubin architecture, fault-buffer, access-counter, and SEC2 dispatch rows; no GV100 row is added."
+    },
+    {
+      "path": "kernel-open/nvidia-uvm/uvm_gpu.c",
+      "observation": "The addressability discussion and canonical-address logic change; comments move a kernel-pointer capability description from Pascal+ to Turing+."
+    },
+    {
+      "path": "kernel-open/nvidia-uvm/uvm_devmem.c",
+      "observation": "R615.78.08 adds a substantial device-memory implementation; its applicability to GV100 was not established."
+    }
+  ],
+  "decision": "Keep R595.112.07 as the current experimental base. Its local R580.196.07 GV100 UVM overlay has compiled and passed static four-module closure; R615.78.08 does not restore GV100 dispatch and introduces a large unrelated source delta. Review generic R615 fixes individually before any backport.",
+  "validation_boundary": [
+    "This receipt records source comparison and selected-file inspection only.",
+    "R615.78.08 was not built with the Volta overlay or tested on GPU hardware.",
+    "The local R595.112.07 module bundle remains uninstalled and unloaded; no same-process CUDA result is established."
+  ],
+  "reproduction": [
+    "git diff --numstat 595.112.07 615.78.08 -- kernel-open/common kernel-open/nvidia kernel-open/nvidia-uvm src/common src/nvidia",
+    "git ls-tree -r --name-only <tag> -- kernel-open/nvidia-uvm",
+    "Inspect kernel-open/nvidia-uvm/uvm_hal.c and uvm_gpu.c at each pinned commit."
+  ]
+}

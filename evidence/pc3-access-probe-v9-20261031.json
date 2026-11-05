@@ -1,0 +1,44 @@
+{
+  "candidate_driver_changed": false,
+  "checks": [
+    {
+      "command": [
+        "tailscale",
+        "ping",
+        "--c",
+        "1",
+        "pc3"
+      ],
+      "result": "no reply; ping to 100.90.188.53 timed out",
+      "return_code": 1
+    },
+    {
+      "command": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=6",
+        "pc3",
+        "hostname"
+      ],
+      "result": "TCP connection timed out; remote command did not execute",
+      "return_code": 255
+    }
+  ],
+  "gpu_inventory_observed": false,
+  "observed_at_utc": "2026-10-31T22:03:24.874133+00:00",
+  "other_hosts_accessed": false,
+  "qualification": "pc3-unreachable-no-hardware-test",
+  "remote_command_executed": false,
+  "schema": "pc3-access-probe-v9-20261031",
+  "software_suite": {
+    "log_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/software-verification-openrm-hal-matrix-v1-20261031T220038Z.log",
+    "log_sha256": "dff5518ad3df80fc074f66fdbdbc1a92993b7c7e8c1aae15ed630ff05ec5470f",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/software-verification-openrm-hal-matrix-v1-20261031T220038Z.json",
+    "sha256": "429766deda9e03117e4cde709a0c131c55874ac7e743b51eba4299e305673662"
+  },
+  "target": "pc3",
+  "target_tailnet_ip": "100.90.188.53",
+  "user_reported_state": "PC3 powered off; user expected to power it on in approximately ten minutes"
+}

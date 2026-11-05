@@ -1,0 +1,51 @@
+{
+  "generated_utc": "2026-10-21T17:48:22Z",
+  "label": "pc1-installed-nvidia-kernel-common-595",
+  "limitations": [
+    "No system suspend/resume was attempted.",
+    "The result describes only the supplied host files and does not prove a hybrid PM protocol."
+  ],
+  "qualification": "installed-userspace-static-inventory-only",
+  "schema": "nvidia-system-sleep-hook-audit-v1",
+  "sleep_script": {
+    "bytes": 1609,
+    "canonical_path_guard_present": true,
+    "path": "/usr/bin/nvidia-sleep.sh",
+    "sha256": "536d3687a21eebfdffac553eb1e562402ba2b9f124e651f348d177b4d0d68414",
+    "suspend_files": [
+      "/proc/driver/nvidia/suspend"
+    ],
+    "uses_only_canonical_nvidia_procfs_path": true
+  },
+  "system_sleep_hooks": [
+    {
+      "bytes": 1363,
+      "invokes_nvidia_sleep_script": true,
+      "path": "/usr/lib/systemd/system-sleep/nvidia",
+      "references_nvidia_sleep_script": true,
+      "sha256": "32eedd14a54ea85c46afd4f0be48cbeb64be4bb9a42f824fd3007541e262a6f2"
+    }
+  ],
+  "systemd_units": [
+    {
+      "bytes": 258,
+      "exec_start": [
+        "ExecStart=/usr/bin/logger -t suspend -s \"nvidia-suspend.service\"",
+        "ExecStart=/usr/bin/nvidia-sleep.sh \"suspend\""
+      ],
+      "invokes_nvidia_sleep_script": true,
+      "path": "/usr/lib/systemd/system/nvidia-suspend.service",
+      "sha256": "7b0b3ce73fc6e24912d9735fc5fca7ea884031ba9838baa497f4b7a5f7f113a4"
+    },
+    {
+      "bytes": 414,
+      "exec_start": [
+        "ExecStart=/usr/bin/logger -t suspend -s \"nvidia-resume.service\"",
+        "ExecStart=/usr/bin/nvidia-sleep.sh \"resume\""
+      ],
+      "invokes_nvidia_sleep_script": true,
+      "path": "/usr/lib/systemd/system/nvidia-resume.service",
+      "sha256": "fbfce6b183c3c922c79b55051b84950cb3bd18c47ace17888403e2c3374049d8"
+    }
+  ]
+}

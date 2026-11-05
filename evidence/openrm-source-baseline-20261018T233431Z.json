@@ -1,0 +1,26 @@
+{
+  "schema": "openrm-source-baseline-v1",
+  "observed_at_utc": "2026-10-18T23:34:55.026328+00:00",
+  "source_commit": "ac24e02fc090c3e05c1fc03384b317ac2cc301b5",
+  "source_tag": "595.104.02",
+  "archive_sha256": "da4e454d493818027998fc9d7ef95fd5dd291d3d37119f1f81d12db85fc33190",
+  "command": [
+    "make",
+    "-C",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5/src/nvidia",
+    "-j4"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 24.016,
+  "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/openrm-595.104.02-baseline-20261018T233431Z.log",
+  "artifacts": [
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5/src/nvidia/_out/Linux_x86_64/nv-kernel.o",
+      "bytes": 17800784,
+      "sha256": "3d590ac9a8530be2d4be4c8702ebc11ef8e913754e2827a423df662acc967f68"
+    }
+  ],
+  "kernel_module_built": false,
+  "loaded_or_installed": false,
+  "hardware_validated": false
+}

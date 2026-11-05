@@ -1,0 +1,29 @@
+{
+  "direct_ssh": {
+    "exit_code": 255,
+    "summary": "key-only authentication denied; strict host-key checking remained enabled; remote true command was not executed",
+    "target": "pc3@pc3"
+  },
+  "driver_or_vm_state_changed": false,
+  "gpu_or_cuda_command_executed": false,
+  "observed_at_utc": "2026-11-01T05:22:36.506989+00:00",
+  "other_pc_contacted": false,
+  "qualification": "PC3 network reachability validated; authenticated shell and host/GPU state unavailable",
+  "read_only_inventory": {
+    "command": "tools/collect_pc3_canary_host_state.py --direct-pc3",
+    "exit_code": 2,
+    "stderr_sha256": "c975643ec88d17039cec137da52d867cfd4abecc3988e94df68203aa5db7342c",
+    "summary": "collector stopped before a host snapshot because SSH authentication failed"
+  },
+  "remote_command_executed": false,
+  "schema": "pc3-access-availability-v2",
+  "scope": "PC3-only availability and strict SSH authentication preflight",
+  "tailscale_ping": {
+    "exit_code": 0,
+    "summary": "pong from pc3 (100.90.188.53) in 1ms"
+  },
+  "target": {
+    "alias": "pc3",
+    "tailscale_ip": "100.90.188.53"
+  }
+}

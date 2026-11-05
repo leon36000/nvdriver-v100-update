@@ -1,0 +1,26 @@
+{
+  "direct_ssh": {
+    "exit_code": 255,
+    "summary": "Permission denied (publickey,password) for default login pc1@pc3; remote command was not executed"
+  },
+  "driver_or_vm_state_changed": false,
+  "gpu_or_cuda_command_executed": false,
+  "observed_at_utc": "2026-11-01T04:52:54.755567+00:00",
+  "other_pc_contacted": false,
+  "qualification": "PC3 network reachability observed; authenticated shell and hardware state unobserved",
+  "remote_command_executed": false,
+  "schema": "pc3-access-availability-v1",
+  "scope": "PC3 only; connectivity/authentication preflight; no remote diagnostic command ran",
+  "tailscale_ping": {
+    "exit_code": 0,
+    "summary": "pong from pc3 (100.90.188.53) via 10.42.2.0:41641 in 1ms"
+  },
+  "tailscale_ssh": {
+    "exit_code": 255,
+    "summary": "strict host-key verification failed for pc3.tail0c55ff.ts.net; remote command was not executed"
+  },
+  "target": {
+    "alias": "pc3",
+    "tailscale_ip": "100.90.188.53"
+  }
+}

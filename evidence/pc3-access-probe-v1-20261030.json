@@ -1,0 +1,49 @@
+{
+  "boundary": {
+    "candidate_module_installed_or_loaded": false,
+    "gpu_accessed": false,
+    "naos_launch_unknown_restarted": false,
+    "pc3_power_state_known": false,
+    "remote_cuda_runner_invoked": false
+  },
+  "interpretation": "PC3 was unreachable through the checked PC1 and PC6 SSH/Tailscale paths at this observation. This does not establish that the machine is powered off or that its GPU assignment is unchanged.",
+  "observations": {
+    "naos_first_page": {
+      "launch_unknown": 2,
+      "observation_incomplete": false,
+      "observed_at_utc": "2026-10-30T05:00:00Z",
+      "reachable_guardians": 0,
+      "sessions": 10
+    },
+    "pc1_ssh_alias_pc3": {
+      "command_executed_on_pc3": false,
+      "configured_host": "pc3",
+      "connect_timeout_seconds": 6,
+      "port": 22,
+      "result": "connect timeout"
+    },
+    "pc1_tailscale": {
+      "pc3_last_seen_utc": "2026-10-29T10:55:57.1Z",
+      "pc3_online": false
+    },
+    "pc6_ssh": {
+      "claude_cli_present": false,
+      "reported_hostname": "gx10-e526",
+      "resolved_address": "10.40.13.2",
+      "result": "connected",
+      "tailscale_cli_present": true
+    },
+    "pc6_ssh_to_pc3_tailnet_address": {
+      "command_executed_on_pc3": false,
+      "result": "connect timeout"
+    },
+    "pc6_tailscale_peer_pc3": {
+      "pc3_last_seen_utc": "2026-10-29T10:55:57.1Z",
+      "pc3_online": false,
+      "ping_result": "no reply"
+    }
+  },
+  "observed_at_utc": "2026-10-30T05:04:17Z",
+  "qualification": "access-connectivity-observation-only",
+  "schema": "nvidia-hybrid-pc3-access-probe-v1"
+}

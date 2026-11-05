@@ -1,0 +1,46 @@
+{
+  "schema": "nvidia-hybrid-openrm580-baseline-v1",
+  "observed_at_utc": "2026-10-19T00:08:25.080559+00:00",
+  "source_tag": "580.178.04",
+  "source_archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+  "archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+  "source": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04",
+  "header_source_comparison": [
+    {
+      "relative_path": "common/inc/nv.h",
+      "open_sha256": "bc5802ef5a0e47be045cac9b74e61a0092f0bb96fc1ede05e2361d164e3b7787",
+      "proprietary_wrapper_sha256": "bc5802ef5a0e47be045cac9b74e61a0092f0bb96fc1ede05e2361d164e3b7787",
+      "source_bytes_identical": true
+    },
+    {
+      "relative_path": "common/inc/nv-gpu-info.h",
+      "open_sha256": "779a3c1c0e47b4965bb3eb24a3c356f2349e15617183bace6942f4f6327a8070",
+      "proprietary_wrapper_sha256": "779a3c1c0e47b4965bb3eb24a3c356f2349e15617183bace6942f4f6327a8070",
+      "source_bytes_identical": true
+    },
+    {
+      "relative_path": "common/inc/nv_uvm_interface.h",
+      "open_sha256": "68b6cae62ad0bdf6940d48a34084d789cd1f87a06b84310195cd2adc4b9e50f8",
+      "proprietary_wrapper_sha256": "68b6cae62ad0bdf6940d48a34084d789cd1f87a06b84310195cd2adc4b9e50f8",
+      "source_bytes_identical": true
+    }
+  ],
+  "binary_abi_validated": false,
+  "command": [
+    "make",
+    "-C",
+    "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia",
+    "-j4"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 23.344,
+  "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/openrm580-source-baseline-v1-20261018.log",
+  "log_sha256": "f173c3a8ed13a77a48b176b420c66afd3385e9420bb42ed6fd2cdea2b6c46b6a",
+  "loaded_or_installed": false,
+  "qualification": "compiled-rm-object-only",
+  "artifact": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/_out/Linux_x86_64/nv-kernel.o",
+    "bytes": 17512968,
+    "sha256": "5e9219a4a263315d20757159852b35be61dfd2ce75dcd2ca90b1cd1764d6bb8a"
+  }
+}

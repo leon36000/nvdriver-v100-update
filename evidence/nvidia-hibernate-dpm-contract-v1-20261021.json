@@ -1,0 +1,518 @@
+{
+  "generated_utc": "2026-10-21T17:57:42Z",
+  "limitations": [
+    "Linux reference source is the upstream tag supplied to this audit; it is not an audit of Ubuntu's patched source tree.",
+    "Opaque rm_power_management() behavior is outside the static contract.",
+    "No module was loaded and no hibernation, suspend, recovery, or resume transition was attempted.",
+    "The conditional suspend_count interaction must be confirmed against deployed hook settings and hardware before any PM coordinator is activated."
+  ],
+  "linux_reference": "torvalds/linux-v7.0-raw-github-2026-10-21",
+  "qualification": "static-source-contract-only",
+  "schema": "nvidia-hibernate-dpm-contract-v1",
+  "source_trees": [
+    {
+      "conditional_overlap_recovery_hazard": {
+        "coordinator_rule": "For the hybrid design, PREPARE should quiesce every provider's channels and suspend shared UVM exactly once, but leave GPU power transitions to PCI DPM. After DPM, POST must resume any provider GPU still suspended, resume shared UVM once, then restore channels. This avoids an extra NVIDIA suspend_count layer; it remains a design hypothesis until implemented and runtime-tested.",
+        "present_if_full_global_gpu_suspend_precedes_dpm_freeze": true,
+        "statement": "If a procfs/global PM path suspends a device before DPM FREEZE, DPM FREEZE increments suspend_count; Linux RECOVER/THAW reaches the driver's no-op thaw; one later global resume then only decrements the nested count. An additional resume is needed to clear the suspended flag. This is a conditional source interaction, not proof that every hibernation flow leaves a GPU suspended."
+      },
+      "driver_callbacks": {
+        "freeze": {
+          "calls_nvidia_resume": true,
+          "calls_nvidia_suspend": true,
+          "returns_zero_without_resume": false,
+          "source_line": 4910
+        },
+        "poweroff": {
+          "calls_nvidia_resume": false,
+          "calls_nvidia_suspend": false,
+          "returns_zero_without_resume": true,
+          "source_line": 4941
+        },
+        "restore": {
+          "calls_nvidia_resume": true,
+          "calls_nvidia_suspend": false,
+          "returns_zero_without_resume": false,
+          "source_line": 4931
+        },
+        "resume": {
+          "calls_nvidia_resume": true,
+          "calls_nvidia_suspend": false,
+          "returns_zero_without_resume": false,
+          "source_line": 4900
+        },
+        "suspend": {
+          "calls_nvidia_resume": true,
+          "calls_nvidia_suspend": true,
+          "returns_zero_without_resume": false,
+          "source_line": 4886
+        },
+        "thaw": {
+          "calls_nvidia_resume": false,
+          "calls_nvidia_suspend": false,
+          "returns_zero_without_resume": true,
+          "source_line": 4924
+        }
+      },
+      "driver_pm_ops": {
+        "freeze": "nv_pmops_freeze",
+        "poweroff": "nv_pmops_poweroff",
+        "restore": "nv_pmops_restore",
+        "resume": "nv_pmops_resume",
+        "suspend": "nv_pmops_suspend",
+        "thaw": "nv_pmops_thaw"
+      },
+      "driver_source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-clean-v3-20261021/source/kernel-open",
+      "global_pm": {
+        "global_suspend_calls_shared_uvm": true,
+        "global_suspend_includes_gpu_suspend_call": true,
+        "kernel_notifier_calls_global_power_state": false,
+        "kernel_notifier_handles_hibernation_prepare": false,
+        "kernel_notifier_handles_post_hibernation": false,
+        "kernel_notifier_supported": false,
+        "procfs_enters_global_power_state": true,
+        "source_lines": {
+          "global_suspend_devices": 4719,
+          "procfs_suspend": 645
+        }
+      },
+      "hibernation_order": {
+        "post_notifier_follows_snapshot_dpm_resume": true,
+        "prepare_notifier_precedes_dpm_freeze": true,
+        "restored_image_resume": "PMSG_RESTORE",
+        "snapshot_device_suspend_event": "PMSG_FREEZE",
+        "snapshot_resume_error": "PMSG_RECOVER",
+        "snapshot_resume_success": "PMSG_THAW",
+        "source_lines": {
+          "hibernate": 788,
+          "snapshot": 418
+        }
+      },
+      "label": "open-r580-baseline",
+      "linux_dpm_dispatch": {
+        "freeze": "freeze",
+        "recover": "thaw",
+        "restore": "restore",
+        "source_contract": {
+          "freeze": true,
+          "recover": true,
+          "restore": true,
+          "thaw": true
+        },
+        "source_line": 360,
+        "thaw": "thaw"
+      },
+      "linux_source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/reference-sources/linux-v7.0",
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "driver": {
+          "nvidia/nv-procfs.c": {
+            "bytes": 36155,
+            "sha256": "8cfcde5e57cd10d709c573dca2db10ddad8049c222a5a73437738252886620c8"
+          },
+          "nvidia/nv.c": {
+            "bytes": 160285,
+            "sha256": "4f251e44dfd400d7611b57a029d0b38b6e8a67a30f4971085aad56029753aa40"
+          }
+        },
+        "linux": {
+          "hibernate.c": {
+            "bytes": 36189,
+            "sha256": "1557c4031780f8a1f51bfd5b1b861c427a1e3871651d9a2b659f2521ddf5ca0f"
+          },
+          "main.c": {
+            "bytes": 60306,
+            "sha256": "73003d1eff8e9da39baf524b92f1cb9654c0dcdb3817146205261feda18140e5"
+          }
+        }
+      },
+      "suspend_counter": {
+        "nested_resume_only_decrements": true,
+        "nested_suspend_increments": true,
+        "physical_resume_clears_flag_only_after_success": true,
+        "source_lines": {
+          "resume": 4587,
+          "suspend": 4487
+        }
+      }
+    },
+    {
+      "conditional_overlap_recovery_hazard": {
+        "coordinator_rule": "For the hybrid design, PREPARE should quiesce every provider's channels and suspend shared UVM exactly once, but leave GPU power transitions to PCI DPM. After DPM, POST must resume any provider GPU still suspended, resume shared UVM once, then restore channels. This avoids an extra NVIDIA suspend_count layer; it remains a design hypothesis until implemented and runtime-tested.",
+        "present_if_full_global_gpu_suspend_precedes_dpm_freeze": true,
+        "statement": "If a procfs/global PM path suspends a device before DPM FREEZE, DPM FREEZE increments suspend_count; Linux RECOVER/THAW reaches the driver's no-op thaw; one later global resume then only decrements the nested count. An additional resume is needed to clear the suspended flag. This is a conditional source interaction, not proof that every hibernation flow leaves a GPU suspended."
+      },
+      "driver_callbacks": {
+        "freeze": {
+          "calls_nvidia_resume": true,
+          "calls_nvidia_suspend": true,
+          "returns_zero_without_resume": false,
+          "source_line": 5791
+        },
+        "poweroff": {
+          "calls_nvidia_resume": false,
+          "calls_nvidia_suspend": false,
+          "returns_zero_without_resume": true,
+          "source_line": 5822
+        },
+        "restore": {
+          "calls_nvidia_resume": true,
+          "calls_nvidia_suspend": false,
+          "returns_zero_without_resume": false,
+          "source_line": 5812
+        },
+        "resume": {
+          "calls_nvidia_resume": true,
+          "calls_nvidia_suspend": false,
+          "returns_zero_without_resume": false,
+          "source_line": 5781
+        },
+        "suspend": {
+          "calls_nvidia_resume": true,
+          "calls_nvidia_suspend": true,
+          "returns_zero_without_resume": false,
+          "source_line": 5767
+        },
+        "thaw": {
+          "calls_nvidia_resume": false,
+          "calls_nvidia_suspend": false,
+          "returns_zero_without_resume": true,
+          "source_line": 5805
+        }
+      },
+      "driver_pm_ops": {
+        "freeze": "nv_pmops_freeze",
+        "poweroff": "nv_pmops_poweroff",
+        "restore": "nv_pmops_restore",
+        "resume": "nv_pmops_resume",
+        "suspend": "nv_pmops_suspend",
+        "thaw": "nv_pmops_thaw"
+      },
+      "driver_source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-attached-ids-v1-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open",
+      "global_pm": {
+        "global_suspend_calls_shared_uvm": true,
+        "global_suspend_includes_gpu_suspend_call": true,
+        "kernel_notifier_calls_global_power_state": false,
+        "kernel_notifier_handles_hibernation_prepare": false,
+        "kernel_notifier_handles_post_hibernation": false,
+        "kernel_notifier_supported": false,
+        "procfs_enters_global_power_state": true,
+        "source_lines": {
+          "global_suspend_devices": 5600,
+          "procfs_suspend": 645
+        }
+      },
+      "hibernation_order": {
+        "post_notifier_follows_snapshot_dpm_resume": true,
+        "prepare_notifier_precedes_dpm_freeze": true,
+        "restored_image_resume": "PMSG_RESTORE",
+        "snapshot_device_suspend_event": "PMSG_FREEZE",
+        "snapshot_resume_error": "PMSG_RECOVER",
+        "snapshot_resume_success": "PMSG_THAW",
+        "source_lines": {
+          "hibernate": 788,
+          "snapshot": 418
+        }
+      },
+      "label": "private-open-r580",
+      "linux_dpm_dispatch": {
+        "freeze": "freeze",
+        "recover": "thaw",
+        "restore": "restore",
+        "source_contract": {
+          "freeze": true,
+          "recover": true,
+          "restore": true,
+          "thaw": true
+        },
+        "source_line": 360,
+        "thaw": "thaw"
+      },
+      "linux_source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/reference-sources/linux-v7.0",
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "driver": {
+          "nvidia/nv-procfs.c": {
+            "bytes": 36182,
+            "sha256": "689083643f493596a1ee9f75ec8f7c29be0e418a193030eb718cba04f62c4d44"
+          },
+          "nvidia/nv.c": {
+            "bytes": 188896,
+            "sha256": "e03cad3c88f9db755b8380abe6da9af185088c20c3ad682c254270cf5fe0ad96"
+          }
+        },
+        "linux": {
+          "hibernate.c": {
+            "bytes": 36189,
+            "sha256": "1557c4031780f8a1f51bfd5b1b861c427a1e3871651d9a2b659f2521ddf5ca0f"
+          },
+          "main.c": {
+            "bytes": 60306,
+            "sha256": "73003d1eff8e9da39baf524b92f1cb9654c0dcdb3817146205261feda18140e5"
+          }
+        }
+      },
+      "suspend_counter": {
+        "nested_resume_only_decrements": true,
+        "nested_suspend_increments": true,
+        "physical_resume_clears_flag_only_after_success": true,
+        "source_lines": {
+          "resume": 5468,
+          "suspend": 5368
+        }
+      }
+    },
+    {
+      "conditional_overlap_recovery_hazard": {
+        "coordinator_rule": "For the hybrid design, PREPARE should quiesce every provider's channels and suspend shared UVM exactly once, but leave GPU power transitions to PCI DPM. After DPM, POST must resume any provider GPU still suspended, resume shared UVM once, then restore channels. This avoids an extra NVIDIA suspend_count layer; it remains a design hypothesis until implemented and runtime-tested.",
+        "present_if_full_global_gpu_suspend_precedes_dpm_freeze": true,
+        "statement": "If a procfs/global PM path suspends a device before DPM FREEZE, DPM FREEZE increments suspend_count; Linux RECOVER/THAW reaches the driver's no-op thaw; one later global resume then only decrements the nested count. An additional resume is needed to clear the suspended flag. This is a conditional source interaction, not proof that every hibernation flow leaves a GPU suspended."
+      },
+      "driver_callbacks": {
+        "freeze": {
+          "calls_nvidia_resume": true,
+          "calls_nvidia_suspend": true,
+          "returns_zero_without_resume": false,
+          "source_line": 6730
+        },
+        "poweroff": {
+          "calls_nvidia_resume": false,
+          "calls_nvidia_suspend": false,
+          "returns_zero_without_resume": true,
+          "source_line": 6761
+        },
+        "restore": {
+          "calls_nvidia_resume": true,
+          "calls_nvidia_suspend": false,
+          "returns_zero_without_resume": false,
+          "source_line": 6751
+        },
+        "resume": {
+          "calls_nvidia_resume": true,
+          "calls_nvidia_suspend": false,
+          "returns_zero_without_resume": false,
+          "source_line": 6720
+        },
+        "suspend": {
+          "calls_nvidia_resume": true,
+          "calls_nvidia_suspend": true,
+          "returns_zero_without_resume": false,
+          "source_line": 6706
+        },
+        "thaw": {
+          "calls_nvidia_resume": false,
+          "calls_nvidia_suspend": false,
+          "returns_zero_without_resume": true,
+          "source_line": 6744
+        }
+      },
+      "driver_pm_ops": {
+        "freeze": "nv_pmops_freeze",
+        "poweroff": "nv_pmops_poweroff",
+        "restore": "nv_pmops_restore",
+        "resume": "nv_pmops_resume",
+        "suspend": "nv_pmops_suspend",
+        "thaw": "nv_pmops_thaw"
+      },
+      "driver_source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-proprietary-binapi-object-v1-20261021/nvidia-580.178.04",
+      "global_pm": {
+        "global_suspend_calls_shared_uvm": true,
+        "global_suspend_includes_gpu_suspend_call": true,
+        "kernel_notifier_calls_global_power_state": false,
+        "kernel_notifier_handles_hibernation_prepare": false,
+        "kernel_notifier_handles_post_hibernation": false,
+        "kernel_notifier_supported": false,
+        "procfs_enters_global_power_state": true,
+        "source_lines": {
+          "global_suspend_devices": 6562,
+          "procfs_suspend": 652
+        }
+      },
+      "hibernation_order": {
+        "post_notifier_follows_snapshot_dpm_resume": true,
+        "prepare_notifier_precedes_dpm_freeze": true,
+        "restored_image_resume": "PMSG_RESTORE",
+        "snapshot_device_suspend_event": "PMSG_FREEZE",
+        "snapshot_resume_error": "PMSG_RECOVER",
+        "snapshot_resume_success": "PMSG_THAW",
+        "source_lines": {
+          "hibernate": 788,
+          "snapshot": 418
+        }
+      },
+      "label": "private-proprietary-r580",
+      "linux_dpm_dispatch": {
+        "freeze": "freeze",
+        "recover": "thaw",
+        "restore": "restore",
+        "source_contract": {
+          "freeze": true,
+          "recover": true,
+          "restore": true,
+          "thaw": true
+        },
+        "source_line": 360,
+        "thaw": "thaw"
+      },
+      "linux_source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/reference-sources/linux-v7.0",
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "driver": {
+          "nvidia/nv-procfs.c": {
+            "bytes": 36560,
+            "sha256": "549b61ca66f53429e0e97df90a65c0129e3c2dd984b09d24f71d8a06680c483e"
+          },
+          "nvidia/nv.c": {
+            "bytes": 211939,
+            "sha256": "f66f6d578b39ba9a70a7516540508ec4f4b3dd16428393fd82c2e687caa8fc0f"
+          }
+        },
+        "linux": {
+          "hibernate.c": {
+            "bytes": 36189,
+            "sha256": "1557c4031780f8a1f51bfd5b1b861c427a1e3871651d9a2b659f2521ddf5ca0f"
+          },
+          "main.c": {
+            "bytes": 60306,
+            "sha256": "73003d1eff8e9da39baf524b92f1cb9654c0dcdb3817146205261feda18140e5"
+          }
+        }
+      },
+      "suspend_counter": {
+        "nested_resume_only_decrements": true,
+        "nested_suspend_increments": true,
+        "physical_resume_clears_flag_only_after_success": true,
+        "source_lines": {
+          "resume": 6460,
+          "suspend": 6383
+        }
+      }
+    },
+    {
+      "conditional_overlap_recovery_hazard": {
+        "coordinator_rule": "For the hybrid design, PREPARE should quiesce every provider's channels and suspend shared UVM exactly once, but leave GPU power transitions to PCI DPM. After DPM, POST must resume any provider GPU still suspended, resume shared UVM once, then restore channels. This avoids an extra NVIDIA suspend_count layer; it remains a design hypothesis until implemented and runtime-tested.",
+        "present_if_full_global_gpu_suspend_precedes_dpm_freeze": true,
+        "statement": "If a procfs/global PM path suspends a device before DPM FREEZE, DPM FREEZE increments suspend_count; Linux RECOVER/THAW reaches the driver's no-op thaw; one later global resume then only decrements the nested count. An additional resume is needed to clear the suspended flag. This is a conditional source interaction, not proof that every hibernation flow leaves a GPU suspended."
+      },
+      "driver_callbacks": {
+        "freeze": {
+          "calls_nvidia_resume": true,
+          "calls_nvidia_suspend": true,
+          "returns_zero_without_resume": false,
+          "source_line": 5066
+        },
+        "poweroff": {
+          "calls_nvidia_resume": false,
+          "calls_nvidia_suspend": false,
+          "returns_zero_without_resume": true,
+          "source_line": 5097
+        },
+        "restore": {
+          "calls_nvidia_resume": true,
+          "calls_nvidia_suspend": false,
+          "returns_zero_without_resume": false,
+          "source_line": 5087
+        },
+        "resume": {
+          "calls_nvidia_resume": true,
+          "calls_nvidia_suspend": false,
+          "returns_zero_without_resume": false,
+          "source_line": 5056
+        },
+        "suspend": {
+          "calls_nvidia_resume": true,
+          "calls_nvidia_suspend": true,
+          "returns_zero_without_resume": false,
+          "source_line": 5042
+        },
+        "thaw": {
+          "calls_nvidia_resume": false,
+          "calls_nvidia_suspend": false,
+          "returns_zero_without_resume": true,
+          "source_line": 5080
+        }
+      },
+      "driver_pm_ops": {
+        "freeze": "nv_pmops_freeze",
+        "poweroff": "nv_pmops_poweroff",
+        "restore": "nv_pmops_restore",
+        "resume": "nv_pmops_resume",
+        "suspend": "nv_pmops_suspend",
+        "thaw": "nv_pmops_thaw"
+      },
+      "driver_source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5/kernel-open",
+      "global_pm": {
+        "global_suspend_calls_shared_uvm": true,
+        "global_suspend_includes_gpu_suspend_call": true,
+        "kernel_notifier_calls_global_power_state": true,
+        "kernel_notifier_handles_hibernation_prepare": true,
+        "kernel_notifier_handles_post_hibernation": true,
+        "kernel_notifier_supported": true,
+        "procfs_enters_global_power_state": true,
+        "source_lines": {
+          "global_suspend_devices": 4886,
+          "procfs_suspend": 646
+        }
+      },
+      "hibernation_order": {
+        "post_notifier_follows_snapshot_dpm_resume": true,
+        "prepare_notifier_precedes_dpm_freeze": true,
+        "restored_image_resume": "PMSG_RESTORE",
+        "snapshot_device_suspend_event": "PMSG_FREEZE",
+        "snapshot_resume_error": "PMSG_RECOVER",
+        "snapshot_resume_success": "PMSG_THAW",
+        "source_lines": {
+          "hibernate": 788,
+          "snapshot": 418
+        }
+      },
+      "label": "open-r595.104.02",
+      "linux_dpm_dispatch": {
+        "freeze": "freeze",
+        "recover": "thaw",
+        "restore": "restore",
+        "source_contract": {
+          "freeze": true,
+          "recover": true,
+          "restore": true,
+          "thaw": true
+        },
+        "source_line": 360,
+        "thaw": "thaw"
+      },
+      "linux_source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/reference-sources/linux-v7.0",
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "driver": {
+          "nvidia/nv-procfs.c": {
+            "bytes": 36438,
+            "sha256": "34d5b1b80feee8158b18cf000325b2ef958b830a3583a9162efc9b5073682bd1"
+          },
+          "nvidia/nv.c": {
+            "bytes": 169891,
+            "sha256": "963f6508a2a361fdce162f3e9917be0045f8fbe596a314c86d09ca07bdbf22af"
+          }
+        },
+        "linux": {
+          "hibernate.c": {
+            "bytes": 36189,
+            "sha256": "1557c4031780f8a1f51bfd5b1b861c427a1e3871651d9a2b659f2521ddf5ca0f"
+          },
+          "main.c": {
+            "bytes": 60306,
+            "sha256": "73003d1eff8e9da39baf524b92f1cb9654c0dcdb3817146205261feda18140e5"
+          }
+        }
+      },
+      "suspend_counter": {
+        "nested_resume_only_decrements": true,
+        "nested_suspend_increments": true,
+        "physical_resume_clears_flag_only_after_success": true,
+        "source_lines": {
+          "resume": 4745,
+          "suspend": 4641
+        }
+      }
+    }
+  ]
+}

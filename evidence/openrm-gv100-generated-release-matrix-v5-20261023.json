@@ -1,0 +1,136 @@
+{
+  "implementation_sha256": {
+    "tests/test_compare_openrm_gv100.py": "14ac17beebba8662afd1a4b478cdcdcdef2dab59816ef665e78e0cbf16f7b142",
+    "tools/compare_openrm_gv100.py": "c91765eb6667c90c0ffdae456526992185eafee08e78833ded6734444bfb51a5",
+    "tools/probe_r615_gv100_dispatch.py": "2ae07936c49289b478248c7f5bcd36668f2bb5ebd27592848a28b53c89359ee8"
+  },
+  "inputs": [
+    {
+      "archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+      "archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+      "chip_flags": {
+        "GV100": 0,
+        "GV10X": 0,
+        "VOLTA_CLASSIC_GPUS": 0
+      },
+      "chiphal_gv100_label_present": false,
+      "files": {
+        "src/nvidia/generated/g_chips2halspec_nvoc.c": {
+          "bytes": 5609,
+          "sha256": "570b18afd7ac89ab066f190d6010cc2a0f3b91bbae28d07b4114682187b5ac9b"
+        },
+        "src/nvidia/generated/g_hal_archimpl.h": {
+          "bytes": 8958,
+          "sha256": "560c6c4e51afe7e907269fd9901936f14b679fd3049e717669008c054ff77dfc"
+        },
+        "src/nvidia/generated/g_hal_register.h": {
+          "bytes": 6719,
+          "sha256": "05fa8a99486fb7427b0c604f8d72a63bdafe895781005de9d71c88741be012d3"
+        },
+        "src/nvidia/generated/rmconfig.h": {
+          "bytes": 51512,
+          "sha256": "f67a2a4ad7a7639925401159b474dabf1cfeff845a5646d7c6692db598e1f64a"
+        },
+        "src/nvidia/src/kernel/core/hal_mgr.c": {
+          "bytes": 5794,
+          "sha256": "80923fa0e9f519e2d40b02885d3d0e7ccd63d6842d89e8ba3c8e9c1d2f8c9c49"
+        }
+      },
+      "gv100_chip_id_row": "{                               0x0,                            0x0,   0x0 } , // GV100  (disabled)",
+      "gv100_chip_row_nonzero": false,
+      "gv100_legacy_registration_symbol_present": false,
+      "source_profile": "gv100-disabled-in-generated-profile",
+      "version": "580.178.04"
+    },
+    {
+      "archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5.tar.gz",
+      "archive_sha256": "da4e454d493818027998fc9d7ef95fd5dd291d3d37119f1f81d12db85fc33190",
+      "chip_flags": {
+        "GV100": 0,
+        "GV10X": 0,
+        "VOLTA_CLASSIC_GPUS": 0
+      },
+      "chiphal_gv100_label_present": false,
+      "files": {
+        "src/nvidia/generated/g_chips2halspec_nvoc.c": {
+          "bytes": 5609,
+          "sha256": "f112674d8191a09662bf8e1a3f5b920773a95d6aae6e61fe79382d405fbade3e"
+        },
+        "src/nvidia/generated/g_hal_archimpl.h": {
+          "bytes": 8930,
+          "sha256": "c261f6a4ef4363ecaabbf9604943c11e8c54678d32dadebf8e9a1c4c2112ada7"
+        },
+        "src/nvidia/generated/g_hal_register.h": {
+          "bytes": 6691,
+          "sha256": "8399d29f4f8c1e56ce27f010fd1b066e38395ddffa6a00aad51d556b37fbd15a"
+        },
+        "src/nvidia/generated/rmconfig.h": {
+          "bytes": 51452,
+          "sha256": "52f6a2ed2c5dff0de85db4239b26658ded0fbf69297c0bbfa18367bc3c7e7912"
+        },
+        "src/nvidia/src/kernel/core/hal_mgr.c": {
+          "bytes": 5794,
+          "sha256": "80923fa0e9f519e2d40b02885d3d0e7ccd63d6842d89e8ba3c8e9c1d2f8c9c49"
+        }
+      },
+      "gv100_chip_id_row": "{                               0x0,                            0x0,   0x0 } , // GV100  (disabled)",
+      "gv100_chip_row_nonzero": false,
+      "gv100_legacy_registration_symbol_present": false,
+      "source_profile": "gv100-disabled-in-generated-profile",
+      "version": "595.104.02"
+    },
+    {
+      "archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/open-gpu-kernel-modules-1a82fbfda8f321b056eb3568850f9316c5e465c5.tar.gz",
+      "archive_sha256": "590ee6a5a780f946322edd17f9d235c6664eb7e6839073ac0d68c0f263e7184f",
+      "chip_flags": {
+        "GV100": 0,
+        "GV10X": 0,
+        "VOLTA_CLASSIC_GPUS": 0
+      },
+      "chiphal_gv100_label_present": false,
+      "files": {
+        "src/nvidia/generated/g_chips2halspec_nvoc.c": {
+          "bytes": 6160,
+          "sha256": "ec0f299b4dffa6160d102e2dc3d7e4db776116354649b676987146c52542548a"
+        },
+        "src/nvidia/generated/g_hal_archimpl.h": {
+          "bytes": 9284,
+          "sha256": "0c6943a230d7dd7af933d045caeb68bd58fb0dc183c5967fa080202d346399a9"
+        },
+        "src/nvidia/generated/g_hal_register.h": {
+          "bytes": 7435,
+          "sha256": "bbf9c9648d9b95f9246facea944129967825b6675c91a8f46df8c36313e419e1"
+        },
+        "src/nvidia/generated/rmconfig.h": {
+          "bytes": 53486,
+          "sha256": "cf582b8d0e21a4acf4a290b27ac6a1d6dff43aa9d63f3d57923bb84accfda402"
+        },
+        "src/nvidia/src/kernel/core/hal_mgr.c": {
+          "bytes": 5794,
+          "sha256": "80923fa0e9f519e2d40b02885d3d0e7ccd63d6842d89e8ba3c8e9c1d2f8c9c49"
+        }
+      },
+      "gv100_chip_id_row": "{                               0x0,                            0x0,   0x0 } , // GV100  (disabled)",
+      "gv100_chip_row_nonzero": false,
+      "gv100_legacy_registration_symbol_present": false,
+      "source_profile": "gv100-disabled-in-generated-profile",
+      "version": "615.78.08"
+    }
+  ],
+  "legacy_hal_manager_source_identical_pairs": {
+    "580.178.04-595.104.02": true,
+    "580.178.04-615.78.08": true,
+    "595.104.02-615.78.08": true
+  },
+  "limitations": [
+    "Generated source flags and table rows do not establish physical HAL completeness, RM object creation or GPU initialization.",
+    "R580 is the public Open source profile; it is not the proprietary R580 implementation used by the Volta reference driver."
+  ],
+  "loaded_or_installed": false,
+  "observed_at_utc": "2026-10-23T13:13:09.975365+00:00",
+  "physical_hal_completeness": "not-established",
+  "proprietary_r580_behavior_compared": false,
+  "qualification": "analyzed-statically",
+  "runtime_or_hardware_validated": false,
+  "schema": "openrm-gv100-generated-release-matrix-v5"
+}

@@ -1,0 +1,220 @@
+{
+  "generated_utc": "2026-10-21T17:49:51Z",
+  "limitations": [
+    "No provider modules were loaded and no Linux suspend/resume was attempted.",
+    "The audit does not inspect opaque RM behavior behind rm_power_management().",
+    "A source-level notifier registration path does not prove its runtime module parameter value."
+  ],
+  "qualification": "static-source-contract-only",
+  "schema": "nvidia-pm-entrypoints-v1",
+  "source_trees": [
+    {
+      "global_nvidia_pm": {
+        "procfs_suspend_enters_global_state_machine": true,
+        "resume_restores_local_gpus_then_resumes_uvm_then_channels": true,
+        "source_lines": {
+          "procfs_suspend": 645,
+          "resume_devices": 4667,
+          "state_machine": 4823,
+          "suspend_devices": 4719
+        },
+        "state_machine_dispatches_suspend_and_resume": true,
+        "suspend_preempts_channels_then_suspends_uvm_then_local_gpus": true
+      },
+      "kernel_pm_notifier": {
+        "notifier_dispatches_global_state_machine": false,
+        "registration_parameter_gated": false,
+        "registration_supported_in_source": false,
+        "source_lines": {
+          "init": 824,
+          "notifier": null
+        }
+      },
+      "label": "open-r580-source-baseline",
+      "pci_device_pm": {
+        "callbacks_call_per_device_suspend_resume": true,
+        "explicit_channel_preempt_or_restore_in_pmops_or_helper": false,
+        "explicit_uvm_suspend_or_resume_in_pmops_or_helper": false,
+        "source_lines": {
+          "nvidia_suspend": 4487,
+          "resume": 4900,
+          "suspend": 4886
+        }
+      },
+      "procfs_namespace": {
+        "buffer_expression": "20",
+        "buffer_sized_for_private_module_name": false,
+        "directory_derived_from_module_name": true,
+        "source_line": 1335
+      },
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "nvidia/nv-procfs.c": {
+          "bytes": 36155,
+          "sha256": "8cfcde5e57cd10d709c573dca2db10ddad8049c222a5a73437738252886620c8"
+        },
+        "nvidia/nv.c": {
+          "bytes": 160285,
+          "sha256": "4f251e44dfd400d7611b57a029d0b38b6e8a67a30f4971085aad56029753aa40"
+        }
+      },
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-clean-v3-20261021/source/kernel-open"
+    },
+    {
+      "global_nvidia_pm": {
+        "procfs_suspend_enters_global_state_machine": true,
+        "resume_restores_local_gpus_then_resumes_uvm_then_channels": true,
+        "source_lines": {
+          "procfs_suspend": 645,
+          "resume_devices": 5548,
+          "state_machine": 5704,
+          "suspend_devices": 5600
+        },
+        "state_machine_dispatches_suspend_and_resume": true,
+        "suspend_preempts_channels_then_suspends_uvm_then_local_gpus": true
+      },
+      "kernel_pm_notifier": {
+        "notifier_dispatches_global_state_machine": false,
+        "registration_parameter_gated": false,
+        "registration_supported_in_source": false,
+        "source_lines": {
+          "init": 826,
+          "notifier": null
+        }
+      },
+      "label": "open-r580-private-backend",
+      "pci_device_pm": {
+        "callbacks_call_per_device_suspend_resume": true,
+        "explicit_channel_preempt_or_restore_in_pmops_or_helper": false,
+        "explicit_uvm_suspend_or_resume_in_pmops_or_helper": false,
+        "source_lines": {
+          "nvidia_suspend": 5368,
+          "resume": 5781,
+          "suspend": 5767
+        }
+      },
+      "procfs_namespace": {
+        "buffer_expression": "sizeof(\"driver/\" MODULE_NAME)",
+        "buffer_sized_for_private_module_name": true,
+        "directory_derived_from_module_name": true,
+        "source_line": 1335
+      },
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "nvidia/nv-procfs.c": {
+          "bytes": 36182,
+          "sha256": "689083643f493596a1ee9f75ec8f7c29be0e418a193030eb718cba04f62c4d44"
+        },
+        "nvidia/nv.c": {
+          "bytes": 188896,
+          "sha256": "e03cad3c88f9db755b8380abe6da9af185088c20c3ad682c254270cf5fe0ad96"
+        }
+      },
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-attached-ids-v1-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open"
+    },
+    {
+      "global_nvidia_pm": {
+        "procfs_suspend_enters_global_state_machine": true,
+        "resume_restores_local_gpus_then_resumes_uvm_then_channels": true,
+        "source_lines": {
+          "procfs_suspend": 652,
+          "resume_devices": 6510,
+          "state_machine": 6643,
+          "suspend_devices": 6562
+        },
+        "state_machine_dispatches_suspend_and_resume": true,
+        "suspend_preempts_channels_then_suspends_uvm_then_local_gpus": true
+      },
+      "kernel_pm_notifier": {
+        "notifier_dispatches_global_state_machine": false,
+        "registration_parameter_gated": false,
+        "registration_supported_in_source": false,
+        "source_lines": {
+          "init": 795,
+          "notifier": null
+        }
+      },
+      "label": "proprietary-r580-private-backend",
+      "pci_device_pm": {
+        "callbacks_call_per_device_suspend_resume": true,
+        "explicit_channel_preempt_or_restore_in_pmops_or_helper": false,
+        "explicit_uvm_suspend_or_resume_in_pmops_or_helper": false,
+        "source_lines": {
+          "nvidia_suspend": 6383,
+          "resume": 6720,
+          "suspend": 6706
+        }
+      },
+      "procfs_namespace": {
+        "buffer_expression": "sizeof(\"driver/\" MODULE_NAME)",
+        "buffer_sized_for_private_module_name": true,
+        "directory_derived_from_module_name": true,
+        "source_line": 1342
+      },
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "nvidia/nv-procfs.c": {
+          "bytes": 36560,
+          "sha256": "549b61ca66f53429e0e97df90a65c0129e3c2dd984b09d24f71d8a06680c483e"
+        },
+        "nvidia/nv.c": {
+          "bytes": 211939,
+          "sha256": "f66f6d578b39ba9a70a7516540508ec4f4b3dd16428393fd82c2e687caa8fc0f"
+        }
+      },
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-proprietary-binapi-object-v1-20261021/nvidia-580.178.04"
+    },
+    {
+      "global_nvidia_pm": {
+        "procfs_suspend_enters_global_state_machine": true,
+        "resume_restores_local_gpus_then_resumes_uvm_then_channels": true,
+        "source_lines": {
+          "procfs_suspend": 646,
+          "resume_devices": 4827,
+          "state_machine": 4979,
+          "suspend_devices": 4886
+        },
+        "state_machine_dispatches_suspend_and_resume": true,
+        "suspend_preempts_channels_then_suspends_uvm_then_local_gpus": true
+      },
+      "kernel_pm_notifier": {
+        "notifier_dispatches_global_state_machine": true,
+        "registration_parameter_gated": true,
+        "registration_supported_in_source": true,
+        "source_lines": {
+          "init": 863,
+          "notifier": 4522
+        }
+      },
+      "label": "open-r595.104.02",
+      "pci_device_pm": {
+        "callbacks_call_per_device_suspend_resume": true,
+        "explicit_channel_preempt_or_restore_in_pmops_or_helper": false,
+        "explicit_uvm_suspend_or_resume_in_pmops_or_helper": false,
+        "source_lines": {
+          "nvidia_suspend": 4641,
+          "resume": 5056,
+          "suspend": 5042
+        }
+      },
+      "procfs_namespace": {
+        "buffer_expression": "20",
+        "buffer_sized_for_private_module_name": false,
+        "directory_derived_from_module_name": true,
+        "source_line": 1336
+      },
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "nvidia/nv-procfs.c": {
+          "bytes": 36438,
+          "sha256": "34d5b1b80feee8158b18cf000325b2ef958b830a3583a9162efc9b5073682bd1"
+        },
+        "nvidia/nv.c": {
+          "bytes": 169891,
+          "sha256": "963f6508a2a361fdce162f3e9917be0045f8fbe596a314c86d09ca07bdbf22af"
+        }
+      },
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5/kernel-open"
+    }
+  ]
+}

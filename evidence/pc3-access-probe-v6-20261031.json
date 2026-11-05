@@ -1,0 +1,48 @@
+{
+  "candidate_module_operation_performed": false,
+  "candidate_module_state_on_pc3": "unobserved; PC3 was unreachable",
+  "gpu_test_executed": false,
+  "interpretation": "The target is unreachable through the tested PC1 and PC6 routes; this probe does not establish whether PC3 or its VM is powered off.",
+  "pc1": {
+    "hostname": "pc1",
+    "pc3_peer": {
+      "ips": [
+        "100.90.188.53",
+        "fd7a:115c:a1e0::fe2e:bc36"
+      ],
+      "last_seen_utc": "2026-10-31T03:08:03.1Z",
+      "observed_at_utc": "2026-10-31T21:02:09Z",
+      "online": false
+    },
+    "ssh_alias_pc3": {
+      "exit_code": 255,
+      "observed_at_utc": "2026-10-31T21:01:29Z",
+      "remote_command_executed": false,
+      "stderr": "ssh: connect to host pc3 port 22: Connection timed out"
+    },
+    "tailscale_self_online": true
+  },
+  "pc6": {
+    "hostname": "gx10-e526",
+    "observed_at_utc": "2026-10-31T21:01:38Z",
+    "pc3_last_seen_utc": "2026-10-31T03:08:03.1Z",
+    "reachable_from_pc1": true,
+    "ssh_alias_pc3": {
+      "exit_code": 255,
+      "observed_at_utc": "2026-10-31T20:59:41Z",
+      "remote_command_executed": false,
+      "stderr": "ssh: Could not resolve hostname pc3: Temporary failure in name resolution"
+    },
+    "ssh_ip_100_90_188_53": {
+      "exit_code": 255,
+      "observed_at_utc": "2026-10-31T21:01:38Z",
+      "remote_command_executed": false,
+      "stderr": "ssh: connect to host 100.90.188.53 port 22: No route to host"
+    },
+    "tailscale_pc3_online": false
+  },
+  "recorded_at_utc": "2026-10-31T21:02:09Z",
+  "remote_command_executed_on_pc3": false,
+  "schema": "pc3-access-probe-v6",
+  "scope": "read-only connectivity and Tailscale observations only"
+}

@@ -1,0 +1,48 @@
+{
+  "checks": {
+    "fault_notification_schedules_worker": true,
+    "fault_notifier_uses_waiting_registration": true,
+    "fault_ring_snapshot_wrap_and_publish_before_dispatch": true,
+    "flush_work_last_queueing_instance": true,
+    "flush_work_waits_for_work_item": true,
+    "notifier_block_disables_then_removes_waiting_notifier": true,
+    "notifier_callback_runs_under_list_read_lock": true,
+    "notifier_removal_waits_for_reader_section": true,
+    "queue_work_coalesces_while_pending": true,
+    "schedule_work_uses_kernel_workqueue": true,
+    "teardown_blocks_flushes_then_releases_buffer": true,
+    "work_pending_cleared_before_callback": true
+  },
+  "inference": "Because process_one_work clears PENDING before calling the work function, schedule_work may queue one follow-up execution while the current worker runs; additional notifications coalesce while that follow-up is pending. The GV100 teardown first blocks and removes a wait=true notifier whose callback is protected by the event-list read lock, then flushes work before releasing the buffer.",
+  "limitations": [
+    "Upstream Linux source analysis only; Ubuntu module source-package equivalence is unknown.",
+    "This does not validate GPU producer memory ordering, ring overflow behavior, or hardware interrupt delivery.",
+    "This is Nouveau behavior, not NVIDIA Resource Manager implementation or ABI proof.",
+    "No driver module was loaded and no GPU or CUDA execution was used."
+  ],
+  "schema": "nvidia-hybrid.nouveau-gv100-fault-lifecycle-source-audit.v1",
+  "source_files": [
+    {
+      "path": "drivers/gpu/drm/nouveau/nvkm/core/event.c",
+      "sha256": "8d81cd673058be1d221bd15aea87d9aa0c30ba7b8d4936564b8eb3707c138ec3"
+    },
+    {
+      "path": "drivers/gpu/drm/nouveau/nvkm/subdev/fault/gv100.c",
+      "sha256": "10062d3bcb370a39dfa56f4fca675b125de7c03550316813654acdc794febd8d"
+    },
+    {
+      "path": "include/linux/workqueue.h",
+      "sha256": "0e2a48f4d301d57750761cc756545946cdef3c69e2a7c5c197621aa264453db6"
+    },
+    {
+      "path": "kernel/workqueue.c",
+      "sha256": "dc15fb16ec3e0627610ae22e7d727943475914a166d50281e887ddb906eea4ab"
+    }
+  ],
+  "status": "ANALYZED_STATICALLY",
+  "upstream": {
+    "commit": "028ef9c96e96197026887c0f092424679298aae8",
+    "repository": "https://github.com/torvalds/linux",
+    "tag": "v7.0"
+  }
+}

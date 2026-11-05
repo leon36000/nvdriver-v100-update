@@ -1,0 +1,55 @@
+{
+  "conclusion": "Do not treat the generic R595.91.07 supported-products list as proof that Ubuntu nvidia-driver-595-server-open supports PC3 RTX 5080. The staged package set is version-matched and signed-metadata-bearing, but its exact flavor/product support and boot/runtime behavior on PC3 are unverified. It is not a qualified rollback path.",
+  "observed_at_utc": "2026-10-28T00:28:11.147016+00:00",
+  "package_installed_or_module_loaded": false,
+  "package_stage_report": "evidence/pc3-r595-server-fallback-package-stage-v1-20261028T002315Z.json",
+  "package_stage_sha256": "26150304e2b10dcd050ed01bc61758a4691894937d67702463c692dafcbe46a0",
+  "pc3_device_ids": [
+    {
+      "generic_r595_91_07_listed": true,
+      "model": "GeForce RTX 5080",
+      "pci_id": "10de:2c02",
+      "ubuntu_server_open_support": "unverified"
+    },
+    {
+      "generic_r595_91_07_listed": true,
+      "model": "Tesla V100 SXM2 16GB",
+      "pci_id": "10de:1db1",
+      "ubuntu_server_open_support": "not established for this exact package flavor by the cited docs"
+    }
+  ],
+  "pc3_or_system_changed": false,
+  "prior_report": "evidence/nvidia-r595-91-07-pc3-device-support-v1-20261028T002500Z.json",
+  "schema": "nvidia-r595-91-07-server-flavor-coverage-v2",
+  "sources": [
+    {
+      "limitation": "The README does not identify the Ubuntu 595-server-open package flavor.",
+      "observations": [
+        "Generic README list includes GeForce RTX 5080 PCI ID 2C02.",
+        "Generic README list includes Tesla V100-SXM2-16GB PCI ID 1DB1.",
+        "README describes the list as indicating products supported by that driver version."
+      ],
+      "title": "NVIDIA Linux x86_64 595.91.07 Supported NVIDIA GPU Products",
+      "url": "https://download.nvidia.com/XFree86/Linux-x86_64/595.91.07/README/supportedchips.html"
+    },
+    {
+      "limitation": "Package identity/source proves server flavor packaging, not the GPU products its exact binaries initialize.",
+      "observations": [
+        "Version 595.91.07-0ubuntu0.26.04.2.",
+        "Ubuntu source package is nvidia-graphics-drivers-595-server."
+      ],
+      "title": "Ubuntu nvidia-dkms-595-server-open package details",
+      "url": "https://packages.ubuntu.com/resolute-updates/nvidia-dkms-595-server-open"
+    },
+    {
+      "limitation": "Does not affirm GeForce RTX 5080 support for Ubuntu 595-server-open; CUDA API architecture support is not the same as exact product or application validation.",
+      "observations": [
+        "Documents the 595.91.07 Data Center GPU driver release.",
+        "States the Data Center GPU driver package is designed for systems with one or more Data Center GPU products.",
+        "Lists CUDA 13.x API support for Volta and Blackwell GPU architectures."
+      ],
+      "title": "NVIDIA Data Center GPU Driver 595.91.07 release notes",
+      "url": "https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-595-91-07/index.html"
+    }
+  ]
+}
