@@ -1,0 +1,925 @@
+{
+  "actual_elf_export_strings_match": true,
+  "added_kernel_imports_vs_official_open_baseline": {
+    "_raw_read_lock_irqsave": "EXPORT_SYMBOL",
+    "_raw_read_unlock_irqrestore": "EXPORT_SYMBOL",
+    "_raw_write_lock_irqsave": "EXPORT_SYMBOL",
+    "_raw_write_unlock_irqrestore": "EXPORT_SYMBOL",
+    "alloc_anon_inode": "EXPORT_SYMBOL",
+    "alloc_file_pseudo": "EXPORT_SYMBOL",
+    "iput": "EXPORT_SYMBOL"
+  },
+  "all_recorded_inputs_unchanged": true,
+  "build_warnings": {
+    "full_kernel_mitigation_qualification": false,
+    "naked_return_rethunk": 10857,
+    "objtool_warning_lines": 10857,
+    "total_warning_lines": 10887,
+    "warnings_suppressed_by_tool": false
+  },
+  "character_devices": {
+    "allocation": "alloc_chrdev_region",
+    "automatic_devnodes": false,
+    "control_minor": 255,
+    "count": 256,
+    "first_minor": 0,
+    "name": "hybrid580_open",
+    "public_major_alias": false,
+    "regular_count": 248
+  },
+  "control_session_requested": true,
+  "core_unchanged": true,
+  "cpu_contract_passed": true,
+  "disabled_in_prototype": [
+    "NVSwitch driver initialization and presence override",
+    "platform GPU driver registration and counting",
+    "public PCI/OF hardware autoload aliases"
+  ],
+  "dynamic_major_imports_present": true,
+  "existing_mechanism_rejected": {
+    "name": "ExcludedGpus/GpuBlacklist",
+    "reason": "UUID read through RM by nv_check_and_exclude_gpu after PCI/RM setup; not an early deny-by-default BDF selector"
+  },
+  "export_count": 104,
+  "exports": {
+    "hybrid580_open_control_session_create_v1": "EXPORT_SYMBOL",
+    "hybrid580_open_control_session_file_v1": "EXPORT_SYMBOL",
+    "hybrid580_open_control_session_get_v1": "EXPORT_SYMBOL",
+    "hybrid580_open_control_session_put_v1": "EXPORT_SYMBOL",
+    "hybrid580_open_gpu_session_create_v1": "EXPORT_SYMBOL",
+    "hybrid580_open_gpu_session_file_v1": "EXPORT_SYMBOL",
+    "hybrid580_open_gpu_session_get_v1": "EXPORT_SYMBOL",
+    "hybrid580_open_gpu_session_ioctl_v1": "EXPORT_SYMBOL",
+    "hybrid580_open_gpu_session_put_v1": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceAddressSpaceCreate": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceAddressSpaceDestroy": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceBindChannelResources": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceChannelAllocate": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceChannelDestroy": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceCslDecrypt": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceCslEncrypt": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceCslIncrementIv": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceCslInitContext": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceCslLogEncryption": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceCslQueryMessagePool": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceCslRotateIv": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceCslRotateKey": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceCslSign": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceDeRegisterUvmOps": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceDeinitCslContext": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceDestroyAccessCntrInfo": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceDestroyFaultInfo": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceDeviceCreate": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceDeviceDestroy": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceDisableAccessCntr": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceDupAddressSpace": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceDupAllocation": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceDupMemory": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceEnableAccessCntr": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceFlushReplayableFaultBuffer": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceFreeDupedHandle": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceGetChannelResourcePtes": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceGetEccInfo": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceGetExternalAllocPhysAddrs": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceGetExternalAllocPtes": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceGetFbInfo": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceGetGpuInfo": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceGetNonReplayableFaults": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceGetNvlinkInfo": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceGetP2PCaps": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceGetPmaObject": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceHasPendingNonReplayableFaults": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceInitAccessCntrInfo": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceInitFaultInfo": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceMemoryAllocFB": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceMemoryAllocSys": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceMemoryCpuMap": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceMemoryCpuUnMap": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceMemoryFree": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceOwnPageFaultIntr": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceP2pObjectCreate": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceP2pObjectDestroy": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfacePagingChannelAllocate": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfacePagingChannelDestroy": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfacePagingChannelPushStream": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfacePagingChannelsMap": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfacePagingChannelsUnmap": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfacePmaAllocPages": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfacePmaFreePages": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfacePmaPinPages": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfacePmaRegisterEvictionCallbacks": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfacePmaUnregisterEvictionCallbacks": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceQueryCaps": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceQueryCopyEnginesCaps": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceRegisterGpu": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceRegisterUvmCallbacks": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceReleaseChannel": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceReportFatalError": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceReportNonReplayableFault": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceRetainChannel": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceServiceDeviceInterruptsRM": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceSessionCreate": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceSessionDestroy": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceSetPageDirectory": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceStopChannel": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceTogglePrefetchFaults": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceTsgAllocate": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceTsgDestroy": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceUnregisterGpu": "EXPORT_SYMBOL",
+    "hybrid580_open_nvUvmInterfaceUnsetPageDirectory": "EXPORT_SYMBOL",
+    "hybrid580_open_nvidia_get_rm_ops": "EXPORT_SYMBOL_GPL",
+    "hybrid580_open_nvidia_p2p_destroy_mapping": "EXPORT_SYMBOL_GPL",
+    "hybrid580_open_nvidia_p2p_dma_map_pages": "EXPORT_SYMBOL_GPL",
+    "hybrid580_open_nvidia_p2p_dma_unmap_pages": "EXPORT_SYMBOL_GPL",
+    "hybrid580_open_nvidia_p2p_free_dma_mapping": "EXPORT_SYMBOL_GPL",
+    "hybrid580_open_nvidia_p2p_free_page_table": "EXPORT_SYMBOL_GPL",
+    "hybrid580_open_nvidia_p2p_get_pages": "EXPORT_SYMBOL_GPL",
+    "hybrid580_open_nvidia_p2p_get_pages_persistent": "EXPORT_SYMBOL_GPL",
+    "hybrid580_open_nvidia_p2p_get_rsync_registers": "EXPORT_SYMBOL_GPL",
+    "hybrid580_open_nvidia_p2p_init_mapping": "EXPORT_SYMBOL_GPL",
+    "hybrid580_open_nvidia_p2p_put_pages": "EXPORT_SYMBOL_GPL",
+    "hybrid580_open_nvidia_p2p_put_pages_persistent": "EXPORT_SYMBOL_GPL",
+    "hybrid580_open_nvidia_p2p_put_rsync_registers": "EXPORT_SYMBOL_GPL",
+    "hybrid580_open_nvidia_p2p_register_rsync_driver": "EXPORT_SYMBOL_GPL",
+    "hybrid580_open_nvidia_p2p_unregister_rsync_driver": "EXPORT_SYMBOL_GPL",
+    "hybrid580_open_nvidia_register_error_cb": "EXPORT_SYMBOL",
+    "hybrid580_open_nvidia_unregister_error_cb": "EXPORT_SYMBOL",
+    "hybrid580_open_register_file_projection_v1": "EXPORT_SYMBOL",
+    "hybrid580_open_unregister_file_projection_v1": "EXPORT_SYMBOL"
+  },
+  "file_projection_requested": true,
+  "gpl_only_kernel_imports": 104,
+  "gpu_session_requested": true,
+  "hardware_autoload_aliases_absent": true,
+  "hardware_validated": false,
+  "inputs": [
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+      "sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/_out/Linux_x86_64/nv-kernel.o",
+      "sha256": "5e9219a4a263315d20757159852b35be61dfd2ce75dcd2ca90b1cd1764d6bb8a"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-wrapper-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia.ko",
+      "sha256": "8133a7fb0428c00b70f37dede97e94c68274b4d3de7fa957888147ec6f377af2"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/0002-private-open-module.patch",
+      "sha256": "5f48255dee4c2bcf1379873b6ab39c8183245446750956497dc5c731c5516224"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/0003-private-open-pci-guard.patch",
+      "sha256": "f21a8ef376dc24bade7a8b1fd4fac9ad5737ab79e75b7110b4e3adb87c293075"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/0004-private-open-chardev.patch",
+      "sha256": "0609f51b7b18ce40ddc3b45b4d7bf4ebe7c2428776094ed86870a7686eea25e3"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/0005-private-open-procfs-path.patch",
+      "sha256": "35a37c43c58716f2ca4bbc0fa68037a5eb80bf3ab439ad7f9a38dbb2a0d9f8ee"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/0006-private-open-resource-names.patch",
+      "sha256": "79c5279b096abeff6cc6171014fa34a28a9bd0e80acb13ade54ef662bf34cae7"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/0007-private-open-pci-only-lifecycle.patch",
+      "sha256": "e3c5cb0a2c235cccbd108425f09a9b0899b272bb77880dd93196b0fae2859ffb"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/0008-private-open-file-projection.patch",
+      "sha256": "ecbb193d77c30bcb414230dca7859e6edbac76504940c9c5e9031dd8b903e20a"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/0009-private-open-control-session.patch",
+      "sha256": "e1f275f35d6bef1f57afedb1feee387be68d9147a895e59a733af82bb609be17"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/0010-private-open-gpu-session.patch",
+      "sha256": "0de8fa84c9b1bbb64c1e7d7061485f8db3893be01dadadb47e8862cd301257c9"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests/test_private_backend_chardev.py",
+      "sha256": "815a9424b3eeb265fa313eb10be3cadcd03715437065a1bd94fa9b10ebbbfa18"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests/test_private_backend_pci.py",
+      "sha256": "e15cf8f8fb2183f7e1ec98b50709e9e1b3403920ee64184440d6ca9d3c6beb84"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests/test_private_backend_procfs.py",
+      "sha256": "99649ce9fa9e867e204b5a9f0461f07e2d529c232c5bed2172c43f2cc8fa7ed6"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests/test_private_backend_resource_names.py",
+      "sha256": "7ad8301692a977b415b866e5e0c464157d162963d41e9943fd80f54303cad885"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests/test_private_backend_pci_scope.py",
+      "sha256": "399aa255ee7e46b1f36ab3ecedd37cdf360088a7226562a8335252e5242baae8"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests/test_private_backend_file_projection.py",
+      "sha256": "7e1c128f4a6158c5323b14d9b13ae7498b6d65986b1d9a3ead42a027ae8a118f"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests/test_private_backend_control_session.py",
+      "sha256": "f369e6f0774e5e6a7ea08e02611f36cd41a9af73a74d5819d70412f477b67a02"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests/test_private_backend_gpu_session.py",
+      "sha256": "609bc3ee9e02f3370f980b3545d169ce0a882ccbf13a921f3b9456137766c662"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/probe_private_backend_module.py",
+      "sha256": "df062236cef09775660111b3207783407ebc7790cb8e29517cf9c44cfc5ccbd7"
+    },
+    {
+      "path": "/usr/src/linux-headers-7.0.0-38-generic/.config",
+      "sha256": "6cb18717c6914d4947489eedf8cb69ac23db3faa8ef9b9f563ff02c346dcd32d"
+    },
+    {
+      "path": "/usr/src/linux-headers-7.0.0-38-generic/Module.symvers",
+      "sha256": "ea539a464a3beb960dc84288afaf41c1e2d6a4506902af14affe80111d1bf97e"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/probe_private_backend_chardev.py",
+      "sha256": "44d66eb04f5ca3da2fb6c949603023b59ad8cdbc8a39ed1620e67e16b91c2f88"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/rm_session_endpoint.h",
+      "sha256": "6a447c37f738eb09098b419e42203b4b4d16c85c108510acba483f37c6e700c7"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/hybrid580-gpu-session.h",
+      "sha256": "b25bbaea3f299986aaf428d44e52a1c2a7a46beb34bea6c1304e890a716eff68"
+    }
+  ],
+  "inputs_unchanged": true,
+  "kernel_imports_with_exports": 435,
+  "kernel_release": "7.0.0-38-generic",
+  "loaded_or_installed": false,
+  "metadata": {
+    "depends": [
+      ""
+    ],
+    "description": [
+      "NVIDIA core GPU kernel module"
+    ],
+    "filename": [
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/hybrid580_open.ko"
+    ],
+    "firmware": [
+      "nvidia/580.178.04/gsp_tu10x.bin",
+      "nvidia/580.178.04/gsp_ga10x.bin"
+    ],
+    "import_ns": [
+      "DMA_BUF"
+    ],
+    "license": [
+      "Dual MIT/GPL"
+    ],
+    "measured_parmtype": [
+      "rm_firmware_active:charp",
+      "hybrid_gpu_pci:charp",
+      "NVreg_GrdmaPciTopoCheckOverride:int",
+      "NVreg_CreateImexChannel0:int",
+      "NVreg_ImexChannelCount:int",
+      "NVreg_RmNvlinkBandwidthLinkCount:int",
+      "NVreg_RmNvlinkBandwidth:charp",
+      "NVreg_DmaRemapPeerMmio:int",
+      "NVreg_ExcludedGpus:charp",
+      "NVreg_TemporaryFilePath:charp",
+      "NVreg_GpuBlacklist:charp",
+      "NVreg_RmMsg:charp",
+      "NVreg_RegistryDwordsPerDevice:charp",
+      "NVreg_RegistryDwords:charp",
+      "NVreg_CoherentGPUMemoryMode:charp",
+      "NVreg_EnableNonblockingOpen:int",
+      "NVreg_EnableDbgBreakpoint:int",
+      "NVreg_EnableResizableBar:int",
+      "NVreg_RegisterPlatformDeviceDriver:int",
+      "NVreg_RegisterPCIDriver:int",
+      "NVreg_EnablePCIERelaxedOrderingMode:int",
+      "NVreg_NvLinkDisable:int",
+      "NVreg_IgnoreMMIOCheck:int",
+      "NVreg_VMallocHeapMaxSize:int",
+      "NVreg_KMallocHeapMaxSize:int",
+      "NVreg_MemoryPoolSize:int",
+      "NVreg_EnableUserNUMAManagement:int",
+      "NVreg_OpenRmEnableUnsupportedGpus:int",
+      "NVreg_EnableGpuFirmwareLogs:int",
+      "NVreg_EnableGpuFirmware:int",
+      "NVreg_DynamicPowerManagementVideoMemoryThreshold:int",
+      "NVreg_DynamicPowerManagement:int",
+      "NVreg_S0ixPowerManagementVideoMemoryThreshold:int",
+      "NVreg_EnableS0ixPowerManagement:int",
+      "NVreg_PreserveVideoMemoryAllocations:int",
+      "NVreg_RestrictProfilingToAdminUsers:int",
+      "NVreg_EnableStreamMemOPs:int",
+      "NVreg_EnableMSI:int",
+      "NVreg_EnablePCIeGen3:int",
+      "NVreg_UsePageAttributeTable:int",
+      "NVreg_InitializeSystemMemoryAllocations:int",
+      "NVreg_DeviceFileMode:int",
+      "NVreg_DeviceFileGID:int",
+      "NVreg_DeviceFileUID:int",
+      "NVreg_ModifyDeviceFiles:int",
+      "NVreg_RmLogonRC:int",
+      "NVreg_ResmanDebugLevel:int",
+      "NvSwitchBlacklist:charp",
+      "NvSwitchRegDwords:charp"
+    ],
+    "name": [
+      "hybrid580_open"
+    ],
+    "parm": [
+      "NvSwitchRegDwords:NvSwitch regkey (charp)",
+      "NvSwitchBlacklist:NvSwitchBlacklist=uuid[,uuid...] (charp)",
+      "NVreg_ResmanDebugLevel:int",
+      "NVreg_RmLogonRC:int",
+      "NVreg_ModifyDeviceFiles:int",
+      "NVreg_DeviceFileUID:int",
+      "NVreg_DeviceFileGID:int",
+      "NVreg_DeviceFileMode:int",
+      "NVreg_InitializeSystemMemoryAllocations:int",
+      "NVreg_UsePageAttributeTable:int",
+      "NVreg_EnablePCIeGen3:int",
+      "NVreg_EnableMSI:int",
+      "NVreg_EnableStreamMemOPs:int",
+      "NVreg_RestrictProfilingToAdminUsers:int",
+      "NVreg_PreserveVideoMemoryAllocations:int",
+      "NVreg_EnableS0ixPowerManagement:int",
+      "NVreg_S0ixPowerManagementVideoMemoryThreshold:int",
+      "NVreg_DynamicPowerManagement:int",
+      "NVreg_DynamicPowerManagementVideoMemoryThreshold:int",
+      "NVreg_EnableGpuFirmware:int",
+      "NVreg_EnableGpuFirmwareLogs:int",
+      "NVreg_OpenRmEnableUnsupportedGpus:int",
+      "NVreg_EnableUserNUMAManagement:int",
+      "NVreg_MemoryPoolSize:int",
+      "NVreg_KMallocHeapMaxSize:int",
+      "NVreg_VMallocHeapMaxSize:int",
+      "NVreg_IgnoreMMIOCheck:int",
+      "NVreg_NvLinkDisable:int",
+      "NVreg_EnablePCIERelaxedOrderingMode:int",
+      "NVreg_RegisterPCIDriver:int",
+      "NVreg_RegisterPlatformDeviceDriver:int",
+      "NVreg_EnableResizableBar:int",
+      "NVreg_EnableDbgBreakpoint:int",
+      "NVreg_EnableNonblockingOpen:int",
+      "NVreg_CoherentGPUMemoryMode:charp",
+      "NVreg_RegistryDwords:charp",
+      "NVreg_RegistryDwordsPerDevice:charp",
+      "NVreg_RmMsg:charp",
+      "NVreg_GpuBlacklist:charp",
+      "NVreg_TemporaryFilePath:charp",
+      "NVreg_ExcludedGpus:charp",
+      "NVreg_DmaRemapPeerMmio:int",
+      "NVreg_RmNvlinkBandwidth:charp",
+      "NVreg_RmNvlinkBandwidthLinkCount:int",
+      "NVreg_ImexChannelCount:int",
+      "NVreg_CreateImexChannel0:int",
+      "NVreg_GrdmaPciTopoCheckOverride:int",
+      "hybrid_gpu_pci:Compile-only private backend: exact lowercase dddd:bb:ss.f PCI selector (charp)",
+      "rm_firmware_active:charp"
+    ],
+    "retpoline": [
+      "Y"
+    ],
+    "softdep": [
+      "pre: ecdh_generic,ecdsa_generic"
+    ],
+    "srcversion": [
+      "9096E4293D97DF38C25032A"
+    ],
+    "supported": [
+      "external"
+    ],
+    "vermagic": [
+      "7.0.0-38-generic SMP preempt mod_unload modversions"
+    ],
+    "version": [
+      "580.178.04"
+    ]
+  },
+  "modified_nv_c": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv.c",
+    "sha256": "c5b6e45ebdbb4ec4b7276c0161ffdf49805e64164382a6a512455b43aeb022a0"
+  },
+  "modified_pci_source": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv-pci.c",
+    "sha256": "877386d02f00f8ff61f81cb0bd3e4675ff6b376df59459d0d14824d32b47e9d2"
+  },
+  "modified_sources": [
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv.c",
+      "sha256": "c5b6e45ebdbb4ec4b7276c0161ffdf49805e64164382a6a512455b43aeb022a0"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv-pci.c",
+      "sha256": "877386d02f00f8ff61f81cb0bd3e4675ff6b376df59459d0d14824d32b47e9d2"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv-procfs.c",
+      "sha256": "689083643f493596a1ee9f75ec8f7c29be0e418a193030eb718cba04f62c4d44"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv-caps.c",
+      "sha256": "a712a41b2e206e73e743b5f824c565e30b1ab132440fcb89aa10e11e77bb5079"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nvlink_linux.c",
+      "sha256": "1d8e2c74fdf2c7f5a3c5b5be6e03c0f54bd780141f2dd615cead747b67f5a6ca"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nvlink_linux.h",
+      "sha256": "8b31704e47376569ab7efb2a46297c14212eda17945a467cc0314ce140614175"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/procfs_nvswitch.c",
+      "sha256": "394da3b2d69c009dff97b0c72a7f4e82d72418de91ab49443969d6fef27debf9"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/export_nvswitch.h",
+      "sha256": "6f1c115050d09173a993d6f60b2321921243b9cec834a4039dbb572456e38944"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv-caps-imex.c",
+      "sha256": "0d9479ead9451e7e66a40f085aa0623995224fdcb36b8e1137146215d970f764"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv-platform.c",
+      "sha256": "db869854b2628d477833a56b3fc91f10750a546d40ca4ce3281734e684398979"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv-pci-table.c",
+      "sha256": "16d62987c944cf7d0efa8ea1f7e034eece980edeaa4b28a62eb846bce79805b2"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/hybrid580-file-projection.h",
+      "sha256": "2847fab2fc3f26d27a7baba5da812f7f955fe5faa6bd4ffe75a283d314aaf3d8"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/hybrid580-control-session.h",
+      "sha256": "924e2f8dfcb3e3b01bb8c622f4d63794a39d1c1b70257f619566a8201ddf6b50"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/rm_session_endpoint.h",
+      "sha256": "6a447c37f738eb09098b419e42203b4b4d16c85c108510acba483f37c6e700c7"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nvidia.Kbuild",
+      "sha256": "7bd6056ef2ea54c627c872352735cbde88ca81c95c8151ebd0d6ba7e70dc70a1"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nvos.h",
+      "sha256": "07f9f453afbf080750663abc9e04e2d3b55500887303ba03bd6855916d2405bd"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/hybrid580-gpu-session.h",
+      "sha256": "b25bbaea3f299986aaf428d44e52a1c2a7a46beb34bea6c1304e890a716eff68"
+    }
+  ],
+  "module": {
+    "bytes": 36725920,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/hybrid580_open.ko",
+    "sha256": "a7daa236ced842329d9ae6e23601a2530c6dad0accb63b7f4801228b6dcb1db9"
+  },
+  "module_license_changed": false,
+  "observed_at_utc": "2026-10-21T00:07:33.663339+00:00",
+  "original_export_collisions": [],
+  "public_character_major_alias_absent": true,
+  "qualification": "compiled-private-gpu-file-session-adapter",
+  "remaining_boundaries": [
+    "private-major discovery and common frontend ioctl routing",
+    "matching UVM/modeset imports and namespaces",
+    "common CUDA handle/control ownership",
+    "independent initialized RM state at runtime",
+    "module-wide RM initialization still precedes BDF-filtered PCI registration",
+    "vendor user-space utilities do not discover private resource names",
+    "private control construction/invocation is compiled and CPU-modeled only",
+    "real frontend/provider and dual-backend broker wiring are not installed or runtime tested",
+    "fput can defer RM cleanup; final file-reference drainage is not hardware validated",
+    "GPU-file session creation, ioctl forwarding and BDF checks are compiled and CPU/source-tested only",
+    "frontend GPU minor enumeration, ioctl policy, mmap/poll/events and UVM routing remain absent"
+  ],
+  "resource_isolation_requested": true,
+  "runtime_isolation_validated": false,
+  "schema": "private-open-chardev-v1",
+  "scope": "private Open wrapper resources and PCI-GPU-only registration; Open core unchanged",
+  "sdk_header_overlay": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nvos.h",
+    "sha256": "07f9f453afbf080750663abc9e04e2d3b55500887303ba03bd6855916d2405bd",
+    "source": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/nvos.h",
+    "source_and_overlay_byte_identical": true
+  },
+  "selected_core": {
+    "alternative": false,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/_out/Linux_x86_64/nv-kernel.o",
+    "sha256": "5e9219a4a263315d20757159852b35be61dfd2ce75dcd2ca90b1cd1764d6bb8a"
+  },
+  "selector": {
+    "default": null,
+    "format": "exact lowercase dddd:bb:ss.f; slots 00..1f; functions 0..7",
+    "parameter": "hybrid_gpu_pci",
+    "permission": "0400",
+    "type": "charp"
+  },
+  "source_license_header_unchanged": true,
+  "steps": [
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_private_backend_chardev.py",
+        "-v"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 0.965,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-cpu-test_private_backend_chardev-20261021T000733663321Z.log",
+      "log_sha256": "1f0b2245d5314afc15e6f089e9f956586cc293d97be46496903d77c20fde59ea",
+      "name": "cpu-test_private_backend_chardev"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_private_backend_pci.py",
+        "-v"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 1.115,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-cpu-test_private_backend_pci-20261021T000733663321Z.log",
+      "log_sha256": "9a199f49451add9aac74dd69c60e3510f321ddc5fa92fc07c1e16dcd17a41a87",
+      "name": "cpu-test_private_backend_pci"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_private_backend_procfs.py",
+        "-v"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 1.015,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-cpu-test_private_backend_procfs-20261021T000733663321Z.log",
+      "log_sha256": "9b75269022dec136aacff556e85a867fd7149b1eb90f2033a357e3939b9e5aea",
+      "name": "cpu-test_private_backend_procfs"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_private_backend_resource_names.py",
+        "-v"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 1.966,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-cpu-test_private_backend_resource_names-20261021T000733663321Z.log",
+      "log_sha256": "36a527c0a60bfe741fb3c59523ec07ae815e18a1102bfca32e27d49e886f74db",
+      "name": "cpu-test_private_backend_resource_names"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_private_backend_pci_scope.py",
+        "-v"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 1.916,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-cpu-test_private_backend_pci_scope-20261021T000733663321Z.log",
+      "log_sha256": "bfdb4ff56dc45afe1745d2be92b2f818fc40a7a0550c2ae7f05f47d594d8b352",
+      "name": "cpu-test_private_backend_pci_scope"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_private_backend_file_projection.py",
+        "-v"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 3.467,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-cpu-test_private_backend_file_projection-20261021T000733663321Z.log",
+      "log_sha256": "3640a46c11b3beca823f5aa6bb26b49bd89b5ad9457f731e074fc1fd2f0c1938",
+      "name": "cpu-test_private_backend_file_projection"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_private_backend_control_session.py",
+        "-v"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 4.569,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-cpu-test_private_backend_control_session-20261021T000733663321Z.log",
+      "log_sha256": "531b1f6caf081d76d303359e3615fdc0c41735aa6fdea2d1d63e520ca66e2160",
+      "name": "cpu-test_private_backend_control_session"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_private_backend_gpu_session.py",
+        "-v"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 4.168,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-cpu-test_private_backend_gpu_session-20261021T000733663321Z.log",
+      "log_sha256": "a20d284aaeb920f57043b47f3d606bfe21a5cdb01ab45ba12705fcd678a1440e",
+      "name": "cpu-test_private_backend_gpu_session"
+    },
+    {
+      "argv": [
+        "patch",
+        "--batch",
+        "--fuzz=0",
+        "-p1",
+        "-i",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/0002-private-open-module.patch"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04",
+      "duration_seconds": 0.002,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-patch-2-20261021T000733663321Z.log",
+      "log_sha256": "6e634f69480913f61f76ce83740ce41ab7967e2184c025321502789dd4fd5f09",
+      "name": "patch-2"
+    },
+    {
+      "argv": [
+        "patch",
+        "--batch",
+        "--fuzz=0",
+        "-p1",
+        "-i",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/0003-private-open-pci-guard.patch"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04",
+      "duration_seconds": 0.001,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-patch-3-20261021T000733663321Z.log",
+      "log_sha256": "ecba1ce151bd6e8fa1d5f32f799e43911982ff5a54f5f9bc182e1d4567137f0b",
+      "name": "patch-3"
+    },
+    {
+      "argv": [
+        "patch",
+        "--batch",
+        "--fuzz=0",
+        "-p1",
+        "-i",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/0004-private-open-chardev.patch"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04",
+      "duration_seconds": 0.001,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-patch-4-20261021T000733663321Z.log",
+      "log_sha256": "c4f602ee9d0473d798c3b9ecfad33f9fdfbff16f0b4c46b12a4af0fd52ddd450",
+      "name": "patch-4"
+    },
+    {
+      "argv": [
+        "patch",
+        "--batch",
+        "--fuzz=0",
+        "-p1",
+        "-i",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/0005-private-open-procfs-path.patch"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04",
+      "duration_seconds": 0.001,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-patch-5-20261021T000733663321Z.log",
+      "log_sha256": "35e808c68a774e7b4b54c32fdd22888121871e118fd32b1041c2607e708d43a5",
+      "name": "patch-5"
+    },
+    {
+      "argv": [
+        "patch",
+        "--batch",
+        "--fuzz=0",
+        "-p1",
+        "-i",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/0006-private-open-resource-names.patch"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04",
+      "duration_seconds": 0.001,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-patch-6-20261021T000733663321Z.log",
+      "log_sha256": "e662db9d594649337f0506513320d193bad11855c3d301dedfcbeaaefb357f5a",
+      "name": "patch-6"
+    },
+    {
+      "argv": [
+        "patch",
+        "--batch",
+        "--fuzz=0",
+        "-p1",
+        "-i",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/0007-private-open-pci-only-lifecycle.patch"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04",
+      "duration_seconds": 0.001,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-patch-7-20261021T000733663321Z.log",
+      "log_sha256": "94bc04998bc549791966e9287ed06db5be56dcac47682ab0d5ad26dc77b51666",
+      "name": "patch-7"
+    },
+    {
+      "argv": [
+        "patch",
+        "--batch",
+        "--fuzz=0",
+        "-p1",
+        "-i",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/0008-private-open-file-projection.patch"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04",
+      "duration_seconds": 0.001,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-patch-8-20261021T000733663321Z.log",
+      "log_sha256": "d0a9b9fca8b43bd2d156bed86c6c35214b5706965b300fff37451bc034620a02",
+      "name": "patch-8"
+    },
+    {
+      "argv": [
+        "patch",
+        "--batch",
+        "--fuzz=0",
+        "-p1",
+        "-i",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/0009-private-open-control-session.patch"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04",
+      "duration_seconds": 0.001,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-patch-9-20261021T000733663321Z.log",
+      "log_sha256": "6151de7fb69bf5385af2727c836095cb9d12584c9a90b800c208d396dd70f966",
+      "name": "patch-9"
+    },
+    {
+      "argv": [
+        "patch",
+        "--batch",
+        "--fuzz=0",
+        "-p1",
+        "-i",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/0010-private-open-gpu-session.patch"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04",
+      "duration_seconds": 0.001,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-patch-10-20261021T000733663321Z.log",
+      "log_sha256": "5d77043024c619e42d0c568f79aacc8f73d6722046a47ccb5f7eb3a53dfbba26",
+      "name": "patch-10"
+    },
+    {
+      "argv": [
+        "make",
+        "-C",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open",
+        "KERNEL_UNAME=7.0.0-38-generic",
+        "NV_KERNEL_MODULES=nvidia",
+        "-j4",
+        "modules"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 9.477,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-module-build-20261021T000733663321Z.log",
+      "log_sha256": "e0f70c0ab7a46f0694daf63013ea8a3f42577050723672394dd07cca88ad5e13",
+      "name": "module-build"
+    },
+    {
+      "argv": [
+        "modinfo",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/hybrid580_open.ko"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 0.002,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-modinfo-20261021T000733663321Z.log",
+      "log_sha256": "69f956e529b6b8ea36bf69e8e792d096c450685fa3708b2488d5d7808a52b555",
+      "name": "modinfo"
+    },
+    {
+      "argv": [
+        "modinfo",
+        "-F",
+        "parmtype",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/hybrid580_open.ko"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 0.001,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-parameter-types-20261021T000733663321Z.log",
+      "log_sha256": "6fab8c06133458fd4156ac3588794088a01c052e4949fdf2652b068e58de23e1",
+      "name": "parameter-types"
+    },
+    {
+      "argv": [
+        "readelf",
+        "-p",
+        "__ksymtab_strings",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/hybrid580_open.ko"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 0.001,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-export-strings-20261021T000733663321Z.log",
+      "log_sha256": "0853c508c39e05bbcfe3cc82ed818e5984034ba0772b0dbac83c59c490ff3e1a",
+      "name": "export-strings"
+    },
+    {
+      "argv": [
+        "cat",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/Module.symvers"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 0.001,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-symvers-20261021T000733663321Z.log",
+      "log_sha256": "222aa3349998176186b55c59adb3fbd90f6cad529a6084977d0027319fcec328",
+      "name": "symvers"
+    },
+    {
+      "argv": [
+        "readelf",
+        "-W",
+        "-s",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/hybrid580_open.ko"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 0.008,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-chardev-elf-symbols-20261021T000733663321Z.log",
+      "log_sha256": "26eddf87b5fa74d5d1e256500b37db9d30c53465c6a4fda66f67ed923e0ff949",
+      "name": "elf-symbols"
+    }
+  ],
+  "undefined_count": 435,
+  "unreadable_inputs": [],
+  "work_dir": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-gpu-session-v2"
+}

@@ -1,0 +1,150 @@
+{
+  "error": "ValueError: selector parameter missing",
+  "existing_mechanism_rejected": {
+    "name": "ExcludedGpus/GpuBlacklist",
+    "reason": "UUID read through RM by nv_check_and_exclude_gpu after PCI/RM setup; not an early deny-by-default BDF selector"
+  },
+  "hardware_validated": false,
+  "inputs": [
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+      "sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/_out/Linux_x86_64/nv-kernel.o",
+      "sha256": "5e9219a4a263315d20757159852b35be61dfd2ce75dcd2ca90b1cd1764d6bb8a"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-wrapper-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia.ko",
+      "sha256": "8133a7fb0428c00b70f37dede97e94c68274b4d3de7fa957888147ec6f377af2"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/0002-private-open-module.patch",
+      "sha256": "5f48255dee4c2bcf1379873b6ab39c8183245446750956497dc5c731c5516224"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/0003-private-open-pci-guard.patch",
+      "sha256": "f21a8ef376dc24bade7a8b1fd4fac9ad5737ab79e75b7110b4e3adb87c293075"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests/test_private_backend_pci.py",
+      "sha256": "e15cf8f8fb2183f7e1ec98b50709e9e1b3403920ee64184440d6ca9d3c6beb84"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/probe_private_backend_module.py",
+      "sha256": "df062236cef09775660111b3207783407ebc7790cb8e29517cf9c44cfc5ccbd7"
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/probe_private_backend_pci.py",
+      "sha256": "2fb475d41c0bca9480296ef459082d943ea7a55d7e2a271429ba347a7e33483f"
+    }
+  ],
+  "inputs_unchanged": true,
+  "kernel_release": "7.0.0-38-generic",
+  "loaded_or_installed": false,
+  "module_license_changed": false,
+  "observed_at_utc": "2026-10-19T01:15:20.729581+00:00",
+  "qualification": "failed",
+  "remaining_boundaries": [
+    "major195 and fixed control/device minors",
+    "device nodes/procfs/classes",
+    "backend-specific frontend/event/file lifetime",
+    "matching UVM/modeset import routing",
+    "common CUDA handle/control ownership",
+    "platform(non-PCI) GPU probe paths untouched",
+    "module-wide early initialization before PCI registration not guarded by BDF selector"
+  ],
+  "runtime_isolation_validated": false,
+  "schema": "private-open-pci-guard-v1",
+  "scope": "source PCI-probe selection only; Open core, private module/exports",
+  "selector": {
+    "default": null,
+    "format": "exact lowercase dddd:bb:ss.f; slots 00..1f; functions 0..7",
+    "parameter": "hybrid_gpu_pci",
+    "permission": "0400",
+    "type": "charp"
+  },
+  "steps": [
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_private_backend_pci.py",
+        "-v"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 1.115,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-pci-cpu-contract-20261019T011520729566Z.log",
+      "log_sha256": "e1bf08cec73e319a3adea7542c803e2314d79a969b4fa6e743322088130f36b7",
+      "name": "cpu-contract"
+    },
+    {
+      "argv": [
+        "patch",
+        "--batch",
+        "--fuzz=0",
+        "-p1",
+        "-i",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/0002-private-open-module.patch"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-pci-v1/NVIDIA-kernel-module-source-580.178.04",
+      "duration_seconds": 0.008,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-pci-patch-2-20261019T011520729566Z.log",
+      "log_sha256": "f2782b1578e0e76de73d707310c51143c99e0d585dc90938b41035302ff44fd2",
+      "name": "patch-2"
+    },
+    {
+      "argv": [
+        "patch",
+        "--batch",
+        "--fuzz=0",
+        "-p1",
+        "-i",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/0003-private-open-pci-guard.patch"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-pci-v1/NVIDIA-kernel-module-source-580.178.04",
+      "duration_seconds": 0.003,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-pci-patch-3-20261019T011520729566Z.log",
+      "log_sha256": "c14e5a44dd682e77ff7a306d1bed7647752cf30b14641cad51e59410235cd69a",
+      "name": "patch-3"
+    },
+    {
+      "argv": [
+        "make",
+        "-C",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-pci-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open",
+        "KERNEL_UNAME=7.0.0-38-generic",
+        "NV_KERNEL_MODULES=nvidia",
+        "-j4",
+        "modules"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 10.277,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-pci-module-build-20261019T011520729566Z.log",
+      "log_sha256": "a287cac2829e22220f5a0c254f6cc37128ac32e40b5645206e4a3352eacfd777",
+      "name": "module-build"
+    },
+    {
+      "argv": [
+        "modinfo",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-pci-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/hybrid580_open.ko"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 0.001,
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/private-open-pci-modinfo-20261019T011520729566Z.log",
+      "log_sha256": "c3f59cb4b76e1a496eba7e9e90e0cb1909654cc5df5b5a6f326efe7f3df20c60",
+      "name": "modinfo"
+    }
+  ],
+  "work_dir": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-pci-v1"
+}
