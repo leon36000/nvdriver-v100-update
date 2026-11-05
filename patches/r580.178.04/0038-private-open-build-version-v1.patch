@@ -1,0 +1,112 @@
+--- a/kernel-open/nvidia/nv.c
++++ b/kernel-open/nvidia/nv.c
+@@ -39,6 +39,7 @@
+ #include "nv-chardev-numbers.h"
+ #include "hybrid580-file-projection.h"
+ #include "hybrid580-control-session.h"
++#include "hybrid580-open-build-version.h"
+ #include "nv-unix-nvos-params-wrappers.h"
+ #include "hybrid580-gpu-session.h"
+ #include <linux/kref.h>
+@@ -4571,6 +4572,101 @@
+ }
+ EXPORT_SYMBOL(hybrid580_open_control_session_sys_params_v1);
+ 
++/* Issue only the pointer-free R580 V2 system build-version control. The
++ * frontend owns legacy V1 user-pointer validation and copyout semantics. */
++NV_STATUS hybrid580_open_control_session_build_version_v1(
++    struct hybrid580_control_session *session, NvHandle h_client,
++    NvHandle h_object, NvU32 flags,
++    NV0000_CTRL_SYSTEM_GET_BUILD_VERSION_V2_PARAMS *params,
++    NvU32 *control_status)
++{
++    nv_linux_file_private_t *nvlfp;
++    nv_state_t *nv;
++    NV0000_CTRL_SYSTEM_GET_BUILD_VERSION_V2_PARAMS *result = NULL;
++    NVOS54_PARAMETERS control;
++    nvidia_stack_t *sp = NULL;
++    nvidia_kernel_rmapi_ops_t ops;
++    NV_STATUS status;
++    int rc;
++
++    if (control_status == NULL)
++        return NV_ERR_INVALID_ARGUMENT;
++    *control_status = (NvU32)NV_ERR_INVALID_ARGUMENT;
++    if (session == NULL || params == NULL || h_client == 0 ||
++        h_client != h_object || flags != NVOS54_FLAGS_NONE)
++        return NV_ERR_INVALID_ARGUMENT;
++
++    if (mutex_lock_interruptible(&session->lock) != 0)
++        return NV_ERR_OPERATING_SYSTEM;
++    nvlfp = hybrid580_open_backend_file(session->file, 1);
++    if (nvlfp == NULL)
++    {
++        status = NV_ERR_INVALID_STATE;
++        goto done;
++    }
++    result = kzalloc(sizeof(*result), GFP_KERNEL);
++    if (result == NULL)
++    {
++        status = NV_ERR_NO_MEMORY;
++        goto done;
++    }
++
++    control = (NVOS54_PARAMETERS) {
++        .hClient = h_client,
++        .hObject = h_object,
++        .cmd = NV0000_CTRL_CMD_SYSTEM_GET_BUILD_VERSION_V2,
++        .flags = flags,
++        .params = KERNEL_POINTER_TO_NvP64(result),
++        .paramsSize = sizeof(*result),
++        .status = 0xffffffffU,
++    };
++    rc = nv_down_read_interruptible(&nv_system_pm_lock);
++    if (rc < 0)
++    {
++        status = NV_ERR_OPERATING_SYSTEM;
++        goto done;
++    }
++
++    nv = NV_STATE_PTR(nvlfp->nvptr);
++    status = nv_check_gpu_state(nv);
++    if (status != NV_OK)
++        goto done_pm;
++
++    rc = nv_kmem_cache_alloc_stack(&sp);
++    if (rc != 0)
++    {
++        status = NV_ERR_NO_MEMORY;
++        goto done_pm;
++    }
++
++    ops = (nvidia_kernel_rmapi_ops_t) {
++        .op = NV04_CONTROL,
++        .params.control = control,
++    };
++    rm_kernel_rmapi_op(sp, &ops);
++    control = ops.params.control;
++    if (control.status == 0xffffffffU)
++    {
++        status = NV_ERR_INVALID_STATE;
++        goto done_pm;
++    }
++
++    *control_status = (NvU32)control.status;
++    if (control.status == NV_OK)
++        *params = *result;
++    status = NV_OK;
++
++done_pm:
++    if (sp != NULL)
++        nv_kmem_cache_free_stack(sp);
++    up_read(&nv_system_pm_lock);
++done:
++    mutex_unlock(&session->lock);
++    kfree(result);
++    return status;
++}
++EXPORT_SYMBOL(hybrid580_open_control_session_build_version_v1);
++
+ 
+ static void hybrid580_control_session_release(struct kref *refs)
+ {

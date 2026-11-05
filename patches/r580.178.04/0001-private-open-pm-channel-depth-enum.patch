@@ -1,0 +1,14 @@
+--- a/kernel-open/common/inc/nv.h
++++ b/kernel-open/common/inc/nv.h
+@@ -700,9 +700,10 @@
+ typedef enum
+ {
+     NV_PM_ACTION_DEPTH_DEFAULT,
+     NV_PM_ACTION_DEPTH_MODESET,
+-    NV_PM_ACTION_DEPTH_UVM
++    NV_PM_ACTION_DEPTH_UVM,
++    NV_PM_ACTION_DEPTH_CHANNELS
+ } nv_pm_action_depth_t;
+ 
+ typedef enum
+ {

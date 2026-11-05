@@ -1,0 +1,1324 @@
+{
+  "candidate_branch": "R595.99.02+GV100-HAL-v15",
+  "candidate_legacy_identifiers_absent_count": 11,
+  "candidate_source": {
+    "hal_source_sha256": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248",
+    "root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z",
+    "uvm_source_file_count": 242,
+    "uvm_source_manifest_sha256": "c0fbbd9549fd8347da11b3b53f10d2be514f90f9a33d03a123416a3c34bc5ccb"
+  },
+  "candidate_tree_is_experimental": true,
+  "capabilities": [
+    {
+      "candidate_absent_source_tokens": [],
+      "candidate_disposition": "volta-host-hal-callback-selected",
+      "candidate_identifier_occurrence_count": 0,
+      "candidate_interpretation": "The modern batch path dispatches invalidation through host_hal; the GV100 candidate row selects the Volta VA callback.",
+      "candidate_source_anchors": [
+        {
+          "anchor": "tree->gpu->parent->host_hal->tlb_invalidate_va(push,",
+          "matches": [
+            {
+              "line": 70
+            }
+          ],
+          "path": "uvm_tlb_batch.c",
+          "role": "UVM caller",
+          "sha256": "307bc42044e4aa64ba30c7f26706c5ae05dea87885bb034e6b53a8f8cd10e170"
+        },
+        {
+          "anchor": ".tlb_invalidate_va = uvm_hal_volta_host_tlb_invalidate_va,",
+          "matches": [
+            {
+              "line": 194
+            }
+          ],
+          "path": "uvm_hal.c",
+          "role": "GV100 host HAL selection",
+          "sha256": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248"
+        },
+        {
+          "anchor": "void uvm_hal_volta_host_tlb_invalidate_va(",
+          "matches": [
+            {
+              "line": 139
+            }
+          ],
+          "path": "uvm_volta_host.c",
+          "role": "Volta callback definition",
+          "sha256": "582c18a24986db6de49ce0c36fa98430062324b0bffd7e2390b2451e5b45f3fb"
+        }
+      ],
+      "field": "va_invalidate_supported",
+      "r580_assignment": {
+        "anchor": "parent_gpu->tlb_batch.va_invalidate_supported = true;",
+        "matches": [
+          {
+            "line": 31
+          }
+        ],
+        "path": "uvm_volta.c",
+        "sha256": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653"
+      },
+      "r580_consumer": {
+        "anchor": "if (!batch->tree->gpu->parent->tlb_batch.va_invalidate_supported)",
+        "matches": [
+          {
+            "line": 91
+          }
+        ],
+        "path": "uvm_tlb_batch.c",
+        "sha256": "50b483edb848257dd789b4e64490372942124116ab60bd99e8dc27a8d1c22907"
+      },
+      "runtime_or_hardware_validated": false,
+      "validation_needed": "Validate address, page-size, and membar semantics on GV100 hardware."
+    },
+    {
+      "candidate_absent_source_tokens": [],
+      "candidate_disposition": "range-batching-policy-reworked",
+      "candidate_identifier_occurrence_count": 0,
+      "candidate_interpretation": "The candidate batches range records, uses max_ranges=8 to choose between recorded-range invalidations and invalidate-all, and dispatches each recorded range through the Volta VA callback. This is not the old capability-bit branch.",
+      "candidate_source_anchors": [
+        {
+          "anchor": "parent_gpu->tlb_batch.max_ranges = 8;",
+          "matches": [
+            {
+              "line": 36
+            }
+          ],
+          "path": "uvm_volta.c",
+          "role": "GV100 batch threshold",
+          "sha256": "ca662fc33698586ec524c939593b6a67fb196d1b03fc6eea19116e5a0553254e"
+        },
+        {
+          "anchor": "batch->total_ranges > batch->tree->gpu->parent->tlb_batch.max_ranges",
+          "matches": [
+            {
+              "line": 94
+            }
+          ],
+          "path": "uvm_tlb_batch.c",
+          "role": "all-invalidate fallback threshold",
+          "sha256": "307bc42044e4aa64ba30c7f26706c5ae05dea87885bb034e6b53a8f8cd10e170"
+        },
+        {
+          "anchor": "tree->gpu->parent->host_hal->tlb_invalidate_va(push,",
+          "matches": [
+            {
+              "line": 70
+            }
+          ],
+          "path": "uvm_tlb_batch.c",
+          "role": "recorded-range dispatch",
+          "sha256": "307bc42044e4aa64ba30c7f26706c5ae05dea87885bb034e6b53a8f8cd10e170"
+        },
+        {
+          "anchor": ".tlb_invalidate_va = uvm_hal_volta_host_tlb_invalidate_va,",
+          "matches": [
+            {
+              "line": 194
+            }
+          ],
+          "path": "uvm_hal.c",
+          "role": "GV100 host HAL selection",
+          "sha256": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248"
+        }
+      ],
+      "field": "va_range_invalidate_supported",
+      "r580_assignment": {
+        "anchor": "parent_gpu->tlb_batch.va_range_invalidate_supported = true;",
+        "matches": [
+          {
+            "line": 33
+          }
+        ],
+        "path": "uvm_volta.c",
+        "sha256": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653"
+      },
+      "r580_consumer": {
+        "anchor": "if (batch->tree->gpu->parent->tlb_batch.va_range_invalidate_supported)",
+        "matches": [
+          {
+            "line": 97
+          },
+          {
+            "line": 124
+          }
+        ],
+        "path": "uvm_tlb_batch.c",
+        "sha256": "50b483edb848257dd789b4e64490372942124116ab60bd99e8dc27a8d1c22907"
+      },
+      "runtime_or_hardware_validated": false,
+      "validation_needed": "Check range count, fallback threshold, ordering, and invalidation coverage on hardware."
+    },
+    {
+      "candidate_absent_source_tokens": [],
+      "candidate_disposition": "page-tree-and-mmu-hal-reworked",
+      "candidate_identifier_occurrence_count": 0,
+      "candidate_interpretation": "R595 selects sysmem mapping page sizes from the active page tree. The candidate's no-argument GV100 MMU factory wraps the Volta 64 KiB mode and clones the Pascal MMU operations before applying Volta PTE/PDE callbacks; this establishes a static candidate path, not successful large-page sysmem mapping.",
+      "candidate_source_anchors": [
+        {
+          "anchor": "return uvm_mmu_biggest_page_size_up_to(gpu_page_tree, mem->chunk_size);",
+          "matches": [
+            {
+              "line": 332
+            }
+          ],
+          "path": "uvm_mem.c",
+          "role": "sysmem page-size selection",
+          "sha256": "b185d50a70a0f92cfa26addb929fd94fa615dc41b4cb20670bfbff966a9f1087"
+        },
+        {
+          "anchor": ".mmu_mode_hal = uvm_hal_mmu_mode_volta_r595,",
+          "matches": [
+            {
+              "line": 309
+            }
+          ],
+          "path": "uvm_hal.c",
+          "role": "GV100 MMU HAL selection",
+          "sha256": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248"
+        },
+        {
+          "anchor": "volta_mmu_mode_hal = *pascal_mmu_mode_hal;",
+          "matches": [
+            {
+              "line": 276
+            }
+          ],
+          "path": "uvm_volta_mmu.c",
+          "role": "Pascal MMU operation inheritance",
+          "sha256": "321d5381deebd8b2bd053d31cf750b890aae113b758c528addf5e1c5c043b0de"
+        },
+        {
+          "anchor": "volta_mmu_mode_hal.make_pte = make_pte_volta;",
+          "matches": [
+            {
+              "line": 277
+            }
+          ],
+          "path": "uvm_volta_mmu.c",
+          "role": "Volta PTE override",
+          "sha256": "321d5381deebd8b2bd053d31cf750b890aae113b758c528addf5e1c5c043b0de"
+        },
+        {
+          "anchor": "return uvm_hal_mmu_mode_volta(UVM_PAGE_SIZE_64K);",
+          "matches": [
+            {
+              "line": 289
+            }
+          ],
+          "path": "uvm_volta_mmu.c",
+          "role": "64 KiB wrapper",
+          "sha256": "321d5381deebd8b2bd053d31cf750b890aae113b758c528addf5e1c5c043b0de"
+        }
+      ],
+      "field": "can_map_sysmem_with_large_pages",
+      "r580_assignment": {
+        "anchor": "parent_gpu->can_map_sysmem_with_large_pages = true;",
+        "matches": [
+          {
+            "line": 68
+          }
+        ],
+        "path": "uvm_volta.c",
+        "sha256": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653"
+      },
+      "r580_consumer": {
+        "anchor": "if (gpu->parent->can_map_sysmem_with_large_pages) {",
+        "matches": [
+          {
+            "line": 332
+          }
+        ],
+        "path": "uvm_mem.c",
+        "sha256": "e98ce17dd9902f5a8b6cf8fb3919b3e85a4f82814029011af64c6e287a1d84d2"
+      },
+      "runtime_or_hardware_validated": false,
+      "validation_needed": "Validate exposed page-size masks, CPU-page contiguity, PTE formats, and sysmem mappings on GV100."
+    },
+    {
+      "candidate_absent_source_tokens": [],
+      "candidate_disposition": "runtime-state-and-hal-reworked-with-guard-delta",
+      "candidate_identifier_occurrence_count": 0,
+      "candidate_interpretation": "R595 uses runtime prefetch state and dispatches through the arch HAL. The GV100 candidate selects Turing MMU prefetch helpers; the callback closure audit found the same low-level control operation, but the R580 prefetch_supported assertion is absent from this caller.",
+      "candidate_source_anchors": [
+        {
+          "anchor": "parent_gpu->fault_buffer.prefetch_faults_enabled = true;",
+          "matches": [
+            {
+              "line": 216
+            },
+            {
+              "line": 3001
+            }
+          ],
+          "path": "uvm_gpu_replayable_faults.c",
+          "role": "runtime prefetch state",
+          "sha256": "e2b98f550ad6ef3efb062d931834f09acd79ecd5fa140a2f54de8e77a5dfac2b"
+        },
+        {
+          "anchor": "parent_gpu->arch_hal->enable_prefetch_faults(parent_gpu);",
+          "matches": [
+            {
+              "line": 133
+            },
+            {
+              "line": 236
+            },
+            {
+              "line": 3000
+            }
+          ],
+          "path": "uvm_gpu_replayable_faults.c",
+          "role": "architecture HAL dispatch",
+          "sha256": "e2b98f550ad6ef3efb062d931834f09acd79ecd5fa140a2f54de8e77a5dfac2b"
+        },
+        {
+          "anchor": ".enable_prefetch_faults = uvm_hal_turing_mmu_enable_prefetch_faults,",
+          "matches": [
+            {
+              "line": 310
+            },
+            {
+              "line": 320
+            }
+          ],
+          "path": "uvm_hal.c",
+          "role": "GV100 prefetch callback selection",
+          "sha256": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248"
+        },
+        {
+          "anchor": ".disable_prefetch_faults = uvm_hal_turing_mmu_disable_prefetch_faults,",
+          "matches": [
+            {
+              "line": 311
+            },
+            {
+              "line": 321
+            }
+          ],
+          "path": "uvm_hal.c",
+          "role": "GV100 prefetch callback selection",
+          "sha256": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248"
+        }
+      ],
+      "field": "prefetch_fault_supported",
+      "r580_assignment": {
+        "anchor": "parent_gpu->prefetch_fault_supported = true;",
+        "matches": [
+          {
+            "line": 71
+          }
+        ],
+        "path": "uvm_volta.c",
+        "sha256": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653"
+      },
+      "r580_consumer": {
+        "anchor": "parent_gpu->fault_buffer.prefetch_faults_enabled = parent_gpu->prefetch_fault_supported;",
+        "matches": [
+          {
+            "line": 216
+          }
+        ],
+        "path": "uvm_gpu_replayable_faults.c",
+        "sha256": "c7991f9a9e029ae1e9dc4aba579ecb37c64408d9600117abdeec82fbc1b245b3"
+      },
+      "runtime_or_hardware_validated": false,
+      "validation_needed": "Resolve the removed capability guard and validate prefetch-fault control and delivery on GV100."
+    },
+    {
+      "candidate_absent_source_tokens": [],
+      "candidate_disposition": "location-policy-forwarded-to-rm",
+      "candidate_identifier_occurrence_count": 0,
+      "candidate_interpretation": "The old capability gate is absent. The candidate policy can choose VID memory for GPFIFO and forwards that location in channel allocation parameters; this source path does not prove RM acceptance.",
+      "candidate_source_anchors": [
+        {
+          "anchor": "manager->conf.gpfifo_loc = UVM_BUFFER_LOCATION_VID;",
+          "matches": [
+            {
+              "line": 3393
+            }
+          ],
+          "path": "uvm_channel.c",
+          "role": "VID location policy",
+          "sha256": "34a6816a77e55515179607558c4ddae65a8ae2bb591bc6e481a918370d1bc675"
+        },
+        {
+          "anchor": "channel_alloc_params.gpFifoLoc = manager->conf.gpfifo_loc;",
+          "matches": [
+            {
+              "line": 2355
+            }
+          ],
+          "path": "uvm_channel.c",
+          "role": "RM channel-allocation request",
+          "sha256": "34a6816a77e55515179607558c4ddae65a8ae2bb591bc6e481a918370d1bc675"
+        },
+        {
+          "anchor": "nvUvmInterfaceChannelAllocate(channel_get_tsg(channel),",
+          "matches": [
+            {
+              "line": 2366
+            }
+          ],
+          "path": "uvm_channel.c",
+          "role": "RM allocation call",
+          "sha256": "34a6816a77e55515179607558c4ddae65a8ae2bb591bc6e481a918370d1bc675"
+        }
+      ],
+      "field": "gpfifo_in_vidmem_supported",
+      "r580_assignment": {
+        "anchor": "parent_gpu->gpfifo_in_vidmem_supported = true;",
+        "matches": [
+          {
+            "line": 79
+          }
+        ],
+        "path": "uvm_volta.c",
+        "sha256": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653"
+      },
+      "r580_consumer": {
+        "anchor": "if (!gpu->parent->gpfifo_in_vidmem_supported) {",
+        "matches": [
+          {
+            "line": 3341
+          }
+        ],
+        "path": "uvm_channel.c",
+        "sha256": "64fcdb55ecba388c8ed6c656ca72b60f2b6f4b8bc0ebaffd794ed1e78068a248"
+      },
+      "runtime_or_hardware_validated": false,
+      "validation_needed": "Validate GV100 RM allocation, mapping, coherency, and channel execution with GPFIFO in video memory."
+    },
+    {
+      "candidate_absent_source_tokens": [],
+      "candidate_disposition": "mandatory-fault-buffer-init-with-gv100-hal-row",
+      "candidate_identifier_occurrence_count": 0,
+      "candidate_interpretation": "The modern ISR path initializes the fault buffer without the old capability branch. The candidate contains a GV100 fault-buffer HAL row; class and callback presence do not prove RM interrupt or replay behavior.",
+      "candidate_source_anchors": [
+        {
+          "anchor": "status = uvm_parent_gpu_fault_buffer_init(parent_gpu);",
+          "matches": [
+            {
+              "line": 359
+            }
+          ],
+          "path": "uvm_gpu_isr.c",
+          "role": "fault-buffer initialization",
+          "sha256": "2bc919e0af0583da15cadc43169c22ab565ef7f6dc296ac59092e747d3e697d2"
+        },
+        {
+          "anchor": ".id = NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100,\n        .u.fault_buffer_ops = {",
+          "matches": [
+            {
+              "line": 400
+            }
+          ],
+          "path": "uvm_hal.c",
+          "role": "GV100 fault-buffer row",
+          "sha256": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248"
+        },
+        {
+          "anchor": ".read_put = uvm_hal_volta_fault_buffer_read_put,",
+          "matches": [
+            {
+              "line": 405
+            }
+          ],
+          "path": "uvm_hal.c",
+          "role": "Volta fault-buffer callback",
+          "sha256": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248"
+        }
+      ],
+      "field": "replayable_faults_supported",
+      "r580_assignment": {
+        "anchor": "parent_gpu->replayable_faults_supported = true;",
+        "matches": [
+          {
+            "line": 81
+          }
+        ],
+        "path": "uvm_volta.c",
+        "sha256": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653"
+      },
+      "r580_consumer": {
+        "anchor": "if (parent_gpu->replayable_faults_supported) {",
+        "matches": [
+          {
+            "line": 359
+          }
+        ],
+        "path": "uvm_gpu_isr.c",
+        "sha256": "456ee47bb83564cc1ada830538781256bb246bf82888601d3c3f2b3a2bc777f5"
+      },
+      "runtime_or_hardware_validated": false,
+      "validation_needed": "Validate RM fault-buffer metadata, interrupts, replay, recovery, and teardown on GV100."
+    },
+    {
+      "candidate_absent_source_tokens": [],
+      "candidate_disposition": "mandatory-init-with-gv100-fault-buffer-row",
+      "candidate_identifier_occurrence_count": 0,
+      "candidate_interpretation": "Modern fault-buffer initialization invokes the non-replayable path unconditionally once replayable setup succeeds. The GV100 table row is present, but entry layout and RM-provided buffer data remain unverified.",
+      "candidate_source_anchors": [
+        {
+          "anchor": "status = uvm_parent_gpu_fault_buffer_init_non_replayable_faults(parent_gpu);",
+          "matches": [
+            {
+              "line": 272
+            }
+          ],
+          "path": "uvm_gpu_replayable_faults.c",
+          "role": "non-replayable init call",
+          "sha256": "e2b98f550ad6ef3efb062d931834f09acd79ecd5fa140a2f54de8e77a5dfac2b"
+        },
+        {
+          "anchor": ".id = NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100,\n        .u.fault_buffer_ops = {",
+          "matches": [
+            {
+              "line": 400
+            }
+          ],
+          "path": "uvm_hal.c",
+          "role": "GV100 fault-buffer row",
+          "sha256": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248"
+        },
+        {
+          "anchor": ".read_get = uvm_hal_volta_fault_buffer_read_get,",
+          "matches": [
+            {
+              "line": 406
+            }
+          ],
+          "path": "uvm_hal.c",
+          "role": "Volta fault-buffer callback",
+          "sha256": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248"
+        }
+      ],
+      "field": "non_replayable_faults_supported",
+      "r580_assignment": {
+        "anchor": "parent_gpu->non_replayable_faults_supported = true;",
+        "matches": [
+          {
+            "line": 83
+          }
+        ],
+        "path": "uvm_volta.c",
+        "sha256": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653"
+      },
+      "r580_consumer": {
+        "anchor": "if (parent_gpu->non_replayable_faults_supported) {",
+        "matches": [
+          {
+            "line": 394
+          },
+          {
+            "line": 552
+          }
+        ],
+        "path": "uvm_gpu_isr.c",
+        "sha256": "456ee47bb83564cc1ada830538781256bb246bf82888601d3c3f2b3a2bc777f5"
+      },
+      "runtime_or_hardware_validated": false,
+      "validation_needed": "Validate GV100 non-replayable entry sizing, ISR delivery, and error handling on hardware."
+    },
+    {
+      "candidate_absent_source_tokens": [],
+      "candidate_disposition": "mandatory-host-hal-callback-selected",
+      "candidate_identifier_occurrence_count": 0,
+      "candidate_interpretation": "R595 dispatches VA cancellation through host_hal. The candidate GV100 host row selects the Volta cancellation callback; the old capability fallback is no longer represented as a property bit.",
+      "candidate_source_anchors": [
+        {
+          "anchor": "gpu->parent->host_hal->cancel_faults_va(&push, pdb, fault_entry, cancel_va_mode);",
+          "matches": [
+            {
+              "line": 476
+            }
+          ],
+          "path": "uvm_gpu_replayable_faults.c",
+          "role": "fault cancellation call",
+          "sha256": "e2b98f550ad6ef3efb062d931834f09acd79ecd5fa140a2f54de8e77a5dfac2b"
+        },
+        {
+          "anchor": ".cancel_faults_va = uvm_hal_volta_cancel_faults_va,",
+          "matches": [
+            {
+              "line": 201
+            }
+          ],
+          "path": "uvm_hal.c",
+          "role": "GV100 host HAL selection",
+          "sha256": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248"
+        },
+        {
+          "anchor": "void uvm_hal_volta_cancel_faults_va(",
+          "matches": [
+            {
+              "line": 66
+            }
+          ],
+          "path": "uvm_volta_host.c",
+          "role": "Volta callback definition",
+          "sha256": "582c18a24986db6de49ce0c36fa98430062324b0bffd7e2390b2451e5b45f3fb"
+        }
+      ],
+      "field": "fault_cancel_va_supported",
+      "r580_assignment": {
+        "anchor": "parent_gpu->fault_cancel_va_supported = true;",
+        "matches": [
+          {
+            "line": 89
+          }
+        ],
+        "path": "uvm_volta.c",
+        "sha256": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653"
+      },
+      "r580_consumer": {
+        "anchor": "if (parent_gpu->fault_cancel_va_supported)",
+        "matches": [
+          {
+            "line": 2696
+          }
+        ],
+        "path": "uvm_gpu_replayable_faults.c",
+        "sha256": "c7991f9a9e029ae1e9dc4aba579ecb37c64408d9600117abdeec82fbc1b245b3"
+      },
+      "runtime_or_hardware_validated": false,
+      "validation_needed": "Validate VA targeting, cancellation mode, and synchronization on GV100."
+    },
+    {
+      "candidate_absent_source_tokens": [
+        {
+          "occurrences": [],
+          "path": "uvm_ioctl.h",
+          "qualification": "absent-from-live-source",
+          "role": "legacy enable ioctl definition",
+          "sha256": "9cc909360f2d19135852390fb66a12fe4d22ca39c19e2609b2ff5e925df4bdf4",
+          "token": "UVM_ENABLE_SYSTEM_WIDE_ATOMICS"
+        },
+        {
+          "occurrences": [],
+          "path": "uvm_ioctl.h",
+          "qualification": "absent-from-live-source",
+          "role": "legacy disable ioctl definition",
+          "sha256": "9cc909360f2d19135852390fb66a12fe4d22ca39c19e2609b2ff5e925df4bdf4",
+          "token": "UVM_DISABLE_SYSTEM_WIDE_ATOMICS"
+        },
+        {
+          "occurrences": [],
+          "path": "uvm.c",
+          "qualification": "absent-from-live-source",
+          "role": "legacy enable ioctl route",
+          "sha256": "5e0f8e0c531ee33f2add193ca7ca9c391e2428b194c6b8e3570ea0a99d7c0812",
+          "token": "UVM_ENABLE_SYSTEM_WIDE_ATOMICS"
+        },
+        {
+          "occurrences": [],
+          "path": "uvm.c",
+          "qualification": "absent-from-live-source",
+          "role": "legacy disable ioctl route",
+          "sha256": "5e0f8e0c531ee33f2add193ca7ca9c391e2428b194c6b8e3570ea0a99d7c0812",
+          "token": "UVM_DISABLE_SYSTEM_WIDE_ATOMICS"
+        },
+        {
+          "occurrences": [],
+          "path": "uvm_api.h",
+          "qualification": "absent-from-live-source",
+          "role": "legacy enable handler declaration",
+          "sha256": "ab7387042b482e730809fae87f779353f0ce9089c73b50fb440930927dd7d449",
+          "token": "uvm_api_enable_system_wide_atomics"
+        },
+        {
+          "occurrences": [],
+          "path": "uvm_api.h",
+          "qualification": "absent-from-live-source",
+          "role": "legacy disable handler declaration",
+          "sha256": "ab7387042b482e730809fae87f779353f0ce9089c73b50fb440930927dd7d449",
+          "token": "uvm_api_disable_system_wide_atomics"
+        },
+        {
+          "occurrences": [],
+          "path": "uvm_policy.c",
+          "qualification": "absent-from-live-source",
+          "role": "legacy policy implementation",
+          "sha256": "8843ff3468d51c9e93e1c08d04714244823638fcbc3c6e9fb021a11862cd2407",
+          "token": "system_wide_atomics_set"
+        }
+      ],
+      "candidate_disposition": "legacy-system-wide-atomics-uapi-removed",
+      "candidate_identifier_occurrence_count": 0,
+      "candidate_interpretation": "R580 sets this flag for GV100 and uses it only to reject the legacy system-wide-atomics UVM ioctl policy. The R595 candidate contains neither ioctl definition nor route nor policy helper, so this is a retired UVM policy surface rather than an unmapped modern HAL capability. This says nothing about CUDA C++ atomic-scope support or older user-mode ABI compatibility.",
+      "candidate_source_anchors": [],
+      "field": "scoped_atomics_supported",
+      "r580_assignment": {
+        "anchor": "parent_gpu->scoped_atomics_supported = true;",
+        "matches": [
+          {
+            "line": 91
+          }
+        ],
+        "path": "uvm_volta.c",
+        "sha256": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653"
+      },
+      "r580_consumer": {
+        "anchor": "if (gpu->parent->scoped_atomics_supported) {",
+        "matches": [
+          {
+            "line": 977
+          }
+        ],
+        "path": "uvm_policy.c",
+        "sha256": "0aa0dfa810e67b1b78c3de96581089b37cc4421ed20f5adedecb4df638ac95db"
+      },
+      "runtime_or_hardware_validated": false,
+      "validation_needed": "Confirm the R595 user-mode ABI does not issue the retired ioctls, and separately validate system-scope atomic correctness on GV100 hardware."
+    },
+    {
+      "candidate_absent_source_tokens": [],
+      "candidate_disposition": "mmu-hal-sparse-pte-dispatch-with-pascal-inheritance",
+      "candidate_identifier_occurrence_count": 0,
+      "candidate_interpretation": "External sparse mappings call the active MMU HAL. The candidate Volta MMU mode clones Pascal operations and overrides PTE/PDE builders, so its sparse-PTE callback is inherited; the GV100 encoding is not hardware-verified.",
+      "candidate_source_anchors": [
+        {
+          "anchor": "return range_vec->tree->hal->make_sparse_pte();",
+          "matches": [
+            {
+              "line": 1095
+            }
+          ],
+          "path": "uvm_map_external.c",
+          "role": "sparse-PTE HAL dispatch",
+          "sha256": "bd5284ad85f61bd7e368e056331c4e34efb9c169f99ba98ed3b539b6dd491e05"
+        },
+        {
+          "anchor": "volta_mmu_mode_hal = *pascal_mmu_mode_hal;",
+          "matches": [
+            {
+              "line": 276
+            }
+          ],
+          "path": "uvm_volta_mmu.c",
+          "role": "Pascal MMU operation inheritance",
+          "sha256": "321d5381deebd8b2bd053d31cf750b890aae113b758c528addf5e1c5c043b0de"
+        },
+        {
+          "anchor": "volta_mmu_mode_hal.make_pte = make_pte_volta;",
+          "matches": [
+            {
+              "line": 277
+            }
+          ],
+          "path": "uvm_volta_mmu.c",
+          "role": "Volta PTE override",
+          "sha256": "321d5381deebd8b2bd053d31cf750b890aae113b758c528addf5e1c5c043b0de"
+        },
+        {
+          "anchor": "volta_mmu_mode_hal.make_pde = make_pde_volta;",
+          "matches": [
+            {
+              "line": 278
+            }
+          ],
+          "path": "uvm_volta_mmu.c",
+          "role": "Volta PDE override",
+          "sha256": "321d5381deebd8b2bd053d31cf750b890aae113b758c528addf5e1c5c043b0de"
+        }
+      ],
+      "field": "sparse_mappings_supported",
+      "r580_assignment": {
+        "anchor": "parent_gpu->sparse_mappings_supported = true;",
+        "matches": [
+          {
+            "line": 99
+          }
+        ],
+        "path": "uvm_volta.c",
+        "sha256": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653"
+      },
+      "r580_consumer": {
+        "anchor": "if (!mapping_gpu->parent->sparse_mappings_supported) {",
+        "matches": [
+          {
+            "line": 1196
+          }
+        ],
+        "path": "uvm_map_external.c",
+        "sha256": "4115e9f2de1fc9ad460a61168e78e68ede19c57ac6216740dc57475b29d07511"
+      },
+      "runtime_or_hardware_validated": false,
+      "validation_needed": "Validate the inherited sparse PTE encoding and invalid-PTE fault behavior on GV100."
+    },
+    {
+      "candidate_absent_source_tokens": [],
+      "candidate_disposition": "gv100-restriction-restored-before-unmap",
+      "candidate_identifier_occurrence_count": 0,
+      "candidate_interpretation": "The candidate replaces R580's false PLC property with an explicit GV100 rejection of EnabledNoPlc, returning before overlap removal. This is a candidate-specific compatibility guard, not stock R595 behavior.",
+      "candidate_source_anchors": [
+        {
+          "anchor": "if ((map_rm_params->compression_type == UvmGpuCompressionTypeEnabledNoPlc) &&",
+          "matches": [
+            {
+              "line": 861
+            }
+          ],
+          "path": "uvm_map_external.c",
+          "role": "candidate GV100 restriction",
+          "sha256": "bd5284ad85f61bd7e368e056331c4e34efb9c169f99ba98ed3b539b6dd491e05"
+        },
+        {
+          "anchor": "(mapping_gpu->parent->rm_info.gpuArch == NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100))",
+          "matches": [
+            {
+              "line": 862
+            }
+          ],
+          "path": "uvm_map_external.c",
+          "role": "GV100 predicate",
+          "sha256": "bd5284ad85f61bd7e368e056331c4e34efb9c169f99ba98ed3b539b6dd491e05"
+        },
+        {
+          "anchor": "return NV_ERR_INVALID_DEVICE;",
+          "matches": [
+            {
+              "line": 652
+            },
+            {
+              "line": 667
+            },
+            {
+              "line": 863
+            }
+          ],
+          "path": "uvm_map_external.c",
+          "role": "preserved R580 status",
+          "sha256": "bd5284ad85f61bd7e368e056331c4e34efb9c169f99ba98ed3b539b6dd491e05"
+        },
+        {
+          "anchor": "status = uvm_unmap_external_in_range(external_range, mapping_gpu, base, base + length - 1, NULL);",
+          "matches": [
+            {
+              "line": 871
+            }
+          ],
+          "path": "uvm_map_external.c",
+          "role": "later overlap removal",
+          "sha256": "bd5284ad85f61bd7e368e056331c4e34efb9c169f99ba98ed3b539b6dd491e05"
+        }
+      ],
+      "field": "plc_supported",
+      "r580_assignment": {
+        "anchor": "parent_gpu->plc_supported = false;",
+        "matches": [
+          {
+            "line": 105
+          }
+        ],
+        "path": "uvm_volta.c",
+        "sha256": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653"
+      },
+      "r580_consumer": {
+        "anchor": "if ((map_rm_params->compression_type == UvmGpuCompressionTypeEnabledNoPlc) && !mapping_gpu->parent->plc_supported)",
+        "matches": [
+          {
+            "line": 861
+          }
+        ],
+        "path": "uvm_map_external.c",
+        "sha256": "4115e9f2de1fc9ad460a61168e78e68ede19c57ac6216740dc57475b29d07511"
+      },
+      "runtime_or_hardware_validated": false,
+      "validation_needed": "Keep the exact rejection status and ordering under regression tests; validate RM and external-map behavior on a safe GV100 canary."
+    }
+  ],
+  "capability_count": 11,
+  "classification": "pinned-static-source-callpath-audit",
+  "created_utc": "2026-11-02T14:44:39.601248+00:00",
+  "limitations": [
+    "Source anchors establish candidate call paths and callback table selections only; they do not prove that the RM accepts the requests or that GV100 behaves correctly at runtime.",
+    "The R580 and candidate prefetch MMU control helper bodies are statically identical after C comment/literal masking and whitespace elision; this does not prove register access safety, fault delivery, replay, or suspend/resume behavior on GV100.",
+    "The old scoped-atoms flag only gated R580 system-wide-atomics ioctls; the R595 candidate lacks those definitions, routes, and helpers. User-mode ABI compatibility and GV100 atomic correctness remain untested.",
+    "The R595 candidate's SYS_NON_COHERENT peer-aperture path is source-compatible with the pinned GV100 PTE/copy-engine encodings, but RM P2P capabilities, actual PCIe atomics, BAR1 mappings, transfers, and mixed-GPU behavior have not been tested on hardware.",
+    "The PLC guard is a hybrid-candidate change and is not stock R595 behavior.",
+    "No module was loaded and no GPU, UVM, CUDA, P2P, performance, or endurance test was run."
+  ],
+  "noncoherent_aperture_comparison": {
+    "candidate": {
+      "checks": {
+        "bar1_p2p_selects_noncoherent_when_pcie_atomics_unavailable": true,
+        "pte_sets_noncoherent_aperture_value": true,
+        "pte_uses_system_address_for_noncoherent_aperture": true,
+        "volta_ce_maps_noncoherent_sysmem": true
+      },
+      "copy_engine_aperture": {
+        "end_line": 203,
+        "normalized_sha256": "7139c2db8f7ee881e2f385ccd1408b1423e45db1f717622d87f913a31a8e9abd",
+        "path": "uvm_volta_ce.c",
+        "sha256": "fa4483c1b824cec9907b64382b1607f8e21bf9cfb48f309e0570a4e0c845479d",
+        "start_line": 183
+      },
+      "copy_engine_header_anchors": [
+        {
+          "anchor": "NVC3B5_SET_SRC_PHYS_MODE_TARGET_NONCOHERENT_SYSMEM",
+          "matches": [
+            {
+              "line": 60
+            }
+          ],
+          "path": "clc3b5.h",
+          "role": "candidate GV100 copy-engine noncoherent source mode",
+          "sha256": "c6321efb3a6581d384495ac735bb80e8c0b1472d73e9043fefc973e25f2d5744"
+        },
+        {
+          "anchor": "NVC3B5_SET_DST_PHYS_MODE_TARGET_NONCOHERENT_SYSMEM",
+          "matches": [
+            {
+              "line": 66
+            }
+          ],
+          "path": "clc3b5.h",
+          "role": "candidate GV100 copy-engine noncoherent destination mode",
+          "sha256": "c6321efb3a6581d384495ac735bb80e8c0b1472d73e9043fefc973e25f2d5744"
+        }
+      ],
+      "external_mapping_pte_source": "RM via nvUvmInterfaceGetExternalAllocPtes; the local make_pte path is also exercised by the built-in RM-PTE comparison test.",
+      "hardware_header_anchors": [
+        {
+          "anchor": "#define NV_MMU_VER2_PTE_APERTURE",
+          "matches": [
+            {
+              "line": 608
+            },
+            {
+              "line": 609
+            },
+            {
+              "line": 610
+            },
+            {
+              "line": 611
+            },
+            {
+              "line": 612
+            }
+          ],
+          "path": "hwref/volta/gv100/dev_mmu.h",
+          "role": "r580 GV100 VER2 PTE aperture field",
+          "sha256": "6a2656ab46cc7cdfe92c6ab12c7c5246c5d2819651add7a34b2d47fd2e13c483"
+        },
+        {
+          "anchor": "#define NV_MMU_VER2_PTE_APERTURE_SYSTEM_NON_COHERENT_MEMORY",
+          "matches": [
+            {
+              "line": 612
+            }
+          ],
+          "path": "hwref/volta/gv100/dev_mmu.h",
+          "role": "r580 GV100 VER2 noncoherent aperture encoding",
+          "sha256": "6a2656ab46cc7cdfe92c6ab12c7c5246c5d2819651add7a34b2d47fd2e13c483"
+        },
+        {
+          "anchor": "#define NV_MMU_VER2_PTE_APERTURE",
+          "matches": [
+            {
+              "line": 608
+            },
+            {
+              "line": 609
+            },
+            {
+              "line": 610
+            },
+            {
+              "line": 611
+            },
+            {
+              "line": 612
+            }
+          ],
+          "path": "hwref/volta/gv100/dev_mmu.h",
+          "role": "candidate GV100 VER2 PTE aperture field",
+          "sha256": "6a2656ab46cc7cdfe92c6ab12c7c5246c5d2819651add7a34b2d47fd2e13c483"
+        },
+        {
+          "anchor": "#define NV_MMU_VER2_PTE_APERTURE_SYSTEM_NON_COHERENT_MEMORY",
+          "matches": [
+            {
+              "line": 612
+            }
+          ],
+          "path": "hwref/volta/gv100/dev_mmu.h",
+          "role": "candidate GV100 VER2 noncoherent aperture encoding",
+          "sha256": "6a2656ab46cc7cdfe92c6ab12c7c5246c5d2819651add7a34b2d47fd2e13c483"
+        }
+      ],
+      "peer_aperture": {
+        "end_line": 907,
+        "normalized_sha256": "3e9e4023e976ba5d41ff63f3a6aec53852df28cb4dd045a786a6b358bac197ef",
+        "path": "uvm_gpu.c",
+        "sha256": "66881c4ae46461314d41342b2a27df9119d68d68f90d181e3a32670dcc19f590",
+        "start_line": 879
+      },
+      "pte_builder": {
+        "end_line": 253,
+        "normalized_sha256": "370e23f4d7061f8df9cb453c5d630f8b7556ceb2251569dfbb10057854bdb94a",
+        "path": "uvm_volta_mmu.c",
+        "sha256": "321d5381deebd8b2bd053d31cf750b890aae113b758c528addf5e1c5c043b0de",
+        "start_line": 178
+      },
+      "source_semantics_anchors": [
+        {
+          "anchor": "return enable_atomics ? UVM_APERTURE_SYS : UVM_APERTURE_SYS_NON_COHERENT;",
+          "matches": [
+            {
+              "line": 903
+            }
+          ],
+          "path": "uvm_gpu.c",
+          "role": "PCIe BAR1 peer atomic-capability selection",
+          "sha256": "66881c4ae46461314d41342b2a27df9119d68d68f90d181e3a32670dcc19f590"
+        },
+        {
+          "anchor": "address += parent_peer_caps->bar1_p2p_dma_base_address[peer_index];",
+          "matches": [
+            {
+              "line": 3229
+            }
+          ],
+          "path": "uvm_gpu.c",
+          "role": "BAR1 peer DMA address translation",
+          "sha256": "66881c4ae46461314d41342b2a27df9119d68d68f90d181e3a32670dcc19f590"
+        },
+        {
+          "anchor": "pte = hal->make_pte(aperture,",
+          "matches": [
+            {
+              "line": 165
+            }
+          ],
+          "path": "uvm_get_rm_ptes_test.c",
+          "role": "UVM built-in RM-PTE validation test invokes the Volta PTE builder",
+          "sha256": "9ed0fd644cb611dc4a668ce671b0dadd9dcb422f4c637cafd180cb72c70e1d92"
+        },
+        {
+          "anchor": "nvUvmInterfaceGetExternalAllocPtes(",
+          "matches": [
+            {
+              "line": 187
+            }
+          ],
+          "path": "uvm_map_external.c",
+          "role": "external allocation PTEs are requested from RM",
+          "sha256": "bd5284ad85f61bd7e368e056331c4e34efb9c169f99ba98ed3b539b6dd491e05"
+        },
+        {
+          "anchor": "aperture = get_aperture(",
+          "matches": [
+            {
+              "line": 133
+            }
+          ],
+          "path": "uvm_get_rm_ptes_test.c",
+          "role": "built-in test derives the expected external-mapping aperture",
+          "sha256": "9ed0fd644cb611dc4a668ce671b0dadd9dcb422f4c637cafd180cb72c70e1d92"
+        }
+      ]
+    },
+    "classification": "static-volta-noncoherent-aperture-callpath-comparison",
+    "interpretation": "The R595 candidate adds a Volta path that selects SYS_NON_COHERENT for PCIe BAR1 peers when RM says PCIe atomics are unavailable, encodes the GV100 VER2 PTE aperture value, and maps it to Volta copy-engine NONCOHERENT_SYSMEM. R580 exposes the relevant enum and hardware constants but its UVM peer/CE/MMU paths do not select or encode this aperture.",
+    "r580": {
+      "copy_engine_aperture": {
+        "end_line": 196,
+        "normalized_sha256": "746f8e8a50591296fb9f9dd6dad1734d947ccec511876c1bd333be644dfb9920",
+        "path": "uvm_volta_ce.c",
+        "sha256": "fd8758e28cf978335a97de557ee77e2f7c0797ff49f5363183fc99fbab657d3b",
+        "start_line": 183
+      },
+      "hardware_header_anchors": [
+        {
+          "anchor": "#define NV_MMU_VER2_PTE_APERTURE",
+          "matches": [
+            {
+              "line": 608
+            },
+            {
+              "line": 609
+            },
+            {
+              "line": 610
+            },
+            {
+              "line": 611
+            },
+            {
+              "line": 612
+            }
+          ],
+          "path": "hwref/volta/gv100/dev_mmu.h",
+          "role": "R580 GV100 VER2 PTE aperture field",
+          "sha256": "6a2656ab46cc7cdfe92c6ab12c7c5246c5d2819651add7a34b2d47fd2e13c483"
+        },
+        {
+          "anchor": "#define NV_MMU_VER2_PTE_APERTURE_SYSTEM_NON_COHERENT_MEMORY",
+          "matches": [
+            {
+              "line": 612
+            }
+          ],
+          "path": "hwref/volta/gv100/dev_mmu.h",
+          "role": "R580 GV100 VER2 noncoherent aperture encoding",
+          "sha256": "6a2656ab46cc7cdfe92c6ab12c7c5246c5d2819651add7a34b2d47fd2e13c483"
+        },
+        {
+          "anchor": "NVC3B5_SET_SRC_PHYS_MODE_TARGET_NONCOHERENT_SYSMEM",
+          "matches": [
+            {
+              "line": 60
+            }
+          ],
+          "path": "clc3b5.h",
+          "role": "R580 GV100 copy-engine noncoherent source mode",
+          "sha256": "c6321efb3a6581d384495ac735bb80e8c0b1472d73e9043fefc973e25f2d5744"
+        },
+        {
+          "anchor": "NVC3B5_SET_DST_PHYS_MODE_TARGET_NONCOHERENT_SYSMEM",
+          "matches": [
+            {
+              "line": 66
+            }
+          ],
+          "path": "clc3b5.h",
+          "role": "R580 GV100 copy-engine noncoherent destination mode",
+          "sha256": "c6321efb3a6581d384495ac735bb80e8c0b1472d73e9043fefc973e25f2d5744"
+        }
+      ],
+      "peer_aperture": {
+        "end_line": 889,
+        "normalized_sha256": "c541044195e3eab86113ee28477f80e4d61abe2ffcb5ba5347326cc1655259be",
+        "path": "uvm_gpu.c",
+        "sha256": "b43bb94bbc465bbb4fb243e6f722cb450d6402f3071971843d61f1f7678bf700",
+        "start_line": 874
+      },
+      "peer_selection": "parent_gpu_peer_aperture returns UVM_APERTURE_PEER(peer_ids[peer_index]) for all links.",
+      "pte_builder": {
+        "end_line": 251,
+        "normalized_sha256": "216ff2bee8a0d5ac531caccb1711c0a6c25395494dd2ba2ab76c7ed948faa92c",
+        "path": "uvm_volta_mmu.c",
+        "sha256": "a4ff6d7ea69fbef25cad7ef1e7b85c3c8fe85e6e9cd1f3be4306a274d3f8e709",
+        "start_line": 178
+      },
+      "volta_pte_and_ce_support_sys_noncoherent": false
+    },
+    "runtime_or_hardware_validated": false,
+    "validation_needed": "On a GV100 pair or safe canary, validate RM P2P capability reports in both directions, BAR1 address mapping, CE source/destination transfers, external-map PTEs, PCIe atomic suppression, and numerical integrity under concurrency."
+  },
+  "prefetch_callback_comparison": {
+    "candidate_callback_selection": "GV100 row directly selects Turing MMU enable/disable callbacks",
+    "candidate_source_anchors": [
+      {
+        "anchor": ".id = NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100,",
+        "matches": [
+          {
+            "line": 306
+          },
+          {
+            "line": 400
+          },
+          {
+            "line": 475
+          },
+          {
+            "line": 528
+          }
+        ],
+        "path": "uvm_hal.c",
+        "role": "candidate GV100 architecture row",
+        "sha256": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248"
+      },
+      {
+        "anchor": ".enable_prefetch_faults = uvm_hal_turing_mmu_enable_prefetch_faults,",
+        "matches": [
+          {
+            "line": 310
+          },
+          {
+            "line": 320
+          }
+        ],
+        "path": "uvm_hal.c",
+        "role": "direct GV100 Turing prefetch callback",
+        "sha256": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248"
+      },
+      {
+        "anchor": ".disable_prefetch_faults = uvm_hal_turing_mmu_disable_prefetch_faults,",
+        "matches": [
+          {
+            "line": 311
+          },
+          {
+            "line": 321
+          }
+        ],
+        "path": "uvm_hal.c",
+        "role": "direct GV100 Turing prefetch callback",
+        "sha256": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248"
+      },
+      {
+        "anchor": "parent_gpu->fault_buffer.prefetch_faults_enabled = true;",
+        "matches": [
+          {
+            "line": 216
+          },
+          {
+            "line": 3001
+          }
+        ],
+        "path": "uvm_gpu_replayable_faults.c",
+        "role": "unconditional prefetch state at replayable-fault initialization",
+        "sha256": "e2b98f550ad6ef3efb062d931834f09acd79ecd5fa140a2f54de8e77a5dfac2b"
+      },
+      {
+        "anchor": "parent_gpu->arch_hal->enable_prefetch_faults(parent_gpu);",
+        "matches": [
+          {
+            "line": 133
+          },
+          {
+            "line": 236
+          },
+          {
+            "line": 3000
+          }
+        ],
+        "path": "uvm_gpu_replayable_faults.c",
+        "role": "architecture-dispatched prefetch control",
+        "sha256": "e2b98f550ad6ef3efb062d931834f09acd79ecd5fa140a2f54de8e77a5dfac2b"
+      }
+    ],
+    "classification": "static-volta-prefetch-control-comparison",
+    "control_helper": {
+      "candidate": {
+        "end_line": 400,
+        "normalized_sha256": "8265961e9733a05d6bdfbbb93b90ed16bb3d6c4f02837d1826ed290ddc4f8815",
+        "path": "uvm_turing_mmu.c",
+        "sha256": "3b990ed6bfb555bff063515e13752b0627a6e68936d5261c6eb812b85c777b8a",
+        "start_line": 373
+      },
+      "identical_after_comments_literals_and_whitespace_masked": true,
+      "operation": "If pPrefetchCtrl is null, call nvUvmInterfaceTogglePrefetchFaults; otherwise read-modify-write FAULT_CTRL.PRF_FILTER to SEND_ALL or SEND_NONE.",
+      "r580": {
+        "end_line": 404,
+        "normalized_sha256": "8265961e9733a05d6bdfbbb93b90ed16bb3d6c4f02837d1826ed290ddc4f8815",
+        "path": "uvm_pascal_mmu.c",
+        "sha256": "ffe96be7a232418066906963b7d868a4f271b3fe4eeefe083c79c9b9cb7e4664",
+        "start_line": 377
+      }
+    },
+    "enable_wrapper_guard": {
+      "candidate_prefetch_fault_supported_assertion": false,
+      "candidate_state_initialization": "Replayable-fault initialization sets prefetch_faults_enabled=true before dispatching the GV100 HAL callback.",
+      "interpretation": "For the GV100 path, the removed assertion is replaced by explicit modern callback selection and unconditional fault-buffer prefetch enablement. Source establishes this candidate path, not hardware correctness or delivery behavior.",
+      "r580_prefetch_fault_supported_assertion": true,
+      "r580_state_initialization": "Volta sets prefetch_fault_supported=true; replayable-fault initialization copies that capability into prefetch_faults_enabled."
+    },
+    "r580_callback_inheritance": "GV100 parent_id selects GP100 arch row; GP100 row selects Pascal MMU enable callback",
+    "r580_source_anchors": [
+      {
+        "anchor": ".enable_prefetch_faults = uvm_hal_pascal_mmu_enable_prefetch_faults,",
+        "matches": [
+          {
+            "line": 355
+          }
+        ],
+        "path": "uvm_hal.c",
+        "role": "GP100 inherited prefetch callback",
+        "sha256": "9e1c8c1e0e70d26328809713fc7af7f79e49a57a545ea474b36d70a07d56325d"
+      },
+      {
+        "anchor": ".parent_id = NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GP100,",
+        "matches": [
+          {
+            "line": 362
+          },
+          {
+            "line": 493
+          },
+          {
+            "line": 575
+          },
+          {
+            "line": 642
+          }
+        ],
+        "path": "uvm_hal.c",
+        "role": "GV100 inherits the GP100 architecture row",
+        "sha256": "9e1c8c1e0e70d26328809713fc7af7f79e49a57a545ea474b36d70a07d56325d"
+      },
+      {
+        "anchor": "parent_gpu->prefetch_fault_supported = true;",
+        "matches": [
+          {
+            "line": 71
+          }
+        ],
+        "path": "uvm_volta.c",
+        "role": "GV100 prefetch capability initialization",
+        "sha256": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653"
+      },
+      {
+        "anchor": "parent_gpu->fault_buffer.prefetch_faults_enabled = parent_gpu->prefetch_fault_supported;",
+        "matches": [
+          {
+            "line": 216
+          }
+        ],
+        "path": "uvm_gpu_replayable_faults.c",
+        "role": "capability-gated replayable-fault initialization",
+        "sha256": "c7991f9a9e029ae1e9dc4aba579ecb37c64408d9600117abdeec82fbc1b245b3"
+      }
+    ],
+    "runtime_or_hardware_validated": false,
+    "selected_architecture_rows": {
+      "candidate_gv100": {
+        "architecture": "GV100",
+        "disable_turing_callback": true,
+        "enable_pascal_callback": false,
+        "enable_turing_callback": true,
+        "end_line": 316,
+        "parent_gp100": false,
+        "path": "uvm_hal.c",
+        "sha256": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248",
+        "start_line": 306
+      },
+      "r580_gp100": {
+        "architecture": "GP100",
+        "disable_turing_callback": false,
+        "enable_pascal_callback": true,
+        "enable_turing_callback": false,
+        "end_line": 361,
+        "parent_gp100": false,
+        "path": "uvm_hal.c",
+        "sha256": "9e1c8c1e0e70d26328809713fc7af7f79e49a57a545ea474b36d70a07d56325d",
+        "start_line": 350
+      },
+      "r580_gv100": {
+        "architecture": "GV100",
+        "disable_turing_callback": false,
+        "enable_pascal_callback": false,
+        "enable_turing_callback": false,
+        "end_line": 370,
+        "parent_gp100": true,
+        "path": "uvm_hal.c",
+        "sha256": "9e1c8c1e0e70d26328809713fc7af7f79e49a57a545ea474b36d70a07d56325d",
+        "start_line": 361
+      }
+    },
+    "validation_needed": "On a GV100 canary, validate RM-provided prefetch control mapping, enable/disable transitions, prefetch-fault delivery, replay, suspend/resume, and teardown."
+  },
+  "r580_source": {
+    "archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+    "archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+    "source_root": "NVIDIA-kernel-module-source-580.178.04",
+    "volta_initializer_sha256": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653"
+  },
+  "schema": "volta-uvm-r580-r595-candidate-path-audit-v8"
+}

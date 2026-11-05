@@ -1,0 +1,111 @@
+--- a/kernel-open/nvidia/nv.c
++++ b/kernel-open/nvidia/nv.c
+@@ -7106,6 +7106,12 @@
+     return status;
+ }
+ 
++#define HYBRID580_PM_PROVIDER_PREFIX hybrid580_open_
++#define HYBRID580_PM_PROVIDER_SHARED_UVM_OWNER 1
++#include "hybrid580-pm-provider-kernel.h"
++#undef HYBRID580_PM_PROVIDER_SHARED_UVM_OWNER
++#undef HYBRID580_PM_PROVIDER_PREFIX
++
+ int nv_pmops_suspend(
+     struct device *dev
+ )
+@@ -7125,9 +7129,14 @@
+ )
+ {
+     NV_STATUS status;
++    int rc;
+ 
+     status = nvidia_resume(dev, NV_PM_ACTION_RESUME);
+-    return (status == NV_OK) ? 0 : -EIO;
++    rc = (status == NV_OK) ? 0 : -EIO;
++    if (hybrid580_pm_provider_record_dpm_callback(
++            dev, HYBRID580_PM_PROVIDER_CALLBACK_RESUME, rc) != 0 && rc == 0)
++        rc = -EIO;
++    return rc;
+ }
+ 
+ int nv_pmops_freeze(
+@@ -7148,7 +7157,8 @@
+     struct device *dev
+ )
+ {
+-    return 0;
++    return hybrid580_pm_provider_record_dpm_callback(
++        dev, HYBRID580_PM_PROVIDER_CALLBACK_THAW, 0) == 0 ? 0 : -EIO;
+ }
+ 
+ int nv_pmops_restore(
+@@ -7156,9 +7166,14 @@
+ )
+ {
+     NV_STATUS status;
++    int rc;
+ 
+     status = nvidia_resume(dev, NV_PM_ACTION_RESUME);
+-    return (status == NV_OK) ? 0 : -EIO;
++    rc = (status == NV_OK) ? 0 : -EIO;
++    if (hybrid580_pm_provider_record_dpm_callback(
++            dev, HYBRID580_PM_PROVIDER_CALLBACK_RESTORE, rc) != 0 && rc == 0)
++        rc = -EIO;
++    return rc;
+ }
+ 
+ int nv_pmops_poweroff(
+--- a/kernel-open/nvidia/nv_uvm_interface.c
++++ b/kernel-open/nvidia/nv_uvm_interface.c
+@@ -1149,6 +1149,36 @@
+     return status;
+ }
+ 
++/* The hybrid owner must distinguish a real UVM transition from the legacy
++ * no-callback success used by nv_uvm_suspend()/nv_uvm_resume(). */
++NV_STATUS hybrid580_open_nv_uvm_suspend_registered_v1(void)
++{
++    NV_STATUS status = NV_ERR_NOT_SUPPORTED;
++    struct UvmOpsUvmEvents *events;
++
++    down(&g_pNvUvmEventsLock);
++    events = getUvmEvents();
++    if (events != NULL && events->suspend != NULL)
++        status = events->suspend();
++    up(&g_pNvUvmEventsLock);
++
++    return status;
++}
++
++NV_STATUS hybrid580_open_nv_uvm_resume_registered_v1(void)
++{
++    NV_STATUS status = NV_ERR_NOT_SUPPORTED;
++    struct UvmOpsUvmEvents *events;
++
++    down(&g_pNvUvmEventsLock);
++    events = getUvmEvents();
++    if (events != NULL && events->resume != NULL)
++        status = events->resume();
++    up(&g_pNvUvmEventsLock);
++
++    return status;
++}
++
+ void nv_uvm_notify_start_device(const NvU8 *pUuid)
+ {
+     NvProcessorUuid uvmUuid;
+@@ -1762,4 +1792,14 @@
+     return NV_OK;
+ }
+ 
++NV_STATUS hybrid580_open_nv_uvm_suspend_registered_v1(void)
++{
++    return NV_ERR_NOT_SUPPORTED;
++}
++
++NV_STATUS hybrid580_open_nv_uvm_resume_registered_v1(void)
++{
++    return NV_ERR_NOT_SUPPORTED;
++}
++
+ #endif // NV_UVM_ENABLE

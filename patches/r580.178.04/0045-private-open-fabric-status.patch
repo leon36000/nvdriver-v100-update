@@ -1,0 +1,105 @@
+--- a/kernel-open/nvidia/nv.c
++++ b/kernel-open/nvidia/nv.c
+@@ -4819,6 +4819,102 @@
+ }
+ EXPORT_SYMBOL(hybrid580_open_control_session_system_features_v1);
+ 
++/* Query the fixed, pointer-free root Fabric Manager readiness state. */
++NV_STATUS hybrid580_open_control_session_fabric_status_v1(
++    struct hybrid580_control_session *session, NvHandle h_client,
++    NvHandle h_object, NvU32 flags,
++    NV0000_CTRL_SYSTEM_GET_FABRIC_STATUS_PARAMS *params,
++    NvU32 *control_status)
++{
++    nv_linux_file_private_t *nvlfp;
++    nv_linux_state_t *nvl;
++    nv_state_t *nv;
++    NV0000_CTRL_SYSTEM_GET_FABRIC_STATUS_PARAMS result = {
++        .fabricStatus = NV0000_CTRL_GET_SYSTEM_FABRIC_STATUS_SKIP,
++    };
++    NVOS54_PARAMETERS control;
++    nvidia_stack_t *sp = NULL;
++    nvidia_kernel_rmapi_ops_t ops;
++    NV_STATUS status;
++    int rc;
++
++    if (control_status == NULL)
++        return NV_ERR_INVALID_ARGUMENT;
++    *control_status = 0xffffffffU;
++    if (session == NULL || params == NULL || h_client == 0 ||
++        h_client != h_object || flags != NVOS54_FLAGS_NONE)
++        return NV_ERR_INVALID_ARGUMENT;
++
++    rc = mutex_lock_interruptible(&session->lock);
++    if (rc != 0)
++        return NV_ERR_OPERATING_SYSTEM;
++
++    nvlfp = hybrid580_open_backend_file(session->file, 1);
++    if (nvlfp == NULL || nvlfp->nvptr != &nv_ctl_device)
++    {
++        status = NV_ERR_INVALID_STATE;
++        goto done;
++    }
++    nvl = nvlfp->nvptr;
++    nv = NV_STATE_PTR(nvl);
++    if ((nv->flags & NV_FLAG_CONTROL) == 0)
++    {
++        status = NV_ERR_INVALID_STATE;
++        goto done;
++    }
++
++    control = (NVOS54_PARAMETERS) {
++        .hClient = h_client,
++        .hObject = h_object,
++        .cmd = NV0000_CTRL_CMD_SYSTEM_GET_FABRIC_STATUS,
++        .flags = flags,
++        .params = KERNEL_POINTER_TO_NvP64(&result),
++        .paramsSize = sizeof(result),
++        .status = 0xffffffffU,
++    };
++    rc = nv_down_read_interruptible(&nv_system_pm_lock);
++    if (rc < 0)
++    {
++        status = NV_ERR_OPERATING_SYSTEM;
++        goto done;
++    }
++
++    status = nv_check_gpu_state(nv);
++    if (status != NV_OK)
++        goto done_pm;
++    rc = nv_kmem_cache_alloc_stack(&sp);
++    if (rc != 0)
++    {
++        status = NV_ERR_NO_MEMORY;
++        goto done_pm;
++    }
++
++    ops = (nvidia_kernel_rmapi_ops_t) {
++        .op = NV04_CONTROL,
++        .params.control = control,
++    };
++    rm_kernel_rmapi_op(sp, &ops);
++    control = ops.params.control;
++    if (control.status == 0xffffffffU)
++    {
++        status = NV_ERR_INVALID_STATE;
++        goto done_pm;
++    }
++
++    *control_status = (NvU32)control.status;
++    if (control.status == NV_OK)
++        *params = result;
++    status = NV_OK;
++
++done_pm:
++    if (sp != NULL)
++        nv_kmem_cache_free_stack(sp);
++    up_read(&nv_system_pm_lock);
++done:
++    mutex_unlock(&session->lock);
++    return status;
++}
++EXPORT_SYMBOL(hybrid580_open_control_session_fabric_status_v1);
+ 
+ 
+ static void hybrid580_control_session_release(struct kref *refs)

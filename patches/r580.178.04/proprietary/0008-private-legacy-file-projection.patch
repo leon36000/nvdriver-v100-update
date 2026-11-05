@@ -1,0 +1,312 @@
+--- a/nvidia/nv.c
++++ b/nvidia/nv.c
+@@ -37,6 +37,9 @@
+ #include "nv-msi.h"
+ #include "nv-pci-table.h"
+ #include "nv-chardev-numbers.h"
++#include "hybrid580-file-projection.h"
++#include <linux/spinlock.h>
++#include <linux/slab.h>
+ 
+ #if defined(NV_UVM_ENABLE)
+ #include "nv_uvm_interface.h"
+@@ -4053,69 +4056,168 @@
+     release_firmware(fw_handle);
+ }
+ 
++/* A provider owns its frontend fops and unregisters before module teardown.
++ * Only the immutable copy is read by callbacks. No permanent module reference:
++ * taking one here would prevent the provider's module_exit from unregistering.
++ */
++struct hybrid580_file_projection_provider {
++    struct hybrid580_file_projection_ops_v1 ops;
++    const struct hybrid580_file_projection_ops_v1 *key;
++};
++static DEFINE_RWLOCK(hybrid580_file_projection_lock);
++static struct hybrid580_file_projection_provider *hybrid580_file_projection;
++
++int hybrid580_legacy_register_file_projection_v1(
++    const struct hybrid580_file_projection_ops_v1 *ops)
++{
++    struct hybrid580_file_projection_provider *provider;
++    int rc = 0;
++    unsigned long flags;
++
++    if (ops == NULL || ops->abi_version != HYBRID580_FILE_PROJECTION_ABI_V1 ||
++        ops->struct_size != sizeof(*ops) || ops->owner == NULL ||
++        ops->frontend_fops == NULL || ops->frontend_fops == &nvidia_fops ||
++        ops->frontend_fops->owner != ops->owner || ops->get_backing_file == NULL)
++        return -EINVAL;
++
++    provider = kzalloc(sizeof(*provider), GFP_KERNEL);
++    if (provider == NULL)
++        return -ENOMEM;
++    provider->ops = *ops;
++    provider->key = ops;
++
++    write_lock_irqsave(&hybrid580_file_projection_lock, flags);
++    if (hybrid580_file_projection != NULL)
++        rc = -EBUSY;
++    else
++        hybrid580_file_projection = provider;
++    write_unlock_irqrestore(&hybrid580_file_projection_lock, flags);
++    if (rc != 0)
++        kfree(provider);
++    return rc;
++}
++EXPORT_SYMBOL(hybrid580_legacy_register_file_projection_v1);
++
++int hybrid580_legacy_unregister_file_projection_v1(
++    const struct hybrid580_file_projection_ops_v1 *ops)
++{
++    struct hybrid580_file_projection_provider *provider;
++    unsigned long flags;
++
++    write_lock_irqsave(&hybrid580_file_projection_lock, flags);
++    provider = hybrid580_file_projection;
++    if (provider == NULL || provider->key != ops)
++    {
++        write_unlock_irqrestore(&hybrid580_file_projection_lock, flags);
++        return -ENOENT;
++    }
++    hybrid580_file_projection = NULL;
++    /* Acquiring the write lock waited for every active callback reader. */
++    write_unlock_irqrestore(&hybrid580_file_projection_lock, flags);
++    kfree(provider);
++    return 0;
++}
++EXPORT_SYMBOL(hybrid580_legacy_unregister_file_projection_v1);
++
++/* Lock order: files->file_lock -> projection read lock -> atomic frontend
++ * mapping access. The callback cannot take the files lock or a sleeping lock.
++ * The returned file reference outlives both frontend and provider lifetime.
++ */
++static struct file *hybrid580_legacy_project_file(struct file *front, NvBool ctl)
++{
++    struct hybrid580_file_projection_provider *provider;
++    struct module *owner = NULL;
++    struct file *back = NULL;
++    unsigned long flags;
++
++    if (front == NULL || front->f_op == &nvidia_fops)
++        return NULL;
++    read_lock_irqsave(&hybrid580_file_projection_lock, flags);
++    provider = hybrid580_file_projection;
++    if (provider != NULL && front->f_op == provider->ops.frontend_fops &&
++        try_module_get(provider->ops.owner))
++    {
++        owner = provider->ops.owner;
++        back = provider->ops.get_backing_file(front, ctl);
++    }
++    read_unlock_irqrestore(&hybrid580_file_projection_lock, flags);
++    if (owner != NULL)
++        module_put(owner);
++    if (IS_ERR(back))
++        return NULL;
++    if (back != NULL && (back == front || back->f_op != &nvidia_fops))
++    {
++        fput(back);
++        back = NULL;
++    }
++    return back;
++}
++
++/* Does not sleep: also used while iterate_fd holds the files lock.
++ * ctl < 0 accepts either valid backend kind for direct-file state matching.
++ */
++static nv_linux_file_private_t *hybrid580_legacy_backend_file(
++    struct file *filp, int ctl)
++{
++    nv_linux_file_private_t *nvlfp;
++    nv_linux_state_t *nvl;
++    struct inode *inode;
++    dev_t rdev;
++    unsigned int minor;
++
++    if (filp == NULL || filp->f_op != &nvidia_fops ||
++        hybrid_chrdev_base == 0 || (inode = NV_FILE_INODE(filp)) == NULL)
++        return NULL;
++    rdev = inode->i_rdev;
++    if (!S_ISCHR(inode->i_mode) ||
++        MAJOR(rdev) != MAJOR(hybrid_chrdev_base))
++        return NULL;
++    minor = MINOR(rdev);
++    nvlfp = NV_GET_LINUX_FILE_PRIVATE(filp);
++    if (nvlfp == NULL || (nvl = READ_ONCE(nvlfp->nvptr)) == NULL)
++        return NULL;
++    if (minor == NV_MINOR_DEVICE_NUMBER_CONTROL_DEVICE)
++    {
++        if (ctl == 0 || nvl != &nv_ctl_device ||
++            ((NV_STATE_PTR(nvl))->flags & (NV_FLAG_OPEN | NV_FLAG_CONTROL)) !=
++                (NV_FLAG_OPEN | NV_FLAG_CONTROL))
++            return NULL;
++    }
++    else if (ctl > 0 || minor > NV_MINOR_DEVICE_NUMBER_REGULAR_MAX ||
++             nvl == &nv_ctl_device ||
++             READ_ONCE(nv_linux_minor_num_table[minor]) != nvl)
++        return NULL;
++    return nvlfp;
++}
++
+ nv_file_private_t* NV_API_CALL nv_get_file_private(
+     NvS32 fd,
+     NvBool ctl,
+     void **os_private
+ )
+ {
+-    struct file *filp = NULL;
+-    nv_linux_file_private_t *nvlfp = NULL;
+-    dev_t rdev = 0;
+-
++    struct file *filp;
++    nv_linux_file_private_t *nvlfp;
++
++    if (os_private == NULL)
++        return NULL;
++    *os_private = NULL;
+     filp = fget(fd);
+-
+-    if (filp == NULL || !NV_FILE_INODE(filp))
+-    {
+-        goto fail;
+-    }
+-
+-    rdev = (NV_FILE_INODE(filp))->i_rdev;
+-
+-    if (hybrid_chrdev_base == 0 ||
+-        filp->f_op != &nvidia_fops ||
+-        MAJOR(rdev) != MAJOR(hybrid_chrdev_base))
+-    {
+-        goto fail;
+-    }
+-
+-    if (ctl)
+-    {
+-        if (MINOR(rdev) != NV_MINOR_DEVICE_NUMBER_CONTROL_DEVICE)
+-            goto fail;
+-    }
+-    else
+-    {
+-        NvBool found = NV_FALSE;
+-        int i;
+-
+-        for (i = 0; i <= NV_MINOR_DEVICE_NUMBER_REGULAR_MAX; i++)
+-        {
+-            if ((nv_linux_minor_num_table[i] != NULL) && (MINOR(rdev) == i))
+-            {
+-                found = NV_TRUE;
+-                break;
+-            }
+-        }
+-
+-        if (!found)
+-            goto fail;
+-    }
+-
+-    nvlfp = NV_GET_LINUX_FILE_PRIVATE(filp);
+-
++    if (filp != NULL && filp->f_op != &nvidia_fops)
++    {
++        struct file *back = hybrid580_legacy_project_file(filp, ctl);
++        fput(filp);
++        filp = back;
++    }
++    nvlfp = hybrid580_legacy_backend_file(filp, ctl != NV_FALSE);
++    if (nvlfp == NULL)
++    {
++        if (filp != NULL)
++            fput(filp);
++        return NULL;
++    }
+     *os_private = filp;
+-
+     return &nvlfp->nvfp;
+-
+-fail:
+-
+-    if (filp != NULL)
+-    {
+-        fput(filp);
+-    }
+-
+-    return NULL;
+ }
+ 
+ void NV_API_CALL nv_put_file_private(
+@@ -5748,18 +5850,20 @@
+ 
+ static int nv_match_dev_state(const void *data, struct file *filp, unsigned fd)
+ {
+-    nv_linux_state_t *nvl = NULL;
+-
+-    if (filp == NULL ||
+-        filp->f_op != &nvidia_fops ||
+-        filp->private_data == NULL)
+-        return 0;
+-
+-    nvl = NV_GET_NVL_FROM_FILEP(filp);
+-    if (nvl == NULL)
+-        return 0;
+-
+-    return (data == nvl);
++    nv_linux_file_private_t *nvlfp;
++    struct file *back = NULL;
++    int matches;
++
++    if (filp != NULL && filp->f_op != &nvidia_fops)
++    {
++        back = hybrid580_legacy_project_file(filp, NV_FALSE);
++        filp = back;
++    }
++    nvlfp = hybrid580_legacy_backend_file(filp, back != NULL ? 0 : -1);
++    matches = (nvlfp != NULL && data == READ_ONCE(nvlfp->nvptr));
++    if (back != NULL)
++        fput(back);
++    return matches;
+ }
+ 
+ NvBool NV_API_CALL nv_match_gpu_os_info(nv_state_t *nv, void *os_info)
+--- /dev/null
++++ b/nvidia/hybrid580-file-projection.h
+@@ -0,0 +1,41 @@
++/* SPDX-License-Identifier: MIT */
++#ifndef HYBRID580_FILE_PROJECTION_H
++#define HYBRID580_FILE_PROJECTION_H
++
++#include <linux/types.h>
++#include <linux/module.h>
++#include <linux/fs.h>
++
++#define HYBRID580_FILE_PROJECTION_ABI_V1 1U
++
++/* Private experimental kernel API, not a CUDA or userspace ABI.
++ * Register/unregister in process context using the same static ops address.
++ * The owner must own frontend_fops, register its own provider, and unregister
++ * before module teardown; no permanent module pin is taken by registration.
++ * Registration copies ops; changing the caller's object has no effect.
++ *
++ * Lock order: files->file_lock -> projection registry read lock -> atomic
++ * frontend mapping access. get_backing_file runs with IRQs disabled and may
++ * run under iterate_fd files->file_lock. It MUST NOT sleep, call RM, fget,
++ * acquire a files_struct lock, register/unregister, or recurse into projection.
++ * It must run in bounded O(1) time. Return NULL or exactly one get_file reference
++ * to a fully opened file of this private backend. Never return ERR_PTR.
++ * ctl is true for control-file lookup and false for a GPU-file lookup.
++ * The frontend must keep the backing file alive while it is published and
++ * serialize its pointer replacement so get_file cannot race a final put.
++ * Taking a file reference does not isolate concurrent userspace ioctls.
++ */
++struct hybrid580_file_projection_ops_v1 {
++    u32 abi_version;
++    u32 struct_size;
++    struct module *owner;
++    const struct file_operations *frontend_fops;
++    struct file *(*get_backing_file)(struct file *front, bool ctl);
++};
++
++int hybrid580_legacy_register_file_projection_v1(
++    const struct hybrid580_file_projection_ops_v1 *ops);
++int hybrid580_legacy_unregister_file_projection_v1(
++    const struct hybrid580_file_projection_ops_v1 *ops);
++
++#endif

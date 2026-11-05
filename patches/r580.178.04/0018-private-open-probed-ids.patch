@@ -1,0 +1,99 @@
+--- a/kernel-open/nvidia/nv.c
++++ b/kernel-open/nvidia/nv.c
+@@ -4580,6 +4580,85 @@
+ }
+ EXPORT_SYMBOL(hybrid580_open_control_session_attached_ids_v1);
+ 
++NV_STATUS hybrid580_open_control_session_probed_ids_v1(
++    struct hybrid580_control_session *session, NvHandle h_client,
++    NvHandle h_object, NvU32 flags,
++    NV0000_CTRL_GPU_GET_PROBED_IDS_PARAMS *params, NvU32 *control_status)
++{
++    nv_linux_file_private_t *nvlfp;
++    nv_state_t *nv;
++    NV0000_CTRL_GPU_GET_PROBED_IDS_PARAMS result;
++    NVOS54_PARAMETERS control;
++    nvidia_stack_t *sp = NULL;
++    nvidia_kernel_rmapi_ops_t ops;
++    NV_STATUS status;
++    int rc;
++
++    if (control_status == NULL)
++        return NV_ERR_INVALID_ARGUMENT;
++    *control_status = (NvU32)NV_ERR_INVALID_ARGUMENT;
++    if (session == NULL || params == NULL || h_client == 0 ||
++        h_client != h_object || flags != NVOS54_FLAGS_NONE)
++        return NV_ERR_INVALID_ARGUMENT;
++
++    /* This output-only SDK table is fixed-size and contains no user pointers. */
++    memset(&result, 0xff, sizeof(result));
++    control = (NVOS54_PARAMETERS) {
++        .hClient = h_client,
++        .hObject = h_object,
++        .cmd = NV0000_CTRL_CMD_GPU_GET_PROBED_IDS,
++        .flags = flags,
++        .params = KERNEL_POINTER_TO_NvP64(&result),
++        .paramsSize = sizeof(result),
++        .status = 0xffffffffU,
++    };
++
++    if (mutex_lock_interruptible(&session->lock) != 0)
++        return NV_ERR_OPERATING_SYSTEM;
++    nvlfp = hybrid580_open_backend_file(session->file, 1);
++    if (nvlfp == NULL)
++    {
++        status = NV_ERR_INVALID_STATE;
++        goto done;
++    }
++    rc = nv_down_read_interruptible(&nv_system_pm_lock);
++    if (rc < 0)
++    {
++        status = NV_ERR_OPERATING_SYSTEM;
++        goto done;
++    }
++
++    nv = NV_STATE_PTR(nvlfp->nvptr);
++    status = nv_check_gpu_state(nv);
++    if (status == NV_OK)
++    {
++        rc = nv_kmem_cache_alloc_stack(&sp);
++        if (rc != 0)
++        {
++            status = NV_ERR_NO_MEMORY;
++            goto done_pm;
++        }
++
++        ops = (nvidia_kernel_rmapi_ops_t) {
++            .op = NV04_CONTROL,
++            .params.control = control,
++        };
++        rm_kernel_rmapi_op(sp, &ops);
++        control = ops.params.control;
++        *params = result;
++        *control_status = (NvU32)control.status;
++    }
++done_pm:
++    if (sp != NULL)
++        nv_kmem_cache_free_stack(sp);
++    up_read(&nv_system_pm_lock);
++done:
++    mutex_unlock(&session->lock);
++    return status;
++}
++EXPORT_SYMBOL(hybrid580_open_control_session_probed_ids_v1);
++
++
+ int hybrid580_open_control_session_create_v1(
+     struct file *anchor, struct hybrid580_control_session **out,
+     struct hybrid_rm_session_endpoint_v1 *endpoint)
+--- a/kernel-open/nvidia/hybrid580-control-session.h
++++ b/kernel-open/nvidia/hybrid580-control-session.h
+@@ -39,4 +39,8 @@
+     struct hybrid580_control_session *, NvHandle h_client, NvHandle h_object,
+     NvU32 flags, NV0000_CTRL_GPU_GET_ATTACHED_IDS_PARAMS *params,
+     NvU32 *control_status);
++NV_STATUS hybrid580_open_control_session_probed_ids_v1(
++    struct hybrid580_control_session *, NvHandle h_client, NvHandle h_object,
++    NvU32 flags, NV0000_CTRL_GPU_GET_PROBED_IDS_PARAMS *params,
++    NvU32 *control_status);
+ #endif

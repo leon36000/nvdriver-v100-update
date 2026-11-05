@@ -1,0 +1,293 @@
+--- a/kernel-open/nvidia/nv.c
++++ b/kernel-open/nvidia/nv.c
+@@ -38,6 +38,12 @@
+ #include "nv-pci-table.h"
+ #include "nv-chardev-numbers.h"
+ #include "hybrid580-file-projection.h"
++#include "hybrid580-control-session.h"
++#include <linux/kref.h>
++#include <linux/mutex.h>
++#include <linux/mount.h>
++#include <nvos.h>
++#include <nv_escape.h>
+ #include <linux/spinlock.h>
+ #include <linux/slab.h>
+ 
+@@ -2193,6 +2199,10 @@
+ {
+     int rc;
+     nv_linux_file_private_t *nvlfp = NV_GET_LINUX_FILE_PRIVATE(file);
++
++    /* Pseudo files are FMODE_OPENED before vendor open can fail. */
++    if (nvlfp == NULL)
++        return 0;
+ 
+     nv_printf(NV_DBG_INFO,
+               "NVRM: nvidia_close on GPU with minor number %d\n",
+@@ -4190,6 +4200,221 @@
+     return nvlfp;
+ }
+ 
++/* An unpublished control file has ordinary vendor private storage. The owner
++ * holds a session reference throughout every call and mapping publication.
++ * This mutex serializes calls only; it never covers a final fput(). */
++struct hybrid580_control_session {
++    struct kref refs;
++    struct mutex lock;
++    struct file *file;
++};
++
++static NvBool hybrid580_control_root_request(NvU32 command, void *payload, NvU32 size)
++{
++    if (payload == NULL)
++        return NV_FALSE;
++    if (command == NV_ESC_RM_ALLOC && size == sizeof(NVOS21_PARAMETERS))
++    {
++        NVOS21_PARAMETERS *p = payload;
++        return p->hObjectParent == 0 && p->hObjectNew == 0 &&
++            (p->hClass == NV01_ROOT || p->hClass == NV01_ROOT_CLIENT) &&
++            p->pAllocParms == 0 && p->paramsSize == 0;
++    }
++    if (command == NV_ESC_RM_ALLOC && size == sizeof(NVOS64_PARAMETERS))
++    {
++        NVOS64_PARAMETERS *p = payload;
++        return p->hObjectParent == 0 && p->hObjectNew == 0 &&
++            (p->hClass == NV01_ROOT || p->hClass == NV01_ROOT_CLIENT) &&
++            p->pAllocParms == 0 && p->paramsSize == 0 &&
++            p->pRightsRequested == 0 && p->flags == NVOS64_FLAGS_NONE;
++    }
++    if (command == NV_ESC_RM_FREE && size == sizeof(NVOS00_PARAMETERS))
++    {
++        NVOS00_PARAMETERS *p = payload;
++        return p->hRoot != 0 && p->hObjectParent == 0 && p->hObjectOld == p->hRoot;
++    }
++    return NV_FALSE;
++}
++
++static void hybrid580_control_mark_unwritten(NvU32 command, void *payload, NvU32 size)
++{
++    /* Called only after the exact typed request was validated. Never let an
++     * RM that omitted its status write inherit an input success value. */
++    if (command == NV_ESC_RM_FREE)
++        ((NVOS00_PARAMETERS *)payload)->status = 0xffffffffU;
++    else if (size == sizeof(NVOS21_PARAMETERS))
++        ((NVOS21_PARAMETERS *)payload)->status = 0xffffffffU;
++    else
++        ((NVOS64_PARAMETERS *)payload)->status = 0xffffffffU;
++}
++
++static NV_STATUS NV_API_CALL hybrid580_control_session_invoke(
++    void *context, NvU32 command, void *payload, NvU32 size)
++{
++    struct hybrid580_control_session *session = context;
++    nv_linux_file_private_t *nvlfp;
++    nvidia_stack_t *sp = NULL;
++    nv_state_t *nv;
++    NV_STATUS status;
++
++    if (session == NULL || !hybrid580_control_root_request(command, payload, size))
++        return NV_ERR_INVALID_ARGUMENT;
++    hybrid580_control_mark_unwritten(command, payload, size);
++    if (mutex_lock_interruptible(&session->lock) != 0)
++        return NV_ERR_OPERATING_SYSTEM;
++    nvlfp = hybrid580_open_backend_file(session->file, 1);
++    if (nvlfp == NULL)
++    {
++        status = NV_ERR_INVALID_STATE;
++        goto done;
++    }
++    if (nv_down_read_interruptible(&nv_system_pm_lock) != 0)
++    {
++        status = NV_ERR_OPERATING_SYSTEM;
++        goto done;
++    }
++    if (nv_kmem_cache_alloc_stack(&sp) != 0)
++    {
++        status = NV_ERR_NO_MEMORY;
++        goto done_pm;
++    }
++    nv = NV_STATE_PTR(nvlfp->nvptr);
++    status = nv_check_gpu_state(nv);
++    if (status == NV_OK)
++        status = rm_ioctl(sp, nv, &nvlfp->nvfp, command, payload, size);
++    nv_kmem_cache_free_stack(sp);
++ done_pm:
++    up_read(&nv_system_pm_lock);
++ done:
++    mutex_unlock(&session->lock);
++    /* Keep the transport and embedded payload status channels distinct. */
++    return status;
++}
++
++static void hybrid580_control_session_release(struct kref *refs)
++{
++    struct hybrid580_control_session *session =
++        container_of(refs, struct hybrid580_control_session, refs);
++
++    /* fput may defer vendor release; this is not synchronous RM teardown. */
++    fput(session->file);
++    kfree(session);
++}
++
++void hybrid580_open_control_session_get_v1(struct hybrid580_control_session *session)
++{
++    if (session != NULL)
++        kref_get(&session->refs);
++}
++EXPORT_SYMBOL(hybrid580_open_control_session_get_v1);
++
++void hybrid580_open_control_session_put_v1(struct hybrid580_control_session *session)
++{
++    if (session != NULL)
++        kref_put(&session->refs, hybrid580_control_session_release);
++}
++EXPORT_SYMBOL(hybrid580_open_control_session_put_v1);
++
++struct file *hybrid580_open_control_session_file_v1(struct hybrid580_control_session *session)
++{
++    /* Atomic reference acquisition for the projection callback. Caller owns
++     * a session reference, which keeps this immutable file pointer alive. */
++    return session != NULL ? get_file(session->file) : NULL;
++}
++EXPORT_SYMBOL(hybrid580_open_control_session_file_v1);
++
++int hybrid580_open_control_session_create_v1(
++    struct file *anchor, struct hybrid580_control_session **out,
++    struct hybrid_rm_session_endpoint_v1 *endpoint)
++{
++    struct hybrid580_control_session *session;
++    const struct file_operations *fops;
++    struct inode *inode, *anchor_inode;
++    struct file *file;
++    int rc;
++
++    if (out == NULL || endpoint == NULL)
++        return -EINVAL;
++    *out = NULL;
++    memset(endpoint, 0, sizeof(*endpoint));
++    if (anchor == NULL)
++        return -EINVAL;
++    get_file(anchor);
++    anchor_inode = NV_FILE_INODE(anchor);
++    if (anchor_inode == NULL || anchor->f_path.mnt == NULL ||
++        anchor->f_path.dentry == NULL ||
++        d_inode(anchor->f_path.dentry) != anchor_inode ||
++        anchor_inode->i_sb != anchor->f_path.mnt->mnt_sb)
++    {
++        rc = -EINVAL;
++        goto put_anchor;
++    }
++    if (hybrid_chrdev_base == 0)
++    {
++        rc = -ENODEV;
++        goto put_anchor;
++    }
++    session = kzalloc(sizeof(*session), GFP_KERNEL);
++    if (session == NULL)
++    {
++        rc = -ENOMEM;
++        goto put_anchor;
++    }
++    inode = alloc_anon_inode(anchor_inode->i_sb);
++    if (IS_ERR(inode))
++    {
++        rc = PTR_ERR(inode);
++        goto free_session;
++    }
++    inode->i_mode = S_IFCHR | S_IRUSR | S_IWUSR;
++    inode->i_rdev = MKDEV(MAJOR(hybrid_chrdev_base), NV_MINOR_DEVICE_NUMBER_CONTROL_DEVICE);
++    fops = fops_get(&nvidia_fops);
++    if (fops == NULL)
++    {
++        rc = -ENODEV;
++        goto put_inode;
++    }
++    file = alloc_file_pseudo(inode, anchor->f_path.mnt,
++                             "hybrid580-open-control", O_RDWR, fops);
++    if (IS_ERR(file))
++    {
++        rc = PTR_ERR(file);
++        fops_put(fops);
++        goto put_inode;
++    }
++    /* alloc_file_pseudo owns the inode and fops references after success.
++     * Its file is already FMODE_OPENED: nvidia_close must accept NULL private
++     * data if the real vendor open fails before allocating file state. */
++    rc = nvidia_open(inode, file);
++    if (rc != 0)
++    {
++        fput(file);
++        goto free_session;
++    }
++    kref_init(&session->refs);
++    mutex_init(&session->lock);
++    session->file = file;
++    *endpoint = (struct hybrid_rm_session_endpoint_v1) {
++        .abi_version = HYBRID_RM_SESSION_ABI_V1,
++        .struct_size = sizeof(*endpoint),
++        .invoke = hybrid580_control_session_invoke,
++        .context = session,
++        .backend_identity = &nv_ctl_device,
++        .file_identity = file,
++    };
++    *out = session;
++    fput(anchor);
++    return 0;
++ put_inode:
++    iput(inode);
++ free_session:
++    kfree(session);
++ put_anchor:
++    fput(anchor);
++    return rc;
++}
++EXPORT_SYMBOL(hybrid580_open_control_session_create_v1);
++
+ nv_file_private_t* NV_API_CALL nv_get_file_private(
+     NvS32 fd,
+     NvBool ctl,
+--- a/kernel-open/nvidia/nvidia.Kbuild
++++ b/kernel-open/nvidia/nvidia.Kbuild
+@@ -53,6 +53,10 @@
+ #
+ 
+ NVIDIA_CFLAGS += -I$(src)/nvidia
++NVIDIA_CFLAGS += -I$(src)/../src/common/sdk/nvidia/inc
++NVIDIA_CFLAGS += -I$(src)/../src/common/inc
++NVIDIA_CFLAGS += -I$(src)/../src/common/inc/swref
++NVIDIA_CFLAGS += -I$(src)/../src/nvidia/arch/nvalloc/unix/include
+ NVIDIA_CFLAGS += -include $(src)/nvidia/hybrid580-open-exports.h
+ NVIDIA_CFLAGS += -DNVIDIA_UNDEF_LEGACY_BIT_MACROS
+ 
+--- /dev/null
++++ b/kernel-open/nvidia/hybrid580-control-session.h
+@@ -0,0 +1,29 @@
++/* SPDX-License-Identifier: MIT */
++#ifndef HYBRID580_CONTROL_SESSION_H
++#define HYBRID580_CONTROL_SESSION_H
++
++#include "rm_session_endpoint.h"
++#include <linux/fs.h>
++
++struct hybrid580_control_session;
++/* Private kernel API, not a userspace/CUDA ABI. Create/invoke/put-final run in
++ * process context. Anchor is caller-owned and held throughout creation. This
++ * opens only an unpublished control file, never a GPU or userspace fd.
++ * Calls execute with current caller credentials; no implicit worker override.
++ * Caller holds a session reference through invoke and while publishing a
++ * projection mapping. get/file may run atomically. file returns one get_file
++ * reference; frontend owns and must release it. Endpoint copies take no refs.
++ * Serialize frontend close/unpublication before dropping its session refs.
++ * No final put while holding locks needed by vendor release. fput can defer
++ * RM cleanup: return from final put does not certify synchronous teardown.
++ * Invoke accepts kernel-owned ROOT alloc32/64 and root FREE packets only,
++ * without embedded pointers. It never retains payload after returning.
++ * Status return is transport; embedded NVOS status remains the RM's output.
++ */
++int hybrid580_open_control_session_create_v1(struct file *anchor,
++    struct hybrid580_control_session **out,
++    struct hybrid_rm_session_endpoint_v1 *endpoint);
++void hybrid580_open_control_session_get_v1(struct hybrid580_control_session *);
++void hybrid580_open_control_session_put_v1(struct hybrid580_control_session *);
++struct file *hybrid580_open_control_session_file_v1(struct hybrid580_control_session *);
++#endif

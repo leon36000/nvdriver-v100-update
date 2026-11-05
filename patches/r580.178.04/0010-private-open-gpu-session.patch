@@ -1,0 +1,255 @@
+--- a/kernel-open/nvidia/nv.c
++++ b/kernel-open/nvidia/nv.c
+@@ -39,6 +39,7 @@
+ #include "nv-chardev-numbers.h"
+ #include "hybrid580-file-projection.h"
+ #include "hybrid580-control-session.h"
++#include "hybrid580-gpu-session.h"
+ #include <linux/kref.h>
+ #include <linux/mutex.h>
+ #include <linux/mount.h>
+@@ -4415,6 +4416,216 @@
+ }
+ EXPORT_SYMBOL(hybrid580_open_control_session_create_v1);
+ 
++/* A GPU session owns the actual file-private state created by nvidia_open.
++ * Its caller keeps a session reference throughout projected fd lookups and
++ * ioctl dispatch. No user descriptor is installed in the backend namespace.
++ */
++struct hybrid580_gpu_session {
++    struct kref refs;
++    struct file *file;
++    NvU32 minor;
++};
++
++static NvBool hybrid580_open_gpu_bdf_valid(const char *bdf)
++{
++    NvU32 i;
++
++    if (bdf == NULL || strnlen(bdf, 13) != 12)
++        return NV_FALSE;
++    for (i = 0; i < 12; ++i)
++    {
++        NvBool hex = (bdf[i] >= '0' && bdf[i] <= '9') ||
++                     (bdf[i] >= 'a' && bdf[i] <= 'f');
++        if ((i == 4 || i == 7) ? bdf[i] != ':' :
++            i == 10 ? bdf[i] != '.' : !hex)
++            return NV_FALSE;
++    }
++    return NV_TRUE;
++}
++
++static NvBool hybrid580_open_gpu_bdf_matches(const char *expected,
++                                              const char *actual)
++{
++    return hybrid580_open_gpu_bdf_valid(expected) &&
++           hybrid580_open_gpu_bdf_valid(actual) &&
++           strcmp(expected, actual) == 0;
++}
++
++static void hybrid580_open_gpu_session_release(struct kref *refs)
++{
++    struct hybrid580_gpu_session *session =
++        container_of(refs, struct hybrid580_gpu_session, refs);
++
++    /* NVIDIA close owns RM cleanup; fput can complete it asynchronously. */
++    fput(session->file);
++    kfree(session);
++}
++
++void hybrid580_open_gpu_session_get_v1(struct hybrid580_gpu_session *session)
++{
++    if (session != NULL)
++        kref_get(&session->refs);
++}
++EXPORT_SYMBOL(hybrid580_open_gpu_session_get_v1);
++
++void hybrid580_open_gpu_session_put_v1(struct hybrid580_gpu_session *session)
++{
++    if (session != NULL)
++        kref_put(&session->refs, hybrid580_open_gpu_session_release);
++}
++EXPORT_SYMBOL(hybrid580_open_gpu_session_put_v1);
++
++struct file *hybrid580_open_gpu_session_file_v1(
++    struct hybrid580_gpu_session *session)
++{
++    return session != NULL ? get_file(session->file) : NULL;
++}
++EXPORT_SYMBOL(hybrid580_open_gpu_session_file_v1);
++
++long hybrid580_open_gpu_session_ioctl_v1(
++    struct hybrid580_gpu_session *session, unsigned int command,
++    unsigned long argument)
++{
++    if (session == NULL || session->file == NULL)
++        return -EINVAL;
++    return nvidia_unlocked_ioctl(session->file, command, argument);
++}
++EXPORT_SYMBOL(hybrid580_open_gpu_session_ioctl_v1);
++
++int hybrid580_open_gpu_session_create_v1(
++    struct file *anchor, NvU32 minor, const char *expected_bdf,
++    struct hybrid580_gpu_session **out)
++{
++    struct hybrid580_gpu_session *session;
++    const struct file_operations *fops;
++    nv_linux_state_t *nvl;
++    nv_linux_file_private_t *nvlfp;
++    struct inode *inode, *anchor_inode;
++    struct file *file;
++    int rc;
++
++    if (out == NULL)
++        return -EINVAL;
++    *out = NULL;
++    if (anchor == NULL || minor == NV_MINOR_DEVICE_NUMBER_CONTROL_DEVICE ||
++        minor > NV_MINOR_DEVICE_NUMBER_REGULAR_MAX ||
++        !hybrid580_open_gpu_bdf_valid(expected_bdf))
++        return -EINVAL;
++    get_file(anchor);
++    anchor_inode = NV_FILE_INODE(anchor);
++    if (anchor_inode == NULL || anchor->f_path.mnt == NULL ||
++        anchor->f_path.dentry == NULL ||
++        d_inode(anchor->f_path.dentry) != anchor_inode ||
++        anchor_inode->i_sb != anchor->f_path.mnt->mnt_sb)
++    {
++        rc = -EINVAL;
++        goto put_anchor;
++    }
++    if (hybrid_chrdev_base == 0)
++    {
++        rc = -ENODEV;
++        goto put_anchor;
++    }
++
++    /* The private minor table is protected by nv_linux_devices_lock. Pin the
++     * selected BDF before constructing an inode; nvidia_open repeats the
++     * lookup under that lock and the post-open check catches hotplug reuse.
++     */
++    LOCK_NV_LINUX_DEVICES();
++    nvl = find_minor_locked(minor);
++    if (nvl == NULL || nvl == &nv_ctl_device || nvl->pci_dev == NULL ||
++        !hybrid580_open_gpu_bdf_matches(expected_bdf, pci_name(nvl->pci_dev)))
++    {
++        UNLOCK_NV_LINUX_DEVICES();
++        rc = -ENODEV;
++        goto put_anchor;
++    }
++    UNLOCK_NV_LINUX_DEVICES();
++
++    session = kzalloc(sizeof(*session), GFP_KERNEL);
++    if (session == NULL)
++    {
++        rc = -ENOMEM;
++        goto put_anchor;
++    }
++    inode = alloc_anon_inode(anchor_inode->i_sb);
++    if (IS_ERR(inode))
++    {
++        rc = PTR_ERR(inode);
++        goto free_session;
++    }
++    inode->i_mode = S_IFCHR | S_IRUSR | S_IWUSR;
++    inode->i_rdev = MKDEV(MAJOR(hybrid_chrdev_base), minor);
++    fops = fops_get(&nvidia_fops);
++    if (fops == NULL)
++    {
++        rc = -ENODEV;
++        goto put_inode;
++    }
++    file = alloc_file_pseudo(inode, anchor->f_path.mnt,
++                             "hybrid580-open-gpu", O_RDWR, fops);
++    if (IS_ERR(file))
++    {
++        rc = PTR_ERR(file);
++        fops_put(fops);
++        goto put_inode;
++    }
++    rc = nvidia_open(inode, file);
++    if (rc != 0)
++    {
++        fput(file);
++        goto free_session;
++    }
++    nvlfp = NV_GET_LINUX_FILE_PRIVATE(file);
++    if (nvlfp == NULL)
++    {
++        rc = -EIO;
++        fput(file);
++        goto free_session;
++    }
++    rc = nv_wait_open_complete_interruptible(nvlfp);
++    if (rc != 0)
++    {
++        fput(file);
++        goto free_session;
++    }
++    if (nvlfp->open_rc != 0)
++    {
++        rc = nvlfp->open_rc;
++        fput(file);
++        goto free_session;
++    }
++
++    LOCK_NV_LINUX_DEVICES();
++    nvl = nvlfp->nvptr;
++    if (nvl == NULL || nvl == &nv_ctl_device || nvl->pci_dev == NULL ||
++        !hybrid580_open_gpu_bdf_matches(expected_bdf, pci_name(nvl->pci_dev)))
++        rc = -ENODEV;
++    else
++        rc = 0;
++    UNLOCK_NV_LINUX_DEVICES();
++    if (rc != 0)
++    {
++        fput(file);
++        goto free_session;
++    }
++
++    kref_init(&session->refs);
++    session->file = file;
++    session->minor = minor;
++    *out = session;
++    fput(anchor);
++    return 0;
++ put_inode:
++    iput(inode);
++ free_session:
++    kfree(session);
++ put_anchor:
++    fput(anchor);
++    return rc;
++}
++EXPORT_SYMBOL(hybrid580_open_gpu_session_create_v1);
++
+ nv_file_private_t* NV_API_CALL nv_get_file_private(
+     NvS32 fd,
+     NvBool ctl,
+--- /dev/null
++++ b/kernel-open/nvidia/hybrid580-gpu-session.h
+@@ -0,0 +1,25 @@
++/* SPDX-License-Identifier: MIT */
++#ifndef HYBRID580_GPU_SESSION_H
++#define HYBRID580_GPU_SESSION_H
++
++#include <linux/fs.h>
++#include <nvtypes.h>
++
++struct hybrid580_gpu_session;
++
++/* Internal kernel API. The BDF must match the selected backend GPU. The
++ * session retains the genuine NVIDIA GPU file created by nvidia_open().
++ * Callers hold a session reference across projected lookups and ioctls.
++ */
++int hybrid580_open_gpu_session_create_v1(
++    struct file *anchor, NvU32 minor, const char *expected_bdf,
++    struct hybrid580_gpu_session **out);
++void hybrid580_open_gpu_session_get_v1(struct hybrid580_gpu_session *session);
++void hybrid580_open_gpu_session_put_v1(struct hybrid580_gpu_session *session);
++struct file *hybrid580_open_gpu_session_file_v1(
++    struct hybrid580_gpu_session *session);
++long hybrid580_open_gpu_session_ioctl_v1(
++    struct hybrid580_gpu_session *session, unsigned int command,
++    unsigned long argument);
++
++#endif

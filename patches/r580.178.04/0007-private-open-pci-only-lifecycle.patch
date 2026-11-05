@@ -1,0 +1,95 @@
+--- a/kernel-open/nvidia/nv.c
++++ b/kernel-open/nvidia/nv.c
+@@ -491,10 +491,7 @@
+ static void
+ nvlink_drivers_exit(void)
+ {
+-#if NVCPU_IS_64_BITS
+-    nvswitch_exit();
+-#endif
+-
++    /* PCI-GPU-only prototype: no NVSwitch driver was registered. */
+     nvlink_core_exit();
+ }
+ 
+@@ -510,14 +507,7 @@
+         return rc;
+     }
+ 
+-#if NVCPU_IS_64_BITS
+-    rc = nvswitch_init();
+-    if (rc < 0)
+-    {
+-        nv_printf(NV_DBG_INFO, "NVRM: NVSwitch init failed.\n");
+-        nvlink_core_exit();
+-    }
+-#endif
++    /* NVLink core is retained; NVSwitch PCI probing is outside this prototype. */
+ 
+     return rc;
+ }
+@@ -625,9 +615,6 @@
+ static void
+ nv_drivers_exit(void)
+ {
+-#if NV_SUPPORTS_PLATFORM_DEVICE
+-    nv_platform_unregister_driver();
+-#endif
+     nv_pci_unregister_driver();
+ }
+ 
+@@ -644,15 +631,7 @@
+         goto exit;
+     }
+ 
+-#if NV_SUPPORTS_PLATFORM_DEVICE
+-    rc = nv_platform_register_driver();
+-    if (rc < 0)
+-    {
+-        nv_printf(NV_DBG_ERRORS, "NVRM: SOC driver registration failed!\n");
+-        nv_pci_unregister_driver();
+-        rc = -ENODEV;
+-    }
+-#endif
++    /* Only the BDF-filtered GPU PCI driver is registered by this backend. */
+ 
+ exit:
+     return rc;
+@@ -837,7 +816,7 @@
+     NvU32 count;
+     NvBool warn_unprobed = NV_FALSE;
+     nvidia_stack_t *sp = NULL;
+-    const NvBool is_nvswitch_present = os_is_nvswitch_present();
++    const NvBool is_nvswitch_present = NV_FALSE;
+     int num_pci_devices = 0, num_platform_devices = 0;
+ 
+     nv_memdbg_init();
+@@ -4290,7 +4269,7 @@
+     int nplatform = 0;
+     int npci = nv_pci_count_devices();
+ 
+-    nplatform = nv_platform_count_devices();
++    /* Platform GPUs are not registered by this PCI-only prototype. */
+ 
+     if (num_pci_devices != NULL)
+         *num_pci_devices = npci;
+--- a/kernel-open/nvidia/nv-pci-table.c
++++ b/kernel-open/nvidia/nv-pci-table.c
+@@ -86,5 +86,5 @@
+ };
+ 
+ #if defined(NV_LINUX)
+-MODULE_DEVICE_TABLE(pci, nv_module_device_table);
++/* Private prototype is loaded explicitly; no public hardware autoload alias. */
+ #endif
+--- a/kernel-open/nvidia/nv-platform.c
++++ b/kernel-open/nvidia/nv-platform.c
+@@ -1353,7 +1353,7 @@
+     { .compatible = "nvidia,tegra264-display",},
+     {},
+ };
+-MODULE_DEVICE_TABLE(of, nv_platform_device_table);
++/* Private prototype is loaded explicitly; no public hardware autoload alias. */
+ 
+ #if defined(CONFIG_PM)
+ extern struct dev_pm_ops nv_pm_ops;

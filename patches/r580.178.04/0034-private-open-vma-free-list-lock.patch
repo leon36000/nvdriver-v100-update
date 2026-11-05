@@ -1,0 +1,22 @@
+--- a/kernel-open/common/inc/nv-linux.h
++++ b/kernel-open/common/inc/nv-linux.h
+@@ -1681,6 +1681,9 @@
+ static inline NvBool nv_alloc_release(nv_linux_file_private_t *nvlfp, nv_alloc_t *at)
+ {
++    unsigned long eflags;
++
+     NV_PRINT_AT(NV_DBG_MEMINFO, at);
+ 
++    NV_SPIN_LOCK_IRQSAVE(&nvlfp->fp_lock, eflags);
+     if (atomic64_dec_and_test(&at->usage_count))
+     {
+@@ -1689,7 +1692,9 @@
+         at->next = nvlfp->free_list;
+         nvlfp->free_list = at;
++        NV_SPIN_UNLOCK_IRQRESTORE(&nvlfp->fp_lock, eflags);
+         return NV_TRUE;
+     }
+ 
++    NV_SPIN_UNLOCK_IRQRESTORE(&nvlfp->fp_lock, eflags);
+     return NV_FALSE;
+ }

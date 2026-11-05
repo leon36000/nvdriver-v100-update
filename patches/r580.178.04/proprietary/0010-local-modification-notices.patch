@@ -1,0 +1,192 @@
+--- a/common/inc/nv-linux.h
++++ b/common/inc/nv-linux.h
+@@ -1,3 +1,10 @@
++/*
++ * LOCAL MODIFICATION NOTICE - NVIDIA Hybrid Driver Lab, 2026-10-19.
++ * Local source modifications: private wrapper namespaces, BDF routing, and
++ * typed GPU/control/session bridges.
++ * Original NVIDIA and third-party notices below are preserved unchanged.
++ * This is modified experimental source, not an original NVIDIA release.
++ */
+ /*
+  * SPDX-FileCopyrightText: Copyright (c) 2001-2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+  * SPDX-License-Identifier: MIT
+--- a/nvidia/export_nvswitch.h
++++ b/nvidia/export_nvswitch.h
+@@ -1,3 +1,10 @@
++/*
++ * LOCAL MODIFICATION NOTICE - NVIDIA Hybrid Driver Lab, 2026-10-19.
++ * Local source modifications: private wrapper namespaces, BDF routing, and
++ * typed GPU/control/session bridges.
++ * Original NVIDIA and third-party notices below are preserved unchanged.
++ * This is modified experimental source, not an original NVIDIA release.
++ */
+ /*
+  * SPDX-FileCopyrightText: Copyright (c) 2016-2021 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+  * SPDX-License-Identifier: MIT
+--- a/common/inc/nv.h
++++ b/common/inc/nv.h
+@@ -1,3 +1,10 @@
++/*
++ * LOCAL MODIFICATION NOTICE - NVIDIA Hybrid Driver Lab, 2026-10-19.
++ * Local source modifications: private wrapper namespaces, BDF routing, and
++ * typed GPU/control/session bridges and PM phase-depth support.
++ * Original NVIDIA and third-party notices below are preserved unchanged.
++ * This is modified experimental source, not an original NVIDIA release.
++ */
+ /*
+  * SPDX-FileCopyrightText: Copyright (c) 1999-2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+  * SPDX-License-Identifier: MIT
+--- a/nvidia/nv-caps-imex.c
++++ b/nvidia/nv-caps-imex.c
+@@ -1,3 +1,10 @@
++/*
++ * LOCAL MODIFICATION NOTICE - NVIDIA Hybrid Driver Lab, 2026-10-19.
++ * Local source modifications: private wrapper namespaces, BDF routing, and
++ * typed GPU/control/session bridges.
++ * Original NVIDIA and third-party notices below are preserved unchanged.
++ * This is modified experimental source, not an original NVIDIA release.
++ */
+ /*
+  * SPDX-FileCopyrightText: Copyright (c) 2023-2024 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+  * SPDX-License-Identifier: MIT
+--- a/nvidia/nv-caps.c
++++ b/nvidia/nv-caps.c
+@@ -1,3 +1,10 @@
++/*
++ * LOCAL MODIFICATION NOTICE - NVIDIA Hybrid Driver Lab, 2026-10-19.
++ * Local source modifications: private wrapper namespaces, BDF routing, and
++ * typed GPU/control/session bridges.
++ * Original NVIDIA and third-party notices below are preserved unchanged.
++ * This is modified experimental source, not an original NVIDIA release.
++ */
+ /*
+  * SPDX-FileCopyrightText: Copyright (c) 2019-2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+  * SPDX-License-Identifier: MIT
+--- a/nvidia/nv-pci-table.c
++++ b/nvidia/nv-pci-table.c
+@@ -1,3 +1,10 @@
++/*
++ * LOCAL MODIFICATION NOTICE - NVIDIA Hybrid Driver Lab, 2026-10-19.
++ * Local source modifications: private wrapper namespaces, BDF routing, and
++ * typed GPU/control/session bridges.
++ * Original NVIDIA and third-party notices below are preserved unchanged.
++ * This is modified experimental source, not an original NVIDIA release.
++ */
+ /*
+  * SPDX-FileCopyrightText: Copyright (c) 2015 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+  * SPDX-License-Identifier: MIT
+--- a/nvidia/nv-pci.c
++++ b/nvidia/nv-pci.c
+@@ -1,3 +1,10 @@
++/*
++ * LOCAL MODIFICATION NOTICE - NVIDIA Hybrid Driver Lab, 2026-10-19.
++ * Local source modifications: private wrapper namespaces, BDF routing, and
++ * typed GPU/control/session bridges.
++ * Original NVIDIA and third-party notices below are preserved unchanged.
++ * This is modified experimental source, not an original NVIDIA release.
++ */
+ /*
+  * SPDX-FileCopyrightText: Copyright (c) 2019-2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+  * SPDX-License-Identifier: MIT
+--- a/nvidia/nv-platform.c
++++ b/nvidia/nv-platform.c
+@@ -1,3 +1,10 @@
++/*
++ * LOCAL MODIFICATION NOTICE - NVIDIA Hybrid Driver Lab, 2026-10-19.
++ * Local source modifications: private wrapper namespaces, BDF routing, and
++ * typed GPU/control/session bridges.
++ * Original NVIDIA and third-party notices below are preserved unchanged.
++ * This is modified experimental source, not an original NVIDIA release.
++ */
+ /*
+  * SPDX-FileCopyrightText: Copyright (c) 2019-2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+  * SPDX-License-Identifier: MIT
+--- a/nvidia/nv-procfs.c
++++ b/nvidia/nv-procfs.c
+@@ -1,3 +1,10 @@
++/*
++ * LOCAL MODIFICATION NOTICE - NVIDIA Hybrid Driver Lab, 2026-10-19.
++ * Local source modifications: private wrapper namespaces, BDF routing, and
++ * typed GPU/control/session bridges.
++ * Original NVIDIA and third-party notices below are preserved unchanged.
++ * This is modified experimental source, not an original NVIDIA release.
++ */
+ /*
+  * SPDX-FileCopyrightText: Copyright (c) 1999-2024 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+  * SPDX-License-Identifier: MIT
+--- a/nvidia/nv.c
++++ b/nvidia/nv.c
+@@ -1,3 +1,10 @@
++/*
++ * LOCAL MODIFICATION NOTICE - NVIDIA Hybrid Driver Lab, 2026-10-19.
++ * Local source modifications: private wrapper namespaces, BDF routing, and
++ * typed GPU/control/version/session bridges.
++ * Original NVIDIA and third-party notices below are preserved unchanged.
++ * This is modified experimental source, not an original NVIDIA release.
++ */
+ /*
+  * SPDX-FileCopyrightText: Copyright (c) 1999-2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+  * SPDX-License-Identifier: MIT
+--- a/nvidia/nvidia.Kbuild
++++ b/nvidia/nvidia.Kbuild
+@@ -1,3 +1,9 @@
++# LOCAL MODIFICATION NOTICE - NVIDIA Hybrid Driver Lab, 2026-10-19.
++# Local source modifications: private wrapper namespaces, BDF routing, and
++# typed GPU/control/session bridges.
++# Original NVIDIA and third-party notices below are preserved unchanged.
++# This is modified experimental source, not an original NVIDIA release.
++
+ ###########################################################################
+ # Kbuild fragment for nvidia.ko
+ ###########################################################################
+--- a/nvidia/nvlink_linux.c
++++ b/nvidia/nvlink_linux.c
+@@ -1,3 +1,10 @@
++/*
++ * LOCAL MODIFICATION NOTICE - NVIDIA Hybrid Driver Lab, 2026-10-19.
++ * Local source modifications: private wrapper namespaces, BDF routing, and
++ * typed GPU/control/session bridges.
++ * Original NVIDIA and third-party notices below are preserved unchanged.
++ * This is modified experimental source, not an original NVIDIA release.
++ */
+ /*
+  * SPDX-FileCopyrightText: Copyright (c) 2015-2022 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+  * SPDX-License-Identifier: MIT
+--- a/nvidia/nvlink_linux.h
++++ b/nvidia/nvlink_linux.h
+@@ -1,3 +1,10 @@
++/*
++ * LOCAL MODIFICATION NOTICE - NVIDIA Hybrid Driver Lab, 2026-10-19.
++ * Local source modifications: private wrapper namespaces, BDF routing, and
++ * typed GPU/control/session bridges.
++ * Original NVIDIA and third-party notices below are preserved unchanged.
++ * This is modified experimental source, not an original NVIDIA release.
++ */
+ /*
+  * SPDX-FileCopyrightText: Copyright (c) 2014 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+  * SPDX-License-Identifier: MIT
+--- a/nvidia/procfs_nvswitch.c
++++ b/nvidia/procfs_nvswitch.c
+@@ -1,3 +1,9 @@
++/*
++ * LOCAL MODIFICATION NOTICE - NVIDIA Hybrid Driver Lab, 2026-10-19.
++ * Local source modifications: private R580 wrapper namespaces and resource routing.
++ * Original NVIDIA and third-party notices below are preserved unchanged.
++ * This is modified experimental source, not an original NVIDIA release.
++ */
+ /*
+  * SPDX-FileCopyrightText: Copyright (c) 2016-2020 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+  * SPDX-License-Identifier: MIT
+--- a/nvidia/nv-mmap.c
++++ b/nvidia/nv-mmap.c
+@@ -1,3 +1,9 @@
++/*
++ * LOCAL MODIFICATION NOTICE - NVIDIA Hybrid Driver Lab, 2026-10-19.
++ * Local source modifications: PM-aware direct VMA access admission.
++ * Original NVIDIA and third-party notices below are preserved unchanged.
++ * This is modified experimental source, not an original NVIDIA release.
++ */
+ /*
+  * SPDX-FileCopyrightText: Copyright (c) 1999-2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+  * SPDX-License-Identifier: MIT

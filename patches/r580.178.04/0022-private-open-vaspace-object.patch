@@ -1,0 +1,128 @@
+--- a/kernel-open/nvidia/nv.c
++++ b/kernel-open/nvidia/nv.c
+@@ -5028,6 +5028,103 @@
+ EXPORT_SYMBOL(hybrid580_open_control_session_object_free_v1);
+ 
+ 
++NV_STATUS hybrid580_open_control_session_vaspace_alloc_v1(
++    struct hybrid580_control_session *session, NvHandle h_root,
++    NvHandle h_device, NvHandle h_vaspace,
++    NV_VASPACE_ALLOCATION_PARAMETERS *params, NvHandle *returned_vaspace,
++    NvU32 *rm_status)
++{
++    nv_linux_file_private_t *nvlfp;
++    nv_state_t *nv;
++    NV_VASPACE_ALLOCATION_PARAMETERS alloc_params;
++    NVOS64_PARAMETERS alloc;
++    nvidia_stack_t *sp = NULL;
++    nvidia_kernel_rmapi_ops_t ops;
++    NV_STATUS status;
++    int rc;
++    NvU32 flags;
++
++    if (rm_status == NULL || returned_vaspace == NULL)
++        return NV_ERR_INVALID_ARGUMENT;
++    *rm_status = 0xffffffffU;
++    *returned_vaspace = 0;
++    if (session == NULL || params == NULL || h_root == 0 || h_device == 0 ||
++        h_vaspace == 0 || h_vaspace == h_root || h_vaspace == h_device)
++    {
++        *rm_status = NV_ERR_INVALID_ARGUMENT;
++        return NV_ERR_INVALID_ARGUMENT;
++    }
++
++    flags = (NvU32)params->flags;
++    if (params->index >= NV_VASPACE_ALLOCATION_INDEX_GPU_MAX ||
++        (flags & ~0x7fffU) != 0 ||
++        (flags & (NV_VASPACE_ALLOCATION_FLAGS_SHARED_MANAGEMENT |
++                  NV_VASPACE_ALLOCATION_FLAGS_IS_EXTERNALLY_OWNED |
++                  NV_VASPACE_ALLOCATION_FLAGS_VA_INTERNAL_LIMIT |
++                  NV_VASPACE_ALLOCATION_FLAGS_ENABLE_NVLINK_ATS_TEST)) != 0 ||
++        params->vaStartInternal != 0 || params->vaLimitInternal != 0 ||
++        params->pasid != 0 ||
++        (params->bigPageSize != 0 &&
++         params->bigPageSize != NV_VASPACE_BIG_PAGE_SIZE_64K &&
++         params->bigPageSize != NV_VASPACE_BIG_PAGE_SIZE_128K))
++    {
++        *rm_status = NV_ERR_INVALID_ARGUMENT;
++        return NV_ERR_INVALID_ARGUMENT;
++    }
++
++    alloc_params = *params;
++    alloc = (NVOS64_PARAMETERS) {
++        .hRoot = h_root,
++        .hObjectParent = h_device,
++        .hObjectNew = h_vaspace,
++        .hClass = FERMI_VASPACE_A,
++        .pAllocParms = NV_PTR_TO_NvP64(&alloc_params),
++        .pRightsRequested = NvP64_NULL,
++        .paramsSize = sizeof(alloc_params),
++        .flags = NVOS64_FLAGS_NONE,
++        .status = 0xffffffffU,
++    };
++
++    if (mutex_lock_interruptible(&session->lock) != 0)
++        return NV_ERR_OPERATING_SYSTEM;
++    nvlfp = hybrid580_open_backend_file(session->file, 1);
++    if (nvlfp == NULL)
++    {
++        status = NV_ERR_INVALID_STATE;
++        goto done;
++    }
++    rc = nv_down_read_interruptible(&nv_system_pm_lock);
++    if (rc < 0)
++    {
++        status = NV_ERR_OPERATING_SYSTEM;
++        goto done;
++    }
++    if (nv_kmem_cache_alloc_stack(&sp) != 0)
++    {
++        status = NV_ERR_NO_MEMORY;
++        goto done_pm;
++    }
++    nv = NV_STATE_PTR(nvlfp->nvptr);
++    status = nv_check_gpu_state(nv);
++    if (status == NV_OK)
++    {
++        ops = (nvidia_kernel_rmapi_ops_t) { .op = NV04_ALLOC, .params.alloc = alloc };
++        rm_kernel_rmapi_op(sp, &ops);
++        alloc = ops.params.alloc;
++        *params = alloc_params;
++        *rm_status = alloc.status;
++        *returned_vaspace = alloc.hObjectNew;
++    }
++    nv_kmem_cache_free_stack(sp);
++done_pm:
++    up_read(&nv_system_pm_lock);
++done:
++    mutex_unlock(&session->lock);
++    return status;
++}
++EXPORT_SYMBOL(hybrid580_open_control_session_vaspace_alloc_v1);
++
++
+ int hybrid580_open_control_session_create_v1(
+     struct file *anchor, struct hybrid580_control_session **out,
+     struct hybrid_rm_session_endpoint_v1 *endpoint)
+--- a/kernel-open/nvidia/hybrid580-control-session.h
++++ b/kernel-open/nvidia/hybrid580-control-session.h
+@@ -7,6 +7,7 @@
+ #include <class/cl0080.h>
+ #include <class/cl003e.h>
+ #include <class/cl0040.h>
++#include <class/cl90f1.h>
+ #include <nvos.h>
+ 
+ struct file;
+@@ -72,4 +73,11 @@
+ NV_STATUS hybrid580_open_control_session_object_free_v1(
+     struct hybrid580_control_session *, NvHandle h_root, NvHandle h_parent,
+     NvHandle h_object, NvU32 *rm_status);
++/* Typed FERMI_VASPACE_A allocation bridge. Parameters contain no pointers;
++ * shared/external-management requests remain outside this private adapter. */
++NV_STATUS hybrid580_open_control_session_vaspace_alloc_v1(
++    struct hybrid580_control_session *, NvHandle h_root, NvHandle h_device,
++    NvHandle h_vaspace, NV_VASPACE_ALLOCATION_PARAMETERS *params,
++    NvHandle *returned_vaspace, NvU32 *rm_status);
++
+ #endif

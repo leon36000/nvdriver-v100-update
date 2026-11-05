@@ -1,0 +1,53 @@
+--- a/kernel-open/nvidia/nv.c
++++ b/kernel-open/nvidia/nv.c
+@@ -4626,6 +4626,38 @@
+ }
+ EXPORT_SYMBOL(hybrid580_open_gpu_session_create_v1);
+ 
++int hybrid580_open_gpu_session_create_by_bdf_v1(
++    struct file *anchor, const char *expected_bdf,
++    struct hybrid580_gpu_session **out)
++{
++    nv_linux_state_t *nvl;
++    NvU32 minor;
++
++    if (out == NULL)
++        return -EINVAL;
++    *out = NULL;
++    if (!hybrid580_open_gpu_bdf_valid(expected_bdf))
++        return -EINVAL;
++
++    LOCK_NV_LINUX_DEVICES();
++    for (minor = 0; minor <= NV_MINOR_DEVICE_NUMBER_REGULAR_MAX; ++minor)
++    {
++        nvl = find_minor_locked(minor);
++        if (nvl != NULL && nvl != &nv_ctl_device && nvl->pci_dev != NULL &&
++            hybrid580_open_gpu_bdf_matches(expected_bdf, pci_name(nvl->pci_dev)))
++            break;
++    }
++    UNLOCK_NV_LINUX_DEVICES();
++    if (minor > NV_MINOR_DEVICE_NUMBER_REGULAR_MAX)
++        return -EXDEV;
++
++    /* The minor may be reused after the scan. create_v1 rechecks the BDF
++     * before and after nvidia_open(), so only the requested GPU is published.
++     */
++    return hybrid580_open_gpu_session_create_v1(anchor, minor, expected_bdf, out);
++}
++EXPORT_SYMBOL(hybrid580_open_gpu_session_create_by_bdf_v1);
++
+ nv_file_private_t* NV_API_CALL nv_get_file_private(
+     NvS32 fd,
+     NvBool ctl,
+--- a/kernel-open/nvidia/hybrid580-gpu-session.h
++++ b/kernel-open/nvidia/hybrid580-gpu-session.h
+@@ -14,6 +14,9 @@
+ int hybrid580_open_gpu_session_create_v1(
+     struct file *anchor, NvU32 minor, const char *expected_bdf,
+     struct hybrid580_gpu_session **out);
++int hybrid580_open_gpu_session_create_by_bdf_v1(
++    struct file *anchor, const char *expected_bdf,
++    struct hybrid580_gpu_session **out);
+ void hybrid580_open_gpu_session_get_v1(struct hybrid580_gpu_session *session);
+ void hybrid580_open_gpu_session_put_v1(struct hybrid580_gpu_session *session);
+ struct file *hybrid580_open_gpu_session_file_v1(

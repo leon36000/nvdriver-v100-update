@@ -1,0 +1,30 @@
+--- a/kernel-open/nvidia/nv.c
++++ b/kernel-open/nvidia/nv.c
+@@ -6958,5 +6958,9 @@
+ 
+ resume_modeset:
+-    nvidia_modeset_resume(0);
++    /* PCI DPM resumed NVKMS per GPU during the channels-only phase. */
++    if (pm_action_depth != NV_PM_ACTION_DEPTH_CHANNELS)
++    {
++        nvidia_modeset_resume(0);
++    }
+ 
+     return NV_OK;
+@@ -6997,5 +7001,9 @@
+ #endif
+ 
+-    nvidia_modeset_suspend(0);
++    /* PCI DPM owns NVKMS suspend while aggregate PM only preempts channels. */
++    if (pm_action_depth != NV_PM_ACTION_DEPTH_CHANNELS)
++    {
++        nvidia_modeset_suspend(0);
++    }
+ 
+     if (pm_action_depth == NV_PM_ACTION_DEPTH_MODESET)
+@@ -7087 +7095,4 @@
+-        nvidia_modeset_resume(0);
++        if (pm_action_depth != NV_PM_ACTION_DEPTH_CHANNELS)
++        {
++            nvidia_modeset_resume(0);
++        }

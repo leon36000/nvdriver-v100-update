@@ -1,0 +1,11 @@
+--- a/kernel-open/nvidia/nv-procfs.c
++++ b/kernel-open/nvidia/nv-procfs.c
+@@ -1336,7 +1336,7 @@
+ {
+ #if defined(CONFIG_PROC_FS)
+     NvU32 i = 0;
+-    char nv_dir_name[20];
++    char nv_dir_name[sizeof("driver/" MODULE_NAME)];
+     struct proc_dir_entry *entry;
+ 
+     snprintf(nv_dir_name, sizeof(nv_dir_name), "driver/%s", nv_device_name);

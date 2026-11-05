@@ -1,0 +1,116 @@
+--- a/kernel-open/nvidia/nv.c
++++ b/kernel-open/nvidia/nv.c
+@@ -5102,6 +5102,113 @@
+ }
+ EXPORT_SYMBOL(hybrid580_open_control_session_client_share_policy_v1);
+ 
++/* Query only the provider-local count for root-global boost-group info.
++ * The inline GPU/group identifiers are owned by this RM and never cross the
++ * hybrid frontend boundary. */
++NV_STATUS hybrid580_open_control_session_sync_boost_groups_v1(
++    struct hybrid580_control_session *session, NvHandle h_client,
++    NvHandle h_object, NvU32 flags, NvU32 *group_count,
++    NvU32 *control_status)
++{
++    nv_linux_file_private_t *nvlfp;
++    nv_linux_state_t *nvl;
++    nv_state_t *nv;
++    NV0000_SYNC_GPU_BOOST_GROUP_INFO_PARAMS *result = NULL;
++    NVOS54_PARAMETERS control;
++    nvidia_stack_t *sp = NULL;
++    nvidia_kernel_rmapi_ops_t ops;
++    NV_STATUS status;
++    int rc;
++
++    if (group_count == NULL || control_status == NULL)
++        return NV_ERR_INVALID_ARGUMENT;
++    *group_count = 0xffffffffU;
++    *control_status = 0xffffffffU;
++    if (session == NULL || h_client == 0 || h_client != h_object ||
++        flags != NVOS54_FLAGS_NONE)
++        return NV_ERR_INVALID_ARGUMENT;
++
++    BUILD_BUG_ON(sizeof(*result) != 2244);
++    BUILD_BUG_ON(NV0000_SYNC_GPU_BOOST_MAX_GROUPS != 16);
++    result = kzalloc(sizeof(*result), GFP_KERNEL);
++    if (result == NULL)
++        return NV_ERR_NO_MEMORY;
++    /* groupCount is output-only; the sentinel detects a missing RM write. */
++    result->groupCount = 0xffffffffU;
++
++    rc = mutex_lock_interruptible(&session->lock);
++    if (rc != 0) {
++        status = NV_ERR_OPERATING_SYSTEM;
++        goto done;
++    }
++
++    nvlfp = hybrid580_open_backend_file(session->file, 1);
++    if (nvlfp == NULL || nvlfp->nvptr != &nv_ctl_device) {
++        status = NV_ERR_INVALID_STATE;
++        goto done_session;
++    }
++    nvl = nvlfp->nvptr;
++    nv = NV_STATE_PTR(nvl);
++    if ((nv->flags & NV_FLAG_CONTROL) == 0) {
++        status = NV_ERR_INVALID_STATE;
++        goto done_session;
++    }
++
++    control = (NVOS54_PARAMETERS) {
++        .hClient = h_client,
++        .hObject = h_object,
++        .cmd = NV0000_CTRL_CMD_SYNC_GPU_BOOST_GROUP_INFO,
++        .flags = flags,
++        .params = KERNEL_POINTER_TO_NvP64(result),
++        .paramsSize = sizeof(*result),
++        .status = 0xffffffffU,
++    };
++    rc = nv_down_read_interruptible(&nv_system_pm_lock);
++    if (rc < 0) {
++        status = NV_ERR_OPERATING_SYSTEM;
++        goto done_session;
++    }
++    status = nv_check_gpu_state(nv);
++    if (status != NV_OK)
++        goto done_pm;
++    rc = nv_kmem_cache_alloc_stack(&sp);
++    if (rc != 0) {
++        status = NV_ERR_NO_MEMORY;
++        goto done_pm;
++    }
++
++    ops = (nvidia_kernel_rmapi_ops_t) {
++        .op = NV04_CONTROL,
++        .params.control = control,
++    };
++    rm_kernel_rmapi_op(sp, &ops);
++    control = ops.params.control;
++    if (control.status == 0xffffffffU) {
++        status = NV_ERR_INVALID_STATE;
++        goto done_pm;
++    }
++    *control_status = (NvU32)control.status;
++    if (control.status == NV_OK) {
++        if (result->groupCount > NV0000_SYNC_GPU_BOOST_MAX_GROUPS) {
++            status = NV_ERR_INVALID_STATE;
++            goto done_pm;
++        }
++        *group_count = result->groupCount;
++    }
++    status = NV_OK;
++
++done_pm:
++    if (sp != NULL)
++        nv_kmem_cache_free_stack(sp);
++    up_read(&nv_system_pm_lock);
++done_session:
++    mutex_unlock(&session->lock);
++done:
++    kfree(result);
++    return status;
++}
++EXPORT_SYMBOL(hybrid580_open_control_session_sync_boost_groups_v1);
++
+ 
+ static void hybrid580_control_session_release(struct kref *refs)
+ {

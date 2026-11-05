@@ -1,0 +1,205 @@
+--- a/nvidia/nv-caps.c
++++ b/nvidia/nv-caps.c
+@@ -55,18 +55,18 @@
+ 
+ static nv_cap_table_entry_t g_nv_cap_nvlink_table[] =
+ {
+-    {"/driver/nvidia-nvlink/capabilities/fabric-mgmt"}
++    {"/driver/" MODULE_NAME "-nvlink/capabilities/fabric-mgmt"}
+ };
+ 
+ static nv_cap_table_entry_t g_nv_cap_mig_table[] =
+ {
+-    {"/driver/nvidia/capabilities/mig/config"},
+-    {"/driver/nvidia/capabilities/mig/monitor"}
++    {"/driver/" MODULE_NAME "/capabilities/mig/config"},
++    {"/driver/" MODULE_NAME "/capabilities/mig/monitor"}
+ };
+ 
+ static nv_cap_table_entry_t g_nv_cap_sys_table[] =
+ {
+-    {"/driver/nvidia/capabilities/fabric-imex-mgmt"}
++    {"/driver/" MODULE_NAME "/capabilities/fabric-imex-mgmt"}
+ };
+ 
+ #define NV_CAP_MIG_CI_ENTRIES(_gi)  \
+@@ -113,38 +113,38 @@
+ 
+ static nv_cap_table_entry_t g_nv_cap_mig_gpu_table[] =
+ {
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu0/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu1/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu2/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu3/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu4/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu5/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu6/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu7/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu8/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu9/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu10/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu11/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu12/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu13/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu14/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu15/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu16/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu17/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu18/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu19/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu20/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu21/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu22/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu23/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu24/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu25/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu26/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu27/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu28/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu29/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu30/mig"),
+-    NV_CAP_MIG_GI_ENTRIES("/driver/nvidia/capabilities/gpu31/mig")
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu0/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu1/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu2/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu3/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu4/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu5/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu6/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu7/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu8/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu9/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu10/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu11/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu12/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu13/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu14/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu15/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu16/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu17/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu18/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu19/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu20/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu21/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu22/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu23/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu24/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu25/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu26/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu27/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu28/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu29/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu30/mig"),
++    NV_CAP_MIG_GI_ENTRIES("/driver/" MODULE_NAME "/capabilities/gpu31/mig")
+ };
+ 
+ struct nv_cap
+@@ -176,7 +176,7 @@
+     dev_t devno;
+ } g_nv_cap_drv;
+ 
+-#define NV_CAP_PROCFS_DIR "driver/nvidia-caps"
++#define NV_CAP_PROCFS_DIR "driver/" MODULE_NAME "-caps"
+ #define NV_CAP_NAME_BUF_SIZE 128
+ 
+ static struct proc_dir_entry *nv_cap_procfs_dir;
+@@ -190,7 +190,7 @@
+     for (i = 0; i < count; i++)
+     {
+         if (sscanf(g_nv_cap_nvlink_table[i].name,
+-                   "/driver/nvidia-nvlink/capabilities/%s", name) == 1)
++                   "/driver/" MODULE_NAME "-nvlink/capabilities/%s", name) == 1)
+         {
+             name[sizeof(name) - 1] = '\0';
+             seq_printf(s, "%s %d\n", name, g_nv_cap_nvlink_table[i].minor);
+@@ -209,7 +209,7 @@
+     for (i = 0; i < count; i++)
+     {
+         if (sscanf(g_nv_cap_sys_table[i].name,
+-                   "/driver/nvidia/capabilities/%s", name) == 1)
++                   "/driver/" MODULE_NAME "/capabilities/%s", name) == 1)
+         {
+             name[sizeof(name) - 1] = '\0';
+             seq_printf(s, "%s %d\n", name, g_nv_cap_sys_table[i].minor);
+@@ -228,7 +228,7 @@
+     for (i = 0; i < count; i++)
+     {
+         if (sscanf(g_nv_cap_mig_table[i].name,
+-                   "/driver/nvidia/capabilities/mig/%s", name) == 1)
++                   "/driver/" MODULE_NAME "/capabilities/mig/%s", name) == 1)
+         {
+             name[sizeof(name) - 1] = '\0';
+             seq_printf(s, "%s %d\n", name, g_nv_cap_mig_table[i].minor);
+@@ -239,7 +239,7 @@
+     for (i = 0; i < count; i++)
+     {
+         if (sscanf(g_nv_cap_mig_gpu_table[i].name,
+-                   "/driver/nvidia/capabilities/gpu%d/mig/%s", &gpu, name) == 2)
++                   "/driver/" MODULE_NAME "/capabilities/gpu%d/mig/%s", &gpu, name) == 2)
+         {
+             name[sizeof(name) - 1] = '\0';
+             seq_printf(s, "gpu%d/%s %d\n",
+@@ -823,7 +823,7 @@
+     rc = alloc_chrdev_region(&g_nv_cap_drv.devno,
+                              0,
+                              NV_CAP_DRV_MINOR_COUNT,
+-                             "nvidia-caps");
++                             MODULE_NAME "-caps");
+     if (rc < 0)
+     {
+         nv_printf(NV_DBG_ERRORS, "nv-caps-drv failed to create cdev region.\n");
+--- a/nvidia/nvlink_linux.c
++++ b/nvidia/nvlink_linux.c
+@@ -73,7 +73,7 @@
+     NV_DEFINE_SINGLE_PROCFS_FILE_READ_ONLY(name, nv_system_pm_lock)
+ #endif
+ 
+-#define NVLINK_PROCFS_DIR "driver/nvidia-nvlink"
++#define NVLINK_PROCFS_DIR "driver/" MODULE_NAME "-nvlink"
+ 
+ static struct proc_dir_entry *nvlink_procfs_dir = NULL;
+ 
+--- a/nvidia/nvlink_linux.h
++++ b/nvidia/nvlink_linux.h
+@@ -30,7 +30,7 @@
+ #include <linux/fs.h>
+ 
+ 
+-#define NVLINK_DEVICE_NAME        "nvidia-nvlink"
++#define NVLINK_DEVICE_NAME        MODULE_NAME "-nvlink"
+ #define NVLINK_NUM_MINOR_DEVICES  1
+ 
+ /*
+--- a/nvidia/procfs_nvswitch.c
++++ b/nvidia/procfs_nvswitch.c
+@@ -32,7 +32,7 @@
+ #define NV_DEFINE_SINGLE_NVSWITCH_PROCFS_FILE(name) \
+     NV_DEFINE_SINGLE_PROCFS_FILE_READ_ONLY(name, nv_system_pm_lock)
+ 
+-#define NVSWITCH_PROCFS_DIR "driver/nvidia-nvswitch"
++#define NVSWITCH_PROCFS_DIR "driver/" MODULE_NAME "-nvswitch"
+ 
+ static struct proc_dir_entry *nvswitch_procfs_dir;
+ static struct proc_dir_entry *nvswitch_permissions;
+--- a/nvidia/export_nvswitch.h
++++ b/nvidia/export_nvswitch.h
+@@ -32,7 +32,7 @@
+ #include "nvlink_common.h"
+ #include "ioctl_common_nvswitch.h"
+ 
+-#define NVSWITCH_DRIVER_NAME            "nvidia-nvswitch"
++#define NVSWITCH_DRIVER_NAME            MODULE_NAME "-nvswitch"
+ 
+ #define NVSWITCH_MAX_BARS               1
+ 
+--- a/nvidia/nv-caps-imex.c
++++ b/nvidia/nv-caps-imex.c
+@@ -184,7 +184,7 @@
+ 
+     rc = alloc_chrdev_region(&g_nv_caps_imex.channel0, 0,
+                              NVreg_ImexChannelCount,
+-                             "nvidia-caps-imex-channels");
++                             MODULE_NAME "-caps-imex-channels");
+     if (rc < 0)
+     {
+         nv_printf(NV_DBG_ERRORS, "nv-caps-imex failed to create cdev.\n");

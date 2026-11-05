@@ -1,0 +1,35 @@
+--- a/kernel-open/nvidia/nv-mmap.c
++++ b/kernel-open/nvidia/nv-mmap.c
+@@ -114,5 +114,5 @@
+ 
+ static int
+-nvidia_vma_access(
++nvidia_vma_access_unlocked(
+     struct vm_area_struct *vma,
+     unsigned long addr,
+@@ -220,4 +220,25 @@
+ 
+     return length;
++}
++
++static int
++nvidia_vma_access(
++    struct vm_area_struct *vma,
++    unsigned long addr,
++    void *buffer,
++    int length,
++    int write
++)
++{
++    int status;
++
++    /* Do not access mapped GPU memory during a provider PM transition. */
++    if (!down_read_trylock(&nv_system_pm_lock))
++        return -EAGAIN;
++
++    status = nvidia_vma_access_unlocked(vma, addr, buffer, length, write);
++    up_read(&nv_system_pm_lock);
++
++    return status;
+ }
+ 

@@ -1,0 +1,131 @@
+--- a/kernel-open/nvidia/nv.c
++++ b/kernel-open/nvidia/nv.c
+@@ -45,9 +45,11 @@
+ #include <linux/mount.h>
+ #include <nvos.h>
+ #include <nv_escape.h>
++#include <nv-kernel-rmapi-ops.h>
+ #include <linux/spinlock.h>
+ #include <linux/slab.h>
+ 
++
+ #if defined(NV_UVM_ENABLE)
+ #include "nv_uvm_interface.h"
+ #endif
+@@ -4413,6 +4415,92 @@
+ }
+ EXPORT_SYMBOL(hybrid580_open_control_session_attach_v1);
+ 
++NV_STATUS hybrid580_open_control_session_gpu_id_info_v1(
++    struct hybrid580_control_session *session, NvHandle h_client,
++    NvHandle h_object, NvU32 flags,
++    NV0000_CTRL_GPU_GET_ID_INFO_V2_PARAMS *params, NvU32 *control_status)
++{
++    nv_linux_file_private_t *nvlfp;
++    nv_state_t *nv;
++    NV0000_CTRL_GPU_GET_ID_INFO_V2_PARAMS result;
++    NVOS54_PARAMETERS control;
++    nvidia_stack_t *sp = NULL;
++    nvidia_kernel_rmapi_ops_t ops;
++    NV_STATUS status;
++    int rc;
++
++    if (control_status == NULL)
++        return NV_ERR_INVALID_ARGUMENT;
++    *control_status = (NvU32)NV_ERR_INVALID_ARGUMENT;
++    if (session == NULL || params == NULL || h_client == 0 ||
++        h_client != h_object || flags != NVOS54_FLAGS_NONE)
++        return NV_ERR_INVALID_ARGUMENT;
++
++    /* The RM Kernel entry point accepts this stack-owned parameter block.
++     * Keep every output deterministic if RM returns without writing it. */
++    result = *params;
++    result.gpuFlags = 0xffffffffU;
++    result.deviceInstance = 0xffffffffU;
++    result.subDeviceInstance = 0xffffffffU;
++    result.sliStatus = 0xffffffffU;
++    result.boardId = 0xffffffffU;
++    result.gpuInstance = 0xffffffffU;
++    result.numaId = NV0000_CTRL_NO_NUMA_NODE;
++    control = (NVOS54_PARAMETERS) {
++        .hClient = h_client,
++        .hObject = h_object,
++        .cmd = NV0000_CTRL_CMD_GPU_GET_ID_INFO_V2,
++        .flags = flags,
++        .params = KERNEL_POINTER_TO_NvP64(&result),
++        .paramsSize = sizeof(result),
++        .status = 0xffffffffU,
++    };
++
++    if (mutex_lock_interruptible(&session->lock) != 0)
++        return NV_ERR_OPERATING_SYSTEM;
++    nvlfp = hybrid580_open_backend_file(session->file, 1);
++    if (nvlfp == NULL)
++    {
++        status = NV_ERR_INVALID_STATE;
++        goto done;
++    }
++    rc = nv_down_read_interruptible(&nv_system_pm_lock);
++    if (rc < 0)
++    {
++        status = NV_ERR_OPERATING_SYSTEM;
++        goto done;
++    }
++
++    nv = NV_STATE_PTR(nvlfp->nvptr);
++    status = nv_check_gpu_state(nv);
++    if (status == NV_OK)
++    {
++        rc = nv_kmem_cache_alloc_stack(&sp);
++        if (rc != 0)
++        {
++            status = NV_ERR_NO_MEMORY;
++            goto done_pm;
++        }
++
++        ops = (nvidia_kernel_rmapi_ops_t) {
++            .op = NV04_CONTROL,
++            .params.control = control,
++        };
++        rm_kernel_rmapi_op(sp, &ops);
++        control = ops.params.control;
++        *params = result;
++        *control_status = (NvU32)control.status;
++    }
++done_pm:
++    if (sp != NULL)
++        nv_kmem_cache_free_stack(sp);
++    up_read(&nv_system_pm_lock);
++done:
++    mutex_unlock(&session->lock);
++    return status;
++}
++EXPORT_SYMBOL(hybrid580_open_control_session_gpu_id_info_v1);
++
+ int hybrid580_open_control_session_create_v1(
+     struct file *anchor, struct hybrid580_control_session **out,
+     struct hybrid_rm_session_endpoint_v1 *endpoint)
+--- a/kernel-open/nvidia/hybrid580-control-session.h
++++ b/kernel-open/nvidia/hybrid580-control-session.h
+@@ -3,8 +3,9 @@
+ #define HYBRID580_CONTROL_SESSION_H
+ 
+ #include "rm_session_endpoint.h"
+-#include <linux/fs.h>
++#include <ctrl/ctrl0000/ctrl0000gpu.h>
+ 
++struct file;
+ struct hybrid580_control_session;
+ /* Private kernel API, not a userspace/CUDA ABI. Create/invoke/put-final run in
+  * process context. Anchor is caller-owned and held throughout creation. This
+@@ -28,4 +29,10 @@
+ struct file *hybrid580_open_control_session_file_v1(struct hybrid580_control_session *);
+ int hybrid580_open_control_session_attach_v1(
+     struct hybrid580_control_session *, const NvU32 *gpu_ids, NvU32 count);
++/* One command-specific kernel-buffer bridge. The GPU ID is backend-local;
++ * caller must select the owning session and must never pass user pointers. */
++NV_STATUS hybrid580_open_control_session_gpu_id_info_v1(
++    struct hybrid580_control_session *, NvHandle h_client, NvHandle h_object,
++    NvU32 flags, NV0000_CTRL_GPU_GET_ID_INFO_V2_PARAMS *params,
++    NvU32 *control_status);
+ #endif

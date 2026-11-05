@@ -1,0 +1,147 @@
+--- a/nvidia/nvidia.Kbuild
++++ b/nvidia/nvidia.Kbuild
+@@ -9,10 +9,10 @@
+ include $(src)/nvidia/nvidia-sources.Kbuild
+ NVIDIA_OBJECTS = $(patsubst %.c,%.o,$(NVIDIA_SOURCES))
+ 
+-obj-m += nvidia.o
+-nvidia-y := $(NVIDIA_OBJECTS)
+-
+-NVIDIA_KO = nvidia/nvidia.ko
++obj-m += hybrid580_legacy.o
++hybrid580_legacy-y := $(NVIDIA_OBJECTS)
++
++NVIDIA_KO = hybrid580_legacy.ko
+ 
+ 
+ #
+@@ -45,7 +45,7 @@
+ $(obj)/$(NVIDIA_BINARY_OBJECT_O): $(NVIDIA_BINARY_OBJECT) FORCE
+ 	$(call if_changed,symlink)
+ 
+-nvidia-y += $(NVIDIA_BINARY_OBJECT_O)
++hybrid580_legacy-y += $(NVIDIA_BINARY_OBJECT_O)
+ 
+ 
+ #
+@@ -53,6 +53,7 @@
+ #
+ 
+ NVIDIA_CFLAGS += -I$(src)/nvidia
++NVIDIA_CFLAGS += -include $(src)/nvidia/hybrid580-legacy-exports.h
+ NVIDIA_CFLAGS += -DNVIDIA_UNDEF_LEGACY_BIT_MACROS
+ 
+ ifeq ($(NV_BUILD_TYPE),release)
+--- a/common/inc/nv-linux.h
++++ b/common/inc/nv-linux.h
+@@ -1710,7 +1710,7 @@
+     return flags;
+ }
+ 
+-#define MODULE_BASE_NAME "nvidia"
++#define MODULE_BASE_NAME "hybrid580_legacy"
+ #define MODULE_INSTANCE_NUMBER 0
+ #define MODULE_INSTANCE_STRING ""
+ #define MODULE_NAME MODULE_BASE_NAME MODULE_INSTANCE_STRING
+--- /dev/null
++++ b/nvidia/hybrid580-legacy-exports.h
+@@ -0,0 +1,99 @@
++/* SPDX-License-Identifier: MIT */
++/* Compile-only R580 legacy backend export names. No ABI/runtime claim. */
++#ifndef HYBRID580_OPEN_EXPORTS_H
++#define HYBRID580_OPEN_EXPORTS_H
++#define nv_vma_start_write hybrid580_legacy_nv_vma_start_write
++#define nvUvmInterfaceAddressSpaceCreate hybrid580_legacy_nvUvmInterfaceAddressSpaceCreate
++#define nvUvmInterfaceAddressSpaceDestroy hybrid580_legacy_nvUvmInterfaceAddressSpaceDestroy
++#define nvUvmInterfaceBindChannelResources hybrid580_legacy_nvUvmInterfaceBindChannelResources
++#define nvUvmInterfaceChannelAllocate hybrid580_legacy_nvUvmInterfaceChannelAllocate
++#define nvUvmInterfaceChannelDestroy hybrid580_legacy_nvUvmInterfaceChannelDestroy
++#define nvUvmInterfaceCslDecrypt hybrid580_legacy_nvUvmInterfaceCslDecrypt
++#define nvUvmInterfaceCslEncrypt hybrid580_legacy_nvUvmInterfaceCslEncrypt
++#define nvUvmInterfaceCslIncrementIv hybrid580_legacy_nvUvmInterfaceCslIncrementIv
++#define nvUvmInterfaceCslInitContext hybrid580_legacy_nvUvmInterfaceCslInitContext
++#define nvUvmInterfaceCslLogEncryption hybrid580_legacy_nvUvmInterfaceCslLogEncryption
++#define nvUvmInterfaceCslQueryMessagePool hybrid580_legacy_nvUvmInterfaceCslQueryMessagePool
++#define nvUvmInterfaceCslRotateIv hybrid580_legacy_nvUvmInterfaceCslRotateIv
++#define nvUvmInterfaceCslRotateKey hybrid580_legacy_nvUvmInterfaceCslRotateKey
++#define nvUvmInterfaceCslSign hybrid580_legacy_nvUvmInterfaceCslSign
++#define nvUvmInterfaceDeRegisterUvmOps hybrid580_legacy_nvUvmInterfaceDeRegisterUvmOps
++#define nvUvmInterfaceDeinitCslContext hybrid580_legacy_nvUvmInterfaceDeinitCslContext
++#define nvUvmInterfaceDestroyAccessCntrInfo hybrid580_legacy_nvUvmInterfaceDestroyAccessCntrInfo
++#define nvUvmInterfaceDestroyFaultInfo hybrid580_legacy_nvUvmInterfaceDestroyFaultInfo
++#define nvUvmInterfaceDeviceCreate hybrid580_legacy_nvUvmInterfaceDeviceCreate
++#define nvUvmInterfaceDeviceDestroy hybrid580_legacy_nvUvmInterfaceDeviceDestroy
++#define nvUvmInterfaceDisableAccessCntr hybrid580_legacy_nvUvmInterfaceDisableAccessCntr
++#define nvUvmInterfaceDupAddressSpace hybrid580_legacy_nvUvmInterfaceDupAddressSpace
++#define nvUvmInterfaceDupAllocation hybrid580_legacy_nvUvmInterfaceDupAllocation
++#define nvUvmInterfaceDupMemory hybrid580_legacy_nvUvmInterfaceDupMemory
++#define nvUvmInterfaceEnableAccessCntr hybrid580_legacy_nvUvmInterfaceEnableAccessCntr
++#define nvUvmInterfaceFlushReplayableFaultBuffer hybrid580_legacy_nvUvmInterfaceFlushReplayableFaultBuffer
++#define nvUvmInterfaceFreeDupedHandle hybrid580_legacy_nvUvmInterfaceFreeDupedHandle
++#define nvUvmInterfaceGetChannelResourcePtes hybrid580_legacy_nvUvmInterfaceGetChannelResourcePtes
++#define nvUvmInterfaceGetEccInfo hybrid580_legacy_nvUvmInterfaceGetEccInfo
++#define nvUvmInterfaceGetExternalAllocPhysAddrs hybrid580_legacy_nvUvmInterfaceGetExternalAllocPhysAddrs
++#define nvUvmInterfaceGetExternalAllocPtes hybrid580_legacy_nvUvmInterfaceGetExternalAllocPtes
++#define nvUvmInterfaceGetFbInfo hybrid580_legacy_nvUvmInterfaceGetFbInfo
++#define nvUvmInterfaceGetGpuInfo hybrid580_legacy_nvUvmInterfaceGetGpuInfo
++#define nvUvmInterfaceGetNonReplayableFaults hybrid580_legacy_nvUvmInterfaceGetNonReplayableFaults
++#define nvUvmInterfaceGetNvlinkInfo hybrid580_legacy_nvUvmInterfaceGetNvlinkInfo
++#define nvUvmInterfaceGetP2PCaps hybrid580_legacy_nvUvmInterfaceGetP2PCaps
++#define nvUvmInterfaceGetPmaObject hybrid580_legacy_nvUvmInterfaceGetPmaObject
++#define nvUvmInterfaceHasPendingNonReplayableFaults hybrid580_legacy_nvUvmInterfaceHasPendingNonReplayableFaults
++#define nvUvmInterfaceInitAccessCntrInfo hybrid580_legacy_nvUvmInterfaceInitAccessCntrInfo
++#define nvUvmInterfaceInitFaultInfo hybrid580_legacy_nvUvmInterfaceInitFaultInfo
++#define nvUvmInterfaceMemoryAllocFB hybrid580_legacy_nvUvmInterfaceMemoryAllocFB
++#define nvUvmInterfaceMemoryAllocSys hybrid580_legacy_nvUvmInterfaceMemoryAllocSys
++#define nvUvmInterfaceMemoryCpuMap hybrid580_legacy_nvUvmInterfaceMemoryCpuMap
++#define nvUvmInterfaceMemoryCpuUnMap hybrid580_legacy_nvUvmInterfaceMemoryCpuUnMap
++#define nvUvmInterfaceMemoryFree hybrid580_legacy_nvUvmInterfaceMemoryFree
++#define nvUvmInterfaceOwnPageFaultIntr hybrid580_legacy_nvUvmInterfaceOwnPageFaultIntr
++#define nvUvmInterfaceP2pObjectCreate hybrid580_legacy_nvUvmInterfaceP2pObjectCreate
++#define nvUvmInterfaceP2pObjectDestroy hybrid580_legacy_nvUvmInterfaceP2pObjectDestroy
++#define nvUvmInterfacePagingChannelAllocate hybrid580_legacy_nvUvmInterfacePagingChannelAllocate
++#define nvUvmInterfacePagingChannelDestroy hybrid580_legacy_nvUvmInterfacePagingChannelDestroy
++#define nvUvmInterfacePagingChannelPushStream hybrid580_legacy_nvUvmInterfacePagingChannelPushStream
++#define nvUvmInterfacePagingChannelsMap hybrid580_legacy_nvUvmInterfacePagingChannelsMap
++#define nvUvmInterfacePagingChannelsUnmap hybrid580_legacy_nvUvmInterfacePagingChannelsUnmap
++#define nvUvmInterfacePmaAllocPages hybrid580_legacy_nvUvmInterfacePmaAllocPages
++#define nvUvmInterfacePmaFreePages hybrid580_legacy_nvUvmInterfacePmaFreePages
++#define nvUvmInterfacePmaPinPages hybrid580_legacy_nvUvmInterfacePmaPinPages
++#define nvUvmInterfacePmaRegisterEvictionCallbacks hybrid580_legacy_nvUvmInterfacePmaRegisterEvictionCallbacks
++#define nvUvmInterfacePmaUnregisterEvictionCallbacks hybrid580_legacy_nvUvmInterfacePmaUnregisterEvictionCallbacks
++#define nvUvmInterfaceQueryCaps hybrid580_legacy_nvUvmInterfaceQueryCaps
++#define nvUvmInterfaceQueryCopyEnginesCaps hybrid580_legacy_nvUvmInterfaceQueryCopyEnginesCaps
++#define nvUvmInterfaceRegisterGpu hybrid580_legacy_nvUvmInterfaceRegisterGpu
++#define nvUvmInterfaceRegisterUvmCallbacks hybrid580_legacy_nvUvmInterfaceRegisterUvmCallbacks
++#define nvUvmInterfaceReleaseChannel hybrid580_legacy_nvUvmInterfaceReleaseChannel
++#define nvUvmInterfaceReportFatalError hybrid580_legacy_nvUvmInterfaceReportFatalError
++#define nvUvmInterfaceReportNonReplayableFault hybrid580_legacy_nvUvmInterfaceReportNonReplayableFault
++#define nvUvmInterfaceRetainChannel hybrid580_legacy_nvUvmInterfaceRetainChannel
++#define nvUvmInterfaceServiceDeviceInterruptsRM hybrid580_legacy_nvUvmInterfaceServiceDeviceInterruptsRM
++#define nvUvmInterfaceSessionCreate hybrid580_legacy_nvUvmInterfaceSessionCreate
++#define nvUvmInterfaceSessionDestroy hybrid580_legacy_nvUvmInterfaceSessionDestroy
++#define nvUvmInterfaceSetPageDirectory hybrid580_legacy_nvUvmInterfaceSetPageDirectory
++#define nvUvmInterfaceStopChannel hybrid580_legacy_nvUvmInterfaceStopChannel
++#define nvUvmInterfaceTogglePrefetchFaults hybrid580_legacy_nvUvmInterfaceTogglePrefetchFaults
++#define nvUvmInterfaceTsgAllocate hybrid580_legacy_nvUvmInterfaceTsgAllocate
++#define nvUvmInterfaceTsgDestroy hybrid580_legacy_nvUvmInterfaceTsgDestroy
++#define nvUvmInterfaceUnregisterGpu hybrid580_legacy_nvUvmInterfaceUnregisterGpu
++#define nvUvmInterfaceUnsetPageDirectory hybrid580_legacy_nvUvmInterfaceUnsetPageDirectory
++#define nvidia_get_rm_ops hybrid580_legacy_nvidia_get_rm_ops
++#define nvidia_p2p_destroy_mapping hybrid580_legacy_nvidia_p2p_destroy_mapping
++#define nvidia_p2p_dma_map_pages hybrid580_legacy_nvidia_p2p_dma_map_pages
++#define nvidia_p2p_dma_unmap_pages hybrid580_legacy_nvidia_p2p_dma_unmap_pages
++#define nvidia_p2p_free_dma_mapping hybrid580_legacy_nvidia_p2p_free_dma_mapping
++#define nvidia_p2p_free_page_table hybrid580_legacy_nvidia_p2p_free_page_table
++#define nvidia_p2p_get_pages hybrid580_legacy_nvidia_p2p_get_pages
++#define nvidia_p2p_get_pages_persistent hybrid580_legacy_nvidia_p2p_get_pages_persistent
++#define nvidia_p2p_get_rsync_registers hybrid580_legacy_nvidia_p2p_get_rsync_registers
++#define nvidia_p2p_init_mapping hybrid580_legacy_nvidia_p2p_init_mapping
++#define nvidia_p2p_put_pages hybrid580_legacy_nvidia_p2p_put_pages
++#define nvidia_p2p_put_pages_persistent hybrid580_legacy_nvidia_p2p_put_pages_persistent
++#define nvidia_p2p_put_rsync_registers hybrid580_legacy_nvidia_p2p_put_rsync_registers
++#define nvidia_p2p_register_rsync_driver hybrid580_legacy_nvidia_p2p_register_rsync_driver
++#define nvidia_p2p_unregister_rsync_driver hybrid580_legacy_nvidia_p2p_unregister_rsync_driver
++#define nvidia_register_error_cb hybrid580_legacy_nvidia_register_error_cb
++#define nvidia_unregister_error_cb hybrid580_legacy_nvidia_unregister_error_cb
++#endif

@@ -1,0 +1,145 @@
+--- a/nvidia/nv.c
++++ b/nvidia/nv.c
+@@ -114,7 +114,6 @@
+ MODULE_INFO(supported, "external");
+ MODULE_VERSION(NV_VERSION_STRING);
+ MODULE_DESCRIPTION("NVIDIA core GPU kernel module");
+-MODULE_ALIAS_CHARDEV_MAJOR(NV_MAJOR_DEVICE_NUMBER);
+ 
+ /*
+  * MODULE_IMPORT_NS() is added by commit id 8651ec01daeda
+@@ -780,45 +779,56 @@
+     nvidia_caps_root = NULL;
+ }
+ 
+-static int nv_register_chrdev(
+-    unsigned int minor,
+-    unsigned int count,
+-    struct cdev *cdev,
+-    const char *name,
+-    struct file_operations *fops
+-)
++/* Private backend owns one dynamically allocated major, including its control
++ * minor. No public-major reservation or automatic public-major module alias.
++ */
++static dev_t hybrid_chrdev_base;
++
++static int hybrid_register_chrdevs(void)
+ {
+     int rc;
+ 
+-    rc = register_chrdev_region(MKDEV(NV_MAJOR_DEVICE_NUMBER, minor),
+-            count, name);
++    rc = alloc_chrdev_region(&hybrid_chrdev_base, 0,
++            NV_MINOR_DEVICE_NUMBER_CONTROL_DEVICE + 1, "hybrid580_legacy");
+     if (rc < 0)
+     {
+-        nv_printf(NV_DBG_ERRORS,
+-            "NVRM: register_chrdev_region() failed for %s!\n", name);
++        hybrid_chrdev_base = 0;
+         return rc;
+     }
+ 
+-    cdev_init(cdev, fops);
+-    rc = cdev_add(cdev, MKDEV(NV_MAJOR_DEVICE_NUMBER, minor), count);
++    cdev_init(&nv_linux_devices_cdev, &nvidia_fops);
++    rc = cdev_add(&nv_linux_devices_cdev, hybrid_chrdev_base,
++            NV_MINOR_DEVICE_NUMBER_REGULAR_MAX + 1);
+     if (rc < 0)
+     {
+-        nv_printf(NV_DBG_ERRORS, "NVRM: cdev_add() failed for %s!\n", name);
+-        unregister_chrdev_region(MKDEV(NV_MAJOR_DEVICE_NUMBER, minor), count);
+-        return rc;
+-    }
+-
++        goto release_region;
++    }
++
++    cdev_init(&nv_linux_control_device_cdev, &nvidia_fops);
++    rc = cdev_add(&nv_linux_control_device_cdev,
++            MKDEV(MAJOR(hybrid_chrdev_base), NV_MINOR_DEVICE_NUMBER_CONTROL_DEVICE), 1);
++    if (rc < 0)
++    {
++        cdev_del(&nv_linux_devices_cdev);
++        goto release_region;
++    }
++
++    return 0;
++
++release_region:
++    unregister_chrdev_region(hybrid_chrdev_base,
++            NV_MINOR_DEVICE_NUMBER_CONTROL_DEVICE + 1);
++    hybrid_chrdev_base = 0;
+     return rc;
+ }
+ 
+-static void nv_unregister_chrdev(
+-    unsigned int minor,
+-    unsigned int count,
+-    struct cdev *cdev
+-)
+-{
+-    cdev_del(cdev);
+-    unregister_chrdev_region(MKDEV(NV_MAJOR_DEVICE_NUMBER, minor), count);
++static void hybrid_unregister_chrdevs(void)
++{
++    cdev_del(&nv_linux_control_device_cdev);
++    cdev_del(&nv_linux_devices_cdev);
++    unregister_chrdev_region(hybrid_chrdev_base,
++            NV_MINOR_DEVICE_NUMBER_CONTROL_DEVICE + 1);
++    hybrid_chrdev_base = 0;
+ }
+ 
+ static int __init nvidia_init_module(void)
+@@ -953,27 +963,15 @@
+      *
+      * NOTE: THIS SHOULD BE DONE LAST.
+      */
+-    rc = nv_register_chrdev(0, NV_MINOR_DEVICE_NUMBER_REGULAR_MAX + 1,
+-            &nv_linux_devices_cdev, "nvidia", &nvidia_fops);
++    rc = hybrid_register_chrdevs();
+     if (rc < 0)
+     {
+         goto no_chrdev_exit;
+     }
+ 
+-    rc = nv_register_chrdev(NV_MINOR_DEVICE_NUMBER_CONTROL_DEVICE, 1,
+-            &nv_linux_control_device_cdev, "nvidiactl", &nvidia_fops);
+-    if (rc < 0)
+-    {
+-        goto partial_chrdev_exit;
+-    }
+-
+     __nv_init_sp = sp;
+ 
+     return 0;
+-
+-partial_chrdev_exit:
+-    nv_unregister_chrdev(0, NV_MINOR_DEVICE_NUMBER_REGULAR_MAX + 1,
+-        &nv_linux_devices_cdev);
+ 
+ no_chrdev_exit:
+ #if defined(NV_UVM_ENABLE)
+@@ -1002,10 +1000,7 @@
+ {
+     nvidia_stack_t *sp = __nv_init_sp;
+ 
+-    nv_unregister_chrdev(NV_MINOR_DEVICE_NUMBER_CONTROL_DEVICE, 1,
+-        &nv_linux_control_device_cdev);
+-    nv_unregister_chrdev(0, NV_MINOR_DEVICE_NUMBER_REGULAR_MAX + 1,
+-        &nv_linux_devices_cdev);
++    hybrid_unregister_chrdevs();
+ 
+ #if defined(NV_UVM_ENABLE)
+     nv_uvm_exit();
+@@ -4098,7 +4093,9 @@
+ 
+     rdev = (NV_FILE_INODE(filp))->i_rdev;
+ 
+-    if (MAJOR(rdev) != NV_MAJOR_DEVICE_NUMBER)
++    if (hybrid_chrdev_base == 0 ||
++        filp->f_op != &nvidia_fops ||
++        MAJOR(rdev) != MAJOR(hybrid_chrdev_base))
+     {
+         goto fail;
+     }

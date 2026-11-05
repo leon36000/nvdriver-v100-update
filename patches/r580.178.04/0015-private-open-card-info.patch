@@ -1,0 +1,73 @@
+--- a/kernel-open/nvidia/nv.c
++++ b/kernel-open/nvidia/nv.c
+@@ -2364,6 +2364,52 @@
+     UNLOCK_NV_LINUX_DEVICES();
+     return rc;
+ }
++
++int hybrid580_open_gpu_card_info_v1(
++    struct nv_ioctl_card_info *records, NvU32 capacity, NvU32 *count)
++{
++    nv_state_t *nv = NV_STATE_PTR(&nv_ctl_device);
++    nv_ioctl_card_info_t *typed_records = (nv_ioctl_card_info_t *)records;
++    nvidia_stack_t *sp = NULL;
++    NvU32 i, valid = 0;
++    NV_STATUS rmStatus;
++    int status;
++
++    if (count == NULL)
++        return -EINVAL;
++    *count = 0;
++    if (capacity > HYBRID580_GPU_MAX_BACKEND_DEVICES || records == NULL)
++        return -EINVAL;
++
++    status = nv_down_read_interruptible(&nv_system_pm_lock);
++    if (status < 0)
++        return status;
++    status = nv_kmem_cache_alloc_stack(&sp);
++    if (status != 0)
++        goto done_pm_unlock;
++
++    rmStatus = nv_check_gpu_state(nv);
++    if (rmStatus == NV_ERR_GPU_IS_LOST)
++    {
++        status = -EINVAL;
++        goto done;
++    }
++    status = nvidia_read_card_info(typed_records, capacity);
++    if (status == 0)
++    {
++        for (i = 0; i < capacity; ++i)
++            if (typed_records[i].valid)
++                ++valid;
++        *count = valid;
++    }
++
++done:
++    nv_kmem_cache_free_stack(sp);
++done_pm_unlock:
++    up_read(&nv_system_pm_lock);
++    return status;
++}
++EXPORT_SYMBOL(hybrid580_open_gpu_card_info_v1);
+ 
+ int
+ nvidia_ioctl(
+--- a/kernel-open/nvidia/hybrid580-gpu-session.h
++++ b/kernel-open/nvidia/hybrid580-gpu-session.h
+@@ -7,6 +7,7 @@
+ #include "hybrid580-gpu-catalog.h"
+ 
+ struct hybrid580_gpu_session;
++struct nv_ioctl_card_info;
+ 
+ /* Internal kernel API. The BDF must match the selected backend GPU. The
+  * session retains the genuine NVIDIA GPU file created by nvidia_open().
+@@ -28,5 +29,7 @@
+ int hybrid580_open_gpu_inventory_v1(
+     struct hybrid580_gpu_backend_record_v1 *records,
+     NvU32 capacity, NvU32 *count);
++int hybrid580_open_gpu_card_info_v1(
++    struct nv_ioctl_card_info *records, NvU32 capacity, NvU32 *count);
+ 
+ #endif

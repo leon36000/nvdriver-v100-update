@@ -1,0 +1,203 @@
+--- a/nvidia/nv.c
++++ b/nvidia/nv.c
+@@ -231,6 +231,7 @@
+ static unsigned int  nvidia_poll           (struct file *, poll_table *);
+ static int           nvidia_ioctl          (struct inode *, struct file *, unsigned int, unsigned long);
+ static long          nvidia_unlocked_ioctl (struct file *, unsigned int, unsigned long);
++static int hybrid580_attach_gpus_to_file(nv_linux_file_private_t *, nvidia_stack_t *, const NvU32 *, size_t);
+ 
+ /* character device entry points*/
+ static struct file_operations nvidia_fops = {
+@@ -2512,67 +2513,8 @@
+ 
+         case NV_ESC_ATTACH_GPUS_TO_FD:
+         {
+-            size_t num_arg_gpus = arg_size / sizeof(NvU32);
+-            size_t i;
+-
+             NV_CTL_DEVICE_ONLY(nv);
+-
+-            if ((num_arg_gpus == 0) || (arg_size % sizeof(NvU32) != 0))
+-            {
+-                status = -EINVAL;
+-                goto done;
+-            }
+-
+-            /* atomically check and alloc attached_gpus */
+-            down(&nvl->ldata_lock);
+-
+-            if (nvlfp->num_attached_gpus != 0)
+-            {
+-                up(&nvl->ldata_lock);
+-                status = -EINVAL;
+-                goto done;
+-            }
+-
+-            NV_KMALLOC(nvlfp->attached_gpus, arg_size);
+-            if (nvlfp->attached_gpus == NULL)
+-            {
+-                up(&nvl->ldata_lock);
+-                status = -ENOMEM;
+-                goto done;
+-            }
+-            memcpy(nvlfp->attached_gpus, arg_copy, arg_size);
+-            nvlfp->num_attached_gpus = num_arg_gpus;
+-
+-            up(&nvl->ldata_lock);
+-
+-            for (i = 0; i < nvlfp->num_attached_gpus; i++)
+-            {
+-                if (nvlfp->attached_gpus[i] == 0)
+-                {
+-                    continue;
+-                }
+-
+-                if (nvidia_dev_get(nvlfp->attached_gpus[i], sp))
+-                {
+-                    while (i--)
+-                    {
+-                        if (nvlfp->attached_gpus[i] != 0)
+-                            nvidia_dev_put(nvlfp->attached_gpus[i], sp);
+-                    }
+-
+-                    /* atomically free attached_gpus */
+-                    down(&nvl->ldata_lock);
+-
+-                    NV_KFREE(nvlfp->attached_gpus, arg_size);
+-                    nvlfp->num_attached_gpus = 0;
+-
+-                    up(&nvl->ldata_lock);
+-
+-                    status = -EINVAL;
+-                    break;
+-                }
+-            }
+-
++            status = hybrid580_attach_gpus_to_file(nvlfp, sp, arg_copy, arg_size);
+             break;
+         }
+ 
+@@ -4192,6 +4134,64 @@
+ /* An unpublished control file has ordinary vendor private storage. The owner
+  * holds a session reference throughout every call and mapping publication.
+  * This mutex serializes calls only; it never covers a final fput(). */
++/* Kernel-owned equivalent of the NV_ESC_ATTACH_GPUS_TO_FD wrapper path.
++ * This shares the exact pin/rollback rules with nvidia_ioctl while avoiding
++ * copy_from_user for private control sessions. Caller holds PM read lock and
++ * a live NVIDIA stack.
++ */
++static int hybrid580_attach_gpus_to_file(
++    nv_linux_file_private_t *nvlfp, nvidia_stack_t *sp,
++    const NvU32 *gpu_ids, size_t arg_size)
++{
++    nv_linux_state_t *nvl;
++    size_t num_arg_gpus, i;
++
++    if (nvlfp == NULL || sp == NULL || gpu_ids == NULL || arg_size == 0 ||
++        arg_size > NV_ABSOLUTE_MAX_IOCTL_SIZE || arg_size % sizeof(NvU32) != 0)
++        return -EINVAL;
++    nvl = nvlfp->nvptr;
++    if (nvl == NULL)
++        return -EINVAL;
++    num_arg_gpus = arg_size / sizeof(NvU32);
++
++    /* Keep the vendor's check-and-publish protocol on the control file. */
++    down(&nvl->ldata_lock);
++    if (nvlfp->num_attached_gpus != 0)
++    {
++        up(&nvl->ldata_lock);
++        return -EINVAL;
++    }
++    NV_KMALLOC(nvlfp->attached_gpus, arg_size);
++    if (nvlfp->attached_gpus == NULL)
++    {
++        up(&nvl->ldata_lock);
++        return -ENOMEM;
++    }
++    memcpy(nvlfp->attached_gpus, gpu_ids, arg_size);
++    nvlfp->num_attached_gpus = num_arg_gpus;
++    up(&nvl->ldata_lock);
++
++    for (i = 0; i < num_arg_gpus; ++i)
++    {
++        if (nvlfp->attached_gpus[i] == 0)
++            continue;
++        if (nvidia_dev_get(nvlfp->attached_gpus[i], sp))
++        {
++            while (i--)
++            {
++                if (nvlfp->attached_gpus[i] != 0)
++                    nvidia_dev_put(nvlfp->attached_gpus[i], sp);
++            }
++            down(&nvl->ldata_lock);
++            NV_KFREE(nvlfp->attached_gpus, arg_size);
++            nvlfp->num_attached_gpus = 0;
++            up(&nvl->ldata_lock);
++            return -EINVAL;
++        }
++    }
++    return 0;
++}
++
+ struct hybrid580_control_session {
+     struct kref refs;
+     struct mutex lock;
+@@ -4311,6 +4311,49 @@
+     return session != NULL ? get_file(session->file) : NULL;
+ }
+ EXPORT_SYMBOL(hybrid580_legacy_control_session_file_v1);
++
++int hybrid580_legacy_control_session_attach_v1(
++    struct hybrid580_control_session *session, const NvU32 *gpu_ids,
++    NvU32 count)
++{
++    nv_linux_file_private_t *nvlfp;
++    nvidia_stack_t *sp = NULL;
++    nv_state_t *nv;
++    size_t arg_size;
++    int rc;
++
++    if (session == NULL || gpu_ids == NULL || count == 0 ||
++        count > NV_ABSOLUTE_MAX_IOCTL_SIZE / sizeof(NvU32))
++        return -EINVAL;
++    arg_size = (size_t)count * sizeof(NvU32);
++    rc = mutex_lock_interruptible(&session->lock);
++    if (rc != 0)
++        return rc;
++    nvlfp = hybrid580_legacy_backend_file(session->file, 1);
++    if (nvlfp == NULL)
++    {
++        rc = -EINVAL;
++        goto done;
++    }
++    rc = nv_down_read_interruptible(&nv_system_pm_lock);
++    if (rc < 0)
++        goto done;
++    rc = nv_kmem_cache_alloc_stack(&sp);
++    if (rc != 0)
++        goto done_pm;
++    nv = NV_STATE_PTR(nvlfp->nvptr);
++    if (nv_check_gpu_state(nv) != NV_OK)
++        rc = -EINVAL;
++    else
++        rc = hybrid580_attach_gpus_to_file(nvlfp, sp, gpu_ids, arg_size);
++    nv_kmem_cache_free_stack(sp);
++done_pm:
++    up_read(&nv_system_pm_lock);
++done:
++    mutex_unlock(&session->lock);
++    return rc;
++}
++EXPORT_SYMBOL(hybrid580_legacy_control_session_attach_v1);
+ 
+ int hybrid580_legacy_control_session_create_v1(
+     struct file *anchor, struct hybrid580_control_session **out,
+--- a/nvidia/hybrid580-control-session.h
++++ b/nvidia/hybrid580-control-session.h
+@@ -26,4 +26,6 @@
+ void hybrid580_legacy_control_session_get_v1(struct hybrid580_control_session *);
+ void hybrid580_legacy_control_session_put_v1(struct hybrid580_control_session *);
+ struct file *hybrid580_legacy_control_session_file_v1(struct hybrid580_control_session *);
++int hybrid580_legacy_control_session_attach_v1(
++    struct hybrid580_control_session *, const NvU32 *gpu_ids, NvU32 count);
+ #endif

@@ -1,0 +1,112 @@
+--- a/kernel-open/nvidia/nv.c
++++ b/kernel-open/nvidia/nv.c
+@@ -4657,8 +4657,87 @@
+     return hybrid580_open_gpu_session_create_v1(anchor, minor, expected_bdf, out);
+ }
+ EXPORT_SYMBOL(hybrid580_open_gpu_session_create_by_bdf_v1);
+ 
++/* Snapshot the initialized PCI inventory while the backend minor table is
++ * locked. The caller owns the output buffer; no user pointer is retained.
++ */
++int hybrid580_open_gpu_inventory_v1(
++    struct hybrid580_gpu_backend_record_v1 *records,
++    NvU32 capacity, NvU32 *count)
++{
++    nv_linux_state_t *nvl;
++    nv_state_t *nv;
++    NvU32 required = 0, i = 0;
++    int rc = 0;
++
++    if (count == NULL)
++        return -EINVAL;
++    *count = 0;
++    if (capacity > HYBRID580_GPU_MAX_BACKEND_DEVICES ||
++        (capacity != 0 && records == NULL))
++        return -EINVAL;
++
++    LOCK_NV_LINUX_DEVICES();
++    for (nvl = nv_linux_devices; nvl != NULL; nvl = nvl->next)
++    {
++        nv = NV_STATE_PTR(nvl);
++        if (nvl->pci_dev == NULL || (nv->flags & NV_FLAG_EXCLUDE) != 0)
++            continue;
++        ++required;
++    }
++    if (required > HYBRID580_GPU_MAX_BACKEND_DEVICES)
++    {
++        rc = -E2BIG;
++        goto out;
++    }
++    *count = required;
++    if (capacity < required)
++    {
++        rc = -ENOSPC;
++        goto out;
++    }
++
++    for (nvl = nv_linux_devices; nvl != NULL; nvl = nvl->next)
++    {
++        struct hybrid580_gpu_backend_record_v1 *record;
++        nv = NV_STATE_PTR(nvl);
++        if (nvl->pci_dev == NULL || (nv->flags & NV_FLAG_EXCLUDE) != 0)
++            continue;
++        if (nvl->minor_num > NV_MINOR_DEVICE_NUMBER_REGULAR_MAX)
++        {
++            rc = -EIO;
++            goto clear_output;
++        }
++        record = &records[i];
++        memset(record, 0, sizeof(*record));
++        if (strscpy(record->bdf, pci_name(nvl->pci_dev),
++                    sizeof(record->bdf)) < 0)
++        {
++            rc = -EIO;
++            goto clear_output;
++        }
++        record->backend_minor = nvl->minor_num;
++        record->backend_gpu_id = nv->gpu_id;
++        record->domain = pci_domain_nr(nvl->pci_dev->bus);
++        record->bus = nvl->pci_dev->bus->number;
++        record->slot = PCI_SLOT(nvl->pci_dev->devfn);
++        record->function = PCI_FUNC(nvl->pci_dev->devfn);
++        record->vendor_id = nvl->pci_dev->vendor;
++        record->device_id = nvl->pci_dev->device;
++        ++i;
++    }
++    goto out;
++
++clear_output:
++    memset(records, 0, capacity * sizeof(*records));
++    *count = 0;
++out:
++    UNLOCK_NV_LINUX_DEVICES();
++    return rc;
++}
++EXPORT_SYMBOL(hybrid580_open_gpu_inventory_v1);
++
+ nv_file_private_t* NV_API_CALL nv_get_file_private(
+     NvS32 fd,
+     NvBool ctl,
+     void **os_private
+--- a/kernel-open/nvidia/hybrid580-gpu-session.h
++++ b/kernel-open/nvidia/hybrid580-gpu-session.h
+@@ -3,8 +3,9 @@
+ #define HYBRID580_GPU_SESSION_H
+ 
+ #include <linux/fs.h>
+ #include <nvtypes.h>
++#include "hybrid580-gpu-catalog.h"
+ 
+ struct hybrid580_gpu_session;
+ 
+ /* Internal kernel API. The BDF must match the selected backend GPU. The
+@@ -23,6 +24,9 @@
+     struct hybrid580_gpu_session *session);
+ long hybrid580_open_gpu_session_ioctl_v1(
+     struct hybrid580_gpu_session *session, unsigned int command,
+     unsigned long argument);
++int hybrid580_open_gpu_inventory_v1(
++    struct hybrid580_gpu_backend_record_v1 *records,
++    NvU32 capacity, NvU32 *count);
+ 
+ #endif

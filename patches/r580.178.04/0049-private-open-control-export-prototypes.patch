@@ -1,0 +1,15 @@
+--- a/kernel-open/nvidia/hybrid580-control-session.h
++++ b/kernel-open/nvidia/hybrid580-control-session.h
+@@ -182,4 +182,12 @@
+ /* NVIDIA's OS-level SYS_PARAMS control-device state update. */
+ int hybrid580_open_control_session_sys_params_v1(
+     struct hybrid580_control_session *, NvU64 memblock_size);
++/* Fixed, input-only root-client share policy bridge. */
++NV_STATUS hybrid580_open_control_session_client_share_policy_v1(
++    struct hybrid580_control_session *, NvHandle h_client, NvHandle h_object,
++    NvU32 flags, RS_SHARE_POLICY *policy, NvU32 *control_status);
++/* Return only the provider-local count; provider-owned IDs stay local. */
++NV_STATUS hybrid580_open_control_session_sync_boost_groups_v1(
++    struct hybrid580_control_session *, NvHandle h_client, NvHandle h_object,
++    NvU32 flags, NvU32 *group_count, NvU32 *control_status);
+ #endif
