@@ -1,0 +1,66 @@
+{
+  "active_char_devices": [
+    {
+      "major": 195,
+      "minor": 255,
+      "path": "/dev/nvidiactl"
+    },
+    {
+      "major": 195,
+      "minor": 0,
+      "path": "/dev/nvidia0"
+    },
+    {
+      "major": 511,
+      "minor": 0,
+      "path": "/dev/nvidia-uvm"
+    }
+  ],
+  "active_modules": [
+    {
+      "name": "nvidia",
+      "signer": "Canonical Ltd. Kernel Module Signing",
+      "version": "595.99.02"
+    }
+  ],
+  "evidence_refs": [
+    {
+      "path": "evidence/logs/pc3-canary-kernel-policy-readonly-20261023T1953Z.log",
+      "sha256": "2c83cdc11af44429648da339e08989c0b4bdf61868c6ba996a70356b712e85c8"
+    },
+    {
+      "path": "evidence/logs/pc3-stock-nvidia-node-ownership-readonly-20261023T1954Z.log",
+      "sha256": "0beda8b88dd6fccc9bd6fd9bfed348a4e05955eabccf92e9fdaefafa6f702222"
+    },
+    {
+      "path": "evidence/logs/pc3-host-inventory-readonly-20261023T1950Z.log",
+      "sha256": "4363906fafa87492674529ce9f584faf1cc8c9e74bcca2f95f321ebb3e41908a"
+    },
+    {
+      "path": "evidence/logs/pc3-canary-kernel-vermagic-readonly-20261023T2004Z.log",
+      "sha256": "3b77c3829244b7499447d4bd5b6f815a896157f8decf0a3c6237f88020c3c436"
+    }
+  ],
+  "gpu_ownership": [
+    {
+      "driver": "nvidia",
+      "host_cuda_visible": true,
+      "model": "RTX 5080",
+      "pci": "0000:02:00.0"
+    },
+    {
+      "driver": "vfio-pci",
+      "host_cuda_visible": false,
+      "model": "Tesla V100",
+      "pci": "0000:81:00.0"
+    }
+  ],
+  "host": "pc3",
+  "kernel_release": "7.0.0-38-generic",
+  "kernel_vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+  "lockdown": "integrity",
+  "module_sig_enforce": true,
+  "observed_at_utc": "2026-10-23T20:04:55Z",
+  "schema": "nvidia-hybrid-canary-host-state-v1",
+  "secure_boot_enabled": true
+}

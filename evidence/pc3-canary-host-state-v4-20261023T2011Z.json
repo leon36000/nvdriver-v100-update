@@ -1,0 +1,109 @@
+{
+  "active_char_devices": [
+    {
+      "major": 195,
+      "minor": 0,
+      "path": "/dev/nvidia0"
+    },
+    {
+      "major": 195,
+      "minor": 254,
+      "path": "/dev/nvidia-modeset"
+    },
+    {
+      "major": 195,
+      "minor": 255,
+      "path": "/dev/nvidiactl"
+    },
+    {
+      "major": 511,
+      "minor": 0,
+      "path": "/dev/nvidia-uvm"
+    },
+    {
+      "major": 511,
+      "minor": 1,
+      "path": "/dev/nvidia-uvm-tools"
+    }
+  ],
+  "active_modules": [
+    {
+      "name": "nvidia",
+      "signer": "Canonical Ltd. Kernel Module Signing",
+      "version": "595.99.02"
+    }
+  ],
+  "char_device_major_names": [
+    {
+      "major": 195,
+      "name": "nvidia"
+    },
+    {
+      "major": 195,
+      "name": "nvidia-modeset"
+    },
+    {
+      "major": 195,
+      "name": "nvidiactl"
+    },
+    {
+      "major": 234,
+      "name": "nvidia-nvswitch"
+    },
+    {
+      "major": 235,
+      "name": "nvidia-nvlink"
+    },
+    {
+      "major": 236,
+      "name": "nvidia-caps"
+    },
+    {
+      "major": 237,
+      "name": "nvidia-caps-imex-channels"
+    },
+    {
+      "major": 511,
+      "name": "nvidia-uvm"
+    }
+  ],
+  "evidence_refs": [
+    {
+      "path": "evidence/logs/pc3-canary-host-state-readonly-v1-20261023T2010Z.log",
+      "sha256": "fcdffd0fcc092d9936baaba7a2dfbed75d184dcd7363b451fa70c83d2e70344f"
+    },
+    {
+      "path": "evidence/logs/pc3-canary-pci-binding-readonly-v1-20261023T2011Z.log",
+      "sha256": "7666853dc27d88dea6875ad3300b2e8f026720f065abee442b11760bf7776084"
+    }
+  ],
+  "gpu_ownership": [
+    {
+      "driver": "nvidia",
+      "host_cuda_visible": true,
+      "model": "GeForce RTX 5080",
+      "pci": "0000:02:00.0"
+    },
+    {
+      "driver": "vfio-pci",
+      "host_cuda_visible": false,
+      "model": "Tesla V100 SXM2 16GB",
+      "pci": "0000:81:00.0"
+    }
+  ],
+  "host": "pc3",
+  "kernel_policy_observed_at_utc": "2026-10-23T20:11:21Z",
+  "kernel_release": "7.0.0-38-generic",
+  "kernel_vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+  "loaded_nvidia_modules": [
+    "nvidia_drm",
+    "nvidia_uvm",
+    "nvidia_modeset",
+    "nvidia"
+  ],
+  "lockdown": "integrity",
+  "module_sig_enforce": true,
+  "observed_at_utc": "2026-10-23T20:11:40Z",
+  "schema": "nvidia-hybrid-canary-host-state-v1",
+  "secure_boot_enabled": true
+}
