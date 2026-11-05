@@ -1,0 +1,27 @@
+{
+  "command": "HYBRID_PROBE=<pinned> HYBRID_CUDA_PROBE=<pinned> python3 -B -m unittest discover -v -s tests",
+  "cuda_probe": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+  "cuda_probe_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+  "hardware_validation": false,
+  "log": "evidence/logs/software-verification-r580-lookup-join-v1-20261022.log",
+  "log_mode": "0600",
+  "log_sha256": "c7ff31c05bab7ada3bd713c513e883dd2d2bad3297750dc8270669acdd1874a5",
+  "note": "CPU/static software suite only. PC3 observer build-only and one bounded direct-kprobe canary are recorded separately; neither exercises experimental hybrid CUDA.",
+  "report_generated_utc": "2026-10-22T20:01:11+00:00",
+  "returncode": 0,
+  "schema": "nvidia-hybrid-software-verification-v1",
+  "source_hashes_at_report": {
+    "probes/pc3_r580_kprobe_observer/Kbuild": "e83163e205f0e27dcef701e0a807bc5daae029c210df176c0eb3cecd78588576",
+    "probes/pc3_r580_kprobe_observer/pc3_r580_kprobe_observer.c": "5c9ff15ccf394f1af20dbb998b18394badc6f428df9998bdbb68287339f29c1d",
+    "tests/test_pc3_r580_kprobe_observer_runner.py": "2b35bf229509c93b15ee5856408e4a29df2dae40073a7b96f278e8dd5c3e36f9",
+    "tests/test_pc3_r580_kprobe_observer_source.py": "04ebecdc0b67b99786f1bc76249031aeb06917514bff9bff22ac4b47a2359373",
+    "tests/test_r580_lookup_branch_audit.py": "3e396af8f5e18a3f71163fae5a4cbd7b80149d733aecb222bca83edd0d4f2b8f",
+    "tools/audit_r580_lookup_branch.py": "ef1922fbffb43848ea3902276093323fa82230f8be36fb5e0b1d6262e84f9fdd",
+    "tools/run_pc3_r580_kprobe_observer.py": "84c5f1ee6ede0455cf5d6227364863e247065969768e1ee6550de73f6c12d202"
+  },
+  "started_utc": "2026-10-22T20:00:25+00:00",
+  "status": "passed",
+  "suite_seconds": 45.165,
+  "test_count": 831,
+  "tests_skipped": 0
+}

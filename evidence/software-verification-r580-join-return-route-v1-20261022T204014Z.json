@@ -1,0 +1,28 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-v",
+    "-s",
+    "tests"
+  ],
+  "duration_seconds": 45.678,
+  "exit_code": 0,
+  "finished_utc": "2026-10-22T20:41:00.410866+00:00",
+  "log_path": "evidence/logs/software-verification-r580-join-return-route-v1-20261022T204014Z.log",
+  "log_sha256": "7118078e4dc854b427e4a497f4b9015985d63ea335bf1f737ca29bdc0efd316e",
+  "probe_path": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+  "probe_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+  "schema": "nvidia-hybrid-software-verification-v1",
+  "scope": "CPU, source, static and build checks; not hybrid-driver hardware qualification",
+  "skipped": 0,
+  "started_utc": "2026-10-22T20:40:14.732346+00:00",
+  "status": "passed",
+  "summary": "OK",
+  "summary_details": "",
+  "tests_run": 853,
+  "unittest_duration_seconds": 45.565
+}

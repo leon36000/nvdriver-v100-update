@@ -1,0 +1,30 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-v",
+    "-s",
+    "tests"
+  ],
+  "completed_utc": "2026-10-22T20:22:36+00:00",
+  "elapsed_seconds": 44.29,
+  "environment": {
+    "HYBRID_CUDA_PROBE": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "HYBRID_PROBE": "build/probe-current-src-v1-20261022/hybrid_cuda_probe"
+  },
+  "log_path": "evidence/logs/software-verification-r580-function-identity-v1-20261022T202152Z.log",
+  "log_sha256": "291a0b8be0bedec51302c3f31ad12bc839be88ded68e9b1a293c1032cc27a269",
+  "probe_path": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+  "probe_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+  "qualification": "software_source_cpu_and_build_tests_only_no_hybrid_hardware_qualification",
+  "schema": "software-verification-v1",
+  "started_utc": "2026-10-22T20:21:52+00:00",
+  "summary": {
+    "exit_code": 0,
+    "reported_seconds": 44.185,
+    "tests": 844
+  }
+}

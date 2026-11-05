@@ -1,0 +1,19 @@
+{
+  "command": "python3 -B -m unittest discover -v -s tests",
+  "env": {
+    "HYBRID_CUDA_PROBE": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "HYBRID_PROBE": "build/probe-current-src-v1-20261022/hybrid_cuda_probe"
+  },
+  "exit_code": 0,
+  "generated_utc": "2026-10-22T05:28:08+00:00",
+  "log": {
+    "mode": "0600",
+    "path": "evidence/logs/software-verification-r580-descriptor-registry-scope-v1-20261022.log",
+    "sha256": "c4a1417bd4384a277e7f47b41cb5afee274f75a3527dd5b45ef95c46b0972143"
+  },
+  "passed": true,
+  "probe_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+  "reported_test_seconds": 42.573,
+  "schema": "software-verification-r580-descriptor-registry-scope-v1",
+  "tests_run": 715
+}
