@@ -1,0 +1,75 @@
+{
+  "schema": "nvidia-hybrid-selected-ioctl-observation-v1",
+  "observed_at_utc": "2026-10-19T01:17:38.682149+00:00",
+  "ssh_argv": [
+    "ssh",
+    "-T",
+    "-F",
+    "/dev/null",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=6",
+    "-o",
+    "ConnectionAttempts=1",
+    "-o",
+    "PasswordAuthentication=no",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "HostKeyAlias=pc3",
+    "-o",
+    "ControlMaster=no",
+    "-o",
+    "ControlPath=none",
+    "pc3@pc3",
+    "python3 -c '\nimport hashlib,json,subprocess,os\nfrom pathlib import Path\n\ndef canonical_pci(value):\n    import re\n    match = re.fullmatch(r\"([0-9a-fA-F]{4}|[0-9a-fA-F]{8}):([0-9a-fA-F]{2}):([0-9a-fA-F]{2})\\.([0-7])\", value)\n    if not match:\n        raise ValueError(\"invalid PCI identity\")\n    domain, bus, slot, function = [int(part, 16) for part in match.groups()]\n    if domain > 65535 or slot > 31:\n        raise ValueError(\"PCI identity out of supported range\")\n    return f\"{domain:04x}:{bus:02x}:{slot:02x}.{function:x}\"\n\ndef selected_device(report, pci):\n    devices = report.get(\"devices\", [])\n    if len(devices) != 1:\n        raise ValueError(\"expected exactly one visible GPU\")\n    device = devices[0]\n    if canonical_pci(device.get(\"pci_bus_id\", \"\")) != canonical_pci(pci):\n        raise ValueError(\"visible PCI identity mismatch\")\n    if device.get(\"sm\") != 120 or \"RTX 5080\" not in device.get(\"name\", \"\"):\n        raise ValueError(\"visible device is not RTX 5080 SM120\")\n    return device\n\ndef clean_environment(source, uuid):\n    env = {key: value for key, value in source.items()\n           if not key.startswith((\"LD_\", \"CUDA_\", \"NVIDIA_\", \"PYTHON\"))}\n    env[\"CUDA_VISIBLE_DEVICES\"] = uuid\n    env[\"PATH\"] = \"/usr/bin:/bin\"\n    env[\"LC_ALL\"] = \"C\"\n    return env\n\np=json.load(__import__('\"'\"'sys'\"'\"').stdin)\nwork=Path(p['\"'\"'work'\"'\"'])\nif not str(work).startswith('\"'\"'/tmp/hybrid-rtx5080-'\"'\"'): raise ValueError('\"'\"'unexpected work path'\"'\"')\npci=canonical_pci(p['\"'\"'pci'\"'\"'])\ninfo=(Path('\"'\"'/proc/driver/nvidia/gpus'\"'\"')/pci/'\"'\"'information'\"'\"').read_text()\nfields={key.strip():value.strip() for key,value in (line.split('\"'\"':'\"'\"',1) for line in info.splitlines() if '\"'\"':'\"'\"' in line)}\nif fields.get('\"'\"'GPU UUID'\"'\"')!=p['\"'\"'uuid'\"'\"'] or '\"'\"'RTX 5080'\"'\"' not in fields.get('\"'\"'Model'\"'\"','\"'\"''\"'\"'): raise ValueError('\"'\"'RTX identity changed'\"'\"')\nif (Path('\"'\"'/sys/bus/pci/devices'\"'\"')/pci/'\"'\"'driver'\"'\"').resolve().name!='\"'\"'nvidia'\"'\"': raise ValueError('\"'\"'binding changed'\"'\"')\ndef identities():\n return {name:hashlib.sha256(Path(item['\"'\"'path'\"'\"']).read_bytes()).hexdigest() for name,item in p['\"'\"'artifacts'\"'\"'].items()}\nbefore=identities()\nif before!={name:item['\"'\"'sha256'\"'\"'] for name,item in p['\"'\"'artifacts'\"'\"'].items()}: raise ValueError('\"'\"'artifact mismatch'\"'\"')\nlog=work/'\"'\"'selected-ioctl.trace'\"'\"'\nif log.exists(): raise ValueError('\"'\"'refuse to overwrite trace'\"'\"')\ncommand=['\"'\"'/usr/bin/strace'\"'\"','\"'\"'-f'\"'\"','\"'\"'-qq'\"'\"','\"'\"'-yy'\"'\"','\"'\"'-X'\"'\"','\"'\"'raw'\"'\"','\"'\"'-e'\"'\"','\"'\"'trace=ioctl'\"'\"','\"'\"'-o'\"'\"',str(log),str(work/'\"'\"'probe'\"'\"'),'\"'\"'--module'\"'\"',str(work/'\"'\"'module'\"'\"'),'\"'\"'--require-sm'\"'\"','\"'\"'70,120'\"'\"','\"'\"'--expected-pci'\"'\"',pci]\nr=subprocess.run(command,env=clean_environment(os.environ,p['\"'\"'uuid'\"'\"']),capture_output=True,text=True,timeout=30)\nafter=identities()\nif before!=after: raise ValueError('\"'\"'artifact changed'\"'\"')\nprint(json.dumps({'\"'\"'argv'\"'\"':command,'\"'\"'exit_code'\"'\"':r.returncode,'\"'\"'stdout'\"'\"':r.stdout,'\"'\"'stderr'\"'\"':r.stderr,'\"'\"'trace'\"'\"':log.read_text(),'\"'\"'remote_trace_path'\"'\"':str(log),'\"'\"'before'\"'\"':before,'\"'\"'after'\"'\"':after,'\"'\"'execution_scope'\"'\"':'\"'\"'RTX5080 selected-process ioctl tracing only; no VM command or experimental driver change'\"'\"'}))\n'"
+  ],
+  "ssh_exit_code": 0,
+  "ssh_stderr": "",
+  "remote_script_sha256": "e4db722411215301b52f74e07891d8d93a465de43b395bcb6283ae34ddde4160",
+  "reference_evidence": "evidence/pc3-rtx5080-selected-cuda-20261019.json",
+  "hardware_abi_layout_validated": false,
+  "remote": {
+    "argv": [
+      "/usr/bin/strace",
+      "-f",
+      "-qq",
+      "-yy",
+      "-X",
+      "raw",
+      "-e",
+      "trace=ioctl",
+      "-o",
+      "/tmp/hybrid-rtx5080-q1gxso1t/selected-ioctl.trace",
+      "/tmp/hybrid-rtx5080-q1gxso1t/probe",
+      "--module",
+      "/tmp/hybrid-rtx5080-q1gxso1t/module",
+      "--require-sm",
+      "70,120",
+      "--expected-pci",
+      "0000:02:00.0"
+    ],
+    "exit_code": 77,
+    "stdout": "{\"schema\":\"nvidia-hybrid-probe-v2\",\"status\":\"incomplete\",\"hybrid_validated\":false,\"required_set_passed\":false,\"context_coexistence_passed\":false,\"execution_mode\":\"resident-contexts-sequential-kernels\",\"concurrent_kernel_execution_validated\":false,\"driver_library_path\":\"/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02\",\"driver_api\":13020,\"required_sm\":[70,120],\"missing_sm\":[70],\"devices\":[{\"ordinal\":0,\"name\":\"NVIDIA GeForce RTX 5080\",\"pci_bus_id\":\"0000:02:00.0\",\"compute_capability\":\"12.0\",\"sm\":120,\"targeted\":true,\"tested\":true,\"architecture_kernel_passed\":true,\"synchronous_passed\":true,\"synchronous_sizes\":[1,31,256,4096,65537],\"asynchronous_passed\":true,\"asynchronous_sizes\":[1,31,256,4096,65537],\"cleanup_passed\":true,\"cleanup_errors\":[],\"error\":\"\"}]}\n",
+    "stderr": "",
+    "remote_trace_path": "/tmp/hybrid-rtx5080-q1gxso1t/selected-ioctl.trace",
+    "before": {
+      "module": "fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305",
+      "probe": "9fcdf39fab21a879b24cc75fbe412478c99f4213c6b11e9273be33182408f923",
+      "runner": "070f9ec4d060cd73a6af1d39751c93cdf3d553003bc603340affedbd3656bd81"
+    },
+    "after": {
+      "module": "fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305",
+      "probe": "9fcdf39fab21a879b24cc75fbe412478c99f4213c6b11e9273be33182408f923",
+      "runner": "070f9ec4d060cd73a6af1d39751c93cdf3d553003bc603340affedbd3656bd81"
+    },
+    "execution_scope": "RTX5080 selected-process ioctl tracing only; no VM command or experimental driver change"
+  },
+  "trace": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/pc3-rtx5080-ioctl-20261019.log",
+    "sha256": "e82047369186722732b2ed8e83d9964b8a6c495ca8e7634cf0589bb77c294128",
+    "bytes": 44980
+  },
+  "probe_contract": "incomplete-hardware-missing"
+}

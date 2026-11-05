@@ -1,0 +1,156 @@
+{
+  "cleanup_passed": true,
+  "execution_scope": {
+    "driver_or_module_changed": false,
+    "gpu_reset_requested": false,
+    "imex_configuration_changed": false,
+    "pci_binding_changed": false,
+    "vm_management_issued": false
+  },
+  "hardware": {
+    "compute_process_count_after": 0,
+    "compute_process_count_before": 0,
+    "compute_process_count_prelaunch": 0,
+    "gpu": {
+      "binding": "nvidia",
+      "control_node": {
+        "major": 195,
+        "minor": 255,
+        "path": "/dev/nvidiactl"
+      },
+      "driver_version": "595.99.02",
+      "gpu_node": {
+        "identity_source": "proc-driver-gpu-information+sysfs-pci-binding",
+        "major": 195,
+        "minor": 0,
+        "path": "/dev/nvidia0",
+        "sysfs_pci": "0000:02:00.0"
+      },
+      "minor": 0,
+      "name": "NVIDIA GeForce RTX 5080",
+      "node": "/dev/nvidia0",
+      "pci": "0000:02:00.0",
+      "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77"
+    },
+    "hostname": "pc3",
+    "kernel_release": "7.0.0-38-generic",
+    "libcuda_after": {
+      "bytes": 91505672,
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+      "sha256": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d"
+    },
+    "libcuda_before": {
+      "bytes": 91505672,
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+      "sha256": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d"
+    },
+    "module_after": {
+      "bytes": 19031070,
+      "loaded_version": "595.99.02",
+      "path": "/usr/lib/modules/7.0.0-38-generic/kernel/nvidia-595-open/nvidia.ko",
+      "sha256": "9f12e5806c2ff1f0569b783061ab9d57c71cbb909781ce0c12bd8feef3975adb"
+    },
+    "module_before": {
+      "bytes": 19031070,
+      "loaded_version": "595.99.02",
+      "path": "/usr/lib/modules/7.0.0-38-generic/kernel/nvidia-595-open/nvidia.ko",
+      "sha256": "9f12e5806c2ff1f0569b783061ab9d57c71cbb909781ce0c12bd8feef3975adb"
+    }
+  },
+  "hybrid_validated": false,
+  "ioctl_summary": {
+    "coverage_status": "partial",
+    "event_lifecycle": {
+      "allocation_count": 8,
+      "balanced_by_thread_gpu_descriptor": false,
+      "free_count": 7,
+      "matched_descriptor_groups": 7
+    },
+    "missing_requests": [],
+    "record_count": 43,
+    "request_contracts": {
+      "0xc01046ce": {
+        "all_snapshots_complete": true,
+        "all_success": true,
+        "changed_record_count": 0,
+        "fd_role": "gpu",
+        "packet_size": 16
+      },
+      "0xc01046cf": {
+        "all_snapshots_complete": true,
+        "all_success": true,
+        "changed_record_count": 0,
+        "fd_role": "gpu",
+        "packet_size": 16
+      },
+      "0xc028465e": {
+        "all_snapshots_complete": true,
+        "all_success": true,
+        "changed_record_count": 0,
+        "fd_role": "control",
+        "packet_size": 40
+      },
+      "0xc038464e": {
+        "all_snapshots_complete": true,
+        "all_success": true,
+        "changed_record_count": 26,
+        "fd_role": "control",
+        "packet_size": 56
+      }
+    },
+    "request_counts": {
+      "0xc01046ce": 8,
+      "0xc01046cf": 7,
+      "0xc028465e": 2,
+      "0xc038464e": 26
+    },
+    "trace_complete": true,
+    "trace_error_count": 0
+  },
+  "kernel_phase": {
+    "cleanup_errors": [],
+    "cleanup_passed": true,
+    "completed_operations": [
+      "cuInit",
+      "cuDriverGetVersion",
+      "cuDeviceGetCount",
+      "cuDeviceGet",
+      "cuDeviceGetName",
+      "cuDeviceGetPCIBusId",
+      "cuDeviceGetAttribute.major",
+      "cuDeviceGetAttribute.minor",
+      "cuDeviceGetAttribute.concurrent_managed_access",
+      "cuDeviceGetAttribute.pageable_memory_access",
+      "cuDeviceGetAttribute.pageable_memory_access_uses_host_page_tables",
+      "cuCtxCreate_v2",
+      "cuCtxSetCurrent",
+      "cuCtxGetDevice",
+      "cuModuleLoad",
+      "cuModuleGetFunction(hybrid_arch)",
+      "cuMemAlloc_v2",
+      "cuLaunchKernel(hybrid_arch)",
+      "cuCtxSynchronize",
+      "cuMemcpyDtoH_v2"
+    ],
+    "compute_capability": "12.0",
+    "driver_api": 13020,
+    "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+    "expected_result": 1200,
+    "numeric_result": 1200,
+    "phase": "kernel",
+    "sm": 120,
+    "status": "phase-passed"
+  },
+  "observed_at_utc": "2026-10-27T04:18:34.765552+00:00",
+  "observer_exit_code": 0,
+  "prior_local_wrapper_error": "ValueError:CUDA kernel phase PCI guard mismatch",
+  "qualification": "rtx5080-r595-kernel-phase-validated-ioctl-coverage-partial",
+  "remote_workspace_removed": true,
+  "revalidation_code_sha256": "d9cf3cbac65d975e38d1ec6f77b6e168432a18c0dddc8ddbe48579ae9f3fd781",
+  "schema": "nvidia-hybrid-pc3-rtx5080-ioctl-kernel-phase-revalidation-v1",
+  "source_remote_report_sha256": "2731e40c836cf558263c468138a29e9223241519ec1f77094b0498963cdf2a3b",
+  "source_report": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-rtx5080-ioctl-kernel-phase-v2-20261027T0419Z.json",
+  "source_report_sha256": "5c57e32a72c8052681a57a14768d287b002bfb3eeea4aaa02d41fb79d1c05bc5",
+  "source_runner_sha256": "a79fe3b023ac492460c40bf0b69b28118976a472693121136ffddc6a1889ac62",
+  "status": "validated-from-captured-remote-result"
+}

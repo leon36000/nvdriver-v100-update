@@ -1,0 +1,576 @@
+{
+  "attached_ids_capture_requested": false,
+  "benchmark_samples": null,
+  "benchmark_transfer_samples": null,
+  "binapi_alloc_capture_requested": false,
+  "binapi_control_capture_requested": false,
+  "channel_alloc_capture_requested": false,
+  "cuda_execution_validated": false,
+  "cuda_execution_validation_state": "not-established; probe build identity is not trusted",
+  "cuda_graphs_requested": true,
+  "device_alloc_capture_requested": false,
+  "exit_code": 77,
+  "expected_libcuda_sha256": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d",
+  "gpu_id_info_capture_requested": false,
+  "gt200_debugger_alloc_capture_requested": false,
+  "gt200_debugger_alloc_payload_snapshots_read": null,
+  "gt200_debugger_alloc_records_seen": null,
+  "gt200_debugger_lifecycle": null,
+  "gt200_debugger_lifecycle_capture_requested": false,
+  "host_key_alias": "pc3",
+  "local_artifacts": {
+    "cuda_probe_contract.py": {
+      "bytes": 24798,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/cuda_probe_contract.py",
+      "sha256": "0e5741b360ff482af56c2cc5ae35db829d4aae96123351aa0c3f17b966db0dbd"
+    },
+    "module": {
+      "bytes": 30104,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-libcuda-override-v12-20261101/hybrid_probe.sm70-sm120.fatbin",
+      "sha256": "9b6c772590c0e7ce6a95e36fb637b769eceef69856979761d739028d8b45675f"
+    },
+    "probe": {
+      "bytes": 231072,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-libcuda-override-v12-20261101/hybrid_cuda_probe",
+      "sha256": "ad1d63b81f8ec2dbeba37c156bf230c9059f7d9d54e5a48e9097303408966898"
+    },
+    "runner": {
+      "bytes": 164010,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests/run_hybrid_acceptance.py",
+      "sha256": "eab3d17f9621f6c6afcee943ba476da4f27bf7636e81a76ee553686471717a2b"
+    }
+  },
+  "local_artifacts_after": {
+    "cuda_probe_contract.py": {
+      "bytes": 24798,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/cuda_probe_contract.py",
+      "sha256": "0e5741b360ff482af56c2cc5ae35db829d4aae96123351aa0c3f17b966db0dbd"
+    },
+    "module": {
+      "bytes": 30104,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-libcuda-override-v12-20261101/hybrid_probe.sm70-sm120.fatbin",
+      "sha256": "9b6c772590c0e7ce6a95e36fb637b769eceef69856979761d739028d8b45675f"
+    },
+    "probe": {
+      "bytes": 231072,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-libcuda-override-v12-20261101/hybrid_cuda_probe",
+      "sha256": "ad1d63b81f8ec2dbeba37c156bf230c9059f7d9d54e5a48e9097303408966898"
+    },
+    "runner": {
+      "bytes": 164010,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests/run_hybrid_acceptance.py",
+      "sha256": "eab3d17f9621f6c6afcee943ba476da4f27bf7636e81a76ee553686471717a2b"
+    }
+  },
+  "managed_prefetch_requested": true,
+  "map_memory_capture_requested": false,
+  "memory_mode": "managed",
+  "observed_at_utc": "2026-11-01T09:39:41.809210+00:00",
+  "p2p_control_capture_requested": false,
+  "performance_benchmark_requested": false,
+  "phase": null,
+  "phase_capture_requested": false,
+  "probe_contract": {
+    "contract_version": 9,
+    "probe_report_schema": "nvidia-hybrid-probe-v2",
+    "probe_sha256": "ad1d63b81f8ec2dbeba37c156bf230c9059f7d9d54e5a48e9097303408966898",
+    "schema": "nvidia-hybrid-probe-contract-v1"
+  },
+  "probed_ids_capture_requested": false,
+  "remote": {
+    "artifacts_after": {
+      "cuda_probe_contract.py": {
+        "bytes": 24798,
+        "path": "/tmp/hybrid-rtx5080-qzdooc9o/cuda_probe_contract.py",
+        "sha256": "0e5741b360ff482af56c2cc5ae35db829d4aae96123351aa0c3f17b966db0dbd"
+      },
+      "module": {
+        "bytes": 30104,
+        "path": "/tmp/hybrid-rtx5080-qzdooc9o/module",
+        "sha256": "9b6c772590c0e7ce6a95e36fb637b769eceef69856979761d739028d8b45675f"
+      },
+      "probe": {
+        "bytes": 231072,
+        "path": "/tmp/hybrid-rtx5080-qzdooc9o/probe",
+        "sha256": "ad1d63b81f8ec2dbeba37c156bf230c9059f7d9d54e5a48e9097303408966898"
+      },
+      "runner": {
+        "bytes": 164010,
+        "path": "/tmp/hybrid-rtx5080-qzdooc9o/runner",
+        "sha256": "eab3d17f9621f6c6afcee943ba476da4f27bf7636e81a76ee553686471717a2b"
+      }
+    },
+    "artifacts_before": {
+      "cuda_probe_contract.py": {
+        "bytes": 24798,
+        "path": "/tmp/hybrid-rtx5080-qzdooc9o/cuda_probe_contract.py",
+        "sha256": "0e5741b360ff482af56c2cc5ae35db829d4aae96123351aa0c3f17b966db0dbd"
+      },
+      "module": {
+        "bytes": 30104,
+        "path": "/tmp/hybrid-rtx5080-qzdooc9o/module",
+        "sha256": "9b6c772590c0e7ce6a95e36fb637b769eceef69856979761d739028d8b45675f"
+      },
+      "probe": {
+        "bytes": 231072,
+        "path": "/tmp/hybrid-rtx5080-qzdooc9o/probe",
+        "sha256": "ad1d63b81f8ec2dbeba37c156bf230c9059f7d9d54e5a48e9097303408966898"
+      },
+      "runner": {
+        "bytes": 164010,
+        "path": "/tmp/hybrid-rtx5080-qzdooc9o/runner",
+        "sha256": "eab3d17f9621f6c6afcee943ba476da4f27bf7636e81a76ee553686471717a2b"
+      }
+    },
+    "attached_ids_capture_requested": false,
+    "binapi_alloc_capture_requested": false,
+    "binapi_alloc_payload_snapshots_read": null,
+    "binapi_alloc_records_seen": null,
+    "binapi_control_capture_requested": false,
+    "binapi_control_records_seen": null,
+    "binapi_payload_snapshots_read": null,
+    "channel_alloc_capture_requested": false,
+    "channel_alloc_records_seen": null,
+    "child_environment_policy": {
+      "CUDA_VISIBLE_DEVICES": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77",
+      "PATH": "/usr/bin:/bin",
+      "removed_prefixes": [
+        "LD_",
+        "CUDA_",
+        "NVIDIA_",
+        "PYTHON"
+      ]
+    },
+    "commands": [
+      {
+        "argv": [
+          "nvidia-smi",
+          "-i",
+          "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77",
+          "--query-gpu=name,uuid,pci.bus_id,driver_version",
+          "--format=csv,noheader,nounits"
+        ],
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "NVIDIA GeForce RTX 5080, GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77, 00000000:02:00.0, 595.99.02\n"
+      },
+      {
+        "argv": [
+          "/sbin/ldconfig",
+          "-p"
+        ],
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "\tlibcuda.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libcuda.so.1\n"
+      },
+      {
+        "argv": [
+          "/tmp/hybrid-rtx5080-qzdooc9o/probe",
+          "--list",
+          "--expected-pci",
+          "0000:02:00.0"
+        ],
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "{\"schema\":\"nvidia-hybrid-probe-v2\",\"status\":\"inventory\",\"hybrid_validated\":false,\"required_set_passed\":false,\"context_coexistence_passed\":false,\"memory_mode\":\"device\",\"managed_prefetch_requested\":false,\"managed_prefetch_api\":\"not-requested\",\"cuda_graphs_requested\":false,\"cuda_graph_api\":\"not-requested\",\"performance_benchmark_requested\":false,\"execution_mode\":\"resident-contexts-sequential-kernels\",\"concurrent_kernel_execution_validated\":false,\"concurrent_kernel_test_requested\":false,\"concurrent_kernel_dispatch_passed\":false,\"concurrent_kernel_dispatch\":null,\"peer_transfer_requested\":false,\"peer_transfer\":null,\"driver_library_path\":\"/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02\",\"driver_api\":13020,\"expected_device_pci_by_sm\":{},\"required_sm\":[70,120],\"missing_sm\":[],\"devices\":[{\"ordinal\":0,\"name\":\"NVIDIA GeForce RTX 5080\",\"pci_bus_id\":\"0000:02:00.0\",\"compute_capability\":\"12.0\",\"sm\":120,\"concurrent_managed_access\":true,\"pageable_memory_access\":true,\"pageable_memory_access_uses_host_page_tables\":false,\"targeted\":false,\"tested\":false,\"architecture_kernel_passed\":false,\"synchronous_passed\":false,\"synchronous_sizes\":[],\"asynchronous_passed\":false,\"managed_memory_passed\":false,\"managed_prefetch_passed\":false,\"cuda_graphs_passed\":false,\"cuda_graph_launches\":0,\"performance_benchmark_passed\":false,\"performance_benchmark\":null,\"asynchronous_sizes\":[],\"cleanup_passed\":true,\"cleanup_errors\":[],\"error\":\"\"}]}\n"
+      },
+      {
+        "argv": [
+          "/usr/bin/python3",
+          "/tmp/hybrid-rtx5080-qzdooc9o/runner",
+          "--probe",
+          "/tmp/hybrid-rtx5080-qzdooc9o/probe",
+          "--module",
+          "/tmp/hybrid-rtx5080-qzdooc9o/module",
+          "--evidence-dir",
+          "/tmp/hybrid-rtx5080-qzdooc9o/evidence",
+          "--expected-pci",
+          "0000:02:00.0",
+          "--timeout",
+          "80",
+          "--managed-memory",
+          "--managed-prefetch",
+          "--cuda-graphs"
+        ],
+        "exit_code": 77,
+        "stderr": "",
+        "stdout": "{\"artifacts\": {\"driver_library_observed_after_run\": {\"bytes\": 91505672, \"path\": \"/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02\", \"sha256\": \"192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d\"}, \"module\": {\"bytes\": 30104, \"path\": \"/tmp/hybrid-rtx5080-qzdooc9o/module\", \"sha256\": \"9b6c772590c0e7ce6a95e36fb637b769eceef69856979761d739028d8b45675f\"}, \"probe\": {\"bytes\": 231072, \"path\": \"/tmp/hybrid-rtx5080-qzdooc9o/probe\", \"sha256\": \"ad1d63b81f8ec2dbeba37c156bf230c9059f7d9d54e5a48e9097303408966898\"}}, \"attached_ids_capture_requested\": false, \"binapi_alloc_capture_requested\": false, \"binapi_alloc_payload_snapshots_read\": null, \"binapi_alloc_records_seen\": null, \"binapi_control_capture_requested\": false, \"binapi_control_records_seen\": null, \"binapi_payload_snapshots_read\": null, \"channel_alloc_capture_requested\": false, \"channel_alloc_records_seen\": null, \"command\": [\"/tmp/hybrid-rtx5080-qzdooc9o/probe\", \"--module\", \"/tmp/hybrid-rtx5080-qzdooc9o/module\", \"--require-sm\", \"70,120\", \"--managed-memory\", \"--managed-prefetch\", \"--cuda-graphs\", \"--expected-pci\", \"00000000:02:00.0\"], \"cuda_graphs_requested\": true, \"device_alloc_capture_requested\": false, \"device_alloc_payload_snapshots_read\": null, \"device_alloc_records_seen\": null, \"device_selection\": {\"cuda_visible_devices\": \"GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77\", \"expected_pci_bus_id\": \"00000000:02:00.0\"}, \"exit_code\": 77, \"gpu_id_info_capture_requested\": false, \"gt200_debugger_alloc_capture_requested\": false, \"gt200_debugger_alloc_payload_snapshots_read\": null, \"gt200_debugger_alloc_records_seen\": null, \"gt200_debugger_lifecycle\": null, \"gt200_debugger_lifecycle_capture_requested\": false, \"host\": \"pc3\", \"ioctl_observation\": null, \"ioctl_trace\": null, \"kernel_release\": \"7.0.0-38-generic\", \"managed_prefetch_requested\": true, \"map_memory_capture_requested\": false, \"map_memory_class_ids\": null, \"map_memory_class_resolution_counts\": null, \"map_memory_gpu_fd_close_count\": null, \"map_memory_mmap_success_count\": null, \"map_memory_records_seen\": null, \"map_memory_success_count\": null, \"memory_mode\": \"managed\", \"observed_at_utc\": \"2026-11-01T09:39:42+00:00\", \"p2p_control_capture_requested\": false, \"p2p_control_payload_snapshots_read\": null, \"p2p_control_records_seen\": null, \"peer_transfer_requested\": false, \"performance_benchmark_requested\": false, \"phase\": null, \"phase_capture_requested\": false, \"probe\": {\"concurrent_kernel_dispatch\": null, \"concurrent_kernel_dispatch_passed\": false, \"concurrent_kernel_execution_validated\": false, \"concurrent_kernel_test_requested\": false, \"context_coexistence_passed\": false, \"cuda_graph_api\": \"cuGraphInstantiateWithFlags\", \"cuda_graphs_requested\": true, \"devices\": [{\"architecture_kernel_passed\": true, \"asynchronous_passed\": true, \"asynchronous_sizes\": [1, 31, 256, 4096, 65537], \"cleanup_errors\": [], \"cleanup_passed\": true, \"compute_capability\": \"12.0\", \"concurrent_managed_access\": true, \"cuda_graph_launches\": 2, \"cuda_graphs_passed\": true, \"error\": \"\", \"managed_memory_passed\": true, \"managed_prefetch_passed\": true, \"name\": \"NVIDIA GeForce RTX 5080\", \"ordinal\": 0, \"pageable_memory_access\": true, \"pageable_memory_access_uses_host_page_tables\": false, \"pci_bus_id\": \"0000:02:00.0\", \"performance_benchmark\": null, \"performance_benchmark_passed\": false, \"sm\": 120, \"synchronous_passed\": true, \"synchronous_sizes\": [1, 31, 256, 4096, 65537], \"targeted\": true, \"tested\": true}], \"driver_api\": 13020, \"driver_library_path\": \"/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02\", \"execution_mode\": \"resident-contexts-sequential-kernels\", \"expected_device_pci_by_sm\": {}, \"hybrid_validated\": false, \"managed_prefetch_api\": \"cuMemPrefetchAsync_v2\", \"managed_prefetch_requested\": true, \"memory_mode\": \"managed\", \"missing_sm\": [70], \"peer_transfer\": null, \"peer_transfer_requested\": false, \"performance_benchmark_requested\": false, \"required_set_passed\": false, \"required_sm\": [70, 120], \"schema\": \"nvidia-hybrid-probe-v2\", \"status\": \"incomplete\"}, \"probed_ids_capture_requested\": false, \"probed_ids_records_seen\": null, \"qualification\": \"incomplete-hardware-missing\", \"rm_control_capture_requested\": false, \"rm_control_headers_capture_requested\": false, \"rm_control_headers_record_count\": null, \"rm_control_headers_records_seen\": null, \"rusd_alloc_capture_requested\": false, \"rusd_alloc_records_seen\": null, \"rusd_polled_data_masks\": null, \"schema\": \"nvidia-hybrid-hardware-acceptance-v2\", \"stderr\": \"\", \"stdout\": \"{\\\"schema\\\":\\\"nvidia-hybrid-probe-v2\\\",\\\"status\\\":\\\"incomplete\\\",\\\"hybrid_validated\\\":false,\\\"required_set_passed\\\":false,\\\"context_coexistence_passed\\\":false,\\\"memory_mode\\\":\\\"managed\\\",\\\"managed_prefetch_requested\\\":true,\\\"managed_prefetch_api\\\":\\\"cuMemPrefetchAsync_v2\\\",\\\"cuda_graphs_requested\\\":true,\\\"cuda_graph_api\\\":\\\"cuGraphInstantiateWithFlags\\\",\\\"performance_benchmark_requested\\\":false,\\\"execution_mode\\\":\\\"resident-contexts-sequential-kernels\\\",\\\"concurrent_kernel_execution_validated\\\":false,\\\"concurrent_kernel_test_requested\\\":false,\\\"concurrent_kernel_dispatch_passed\\\":false,\\\"concurrent_kernel_dispatch\\\":null,\\\"peer_transfer_requested\\\":false,\\\"peer_transfer\\\":null,\\\"driver_library_path\\\":\\\"/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02\\\",\\\"driver_api\\\":13020,\\\"expected_device_pci_by_sm\\\":{},\\\"required_sm\\\":[70,120],\\\"missing_sm\\\":[70],\\\"devices\\\":[{\\\"ordinal\\\":0,\\\"name\\\":\\\"NVIDIA GeForce RTX 5080\\\",\\\"pci_bus_id\\\":\\\"0000:02:00.0\\\",\\\"compute_capability\\\":\\\"12.0\\\",\\\"sm\\\":120,\\\"concurrent_managed_access\\\":true,\\\"pageable_memory_access\\\":true,\\\"pageable_memory_access_uses_host_page_tables\\\":false,\\\"targeted\\\":true,\\\"tested\\\":true,\\\"architecture_kernel_passed\\\":true,\\\"synchronous_passed\\\":true,\\\"synchronous_sizes\\\":[1,31,256,4096,65537],\\\"asynchronous_passed\\\":true,\\\"managed_memory_passed\\\":true,\\\"managed_prefetch_passed\\\":true,\\\"cuda_graphs_passed\\\":true,\\\"cuda_graph_launches\\\":2,\\\"performance_benchmark_passed\\\":false,\\\"performance_benchmark\\\":null,\\\"asynchronous_sizes\\\":[1,31,256,4096,65537],\\\"cleanup_passed\\\":true,\\\"cleanup_errors\\\":[],\\\"error\\\":\\\"\\\"}]}\\n\", \"subdevice_alloc_capture_requested\": false, \"subdevice_alloc_payload_snapshots_read\": null, \"subdevice_alloc_records_seen\": null, \"unmap_memory_success_count\": null, \"validation_errors\": []}\n"
+      }
+    ],
+    "cuda_execution_validated": false,
+    "cuda_execution_validation_state": "not-established; probe build identity is not trusted",
+    "cuda_graphs_report_contract_passed": true,
+    "cuda_graphs_requested": true,
+    "cuda_graphs_validated": false,
+    "device_alloc_capture_requested": false,
+    "device_alloc_payload_snapshots_read": null,
+    "device_alloc_records_seen": null,
+    "device_selection": {
+      "pci": "0000:02:00.0",
+      "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77"
+    },
+    "execution_scope": {
+      "basis": "script actions and recorded command scope; not independent attestation",
+      "experimental_driver_change_requested": false,
+      "official_module_autoload_observed": null,
+      "v100_test_requested": false,
+      "vm_management_commands_issued": false
+    },
+    "exit_code": 77,
+    "expected_libcuda_sha256": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d",
+    "gpu_id_info_capture_requested": false,
+    "gt200_debugger_alloc_capture_requested": false,
+    "gt200_debugger_alloc_payload_snapshots_read": null,
+    "gt200_debugger_alloc_records_seen": null,
+    "gt200_debugger_lifecycle": null,
+    "gt200_debugger_lifecycle_capture_requested": false,
+    "hardware_acceptance": {
+      "artifacts": {
+        "driver_library_observed_after_run": {
+          "bytes": 91505672,
+          "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+          "sha256": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d"
+        },
+        "module": {
+          "bytes": 30104,
+          "path": "/tmp/hybrid-rtx5080-qzdooc9o/module",
+          "sha256": "9b6c772590c0e7ce6a95e36fb637b769eceef69856979761d739028d8b45675f"
+        },
+        "probe": {
+          "bytes": 231072,
+          "path": "/tmp/hybrid-rtx5080-qzdooc9o/probe",
+          "sha256": "ad1d63b81f8ec2dbeba37c156bf230c9059f7d9d54e5a48e9097303408966898"
+        }
+      },
+      "attached_ids_capture_requested": false,
+      "binapi_alloc_capture_requested": false,
+      "binapi_alloc_payload_snapshots_read": null,
+      "binapi_alloc_records_seen": null,
+      "binapi_control_capture_requested": false,
+      "binapi_control_records_seen": null,
+      "binapi_payload_snapshots_read": null,
+      "channel_alloc_capture_requested": false,
+      "channel_alloc_records_seen": null,
+      "command": [
+        "/tmp/hybrid-rtx5080-qzdooc9o/probe",
+        "--module",
+        "/tmp/hybrid-rtx5080-qzdooc9o/module",
+        "--require-sm",
+        "70,120",
+        "--managed-memory",
+        "--managed-prefetch",
+        "--cuda-graphs",
+        "--expected-pci",
+        "00000000:02:00.0"
+      ],
+      "cuda_graphs_requested": true,
+      "device_alloc_capture_requested": false,
+      "device_alloc_payload_snapshots_read": null,
+      "device_alloc_records_seen": null,
+      "device_selection": {
+        "cuda_visible_devices": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77",
+        "expected_pci_bus_id": "00000000:02:00.0"
+      },
+      "exit_code": 77,
+      "gpu_id_info_capture_requested": false,
+      "gt200_debugger_alloc_capture_requested": false,
+      "gt200_debugger_alloc_payload_snapshots_read": null,
+      "gt200_debugger_alloc_records_seen": null,
+      "gt200_debugger_lifecycle": null,
+      "gt200_debugger_lifecycle_capture_requested": false,
+      "host": "pc3",
+      "ioctl_observation": null,
+      "ioctl_trace": null,
+      "kernel_release": "7.0.0-38-generic",
+      "managed_prefetch_requested": true,
+      "map_memory_capture_requested": false,
+      "map_memory_class_ids": null,
+      "map_memory_class_resolution_counts": null,
+      "map_memory_gpu_fd_close_count": null,
+      "map_memory_mmap_success_count": null,
+      "map_memory_records_seen": null,
+      "map_memory_success_count": null,
+      "memory_mode": "managed",
+      "observed_at_utc": "2026-11-01T09:39:42+00:00",
+      "p2p_control_capture_requested": false,
+      "p2p_control_payload_snapshots_read": null,
+      "p2p_control_records_seen": null,
+      "peer_transfer_requested": false,
+      "performance_benchmark_requested": false,
+      "phase": null,
+      "phase_capture_requested": false,
+      "probe": {
+        "concurrent_kernel_dispatch": null,
+        "concurrent_kernel_dispatch_passed": false,
+        "concurrent_kernel_execution_validated": false,
+        "concurrent_kernel_test_requested": false,
+        "context_coexistence_passed": false,
+        "cuda_graph_api": "cuGraphInstantiateWithFlags",
+        "cuda_graphs_requested": true,
+        "devices": [
+          {
+            "architecture_kernel_passed": true,
+            "asynchronous_passed": true,
+            "asynchronous_sizes": [
+              1,
+              31,
+              256,
+              4096,
+              65537
+            ],
+            "cleanup_errors": [],
+            "cleanup_passed": true,
+            "compute_capability": "12.0",
+            "concurrent_managed_access": true,
+            "cuda_graph_launches": 2,
+            "cuda_graphs_passed": true,
+            "error": "",
+            "managed_memory_passed": true,
+            "managed_prefetch_passed": true,
+            "name": "NVIDIA GeForce RTX 5080",
+            "ordinal": 0,
+            "pageable_memory_access": true,
+            "pageable_memory_access_uses_host_page_tables": false,
+            "pci_bus_id": "0000:02:00.0",
+            "performance_benchmark": null,
+            "performance_benchmark_passed": false,
+            "sm": 120,
+            "synchronous_passed": true,
+            "synchronous_sizes": [
+              1,
+              31,
+              256,
+              4096,
+              65537
+            ],
+            "targeted": true,
+            "tested": true
+          }
+        ],
+        "driver_api": 13020,
+        "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+        "execution_mode": "resident-contexts-sequential-kernels",
+        "expected_device_pci_by_sm": {},
+        "hybrid_validated": false,
+        "managed_prefetch_api": "cuMemPrefetchAsync_v2",
+        "managed_prefetch_requested": true,
+        "memory_mode": "managed",
+        "missing_sm": [
+          70
+        ],
+        "peer_transfer": null,
+        "peer_transfer_requested": false,
+        "performance_benchmark_requested": false,
+        "required_set_passed": false,
+        "required_sm": [
+          70,
+          120
+        ],
+        "schema": "nvidia-hybrid-probe-v2",
+        "status": "incomplete"
+      },
+      "probed_ids_capture_requested": false,
+      "probed_ids_records_seen": null,
+      "qualification": "incomplete-hardware-missing",
+      "rm_control_capture_requested": false,
+      "rm_control_headers_capture_requested": false,
+      "rm_control_headers_record_count": null,
+      "rm_control_headers_records_seen": null,
+      "rusd_alloc_capture_requested": false,
+      "rusd_alloc_records_seen": null,
+      "rusd_polled_data_masks": null,
+      "schema": "nvidia-hybrid-hardware-acceptance-v2",
+      "stderr": "",
+      "stdout": "{\"schema\":\"nvidia-hybrid-probe-v2\",\"status\":\"incomplete\",\"hybrid_validated\":false,\"required_set_passed\":false,\"context_coexistence_passed\":false,\"memory_mode\":\"managed\",\"managed_prefetch_requested\":true,\"managed_prefetch_api\":\"cuMemPrefetchAsync_v2\",\"cuda_graphs_requested\":true,\"cuda_graph_api\":\"cuGraphInstantiateWithFlags\",\"performance_benchmark_requested\":false,\"execution_mode\":\"resident-contexts-sequential-kernels\",\"concurrent_kernel_execution_validated\":false,\"concurrent_kernel_test_requested\":false,\"concurrent_kernel_dispatch_passed\":false,\"concurrent_kernel_dispatch\":null,\"peer_transfer_requested\":false,\"peer_transfer\":null,\"driver_library_path\":\"/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02\",\"driver_api\":13020,\"expected_device_pci_by_sm\":{},\"required_sm\":[70,120],\"missing_sm\":[70],\"devices\":[{\"ordinal\":0,\"name\":\"NVIDIA GeForce RTX 5080\",\"pci_bus_id\":\"0000:02:00.0\",\"compute_capability\":\"12.0\",\"sm\":120,\"concurrent_managed_access\":true,\"pageable_memory_access\":true,\"pageable_memory_access_uses_host_page_tables\":false,\"targeted\":true,\"tested\":true,\"architecture_kernel_passed\":true,\"synchronous_passed\":true,\"synchronous_sizes\":[1,31,256,4096,65537],\"asynchronous_passed\":true,\"managed_memory_passed\":true,\"managed_prefetch_passed\":true,\"cuda_graphs_passed\":true,\"cuda_graph_launches\":2,\"performance_benchmark_passed\":false,\"performance_benchmark\":null,\"asynchronous_sizes\":[1,31,256,4096,65537],\"cleanup_passed\":true,\"cleanup_errors\":[],\"error\":\"\"}]}\n",
+      "subdevice_alloc_capture_requested": false,
+      "subdevice_alloc_payload_snapshots_read": null,
+      "subdevice_alloc_records_seen": null,
+      "unmap_memory_success_count": null,
+      "validation_errors": []
+    },
+    "host": "pc3",
+    "kernel_release": "7.0.0-38-generic",
+    "managed_accessed_by_report_contract_passed": false,
+    "managed_accessed_by_validated": false,
+    "managed_memory_report_contract_passed": true,
+    "managed_memory_validated": false,
+    "managed_prefetch_report_contract_passed": true,
+    "managed_prefetch_requested": true,
+    "managed_prefetch_validated": false,
+    "map_memory_capture_requested": false,
+    "map_memory_gpu_fd_close_count": null,
+    "map_memory_mmap_success_count": null,
+    "map_memory_records_seen": null,
+    "map_memory_success_count": null,
+    "memory_mode": "managed",
+    "p2p_control_capture_requested": false,
+    "p2p_control_payload_snapshots_read": null,
+    "p2p_control_records_seen": null,
+    "performance_benchmark_report_contract_passed": false,
+    "performance_benchmark_requested": false,
+    "performance_benchmark_validated": false,
+    "phase": null,
+    "phase_capture_requested": false,
+    "preflight": {
+      "concurrent_kernel_dispatch": null,
+      "concurrent_kernel_dispatch_passed": false,
+      "concurrent_kernel_execution_validated": false,
+      "concurrent_kernel_test_requested": false,
+      "context_coexistence_passed": false,
+      "cuda_graph_api": "not-requested",
+      "cuda_graphs_requested": false,
+      "devices": [
+        {
+          "architecture_kernel_passed": false,
+          "asynchronous_passed": false,
+          "asynchronous_sizes": [],
+          "cleanup_errors": [],
+          "cleanup_passed": true,
+          "compute_capability": "12.0",
+          "concurrent_managed_access": true,
+          "cuda_graph_launches": 0,
+          "cuda_graphs_passed": false,
+          "error": "",
+          "managed_memory_passed": false,
+          "managed_prefetch_passed": false,
+          "name": "NVIDIA GeForce RTX 5080",
+          "ordinal": 0,
+          "pageable_memory_access": true,
+          "pageable_memory_access_uses_host_page_tables": false,
+          "pci_bus_id": "0000:02:00.0",
+          "performance_benchmark": null,
+          "performance_benchmark_passed": false,
+          "sm": 120,
+          "synchronous_passed": false,
+          "synchronous_sizes": [],
+          "targeted": false,
+          "tested": false
+        }
+      ],
+      "driver_api": 13020,
+      "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+      "execution_mode": "resident-contexts-sequential-kernels",
+      "expected_device_pci_by_sm": {},
+      "hybrid_validated": false,
+      "managed_prefetch_api": "not-requested",
+      "managed_prefetch_requested": false,
+      "memory_mode": "device",
+      "missing_sm": [],
+      "peer_transfer": null,
+      "peer_transfer_requested": false,
+      "performance_benchmark_requested": false,
+      "required_set_passed": false,
+      "required_sm": [
+        70,
+        120
+      ],
+      "schema": "nvidia-hybrid-probe-v2",
+      "status": "inventory"
+    },
+    "probed_ids_capture_requested": false,
+    "probed_ids_records_seen": null,
+    "qualification": "rtx5080-report-contract-valid-hybrid-incomplete",
+    "remote_script_sha256": "d229c3a5e366e585a8e8bc279953819558d5654ab1ea8bb1a3de785c46c20ab8",
+    "remote_work_cleanup": {
+      "attempted": true,
+      "passed": true,
+      "removed": true,
+      "retained_for_inspection": false
+    },
+    "remote_work_directory": "/tmp/hybrid-rtx5080-qzdooc9o",
+    "report_contract_validated": true,
+    "rm_control_capture_requested": false,
+    "rm_control_headers_capture_requested": false,
+    "rm_control_headers_record_count": null,
+    "rm_control_headers_records_seen": null,
+    "rm_control_records_seen": null,
+    "rusd_alloc_capture_requested": false,
+    "rusd_alloc_records_seen": null,
+    "rusd_polled_data_masks": null,
+    "schema": "nvidia-hybrid-remote-selected-gpu-v1",
+    "selected_nvidia_smi": {
+      "driver": "595.99.02",
+      "name": "NVIDIA GeForce RTX 5080",
+      "pci": "00000000:02:00.0",
+      "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77"
+    },
+    "selected_proc_information": {
+      "binding": "nvidia",
+      "fields": {
+        "Bus Location": "0000:02:00.0",
+        "Bus Type": "PCIe",
+        "DMA Mask": "0xfffffffffffff",
+        "DMA Size": "52 bits",
+        "Device Minor": "0",
+        "GPU Excluded": "No",
+        "GPU Firmware": "595.99.02",
+        "GPU UUID": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77",
+        "IRQ": "16",
+        "Model": "NVIDIA GeForce RTX 5080",
+        "Video BIOS": "98.03.3b.c0.3e"
+      },
+      "path": "/proc/driver/nvidia/gpus/0000:02:00.0/information"
+    },
+    "subdevice_alloc_capture_requested": false,
+    "subdevice_alloc_payload_snapshots_read": null,
+    "subdevice_alloc_records_seen": null,
+    "system_libcuda_after": {
+      "bytes": 91505672,
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+      "sha256": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d"
+    },
+    "system_libcuda_before": {
+      "bytes": 91505672,
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+      "sha256": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d"
+    },
+    "unmap_memory_success_count": null
+  },
+  "remote_script_sha256": "d229c3a5e366e585a8e8bc279953819558d5654ab1ea8bb1a3de785c46c20ab8",
+  "report_contract_validated": true,
+  "rm_control_capture_requested": false,
+  "rm_control_headers_capture_requested": false,
+  "rm_control_headers_record_count": null,
+  "rm_control_headers_records_seen": null,
+  "rusd_alloc_capture_requested": false,
+  "schema": "nvidia-hybrid-remote-selected-gpu-transport-v1",
+  "ssh_argv": [
+    "ssh",
+    "-F",
+    "/dev/null",
+    "-i",
+    "/home/pc1/.ssh/gitspace_pc3_20261009",
+    "-o",
+    "IdentitiesOnly=yes",
+    "-o",
+    "PreferredAuthentications=publickey",
+    "-o",
+    "PasswordAuthentication=no",
+    "-o",
+    "KbdInteractiveAuthentication=no",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "ConnectTimeout=10",
+    "-o",
+    "ConnectionAttempts=1",
+    "-o",
+    "HostKeyAlias=pc3",
+    "--",
+    "pc3@pc3",
+    "python3 -c 'import base64,hashlib,zlib;_s=zlib.decompress(base64.b64decode('\"'\"'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'\"'\"'));assert hashlib.sha256(_s).hexdigest()=='\"'\"'d229c3a5e366e585a8e8bc279953819558d5654ab1ea8bb1a3de785c46c20ab8'\"'\"';exec(compile(_s,'\"'\"'<nvidia-hybrid-remote>'\"'\"','\"'\"'exec'\"'\"'))'"
+  ],
+  "ssh_exit_code": 77,
+  "ssh_identity_file_basename": "gitspace_pc3_20261009",
+  "ssh_stderr": "",
+  "ssh_stdout": "{\"artifacts_after\": {\"cuda_probe_contract.py\": {\"bytes\": 24798, \"path\": \"/tmp/hybrid-rtx5080-qzdooc9o/cuda_probe_contract.py\", \"sha256\": \"0e5741b360ff482af56c2cc5ae35db829d4aae96123351aa0c3f17b966db0dbd\"}, \"module\": {\"bytes\": 30104, \"path\": \"/tmp/hybrid-rtx5080-qzdooc9o/module\", \"sha256\": \"9b6c772590c0e7ce6a95e36fb637b769eceef69856979761d739028d8b45675f\"}, \"probe\": {\"bytes\": 231072, \"path\": \"/tmp/hybrid-rtx5080-qzdooc9o/probe\", \"sha256\": \"ad1d63b81f8ec2dbeba37c156bf230c9059f7d9d54e5a48e9097303408966898\"}, \"runner\": {\"bytes\": 164010, \"path\": \"/tmp/hybrid-rtx5080-qzdooc9o/runner\", \"sha256\": \"eab3d17f9621f6c6afcee943ba476da4f27bf7636e81a76ee553686471717a2b\"}}, \"artifacts_before\": {\"cuda_probe_contract.py\": {\"bytes\": 24798, \"path\": \"/tmp/hybrid-rtx5080-qzdooc9o/cuda_probe_contract.py\", \"sha256\": \"0e5741b360ff482af56c2cc5ae35db829d4aae96123351aa0c3f17b966db0dbd\"}, \"module\": {\"bytes\": 30104, \"path\": \"/tmp/hybrid-rtx5080-qzdooc9o/module\", \"sha256\": \"9b6c772590c0e7ce6a95e36fb637b769eceef69856979761d739028d8b45675f\"}, \"probe\": {\"bytes\": 231072, \"path\": \"/tmp/hybrid-rtx5080-qzdooc9o/probe\", \"sha256\": \"ad1d63b81f8ec2dbeba37c156bf230c9059f7d9d54e5a48e9097303408966898\"}, \"runner\": {\"bytes\": 164010, \"path\": \"/tmp/hybrid-rtx5080-qzdooc9o/runner\", \"sha256\": \"eab3d17f9621f6c6afcee943ba476da4f27bf7636e81a76ee553686471717a2b\"}}, \"attached_ids_capture_requested\": false, \"binapi_alloc_capture_requested\": false, \"binapi_alloc_payload_snapshots_read\": null, \"binapi_alloc_records_seen\": null, \"binapi_control_capture_requested\": false, \"binapi_control_records_seen\": null, \"binapi_payload_snapshots_read\": null, \"channel_alloc_capture_requested\": false, \"channel_alloc_records_seen\": null, \"child_environment_policy\": {\"CUDA_VISIBLE_DEVICES\": \"GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77\", \"PATH\": \"/usr/bin:/bin\", \"removed_prefixes\": [\"LD_\", \"CUDA_\", \"NVIDIA_\", \"PYTHON\"]}, \"commands\": [{\"argv\": [\"nvidia-smi\", \"-i\", \"GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77\", \"--query-gpu=name,uuid,pci.bus_id,driver_version\", \"--format=csv,noheader,nounits\"], \"exit_code\": 0, \"stderr\": \"\", \"stdout\": \"NVIDIA GeForce RTX 5080, GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77, 00000000:02:00.0, 595.99.02\\n\"}, {\"argv\": [\"/sbin/ldconfig\", \"-p\"], \"exit_code\": 0, \"stderr\": \"\", \"stdout\": \"\\tlibcuda.so.1 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libcuda.so.1\\n\"}, {\"argv\": [\"/tmp/hybrid-rtx5080-qzdooc9o/probe\", \"--list\", \"--expected-pci\", \"0000:02:00.0\"], \"exit_code\": 0, \"stderr\": \"\", \"stdout\": \"{\\\"schema\\\":\\\"nvidia-hybrid-probe-v2\\\",\\\"status\\\":\\\"inventory\\\",\\\"hybrid_validated\\\":false,\\\"required_set_passed\\\":false,\\\"context_coexistence_passed\\\":false,\\\"memory_mode\\\":\\\"device\\\",\\\"managed_prefetch_requested\\\":false,\\\"managed_prefetch_api\\\":\\\"not-requested\\\",\\\"cuda_graphs_requested\\\":false,\\\"cuda_graph_api\\\":\\\"not-requested\\\",\\\"performance_benchmark_requested\\\":false,\\\"execution_mode\\\":\\\"resident-contexts-sequential-kernels\\\",\\\"concurrent_kernel_execution_validated\\\":false,\\\"concurrent_kernel_test_requested\\\":false,\\\"concurrent_kernel_dispatch_passed\\\":false,\\\"concurrent_kernel_dispatch\\\":null,\\\"peer_transfer_requested\\\":false,\\\"peer_transfer\\\":null,\\\"driver_library_path\\\":\\\"/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02\\\",\\\"driver_api\\\":13020,\\\"expected_device_pci_by_sm\\\":{},\\\"required_sm\\\":[70,120],\\\"missing_sm\\\":[],\\\"devices\\\":[{\\\"ordinal\\\":0,\\\"name\\\":\\\"NVIDIA GeForce RTX 5080\\\",\\\"pci_bus_id\\\":\\\"0000:02:00.0\\\",\\\"compute_capability\\\":\\\"12.0\\\",\\\"sm\\\":120,\\\"concurrent_managed_access\\\":true,\\\"pageable_memory_access\\\":true,\\\"pageable_memory_access_uses_host_page_tables\\\":false,\\\"targeted\\\":false,\\\"tested\\\":false,\\\"architecture_kernel_passed\\\":false,\\\"synchronous_passed\\\":false,\\\"synchronous_sizes\\\":[],\\\"asynchronous_passed\\\":false,\\\"managed_memory_passed\\\":false,\\\"managed_prefetch_passed\\\":false,\\\"cuda_graphs_passed\\\":false,\\\"cuda_graph_launches\\\":0,\\\"performance_benchmark_passed\\\":false,\\\"performance_benchmark\\\":null,\\\"asynchronous_sizes\\\":[],\\\"cleanup_passed\\\":true,\\\"cleanup_errors\\\":[],\\\"error\\\":\\\"\\\"}]}\\n\"}, {\"argv\": [\"/usr/bin/python3\", \"/tmp/hybrid-rtx5080-qzdooc9o/runner\", \"--probe\", \"/tmp/hybrid-rtx5080-qzdooc9o/probe\", \"--module\", \"/tmp/hybrid-rtx5080-qzdooc9o/module\", \"--evidence-dir\", \"/tmp/hybrid-rtx5080-qzdooc9o/evidence\", \"--expected-pci\", \"0000:02:00.0\", \"--timeout\", \"80\", \"--managed-memory\", \"--managed-prefetch\", \"--cuda-graphs\"], \"exit_code\": 77, \"stderr\": \"\", \"stdout\": \"{\\\"artifacts\\\": {\\\"driver_library_observed_after_run\\\": {\\\"bytes\\\": 91505672, \\\"path\\\": \\\"/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02\\\", \\\"sha256\\\": \\\"192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d\\\"}, \\\"module\\\": {\\\"bytes\\\": 30104, \\\"path\\\": \\\"/tmp/hybrid-rtx5080-qzdooc9o/module\\\", \\\"sha256\\\": \\\"9b6c772590c0e7ce6a95e36fb637b769eceef69856979761d739028d8b45675f\\\"}, \\\"probe\\\": {\\\"bytes\\\": 231072, \\\"path\\\": \\\"/tmp/hybrid-rtx5080-qzdooc9o/probe\\\", \\\"sha256\\\": \\\"ad1d63b81f8ec2dbeba37c156bf230c9059f7d9d54e5a48e9097303408966898\\\"}}, \\\"attached_ids_capture_requested\\\": false, \\\"binapi_alloc_capture_requested\\\": false, \\\"binapi_alloc_payload_snapshots_read\\\": null, \\\"binapi_alloc_records_seen\\\": null, \\\"binapi_control_capture_requested\\\": false, \\\"binapi_control_records_seen\\\": null, \\\"binapi_payload_snapshots_read\\\": null, \\\"channel_alloc_capture_requested\\\": false, \\\"channel_alloc_records_seen\\\": null, \\\"command\\\": [\\\"/tmp/hybrid-rtx5080-qzdooc9o/probe\\\", \\\"--module\\\", \\\"/tmp/hybrid-rtx5080-qzdooc9o/module\\\", \\\"--require-sm\\\", \\\"70,120\\\", \\\"--managed-memory\\\", \\\"--managed-prefetch\\\", \\\"--cuda-graphs\\\", \\\"--expected-pci\\\", \\\"00000000:02:00.0\\\"], \\\"cuda_graphs_requested\\\": true, \\\"device_alloc_capture_requested\\\": false, \\\"device_alloc_payload_snapshots_read\\\": null, \\\"device_alloc_records_seen\\\": null, \\\"device_selection\\\": {\\\"cuda_visible_devices\\\": \\\"GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77\\\", \\\"expected_pci_bus_id\\\": \\\"00000000:02:00.0\\\"}, \\\"exit_code\\\": 77, \\\"gpu_id_info_capture_requested\\\": false, \\\"gt200_debugger_alloc_capture_requested\\\": false, \\\"gt200_debugger_alloc_payload_snapshots_read\\\": null, \\\"gt200_debugger_alloc_records_seen\\\": null, \\\"gt200_debugger_lifecycle\\\": null, \\\"gt200_debugger_lifecycle_capture_requested\\\": false, \\\"host\\\": \\\"pc3\\\", \\\"ioctl_observation\\\": null, \\\"ioctl_trace\\\": null, \\\"kernel_release\\\": \\\"7.0.0-38-generic\\\", \\\"managed_prefetch_requested\\\": true, \\\"map_memory_capture_requested\\\": false, \\\"map_memory_class_ids\\\": null, \\\"map_memory_class_resolution_counts\\\": null, \\\"map_memory_gpu_fd_close_count\\\": null, \\\"map_memory_mmap_success_count\\\": null, \\\"map_memory_records_seen\\\": null, \\\"map_memory_success_count\\\": null, \\\"memory_mode\\\": \\\"managed\\\", \\\"observed_at_utc\\\": \\\"2026-11-01T09:39:42+00:00\\\", \\\"p2p_control_capture_requested\\\": false, \\\"p2p_control_payload_snapshots_read\\\": null, \\\"p2p_control_records_seen\\\": null, \\\"peer_transfer_requested\\\": false, \\\"performance_benchmark_requested\\\": false, \\\"phase\\\": null, \\\"phase_capture_requested\\\": false, \\\"probe\\\": {\\\"concurrent_kernel_dispatch\\\": null, \\\"concurrent_kernel_dispatch_passed\\\": false, \\\"concurrent_kernel_execution_validated\\\": false, \\\"concurrent_kernel_test_requested\\\": false, \\\"context_coexistence_passed\\\": false, \\\"cuda_graph_api\\\": \\\"cuGraphInstantiateWithFlags\\\", \\\"cuda_graphs_requested\\\": true, \\\"devices\\\": [{\\\"architecture_kernel_passed\\\": true, \\\"asynchronous_passed\\\": true, \\\"asynchronous_sizes\\\": [1, 31, 256, 4096, 65537], \\\"cleanup_errors\\\": [], \\\"cleanup_passed\\\": true, \\\"compute_capability\\\": \\\"12.0\\\", \\\"concurrent_managed_access\\\": true, \\\"cuda_graph_launches\\\": 2, \\\"cuda_graphs_passed\\\": true, \\\"error\\\": \\\"\\\", \\\"managed_memory_passed\\\": true, \\\"managed_prefetch_passed\\\": true, \\\"name\\\": \\\"NVIDIA GeForce RTX 5080\\\", \\\"ordinal\\\": 0, \\\"pageable_memory_access\\\": true, \\\"pageable_memory_access_uses_host_page_tables\\\": false, \\\"pci_bus_id\\\": \\\"0000:02:00.0\\\", \\\"performance_benchmark\\\": null, \\\"performance_benchmark_passed\\\": false, \\\"sm\\\": 120, \\\"synchronous_passed\\\": true, \\\"synchronous_sizes\\\": [1, 31, 256, 4096, 65537], \\\"targeted\\\": true, \\\"tested\\\": true}], \\\"driver_api\\\": 13020, \\\"driver_library_path\\\": \\\"/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02\\\", \\\"execution_mode\\\": \\\"resident-contexts-sequential-kernels\\\", \\\"expected_device_pci_by_sm\\\": {}, \\\"hybrid_validated\\\": false, \\\"managed_prefetch_api\\\": \\\"cuMemPrefetchAsync_v2\\\", \\\"managed_prefetch_requested\\\": true, \\\"memory_mode\\\": \\\"managed\\\", \\\"missing_sm\\\": [70], \\\"peer_transfer\\\": null, \\\"peer_transfer_requested\\\": false, \\\"performance_benchmark_requested\\\": false, \\\"required_set_passed\\\": false, \\\"required_sm\\\": [70, 120], \\\"schema\\\": \\\"nvidia-hybrid-probe-v2\\\", \\\"status\\\": \\\"incomplete\\\"}, \\\"probed_ids_capture_requested\\\": false, \\\"probed_ids_records_seen\\\": null, \\\"qualification\\\": \\\"incomplete-hardware-missing\\\", \\\"rm_control_capture_requested\\\": false, \\\"rm_control_headers_capture_requested\\\": false, \\\"rm_control_headers_record_count\\\": null, \\\"rm_control_headers_records_seen\\\": null, \\\"rusd_alloc_capture_requested\\\": false, \\\"rusd_alloc_records_seen\\\": null, \\\"rusd_polled_data_masks\\\": null, \\\"schema\\\": \\\"nvidia-hybrid-hardware-acceptance-v2\\\", \\\"stderr\\\": \\\"\\\", \\\"stdout\\\": \\\"{\\\\\\\"schema\\\\\\\":\\\\\\\"nvidia-hybrid-probe-v2\\\\\\\",\\\\\\\"status\\\\\\\":\\\\\\\"incomplete\\\\\\\",\\\\\\\"hybrid_validated\\\\\\\":false,\\\\\\\"required_set_passed\\\\\\\":false,\\\\\\\"context_coexistence_passed\\\\\\\":false,\\\\\\\"memory_mode\\\\\\\":\\\\\\\"managed\\\\\\\",\\\\\\\"managed_prefetch_requested\\\\\\\":true,\\\\\\\"managed_prefetch_api\\\\\\\":\\\\\\\"cuMemPrefetchAsync_v2\\\\\\\",\\\\\\\"cuda_graphs_requested\\\\\\\":true,\\\\\\\"cuda_graph_api\\\\\\\":\\\\\\\"cuGraphInstantiateWithFlags\\\\\\\",\\\\\\\"performance_benchmark_requested\\\\\\\":false,\\\\\\\"execution_mode\\\\\\\":\\\\\\\"resident-contexts-sequential-kernels\\\\\\\",\\\\\\\"concurrent_kernel_execution_validated\\\\\\\":false,\\\\\\\"concurrent_kernel_test_requested\\\\\\\":false,\\\\\\\"concurrent_kernel_dispatch_passed\\\\\\\":false,\\\\\\\"concurrent_kernel_dispatch\\\\\\\":null,\\\\\\\"peer_transfer_requested\\\\\\\":false,\\\\\\\"peer_transfer\\\\\\\":null,\\\\\\\"driver_library_path\\\\\\\":\\\\\\\"/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02\\\\\\\",\\\\\\\"driver_api\\\\\\\":13020,\\\\\\\"expected_device_pci_by_sm\\\\\\\":{},\\\\\\\"required_sm\\\\\\\":[70,120],\\\\\\\"missing_sm\\\\\\\":[70],\\\\\\\"devices\\\\\\\":[{\\\\\\\"ordinal\\\\\\\":0,\\\\\\\"name\\\\\\\":\\\\\\\"NVIDIA GeForce RTX 5080\\\\\\\",\\\\\\\"pci_bus_id\\\\\\\":\\\\\\\"0000:02:00.0\\\\\\\",\\\\\\\"compute_capability\\\\\\\":\\\\\\\"12.0\\\\\\\",\\\\\\\"sm\\\\\\\":120,\\\\\\\"concurrent_managed_access\\\\\\\":true,\\\\\\\"pageable_memory_access\\\\\\\":true,\\\\\\\"pageable_memory_access_uses_host_page_tables\\\\\\\":false,\\\\\\\"targeted\\\\\\\":true,\\\\\\\"tested\\\\\\\":true,\\\\\\\"architecture_kernel_passed\\\\\\\":true,\\\\\\\"synchronous_passed\\\\\\\":true,\\\\\\\"synchronous_sizes\\\\\\\":[1,31,256,4096,65537],\\\\\\\"asynchronous_passed\\\\\\\":true,\\\\\\\"managed_memory_passed\\\\\\\":true,\\\\\\\"managed_prefetch_passed\\\\\\\":true,\\\\\\\"cuda_graphs_passed\\\\\\\":true,\\\\\\\"cuda_graph_launches\\\\\\\":2,\\\\\\\"performance_benchmark_passed\\\\\\\":false,\\\\\\\"performance_benchmark\\\\\\\":null,\\\\\\\"asynchronous_sizes\\\\\\\":[1,31,256,4096,65537],\\\\\\\"cleanup_passed\\\\\\\":true,\\\\\\\"cleanup_errors\\\\\\\":[],\\\\\\\"error\\\\\\\":\\\\\\\"\\\\\\\"}]}\\\\n\\\", \\\"subdevice_alloc_capture_requested\\\": false, \\\"subdevice_alloc_payload_snapshots_read\\\": null, \\\"subdevice_alloc_records_seen\\\": null, \\\"unmap_memory_success_count\\\": null, \\\"validation_errors\\\": []}\\n\"}], \"cuda_execution_validated\": false, \"cuda_execution_validation_state\": \"not-established; probe build identity is not trusted\", \"cuda_graphs_report_contract_passed\": true, \"cuda_graphs_requested\": true, \"cuda_graphs_validated\": false, \"device_alloc_capture_requested\": false, \"device_alloc_payload_snapshots_read\": null, \"device_alloc_records_seen\": null, \"device_selection\": {\"pci\": \"0000:02:00.0\", \"uuid\": \"GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77\"}, \"execution_scope\": {\"basis\": \"script actions and recorded command scope; not independent attestation\", \"experimental_driver_change_requested\": false, \"official_module_autoload_observed\": null, \"v100_test_requested\": false, \"vm_management_commands_issued\": false}, \"exit_code\": 77, \"expected_libcuda_sha256\": \"192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d\", \"gpu_id_info_capture_requested\": false, \"gt200_debugger_alloc_capture_requested\": false, \"gt200_debugger_alloc_payload_snapshots_read\": null, \"gt200_debugger_alloc_records_seen\": null, \"gt200_debugger_lifecycle\": null, \"gt200_debugger_lifecycle_capture_requested\": false, \"hardware_acceptance\": {\"artifacts\": {\"driver_library_observed_after_run\": {\"bytes\": 91505672, \"path\": \"/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02\", \"sha256\": \"192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d\"}, \"module\": {\"bytes\": 30104, \"path\": \"/tmp/hybrid-rtx5080-qzdooc9o/module\", \"sha256\": \"9b6c772590c0e7ce6a95e36fb637b769eceef69856979761d739028d8b45675f\"}, \"probe\": {\"bytes\": 231072, \"path\": \"/tmp/hybrid-rtx5080-qzdooc9o/probe\", \"sha256\": \"ad1d63b81f8ec2dbeba37c156bf230c9059f7d9d54e5a48e9097303408966898\"}}, \"attached_ids_capture_requested\": false, \"binapi_alloc_capture_requested\": false, \"binapi_alloc_payload_snapshots_read\": null, \"binapi_alloc_records_seen\": null, \"binapi_control_capture_requested\": false, \"binapi_control_records_seen\": null, \"binapi_payload_snapshots_read\": null, \"channel_alloc_capture_requested\": false, \"channel_alloc_records_seen\": null, \"command\": [\"/tmp/hybrid-rtx5080-qzdooc9o/probe\", \"--module\", \"/tmp/hybrid-rtx5080-qzdooc9o/module\", \"--require-sm\", \"70,120\", \"--managed-memory\", \"--managed-prefetch\", \"--cuda-graphs\", \"--expected-pci\", \"00000000:02:00.0\"], \"cuda_graphs_requested\": true, \"device_alloc_capture_requested\": false, \"device_alloc_payload_snapshots_read\": null, \"device_alloc_records_seen\": null, \"device_selection\": {\"cuda_visible_devices\": \"GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77\", \"expected_pci_bus_id\": \"00000000:02:00.0\"}, \"exit_code\": 77, \"gpu_id_info_capture_requested\": false, \"gt200_debugger_alloc_capture_requested\": false, \"gt200_debugger_alloc_payload_snapshots_read\": null, \"gt200_debugger_alloc_records_seen\": null, \"gt200_debugger_lifecycle\": null, \"gt200_debugger_lifecycle_capture_requested\": false, \"host\": \"pc3\", \"ioctl_observation\": null, \"ioctl_trace\": null, \"kernel_release\": \"7.0.0-38-generic\", \"managed_prefetch_requested\": true, \"map_memory_capture_requested\": false, \"map_memory_class_ids\": null, \"map_memory_class_resolution_counts\": null, \"map_memory_gpu_fd_close_count\": null, \"map_memory_mmap_success_count\": null, \"map_memory_records_seen\": null, \"map_memory_success_count\": null, \"memory_mode\": \"managed\", \"observed_at_utc\": \"2026-11-01T09:39:42+00:00\", \"p2p_control_capture_requested\": false, \"p2p_control_payload_snapshots_read\": null, \"p2p_control_records_seen\": null, \"peer_transfer_requested\": false, \"performance_benchmark_requested\": false, \"phase\": null, \"phase_capture_requested\": false, \"probe\": {\"concurrent_kernel_dispatch\": null, \"concurrent_kernel_dispatch_passed\": false, \"concurrent_kernel_execution_validated\": false, \"concurrent_kernel_test_requested\": false, \"context_coexistence_passed\": false, \"cuda_graph_api\": \"cuGraphInstantiateWithFlags\", \"cuda_graphs_requested\": true, \"devices\": [{\"architecture_kernel_passed\": true, \"asynchronous_passed\": true, \"asynchronous_sizes\": [1, 31, 256, 4096, 65537], \"cleanup_errors\": [], \"cleanup_passed\": true, \"compute_capability\": \"12.0\", \"concurrent_managed_access\": true, \"cuda_graph_launches\": 2, \"cuda_graphs_passed\": true, \"error\": \"\", \"managed_memory_passed\": true, \"managed_prefetch_passed\": true, \"name\": \"NVIDIA GeForce RTX 5080\", \"ordinal\": 0, \"pageable_memory_access\": true, \"pageable_memory_access_uses_host_page_tables\": false, \"pci_bus_id\": \"0000:02:00.0\", \"performance_benchmark\": null, \"performance_benchmark_passed\": false, \"sm\": 120, \"synchronous_passed\": true, \"synchronous_sizes\": [1, 31, 256, 4096, 65537], \"targeted\": true, \"tested\": true}], \"driver_api\": 13020, \"driver_library_path\": \"/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02\", \"execution_mode\": \"resident-contexts-sequential-kernels\", \"expected_device_pci_by_sm\": {}, \"hybrid_validated\": false, \"managed_prefetch_api\": \"cuMemPrefetchAsync_v2\", \"managed_prefetch_requested\": true, \"memory_mode\": \"managed\", \"missing_sm\": [70], \"peer_transfer\": null, \"peer_transfer_requested\": false, \"performance_benchmark_requested\": false, \"required_set_passed\": false, \"required_sm\": [70, 120], \"schema\": \"nvidia-hybrid-probe-v2\", \"status\": \"incomplete\"}, \"probed_ids_capture_requested\": false, \"probed_ids_records_seen\": null, \"qualification\": \"incomplete-hardware-missing\", \"rm_control_capture_requested\": false, \"rm_control_headers_capture_requested\": false, \"rm_control_headers_record_count\": null, \"rm_control_headers_records_seen\": null, \"rusd_alloc_capture_requested\": false, \"rusd_alloc_records_seen\": null, \"rusd_polled_data_masks\": null, \"schema\": \"nvidia-hybrid-hardware-acceptance-v2\", \"stderr\": \"\", \"stdout\": \"{\\\"schema\\\":\\\"nvidia-hybrid-probe-v2\\\",\\\"status\\\":\\\"incomplete\\\",\\\"hybrid_validated\\\":false,\\\"required_set_passed\\\":false,\\\"context_coexistence_passed\\\":false,\\\"memory_mode\\\":\\\"managed\\\",\\\"managed_prefetch_requested\\\":true,\\\"managed_prefetch_api\\\":\\\"cuMemPrefetchAsync_v2\\\",\\\"cuda_graphs_requested\\\":true,\\\"cuda_graph_api\\\":\\\"cuGraphInstantiateWithFlags\\\",\\\"performance_benchmark_requested\\\":false,\\\"execution_mode\\\":\\\"resident-contexts-sequential-kernels\\\",\\\"concurrent_kernel_execution_validated\\\":false,\\\"concurrent_kernel_test_requested\\\":false,\\\"concurrent_kernel_dispatch_passed\\\":false,\\\"concurrent_kernel_dispatch\\\":null,\\\"peer_transfer_requested\\\":false,\\\"peer_transfer\\\":null,\\\"driver_library_path\\\":\\\"/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02\\\",\\\"driver_api\\\":13020,\\\"expected_device_pci_by_sm\\\":{},\\\"required_sm\\\":[70,120],\\\"missing_sm\\\":[70],\\\"devices\\\":[{\\\"ordinal\\\":0,\\\"name\\\":\\\"NVIDIA GeForce RTX 5080\\\",\\\"pci_bus_id\\\":\\\"0000:02:00.0\\\",\\\"compute_capability\\\":\\\"12.0\\\",\\\"sm\\\":120,\\\"concurrent_managed_access\\\":true,\\\"pageable_memory_access\\\":true,\\\"pageable_memory_access_uses_host_page_tables\\\":false,\\\"targeted\\\":true,\\\"tested\\\":true,\\\"architecture_kernel_passed\\\":true,\\\"synchronous_passed\\\":true,\\\"synchronous_sizes\\\":[1,31,256,4096,65537],\\\"asynchronous_passed\\\":true,\\\"managed_memory_passed\\\":true,\\\"managed_prefetch_passed\\\":true,\\\"cuda_graphs_passed\\\":true,\\\"cuda_graph_launches\\\":2,\\\"performance_benchmark_passed\\\":false,\\\"performance_benchmark\\\":null,\\\"asynchronous_sizes\\\":[1,31,256,4096,65537],\\\"cleanup_passed\\\":true,\\\"cleanup_errors\\\":[],\\\"error\\\":\\\"\\\"}]}\\n\", \"subdevice_alloc_capture_requested\": false, \"subdevice_alloc_payload_snapshots_read\": null, \"subdevice_alloc_records_seen\": null, \"unmap_memory_success_count\": null, \"validation_errors\": []}, \"host\": \"pc3\", \"kernel_release\": \"7.0.0-38-generic\", \"managed_accessed_by_report_contract_passed\": false, \"managed_accessed_by_validated\": false, \"managed_memory_report_contract_passed\": true, \"managed_memory_validated\": false, \"managed_prefetch_report_contract_passed\": true, \"managed_prefetch_requested\": true, \"managed_prefetch_validated\": false, \"map_memory_capture_requested\": false, \"map_memory_gpu_fd_close_count\": null, \"map_memory_mmap_success_count\": null, \"map_memory_records_seen\": null, \"map_memory_success_count\": null, \"memory_mode\": \"managed\", \"p2p_control_capture_requested\": false, \"p2p_control_payload_snapshots_read\": null, \"p2p_control_records_seen\": null, \"performance_benchmark_report_contract_passed\": false, \"performance_benchmark_requested\": false, \"performance_benchmark_validated\": false, \"phase\": null, \"phase_capture_requested\": false, \"preflight\": {\"concurrent_kernel_dispatch\": null, \"concurrent_kernel_dispatch_passed\": false, \"concurrent_kernel_execution_validated\": false, \"concurrent_kernel_test_requested\": false, \"context_coexistence_passed\": false, \"cuda_graph_api\": \"not-requested\", \"cuda_graphs_requested\": false, \"devices\": [{\"architecture_kernel_passed\": false, \"asynchronous_passed\": false, \"asynchronous_sizes\": [], \"cleanup_errors\": [], \"cleanup_passed\": true, \"compute_capability\": \"12.0\", \"concurrent_managed_access\": true, \"cuda_graph_launches\": 0, \"cuda_graphs_passed\": false, \"error\": \"\", \"managed_memory_passed\": false, \"managed_prefetch_passed\": false, \"name\": \"NVIDIA GeForce RTX 5080\", \"ordinal\": 0, \"pageable_memory_access\": true, \"pageable_memory_access_uses_host_page_tables\": false, \"pci_bus_id\": \"0000:02:00.0\", \"performance_benchmark\": null, \"performance_benchmark_passed\": false, \"sm\": 120, \"synchronous_passed\": false, \"synchronous_sizes\": [], \"targeted\": false, \"tested\": false}], \"driver_api\": 13020, \"driver_library_path\": \"/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02\", \"execution_mode\": \"resident-contexts-sequential-kernels\", \"expected_device_pci_by_sm\": {}, \"hybrid_validated\": false, \"managed_prefetch_api\": \"not-requested\", \"managed_prefetch_requested\": false, \"memory_mode\": \"device\", \"missing_sm\": [], \"peer_transfer\": null, \"peer_transfer_requested\": false, \"performance_benchmark_requested\": false, \"required_set_passed\": false, \"required_sm\": [70, 120], \"schema\": \"nvidia-hybrid-probe-v2\", \"status\": \"inventory\"}, \"probed_ids_capture_requested\": false, \"probed_ids_records_seen\": null, \"qualification\": \"rtx5080-report-contract-valid-hybrid-incomplete\", \"remote_script_sha256\": \"d229c3a5e366e585a8e8bc279953819558d5654ab1ea8bb1a3de785c46c20ab8\", \"remote_work_cleanup\": {\"attempted\": true, \"passed\": true, \"removed\": true, \"retained_for_inspection\": false}, \"remote_work_directory\": \"/tmp/hybrid-rtx5080-qzdooc9o\", \"report_contract_validated\": true, \"rm_control_capture_requested\": false, \"rm_control_headers_capture_requested\": false, \"rm_control_headers_record_count\": null, \"rm_control_headers_records_seen\": null, \"rm_control_records_seen\": null, \"rusd_alloc_capture_requested\": false, \"rusd_alloc_records_seen\": null, \"rusd_polled_data_masks\": null, \"schema\": \"nvidia-hybrid-remote-selected-gpu-v1\", \"selected_nvidia_smi\": {\"driver\": \"595.99.02\", \"name\": \"NVIDIA GeForce RTX 5080\", \"pci\": \"00000000:02:00.0\", \"uuid\": \"GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77\"}, \"selected_proc_information\": {\"binding\": \"nvidia\", \"fields\": {\"Bus Location\": \"0000:02:00.0\", \"Bus Type\": \"PCIe\", \"DMA Mask\": \"0xfffffffffffff\", \"DMA Size\": \"52 bits\", \"Device Minor\": \"0\", \"GPU Excluded\": \"No\", \"GPU Firmware\": \"595.99.02\", \"GPU UUID\": \"GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77\", \"IRQ\": \"16\", \"Model\": \"NVIDIA GeForce RTX 5080\", \"Video BIOS\": \"98.03.3b.c0.3e\"}, \"path\": \"/proc/driver/nvidia/gpus/0000:02:00.0/information\"}, \"subdevice_alloc_capture_requested\": false, \"subdevice_alloc_payload_snapshots_read\": null, \"subdevice_alloc_records_seen\": null, \"system_libcuda_after\": {\"bytes\": 91505672, \"path\": \"/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02\", \"sha256\": \"192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d\"}, \"system_libcuda_before\": {\"bytes\": 91505672, \"path\": \"/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02\", \"sha256\": \"192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d\"}, \"unmap_memory_success_count\": null}\n",
+  "subdevice_alloc_capture_requested": false,
+  "target": "pc3@pc3",
+  "tool": {
+    "bytes": 167510,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/run_remote_selected_gpu.py",
+    "sha256": "54173718adcded6d5fe8f89eb29ae8e37e01a43ab30dadfaa09b4ec7c0fcd3eb"
+  }
+}

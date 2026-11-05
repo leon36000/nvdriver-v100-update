@@ -1,0 +1,32 @@
+{
+  "host_key_alias": "pc3",
+  "observed_at_utc": "2026-10-22T04:55:00Z",
+  "remote_result": {
+    "path": "/tmp/hybrid-rtx5080-7ybhiafr",
+    "removed": true,
+    "result": "cleaned-exact-hash-matched-test-workspace",
+    "validated_artifacts": {
+      "module": {
+        "bytes": 15608,
+        "sha256": "fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305"
+      },
+      "probe": {
+        "bytes": 125168,
+        "sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808"
+      },
+      "runner": {
+        "bytes": 102564,
+        "sha256": "1d586b4ad192800a49a6a3b702ae3a0517b8b4ba052d5b252bbd8193dc57b815"
+      }
+    },
+    "validated_evidence": {
+      "hardware-probe-pc3-20261022T045040866338Z.json": {
+        "bytes": 5537,
+        "sha256": "7fc29491f48324b18d949febb9e7572ed5394513cd8314929055e675a1056c4a"
+      }
+    }
+  },
+  "schema": "pc3-rtx5080-test-workspace-cleanup-v1",
+  "ssh_exit_code": 0,
+  "target": "pc3@pc3"
+}

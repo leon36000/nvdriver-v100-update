@@ -1,0 +1,73 @@
+{
+  "schema": "nvidia-hybrid-pc3-rtx5080-inventory-v1",
+  "observed_at_utc": "2026-10-19T01:09:04.262083+00:00",
+  "argv": [
+    "ssh",
+    "-T",
+    "-F",
+    "/dev/null",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=6",
+    "-o",
+    "ConnectionAttempts=1",
+    "-o",
+    "PasswordAuthentication=no",
+    "-o",
+    "KbdInteractiveAuthentication=no",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "HostKeyAlias=pc3",
+    "-o",
+    "UserKnownHostsFile=/home/pc1/.ssh/known_hosts",
+    "-o",
+    "ControlMaster=no",
+    "-o",
+    "ControlPath=none",
+    "pc3@pc3",
+    "python3",
+    "-"
+  ],
+  "remote_script_sha256": "03d7f3cbc50b6479e2bc0f393bbef1d1abe30157cf564bfc47728f9d3e6fd873",
+  "exit_code": 0,
+  "stdout": "{\"hostname\": \"pc3\", \"kernel_release\": \"7.0.0-38-generic\", \"rtx5080\": [{\"proc_information\": {\"Model\": \"NVIDIA GeForce RTX 5080\", \"IRQ\": \"16\", \"GPU UUID\": \"GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77\", \"Video BIOS\": \"98.03.3b.c0.3e\", \"Bus Type\": \"PCIe\", \"DMA Size\": \"52 bits\", \"DMA Mask\": \"0xfffffffffffff\", \"Bus Location\": \"0000:02:00.0\", \"Device Minor\": \"0\", \"GPU Firmware\": \"595.99.02\", \"GPU Excluded\": \"No\"}, \"pci\": \"0000:02:00.0\", \"nvidia_smi_argv\": [\"nvidia-smi\", \"-i\", \"0000:02:00.0\", \"--query-gpu=uuid,name,pci.bus_id,driver_version,compute_cap,memory.total,memory.used,utilization.gpu,temperature.gpu\", \"--format=csv,noheader,nounits\"], \"exit_code\": 0, \"stdout\": \"GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77, NVIDIA GeForce RTX 5080, 00000000:02:00.0, 595.99.02, 12.0, 16303, 2, 0, 38\\n\", \"stderr\": \"\", \"binding\": \"/sys/bus/pci/drivers/nvidia\"}], \"v100_vm_contacted\": false, \"scope\": \"host-only-nvidia-bound-RTX5080-inventory\"}\n",
+  "stderr": "",
+  "driver_or_vm_changed": false,
+  "observation": {
+    "hostname": "pc3",
+    "kernel_release": "7.0.0-38-generic",
+    "rtx5080": [
+      {
+        "proc_information": {
+          "Model": "NVIDIA GeForce RTX 5080",
+          "IRQ": "16",
+          "GPU UUID": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77",
+          "Video BIOS": "98.03.3b.c0.3e",
+          "Bus Type": "PCIe",
+          "DMA Size": "52 bits",
+          "DMA Mask": "0xfffffffffffff",
+          "Bus Location": "0000:02:00.0",
+          "Device Minor": "0",
+          "GPU Firmware": "595.99.02",
+          "GPU Excluded": "No"
+        },
+        "pci": "0000:02:00.0",
+        "nvidia_smi_argv": [
+          "nvidia-smi",
+          "-i",
+          "0000:02:00.0",
+          "--query-gpu=uuid,name,pci.bus_id,driver_version,compute_cap,memory.total,memory.used,utilization.gpu,temperature.gpu",
+          "--format=csv,noheader,nounits"
+        ],
+        "exit_code": 0,
+        "stdout": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77, NVIDIA GeForce RTX 5080, 00000000:02:00.0, 595.99.02, 12.0, 16303, 2, 0, 38\n",
+        "stderr": "",
+        "binding": "/sys/bus/pci/drivers/nvidia"
+      }
+    ],
+    "v100_vm_contacted": false,
+    "scope": "host-only-nvidia-bound-RTX5080-inventory"
+  }
+}

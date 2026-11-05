@@ -1,0 +1,95 @@
+{
+  "error": "ValueError:remote PC3 reference report schema is invalid",
+  "exit_code": 2,
+  "expected_driver": "595.99.02",
+  "expected_gpu_uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77",
+  "expected_kernel": "7.0.0-38-generic",
+  "expected_pci": "0000:02:00.0",
+  "host_key_alias": "pc3",
+  "local_artifacts": {
+    "fatbin": {
+      "bytes": 19016,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-pc3-rtx5080-ioctl-kernel-v1-20261027/hybrid_probe.sm70-sm120.fatbin",
+      "sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741"
+    },
+    "observer": {
+      "bytes": 244976,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/rm_ioctl_observer-ioctl-shapes-v2-20261027",
+      "sha256": "4f783c6480757442ba5cf246e176fc6f26a1b7fb62bde1f7128e27d6f39ffe2d"
+    },
+    "probe": {
+      "bytes": 167888,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-pc3-rtx5080-ioctl-kernel-v1-20261027/hybrid_cuda_probe",
+      "sha256": "c5bfd5740ff757d1d48d78634b85b7a0209eadc806220075c0397755dffad2d2"
+    }
+  },
+  "local_artifacts_after": {
+    "fatbin": {
+      "bytes": 19016,
+      "sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741"
+    },
+    "observer": {
+      "bytes": 244976,
+      "sha256": "4f783c6480757442ba5cf246e176fc6f26a1b7fb62bde1f7128e27d6f39ffe2d"
+    },
+    "probe": {
+      "bytes": 167888,
+      "sha256": "c5bfd5740ff757d1d48d78634b85b7a0209eadc806220075c0397755dffad2d2"
+    }
+  },
+  "observed_at_utc": "2026-10-27T04:17:16.362902+00:00",
+  "probe_contract": {
+    "build_manifest_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-pc3-rtx5080-ioctl-kernel-v1-20261027/build-manifest.json",
+    "build_manifest_sha256": "5997e0dbf652465dba1ec6a2cee219cda4d38eea3ad03e3a7c8a758c072d6847",
+    "contract_version": 5,
+    "fatbin_sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741",
+    "probe_report_schema": "nvidia-hybrid-probe-v2",
+    "probe_sha256": "c5bfd5740ff757d1d48d78634b85b7a0209eadc806220075c0397755dffad2d2",
+    "schema": "nvidia-hybrid-probe-contract-v1",
+    "source_inputs_sha256": {
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/kernels/hybrid_probe.cu": "6e6effc856fc12474c09f6b8b8006497d6c30e3133353abbb3159cb80bfd4541",
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/hybrid_cuda_probe.cpp": "b199d9b73f2b7bff2cae2f4037f7901312133dbd52d5fd7a9c717b7f7391229e"
+    }
+  },
+  "qualification": "failed",
+  "remote": {
+    "artifacts_after": {},
+    "artifacts_before": {},
+    "cleanup_passed": false,
+    "cuda_visible_devices": null,
+    "error": "RuntimeError:request schema invalid",
+    "execution_scope": {
+      "driver_or_module_changed": false,
+      "gpu_reset_requested": false,
+      "imex_configuration_changed": false,
+      "pci_binding_changed": false,
+      "vm_management_issued": false
+    },
+    "gpu": null,
+    "gpu_after": null,
+    "gpu_compute_process_count_after": null,
+    "gpu_compute_process_count_before": null,
+    "gpu_compute_process_count_prelaunch": null,
+    "hostname": null,
+    "ioctl_observation": null,
+    "kernel_release": null,
+    "libcuda_after": null,
+    "libcuda_before": null,
+    "module_after": null,
+    "module_before": null,
+    "observer_exit_code": null,
+    "phase": null,
+    "probe_exit_code": null,
+    "remote_workspace_removed": false,
+    "schema": "nvidia-hybrid-pc3-rtx5080-ioctl-shape-reference-v1",
+    "status": "failed"
+  },
+  "remote_script_sha256": "1f7a335830c907e8e217fa1182efd2f0e0f256fc152d00f5eafe296c991e54af",
+  "schema": "nvidia-hybrid-pc3-rtx5080-ioctl-shape-runner-v2",
+  "ssh_exit_code": 2,
+  "ssh_stderr_bytes": 0,
+  "ssh_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "ssh_stdout_bytes": 843,
+  "ssh_stdout_sha256": "f2bb4737099de29bcf1ffc3bd0ee0bfd8c6b79d6aa4310f61c1c1450a422fece",
+  "target": "pc3@pc3"
+}
