@@ -1,0 +1,301 @@
+{
+  "schema": "r595-noncoherent-bar1-consumer-audit-v2",
+  "observed_at_utc": "2026-10-27T23:54:14.467292+00:00",
+  "status": "passed",
+  "scope": "pinned R595 UVM source consumers and R580 Volta callbacks staged in the v11 candidate",
+  "qualification": "static-source-only",
+  "runtime_or_hardware_validated": false,
+  "module_loaded_or_installed": false,
+  "roots": {
+    "r595": "/usr/src/nvidia-595.99.02/nvidia-uvm",
+    "r580": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-standard-module-private-frontend-v1-20261027T220300Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm",
+    "candidate": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v11-20261027T233405Z/nvidia-uvm"
+  },
+  "source_identity": {
+    "R595.99.02": {
+      "uvm_gpu.c": {
+        "sha256": "66881c4ae46461314d41342b2a27df9119d68d68f90d181e3a32670dcc19f590",
+        "matches_candidate": true
+      },
+      "uvm_mmu.c": {
+        "sha256": "4b1b2234c78b24881c8b8854961f00d575e8b70df4e2be08d881833308b03297",
+        "matches_candidate": true
+      },
+      "uvm_pte_batch.c": {
+        "sha256": "30589fc78423a572bc03ab1dd51d1c2c807403b665bc6c2bafcb102cc7eea8c0",
+        "matches_candidate": true
+      },
+      "uvm_hal_types.h": {
+        "sha256": "798124455087fe5384103038e56b6decb86c9e3a52c0962ebebad41d40e23a83",
+        "matches_candidate": true
+      },
+      "uvm_get_rm_ptes_test.c": {
+        "sha256": "9ed0fd644cb611dc4a668ce671b0dadd9dcb422f4c637cafd180cb72c70e1d92",
+        "matches_candidate": true
+      }
+    },
+    "R580.178.04": {
+      "uvm_volta_fault_buffer.c": {
+        "sha256": "d0b8cfcf715246b49741314e0009b78c798719b634269ee44a75ee12f9874e77",
+        "matches_candidate": true
+      }
+    }
+  },
+  "source_hashes": {
+    "candidate/uvm_get_rm_ptes_test.c": "9ed0fd644cb611dc4a668ce671b0dadd9dcb422f4c637cafd180cb72c70e1d92",
+    "candidate/uvm_gpu.c": "66881c4ae46461314d41342b2a27df9119d68d68f90d181e3a32670dcc19f590",
+    "candidate/uvm_hal_types.h": "798124455087fe5384103038e56b6decb86c9e3a52c0962ebebad41d40e23a83",
+    "candidate/uvm_maxwell_ce.c": "ff9b3bf1dcfaa0f2c3b9fd8a0e15656a2d2a50d6ea8f76fb97a996c8ed33c273",
+    "candidate/uvm_mmu.c": "4b1b2234c78b24881c8b8854961f00d575e8b70df4e2be08d881833308b03297",
+    "candidate/uvm_pte_batch.c": "30589fc78423a572bc03ab1dd51d1c2c807403b665bc6c2bafcb102cc7eea8c0",
+    "candidate/uvm_volta_ce.c": "fa4483c1b824cec9907b64382b1607f8e21bf9cfb48f309e0570a4e0c845479d",
+    "candidate/uvm_volta_fault_buffer.c": "d0b8cfcf715246b49741314e0009b78c798719b634269ee44a75ee12f9874e77",
+    "candidate/uvm_volta_mmu.c": "321d5381deebd8b2bd053d31cf750b890aae113b758c528addf5e1c5c043b0de",
+    "R595.99.02/uvm_gpu.c": "66881c4ae46461314d41342b2a27df9119d68d68f90d181e3a32670dcc19f590",
+    "R580.178.04/uvm_volta_fault_buffer.c": "d0b8cfcf715246b49741314e0009b78c798719b634269ee44a75ee12f9874e77",
+    "R595.99.02/nvidia/nv_uvm_interface.c": "ca600c4265bc549bfac7a1225b98fe691e1825660ed510665c95f146af775179",
+    "R595.99.02/common/inc/rm-gpu-ops.h": "d938ca72e421bb99480e33b92b4ec1e9be4b195a99513cce0e1864e8c80ba728",
+    "project/src/hybrid580_uvm_abi_compat.h": "8effcf75194e52a946ec94a1e7befcbae9113bb99b05f5b9bac32210058ce809"
+  },
+  "p2p_rm_boundary": {
+    "api": "nvUvmInterfaceGetP2PCaps -> rm_gpu_ops_get_p2p_caps",
+    "open_implementation_found": false,
+    "open_c_files_scanned": 194,
+    "interpretation": "R595 open UVM marshals the request; the P2P capability producer is not implemented in the pinned open C source set.",
+    "gv100_return_values": "unknown; requires runtime observation through an initialized R595 RM peer pair"
+  },
+  "checks": {
+    "bar1_aperture_selection": {
+      "status": "passed",
+      "required_tokens": [
+        "parent_peer_caps->link_type == UVM_GPU_LINK_PCIE_BAR1",
+        "bar1_p2p_pcie_atomics_enabled[peer_index]",
+        "return enable_atomics ? UVM_APERTURE_SYS : UVM_APERTURE_SYS_NON_COHERENT"
+      ],
+      "source": "uvm_gpu.c:879"
+    },
+    "bar1_physical_address": {
+      "status": "passed",
+      "required_tokens": [
+        "else if (uvm_aperture_is_sys(aperture))",
+        "UVM_GPU_LINK_PCIE_BAR1",
+        "bar1_p2p_dma_base_address[peer_index]",
+        "return uvm_gpu_phys_address(aperture, address)"
+      ],
+      "source": "uvm_gpu.c:3208"
+    },
+    "bar1_peer_range_detection": {
+      "status": "passed",
+      "required_tokens": [
+        "uvm_aperture_is_sys(address.aperture)",
+        "UVM_GPU_LINK_PCIE_BAR1",
+        "bar1_p2p_dma_base_address[peer_index]",
+        "bar1_p2p_dma_size[peer_index]"
+      ],
+      "source": "uvm_gpu.c:3326"
+    },
+    "peer_classification_accepts_sys_apertures": {
+      "status": "passed",
+      "required_tokens": [
+        "uvm_aperture_is_sys(address.aperture)",
+        "gpu_address_is_coherent_peer(gpu, phys_addr)",
+        "gpu_phys_address_is_bar1p2p_peer(gpu, phys_addr)"
+      ],
+      "source": "uvm_gpu.c:3357"
+    },
+    "system_aperture_predicate": {
+      "status": "passed",
+      "required_tokens": [
+        "aperture == UVM_APERTURE_SYS",
+        "aperture == UVM_APERTURE_SYS_NON_COHERENT"
+      ],
+      "source": "uvm_hal_types.h:100"
+    },
+    "bar1_mapping_page_size": {
+      "status": "passed",
+      "required_tokens": [
+        "UVM_APERTURE_SYS_NON_COHERENT       biggest page size on BAR1 mappings"
+      ],
+      "source": "uvm_mmu.c:159"
+    },
+    "page_table_storage_aperture": {
+      "status": "passed",
+      "required_tokens": [
+        "location == UVM_APERTURE_VID",
+        "location == UVM_APERTURE_SYS",
+        "UVM_ASSERT"
+      ],
+      "source": "uvm_mmu.c:204"
+    },
+    "uvm_pte_batch_write_ptes_rejects_noncoherent_storage": {
+      "status": "passed",
+      "required_tokens": [
+        "UVM_APERTURE_SYS_NON_COHERENT",
+        "UVM_ASSERT"
+      ],
+      "source": "uvm_pte_batch.c:132"
+    },
+    "uvm_pte_batch_write_pte_rejects_noncoherent_storage": {
+      "status": "passed",
+      "required_tokens": [
+        "UVM_APERTURE_SYS_NON_COHERENT",
+        "UVM_ASSERT"
+      ],
+      "source": "uvm_pte_batch.c:162"
+    },
+    "uvm_pte_batch_clear_ptes_rejects_noncoherent_storage": {
+      "status": "passed",
+      "required_tokens": [
+        "UVM_APERTURE_SYS_NON_COHERENT",
+        "UVM_ASSERT"
+      ],
+      "source": "uvm_pte_batch.c:198"
+    },
+    "channel_instance_aperture": {
+      "status": "passed",
+      "required_tokens": [
+        "instance_ptr.aperture == UVM_APERTURE_SYS",
+        "instance_ptr.aperture == UVM_APERTURE_VID || instance_ptr.aperture == UVM_APERTURE_SYS",
+        "UVM_ASSERT"
+      ],
+      "source": "uvm_gpu.c:3425"
+    },
+    "fault_instance_noncoherent_normalization": {
+      "status": "passed",
+      "required_tokens": [
+        "NVC369_BUF_ENTRY_INST_APERTURE_SYS_MEM_NONCOHERENT",
+        "NVC369_BUF_ENTRY_INST_APERTURE_SYS_MEM_COHERENT",
+        "return UVM_APERTURE_SYS"
+      ],
+      "source": "uvm_volta_fault_buffer.c:215"
+    },
+    "volta_pte_noncoherent_encoding": {
+      "status": "passed",
+      "required_tokens": [
+        "UVM_APERTURE_SYS_NON_COHERENT",
+        "NV_MMU_VER2_PTE_APERTURE_SYSTEM_NON_COHERENT_MEMORY",
+        "ADDRESS_SYS"
+      ],
+      "source": "uvm_volta_mmu.c:178"
+    },
+    "volta_c3b5_memset_aperture": {
+      "status": "passed",
+      "required_tokens": [
+        "C3B5",
+        "aperture == UVM_APERTURE_SYS_NON_COHERENT",
+        "NONCOHERENT_SYSMEM"
+      ],
+      "source": "uvm_volta_ce.c:183"
+    },
+    "maxwell_b0b5_memcopy_aperture": {
+      "status": "passed",
+      "required_tokens": [
+        "B0B5",
+        "aperture == UVM_APERTURE_SYS_NON_COHERENT",
+        "NONCOHERENT_SYSMEM"
+      ],
+      "source": "uvm_maxwell_ce.c:162"
+    },
+    "volta_memcopy_uses_shared_maxwell_phys_mode": {
+      "status": "passed",
+      "required_tokens": [
+        ".phys_mode = uvm_hal_maxwell_ce_phys_mode",
+        ".memcopy = uvm_hal_volta_ce_memcopy"
+      ]
+    },
+    "volta_access_counter_callbacks_fail_closed": {
+      "status": "passed",
+      "required_tokens": [
+        "uvm_hal_maxwell_enable_access_counter_notifications_unsupported",
+        "uvm_hal_maxwell_access_counter_buffer_parse_entry_unsupported",
+        "uvm_hal_maxwell_access_counter_buffer_entry_size_unsupported"
+      ]
+    },
+    "system_noncoherent_test_fixture": {
+      "status": "passed",
+      "required_tokens": [
+        "UVM_APERTURE_SYS_NON_COHERENT",
+        "UVM_APERTURE_SYS"
+      ],
+      "source": "uvm_get_rm_ptes_test.c:46"
+    },
+    "p2p_caps_query_orders_handles_and_clears_output": {
+      "status": "passed",
+      "required_tokens": [
+        "uvm_parent_id_value(parent_gpu0->id) < uvm_parent_id_value(parent_gpu1->id)",
+        "memset(p2p_caps_params, 0, sizeof(*p2p_caps_params))",
+        "uvm_rm_locked_call(nvUvmInterfaceGetP2PCaps(rm_device0, rm_device1, p2p_caps_params))",
+        "if (status != NV_OK)"
+      ],
+      "source": "uvm_gpu.c:2285"
+    },
+    "p2p_caps_consumer_copies_directional_bar1_and_atomics": {
+      "status": "passed",
+      "required_tokens": [
+        "create_parent_p2p_object(parent_gpu0, parent_gpu1, &p2p_handle)",
+        "get_parent_p2p_caps(parent_gpu0, parent_gpu1, &p2p_caps_params)",
+        "parent_peer_caps->bar1_p2p_dma_base_address[0] = p2p_caps_params.bar1DmaAddress[0]",
+        "parent_peer_caps->bar1_p2p_dma_base_address[1] = p2p_caps_params.bar1DmaAddress[1]",
+        "parent_peer_caps->bar1_p2p_dma_size[0] = p2p_caps_params.bar1DmaSize[0]",
+        "parent_peer_caps->bar1_p2p_dma_size[1] = p2p_caps_params.bar1DmaSize[1]",
+        "parent_peer_caps->bar1_p2p_pcie_atomics_enabled[0] = p2p_caps_params.bar1PcieAtomics[0]",
+        "parent_peer_caps->bar1_p2p_pcie_atomics_enabled[1] = p2p_caps_params.bar1PcieAtomics[1]",
+        "UVM_ASSERT(link_type == UVM_GPU_LINK_PCIE_BAR1)"
+      ],
+      "source": "uvm_gpu.c:2441"
+    },
+    "p2p_caps_interface_reaches_rm_provider": {
+      "status": "passed",
+      "required_tokens": [
+        "nv_kmem_cache_alloc_stack(&sp)",
+        "rm_gpu_ops_get_p2p_caps(sp,",
+        "(gpuDeviceHandle)device1",
+        "(gpuDeviceHandle)device2",
+        "p2pCapsParams",
+        "nv_kmem_cache_free_stack(sp)"
+      ],
+      "source": "nvidia/nv_uvm_interface.c:378"
+    },
+    "p2p_rm_core_is_proprietary_boundary": {
+      "status": "passed",
+      "declaration_count": 1,
+      "open_c_definitions": 0,
+      "open_c_files_scanned": 194,
+      "source": "common/inc/rm-gpu-ops.h"
+    },
+    "r580_p2p_adapter_maps_bar1_and_disables_unknown_atomics": {
+      "status": "passed",
+      "link_type_mapping": [
+        "if (has_bar1_dma)",
+        "r580_link_type != HYBRID580_R580_LINK_TYPE_PCIE",
+        "*r595_link_type = UVM_LINK_TYPE_PCIE_BAR1",
+        "HYBRID580_R580_LINK_TYPE_NVLINK_1",
+        "UVM_LINK_TYPE_NVLINK_1",
+        "HYBRID580_R580_LINK_TYPE_C2C",
+        "UVM_LINK_TYPE_C2C"
+      ],
+      "capability_field_mapping": [
+        "r595->bar1DmaAddress[0] = r580->bar1DmaAddress[0]",
+        "r595->bar1DmaAddress[1] = r580->bar1DmaAddress[1]",
+        "r595->bar1DmaSize[0] = r580->bar1DmaSize[0]",
+        "r595->bar1DmaSize[1] = r580->bar1DmaSize[1]",
+        "r595->bar1PcieAtomics[0] = NV_FALSE",
+        "r595->bar1PcieAtomics[1] = NV_FALSE"
+      ],
+      "source": "hybrid580_uvm_abi_compat.h:129"
+    }
+  },
+  "conclusion": [
+    "R595 selects SYS_NON_COHERENT for PCIe BAR1 peer addresses when the consolidated peer atomic capability is disabled.",
+    "The Volta candidate carries this aperture through P2P recognition, its GV100 PTE encoder, and both dispatched CE physical-mode helpers.",
+    "PTE/page-table storage and channel instance pointers retain SYS/VID-only invariants; Volta fault-buffer instance apertures normalize hardware SYS_NONCOHERENT to UVM_APERTURE_SYS.",
+    "GV100 access-counter callbacks remain explicitly unsupported, so the Turing access-counter noncoherent parser is not inherited by Volta.",
+    "R595 UVM orders the RM device handles, clears the output packet, and copies per-direction BAR1 windows and PCIe atomics from RM; the open source stops at the rm_gpu_ops_get_p2p_caps declaration/call.",
+    "The R580 bridge maps legacy PCIe plus a nonempty BAR1 window to R595 PCIE_BAR1 and keeps both unreported PCIe-atomics bits false; actual Volta capability values are not inferred."
+  ],
+  "limits": [
+    "No Resource Manager mapping, PCIe BAR1 transaction, CE command, PTE installation, UVM migration, or GPU execution was tested.",
+    "Static source compatibility does not establish R595 RM support for GV100 or same-process V100 plus Blackwell CUDA.",
+    "The host peer harness exercises exact open UVM address/range functions with synthetic capability records; it does not produce those records through RM or test PCIe transactions."
+  ]
+}

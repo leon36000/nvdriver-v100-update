@@ -1,0 +1,86 @@
+{
+  "activation_performed": false,
+  "build": {
+    "argv": [
+      "make",
+      "-C",
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-client-share-policy-native-build-v5/source/kernel-open",
+      "KERNEL_UNAME=7.0.0-38-generic",
+      "NV_KERNEL_MODULES=nvidia",
+      "-j2",
+      "modules"
+    ],
+    "duration_seconds": 15.835,
+    "environment_names_cleared": [],
+    "exit_code": 0,
+    "log": {
+      "mode": "0600",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-client-share-policy-native-build-v5/logs/r595-open-module-build.log",
+      "sha256": "7adb5dd324ce4c7ce13241c4c485c5295c89ea25b3a52e8eb5a2553bab3aa129"
+    }
+  },
+  "build_input_source": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/research/open-gpu-kernel-modules-595.99.02/source/open-gpu-kernel-modules-595.99.02",
+  "export": {
+    "flavor": "EXPORT_SYMBOL",
+    "name": "hybrid580_open_control_session_client_share_policy_v1",
+    "present_in_elf": true,
+    "present_in_symvers": true
+  },
+  "export_count": 145,
+  "hardware_tested": false,
+  "inputs": {
+    "builder_sha256": "2b14853a453236ab94985609872c4b027e51b04c140342b931afd6c2bcfddee9",
+    "core": {
+      "path": "/usr/src/nvidia-595.99.02/nvidia/nv-kernel.o_binary",
+      "private_copy_sha256": "c19870e43606b4358d9274c4d3dec2adb1822d65ce1203520a8184cf043cafe8",
+      "sha256": "c19870e43606b4358d9274c4d3dec2adb1822d65ce1203520a8184cf043cafe8"
+    },
+    "replay_report": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/r595-r580-client-share-policy-replay-v1.json",
+      "sha256": "fc560aa4fc3742f299c959bf8bd794a7256811105d7acbffb2b5aec1d11c0e72"
+    },
+    "replayed_source_artifacts": {
+      ".hybrid-local-overlays/0044-private-open-system-features.patch": "474e5506ec1d098de2e82e31ddfa066992ed976a7b1940a5362e030f6c446dbd",
+      ".hybrid-local-overlays/0045-private-open-fabric-status.patch": "3ab47b3a380ee322a1ce52a39382e16c2d774e3b6367d7088cf45225767dbc0a",
+      ".hybrid-local-overlays/0047-private-open-client-share-policy.patch": "ceb17457b0e94b969db35c907a224d7ece80db2677c72934a9914642dc2eb129",
+      "kernel-open/common/inc/nv-linux.h": "167ea8813202a758d4a70c113822de44bd82cd686a6de6891f445da74e27ccdb",
+      "kernel-open/common/inc/nv.h": "7efe980e8a985cdc1684f240de9d9d49f736719105f05fd32e488eac7aac2a15",
+      "kernel-open/nvidia/hybrid580-control-session.h": "dfbb5cbaa080aed3581efddc366c960dad6ccc08677d1f658d92d4bb0ac83c36",
+      "kernel-open/nvidia/hybrid580-file-projection.h": "2847fab2fc3f26d27a7baba5da812f7f955fe5faa6bd4ffe75a283d314aaf3d8",
+      "kernel-open/nvidia/hybrid580-gpu-catalog.h": "9003739e9b3476c7beb08c0918c0309629b2762d45f366cb6c1becd1c9e7dfd0",
+      "kernel-open/nvidia/hybrid580-gpu-session.h": "0b4694e2f2c27cb3705444d2391b6670cc389ddadca9c6a8239d51a79079cadc",
+      "kernel-open/nvidia/hybrid580-open-build-version.h": "670879dc242ae1e028dc79dce0d58cb667495cc8d4d14031027e63aacad0c5be",
+      "kernel-open/nvidia/hybrid580-open-exports.h": "33f75501c77892c5697e368be3ab72846c123ef0006b27323d838405f988333d",
+      "kernel-open/nvidia/hybrid580-pm-provider-kernel.h": "fd9c1f95e58fb86225dec547479693c8c797753e908f6b5b1d6f303980fdcbdb",
+      "kernel-open/nvidia/hybrid580-pm-provider-recovery.h": "f2b2322302d7c71fae17b31840dc341fa560d5219720ab3c2bf4481b0c108172",
+      "kernel-open/nvidia/hybrid580-pm-shared-uvm.h": "b702f15f08fc85a55d8fc70af15af7dd6c092914a4961ed1b5430037a6fbfe31",
+      "kernel-open/nvidia/nv-mmap.c": "6d83c986765d48d3c2df679a5e62c419c4df213967b1804d96ab25ed67a4e65a",
+      "kernel-open/nvidia/nv-pci.c": "d35c7bb14db6236de2b47ade8421f4b6d8314e3e237aad08172cfa16b17ff848",
+      "kernel-open/nvidia/nv-procfs.c": "a8973758cb39a42ed29d878f1ddfd07888b7fba664bbe508a45f16f8195cb815",
+      "kernel-open/nvidia/nv.c": "076cd860bd244ad59331401f510f3b3cc1549abe03b3c75d82fcabbbbbcd74dd",
+      "kernel-open/nvidia/nv_uvm_interface.c": "7e491535c33a36b2efce4d568bc1e079e9db50ebe85f5e12c3f06f4d8301175a",
+      "kernel-open/nvidia/nvidia.Kbuild": "0e45e9b73029238121e1b8c406f7be9503a683fef5f2df8a2554bfef2c223f40",
+      "kernel-open/nvidia/rm_session_endpoint.h": "6a447c37f738eb09098b419e42203b4b4d16c85c108510acba483f37c6e700c7",
+      "src/common/sdk/nvidia/inc/rs_access.h": "3c323f21701c2eb475d91c0a2314f49e4eaf33ae02b7d3577b905c9165992e1f"
+    }
+  },
+  "kernel_release": "7.0.0-38-generic",
+  "module": {
+    "bytes": 37215960,
+    "license": "Dual MIT/GPL",
+    "name": "hybrid580_open",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-client-share-policy-native-build-v5/source/kernel-open/hybrid580_open.ko",
+    "sha256": "9303156826692af85df3c1913d8b6e48bd75a223495255c673beaceb402898ac"
+  },
+  "module_installed": false,
+  "module_loaded": false,
+  "observed_at_utc": "2026-10-28T17:11:35.550252+00:00",
+  "qualification": "compiled-replayed-r595-private-open-provider",
+  "replayed_source_artifacts_unchanged": true,
+  "runtime_or_hardware_validated": false,
+  "schema": "replayed-r595-private-open-build-v1",
+  "scope": "compile/link the exact 42-patch R595 replay; no install, load, RM, or GPU access",
+  "source_tree_original_unchanged": true,
+  "source_version": "595.99.02",
+  "symvers_sha256": "679543ecdcae5fdea30e02b080bae09408d073ceb9930394ef99f164385bc0de"
+}

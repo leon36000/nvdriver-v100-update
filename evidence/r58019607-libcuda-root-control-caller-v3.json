@@ -1,0 +1,139 @@
+{
+  "bounded_callsite_comparison": {
+    "interpretation": "Both caller windows call the version-specific helper at the same +0xb67 offset from their respective function entries. The register/immediate window and direct 32-byte RM_CONTROL ABI are structurally aligned; `.178` runtime correlation is not runtime evidence for `.196`.",
+    "normalized_instruction_shape_equal": true,
+    "normalized_shape_sha256": "443f4cecd7574740795da9d7fe84d75f24ff215fa5e405e77c3534cf706aa775",
+    "r580_178": {
+      "call_rva": "0x495ac7",
+      "callee_helper_entry_rva": "0x48bc40",
+      "caller_function_entry_rva": "0x494f60",
+      "caller_relative_call_offset": "0xb67",
+      "decoded_instruction_count": 7,
+      "raw_window_sha256": "c9f098f9c482d8759cdf769bdf01449b666683f8521b202dcd20afb0d77f6348",
+      "return_rva": "0x495acc",
+      "window_bytes": 36
+    },
+    "r580_196": {
+      "call_rva": "0x495c87",
+      "callee_helper_entry_rva": "0x48be00",
+      "caller_function_entry_rva": "0x495120",
+      "caller_relative_call_offset": "0xb67",
+      "decoded_instruction_count": 7,
+      "raw_window_sha256": "d5eed24072c5c59e0029d9b7ea2e6da3261de4fe049fede23930f0ed48ef31ad",
+      "return_rva": "0x495c8c",
+      "window_bytes": 36
+    }
+  },
+  "created_utc": "2026-10-29T08:59:33.830856+00:00",
+  "gpu_accessed": false,
+  "images": {
+    "r580_178": {
+      "build_id": "44703e836e7ee5398b63b185272d18b310c9efbb",
+      "path": "build/staging/r58017804-compute-userland-v1/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+      "sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9"
+    },
+    "r580_196": {
+      "build_id": "5069f257e0f767cc016c1251eb9b9933135d4145",
+      "copied_into_project": false,
+      "path": "/tmp/nv580.196.07-local-analysis/libcuda.so.580.196.07",
+      "sha256": "a5c77bf2de83c0ec06ecd368d224c3e0d653d658d6f99319921e976f21867b14"
+    }
+  },
+  "limits": [
+    "No R580.196.07 runtime ioctl, command value, parameter payload, RM status, or returned feature mask was observed.",
+    "The static callsite proves only generic direct RM_CONTROL packet construction and does not identify SYSTEM_GET_FEATURES on .196.",
+    "No module, GPU, VM, PCI binding, or driver state was changed.",
+    "Generated Ghidra labels and nearest-export annotations are not vendor source names."
+  ],
+  "module_loaded_or_installed": false,
+  "qualification": "static-nvos54-layout-and-callsite-correspondence",
+  "r580_196_packet_construction": {
+    "caller_function_entry_rva": "0x495120",
+    "helper_syscall_dataflow": "The helper copies RCX to R12 and R8 to RBX, then calls ioctl(fd=RDI, request=RCX, argument=R8). The caller therefore passes the stack NVOS54 packet to the direct RM_CONTROL ioctl.",
+    "ioctl_encoded_size_bytes": 32,
+    "ioctl_number": "42",
+    "ioctl_request": "0xc020462a",
+    "ioctl_symbol": "NV_ESC_RM_CONTROL",
+    "nested_parameters": "NVOS54.params points to the function input RCX; its target and the parameter payload are not decoded.",
+    "nested_rm_command": "NVOS54.cmd is copied from the function input EDX; this bounded static slice does not establish that value as 0x1f0.",
+    "packet_pointer_register_at_helper_call": "r10",
+    "packet_size_bytes": 32,
+    "stack_packet_base": "[rbp-0x1130]"
+  },
+  "related_helper_differential": {
+    "report": "evidence/r58019607-libcuda-ioctl-helper-diff-v1.json",
+    "sha256": "e122c56cc46b1672830648311745323ebb040664ff4f836b4fc44e57f09c44f7"
+  },
+  "runtime_anchor": {
+    "feature_query_reference": "evidence/pc3-v100-system-features-v26-20261024.json",
+    "feature_query_sha256": "010e4b45f09e4410e5470f7f42b6aa176d2498a2d5b786b6b1031f0600c3287e",
+    "r580_178_runtime_caller_return_rva": "0x495acc",
+    "r580_178_runtime_ioctl_helper_return_rva": "0x48bc88",
+    "report": "evidence/pc3-v100-libcuda-call-chain-correlation-v2-20261027T011514Z.json",
+    "scope": "On the separate .178 stock V100 path, feature sensitivity runtime chain and root-query capture establish a .178 reference. The .196 packet command and params remain dynamic/opaque.",
+    "sha256": "3e1d39b64cc64742ec3fcafac57fbf7fe7f6efa915d6f3a2d6ef2fb0ed4990c8"
+  },
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-hybrid-r580-libcuda-root-control-caller-analysis-v3",
+  "sdk_layout_reference": {
+    "NVOS54_PARAMETERS": {
+      "fields": [
+        {
+          "name": "hClient",
+          "offset": 0,
+          "source": "function entry RDI copied to R13D"
+        },
+        {
+          "name": "hObject",
+          "offset": 4,
+          "source": "function entry RSI copied to R14D"
+        },
+        {
+          "name": "cmd",
+          "offset": 8,
+          "source": "function entry EDX copied to EBX; value remains dynamic in this static slice"
+        },
+        {
+          "name": "flags",
+          "offset": 12,
+          "source": "zero initialization observed"
+        },
+        {
+          "name": "params",
+          "offset": 16,
+          "source": "function entry RCX copied to R12; pointee not decoded"
+        },
+        {
+          "name": "paramsSize",
+          "offset": 24,
+          "source": "function entry R8D saved to stack and copied"
+        },
+        {
+          "name": "status",
+          "offset": 28,
+          "source": "zero initialization observed; field address passed as helper argument"
+        }
+      ],
+      "sizeof": 32
+    },
+    "NV_ESC_IOCTL_XFER_CMD": "0xd3",
+    "NV_ESC_RM_CONTROL": "0x2a",
+    "headers": {
+      "src/common/sdk/nvidia/inc/nvos.h": "07f9f453afbf080750663abc9e04e2d3b55500887303ba03bd6855916d2405bd",
+      "src/nvidia/arch/nvalloc/unix/include/nv_escape.h": "12850ee7368dbfeba1e2392f9ff7fb44563d88ed12cbf478d0c0f61a03763570"
+    },
+    "source_tree": "build/experiments/r58019607-uvm-consumer-v2-20261029/NVIDIA-kernel-module-source-580.196.07"
+  },
+  "supersedes": [
+    {
+      "reason": "v2 correctly normalized the bounded instruction windows but incorrectly called request 0xc020462a an ioctl-XFER wrapper. Pinned R580 headers define this as direct NV_ESC_RM_CONTROL; NV_ESC_IOCTL_XFER_CMD is a distinct request.",
+      "report": "evidence/r58019607-libcuda-system-features-caller-v2.json",
+      "sha256": "6236500ed433bfc7b19bd70efddc95f1cba30d493a5bd2d498a6def7c3f77c8b"
+    },
+    {
+      "reason": "v1 normalizer retained differing call-target annotations and reported a false shape mismatch.",
+      "report": "evidence/r58019607-libcuda-system-features-caller-v1.json",
+      "sha256": "9b8dc9d10bd1a08febd09b29728afc4fa14ffa8b3a6a30132515a1dfb66ef506"
+    }
+  ]
+}

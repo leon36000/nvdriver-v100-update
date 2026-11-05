@@ -1,0 +1,284 @@
+{
+  "build": {
+    "command": [
+      "make",
+      "-C",
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r58019607-uvm-consumer-v9-20261029/NVIDIA-kernel-module-source-580.196.07",
+      "KERNEL_UNAME=7.0.0-38-generic",
+      "NV_KERNEL_MODULES=nvidia-uvm",
+      "NV_VERBOSE=1",
+      "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r58019607-hybrid-frontend-v11-20261029/Module.symvers",
+      "modules",
+      "-j",
+      "8"
+    ],
+    "elapsed_seconds": 26.775,
+    "exit_code": 0,
+    "frontend_consumer_binding": {
+      "frontend_is_only_provider_dependency": true,
+      "frontend_module_name": "nvidia",
+      "kernel_config_unchanged_after_build": true,
+      "matching_frontend_crc_count": 77,
+      "mismatched_symbols": {},
+      "module_dependencies": [
+        "nvidia"
+      ],
+      "module_version_source": "ELF __version_ext_names/__version_ext_crcs parser",
+      "passed": true,
+      "symvers_unchanged_after_build": true,
+      "uvm_interface_import_count": 77
+    },
+    "frontend_symvers_unchanged_after_build": true,
+    "kernel_release": "7.0.0-38-generic",
+    "log": "evidence/logs/r58019607-uvm-consumer-v9-20261029.log",
+    "log_sha256": "c44dd355316481b8295c79752bdd90e47f57423ee1747bd4f75ad57d39de573b",
+    "module_identity": {
+      "actual_module_name": "nvidia_uvm",
+      "expected_module_name": "nvidia_uvm",
+      "modinfo_exit_code": 0,
+      "module_name_matches": true
+    },
+    "module_symvers": {
+      "bytes": 0,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r58019607-uvm-consumer-v9-20261029/NVIDIA-kernel-module-source-580.196.07/kernel-open/Module.symvers",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "modules": {
+      "nvidia-uvm.ko": {
+        "bytes": 62595016,
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r58019607-uvm-consumer-v9-20261029/NVIDIA-kernel-module-source-580.196.07/kernel-open/nvidia-uvm.ko",
+        "sha256": "bbdef8ff9744958760252edfc5e61cc891b2aca922527e62305f5fa789245618"
+      }
+    },
+    "nvidia_kernel_module_built": false,
+    "scratch_package": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r58019607-uvm-consumer-v9-20261029/NVIDIA-kernel-module-source-580.196.07"
+  },
+  "completed_at_utc": "2026-10-29T07:15:59.834399+00:00",
+  "inputs": {
+    "expected_frontend_module_symvers_sha256": "9bd2d923562f4e36e9b1b8459b8731463bb9daf7aa061190a172840758f7bc28",
+    "frontend_module_name": "nvidia",
+    "frontend_module_symvers": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r58019607-hybrid-frontend-v11-20261029/Module.symvers",
+      "sha256": "9bd2d923562f4e36e9b1b8459b8731463bb9daf7aa061190a172840758f7bc28"
+    },
+    "implementation_sha256": {
+      "tools/build_hybrid_frontend.py": "a53e3d5190bac4ce1f84fb514801b5b81ee69079b3dc6ad163490ea6084efc06",
+      "tools/probe_r580_uvm_isolated_execution.py": "f48b63a8d6d856e95150edea8c8e04dba82842b765e1ebc099692d15ca0f2836"
+    },
+    "kernel_config": {
+      "path": "/usr/src/linux-headers-7.0.0-38-generic/.config",
+      "sha256": "6cb18717c6914d4947489eedf8cb69ac23db3faa8ef9b9f563ff02c346dcd32d"
+    },
+    "owner_namespace": null,
+    "patches": [
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0002-hybrid-isolated-gpu-execution.patch"
+        ],
+        "apply_output": "patching file kernel-open/nvidia-uvm/uvm_gpu.c\npatching file kernel-open/nvidia-uvm/uvm_gpu_semaphore.c\npatching file kernel-open/nvidia-uvm/uvm_push.c\npatching file kernel-open/nvidia-uvm/uvm_migrate_pageable.c\n",
+        "path": "patches/r580.178.04/uvm/0002-hybrid-isolated-gpu-execution.patch",
+        "sha256": "23145778c944ae2cf222a6df192d97a1b3260c564772f4b353d48f0cf0cb26f0"
+      },
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0003-pass-control-fd-to-dup-memory.patch"
+        ],
+        "apply_output": "patching file kernel-open/nvidia/nv_uvm_interface.c\npatching file kernel-open/nvidia-uvm/uvm_map_external.c\npatching file kernel-open/common/inc/hybrid580_uvm_control_fd_dispatch.h\n",
+        "path": "patches/r580.178.04/uvm/0003-pass-control-fd-to-dup-memory.patch",
+        "sha256": "1ea8a83f9af76d1d8189aa04647591d92e02ce7ad3a55db8c55cb13e280c1be6"
+      },
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.196.07/uvm/0001-share-linux-conftests-with-uvm-consumer.patch"
+        ],
+        "apply_output": "patching file kernel-open/nvidia/nvidia.Kbuild\npatching file kernel-open/nvidia-uvm/nvidia-uvm.Kbuild\npatching file kernel-open/common/nvidia-kernel-interface-conftests.Kbuild\n",
+        "path": "patches/r580.196.07/uvm/0001-share-linux-conftests-with-uvm-consumer.patch",
+        "sha256": "be830d287224eab8cc1837b6d04b0be89fc01e165e2c1f3fed6aae9e6f5f29a7"
+      },
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0005-pass-control-fd-to-dup-address-space.patch"
+        ],
+        "apply_output": "patching file kernel-open/common/inc/hybrid580_uvm_control_fd_dispatch.h\npatching file kernel-open/nvidia-uvm/uvm_va_space.c\n",
+        "path": "patches/r580.178.04/uvm/0005-pass-control-fd-to-dup-address-space.patch",
+        "sha256": "1dad3e5b60c5ca306c6f36f20e2147b9b8f9eb784e89b321cccd8e0d4dead61c"
+      },
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0006-pin-control-file-before-va-space-registration.patch"
+        ],
+        "apply_output": "patching file kernel-open/nvidia-uvm/uvm.c\npatching file kernel-open/nvidia-uvm/uvm_api.h\npatching file kernel-open/nvidia-uvm/uvm_common.h\npatching file kernel-open/nvidia-uvm/uvm_gpu.c\nHunk #1 succeeded at 3836 (offset 8 lines).\npatching file kernel-open/nvidia-uvm/uvm_va_space.c\npatching file kernel-open/common/inc/hybrid580_uvm_control_fd_dispatch.h\n",
+        "path": "patches/r580.178.04/uvm/0006-pin-control-file-before-va-space-registration.patch",
+        "sha256": "9427ad3354ba4188befc7126f515442054d35704e424909066acf4ae0cd1f241"
+      },
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0007-reject-cross-gpu-tracker-dependencies.patch"
+        ],
+        "apply_output": "patching file kernel-open/nvidia-uvm/uvm_tracker.c\npatching file kernel-open/nvidia-uvm/uvm_tracker.h\npatching file kernel-open/nvidia-uvm/uvm_push.h\npatching file kernel-open/nvidia-uvm/uvm_push.c\npatching file kernel-open/nvidia-uvm/uvm_migrate_pageable.c\npatching file kernel-open/nvidia-uvm/uvm_gpu.c\npatching file kernel-open/nvidia-uvm/uvm_gpu_semaphore.c\n",
+        "path": "patches/r580.178.04/uvm/0007-reject-cross-gpu-tracker-dependencies.patch",
+        "sha256": "b8ce083d3f380e63e5d1028a1c14c8481983b8a2365f1451320101cbed16424d"
+      },
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0008-pmm-allocation-outside-va-block-lock.patch"
+        ],
+        "apply_output": "patching file kernel-open/nvidia-uvm/uvm_va_block.c\nHunk #1 succeeded at 1996 (offset 1995 lines).\n",
+        "path": "patches/r580.178.04/uvm/0008-pmm-allocation-outside-va-block-lock.patch",
+        "sha256": "b532998cbca0a7ca566690a448f6984dff50f22219c60ccd9fa08578c7c40baa"
+      },
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0009-reject-hmm-gpu-migration-in-isolated-mode.patch"
+        ],
+        "apply_output": "patching file kernel-open/nvidia-uvm/uvm_hmm.c\n",
+        "path": "patches/r580.178.04/uvm/0009-reject-hmm-gpu-migration-in-isolated-mode.patch",
+        "sha256": "e5970b1c9d5ef68d3b5dc1c4a7a64bd2f256204d694b5c9f4518dc4c1b17f273"
+      },
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0010-reject-unsupported-isolated-staged-migrations.patch"
+        ],
+        "apply_output": "patching file kernel-open/nvidia-uvm/uvm_va_block.c\n",
+        "path": "patches/r580.178.04/uvm/0010-reject-unsupported-isolated-staged-migrations.patch",
+        "sha256": "24977b5437402c2661d5fb6770b8d04dd22dd1aa413b1e1d90053cf4d87c183c"
+      },
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0011-preflight-unsupported-staging-before-unmap.patch"
+        ],
+        "apply_output": "patching file kernel-open/nvidia-uvm/uvm_va_block.c\n",
+        "path": "patches/r580.178.04/uvm/0011-preflight-unsupported-staging-before-unmap.patch",
+        "sha256": "b79bfcf61fbb564956f939ea486fa4a2a0e50e19cc780408d89d9bcd8442ca27"
+      },
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0012-exact-isolated-staged-page-mask.patch"
+        ],
+        "apply_output": "patching file kernel-open/nvidia-uvm/uvm_va_block.c\n",
+        "path": "patches/r580.178.04/uvm/0012-exact-isolated-staged-page-mask.patch",
+        "sha256": "d974ecd32d54df399ddd3a68304cc2e05bd2a2e1b536908c5e7ec20aef2a80a0"
+      },
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0013-reject-foreign-pmm-trackers-in-isolated-mode.patch"
+        ],
+        "apply_output": "patching file kernel-open/nvidia-uvm/uvm_pmm_gpu.c\npatching file kernel-open/nvidia-uvm/uvm_pmm_gpu.c\n",
+        "path": "patches/r580.178.04/uvm/0013-reject-foreign-pmm-trackers-in-isolated-mode.patch",
+        "sha256": "30483b31d264f524c2b571e9d97ff9efd5ffcd97b775a6a82cff29781c9b24c0"
+      },
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0014-reject-foreign-pmm-trackers-before-eviction.patch"
+        ],
+        "apply_output": "patching file kernel-open/nvidia-uvm/uvm_va_block.c\n",
+        "path": "patches/r580.178.04/uvm/0014-reject-foreign-pmm-trackers-before-eviction.patch",
+        "sha256": "1b9b160fe7af6775dd660317d0214a2ae4fae834e4d1281ba366f7a2e482f56e"
+      }
+    ],
+    "source_archive": {
+      "path": "build/experiments/private-open580-native-19607-v1-20261024/inputs/open580-580.196.07.tar.xz",
+      "sha256": "21914a460f17190c43cffb75f0c35aef957e267bfefea267bc18638beae17084"
+    },
+    "source_files": {
+      "common/inc/nv_uvm_interface.h": "68b6cae62ad0bdf6940d48a34084d789cd1f87a06b84310195cd2adc4b9e50f8",
+      "nvidia-uvm/nvidia-uvm.Kbuild": "0e8d3d96e00d6ca8b6b564e4668dd70447d8b6bca9200845180ce7c66902328b",
+      "nvidia-uvm/uvm_channel_test.c": "f846b5e2925258bb1643e389bee4016743a73a6f396571e0621aac109bb94e87",
+      "nvidia-uvm/uvm_gpu.c": "b43bb94bbc465bbb4fb243e6f722cb450d6402f3071971843d61f1f7678bf700",
+      "nvidia-uvm/uvm_gpu_semaphore.c": "1472d3bdcd91b35095fb7ae6aa1f66a075ea495c08d106ed7da497176a3d629f",
+      "nvidia-uvm/uvm_map_external.c": "4115e9f2de1fc9ad460a61168e78e68ede19c57ac6216740dc57475b29d07511",
+      "nvidia-uvm/uvm_migrate_pageable.c": "e7178513d684596aadbe24c1f699eb9e7b13b7f39c19805fe213bbef090898da",
+      "nvidia-uvm/uvm_push.c": "9628ada0b4007eff5af16525d0d71788045832e5ca268699e2ae82a5dc14b85e",
+      "nvidia/nv_uvm_interface.c": "b41c704d29363dd52dd0ea669ee253a37185f5826c7db56a07dec21c3d24eddc",
+      "nvidia/nvidia.Kbuild": "b1bc451a2fd2b1abd68608fa7156e86472f5ec414764d712727ed0463feaea5e"
+    },
+    "source_package": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r58019607-uvm-consumer-v9-20261029/NVIDIA-kernel-module-source-580.196.07",
+    "source_version": "580.196.07"
+  },
+  "qualification": {
+    "level": "compiled-frontend-bound-uvm",
+    "module_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "schema": "r580-uvm-isolated-gpu-execution-build-v5",
+  "scope": "clean pinned R580 UVM-only consumer build against the supplied hybrid frontend; stock module/device/procfs identity retained; no install, module insertion, GPU access, VM change, or reboot",
+  "started_at_utc": "2026-10-29T07:15:32.950471+00:00"
+}

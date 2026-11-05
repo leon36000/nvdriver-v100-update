@@ -1,0 +1,134 @@
+{
+  "created_utc": "2026-10-29T09:01:33.166053+00:00",
+  "gpu_accessed": false,
+  "images": {
+    "r580_178": {
+      "build_id": "44703e836e7ee5398b63b185272d18b310c9efbb",
+      "path": "build/staging/r58017804-compute-userland-v1/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+      "sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9"
+    },
+    "r580_196": {
+      "build_id": "5069f257e0f767cc016c1251eb9b9933135d4145",
+      "copied_into_project": false,
+      "path": "/tmp/nv580.196.07-local-analysis/libcuda.so.580.196.07",
+      "sha256": "a5c77bf2de83c0ec06ecd368d224c3e0d653d658d6f99319921e976f21867b14"
+    }
+  },
+  "limits": [
+    "The .196 library was not executed; static code does not establish runtime success, RM status, or returned feature mask.",
+    "No proprietary parameter payload beyond the fixed one-dword feature mask was read; no output value is known for .196.",
+    "The nearby generated dynamic-symbol annotation is not a source function name.",
+    "No module, GPU, VM, PCI binding, or driver state changed."
+  ],
+  "module_loaded_or_installed": false,
+  "qualification": "static-query-path-cross-version-with-r580178-runtime-anchor",
+  "rm_control_route": {
+    "fields_and_sources": {
+      "cmd": "function argument EDX copied to EBX; wrapper above supplies 0x1f0",
+      "flags": "zero initialized",
+      "hClient": "function argument RDI copied to R13D",
+      "hObject": "function argument RSI copied to R14D",
+      "params": "function argument RCX copied to R12; wrapper above supplies a pointer to its zero-initialized 4-byte local",
+      "paramsSize": "function argument R8D saved and copied; wrapper above supplies 4",
+      "status": "zero initialized; field address is passed as helper argument"
+    },
+    "ioctl_helper_callsite_rva": "0x495c87",
+    "ioctl_number": "0x2a",
+    "ioctl_request": "0xc020462a",
+    "ioctl_size_bytes": 32,
+    "ioctl_symbol": "NV_ESC_RM_CONTROL",
+    "packet_size_bytes": 32,
+    "packet_type": "NVOS54_PARAMETERS",
+    "r580_178_dispatcher_entry_rva": "0x494f60",
+    "r580_196_dispatcher_entry_rva": "0x495120",
+    "r580_196_stack_packet_base": "[rbp-0x1130]",
+    "syscall_arguments": "helper disassembly forwards fd from RDI, request from RCX, and packet pointer from R8 to ioctl(fd, request, argument).",
+    "xfer_ioctl_number": "0xd3",
+    "xfer_is_outer_request": false
+  },
+  "runtime_anchor": {
+    "call_chain_report": "evidence/pc3-v100-libcuda-call-chain-correlation-v2-20261027T011514Z.json",
+    "call_chain_sha256": "3e1d39b64cc64742ec3fcafac57fbf7fe7f6efa915d6f3a2d6ef2fb0ed4990c8",
+    "interpretation": "The existing .178 runtime chain aligns with its static wrapper and known 0x1f0 query. The .196 query is established statically by the fixed caller fields and matching wrapper shape; it was not run on hardware.",
+    "observed_r580_178_return_rvas": [
+      "0x495acc",
+      "0x4600fc"
+    ],
+    "system_features_capture": "evidence/pc3-v100-system-features-v26-20261024.json",
+    "system_features_capture_sha256": "010e4b45f09e4410e5470f7f42b6aa176d2498a2d5b786b6b1031f0600c3287e"
+  },
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-hybrid-r580-libcuda-system-features-static-route-v1",
+  "sdk_reference": {
+    "NVOS54_size": 32,
+    "header_sha256": {
+      "kernel-open/common/inc/nv-ioctl-numbers.h": "7f449a019521f2f858a2d485eed1ee0fa4a8ffc82c9aecd484be5d3f6821f87d",
+      "src/common/sdk/nvidia/inc/nvos.h": "07f9f453afbf080750663abc9e04e2d3b55500887303ba03bd6855916d2405bd",
+      "src/nvidia/arch/nvalloc/unix/include/nv_escape.h": "12850ee7368dbfeba1e2392f9ff7fb44563d88ed12cbf478d0c0f61a03763570"
+    },
+    "layout_compile": "cc -std=gnu11 -Wall -Wextra -Werror -DNVRM=1 -fsyntax-only with pinned R580.196.07 include roots; all static assertions passed",
+    "offsets": {
+      "cmd": 8,
+      "flags": 12,
+      "hClient": 0,
+      "hObject": 4,
+      "params": 16,
+      "paramsSize": 24,
+      "status": 28
+    },
+    "source_tree": "build/experiments/r58019607-uvm-consumer-v2-20261029/NVIDIA-kernel-module-source-580.196.07"
+  },
+  "supersedes_prior_interpretation": {
+    "correction": "The observed outer ioctl is direct NV_ESC_RM_CONTROL (0x2a) with a 32-byte NVOS54 packet. NV_ESC_IOCTL_XFER_CMD is 0xd3 and is not this route.",
+    "report": "evidence/r58019607-libcuda-system-features-caller-v2.json",
+    "sha256": "6236500ed433bfc7b19bd70efddc95f1cba30d493a5bd2d498a6def7c3f77c8b"
+  },
+  "wrapper_static_observations": {
+    "r580_178": {
+      "dispatcher_call_rva": "0x4600f7",
+      "nvos54_cmd": "0x1f0",
+      "output_byte": "cleared before call; on successful return, test feature bit 3 and write 1 if set",
+      "params_pointer": "zero-initialized local dword at [rbp-0x14]",
+      "params_size": 4
+    },
+    "r580_196": {
+      "dispatcher_call_rva": "0x460157",
+      "nvos54_cmd": "0x1f0",
+      "output_byte": "cleared before call; on successful return, test feature bit 3 and write 1 if set",
+      "params_pointer": "zero-initialized local dword at [rbp-0x14]",
+      "params_size": 4
+    }
+  },
+  "wrapper_window_comparison": {
+    "decoded_instruction_count_each": 21,
+    "normalization": "preserve instruction order, mnemonics, registers and immediates; normalize direct call/branch destinations",
+    "normalized_instruction_shape_equal": true,
+    "normalized_shape_sha256": "d14e6381effae38f215aaf91aa6a0b5337e669d739bb8a339a308bd7375c175b",
+    "raw_window_hashes_differ": true,
+    "versions": {
+      "r580_178": {
+        "call_offset_within_wrapper": "0x27",
+        "callee_rm_control_dispatcher_rva": "0x494f60",
+        "decoded_instruction_count": 21,
+        "query_dispatch_call_rva": "0x4600f7",
+        "raw_window_sha256": "8107bed6ce1e59897278369017c92338ddeeaeee9e2d6b6c03319c1da8dcbdb6",
+        "return_rva": "0x4600fc",
+        "wrapper_entry_rva": "0x4600d0",
+        "wrapper_window_bytes": 64,
+        "wrapper_window_end_exclusive_rva": "0x460110"
+      },
+      "r580_196": {
+        "call_offset_within_wrapper": "0x27",
+        "callee_rm_control_dispatcher_rva": "0x495120",
+        "decoded_instruction_count": 21,
+        "query_dispatch_call_rva": "0x460157",
+        "raw_window_sha256": "8938b329da62ef2da614c7ce26369e0743baa3ecf42db48562b7149eebba8147",
+        "return_rva": "0x46015c",
+        "wrapper_entry_rva": "0x460130",
+        "wrapper_window_bytes": 64,
+        "wrapper_window_end_exclusive_rva": "0x460170"
+      }
+    },
+    "window_end_exclusive_relative_to_entry": "0x40"
+  }
+}

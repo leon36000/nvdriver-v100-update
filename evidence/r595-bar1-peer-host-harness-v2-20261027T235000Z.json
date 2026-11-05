@@ -1,0 +1,45 @@
+{
+  "schema": "r595-bar1-peer-host-harness-v2",
+  "observed_at_utc": "2026-10-27T23:50:11.374462+00:00",
+  "status": "passed",
+  "qualification": "host-executed-exact-source-functions",
+  "runtime_or_hardware_validated": false,
+  "module_loaded_or_installed": false,
+  "r595_source_root": "/usr/src/nvidia-595.99.02/nvidia-uvm",
+  "candidate_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v11-20261027T233405Z/nvidia-uvm",
+  "source_identity": {
+    "R595_uvm_gpu_c_sha256": "66881c4ae46461314d41342b2a27df9119d68d68f90d181e3a32670dcc19f590",
+    "candidate_uvm_gpu_c_sha256": "66881c4ae46461314d41342b2a27df9119d68d68f90d181e3a32670dcc19f590",
+    "matches": true
+  },
+  "functions_extracted": [
+    "parent_gpu_peer_aperture",
+    "uvm_gpu_peer_aperture",
+    "uvm_gpu_peer_phys_address",
+    "gpu_phys_address_is_bar1p2p_peer"
+  ],
+  "compiler": {
+    "path": "/usr/bin/cc",
+    "version": "cc (Ubuntu 15.2.0-16ubuntu1) 15.2.0"
+  },
+  "compile_command": [
+    "/usr/bin/cc",
+    "-std=c11",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-Wno-unused-parameter",
+    "/tmp/r595-bar1-peer-host-c53btnte/bar1_peer.c",
+    "-o",
+    "/tmp/r595-bar1-peer-host-c53btnte/bar1_peer"
+  ],
+  "harness_c_sha256": "bf6767e82cb8717b29a9474269fafb326dce517821df48aaf90999f6f9cb95b2",
+  "harness_binary_sha256": "1e449fb31a2864f1f559d90d418f379bd13071f5c64eaad5cd32030c1274f958",
+  "checks_passed": 18,
+  "stdout": "PASS: 18 exact-source aperture/address/range vectors",
+  "stderr": "",
+  "limits": [
+    "The test uses a CPU shim for UVM/RM data and forces NVLink/NVSwitch predicates false in the BAR1 address vectors.",
+    "It does not validate RM capability values, PCIe BAR1 mapping, DMA transactions, P2P, UVM, or GPU hardware behavior."
+  ]
+}

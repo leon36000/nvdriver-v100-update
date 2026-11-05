@@ -1,0 +1,14 @@
+{
+  "activation_performed": false,
+  "error": "ValueError: replayed source artifact hash mismatch: kernel-open/nvidia/nv.c",
+  "hardware_tested": false,
+  "kernel_release": "7.0.0-38-generic",
+  "module_installed": false,
+  "module_loaded": false,
+  "observed_at_utc": "2026-11-01T08:10:03.869551+00:00",
+  "qualification": "failed",
+  "runtime_or_hardware_validated": false,
+  "schema": "replayed-r595-private-open-debugger-bridge-build-v1",
+  "scope": "compile/link the exact 45-patch R595 replay plus the separately pinned kmod softdep delimiter overlay, with provider and UVM conftests in one Kbuild invocation; no install, load, RM, or GPU access",
+  "source_version": "595.99.02"
+}

@@ -1,0 +1,29 @@
+{
+  "command": "python3 -m unittest -q tests.test_run_pc3_v100_guest_reference",
+  "duration_seconds": 0.211,
+  "errors": 0,
+  "exit_code": 0,
+  "failures": 0,
+  "inputs": {
+    "log": {
+      "bytes": 68386,
+      "path": "evidence/logs/r58019607-override-enumerate-context-kernel-tests-v1-20261029.log",
+      "sha256": "27fbc3e9ee0bcd222ae1460513ca4cb7496dfa1643b47432ff114690606c79ad"
+    },
+    "runner": {
+      "bytes": 234192,
+      "path": "tools/run_pc3_v100_guest_reference.py",
+      "sha256": "7f2a743daf3cbbaaad3e0ce581c80e5f19587b14b5d7ea3b3d29fa3643d5e3e4"
+    },
+    "tests": {
+      "bytes": 178566,
+      "path": "tests/test_run_pc3_v100_guest_reference.py",
+      "sha256": "43f8365f49a197f36bcb6e159a45ff3af65ad6b2632abe181a5009df42e6d63b"
+    }
+  },
+  "qualification": "SOFTWARE_TESTS_ONLY",
+  "result": "OK",
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-hybrid-r58019607-override-runner-tests-v1",
+  "tests_run": 110
+}

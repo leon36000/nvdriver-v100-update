@@ -1,0 +1,147 @@
+{
+  "candidate": {
+    "branch": "R595.99.02 Open UVM with the pinned RM-control-FD patch source",
+    "frontend_route": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/hybrid580_uvm_address_space_route.h",
+    "source_hashes": {
+      "hybrid_frontend_route": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/hybrid580_uvm_address_space_route.h",
+        "sha256": "741ef4746d8a9b3d80e7d7eaf1fcc0c801728b001849b90d9ecab36ce2552882"
+      },
+      "uvm_channel.c": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-rmfd-v1-20261028T180300Z/nvidia-uvm/uvm_channel.c",
+        "sha256": "34a6816a77e55515179607558c4ddae65a8ae2bb591bc6e481a918370d1bc675"
+      },
+      "uvm_gpu.c": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-rmfd-v1-20261028T180300Z/nvidia-uvm/uvm_gpu.c",
+        "sha256": "66881c4ae46461314d41342b2a27df9119d68d68f90d181e3a32670dcc19f590"
+      },
+      "uvm_gpu_semaphore.c": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-rmfd-v1-20261028T180300Z/nvidia-uvm/uvm_gpu_semaphore.c",
+        "sha256": "1472d3bdcd91b35095fb7ae6aa1f66a075ea495c08d106ed7da497176a3d629f"
+      },
+      "uvm_rm_mem.c": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-rmfd-v1-20261028T180300Z/nvidia-uvm/uvm_rm_mem.c",
+        "sha256": "fdf517f711ce9ae3421e4af2e7fe128f0db4182000eeed32504eacc82d1a43d7"
+      }
+    },
+    "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-rmfd-v1-20261028T180300Z/nvidia-uvm"
+  },
+  "claims": {
+    "first_gpu_eagerly_allocates_sysmem_semaphore_pages": true,
+    "mapping_requires_dup_allocation_between_owner_and_target_address_spaces": true,
+    "provider_mismatch_stops_before_backend_dispatch": true,
+    "second_gpu_maps_existing_pool_before_channel_manager": true
+  },
+  "evidence": [
+    {
+      "function": "init_gpu",
+      "line": 1570,
+      "source": "uvm_gpu.c"
+    },
+    {
+      "function": "init_semaphore_pools",
+      "line": 1146,
+      "source": "uvm_gpu.c"
+    },
+    {
+      "function": "uvm_gpu_semaphore_pool_create",
+      "line": 367,
+      "source": "uvm_gpu_semaphore.c"
+    },
+    {
+      "function": "pool_page_alloc_buffers",
+      "line": 171,
+      "source": "uvm_gpu_semaphore.c"
+    },
+    {
+      "function": "pool_alloc_page",
+      "line": 213,
+      "source": "uvm_gpu_semaphore.c"
+    },
+    {
+      "function": "uvm_gpu_semaphore_pool_map_gpu",
+      "line": 426,
+      "source": "uvm_gpu_semaphore.c"
+    },
+    {
+      "function": "uvm_gpu_semaphore_alloc",
+      "line": 283,
+      "source": "uvm_gpu_semaphore.c"
+    },
+    {
+      "function": "uvm_gpu_tracking_semaphore_alloc",
+      "line": 604,
+      "source": "uvm_gpu_semaphore.c"
+    },
+    {
+      "function": "channel_manager_num_channels",
+      "line": 2580,
+      "source": "uvm_channel.c"
+    },
+    {
+      "function": "channel_pool_add",
+      "line": 2842,
+      "source": "uvm_channel.c"
+    },
+    {
+      "function": "channel_create",
+      "line": 2423,
+      "source": "uvm_channel.c"
+    },
+    {
+      "function": "channel_manager_create_ce_pools",
+      "line": 3426,
+      "source": "uvm_channel.c"
+    },
+    {
+      "function": "channel_manager_create_pools",
+      "line": 3837,
+      "source": "uvm_channel.c"
+    },
+    {
+      "function": "uvm_channel_manager_create",
+      "line": 3877,
+      "source": "uvm_channel.c"
+    },
+    {
+      "function": "uvm_rm_mem_alloc_and_map_all",
+      "line": 449,
+      "source": "uvm_rm_mem.c"
+    },
+    {
+      "function": "uvm_rm_mem_map_all_gpus",
+      "line": 435,
+      "source": "uvm_rm_mem.c"
+    },
+    {
+      "function": "uvm_rm_mem_map_gpu",
+      "line": 307,
+      "source": "uvm_rm_mem.c"
+    },
+    {
+      "function": "hybrid580_uvm_address_space_route_dup_allocation",
+      "line": 407,
+      "source": "hybrid_frontend_route"
+    }
+  ],
+  "failure_path": [
+    "A GPU with at least one usable copy engine creates two channels in each common CE pool during UVM GPU initialization.",
+    "Each channel eagerly allocates a tracking semaphore; the initially empty system-memory pool therefore allocates a page and maps it to currently registered GPUs.",
+    "When a GPU from another backend registers, init_semaphore_pools maps the existing GPU's semaphore pages before creating the new channel manager.",
+    "That map calls DupAllocation with the owning and target GPUs' RM address spaces; the hybrid route returns NOT_SUPPORTED for different providers without an RM call.",
+    "init_gpu propagates the map error, so static source predicts rejection of the second provider GPU at this point, conditional on the cited channel/page path being exercised."
+  ],
+  "generated_at_utc": "2026-10-28T18:10:25.587401+00:00",
+  "loaded_or_installed": false,
+  "next_experiment": "Design provider-aware UVM system-memory semaphore allocation/mapping semantics, then compile and test that policy in isolation before any canary activation.",
+  "not_proven": [
+    "No candidate module was loaded or installed.",
+    "No mixed-provider UVM registration was attempted on a live kernel.",
+    "The audit does not establish behavior for every GPU capability or configuration.",
+    "CUDA contexts, kernels, UVM migration, P2P, and same-process hybrid execution remain unvalidated."
+  ],
+  "qualification": "analyzed-statically",
+  "result": "conditional_cross_provider_gpu_registration_blocker",
+  "runtime_or_hardware_validated": false,
+  "schema": "r595-cross-provider-semaphore-init-v1"
+}

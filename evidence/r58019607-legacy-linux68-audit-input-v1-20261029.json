@@ -1,0 +1,45 @@
+{
+  "audit_input_normalization": {
+    "reason": "Generated from the exact-target legacy module and adjacent Module.symvers plus preserved make log; the full 123 MB module remains in /tmp because the canonical volume has only about 95 MB free."
+  },
+  "build": {
+    "compiler": "x86_64-linux-gnu-gcc-13 13.3.0",
+    "exit_code": 0,
+    "log_path": "/tmp/nvidia-r58019607-6.8.0-147-gcc13-v1/build.log",
+    "log_sha256": "3c508db720cbecc2d21c7ad447d23a84d4cd7997a07413bc72557f7b9b89090d"
+  },
+  "gpu_accessed": false,
+  "kernel_release": "6.8.0-147-generic",
+  "loaded_or_installed": false,
+  "module": {
+    "bytes": 128087624,
+    "name": "hybrid580_legacy",
+    "path": "/tmp/nvidia-r58019607-6.8.0-147-gcc13-v1/source/hybrid580_legacy.ko",
+    "sha256": "37c5ee1b5896e275d3535dd86f4beb4b76959200ab81e303ca8ae3c76eff5bff"
+  },
+  "module_installed": false,
+  "module_loaded": false,
+  "module_metadata": {
+    "depends": [
+      []
+    ],
+    "license": [
+      "NVIDIA"
+    ],
+    "name": [
+      "hybrid580_legacy"
+    ],
+    "vermagic": [
+      "6.8.0-147-generic SMP preempt mod_unload modversions"
+    ],
+    "version": [
+      "580.196.07"
+    ]
+  },
+  "qualification": "compiled-only",
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia.r58019607-exact-target-audit-input.v1",
+  "status": "compiled-exact-target-input-normalized-for-static-audit",
+  "symvers_sha256": "b8f09fa04671c52ea0c30a79a33901dd508eb81cba221f3f10ee66fdb6a84963",
+  "target_kernel_release": "6.8.0-147-generic"
+}

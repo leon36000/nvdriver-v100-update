@@ -1,0 +1,126 @@
+{
+  "created_utc": "2026-10-29T08:52:56.815047+00:00",
+  "cuinit_static_comparison": {
+    "interpretation": "The same exported cuInit address and one shared dispatcher target are static observations; another internal target differs and no complete call path is inferred.",
+    "other_unconditional_target_r580_178": "0xf9f4f0",
+    "other_unconditional_target_r580_196": "0xf9f670",
+    "r580_178": {
+      "computed_call_from": "0x3279aa",
+      "computed_target_rva": "0x331bc0",
+      "entry_rva": "0x327990",
+      "function_name": "cuInit",
+      "instruction_count": 55
+    },
+    "r580_196": {
+      "computed_call_from": "0x3279aa",
+      "computed_target_rva": "0x331bc0",
+      "entry_rva": "0x327990",
+      "function_name": "cuInit",
+      "instruction_count": 55
+    }
+  },
+  "gpu_accessed": false,
+  "images": {
+    "r580_178": {
+      "build_id": "44703e836e7ee5398b63b185272d18b310c9efbb",
+      "bytes": 96284520,
+      "path": "build/staging/r58017804-compute-userland-v1/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+      "sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9"
+    },
+    "r580_196": {
+      "build_id": "5069f257e0f767cc016c1251eb9b9933135d4145",
+      "bytes": 96300904,
+      "copied_into_project": false,
+      "image": "libcuda.so.580.196.07",
+      "sha256": "a5c77bf2de83c0ec06ecd368d224c3e0d653d658d6f99319921e976f21867b14",
+      "temporary_path": "/tmp/nv580.196.07-local-analysis/libcuda.so.580.196.07"
+    }
+  },
+  "ioctl_helper_differential": {
+    "address_relation": {
+      "ioctl_call_offset_in_both": "0x43",
+      "ioctl_return_offset_in_both": "0x48",
+      "r580_196_minus_r580_178": "0x1c0"
+    },
+    "bounded_objdump_comparison": {
+      "command": "objdump -d -M intel --start-address=<function-entry> --stop-address=<function-end-exclusive> <image>",
+      "decoded_instruction_rows_each": 85,
+      "decoded_machine_bytes_each": 254,
+      "normalization": "replace disassembly target addresses with symbol labels; normalize RIP-relative data displacements and long absolute addresses; preserve instruction order, mnemonic, registers, short immediates and symbol targets",
+      "normalized_instruction_and_operand_shapes_equal": true,
+      "normalized_shape_sha256_each": "d47314bdbdab0db2737c994872b6effd8e30437670f17ce6ab3ae7bffd7e44f6",
+      "outgoing_calls_at_matching_offsets": [
+        "time@plt +0x23",
+        "ioctl@plt +0x43",
+        "__errno_location@plt +0x4c",
+        "time@plt +0x80",
+        "nanosleep@plt +0xa0"
+      ],
+      "raw_bytes_equal": false
+    },
+    "interpretation": "The two bounded code regions have the same normalized instruction/operand shape and the ioctl/retry calls at the same relative offsets. This supports a static structural correspondence between versioned ioctl helpers. The raw code differs; the correspondence does not identify the ioctl command or prove the R580.196.07 helper was called for SYSTEM_GET_FEATURES.",
+    "r580_178": {
+      "function_end_exclusive_rva": "0x48bd43",
+      "function_entry_rva": "0x48bc40",
+      "function_range_bytes": 259,
+      "ghidra_function": "FUN_0058bc40",
+      "ghidra_instruction_count": 82,
+      "ioctl_call_rva": "0x48bc83",
+      "ioctl_return_rva": "0x48bc88",
+      "raw_range_sha256": "a291523252fe3b73e542cb777c7cd223ebc2fc088e404ef05a93d50cab57680b"
+    },
+    "r580_196": {
+      "function_end_exclusive_rva": "0x48bf03",
+      "function_entry_rva": "0x48be00",
+      "function_range_bytes": 259,
+      "ghidra_function": "FUN_0058be00",
+      "ghidra_instruction_count": 82,
+      "ioctl_call_rva": "0x48be43",
+      "ioctl_return_rva": "0x48be48",
+      "raw_range_sha256": "e4f28360b9bac894f2a44b5b363e680a917659a53864c22a95b35f2ab59625fe"
+    }
+  },
+  "limits": [
+    "R580.196.07 libcuda was statically analyzed only; it was not run against a GPU.",
+    "No R580.196.07 SYSTEM_GET_FEATURES payload, RM status, or ioctl command was observed.",
+    "Ghidra FUN_* names are generated analysis labels, not vendor source names.",
+    "No pseudocode, raw decompilation, or proprietary image was retained in project evidence.",
+    "No module was installed or loaded and no GPU/VM/PCI state was changed."
+  ],
+  "module_loaded_or_installed": false,
+  "qualification": "static-binary-differential-with-r580178-runtime-reference",
+  "runfile": {
+    "integrity_check": "NVIDIA self-extractor checksum and MD5 checks passed",
+    "path": ".cache/upstream/NVIDIA-Linux-x86_64-580.196.07.run",
+    "sha256": "0aab0518db53cf73c412dc7f32bbc850ca95e839d8923d0de4bff42c1c9169ce"
+  },
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-hybrid-r580-libcuda-ioctl-helper-differential-v1",
+  "source_reports": {
+    "r580_178_libcuda_ghidra": {
+      "path": "evidence/pc3-v100-libcuda-ghidra-call-chain-multi-v1-20261027T010757238216Z.json",
+      "sha256": "39a70bd6526a2d9790c4db91a4bfc5249b63c6ab43dae301f2031c8d50f2ba37"
+    },
+    "r580_178_runtime_call_chain": {
+      "path": "evidence/pc3-v100-libcuda-call-chain-correlation-v2-20261027T011514Z.json",
+      "sha256": "3e1d39b64cc64742ec3fcafac57fbf7fe7f6efa915d6f3a2d6ef2fb0ed4990c8"
+    },
+    "r580_178_system_features_capture": {
+      "path": "evidence/pc3-v100-system-features-v26-20261024.json",
+      "sha256": "010e4b45f09e4410e5470f7f42b6aa176d2498a2d5b786b6b1031f0600c3287e"
+    },
+    "r580_196_libcuda_ghidra": {
+      "path": "evidence/r58019607-libcuda-ghidra-callsite-v1.json",
+      "sha256": "5016f3039f39ad8c86fa8e90dfa688a85468caa66d5a2ce5cf5ae9386a57ff62"
+    }
+  },
+  "stock_runtime_reference": {
+    "command_id": "0x01f0",
+    "interpretation": "This runtime observation is on separate PC3 V100/R580.178.04 software and only anchors the earlier helper callsite; it does not transfer the command semantics to the R580.196.07 static site.",
+    "observation_path": "evidence/pc3-v100-system-features-v26-20261024.json",
+    "observed_ioctl_return_rva": "0x48bc88",
+    "payload_bytes": 4,
+    "r580_178_command": "NV0000_CTRL_CMD_SYSTEM_GET_FEATURES",
+    "stock_v100_features_mask": "0x9"
+  }
+}

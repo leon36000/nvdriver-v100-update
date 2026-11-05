@@ -1,0 +1,81 @@
+{
+  "schema": "nvidia-hybrid-r595-external-map-bridge-composition-v2",
+  "observed_at_utc": "2026-11-02T07:08:56Z",
+  "qualification": "cpu-host-harness-only",
+  "upstream": {
+    "repository": "https://github.com/NVIDIA/open-gpu-kernel-modules",
+    "tag": "595.99.02",
+    "path": "kernel-open/nvidia-uvm/uvm_map_external.c",
+    "source_sha256": "90de5bb57f41ce3f4c7d1316b8c8541e87dd3f23457aef81f9241273c86ad409",
+    "tracked_excerpt_sha256": "87bad135f952132b865fe275c6482cd3c63e76a7757cc820ced8da156a076825"
+  },
+  "composition": {
+    "r595_patch": "patches/r595.99.02/0003-uvm-external-allocation-control-fd.patch",
+    "r595_patch_sha256": "7f43c90b720162f0d1c4af584a97d4400f1768dd6b67986cb68c6e9d7489ee1d",
+    "hybrid_bridge": "src/hybrid580_uvm_callback_bridge.c",
+    "hybrid_bridge_sha256": "5caebaa36e77cd704a7d4f430f39bd6e9878f1021d4a3dca385750d7d3e431e4",
+    "production_entry_points_extracted": [
+      "nvUvmInterfaceDupMemoryWithControlFd",
+      "nvUvmInterfaceFreeDupedHandle"
+    ],
+    "upstream_uvm_callsites_extracted": [
+      "uvm_map_external_allocation_on_gpu external-memory duplicate call",
+      "uvm_release_rm_handle duplicate-free call"
+    ],
+    "host_harness": "tests/fixtures/hybrid580_uvm_duplicate_memory_bridge_test.c",
+    "host_harness_sha256": "9e35516408739e7773833bb539c87cd06b4808d48af09d6338671f8fd8642b36",
+    "composition_test": "tests/test_hybrid580_uvm_duplicate_memory_bridge_host.py",
+    "composition_test_sha256": "5f5a696abe9f02cb0cb833e7d516c678b06e25a7a10f9f5a18b6314ef9d416fb",
+    "control_fd_test": "tests/test_r595_external_map_control_fd.py",
+    "control_fd_test_sha256": "747f325cbd13e9e492a6252fba4cccdfa6cf6eb2c2b4433a012ea244106f0db1"
+  },
+  "observed_contracts": [
+    "The exact patched R595 duplicate call routes identical public client/object IDs to Open or legacy according to rm_control_fd.",
+    "A source-owner and destination-device provider mismatch returns NV_ERR_NOT_SUPPORTED before backend RM dispatch and keeps outputs zero.",
+    "An RM failure that returns a partial native handle publishes no public handle or metadata and quarantines the source owner.",
+    "After a successful duplicate, the exact R595 uvm_release_rm_handle call invokes the exact production free wrapper; the created backend releases its own handle and the frontend owner record is retired. This models cleanup following a later map-setup failure."
+  ],
+  "focused_runs": [
+    {
+      "mode": "pinned-full-r595-source",
+      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=tests python3 -B -m unittest test_r595_external_map_control_fd test_hybrid580_uvm_duplicate_memory_bridge_host -v",
+      "passed": 3,
+      "failed": 0,
+      "exit_code": 0
+    },
+    {
+      "mode": "tracked-source-excerpt-fallback",
+      "command": "NVIDIA_HYBRID_TEST_USE_R595_FIXTURE=1 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=tests python3 -B -m unittest test_r595_external_map_control_fd test_hybrid580_uvm_duplicate_memory_bridge_host -v",
+      "passed": 3,
+      "failed": 0,
+      "exit_code": 0
+    }
+  ],
+  "mutation": {
+    "change": "replaced user_rm_mem->rm_control_fd with invalid descriptor 99 in a temporary patch copy",
+    "mutant_patch_sha256": "82e836819e4d22fed036d7f9dc1ff33c02466f63408cf5c24817a9af1e8d0e7d",
+    "detected": true,
+    "observed_test_process_exit_code": -6,
+    "failure_point": "the composed C harness rejected the invalid owner FD before RM dispatch",
+    "repository_patch_modified": false
+  },
+  "full_software_suite": {
+    "report": "evidence/software-verification-openrm-hal-matrix-v1-20261102T070602Z.json",
+    "report_sha256": "3798b3740004ac5734aeb6eb6bfe965a27645f73482e1ffa528686bc6e4a93bf",
+    "tests": 2451,
+    "test_source_files": 362,
+    "implementation_input_files": 77,
+    "source_changes_during_run": [],
+    "elapsed_seconds": 173.119,
+    "exit_code": 0,
+    "status": "pass",
+    "qualification": "software-suite-only"
+  },
+  "safety_and_limits": {
+    "gpu_accessed": false,
+    "kernel_module_loaded_or_installed": false,
+    "driver_or_firmware_changed": false,
+    "runtime_or_hardware_validated": false,
+    "scope_limit": "The harness executes the exact duplicate and free call statements and production bridge entry points against CPU fake RM callbacks. It does not execute uvm_ext_gpu_map_destroy, nv_kref_put lifecycle, the complete UVM map error unwind, RM ioctls, or a GPU runtime."
+  }
+}

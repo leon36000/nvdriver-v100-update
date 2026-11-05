@@ -1,0 +1,97 @@
+{
+  "build_warnings": {
+    "objtool_frame_pointer": 1756,
+    "objtool_naked_return": 44978,
+    "other_warning": 13,
+    "total_warning_lines": 46747
+  },
+  "core_modified": false,
+  "inputs": {
+    "build_tool": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/build_r58019607_proprietary_port.py",
+      "sha256": "e62a490871b8bdbdcd5300f5aecfc128afa54c08be2f56bd55d74fcefeb6e213"
+    },
+    "kernel_config": {
+      "path": "/usr/src/linux-headers-7.0.0-38-generic/.config",
+      "sha256": "6cb18717c6914d4947489eedf8cb69ac23db3faa8ef9b9f563ff02c346dcd32d"
+    },
+    "kernel_module_symvers": {
+      "path": "/usr/src/linux-headers-7.0.0-38-generic/Module.symvers",
+      "sha256": "ea539a464a3beb960dc84288afaf41c1e2d6a4506902af14affe80111d1bf97e"
+    },
+    "kernel_release": "7.0.0-38-generic",
+    "patch_port_report": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/r58019607-sync-boost-port-v1.json",
+      "sha256": "041aa36e298476007301f7f92a02e82dd5381dbadf3d02a99097ec0ce03bf3c7"
+    },
+    "patch_port_tool": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/probe_r580_proprietary_source_port.py",
+      "sha256": "bc99124f86503ae01492c38ab9d9829f3ba31cbda1f63f6b84c86579991c6d52"
+    },
+    "patch_source_tree_sha256": "001b4dc6035b034a03b32b3ddb561d436309639017571756db1585eb7954b146",
+    "proprietary_core_sha256": "24c741bc9b378d66d128de985ae016a662f721bb10faa04511310bace4910f2c",
+    "runfile": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/NVIDIA-Linux-x86_64-580.196.07.run",
+      "sha256": "0aab0518db53cf73c412dc7f32bbc850ca95e839d8923d0de4bff42c1c9169ce"
+    },
+    "sdk_archive": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/NVIDIA-kernel-module-source-580.196.07.tar.xz",
+      "sha256": "21914a460f17190c43cffb75f0c35aef957e267bfefea267bc18638beae17084"
+    }
+  },
+  "loaded_or_installed": false,
+  "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/r58019607-sync-boost-legacy-build-v2.log",
+  "module": {
+    "bytes": 136948176,
+    "metadata": {
+      "alias": "",
+      "depends": "",
+      "license": "NVIDIA",
+      "name": "hybrid580_legacy",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.196.07"
+    },
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r58019607-sync-boost-legacy-build-v2/source/hybrid580_legacy.ko",
+    "sha256": "cab25d3156cd20fbe262e4bdd0f41df6a8af6a188655240b58b1b543820dec33"
+  },
+  "observed_at_utc": "2026-10-29T08:16:19.505005+00:00",
+  "proprietary_core_unchanged": true,
+  "qualification": "compiled-module-with-retained-build-warnings",
+  "redistribution_authorized": false,
+  "runtime_or_hardware_validated": false,
+  "schema": "r58019607-proprietary-port-build-v1",
+  "source_patch_tree_unchanged": true,
+  "staging": {
+    "project_header_sha256": {
+      "matching_sdk_nvos.h": "07f9f453afbf080750663abc9e04e2d3b55500887303ba03bd6855916d2405bd",
+      "src/hybrid580-control-session.h": "1ec8ebc43b7453842d566842290fc5c1667671f550f054be451d6b10780ac565",
+      "src/hybrid580-gpu-catalog.h": "9003739e9b3476c7beb08c0918c0309629b2762d45f366cb6c1becd1c9e7dfd0",
+      "src/hybrid580-gpu-session.h": "b2d84c220d00741d89c415ca2d97e9573da4c4539be9eaf4e5e6b324bc11f3bf",
+      "src/hybrid580_pm_provider_kernel.h": "a7a79984b3f9d53383299b5c4a928f6f6aac3a5624bbabc8dff6d6299d2a6bb4",
+      "src/hybrid580_pm_provider_recovery.h": "f2b2322302d7c71fae17b31840dc341fa560d5219720ab3c2bf4481b0c108172",
+      "src/rm_session_endpoint.h": "6a447c37f738eb09098b419e42203b4b4d16c85c108510acba483f37c6e700c7"
+    },
+    "sdk_regular_files_extracted": 982,
+    "source_patch_fuzz_count": 0,
+    "source_patch_offsets_retained": 23
+  },
+  "status": "compiled-private-proprietary-backend",
+  "steps": [
+    {
+      "command": [
+        "make",
+        "-C",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r58019607-sync-boost-legacy-build-v2/source",
+        "KERNEL_UNAME=7.0.0-38-generic",
+        "NV_KERNEL_MODULES=nvidia",
+        "-j4",
+        "modules"
+      ],
+      "exit_code": 0,
+      "log_bytes": 4898752,
+      "log_sha256": "b44aaf06b7420b956927cdae002667f0715205f018de7706fb3f5bade735dfe5",
+      "name": "module-build"
+    }
+  ],
+  "work_dir": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r58019607-sync-boost-legacy-build-v2"
+}

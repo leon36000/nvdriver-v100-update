@@ -1,0 +1,85 @@
+{
+  "bounded_caller_window": {
+    "interpretation": "Both 36-byte windows decode to the same seven-instruction shape. They call the respective ioctl helper from the same offset (+0xb67) in corresponding function entries, with the same observed register/immediate setup. The r10 pointer contents are not decoded.",
+    "normalized_instruction_shape_equal": true,
+    "normalized_shape_sha256": "443f4cecd7574740795da9d7fe84d75f24ff215fa5e405e77c3534cf706aa775",
+    "register_setup": {
+      "r8": "r10",
+      "r9": "address [rbp-0x1114]",
+      "rcx": "0xc020462a",
+      "rdi": "loaded from RIP-relative global",
+      "rdx": "0x20",
+      "rsi": "0x2a"
+    }
+  },
+  "call_sites": {
+    "r580_178": {
+      "call_rva": "0x495ac7",
+      "callee_helper_entry_rva": "0x48bc40",
+      "caller_function_entry_rva": "0x494f60",
+      "caller_relative_call_offset": "0xb67",
+      "decoded_instruction_count": 7,
+      "raw_window_sha256": "c9f098f9c482d8759cdf769bdf01449b666683f8521b202dcd20afb0d77f6348",
+      "return_rva": "0x495acc",
+      "window_bytes": 36
+    },
+    "r580_196": {
+      "call_rva": "0x495c87",
+      "callee_helper_entry_rva": "0x48be00",
+      "caller_function_entry_rva": "0x495120",
+      "caller_relative_call_offset": "0xb67",
+      "decoded_instruction_count": 7,
+      "raw_window_sha256": "d5eed24072c5c59e0029d9b7ea2e6da3261de4fe049fede23930f0ed48ef31ad",
+      "return_rva": "0x495c8c",
+      "window_bytes": 36
+    }
+  },
+  "created_utc": "2026-10-29T08:56:21.843465+00:00",
+  "gpu_accessed": false,
+  "images": {
+    "r580_178": {
+      "build_id": "44703e836e7ee5398b63b185272d18b310c9efbb",
+      "path": "build/staging/r58017804-compute-userland-v1/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+      "sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9"
+    },
+    "r580_196": {
+      "build_id": "5069f257e0f767cc016c1251eb9b9933135d4145",
+      "copied_into_project": false,
+      "path": "/tmp/nv580.196.07-local-analysis/libcuda.so.580.196.07",
+      "sha256": "a5c77bf2de83c0ec06ecd368d224c3e0d653d658d6f99319921e976f21867b14"
+    }
+  },
+  "limits": [
+    "The equal wrapper window and relative call offsets do not reveal the nested RM_CONTROL command or payload behind r10.",
+    "No R580.196.07 libcuda runtime execution or ioctl payload was observed.",
+    "No module, GPU, VM, PCI binding, or driver state changed.",
+    "Ghidra FUN_* and objdump nearest-export annotations are generated labels, not NVIDIA source identifiers.",
+    "This structural correspondence does not prove that R580.196.07 used this helper for SYSTEM_GET_FEATURES."
+  ],
+  "module_loaded_or_installed": false,
+  "normalizer": {
+    "normalized_shape_sha256": "443f4cecd7574740795da9d7fe84d75f24ff215fa5e405e77c3534cf706aa775",
+    "rules": "preserve instruction order, mnemonics, registers and immediates; normalize RIP-relative displacement and direct call/branch destination labels",
+    "shape_equal": true,
+    "version": "bounded-objdump-window-v2"
+  },
+  "qualification": "static-callsite-correspondence-with-r580178-runtime-reference",
+  "related_static_helper_report": {
+    "report": "evidence/r58019607-libcuda-ioctl-helper-diff-v1.json",
+    "sha256": "e122c56cc46b1672830648311745323ebb040664ff4f836b4fc44e57f09c44f7"
+  },
+  "runtime_anchor": {
+    "interpretation": "The .178 report correlates this caller/helper chain during the feature-mask sensitivity process. The .196 site is a static relative correspondence only; no .196 runtime query was observed.",
+    "r580_178_runtime_caller_return_rva": "0x495acc",
+    "r580_178_runtime_ioctl_helper_return_rva": "0x48bc88",
+    "report": "evidence/pc3-v100-libcuda-call-chain-correlation-v2-20261027T011514Z.json",
+    "sha256": "3e1d39b64cc64742ec3fcafac57fbf7fe7f6efa915d6f3a2d6ef2fb0ed4990c8"
+  },
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-hybrid-r580-libcuda-system-feature-caller-correspondence-v2",
+  "supersedes": {
+    "reason": "v1 normalizer retained different objdump call-target annotations, causing a false shape mismatch; bounded raw input hashes were valid.",
+    "report": "evidence/r58019607-libcuda-system-features-caller-v1.json",
+    "sha256": "9b8dc9d10bd1a08febd09b29728afc4fa14ffa8b3a6a30132515a1dfb66ef506"
+  }
+}

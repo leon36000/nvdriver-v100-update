@@ -1,0 +1,29 @@
+{
+  "command": "python3 -m unittest -q tests.test_run_pc3_v100_guest_reference",
+  "duration_seconds": 0.193,
+  "errors": 0,
+  "exit_code": 0,
+  "failures": 0,
+  "inputs": {
+    "log": {
+      "bytes": 64159,
+      "path": "evidence/logs/r58019607-stock-v100-bdf-guard-tests-v1-20261029.log",
+      "sha256": "84c105cfbf7cf9b4a0fb979814b9638c0150dcf86ada930489c4f6b729d4ba9f"
+    },
+    "runner": {
+      "bytes": 232935,
+      "path": "tools/run_pc3_v100_guest_reference.py",
+      "sha256": "baad062522074dd56b8a0c59ce6f74e23f9baef3426ca9b8257058a07b32b90a"
+    },
+    "tests": {
+      "bytes": 176105,
+      "path": "tests/test_run_pc3_v100_guest_reference.py",
+      "sha256": "4b8ef9ca05963023153af4a348d7d034567717e6067ba3130882f53c37cb819a"
+    }
+  },
+  "qualification": "SOFTWARE_TESTS_ONLY",
+  "result": "OK",
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-hybrid-r58019607-stock-v100-bdf-guard-tests-v1",
+  "tests_run": 109
+}

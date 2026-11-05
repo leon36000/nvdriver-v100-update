@@ -1,0 +1,169 @@
+{
+  "created_utc": "2026-10-29T09:03:22.374550+00:00",
+  "extends": {
+    "change": "v2 resolves the bounded R580.196.07 dispatch-table fallback for cmd 0x1f0 to the direct RM_CONTROL ioctl site.",
+    "report": "evidence/r58019607-libcuda-system-features-static-route-v1.json",
+    "sha256": "24b6d83cc103cdc1ffc6a1f2e2f1dd56ae53a62548ef7b88f0c53fba0c144b93"
+  },
+  "feature_query_wrappers": {
+    "r580_178": {
+      "call_dispatcher_rva": "0x4600f7",
+      "dispatcher_rva": "0x494f60",
+      "entry_rva": "0x4600d0",
+      "nvos54_cmd": "0x1f0",
+      "output": "clear output byte; on success test returned mask bit 3 and write 1 when set",
+      "params": "zero-initialized local dword at [rbp-0x14]",
+      "params_size": 4,
+      "return_rva": "0x4600fc"
+    },
+    "r580_196": {
+      "call_dispatcher_rva": "0x460157",
+      "dispatcher_rva": "0x495120",
+      "entry_rva": "0x460130",
+      "nvos54_cmd": "0x1f0",
+      "output": "clear output byte; on success test returned mask bit 3 and write 1 when set",
+      "params": "zero-initialized local dword at [rbp-0x14]",
+      "params_size": 4,
+      "return_rva": "0x46015c"
+    }
+  },
+  "gpu_accessed": false,
+  "images": {
+    "r580_178": {
+      "build_id": "44703e836e7ee5398b63b185272d18b310c9efbb",
+      "path": "build/staging/r58017804-compute-userland-v1/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+      "sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9"
+    },
+    "r580_196": {
+      "build_id": "5069f257e0f767cc016c1251eb9b9933135d4145",
+      "copied_into_project": false,
+      "path": "/tmp/nv580.196.07-local-analysis/libcuda.so.580.196.07",
+      "sha256": "a5c77bf2de83c0ec06ecd368d224c3e0d653d658d6f99319921e976f21867b14"
+    }
+  },
+  "limits": [
+    "The .196 binary was not run; RM syscall success, embedded status and returned mask are unknown.",
+    "No module was installed or loaded and no GPU, VM, PCI binding or driver state was changed.",
+    "Ghidra-generated FUN_* and objdump nearest-export labels are not NVIDIA source names."
+  ],
+  "module_loaded_or_installed": false,
+  "qualification": "static-system-features-call-route-with-r580178-runtime-anchor",
+  "r580_196_dispatch_resolution": {
+    "control_packet": {
+      "base": "[rbp-0x1130]",
+      "distinct_xfer_ioctl_number": "NV_ESC_IOCTL_XFER_CMD 0xd3",
+      "encoded_payload_bytes": 32,
+      "fields": {
+        "cmd": {
+          "offset": 8,
+          "value": "0x1f0"
+        },
+        "flags": {
+          "offset": 12,
+          "value": 0
+        },
+        "hClient": {
+          "offset": 0,
+          "source": "input RDI"
+        },
+        "hObject": {
+          "offset": 4,
+          "source": "input RSI; feature wrapper passes same handle as hClient"
+        },
+        "params": {
+          "offset": 16,
+          "source": "input RCX; feature wrapper passes pointer to its zeroed local mask"
+        },
+        "paramsSize": {
+          "offset": 24,
+          "value": 4
+        },
+        "status": {
+          "initial_value": 0,
+          "offset": 28
+        }
+      },
+      "helper_ioctl_call_rva": "0x48be43",
+      "helper_ioctl_return_rva": "0x48be48",
+      "ioctl_number": "NV_ESC_RM_CONTROL 0x2a",
+      "ioctl_request": "0xc020462a",
+      "size_bytes": 32,
+      "syscall_shape": "helper forwards fd from RDI, request from RCX, and packet pointer from R8 to ioctl(fd, request, argument)",
+      "type": "NVOS54_PARAMETERS"
+    },
+    "dispatcher_entry_rva": "0x495120",
+    "input_cmd": "0x1f0",
+    "input_params_size": 4,
+    "route": "The generic handler compares input cmd against special cases; 0x1f0 reaches its bounded command-handler table lookup. The table scan finds no matching command and reaches the zero-terminator fallback at 0x495c68, whose call at 0x495c87 targets the direct RM_CONTROL ioctl helper at 0x48be00.",
+    "table": {
+      "callback_pointer_field_offset": 8,
+      "command_0x1f0_present": false,
+      "nonzero_records": 21,
+      "record_bytes": 16,
+      "section": ".data.rel.ro",
+      "table_first_record_rva": "0x5aa6a10",
+      "table_scan_sha256": "0193225117aabe268866174ec757200a8e07254e6f505648e9e8eceb63ef6aa7",
+      "terminator_rva": "0x5aa6b60"
+    }
+  },
+  "runtime_anchor": {
+    "observed_return_rvas": [
+      "0x495acc",
+      "0x4600fc",
+      "0x48bc88"
+    ],
+    "r580_178_call_chain_report": "evidence/pc3-v100-libcuda-call-chain-correlation-v2-20261027T011514Z.json",
+    "scope": "Runtime anchors are stock .178 V100 observations. The .196 route has static code/table proof only.",
+    "sha256": "3e1d39b64cc64742ec3fcafac57fbf7fe7f6efa915d6f3a2d6ef2fb0ed4990c8",
+    "sha256_system_features": "010e4b45f09e4410e5470f7f42b6aa176d2498a2d5b786b6b1031f0600c3287e",
+    "stock_system_features_capture": "evidence/pc3-v100-system-features-v26-20261024.json"
+  },
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-hybrid-r580-libcuda-system-features-static-route-v2",
+  "sdk_reference": {
+    "header_sha256": {
+      "kernel-open/common/inc/nv-ioctl-numbers.h": "7f449a019521f2f858a2d485eed1ee0fa4a8ffc82c9aecd484be5d3f6821f87d",
+      "src/common/sdk/nvidia/inc/nvos.h": "07f9f453afbf080750663abc9e04e2d3b55500887303ba03bd6855916d2405bd",
+      "src/nvidia/arch/nvalloc/unix/include/nv_escape.h": "12850ee7368dbfeba1e2392f9ff7fb44563d88ed12cbf478d0c0f61a03763570"
+    },
+    "layout_compile": "Pinned SDK compile-time assertions pass for NVOS54 size 32, fields at offsets 0/4/8/12/16/24/28, RM_CONTROL 0x2a and XFER 0xd3.",
+    "source_tree": "build/experiments/r58019607-uvm-consumer-v2-20261029/NVIDIA-kernel-module-source-580.196.07"
+  },
+  "supersedes_prior_xfer_mislabel": {
+    "correction": "0xc020462a is direct NV_ESC_RM_CONTROL with NVOS54_PARAMETERS, not ioctl-XFER. NV_ESC_IOCTL_XFER_CMD is 0xd3 and is not used on this route.",
+    "report": "evidence/r58019607-libcuda-system-features-caller-v2.json",
+    "sha256": "6236500ed433bfc7b19bd70efddc95f1cba30d493a5bd2d498a6def7c3f77c8b"
+  },
+  "wrapper_differential": {
+    "instruction_count_each": 21,
+    "normalization": "preserve order, mnemonics, registers and immediates; normalize direct call/branch destinations",
+    "normalized_instruction_shapes_equal": true,
+    "normalized_shape_sha256": "d14e6381effae38f215aaf91aa6a0b5337e669d739bb8a339a308bd7375c175b",
+    "raw_bytes_differ": true,
+    "window_bytes_each": 64,
+    "windows": {
+      "r580_178": {
+        "call_offset_within_wrapper": "0x27",
+        "generic_rm_dispatcher_rva": "0x494f60",
+        "instruction_rows": 21,
+        "query_dispatch_call_rva": "0x4600f7",
+        "query_dispatch_return_rva": "0x4600fc",
+        "raw_window_sha256": "8107bed6ce1e59897278369017c92338ddeeaeee9e2d6b6c03319c1da8dcbdb6",
+        "window_bytes": 64,
+        "wrapper_entry_rva": "0x4600d0",
+        "wrapper_window_end_exclusive_rva": "0x460110"
+      },
+      "r580_196": {
+        "call_offset_within_wrapper": "0x27",
+        "generic_rm_dispatcher_rva": "0x495120",
+        "instruction_rows": 21,
+        "query_dispatch_call_rva": "0x460157",
+        "query_dispatch_return_rva": "0x46015c",
+        "raw_window_sha256": "8938b329da62ef2da614c7ce26369e0743baa3ecf42db48562b7149eebba8147",
+        "window_bytes": 64,
+        "wrapper_entry_rva": "0x460130",
+        "wrapper_window_end_exclusive_rva": "0x460170"
+      }
+    }
+  }
+}

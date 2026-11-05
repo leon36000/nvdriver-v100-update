@@ -1,0 +1,99 @@
+{
+  "cleanup_and_safety": {
+    "all_guest_memory_returned_to_zero_mib": true,
+    "all_guest_payloads_removed": true,
+    "all_phases_ended_with_zero_compute_processes": true,
+    "all_phases_started_with_zero_compute_processes": true,
+    "all_probe_cleanup_passed": true,
+    "all_temporary_loader_directories_removed": true,
+    "kernel_modules_changed_or_loaded": false,
+    "pci_binding_changed": false,
+    "stock_kernel_driver_unchanged": true,
+    "vm_management_issued": false
+  },
+  "cross_minor_observations": {
+    "context": {
+      "context_create_observed": "cuCtxCreate_v2",
+      "nv01_device_alloc_success": true,
+      "result": "phase-passed",
+      "snapshots": 2,
+      "typed_payload_bytes": 56
+    },
+    "enumerate": {
+      "mask": "0x9",
+      "packet_bytes": 32,
+      "params_size": 4,
+      "result": "phase-passed",
+      "rm_status": 0,
+      "syscall_return": 0,
+      "system_features_command": "0x1f0",
+      "system_features_request": "NV_ESC_RM_CONTROL 0xc020462a"
+    },
+    "kernel": {
+      "allocation_and_copyback_passed": true,
+      "expected_value": 700,
+      "kernel_function": "hybrid_arch",
+      "result": "phase-passed",
+      "result_value": 700,
+      "synchronization_passed": true
+    }
+  },
+  "evidence": {
+    "context": {
+      "bytes": 15670,
+      "path": "evidence/pc3-v100-r580196-context-device-alloc-v1-20261029.json",
+      "sha256": "3f4b3bbd799e9fde7d4fc3ef8f32fc13c45dc3886349f3fca21e14c7ff411110"
+    },
+    "control": {
+      "bytes": 13777,
+      "path": "evidence/pc3-v100-r580178-system-features-control-v1-20261029.json",
+      "sha256": "8d186f132fb0c9fc3810fc58c54227425ac49893965d37956cc89548af0254ee"
+    },
+    "enumeration": {
+      "bytes": 14771,
+      "path": "evidence/pc3-v100-r580196-libcuda-system-features-v2-20261029.json",
+      "sha256": "9baf5e2e1f00447d6b82acff46d412ef2104df6c4f18e3447adbb272b9fa8953"
+    },
+    "focused_runner_tests": {
+      "bytes": 959,
+      "path": "evidence/r58019607-override-runner-tests-v1-20261029.json",
+      "sha256": "05a112f3f47e3d19272ab4e0049db4d40aff7af06bbc97aeac747a5f9cd1dd0c"
+    },
+    "kernel": {
+      "bytes": 15990,
+      "path": "evidence/pc3-v100-r580196-kernel-device-alloc-v1-20261029.json",
+      "sha256": "33d6e04eeb08c09bdeeac929d773ed32c0281487e233c53f85293863e58de5d2"
+    },
+    "static_route": {
+      "bytes": 7350,
+      "path": "evidence/r58019607-libcuda-system-features-static-route-v2.json",
+      "sha256": "1db87bdaae5e6d6bb7f0969867a1073c9eba80467e1da2e3b4e6e4511f3b2a0f"
+    }
+  },
+  "hardware": {
+    "compute_capability": "7.0",
+    "cuda_driver_api": 13000,
+    "gpu": "Tesla V100-SXM2-16GB",
+    "guest": "pc3-v100",
+    "guest_kernel": "6.8.0-147-generic",
+    "guest_pci": "0000:00:05.0",
+    "host": "pc3",
+    "kernel_driver": "580.178.04",
+    "uuid": "GPU-42d06a85-027a-75ea-7857-a8de27ad465e"
+  },
+  "limits": [
+    "This proves one fixed SM70 numerical kernel path on one V100 guest with R580.196.07 libcuda paired with the unchanged R580.178.04 kernel driver.",
+    "It does not validate the matched R580.196.07 kernel/user stack, the experimental hybrid modules, UVM migration, P2P, concurrency across GPUs, long-duration stability, or performance.",
+    "The V100 remains in its guest while the RTX 5080 uses a separate host OS; no common-process V100 plus Blackwell kernel execution was tested."
+  ],
+  "observed_at_utc": "2026-10-29T09:22:27+00:00",
+  "qualification": "HARDWARE_VALIDATED_SINGLE_V100_SM70_KERNEL_WITH_CROSS_MINOR_USER_LIBRARY",
+  "same_process_v100_blackwell_validated": false,
+  "schema": "nvidia-hybrid-r58019607-stock-v100-crossminor-runtime-v2",
+  "user_library": {
+    "bytes": 96300904,
+    "sha256": "a5c77bf2de83c0ec06ecd368d224c3e0d653d658d6f99319921e976f21867b14",
+    "source_installed": false,
+    "version": "580.196.07"
+  }
+}

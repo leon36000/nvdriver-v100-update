@@ -1,0 +1,67 @@
+{
+  "schema": "nvidia-hybrid-r595-external-map-bridge-composition-v1",
+  "observed_at_utc": "2026-11-02T07:00:31Z",
+  "qualification": "cpu-host-harness-only",
+  "upstream": {
+    "repository": "https://github.com/NVIDIA/open-gpu-kernel-modules",
+    "tag": "595.99.02",
+    "path": "kernel-open/nvidia-uvm/uvm_map_external.c",
+    "source_sha256": "90de5bb57f41ce3f4c7d1316b8c8541e87dd3f23457aef81f9241273c86ad409",
+    "tracked_excerpt_sha256": "ed92fd47a79bc0f522976cc30361f0804d8b65018d86ca5f57b0fa017d4aaada"
+  },
+  "composition": {
+    "patch": "patches/r595.99.02/0003-uvm-external-allocation-control-fd.patch",
+    "patch_sha256": "7f43c90b720162f0d1c4af584a97d4400f1768dd6b67986cb68c6e9d7489ee1d",
+    "bridge": "src/hybrid580_uvm_callback_bridge.c",
+    "bridge_sha256": "5caebaa36e77cd704a7d4f430f39bd6e9878f1021d4a3dca385750d7d3e431e4",
+    "harness": "tests/fixtures/hybrid580_uvm_duplicate_memory_bridge_test.c",
+    "harness_sha256": "630745ba90fae0aa63f35c0b7a85c9f999c20a4370f040dd05f9a3377816daf0",
+    "test": "tests/test_hybrid580_uvm_duplicate_memory_bridge_host.py",
+    "test_sha256": "ec98a90b4a035f7e35551e21462bed3ff9ffd2720729f10e2f5c142b611b1829",
+    "fd_test": "tests/test_r595_external_map_control_fd.py",
+    "fd_test_sha256": "6d576c8627de6410cc300d333b9344e82bedb9849af20955437eab62898497bf"
+  },
+  "focused_runs": [
+    {
+      "mode": "pinned-full-r595-source",
+      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=tests python3 -B -m unittest test_r595_external_map_control_fd test_hybrid580_uvm_duplicate_memory_bridge_host -v",
+      "passed": 3,
+      "failed": 0,
+      "exit_code": 0
+    },
+    {
+      "mode": "tracked-source-excerpt-fallback",
+      "command": "NVIDIA_HYBRID_TEST_USE_R595_FIXTURE=1 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=tests python3 -B -m unittest test_r595_external_map_control_fd test_hybrid580_uvm_duplicate_memory_bridge_host -v",
+      "passed": 3,
+      "failed": 0,
+      "exit_code": 0
+    }
+  ],
+  "mutation": {
+    "change": "replaced user_rm_mem->rm_control_fd with invalid descriptor 99 in a temporary patch copy",
+    "mutant_patch_sha256": "82e836819e4d22fed036d7f9dc1ff33c02466f63408cf5c24817a9af1e8d0e7d",
+    "detected": true,
+    "observed_test_process_exit_code": -6,
+    "failure_point": "the composed C harness rejected the invalid owner FD before RM dispatch",
+    "repository_patch_modified": false
+  },
+  "full_software_suite": {
+    "report": "evidence/software-verification-openrm-hal-matrix-v1-20261102T065649Z.json",
+    "report_sha256": "dca8e86c4c5ca0bdc46ab0f1bfe07017270dde8dc90550b41c69429d85ff90e6",
+    "tests": 2451,
+    "test_source_files": 362,
+    "implementation_input_files": 77,
+    "source_changes_during_run": [],
+    "elapsed_seconds": 170.335,
+    "exit_code": 0,
+    "status": "pass",
+    "qualification": "software-suite-only"
+  },
+  "safety_and_limits": {
+    "gpu_accessed": false,
+    "kernel_module_loaded_or_installed": false,
+    "driver_or_firmware_changed": false,
+    "runtime_or_hardware_validated": false,
+    "scope_limit": "The exact patched call expression and production bridge wrapper run against CPU fake RM callbacks. This does not execute the full UVM external-map unwind, RM ioctls, or a GPU runtime."
+  }
+}

@@ -1,0 +1,398 @@
+{
+  "schema": "r580-proprietary-source-port-probe-v1",
+  "observed_at_utc": "2026-10-30T00:47:06.412635+00:00",
+  "qualification": "source-patches-applied-no-build",
+  "version_under_test": "580.196.07",
+  "patch_version": "580.178.04",
+  "source_patch_probe_only": true,
+  "license_boundary": {
+    "proprietary_binary_reverse_engineered": false,
+    "proprietary_binary_modified": false,
+    "redistribution_authorized": false
+  },
+  "work_dir": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/driver-hybrid/build/experiments/local-rm90e6-master-route-v3-20261030/source-port-v1",
+  "inputs": {
+    "runfile": {
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/driver-hybrid/.cache/upstream/NVIDIA-Linux-x86_64-580.196.07.run",
+      "sha256": "0aab0518db53cf73c412dc7f32bbc850ca95e839d8923d0de4bff42c1c9169ce",
+      "bytes": 397209845,
+      "official_checksum_verified": true
+    },
+    "source_root": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/driver-hybrid/build/experiments/r58019607-runfile-extract-v1-20261029/NVIDIA-Linux-x86_64-580.196.07/kernel",
+    "source_tree_sha256": "8abd0e8289b0bcf2403212d0a32d66931977d66f07777d47b5099a2c67b04972",
+    "proprietary_core": {
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/driver-hybrid/build/experiments/r58019607-runfile-extract-v1-20261029/NVIDIA-Linux-x86_64-580.196.07/kernel/nvidia/nv-kernel.o_binary",
+      "sha256": "24c741bc9b378d66d128de985ae016a662f721bb10faa04511310bace4910f2c",
+      "bytes": 112676816,
+      "contents_analyzed": false
+    },
+    "libcuda": {
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/driver-hybrid/build/experiments/r58019607-runfile-extract-v1-20261029/NVIDIA-Linux-x86_64-580.196.07/libcuda.so.580.196.07",
+      "sha256": "a5c77bf2de83c0ec06ecd368d224c3e0d653d658d6f99319921e976f21867b14",
+      "bytes": 96300904
+    },
+    "license": {
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/driver-hybrid/build/experiments/r58019607-runfile-extract-v1-20261029/NVIDIA-Linux-x86_64-580.196.07/LICENSE",
+      "sha256": "c692fb14ad4f499c6aee1b9e144e6905148c420e6225b17cb2937366c1e507ad"
+    },
+    "patch_set": {
+      "version": "580.178.04",
+      "count": 47,
+      "manifest_sha256": "7f0fac1cd64969a3183dbdf347ff5be585c2ffea5c9ad7be5954df60e93bf622"
+    }
+  },
+  "patch_probe": {
+    "source_tree_sha256_before": "8abd0e8289b0bcf2403212d0a32d66931977d66f07777d47b5099a2c67b04972",
+    "source_tree_sha256_after": "8abd0e8289b0bcf2403212d0a32d66931977d66f07777d47b5099a2c67b04972",
+    "source_tree_unchanged": true,
+    "proprietary_core_sha256_before": "24c741bc9b378d66d128de985ae016a662f721bb10faa04511310bace4910f2c",
+    "proprietary_core_sha256_after": "24c741bc9b378d66d128de985ae016a662f721bb10faa04511310bace4910f2c",
+    "proprietary_core_unchanged": true,
+    "patch_count": 47,
+    "patches_applied_count": 47,
+    "all_patches_applied": true,
+    "failed_patch": null,
+    "fuzz_notices": [],
+    "offset_notices": [
+      {
+        "patch": "0002-private-legacy-module.patch",
+        "line": "Hunk #1 succeeded at 1684 (offset -26 lines)."
+      },
+      {
+        "patch": "0003-private-legacy-pci-guard.patch",
+        "line": "Hunk #1 succeeded at 48 (offset -16 lines)."
+      },
+      {
+        "patch": "0003-private-legacy-pci-guard.patch",
+        "line": "Hunk #2 succeeded at 301 (offset -1049 lines)."
+      },
+      {
+        "patch": "0003-private-legacy-pci-guard.patch",
+        "line": "Hunk #3 succeeded at 974 (offset -1125 lines)."
+      },
+      {
+        "patch": "0003-private-legacy-pci-guard.patch",
+        "line": "Hunk #4 succeeded at 993 (offset -1125 lines)."
+      },
+      {
+        "patch": "0004-private-legacy-chardev.patch",
+        "line": "Hunk #2 succeeded at 742 (offset -37 lines)."
+      },
+      {
+        "patch": "0004-private-legacy-chardev.patch",
+        "line": "Hunk #3 succeeded at 926 (offset -37 lines)."
+      },
+      {
+        "patch": "0004-private-legacy-chardev.patch",
+        "line": "Hunk #4 succeeded at 963 (offset -37 lines)."
+      },
+      {
+        "patch": "0004-private-legacy-chardev.patch",
+        "line": "Hunk #5 succeeded at 4081 (offset -12 lines)."
+      },
+      {
+        "patch": "0006-private-legacy-resource-names.patch",
+        "line": "Hunk #8 succeeded at 866 (offset 43 lines)."
+      },
+      {
+        "patch": "0006-private-legacy-resource-names.patch",
+        "line": "Hunk #1 succeeded at 129 (offset -55 lines)."
+      },
+      {
+        "patch": "0007-private-legacy-pci-only-lifecycle.patch",
+        "line": "Hunk #1 succeeded at 454 (offset -37 lines)."
+      },
+      {
+        "patch": "0007-private-legacy-pci-only-lifecycle.patch",
+        "line": "Hunk #2 succeeded at 470 (offset -37 lines)."
+      },
+      {
+        "patch": "0007-private-legacy-pci-only-lifecycle.patch",
+        "line": "Hunk #3 succeeded at 578 (offset -37 lines)."
+      },
+      {
+        "patch": "0007-private-legacy-pci-only-lifecycle.patch",
+        "line": "Hunk #4 succeeded at 594 (offset -37 lines)."
+      },
+      {
+        "patch": "0007-private-legacy-pci-only-lifecycle.patch",
+        "line": "Hunk #5 succeeded at 779 (offset -37 lines)."
+      },
+      {
+        "patch": "0007-private-legacy-pci-only-lifecycle.patch",
+        "line": "Hunk #6 succeeded at 4257 (offset -12 lines)."
+      },
+      {
+        "patch": "0008-private-legacy-file-projection.patch",
+        "line": "Hunk #2 succeeded at 4044 (offset -12 lines)."
+      },
+      {
+        "patch": "0008-private-legacy-file-projection.patch",
+        "line": "Hunk #3 succeeded at 5714 (offset -136 lines)."
+      },
+      {
+        "patch": "0009-private-legacy-control-session.patch",
+        "line": "Hunk #2 succeeded at 2187 (offset -12 lines)."
+      },
+      {
+        "patch": "0009-private-legacy-control-session.patch",
+        "line": "Hunk #3 succeeded at 4188 (offset -12 lines)."
+      },
+      {
+        "patch": "0034-private-legacy-vma-free-list-lock.patch",
+        "line": "Hunk #1 succeeded at 1655 (offset 3 lines)."
+      },
+      {
+        "patch": "0034-private-legacy-vma-free-list-lock.patch",
+        "line": "Hunk #2 succeeded at 1666 (offset 3 lines)."
+      },
+      {
+        "patch": "0047-private-legacy-gf100-master-object.patch",
+        "line": "Hunk #1 succeeded at 6016 (offset -7 lines)."
+      }
+    ],
+    "patch_results": [
+      {
+        "patch": "0001-private-legacy-pm-channel-depth-enum.patch",
+        "exit_code": 0,
+        "output": "patching file common/inc/nv.h"
+      },
+      {
+        "patch": "0002-private-legacy-module.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nvidia.Kbuild\npatching file common/inc/nv-linux.h\nHunk #1 succeeded at 1684 (offset -26 lines).\npatching file nvidia/hybrid580-legacy-exports.h"
+      },
+      {
+        "patch": "0003-private-legacy-pci-guard.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv-pci.c\nHunk #1 succeeded at 48 (offset -16 lines).\nHunk #2 succeeded at 301 (offset -1049 lines).\nHunk #3 succeeded at 974 (offset -1125 lines).\nHunk #4 succeeded at 993 (offset -1125 lines)."
+      },
+      {
+        "patch": "0004-private-legacy-chardev.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\nHunk #2 succeeded at 742 (offset -37 lines).\nHunk #3 succeeded at 926 (offset -37 lines).\nHunk #4 succeeded at 963 (offset -37 lines).\nHunk #5 succeeded at 4081 (offset -12 lines)."
+      },
+      {
+        "patch": "0005-private-legacy-procfs-path.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv-procfs.c"
+      },
+      {
+        "patch": "0006-private-legacy-resource-names.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv-caps.c\nHunk #8 succeeded at 866 (offset 43 lines).\npatching file nvidia/nvlink_linux.c\npatching file nvidia/nvlink_linux.h\npatching file nvidia/procfs_nvswitch.c\npatching file nvidia/export_nvswitch.h\npatching file nvidia/nv-caps-imex.c\nHunk #1 succeeded at 129 (offset -55 lines)."
+      },
+      {
+        "patch": "0007-private-legacy-pci-only-lifecycle.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\nHunk #1 succeeded at 454 (offset -37 lines).\nHunk #2 succeeded at 470 (offset -37 lines).\nHunk #3 succeeded at 578 (offset -37 lines).\nHunk #4 succeeded at 594 (offset -37 lines).\nHunk #5 succeeded at 779 (offset -37 lines).\nHunk #6 succeeded at 4257 (offset -12 lines).\npatching file nvidia/nv-pci-table.c\npatching file nvidia/nv-platform.c"
+      },
+      {
+        "patch": "0008-private-legacy-file-projection.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\nHunk #2 succeeded at 4044 (offset -12 lines).\nHunk #3 succeeded at 5714 (offset -136 lines).\npatching file nvidia/hybrid580-file-projection.h"
+      },
+      {
+        "patch": "0009-private-legacy-control-session.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\nHunk #2 succeeded at 2187 (offset -12 lines).\nHunk #3 succeeded at 4188 (offset -12 lines).\npatching file nvidia/nvidia.Kbuild\npatching file nvidia/hybrid580-control-session.h"
+      },
+      {
+        "patch": "0009-private-legacy-gpu-session.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\npatching file nvidia/hybrid580-gpu-session.h"
+      },
+      {
+        "patch": "0009z-private-legacy-gpu-bdf-lookup.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\npatching file nvidia/hybrid580-gpu-session.h"
+      },
+      {
+        "patch": "0011-private-legacy-gpu-inventory.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\npatching file nvidia/hybrid580-gpu-session.h"
+      },
+      {
+        "patch": "0012-private-legacy-control-attach.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\npatching file nvidia/hybrid580-control-session.h"
+      },
+      {
+        "patch": "0013-private-legacy-card-info.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\npatching file nvidia/hybrid580-gpu-session.h"
+      },
+      {
+        "patch": "0014-private-legacy-gpu-id-info.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\npatching file nvidia/hybrid580-control-session.h"
+      },
+      {
+        "patch": "0015-private-legacy-attached-ids.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\npatching file nvidia/hybrid580-control-session.h"
+      },
+      {
+        "patch": "0016-private-legacy-probed-ids.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\npatching file nvidia/hybrid580-control-session.h"
+      },
+      {
+        "patch": "0017-private-legacy-device-ids.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\npatching file nvidia/hybrid580-control-session.h"
+      },
+      {
+        "patch": "0018-private-legacy-device-object.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\npatching file nvidia/hybrid580-control-session.h"
+      },
+      {
+        "patch": "0019-private-legacy-memory-object.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\npatching file nvidia/hybrid580-control-session.h"
+      },
+      {
+        "patch": "0020-private-legacy-vaspace-object.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\npatching file nvidia/hybrid580-control-session.h"
+      },
+      {
+        "patch": "0021-private-legacy-channel-group-object.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\npatching file nvidia/hybrid580-control-session.h"
+      },
+      {
+        "patch": "0022-private-legacy-context-share-object.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\npatching file nvidia/hybrid580-control-session.h"
+      },
+      {
+        "patch": "0023-private-legacy-channel-object.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\npatching file nvidia/hybrid580-control-session.h"
+      },
+      {
+        "patch": "0024-private-legacy-subdevice-and-tpc-mask.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\npatching file nvidia/hybrid580-control-session.h"
+      },
+      {
+        "patch": "0025-private-legacy-binapi-object.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\npatching file nvidia/hybrid580-control-session.h"
+      },
+      {
+        "patch": "0026-private-legacy-usermode-object.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\npatching file nvidia/hybrid580-control-session.h"
+      },
+      {
+        "patch": "0027-private-legacy-map-memory.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\npatching file nvidia/hybrid580-control-session.h"
+      },
+      {
+        "patch": "0028-private-legacy-p2p-object.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c"
+      },
+      {
+        "patch": "0029-private-legacy-p2p-controls.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c"
+      },
+      {
+        "patch": "0030-private-legacy-rusd-object.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c"
+      },
+      {
+        "patch": "0031-private-legacy-pm-channel-depth.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c"
+      },
+      {
+        "patch": "0032-private-legacy-pm-procfs-channel-depth.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv-procfs.c"
+      },
+      {
+        "patch": "0033-private-legacy-pm-vma-access-guard.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv-mmap.c"
+      },
+      {
+        "patch": "0034-private-legacy-vma-free-list-lock.patch",
+        "exit_code": 0,
+        "output": "patching file common/inc/nv-linux.h\nHunk #1 succeeded at 1655 (offset 3 lines).\nHunk #2 succeeded at 1666 (offset 3 lines)."
+      },
+      {
+        "patch": "0035-private-legacy-pm-recovery-provider.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c"
+      },
+      {
+        "patch": "0036-private-legacy-pm-channel-dpm-modeset.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c"
+      },
+      {
+        "patch": "0037-private-legacy-sys-params.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c"
+      },
+      {
+        "patch": "0038-private-legacy-gpu-register-control.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\npatching file nvidia/hybrid580-gpu-session.h"
+      },
+      {
+        "patch": "0039-private-legacy-engine-object.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c"
+      },
+      {
+        "patch": "0040-private-legacy-update-device-mapping-info.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c"
+      },
+      {
+        "patch": "0043-private-legacy-version-check.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c"
+      },
+      {
+        "patch": "0044-private-legacy-gpu-name-string.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c"
+      },
+      {
+        "patch": "0045-private-legacy-client-share-policy.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c"
+      },
+      {
+        "patch": "0046-private-legacy-sync-boost-groups.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c"
+      },
+      {
+        "patch": "0047-private-legacy-gf100-master-object.patch",
+        "exit_code": 0,
+        "output": "patching file nvidia/nv.c\nHunk #1 succeeded at 6016 (offset -7 lines).\npatching file nvidia/hybrid580-control-session.h"
+      },
+      {
+        "patch": "0010-local-modification-notices.patch",
+        "exit_code": 0,
+        "output": "patching file common/inc/nv-linux.h\npatching file nvidia/export_nvswitch.h\npatching file common/inc/nv.h\npatching file nvidia/nv-caps-imex.c\npatching file nvidia/nv-caps.c\npatching file nvidia/nv-pci-table.c\npatching file nvidia/nv-pci.c\npatching file nvidia/nv-platform.c\npatching file nvidia/nv-procfs.c\npatching file nvidia/nv.c\npatching file nvidia/nvidia.Kbuild\npatching file nvidia/nvlink_linux.c\npatching file nvidia/nvlink_linux.h\npatching file nvidia/procfs_nvswitch.c\npatching file nvidia/nv-mmap.c"
+      }
+    ],
+    "scratch_root": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/driver-hybrid/build/experiments/local-rm90e6-master-route-v3-20261030/source-port-v1/source",
+    "build_performed": false,
+    "install_or_load_performed": false,
+    "hardware_accessed": false,
+    "vendor_binary_reverse_engineered": false,
+    "vendor_binary_modified": false
+  }
+}
