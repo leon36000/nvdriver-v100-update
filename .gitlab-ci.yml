@@ -7,14 +7,18 @@ variables:
 
 cpu-focused-regression:
   stage: software
+  when: always
   image: python:3.12-bookworm
   script:
     - python3 --version
     - cc --version
-    - python3 -B -m unittest tests.test_hybrid580_uvm_csl_rotate_key -v
-    - python3 -B -m unittest tests.test_transfer_manifest -v
-    - python3 -B -m unittest tests.test_compressed_evidence -v
-    - python3 -B -m unittest tests.test_ci_security_report_summary -v
+    - >-
+      python3 -B -m unittest
+      tests.test_hybrid580_uvm_csl_rotate_key
+      tests.test_transfer_manifest
+      tests.test_compressed_evidence
+      tests.test_ci_security_report_summary
+      -v
     - python3 -B tools/audit_transfer_document_links.py --root "$CI_PROJECT_DIR"
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
@@ -22,6 +26,7 @@ cpu-focused-regression:
 
 transfer-snapshot-integrity:
   stage: software
+  when: always
   image: python:3.12-bookworm
   script:
     - python3 -B tools/verify_compressed_evidence.py --root "$CI_PROJECT_DIR" --manifest evidence/gitlab-compressed-evidence-manifest-20261105.json
@@ -43,8 +48,9 @@ gitguardian-secret-history:
 
 sonarqube-analysis:
   stage: quality
+  when: always
   image:
-    name: sonarsource/sonar-scanner-cli:7.0.2
+    name: sonarsource/sonar-scanner-cli:11.2.1.1844_7.0.2
     entrypoint: [""]
   variables:
     GIT_DEPTH: "0"
@@ -87,6 +93,4 @@ security-report-summary:
     paths:
       - security-report-summary.json
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
     - if: '$CI_PIPELINE_SOURCE == "push"'
-  allow_failure: true
