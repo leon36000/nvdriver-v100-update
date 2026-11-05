@@ -1,0 +1,130 @@
+{
+  "baseline": "595.99.02",
+  "decision": "Keep the current R595.99.02 experiment as the only canary-matched candidate because this is the observed PC3 host stack. R595.112.07 is the next low-friction source modernization candidate: current 12-patch hybrid UVM series replays cleanly, and the source still lists GV100 memory-manager code. Do not move the canary to R615.71.10 until its changed UVM control-fd path is deliberately ported and validated; R615 also removes the Volta memory-manager source from its open-module tree.",
+  "limitations": [
+    "Source tree comparison and patch replay only.",
+    "No branch build, module load, runtime, GPU access, or performance qualification was performed in this increment.",
+    "R610.57.04 was confirmed in current NVIDIA documentation but was not source-compared; its supported-drivers page lists R610 EOL as August 2026 and the page was last updated September 9, before the R615.71.10 release.",
+    "Retained GV100 source in R595 is not proof that NVIDIA supports V100 on that branch or that the source is active/functional on hardware."
+  ],
+  "observed_at_utc": "2026-10-29T11:02:21.692697+00:00",
+  "official_sources": {
+    "CUDA_driver_architecture_matrix": "https://docs.nvidia.com/datacenter/tesla/drivers/cuda-toolkit-driver-and-architecture-matrix.html",
+    "NVIDIA_open_kernel_module_releases": "https://github.com/NVIDIA/open-gpu-kernel-modules/releases",
+    "R595_112_release_notes": "https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-595-112-07/index.html",
+    "R615_release_notes": "https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-615-71-10/index.html"
+  },
+  "patch_replay": {
+    "595.112.07": {
+      "applied": 12,
+      "failed": false,
+      "fuzz": 0,
+      "offsets": 0,
+      "total": 12
+    },
+    "595.99.02": {
+      "applied": 12,
+      "failed": false,
+      "fuzz": 0,
+      "offsets": 0,
+      "total": 12
+    },
+    "615.71.10": {
+      "applied": 0,
+      "failed": true,
+      "file": "kernel-open/nvidia-uvm/uvm_va_space.c",
+      "first_failure": "0001-uvm-rm-control-fd-address-space-dispatch.patch",
+      "hunk": "Hunk #1 FAILED at 42; Hunks #2/#3 succeeded at 1603/1617 with offset 133; replay stopped at first failed patch.",
+      "total": 12
+    },
+    "source": "patches/r595.99.02/*.patch, 12 patches, applied sequentially in a temporary copy of kernel-open/"
+  },
+  "schema": "nvidia-open-driver-branch-differential-v1",
+  "source_diff_vs_595_99_02": {
+    "595.112.07": {
+      "changed_paths": 105,
+      "counts": {
+        "changed": 105
+      },
+      "kernel_open_changed": 21,
+      "kernel_open_uvm_changed": 0,
+      "src_changed": 82
+    },
+    "615.71.10": {
+      "changed_paths": 1612,
+      "counts": {
+        "added": 266,
+        "changed": 1275,
+        "removed": 71
+      },
+      "kernel_open_changed": 163,
+      "kernel_open_uvm_changed": 89,
+      "removed_volta_3d_source": "src/common/unix/nvidia-3d/src/nvidia-3d-volta.c",
+      "removed_volta_memory_source": "src/nvidia/src/kernel/gpu/mem_mgr/arch/volta/mem_mgr_gv100.c",
+      "src_changed": 1443
+    }
+  },
+  "source_facts": [
+    {
+      "nvidia_srcs_mk_present": true,
+      "nvidia_srcs_mk_sha256": "0d36ddf347f18b6dbe5add92281b45fee907c781ad2dc770e2f269aa1ddb88b0",
+      "srcs_mk_references_mem_mgr_gv100": true,
+      "uvm_va_space_sha256": "f332076b5d141b23cbe7acaccb48b2b07a0f8fe2e44832fd93551a4a8c345468",
+      "version": "595.99.02"
+    },
+    {
+      "nvidia_srcs_mk_present": true,
+      "nvidia_srcs_mk_sha256": "0d36ddf347f18b6dbe5add92281b45fee907c781ad2dc770e2f269aa1ddb88b0",
+      "srcs_mk_references_mem_mgr_gv100": true,
+      "uvm_va_space_sha256": "f332076b5d141b23cbe7acaccb48b2b07a0f8fe2e44832fd93551a4a8c345468",
+      "version": "595.112.07"
+    },
+    {
+      "nvidia_srcs_mk_present": true,
+      "nvidia_srcs_mk_sha256": "df6843741ac1aa57fdd360a7151ae5e53960504b5f42619830326645a5ef7be9",
+      "srcs_mk_references_mem_mgr_gv100": false,
+      "uvm_va_space_sha256": "d3afb05ecd5a051312c5bad2f3406c01c9c75fda46a6323381551b96b1572dbf",
+      "version": "615.71.10"
+    }
+  ],
+  "tags": {
+    "595.112.07": {
+      "archive_regular_file_count": 3810,
+      "cache_and_codeload_content_equal": true,
+      "cache_archive": ".cache/upstream/open-gpu-kernel-modules-595.112.07-d8257d95.tar.gz",
+      "cache_archive_sha256": "567d4ba082a54ef733e7ce87c87401da488a3aabe29837c92feb19011c8250c4",
+      "codeload_archive_sha256": "6bf8f19b9d7fa6ca0029100fe09f8a72d413df67e08ad4428b1b358ec10d28c0",
+      "peeled_commit": "d8257d95ae5fed364163e4df51db66df8b1ee0d2",
+      "release_date": "2026-10-22",
+      "source_tree": {
+        "file_count": 3810,
+        "sha256_path_content_manifest": "10595986f317e8e4dca63cb9a952671dc7100ab55e1fc37dbe30ea0468f91e5f"
+      },
+      "tag_object": "2e8dd6c0bbd2e08194b96abeb5c319717cd13682"
+    },
+    "595.99.02": {
+      "local_source": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/research/open-gpu-kernel-modules-595.99.02/source/open-gpu-kernel-modules-595.99.02",
+      "peeled_commit": "e394a404108a9ce5bba988c1dddf694dabbd4a43",
+      "source_tree": {
+        "file_count": 3810,
+        "sha256_path_content_manifest": "a1b7d96ac1a9628a727fba25bc88dc2eab52cc0f1579f078aa41e733f10698bd"
+      },
+      "tag_object": "19f3b344ccbae68f19bdd1d628f54a08eaf5a712"
+    },
+    "615.71.10": {
+      "archive_regular_file_count": 4005,
+      "cache_and_codeload_content_equal": true,
+      "cache_archive": ".cache/upstream/open-gpu-kernel-modules-615.71.10-6f3be8c9.tar.gz",
+      "cache_archive_sha256": "c01605048cab3d988b1b3028fbee0646ba0937407949dc43514b3e4694f40f6c",
+      "codeload_archive_sha256": "9eb698055a9b395e76bc2191395f59fce3d686e370d797a5da37d3278aba1ef6",
+      "peeled_commit": "6f3be8c9c3fb4ed6ffc607a0d32d31ce4db7fba5",
+      "release_date": "2026-10-19",
+      "source_tree": {
+        "file_count": 4005,
+        "sha256_path_content_manifest": "a71c9fb97a7664aa2be122e561954c30a4720f68d145576f87e0b18071208efe"
+      },
+      "tag_object": "4f8aeb346aae274f25c558a8e56c5a403012c52c"
+    }
+  },
+  "upstream_repo": "https://github.com/NVIDIA/open-gpu-kernel-modules"
+}

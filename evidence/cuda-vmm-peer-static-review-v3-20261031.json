@@ -1,0 +1,106 @@
+{
+  "binary": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/vmm-peer-probe-v1-20261031/hybrid_cuda_vmm_peer_probe",
+    "sha256": "4aaa7341d5314960a5dd3a494a9915cd4c7e0c0bf1158d02d4c54b69e47b791e"
+  },
+  "build_manifest": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/vmm-peer-probe-v1-20261031/build-manifest.json",
+    "sha256": "c062cdd092ff5b49a649592564f531bf721603b2fa1b99b96994d3f8f0128e9f"
+  },
+  "checks": [
+    {
+      "name": "GCC 15 warnings-as-errors build",
+      "passed": true
+    },
+    {
+      "diagnostics": "",
+      "name": "GCC 15 -fanalyzer -Werror",
+      "passed": true
+    },
+    {
+      "name": "SM70 and SM120 cubins verified in pinned fatbin",
+      "passed": true
+    },
+    {
+      "name": "no direct libcuda dependency and no undefined CUDA Driver API imports",
+      "passed": true
+    },
+    {
+      "name": "help, missing-argument, non-decimal capability, and non-decimal count paths return valid output without entering GPU initialization",
+      "results": [
+        {
+          "command": [
+            "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/vmm-peer-probe-v1-20261031/hybrid_cuda_vmm_peer_probe",
+            "--help"
+          ],
+          "return_code": 0,
+          "stdout": "Usage: /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/vmm-peer-probe-v1-20261031/hybrid_cuda_vmm_peer_probe --module FILE --expected-device 70=PCI --expected-device 120=PCI [--count N]\n"
+        },
+        {
+          "command": [
+            "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/vmm-peer-probe-v1-20261031/hybrid_cuda_vmm_peer_probe"
+          ],
+          "report": {
+            "direct_dma_attested": false,
+            "directions": [],
+            "error": "module and exact SM70/SM120 PCI identities are required",
+            "passed": false,
+            "schema": "nvidia-hybrid-vmm-peer-probe-v1",
+            "status": "preflight-failed"
+          },
+          "return_code": 2
+        },
+        {
+          "command": [
+            "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/vmm-peer-probe-v1-20261031/hybrid_cuda_vmm_peer_probe",
+            "--module",
+            "unused",
+            "--expected-device",
+            "70junk=0000:01:00.0",
+            "--expected-device",
+            "120=0000:02:00.0"
+          ],
+          "report": {
+            "direct_dma_attested": false,
+            "directions": [],
+            "error": "compute capability must be a decimal integer",
+            "passed": false,
+            "schema": "nvidia-hybrid-vmm-peer-probe-v1",
+            "status": "preflight-failed"
+          },
+          "return_code": 2
+        },
+        {
+          "command": [
+            "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/vmm-peer-probe-v1-20261031/hybrid_cuda_vmm_peer_probe",
+            "--module",
+            "unused",
+            "--expected-device",
+            "70=0000:01:00.0",
+            "--expected-device",
+            "120=0000:02:00.0",
+            "--count",
+            "2junk"
+          ],
+          "report": {
+            "direct_dma_attested": false,
+            "directions": [],
+            "error": "count must be a decimal integer",
+            "passed": false,
+            "schema": "nvidia-hybrid-vmm-peer-probe-v1",
+            "status": "preflight-failed"
+          },
+          "return_code": 2
+        }
+      ]
+    }
+  ],
+  "observed_at_utc": "2026-10-31T22:11:16.429001+00:00",
+  "qualification": "compiled-and-preflight-smoke-only-no-hardware-validation",
+  "schema": "nvidia-hybrid-vmm-peer-static-review-v3",
+  "scope": "host-source-only; intentionally invalid/missing arguments; no GPU test",
+  "source": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/hybrid_cuda_vmm_peer_probe.cpp",
+    "sha256": "cfd71b68d16c8931dbdf0891b8778daee6d90dff0331cabd57f7d9744fb6440f"
+  }
+}

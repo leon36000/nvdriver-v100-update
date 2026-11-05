@@ -1,0 +1,392 @@
+{
+  "observed_at_utc": "2026-10-28T06:56:37.731825+00:00",
+  "qualification": "static-source-analysis-only",
+  "runtime_or_hardware_validated": false,
+  "schema": "r580-r595-deferred-free-caller-audit-v1",
+  "scope": "Pinned source-window audit of direct deferred-free call expressions. It records the nearest recognized direct lock-release token within 96 source lines and checks for a recognized direct lock-acquisition token after it. This is not path-sensitive, does not inspect locks taken inside called helpers, does not prove kernel lock state, and does not prove concurrency safety.",
+  "sources": {
+    "r580_candidate": {
+      "call_site_count": 13,
+      "call_sites": [
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 1214,
+            "statement": "uvm_va_space_up_read(va_space);",
+            "symbol": "uvm_va_space_up_read"
+          },
+          "line": 1217,
+          "line_distance": 3,
+          "source_file": "uvm_map_external.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 1371,
+            "statement": "uvm_va_space_up_read(va_space);",
+            "symbol": "uvm_va_space_up_read"
+          },
+          "line": 1374,
+          "line_distance": 3,
+          "source_file": "uvm_map_external.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 699,
+            "statement": "uvm_va_space_mm_or_current_release_unlock(va_space, mm);",
+            "symbol": "uvm_va_space_mm_or_current_release_unlock"
+          },
+          "line": 700,
+          "line_distance": 1,
+          "source_file": "uvm_user_channel.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 725,
+            "statement": "uvm_va_space_mm_or_current_release(va_space, mm);",
+            "symbol": "uvm_va_space_mm_or_current_release"
+          },
+          "line": 726,
+          "line_distance": 1,
+          "source_file": "uvm_user_channel.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 902,
+            "statement": "uvm_va_space_up_write(va_space);",
+            "symbol": "uvm_va_space_up_write"
+          },
+          "line": 905,
+          "line_distance": 3,
+          "source_file": "uvm_user_channel.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 722,
+            "statement": "uvm_va_space_up_write(va_space);",
+            "symbol": "uvm_va_space_up_write"
+          },
+          "line": 726,
+          "line_distance": 4,
+          "source_file": "uvm_va_range.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 572,
+            "statement": "uvm_va_space_mm_or_current_release_unlock(va_space, mm);",
+            "symbol": "uvm_va_space_mm_or_current_release_unlock"
+          },
+          "line": 582,
+          "line_distance": 10,
+          "source_file": "uvm_va_range_device_p2p.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 531,
+            "statement": "uvm_va_space_up_write(va_space);",
+            "symbol": "uvm_va_space_up_write"
+          },
+          "line": 586,
+          "line_distance": 55,
+          "source_file": "uvm_va_space.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 1086,
+            "statement": "uvm_up_read_mmap_lock(mm);",
+            "symbol": "uvm_up_read_mmap_lock"
+          },
+          "line": 1088,
+          "line_distance": 2,
+          "source_file": "uvm_va_space.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 1878,
+            "statement": "uvm_up_read_mmap_lock(mm);",
+            "symbol": "uvm_up_read_mmap_lock"
+          },
+          "line": 1880,
+          "line_distance": 2,
+          "source_file": "uvm_va_space.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 2121,
+            "statement": "uvm_va_space_up_write(va_space);",
+            "symbol": "uvm_va_space_up_write"
+          },
+          "line": 2123,
+          "line_distance": 2,
+          "source_file": "uvm_va_space.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 2268,
+            "statement": "uvm_va_space_up_write(va_space);",
+            "symbol": "uvm_va_space_up_write"
+          },
+          "line": 2270,
+          "line_distance": 2,
+          "source_file": "uvm_va_space.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 419,
+            "statement": "uvm_spin_unlock(&va_space_mm->lock);",
+            "symbol": "uvm_spin_unlock"
+          },
+          "line": 423,
+          "line_distance": 4,
+          "source_file": "uvm_va_space_mm.c"
+        }
+      ],
+      "direct_lock_window_checks_passed": true,
+      "files": {
+        "uvm_map_external.c": {
+          "call_site_count": 2,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_map_external.c",
+          "sha256": "1e72573e3ebc2c3117768ab0517e4b7e9acdb62af2368513a37500d6f13c11dd"
+        },
+        "uvm_user_channel.c": {
+          "call_site_count": 3,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_user_channel.c",
+          "sha256": "8fe5ce63871dbf7509c4ebbe7d0eeee8e0008693622479aed452d3b7c42015b6"
+        },
+        "uvm_va_range.c": {
+          "call_site_count": 1,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_range.c",
+          "sha256": "10c80433314c9b38cc84f82ac156f2df9d0f5c9d3c73a9e64179047eb2148878"
+        },
+        "uvm_va_range_device_p2p.c": {
+          "call_site_count": 1,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_range_device_p2p.c",
+          "sha256": "64090e24a6cd722769bf2023d3299485ce516eb03334adfbc459ebc0738c19b5"
+        },
+        "uvm_va_space.c": {
+          "call_site_count": 5,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_space.c",
+          "sha256": "2309eb47fad1d4ec4f932f8eae58fc4802b2380a0a95be2e964a9897117b0418"
+        },
+        "uvm_va_space_mm.c": {
+          "call_site_count": 1,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_space_mm.c",
+          "sha256": "f9a8e86af533a538834fc55b04896703da16d76bb57d4f481532a85d287e905c"
+        }
+      },
+      "issues": [],
+      "per_file_counts": {
+        "uvm_map_external.c": 2,
+        "uvm_user_channel.c": 3,
+        "uvm_va_range.c": 1,
+        "uvm_va_range_device_p2p.c": 1,
+        "uvm_va_space.c": 5,
+        "uvm_va_space_mm.c": 1
+      },
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm"
+    },
+    "r595": {
+      "call_site_count": 13,
+      "call_sites": [
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 1206,
+            "statement": "uvm_va_space_up_read(va_space);",
+            "symbol": "uvm_va_space_up_read"
+          },
+          "line": 1209,
+          "line_distance": 3,
+          "source_file": "uvm_map_external.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 1363,
+            "statement": "uvm_va_space_up_read(va_space);",
+            "symbol": "uvm_va_space_up_read"
+          },
+          "line": 1366,
+          "line_distance": 3,
+          "source_file": "uvm_map_external.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 700,
+            "statement": "uvm_va_space_mm_or_current_release_unlock(va_space, mm);",
+            "symbol": "uvm_va_space_mm_or_current_release_unlock"
+          },
+          "line": 701,
+          "line_distance": 1,
+          "source_file": "uvm_user_channel.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 726,
+            "statement": "uvm_va_space_mm_or_current_release(va_space, mm);",
+            "symbol": "uvm_va_space_mm_or_current_release"
+          },
+          "line": 727,
+          "line_distance": 1,
+          "source_file": "uvm_user_channel.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 935,
+            "statement": "uvm_va_space_up_write(va_space);",
+            "symbol": "uvm_va_space_up_write"
+          },
+          "line": 938,
+          "line_distance": 3,
+          "source_file": "uvm_user_channel.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 724,
+            "statement": "uvm_va_space_up_write(va_space);",
+            "symbol": "uvm_va_space_up_write"
+          },
+          "line": 728,
+          "line_distance": 4,
+          "source_file": "uvm_va_range.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 583,
+            "statement": "uvm_va_space_mm_or_current_release_unlock(va_space, mm);",
+            "symbol": "uvm_va_space_mm_or_current_release_unlock"
+          },
+          "line": 593,
+          "line_distance": 10,
+          "source_file": "uvm_va_range_device_p2p.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 523,
+            "statement": "uvm_va_space_up_write(va_space);",
+            "symbol": "uvm_va_space_up_write"
+          },
+          "line": 578,
+          "line_distance": 55,
+          "source_file": "uvm_va_space.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 1047,
+            "statement": "uvm_up_read_mmap_lock(mm);",
+            "symbol": "uvm_up_read_mmap_lock"
+          },
+          "line": 1049,
+          "line_distance": 2,
+          "source_file": "uvm_va_space.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 1816,
+            "statement": "uvm_up_read_mmap_lock(mm);",
+            "symbol": "uvm_up_read_mmap_lock"
+          },
+          "line": 1818,
+          "line_distance": 2,
+          "source_file": "uvm_va_space.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 2060,
+            "statement": "uvm_va_space_up_write(va_space);",
+            "symbol": "uvm_va_space_up_write"
+          },
+          "line": 2062,
+          "line_distance": 2,
+          "source_file": "uvm_va_space.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 2208,
+            "statement": "uvm_va_space_up_write(va_space);",
+            "symbol": "uvm_va_space_up_write"
+          },
+          "line": 2210,
+          "line_distance": 2,
+          "source_file": "uvm_va_space.c"
+        },
+        {
+          "direct_lock_acquisitions_after_last_release": [],
+          "last_release": {
+            "line": 421,
+            "statement": "uvm_spin_unlock(&va_space_mm->lock);",
+            "symbol": "uvm_spin_unlock"
+          },
+          "line": 425,
+          "line_distance": 4,
+          "source_file": "uvm_va_space_mm.c"
+        }
+      ],
+      "direct_lock_window_checks_passed": true,
+      "files": {
+        "uvm_map_external.c": {
+          "call_site_count": 2,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_map_external.c",
+          "sha256": "bd5284ad85f61bd7e368e056331c4e34efb9c169f99ba98ed3b539b6dd491e05"
+        },
+        "uvm_user_channel.c": {
+          "call_site_count": 3,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_user_channel.c",
+          "sha256": "9a6cec689eaf9c1edd1b7defa9ee7e74215382d802e7ab192b52caa1d0e93fe7"
+        },
+        "uvm_va_range.c": {
+          "call_site_count": 1,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_va_range.c",
+          "sha256": "26c4c705ea797d0247740678b545d5b2394839eba61d79bef50182ffe6537787"
+        },
+        "uvm_va_range_device_p2p.c": {
+          "call_site_count": 1,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_va_range_device_p2p.c",
+          "sha256": "8c3068201d9ef453f0f2efc365d6dd265cf0b5e465bb649913790c304c82503c"
+        },
+        "uvm_va_space.c": {
+          "call_site_count": 5,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_va_space.c",
+          "sha256": "f332076b5d141b23cbe7acaccb48b2b07a0f8fe2e44832fd93551a4a8c345468"
+        },
+        "uvm_va_space_mm.c": {
+          "call_site_count": 1,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_va_space_mm.c",
+          "sha256": "3153e9d1e6444eaa7246dd2b2014583c90755fec77b48e38b77edd99bd83fc98"
+        }
+      },
+      "issues": [],
+      "per_file_counts": {
+        "uvm_map_external.c": 2,
+        "uvm_user_channel.c": 3,
+        "uvm_va_range.c": 1,
+        "uvm_va_range_device_p2p.c": 1,
+        "uvm_va_space.c": 5,
+        "uvm_va_space_mm.c": 1
+      },
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm"
+    }
+  },
+  "status": "pass"
+}

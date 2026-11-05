@@ -1,0 +1,195 @@
+{
+  "schema": "nvidia-hybrid-frontend-canary-build-v1",
+  "observed_at_utc": "2026-10-22T21:33:12.050026+00:00",
+  "qualification": "compiled-canary-with-syscall-double-tests-only",
+  "expected_kernel_release": "7.0.0-38-generic",
+  "inputs_sha256": {
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/hybrid_frontend_canary.c": "04180ee41c7c18b326f4a54a8e658d92d67634cd4caeee873058a7674068b13a",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests/test_frontend_canary.py": "2c30796a35832d52f219e0ec5f27c05769b602a720b81550f9d98e9c8ae25c49",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/build_frontend_canary.py": "d7682f73f32ed429a19494b98d9a4c37e4f3353262896dc16b1ac458cfd0f357",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests/test_rm_root_client.py": "63854146c8ccc2381a6c50b9f4a07fac27ccffc4107f916b3f8ca8ee5352b0cd",
+    "/usr/bin/x86_64-linux-gnu-gcc-15": "b5f1b773a7c733738352000c92a077dc5852a1a2fc6d836b1e411be1e9ec5f88",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/nvtypes.h": "57bf6ee0fc9f604e7d6f224a3b861521526bb0b115e99a33e5704d881daca708",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/nvos.h": "07f9f453afbf080750663abc9e04e2d3b55500887303ba03bd6855916d2405bd",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include/nv_escape.h": "12850ee7368dbfeba1e2392f9ff7fb44563d88ed12cbf478d0c0f61a03763570",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include/nv-ioctl-numbers.h": "7f449a019521f2f858a2d485eed1ee0fa4a8ffc82c9aecd484be5d3f6821f87d"
+  },
+  "production_executable_run": false,
+  "production_preflight_run": false,
+  "module_loaded_or_installed": false,
+  "gpu_device_opened": false,
+  "cuda_validated": false,
+  "steps": [
+    {
+      "argv": [
+        "/usr/bin/cc",
+        "-std=gnu11",
+        "-O2",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fstack-protector-strong",
+        "-fPIE",
+        "-pie",
+        "-Wl,-z,relro,-z,now",
+        "-DNVRM=1",
+        "-DHYBRID_EXPECTED_KERNEL_RELEASE=\"7.0.0-38-generic\"",
+        "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc",
+        "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+        "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+        "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+        "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+        "-MMD",
+        "-MF",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-canary-v4-build-version-20261022/canary.d",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/hybrid_frontend_canary.c",
+        "-o",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-canary-v4-build-version-20261022/hybrid_frontend_canary"
+      ],
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-canary-v4-build-version-20261022/compile.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "readelf",
+        "-h",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-canary-v4-build-version-20261022/hybrid_frontend_canary"
+      ],
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-canary-v4-build-version-20261022/elf-header.log",
+      "log_sha256": "8e8797942b51666f5802fc6e2f78c3b9de0b785c3457c5fd7fbe5e9a1d147f35"
+    },
+    {
+      "argv": [
+        "readelf",
+        "-d",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-canary-v4-build-version-20261022/hybrid_frontend_canary"
+      ],
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-canary-v4-build-version-20261022/elf-dynamic.log",
+      "log_sha256": "c57f776b08293c04590cb6b3c0b16dcee5e1737b2dd209e275a2c74ba8dbe10a"
+    },
+    {
+      "argv": [
+        "readelf",
+        "-Ws",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-canary-v4-build-version-20261022/hybrid_frontend_canary"
+      ],
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-canary-v4-build-version-20261022/elf-symbols.log",
+      "log_sha256": "bf169458a74f8e8bda7132f85eb134a91a896332901eb51007e042f668db6c75"
+    },
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "-c",
+        "import json,sys,unittest;sys.path.insert(0,'/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests');import test_frontend_canary as m;r=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromModule(m));print(json.dumps({'tests_run':r.testsRun,'scenario_processes':m.FrontendCanaryTests.counter,'success':r.wasSuccessful()}));sys.exit(0 if r.wasSuccessful() else 1)"
+      ],
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-canary-v4-build-version-20261022/cpu-tests.log",
+      "log_sha256": "2a4624aed79a73a82b44218e570e20508cbb4649e3b0a16ec69f7379bf1c8ebd"
+    },
+    {
+      "argv": [
+        "/usr/bin/cc",
+        "-std=gnu11",
+        "-O2",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fstack-protector-strong",
+        "-fPIE",
+        "-pie",
+        "-Wl,-z,relro,-z,now",
+        "-DNVRM=1",
+        "-DHYBRID_EXPECTED_KERNEL_RELEASE=\"7.0.0-38-generic\"",
+        "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc",
+        "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+        "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+        "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+        "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+        "-O1",
+        "-fsanitize=undefined",
+        "-fno-sanitize-recover=all",
+        "-U_FORTIFY_SOURCE",
+        "-D_FORTIFY_SOURCE=3",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/hybrid_frontend_canary.c",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-canary-v4-build-version-20261022/negative-missing-fortify-wrapper.c",
+        "-o",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-canary-v4-build-version-20261022/negative-missing-fortify-wrapper",
+        "-Wl,--wrap=open",
+        "-Wl,--wrap=read",
+        "-Wl,--wrap=close",
+        "-Wl,--wrap=readlink",
+        "-Wl,--wrap=uname",
+        "-Wl,--wrap=fstat",
+        "-Wl,--wrap=lstat",
+        "-Wl,--wrap=ioctl"
+      ],
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-canary-v4-build-version-20261022/negative-compile.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "nm",
+        "-u",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-canary-v4-build-version-20261022/negative-missing-fortify-wrapper"
+      ],
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-canary-v4-build-version-20261022/negative-undefined.log",
+      "log_sha256": "0382e3dfde66afbaecc509fe70043cf9dcae0803ca4da8c4fbb3554150620175"
+    }
+  ],
+  "executable": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-canary-v4-build-version-20261022/hybrid_frontend_canary",
+    "sha256": "4670dbb7587f044b6a1192ffd5da9788b2ac1238dcc2eb16eed7141d9acb309e",
+    "bytes": 57176
+  },
+  "compiler_version": "cc (Ubuntu 15.2.0-16ubuntu1) 15.2.0\nCopyright (C) 2025 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "compiled_dependency_sha256": {
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/hybrid_frontend_canary.c": "04180ee41c7c18b326f4a54a8e658d92d67634cd4caeee873058a7674068b13a",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nvtypes.h": "e3901c0991b3a3dc77fffc2269fee84661bdda8a5bc43c0fe70a620af05edd5b",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/cpuopsys.h": "7401851203255ef203a5e44532957fb039a341950c0ed2d7b19d51e33114f3a1",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/nvos.h": "07f9f453afbf080750663abc9e04e2d3b55500887303ba03bd6855916d2405bd",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/nvstatus.h": "e8267172a1f7a56420d612c6734b3554b9ff6a3d33fdda21b1371ff4ce4b8675",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/nvtypes.h": "57bf6ee0fc9f604e7d6f224a3b861521526bb0b115e99a33e5704d881daca708",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/nvstatuscodes.h": "143fa91191a368e4fad0eae2a5ec533bcdbd41895184c46c7e2865ebfe6107a8",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/nvgputypes.h": "dcb4bf6a0eae9883ef36438dac4765a47a90555a01e887c380caf0690c7be08d",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/rs_access.h": "ee3174aa565a08594f66c325b06d24bd8e798d933bf74ff12c803cf3614bb117",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/nvmisc.h": "6e02e315b3c5e715fc615c30db031a98303b09bd1f07b693095ee6bad82d199f",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/nvcfg_sdk.h": "cb9b9ddf1d9d55527e182c1864fb45dcc7331e6de1498a71814cfc5bbe0c62c8",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/alloc/alloc_channel.h": "f0211fbc8bf3f80841f699bf4ccb776d32517308782dfb3c8e99c7652986b5ab",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nvlimits.h": "7c7bf27c5360464b459f6069d2e72f6070bb3fdd0862baccf6c7aa71da67c593",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/class/cl9010.h": "f388882c995687540d7515e25f68613e3f8a67a35add99d761afd005656a49c7",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/class/cl9010_callback.h": "2571a29472ad80a60c60f2bcaedc8354179b45c6248c98792503349dae419ba8",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include/nv_escape.h": "12850ee7368dbfeba1e2392f9ff7fb44563d88ed12cbf478d0c0f61a03763570",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nv-ioctl-numbers.h": "7f449a019521f2f858a2d485eed1ee0fa4a8ffc82c9aecd484be5d3f6821f87d"
+  },
+  "cpu_tests": {
+    "tests_run": 6,
+    "scenario_processes": 51,
+    "success": true
+  },
+  "negative_fortify_witness": {
+    "compiled_only_never_executed": true,
+    "unwrapped_fortified_readlink_detected": true,
+    "historical_initial_fixture_failure": "Initial fixture wrapped readlink but omitted __readlink_chk; preflight therefore read local binding symlinks and all four binding checks returned false. No control device was opened. The final fixture wraps both symbols and rejects any remaining unwrapped OS entry point via nm before running.",
+    "historical_local_symlink_paths": [
+      "/sys/bus/pci/devices/0000:03:00.0/driver",
+      "/sys/bus/pci/devices/0000:03:00.0/driver/module",
+      "/sys/bus/pci/devices/0000:02:00.0/driver",
+      "/sys/bus/pci/devices/0000:02:00.0/driver/module"
+    ],
+    "historical_failure_does_not_establish_pci_device_absence": true,
+    "source": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-canary-v4-build-version-20261022/negative-missing-fortify-wrapper.c",
+    "source_sha256": "94dc335ef6b5d381ac02b9107141d3821d57e13f1120ade290623b19b9b58125",
+    "binary": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-canary-v4-build-version-20261022/negative-missing-fortify-wrapper",
+    "binary_sha256": "cf56211c817204cee38553d34f7b0a3aa8b7dec497d49145199121f2c3722b41"
+  },
+  "inputs_unchanged": true
+}

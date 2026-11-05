@@ -1,0 +1,332 @@
+{
+  "schema": "nvidia-hybrid-control-frontend-v1",
+  "observed_at_utc": "2026-10-19T03:47:53.721856+00:00",
+  "qualification": "compiled-separate-control-only-kernel-module",
+  "kernel_release": "7.0.0-38-generic",
+  "inputs_sha256": {
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/hybrid_frontend.c": "05f75a8da1bc610f1103e83e3ed08f5c88b2b3b13bfb434b2d6f7ef3ffb76f0e",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/rm_root_client.c": "b2cf0780faaa5209d6f30f63d9d974f1d2bd0768dbc800e359cd0b0858d5f8ae",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/rm_root_client.h": "b0e630634af5d479fb2fb04d4a854f7477d807ab1ec97389eaf12e4bb79b3331",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/rm_session_endpoint.h": "6a447c37f738eb09098b419e42203b4b4d16c85c108510acba483f37c6e700c7",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/build_hybrid_frontend.py": "a1d65a7e8275ef9d640b434897009d1d39edd8ba4850c28f79d3b030a5f0d35a",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests/test_hybrid_frontend.py": "4ae4c2324ddbfc3ffbb32f99d599a69a4fa17e94fed5899e29db1ac635d62da8",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-control-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/Module.symvers": "b9085ba910a01403f95cb514a2b90ea9b5f46ac6f401daf829c430c8baba8eed",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-proprietary-session-v2/nvidia-580.178.04/Module.symvers": "897065a1a1a9ec4bf1d1cef4f1495fa782498f4ba397560361e32b420b1a66fc",
+    "/usr/src/linux-headers-7.0.0-38-generic/.config": "6cb18717c6914d4947489eedf8cb69ac23db3faa8ef9b9f563ff02c346dcd32d",
+    "/usr/src/linux-headers-7.0.0-38-generic/Module.symvers": "ea539a464a3beb960dc84288afaf41c1e2d6a4506902af14affe80111d1bf97e",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-control-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/hybrid580-control-session.h": "924e2f8dfcb3e3b01bb8c622f4d63794a39d1c1b70257f619566a8201ddf6b50",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-control-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/hybrid580-file-projection.h": "2847fab2fc3f26d27a7baba5da812f7f955fe5faa6bd4ffe75a283d314aaf3d8",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-control-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/rm_session_endpoint.h": "6a447c37f738eb09098b419e42203b4b4d16c85c108510acba483f37c6e700c7",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-proprietary-session-v2/nvidia-580.178.04/nvidia/hybrid580-control-session.h": "b836278f6c81b6e10109ab9954e80a633bb569d54fa2814e1519c62d793dc8c6",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-proprietary-session-v2/nvidia-580.178.04/nvidia/hybrid580-file-projection.h": "d8750038a289126ba2ecbd0772e2ac20c2d9c0fe1ae1dc57411c6e6270133e3c",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-proprietary-session-v2/nvidia-580.178.04/nvidia/rm_session_endpoint.h": "6a447c37f738eb09098b419e42203b4b4d16c85c108510acba483f37c6e700c7",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-control-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/conftest/functions.h": "94dfd134bdd9d4e1491040c1b624cc9454c4579a22925c51c10f762d935d0908",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-control-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/conftest/generic.h": "b784ff37b705eb28a8302ffa935d1826f918164ce12fbe08ecba8a479d5acfef",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-control-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/conftest/headers.h": "efaa05c5ec03f58118cc6c022865ff96935512ee721ad8e7e8eae0d4d833c1a3",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-control-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/conftest/macros.h": "cd6bad9cfad77d1fd27da92c73395593b9ee5dd008356dccdbe35c0c310ca9b1",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-control-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/conftest/patches.h": "fae73f9f0d9ab8a42139f0e8874b721637565e785b35b14735434bc6d4ed405e",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-control-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/conftest/symbols.h": "f6df382282df7c0cec93f3d028f96feaf699bbcd76e4c06f1b69438e9168ee4a",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-control-session-v2/NVIDIA-kernel-module-source-580.178.04/kernel-open/conftest/types.h": "fdd8b7fd1f333b0ee50f8dfead503b7e0cee8b0c77dfbae9013d1bbcf6b1c7b4"
+  },
+  "api_headers_match_after_backend_name_substitution": true,
+  "loaded_or_installed": false,
+  "device_registered": false,
+  "real_rm_executed": false,
+  "gpu_accessed": false,
+  "cuda_compatibility_established": false,
+  "steps": [
+    {
+      "argv": [
+        "make",
+        "-C",
+        "/usr/src/linux-headers-7.0.0-38-generic",
+        "M=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-control-v2",
+        "CC=/usr/bin/x86_64-linux-gnu-gcc",
+        "modules"
+      ],
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-control-v2/build.log",
+      "log_sha256": "76fae3f98e4fbc07a6528d0179862384c35e123d8c1e0f1eacc14b6cc00c220f"
+    }
+  ],
+  "generated_kbuild_sha256": "ad63806f5e61e358d2157ec062e0edd036b5a5ddbf2a1c871f444e0b701c7a65",
+  "module": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-control-v2/hybrid580_frontend.ko",
+    "sha256": "2690ed135368a6c4c553f27ae8f791233bb3b625a895c89e1dcbd0bd4e3c898e",
+    "bytes": 453032
+  },
+  "imports": {
+    "__check_object_size": {
+      "provider": "kernel",
+      "crc": "0xa61fd7aa",
+      "module": "vmlinux",
+      "export": "EXPORT_SYMBOL"
+    },
+    "__fentry__": {
+      "provider": "kernel",
+      "crc": "0xd272d446",
+      "module": "vmlinux",
+      "export": "EXPORT_SYMBOL"
+    },
+    "__kmalloc_cache_noprof": {
+      "provider": "kernel",
+      "crc": "0xce56ea17",
+      "module": "vmlinux",
+      "export": "EXPORT_SYMBOL"
+    },
+    "__ref_stack_chk_guard": {
+      "provider": "kernel",
+      "crc": "0xbd03ed67",
+      "module": "vmlinux",
+      "export": "EXPORT_SYMBOL"
+    },
+    "__stack_chk_fail": {
+      "provider": "kernel",
+      "crc": "0xd272d446",
+      "module": "vmlinux",
+      "export": "EXPORT_SYMBOL"
+    },
+    "__ubsan_handle_load_invalid_value": {
+      "provider": "kernel",
+      "crc": "0xe4de56b4",
+      "module": "vmlinux",
+      "export": "EXPORT_SYMBOL"
+    },
+    "__ubsan_handle_out_of_bounds": {
+      "provider": "kernel",
+      "crc": "0x90a48d82",
+      "module": "vmlinux",
+      "export": "EXPORT_SYMBOL"
+    },
+    "__x86_indirect_thunk_rax": {
+      "provider": "kernel",
+      "crc": "0x5a844b26",
+      "module": "vmlinux",
+      "export": "EXPORT_SYMBOL"
+    },
+    "__x86_return_thunk": {
+      "provider": "kernel",
+      "crc": "0xd272d446",
+      "module": "vmlinux",
+      "export": "EXPORT_SYMBOL"
+    },
+    "_copy_from_user": {
+      "provider": "kernel",
+      "crc": "0x092a35a2",
+      "module": "vmlinux",
+      "export": "EXPORT_SYMBOL"
+    },
+    "_copy_to_user": {
+      "provider": "kernel",
+      "crc": "0x092a35a2",
+      "module": "vmlinux",
+      "export": "EXPORT_SYMBOL"
+    },
+    "hybrid580_legacy_control_session_create_v1": {
+      "provider": "legacy private module",
+      "crc": "0x9c762af9",
+      "module": "hybrid580_legacy",
+      "export": "EXPORT_SYMBOL"
+    },
+    "hybrid580_legacy_control_session_file_v1": {
+      "provider": "legacy private module",
+      "crc": "0x3d2a8f46",
+      "module": "hybrid580_legacy",
+      "export": "EXPORT_SYMBOL"
+    },
+    "hybrid580_legacy_control_session_put_v1": {
+      "provider": "legacy private module",
+      "crc": "0xf51df87a",
+      "module": "hybrid580_legacy",
+      "export": "EXPORT_SYMBOL"
+    },
+    "hybrid580_legacy_register_file_projection_v1": {
+      "provider": "legacy private module",
+      "crc": "0x717db79b",
+      "module": "hybrid580_legacy",
+      "export": "EXPORT_SYMBOL"
+    },
+    "hybrid580_legacy_unregister_file_projection_v1": {
+      "provider": "legacy private module",
+      "crc": "0x717db79b",
+      "module": "hybrid580_legacy",
+      "export": "EXPORT_SYMBOL"
+    },
+    "hybrid580_open_control_session_create_v1": {
+      "provider": "Open private module",
+      "crc": "0x9c762af9",
+      "module": "hybrid580_open",
+      "export": "EXPORT_SYMBOL"
+    },
+    "hybrid580_open_control_session_file_v1": {
+      "provider": "Open private module",
+      "crc": "0x3d2a8f46",
+      "module": "hybrid580_open",
+      "export": "EXPORT_SYMBOL"
+    },
+    "hybrid580_open_control_session_put_v1": {
+      "provider": "Open private module",
+      "crc": "0xf51df87a",
+      "module": "hybrid580_open",
+      "export": "EXPORT_SYMBOL"
+    },
+    "hybrid580_open_register_file_projection_v1": {
+      "provider": "Open private module",
+      "crc": "0x717db79b",
+      "module": "hybrid580_open",
+      "export": "EXPORT_SYMBOL"
+    },
+    "hybrid580_open_unregister_file_projection_v1": {
+      "provider": "Open private module",
+      "crc": "0x717db79b",
+      "module": "hybrid580_open",
+      "export": "EXPORT_SYMBOL"
+    },
+    "kfree": {
+      "provider": "kernel",
+      "crc": "0xcb8b6ec6",
+      "module": "vmlinux",
+      "export": "EXPORT_SYMBOL"
+    },
+    "kmalloc_caches": {
+      "provider": "kernel",
+      "crc": "0xa65b83f9",
+      "module": "vmlinux",
+      "export": "EXPORT_SYMBOL"
+    },
+    "misc_deregister": {
+      "provider": "kernel",
+      "crc": "0x155e60e3",
+      "module": "vmlinux",
+      "export": "EXPORT_SYMBOL"
+    },
+    "misc_register": {
+      "provider": "kernel",
+      "crc": "0xe98a2697",
+      "module": "vmlinux",
+      "export": "EXPORT_SYMBOL"
+    },
+    "mutex_init_generic": {
+      "provider": "kernel",
+      "crc": "0x9aa6980d",
+      "module": "vmlinux",
+      "export": "EXPORT_SYMBOL"
+    },
+    "mutex_lock": {
+      "provider": "kernel",
+      "crc": "0x9aa6980d",
+      "module": "vmlinux",
+      "export": "EXPORT_SYMBOL"
+    },
+    "mutex_lock_interruptible": {
+      "provider": "kernel",
+      "crc": "0x7057d579",
+      "module": "vmlinux",
+      "export": "EXPORT_SYMBOL"
+    },
+    "mutex_unlock": {
+      "provider": "kernel",
+      "crc": "0x9aa6980d",
+      "module": "vmlinux",
+      "export": "EXPORT_SYMBOL"
+    },
+    "param_ops_bool": {
+      "provider": "kernel",
+      "crc": "0xcc1d5ac5",
+      "module": "vmlinux",
+      "export": "EXPORT_SYMBOL"
+    },
+    "random_kmalloc_seed": {
+      "provider": "kernel",
+      "crc": "0xbd03ed67",
+      "module": "vmlinux",
+      "export": "EXPORT_SYMBOL"
+    },
+    "validate_usercopy_range": {
+      "provider": "kernel",
+      "crc": "0x5cb46e6d",
+      "module": "vmlinux",
+      "export": "EXPORT_SYMBOL"
+    }
+  },
+  "unresolved_imports": [],
+  "duplicate_import_providers": {},
+  "backend_imports": {
+    "hybrid580_legacy_control_session_create_v1": {
+      "provider": "legacy private module",
+      "crc": "0x9c762af9",
+      "module": "hybrid580_legacy",
+      "export": "EXPORT_SYMBOL"
+    },
+    "hybrid580_legacy_control_session_file_v1": {
+      "provider": "legacy private module",
+      "crc": "0x3d2a8f46",
+      "module": "hybrid580_legacy",
+      "export": "EXPORT_SYMBOL"
+    },
+    "hybrid580_legacy_control_session_put_v1": {
+      "provider": "legacy private module",
+      "crc": "0xf51df87a",
+      "module": "hybrid580_legacy",
+      "export": "EXPORT_SYMBOL"
+    },
+    "hybrid580_legacy_register_file_projection_v1": {
+      "provider": "legacy private module",
+      "crc": "0x717db79b",
+      "module": "hybrid580_legacy",
+      "export": "EXPORT_SYMBOL"
+    },
+    "hybrid580_legacy_unregister_file_projection_v1": {
+      "provider": "legacy private module",
+      "crc": "0x717db79b",
+      "module": "hybrid580_legacy",
+      "export": "EXPORT_SYMBOL"
+    },
+    "hybrid580_open_control_session_create_v1": {
+      "provider": "Open private module",
+      "crc": "0x9c762af9",
+      "module": "hybrid580_open",
+      "export": "EXPORT_SYMBOL"
+    },
+    "hybrid580_open_control_session_file_v1": {
+      "provider": "Open private module",
+      "crc": "0x3d2a8f46",
+      "module": "hybrid580_open",
+      "export": "EXPORT_SYMBOL"
+    },
+    "hybrid580_open_control_session_put_v1": {
+      "provider": "Open private module",
+      "crc": "0xf51df87a",
+      "module": "hybrid580_open",
+      "export": "EXPORT_SYMBOL"
+    },
+    "hybrid580_open_register_file_projection_v1": {
+      "provider": "Open private module",
+      "crc": "0x717db79b",
+      "module": "hybrid580_open",
+      "export": "EXPORT_SYMBOL"
+    },
+    "hybrid580_open_unregister_file_projection_v1": {
+      "provider": "Open private module",
+      "crc": "0x717db79b",
+      "module": "hybrid580_open",
+      "export": "EXPORT_SYMBOL"
+    }
+  },
+  "module_info": "filename:       /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-control-v2/hybrid580_frontend.ko\ndescription:    Experimental control-only two-session R580 frontend; no CUDA routing\nlicense:        Dual MIT/GPL\nsrcversion:     6E118D18CFE5C3FA5D5B8C5\ndepends:        hybrid580_legacy,hybrid580_open\nname:           hybrid580_frontend\nretpoline:      Y\nvermagic:       7.0.0-38-generic SMP preempt mod_unload modversions \nparm:           enable_control:Opt in to experimental ROOT-only hybrid580ctl; default false (bool)\n",
+  "build_warnings": [
+    "warning: pahole version differs from the one used to build the kernel"
+  ],
+  "naked_return_or_objtool_warnings": [],
+  "generated_outputs_sha256": {
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-control-v2/Kbuild": "ad63806f5e61e358d2157ec062e0edd036b5a5ddbf2a1c871f444e0b701c7a65",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-control-v2/Module.symvers": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-control-v2/module-info.log": "567d4600c1a08f821ae8d693ae3c8a203e69417c794834599c1abefe66eb56e0",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-control-v2/undefined-symbols.log": "f6fb82425a3b98f8b6f47ab8a0db788835e365775ebeea5d97a483ebff7ed20b",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-control-v2/.hybrid_frontend.o.cmd": "b95d80b4f6706780f70e22abb744f8b53c79b0e8731f080f4a51963ab11aa13f",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-control-v2/.rm_root_client.o.cmd": "ebb7eb15833b53ba7c3a4e67254a556cc371b28f706ce08979904b1629d9afd2",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-control-v2/.hybrid580_frontend.o.cmd": "f30ead0097eae0a7d85370fa199c05046e8e79e6da5a09379dc630329beb48d4",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-control-v2/.hybrid580_frontend.ko.cmd": "ec7b0547c8b749766ba7cf622a30d6b8acc1e55903185b8ad24e303874705ca0"
+  },
+  "inputs_unchanged": true
+}

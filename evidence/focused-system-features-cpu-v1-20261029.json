@@ -1,0 +1,30 @@
+{
+  "command": "PYTHONPATH=tests python3 -m unittest -v test_system_features_mask_override test_hybrid_frontend.HybridFrontendTests.test_actual_frontend_lifecycle_and_broker_cpu_contract test_hybrid_frontend.HybridFrontendTests.test_system_features_provider_is_open_only",
+  "coverage": [
+    "direct and XFER root SYSTEM_GET_FEATURES routes",
+    "frontend selects Open provider only",
+    "malformed inputs rejected without provider call",
+    "provider transport/RM failure leaves caller feature word untouched",
+    "process-local mask shim contract and fake-ioctl runtime tests"
+  ],
+  "created_utc": "2026-10-29T08:56:49.393193+00:00",
+  "exit_code": 0,
+  "gpu_accessed": false,
+  "limits": [
+    "No proprietary libcuda runtime beyond the CPU fixture was executed.",
+    "No RM, GPU, candidate module, VM, or driver stack was accessed.",
+    "Does not validate whether an Open-only mask is semantically correct for a mixed-provider system."
+  ],
+  "log": {
+    "bytes": 1396,
+    "mode": "0600",
+    "path": "evidence/logs/focused-system-features-cpu-v1-20261029.log",
+    "sha256": "13ef747da96d528b86e39363e8fa5fed2676d663016a7238175c684c949d3c5a"
+  },
+  "module_loaded_or_installed": false,
+  "qualification": "cpu-test-only",
+  "result": "7 passed, 0 failures, 0 errors",
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-hybrid-system-features-focused-cpu-validation-v1",
+  "tests_run": 7
+}

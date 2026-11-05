@@ -1,0 +1,46 @@
+{
+  "schema": "dual-gpu-catalog-order-mutation-v2",
+  "recorded_at_utc": "2026-11-02T06:49:21Z",
+  "test": "test_hybrid_frontend.HybridFrontendTests.test_composed_dual_gpu_frontend_contract",
+  "test_source_sha256": "e93323c96213a69adcecd5747e98a046b2f78f20a7ddcf3fb12038f8ac6157a8",
+  "scenario_combinations": [
+    "R580 ABI fixture / Blackwell BDF first",
+    "R580 ABI fixture / Volta BDF first",
+    "R595 ABI fixture / Blackwell BDF first",
+    "R595 ABI fixture / Volta BDF first"
+  ],
+  "verified_contracts": [
+    "ascending BDF catalog and CARD_INFO identity",
+    "GET_ID_INFO_V2 deviceInstance values passed to NV01_DEVICE_0 allocation",
+    "allocation routed to the owning provider with provider-local device ID",
+    "standard node creator receives the catalog BDF",
+    "REGISTER_FD callback receives the exact expected provider control session",
+    "both GPU sessions release exactly once"
+  ],
+  "mutation": {
+    "file": "src/hybrid580-gpu-catalog.c",
+    "change": "reverse the catalog BDF insertion-sort comparator from greater-than to less-than",
+    "baseline_sha256": "70839bb35175e85fa319c80aa70407c6ce1f52890f26d170a5954baf0bc731b4",
+    "mutated_sha256": "379c69a0369b40d6c1ae120a30671abc92ea9b279dbf96d90b694408104f98be",
+    "test_exit_code": 1,
+    "rejected": true,
+    "failed_subcases": 4,
+    "first_failing_contract": "CARD_INFO must follow ascending BDF order and retain the expected device identity"
+  },
+  "restoration": {
+    "source_restored_byte_for_byte": true,
+    "restored_sha256": "70839bb35175e85fa319c80aa70407c6ce1f52890f26d170a5954baf0bc731b4",
+    "focused_test_after_restore_exit_code": 0,
+    "focused_test_after_restore_passed_combinations": 4
+  },
+  "full_suite": {
+    "report": "software-verification-openrm-hal-matrix-v1-20261102T064613Z.json",
+    "report_sha256": "e14ef5b9ad5c5f3c526938dded82af95a2eb9af5e28e96e76490673767748fff",
+    "tests_run": 2451,
+    "exit_code": 0,
+    "qualification": "software-suite-only"
+  },
+  "hardware_accessed": false,
+  "module_installed_or_loaded": false,
+  "runtime_or_hardware_validated": false
+}

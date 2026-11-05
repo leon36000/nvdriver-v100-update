@@ -1,0 +1,85 @@
+{
+  "created_utc": "20261101T043338Z",
+  "schema": "hybrid-frontend-enumeration-focused-tests-v1",
+  "scope": "local CPU fixtures for mixed-provider GPU/device-instance enumeration and frontend lifecycle; no GPU or remote host accessed",
+  "status": "passed",
+  "tests": [
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_device_instance_map.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "evidence/logs/frontend-enumeration-focused-v1-20261101T043338Z-1.log",
+      "log_sha256": "17358defc92c328ce1d4e323e60de7bc10341cbc5680ebeaf11b3c4722911075",
+      "output_tail": [
+        "test_mapping_grouping_bounds_and_failure_atomicity (test_device_instance_map.DeviceInstanceMapTests.test_mapping_grouping_bounds_and_failure_atomicity) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 1 test in 0.117s",
+        "",
+        "OK"
+      ],
+      "pattern": "test_device_instance_map.py"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_gpu_catalog.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "evidence/logs/frontend-enumeration-focused-v1-20261101T043338Z-2.log",
+      "log_sha256": "cba96b6eaedc75521052d5034a6fb1d7926cf265e8346ae96f6cb780c7a4fcbe",
+      "output_tail": [
+        "test_catalog_contract_and_failure_atomicity (test_gpu_catalog.GpuCatalogTests.test_catalog_contract_and_failure_atomicity) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 1 test in 0.090s",
+        "",
+        "OK"
+      ],
+      "pattern": "test_gpu_catalog.py"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_hybrid_frontend.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "evidence/logs/frontend-enumeration-focused-v1-20261101T043338Z-3.log",
+      "log_sha256": "cddf9f07f703231b885d621b40e4071e256d46da5fd908c5716508a23e8bd861",
+      "output_tail": [
+        "test_vaspace_and_memory_children_preserve_backend_and_lifetime (test_hybrid_frontend.HybridFrontendTests.test_vaspace_and_memory_children_preserve_backend_and_lifetime) ... ok",
+        "test_vaspace_rejects_unowned_modes_and_retains_copyout_ownership (test_hybrid_frontend.HybridFrontendTests.test_vaspace_rejects_unowned_modes_and_retains_copyout_ownership) ... ok",
+        "test_virtual_memory_child_routes_to_owned_gpu_and_translates_vaspace (test_hybrid_frontend.HybridFrontendTests.test_virtual_memory_child_routes_to_owned_gpu_and_translates_vaspace) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 22 tests in 1.156s",
+        "",
+        "OK"
+      ],
+      "pattern": "test_hybrid_frontend.py"
+    }
+  ]
+}

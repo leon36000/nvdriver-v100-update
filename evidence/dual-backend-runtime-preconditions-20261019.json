@@ -1,0 +1,38 @@
+{
+  "schema": "nvidia-hybrid-runtime-preconditions-static-v1",
+  "evidence_level": "analyzed-statically",
+  "source": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-proprietary-session-v2/nvidia-580.178.04/nvidia/nv.c",
+    "sha256": "6903c039578c4390eab55a7e35aeae46775d602094c6e277a1d6869ba1b16d7b"
+  },
+  "locations": [
+    {
+      "line": 825,
+      "condition": "if ((count == 0) && (!is_nvswitch_present))"
+    },
+    {
+      "line": 870,
+      "condition": "if ((num_probed_nv_devices == 0) && (!is_nvswitch_present))"
+    },
+    {
+      "line": 884,
+      "condition": "if ((num_nv_devices == 0) && (!is_nvswitch_present))"
+    },
+    {
+      "line": 917,
+      "condition": "rc = hybrid_register_chrdevs();"
+    }
+  ],
+  "interpretation": "Legacy initializer requires a selected GPU to be counted, probed and initialized before private chardev creation; frontend import dependency requires successful legacy module initialization. A VM-owned unavailable V100 does not satisfy this host runtime prerequisite.",
+  "hardware_state_basis": "User reports V100 busy in its VM; it was not inspected or accessed.",
+  "next_discriminating_test": "On an authorized recovered canary with host Volta and Blackwell, initialize both private modules and execute real dual-session ROOT allocation/free/close.",
+  "not_proven": [
+    "successful module loading",
+    "physical GV100 initialization",
+    "opaque closed-RM client-ID ABI",
+    "CUDA routing",
+    "prolonged stability"
+  ],
+  "no_v100_or_vm_operation": true,
+  "no_module_loaded": true
+}
