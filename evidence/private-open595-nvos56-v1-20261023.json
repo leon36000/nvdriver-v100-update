@@ -1,0 +1,62 @@
+{
+  "baseline": {
+    "core_export_symbol_collisions": 0,
+    "export_count": 96,
+    "export_flavors": {
+      "EXPORT_SYMBOL": 81,
+      "EXPORT_SYMBOL_GPL": 15
+    },
+    "module_bytes": 36553840,
+    "module_sha256": "7311eca4c92aed59239a1cfeb84caf09e15491ec05d32a15ee6b726e670c7f7e",
+    "symvers_sha256": "1afbdc5d864d0d8f7ae7c57b6def32b82a0d99da73772fafc85f5da07baaa918"
+  },
+  "compile_adaptations": [
+    {
+      "adapted_sha256": "3c323f21701c2eb475d91c0a2314f49e4eaf33ae02b7d3577b905c9165992e1f",
+      "path": "src/common/sdk/nvidia/inc/rs_access.h",
+      "reason": "nvos.h and kernel-open must share one R595 RS_ACCESS declaration set",
+      "scope": "private compile copy only",
+      "shared_header": "kernel-open/common/inc/rs_access.h",
+      "source_sha256": "ee3174aa565a08594f66c325b06d24bd8e798d933bf74ff12c803cf3614bb117"
+    }
+  ],
+  "core": "/usr/src/nvidia-595.99.02/nvidia/nv-kernel.o_binary",
+  "core_input_unchanged": true,
+  "core_sha256": "c19870e43606b4358d9274c4d3dec2adb1822d65ce1203520a8184cf043cafe8",
+  "error": "ValueError: R595 control-session include insertion anchor is missing or ambiguous",
+  "gpu_accessed": false,
+  "hardware_validated": false,
+  "inputs_unchanged": true,
+  "kernel_release": "7.0.0-38-generic",
+  "loaded_or_installed": false,
+  "observed_at_utc": "2026-10-23T15:01:36.679056+00:00",
+  "private_export_prefix": "hybrid580_open_",
+  "private_module_name": "hybrid580_open",
+  "qualification": "failed",
+  "schema": "private-open595-wrapper-v1",
+  "source": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/research/open-gpu-kernel-modules-595.99.02/source/open-gpu-kernel-modules-595.99.02",
+  "source_file_count": 3810,
+  "source_tree_manifest_sha256": "6d4ae86fb03f3afac63007c3c13422b114c93f5ab6a271ccb3dde5fb2440c066",
+  "source_tree_unchanged": true,
+  "source_version": "595.99.02",
+  "steps": [
+    {
+      "argv": [
+        "make",
+        "-C",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-private-open-nvos56-v1-20261023/baseline/source/kernel-open",
+        "KERNEL_UNAME=7.0.0-38-generic",
+        "NV_KERNEL_MODULES=nvidia",
+        "-j4",
+        "modules"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 9.879,
+      "exit_code": 0,
+      "log": "evidence/logs/r595-private-open-baseline-build-20261023T150136Z.log",
+      "log_sha256": "6ea2817500bd47d9d3be5c29f5928232787ca745c3c0983274558f6b090aaa76",
+      "name": "baseline-build"
+    }
+  ],
+  "work_dir": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-private-open-nvos56-v1-20261023"
+}
