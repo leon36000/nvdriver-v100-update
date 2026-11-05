@@ -1,0 +1,47 @@
+{
+  "classification": "compile-only diagnostic; no runtime qualification",
+  "compile_probe": {
+    "adapter_object": "uvm_pascal_mmu.o",
+    "build_exit_code": 0,
+    "build_log": "build/experiments/r61571-r580178-volta-overlay-probe-v2-20261023/uvm-port-build.log",
+    "build_log_sha256": "3dc555299610c62be5078e2f7a1ae5c90f0a050efae976f4e568f22f363ffe26",
+    "compile_errors": 0,
+    "linked_module": "build/experiments/r61571-r580178-volta-overlay-probe-v2-20261023/nvidia-uvm.ko",
+    "linked_module_sha256": "2ea1901d94818ae04d147c57356d0e5e096ef4ec37101b3d9526ba86b008c5df",
+    "module_installed": false,
+    "module_linked_this_run": true,
+    "module_loaded": false,
+    "runtime_semantics_validated": false,
+    "source_root_field_caveat": "The legacy probe report names its argument r595_source. The actual argument was the extracted NVIDIA 615.71.10 kernel-open tree recorded above.",
+    "tool_report": "evidence/r61571-r580178-volta-overlay-probe-v2-20261023.json",
+    "tool_report_sha256": "be2731d37fdee196e1301ce228de1c9f5982c0983841223cdbfd0dd8f1c8ab66",
+    "volta_source_objects": [
+      "uvm_volta.o",
+      "uvm_volta_ce.o",
+      "uvm_volta_fault_buffer.o",
+      "uvm_volta_host.o",
+      "uvm_volta_mmu.o"
+    ],
+    "warning_counts": {
+      "format_warnings": 4,
+      "missing_prototypes": 24,
+      "objtool_in_nvidia_binary_object": 11713,
+      "pahole_version": 1,
+      "total": 11742
+    }
+  },
+  "modern_source": {
+    "archive": ".cache/upstream/nvidia_driver-linux-x86_64-615.71.10-archive.tar.xz",
+    "archive_sha256": "41e16cfbb3ba475c55b6ce5b2595e1a87a76948873a1a83f1b261f6b7ba0bf5b",
+    "extracted_kernel_open": ".cache/upstream/extracted-r615-71-10-package/kernel-open",
+    "official_url": "https://developer.download.nvidia.com/compute/nvidia-driver/redist/nvidia_driver/linux-x86_64/nvidia_driver-linux-x86_64-615.71.10-archive.tar.xz",
+    "uvm_hal_c_sha256": "292a4e1b7058e64be4e679a150b6b11478726a28c527b053f9a0e36f55d8ad46",
+    "version": "NVIDIA Linux driver archive 615.71.10"
+  },
+  "reference_source": {
+    "archive": ".cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+    "archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+    "version": "NVIDIA Open kernel module source 580.178.04"
+  },
+  "schema": "r61571-r580178-volta-uvm-overlay-provenance-v1"
+}

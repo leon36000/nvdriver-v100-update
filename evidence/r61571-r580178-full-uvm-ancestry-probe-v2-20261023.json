@@ -1,0 +1,473 @@
+{
+  "added_callback_ancestor_sources": [
+    "uvm_maxwell_access_counter_buffer.c",
+    "uvm_maxwell_ce.c",
+    "uvm_maxwell_host.c",
+    "uvm_maxwell_sec2.c",
+    "uvm_pascal_ce.c",
+    "uvm_pascal_host.c",
+    "uvm_pascal_fault_buffer.c"
+  ],
+  "added_source_list_entries": [
+    "uvm_volta.c",
+    "uvm_volta_ce.c",
+    "uvm_volta_fault_buffer.c",
+    "uvm_volta_host.c",
+    "uvm_volta_mmu.c",
+    "uvm_pascal_mmu.c",
+    "uvm_maxwell_access_counter_buffer.c",
+    "uvm_maxwell_ce.c",
+    "uvm_maxwell_host.c",
+    "uvm_maxwell_sec2.c",
+    "uvm_pascal_ce.c",
+    "uvm_pascal_host.c",
+    "uvm_pascal_fault_buffer.c"
+  ],
+  "added_subchannel_mappings": [
+    "#define UVM_SUBCHANNEL_C36F UVM_SUBCHANNEL_HOST",
+    "#define UVM_SUBCHANNEL_C3B5 UVM_SUBCHANNEL_CE"
+  ],
+  "archive_sha256_matches_expected": true,
+  "build_command_succeeded": false,
+  "build_diagnostics": [
+    "nvidia-uvm/uvm_push_macros.h:215:18: error: \u2018UVM_SUBCHANNEL_B06F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+    "nvidia-uvm/uvm_push_macros.h:219:18: error: \u2018UVM_SUBCHANNEL_B0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+    "nvidia-uvm/uvm_push_macros.h:215:18: error: \u2018UVM_SUBCHANNEL_A16F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+    "nvidia-uvm/uvm_push_macros.h:230:18: error: \u2018UVM_SUBCHANNEL_B0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+    "nvidia-uvm/uvm_push_macros.h:224:18: error: \u2018UVM_SUBCHANNEL_B0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+    "nvidia-uvm/uvm_push_macros.h:219:18: error: \u2018UVM_SUBCHANNEL_A16F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+    "nvidia-uvm/uvm_push_macros.h:219:18: error: \u2018UVM_SUBCHANNEL_B06F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+    "nvidia-uvm/uvm_push_macros.h:265:25: error: \u2018UVM_SUBCHANNEL_A16F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+    "nvidia-uvm/uvm_push_macros.h:215:18: error: \u2018UVM_SUBCHANNEL_B0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+    "nvidia-uvm/uvm_push_macros.h:219:18: error: \u2018UVM_SUBCHANNEL_C0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+    "nvidia-uvm/uvm_push_macros.h:230:18: error: \u2018UVM_SUBCHANNEL_A16F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+    "nvidia-uvm/uvm_push_macros.h:230:18: error: \u2018UVM_SUBCHANNEL_C0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+    "nvidia-uvm/uvm_push_macros.h:230:18: error: \u2018UVM_SUBCHANNEL_C06F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+    "nvidia-uvm/uvm_push_macros.h:224:18: error: \u2018UVM_SUBCHANNEL_C0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+    "nvidia-uvm/uvm_pascal_fault_buffer.c:287:5: error: implicit declaration of function \u2018uvm_hal_pascal_fault_buffer_entry_clear_valid\u2019; did you mean \u2018uvm_hal_turing_fault_buffer_entry_clear_valid\u2019? [-Wimplicit-function-declaration]",
+    "make[4]: *** [/usr/src/linux-headers-7.0.0-38-generic/scripts/Makefile.build:289: nvidia-uvm/uvm_pascal_fault_buffer.o] Error 1",
+    "make[4]: *** Waiting for unfinished jobs....",
+    "nvidia-uvm/uvm_maxwell_host.c:355:12: error: \u2018UVM_ACCESS_COUNTER_CLEAR_OP_NONE\u2019 undeclared (first use in this function); did you mean \u2018UVM_ACCESS_COUNTER_CLEAR_OP_COUNT\u2019?",
+    "make[4]: *** [/usr/src/linux-headers-7.0.0-38-generic/scripts/Makefile.build:289: nvidia-uvm/uvm_maxwell_host.o] Error 1",
+    "make[4]: *** [/usr/src/linux-headers-7.0.0-38-generic/scripts/Makefile.build:289: nvidia-uvm/uvm_pascal_ce.o] Error 1",
+    "make[4]: *** [/usr/src/linux-headers-7.0.0-38-generic/scripts/Makefile.build:289: nvidia-uvm/uvm_maxwell_ce.o] Error 1",
+    "make[4]: *** [/usr/src/linux-headers-7.0.0-38-generic/scripts/Makefile.build:289: nvidia-uvm/uvm_pascal_host.o] Error 1",
+    "make[3]: *** [/usr/src/linux-headers-7.0.0-38-generic/Makefile:2139: .] Error 2",
+    "make[2]: *** [/usr/src/linux-headers-7.0.0-38-generic/Makefile:248: __sub-make] Error 2",
+    "make[1]: *** [Makefile:248: __sub-make] Error 2",
+    "make: *** [Makefile:115: modules] Error 2"
+  ],
+  "build_exit_code": 2,
+  "build_log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r61571-r580178-full-uvm-ancestry-probe-v2-20261023/uvm-port-build.log",
+  "build_log_sha256": "4e1caf24dff83114acdcf4549a7f9332fd7753d85b9dc57609b5ec0206fd2d5a",
+  "build_log_size_bytes": 112389,
+  "callback_ancestry_compile_probe_only": true,
+  "command": [
+    "make",
+    "-C",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r61571-r580178-full-uvm-ancestry-probe-v2-20261023",
+    "NV_KERNEL_MODULES=nvidia nvidia-uvm",
+    "modules",
+    "-j8"
+  ],
+  "compatibility_pruned_assignments": [
+    "parent_gpu->tlb_batch.va_invalidate_supported = true;",
+    "parent_gpu->tlb_batch.va_range_invalidate_supported = true;",
+    "parent_gpu->can_map_sysmem_with_large_pages = true;",
+    "parent_gpu->prefetch_fault_supported = true;",
+    "parent_gpu->gpfifo_in_vidmem_supported = true;",
+    "parent_gpu->replayable_faults_supported = true;",
+    "parent_gpu->non_replayable_faults_supported = true;",
+    "parent_gpu->fault_cancel_va_supported = true;",
+    "parent_gpu->scoped_atomics_supported = true;",
+    "parent_gpu->sparse_mappings_supported = true;",
+    "parent_gpu->plc_supported = false;"
+  ],
+  "compile_probe_adapter": true,
+  "compile_probe_only": true,
+  "compile_probe_signature_adaptations": [
+    "unmapped_pte_pascal(NvU64 page_size) -> unmapped_pte_pascal(void)",
+    "poisoned_pte_pascal(void) -> poisoned_pte_pascal(uvm_page_tree_t *tree)"
+  ],
+  "compiled_port_objects": [
+    "nvidia-uvm/uvm_maxwell_access_counter_buffer.o",
+    "nvidia-uvm/uvm_maxwell_ce.o",
+    "nvidia-uvm/uvm_maxwell_host.o",
+    "nvidia-uvm/uvm_maxwell_sec2.o",
+    "nvidia-uvm/uvm_pascal_ce.o",
+    "nvidia-uvm/uvm_pascal_fault_buffer.o",
+    "nvidia-uvm/uvm_pascal_host.o",
+    "nvidia-uvm/uvm_pascal_mmu.o",
+    "nvidia-uvm/uvm_volta.o",
+    "nvidia-uvm/uvm_volta_ce.o",
+    "nvidia-uvm/uvm_volta_fault_buffer.o",
+    "nvidia-uvm/uvm_volta_host.o",
+    "nvidia-uvm/uvm_volta_mmu.o"
+  ],
+  "compiled_volta_objects": [
+    "nvidia-uvm/uvm_volta.o",
+    "nvidia-uvm/uvm_volta_ce.o",
+    "nvidia-uvm/uvm_volta_fault_buffer.o",
+    "nvidia-uvm/uvm_volta_host.o",
+    "nvidia-uvm/uvm_volta_mmu.o"
+  ],
+  "copied_callback_ancestor_dependencies": [
+    "cla16f.h",
+    "clb06f.h",
+    "clb0b5.h",
+    "clc0b5.h",
+    "clc06f.h",
+    "uvm_pascal_fault_buffer.h",
+    "hwref/pascal/gp100/dev_fault.h",
+    "hwref/pascal/gp100/dev_fb.h",
+    "hwref/pascal/gp100/dev_mmu.h"
+  ],
+  "copied_files_sha256": {
+    "cla16f.h": "bad829681de7efa2b0b5a899cd0df4eed2a8e337098932fcfdfc61e4375dbe12",
+    "clb06f.h": "48cba94a1edd05c55ef3b948a64a411a579bb7442d46938332d78cf3d6ab7ecc",
+    "clb0b5.h": "169d958bfa379bfdf24c4656f02265ff5bcf22a2866724ee4299138d29df5332",
+    "clc06f.h": "708c3777a1dac7c65c48aa62de3a8fce38ab4d13da947f552eac6d7a58168382",
+    "clc0b5.h": "595388a2bcf9bf7d9ae90aa013a562872fa37246f24c7c6ac151a77b3e9b8fe9",
+    "clc36f.h": "56cbabbaf8c63cb2e2c0200dec3c18371d46772b0fcf903ab230d0de3b36c70b",
+    "clc3b5.h": "c6321efb3a6581d384495ac735bb80e8c0b1472d73e9043fefc973e25f2d5744",
+    "hwref/pascal/gp100/dev_fault.h": "5b0fd9e20e1850b620f24997c76b789f63292bbdba2b0ed1dd39733477eac9b0",
+    "hwref/pascal/gp100/dev_fb.h": "a2951aeb2889f405b4f269dbe9028bed050e25b99eb45a6b573707c3e532be81",
+    "hwref/pascal/gp100/dev_mmu.h": "40ff19f4b3c95ec7ffe457fe30602770ac627345a4bec24beddb14229e09f7b2",
+    "hwref/volta/gv100/dev_fault.h": "acef4b2abb4feb8f1935b659f7cbf52e3d02e4786ce176cda4d76dd70f54bc13",
+    "hwref/volta/gv100/dev_fb.h": "0175a270fa5af9d3a62d7fda2c9e536b58551db6bb1e9c123b84ffeec9a32584",
+    "hwref/volta/gv100/dev_mmu.h": "6a2656ab46cc7cdfe92c6ab12c7c5246c5d2819651add7a34b2d47fd2e13c483",
+    "uvm_maxwell_access_counter_buffer.c": "09450615b001caebee8776f8a507679453a747508c0fb69e017ad119ac18150f",
+    "uvm_maxwell_ce.c": "917111014f1400fc97046fe3e4812e60fa98955e7945c67c10d9ee5b95760890",
+    "uvm_maxwell_host.c": "184c79ac70133209a320b64dfa4896525066a3894423ad95848ba75d6c45ca76",
+    "uvm_maxwell_sec2.c": "47f6af9905d9a0ac4be2b290fcc76a54aaa168906afe33359214a5d01d8732d7",
+    "uvm_pascal_ce.c": "7a79e535258bd75992606b61097cc77f2dd7db6640c3b0a560e65d728d58ad5b",
+    "uvm_pascal_fault_buffer.c": "a4cafceee01aac86cb2a4a0527729f28ec6cbc17ff34ec7150d5a5fa0dd7df52",
+    "uvm_pascal_fault_buffer.h": "9fab2cf9cf645ebca86c4ab68b7625d1273fa3c6cacb132f0dd56bd1ba1b0f09",
+    "uvm_pascal_host.c": "c8d125fd53813d50c7fe97ce4b768333aea8f5bde35d51abfcd2f9c0554cf407",
+    "uvm_pascal_mmu.c": "0917c435215bcf640628d7f99ab1c5aed25ca1d4a487d8be0c1a17c2044e0ca5",
+    "uvm_volta.c": "ca662fc33698586ec524c939593b6a67fb196d1b03fc6eea19116e5a0553254e",
+    "uvm_volta_ce.c": "fd8758e28cf978335a97de557ee77e2f7c0797ff49f5363183fc99fbab657d3b",
+    "uvm_volta_fault_buffer.c": "d0b8cfcf715246b49741314e0009b78c798719b634269ee44a75ee12f9874e77",
+    "uvm_volta_fault_buffer.h": "3f9696a50f96a62f68d2402ff6e93f98f9c32a1a7c1add2c9ae555d9867f239e",
+    "uvm_volta_host.c": "582c18a24986db6de49ce0c36fa98430062324b0bffd7e2390b2451e5b45f3fb",
+    "uvm_volta_mmu.c": "a4ff6d7ea69fbef25cad7ef1e7b85c3c8fe85e6e9cd1f3be4306a274d3f8e709"
+  },
+  "copied_volta_source_count": 6,
+  "errors": [
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "215",
+      "message": "\u2018UVM_SUBCHANNEL_B06F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "219",
+      "message": "\u2018UVM_SUBCHANNEL_B0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "215",
+      "message": "\u2018UVM_SUBCHANNEL_A16F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "230",
+      "message": "\u2018UVM_SUBCHANNEL_B0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "215",
+      "message": "\u2018UVM_SUBCHANNEL_A16F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "224",
+      "message": "\u2018UVM_SUBCHANNEL_B0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "219",
+      "message": "\u2018UVM_SUBCHANNEL_A16F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "224",
+      "message": "\u2018UVM_SUBCHANNEL_B0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "219",
+      "message": "\u2018UVM_SUBCHANNEL_B06F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "224",
+      "message": "\u2018UVM_SUBCHANNEL_B0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "219",
+      "message": "\u2018UVM_SUBCHANNEL_A16F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "219",
+      "message": "\u2018UVM_SUBCHANNEL_B0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "25",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "265",
+      "message": "\u2018UVM_SUBCHANNEL_A16F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "215",
+      "message": "\u2018UVM_SUBCHANNEL_B0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "215",
+      "message": "\u2018UVM_SUBCHANNEL_A16F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "215",
+      "message": "\u2018UVM_SUBCHANNEL_B0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "219",
+      "message": "\u2018UVM_SUBCHANNEL_C0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "230",
+      "message": "\u2018UVM_SUBCHANNEL_A16F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "215",
+      "message": "\u2018UVM_SUBCHANNEL_B0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "230",
+      "message": "\u2018UVM_SUBCHANNEL_C0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "230",
+      "message": "\u2018UVM_SUBCHANNEL_A16F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "230",
+      "message": "\u2018UVM_SUBCHANNEL_C06F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "219",
+      "message": "\u2018UVM_SUBCHANNEL_B0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "224",
+      "message": "\u2018UVM_SUBCHANNEL_C0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "230",
+      "message": "\u2018UVM_SUBCHANNEL_A16F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "5",
+      "file": "nvidia-uvm/uvm_pascal_fault_buffer.c",
+      "line": "287",
+      "message": "implicit declaration of function \u2018uvm_hal_pascal_fault_buffer_entry_clear_valid\u2019; did you mean \u2018uvm_hal_turing_fault_buffer_entry_clear_valid\u2019? [-Wimplicit-function-declaration]",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "230",
+      "message": "\u2018UVM_SUBCHANNEL_C06F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "224",
+      "message": "\u2018UVM_SUBCHANNEL_C0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "219",
+      "message": "\u2018UVM_SUBCHANNEL_B0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "230",
+      "message": "\u2018UVM_SUBCHANNEL_C06F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "12",
+      "file": "nvidia-uvm/uvm_maxwell_host.c",
+      "line": "355",
+      "message": "\u2018UVM_ACCESS_COUNTER_CLEAR_OP_NONE\u2019 undeclared (first use in this function); did you mean \u2018UVM_ACCESS_COUNTER_CLEAR_OP_COUNT\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "224",
+      "message": "\u2018UVM_SUBCHANNEL_C0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "224",
+      "message": "\u2018UVM_SUBCHANNEL_B0B5\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C6B5\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "230",
+      "message": "\u2018UVM_SUBCHANNEL_C06F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "230",
+      "message": "\u2018UVM_SUBCHANNEL_C06F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "18",
+      "file": "nvidia-uvm/uvm_push_macros.h",
+      "line": "230",
+      "message": "\u2018UVM_SUBCHANNEL_C06F\u2019 undeclared (first use in this function); did you mean \u2018UVM_SUBCHANNEL_C46F\u2019?",
+      "severity": "error"
+    }
+  ],
+  "expected_port_sources_compiled": [
+    "uvm_maxwell_access_counter_buffer.c",
+    "uvm_maxwell_ce.c",
+    "uvm_maxwell_host.c",
+    "uvm_maxwell_sec2.c",
+    "uvm_pascal_ce.c",
+    "uvm_pascal_fault_buffer.c",
+    "uvm_pascal_host.c",
+    "uvm_pascal_mmu.c",
+    "uvm_volta.c",
+    "uvm_volta_ce.c",
+    "uvm_volta_fault_buffer.c",
+    "uvm_volta_host.c",
+    "uvm_volta_mmu.c"
+  ],
+  "expected_port_sources_compiled_this_run": true,
+  "expected_r580_archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+  "expected_volta_sources_compiled": [
+    "uvm_maxwell_access_counter_buffer.c",
+    "uvm_maxwell_ce.c",
+    "uvm_maxwell_host.c",
+    "uvm_maxwell_sec2.c",
+    "uvm_pascal_ce.c",
+    "uvm_pascal_fault_buffer.c",
+    "uvm_pascal_host.c",
+    "uvm_pascal_mmu.c",
+    "uvm_volta.c",
+    "uvm_volta_ce.c",
+    "uvm_volta_fault_buffer.c",
+    "uvm_volta_host.c",
+    "uvm_volta_mmu.c"
+  ],
+  "expected_volta_sources_compiled_this_run": true,
+  "legacy_prefetch_capability_assertion_removed": true,
+  "license_text_detected": true,
+  "linkage_trace_found": false,
+  "linkage_trace_lines": [],
+  "loaded_or_installed": false,
+  "module_changed_by_build": false,
+  "module_elf_valid": false,
+  "module_exists": false,
+  "module_linked": false,
+  "module_linked_this_run": false,
+  "module_sha256": null,
+  "preserved_target_interface_headers": [
+    {
+      "path": "common/inc/nv_uvm_interface.h",
+      "required_declarations": [
+        "nvUvmInterfaceRegisterUvmEvents",
+        "nvUvmInterfaceDeRegisterUvmEvents",
+        "nvUvmInterfaceAccessBitsBufAlloc",
+        "nvUvmInterfaceAccessBitsDump",
+        "nvUvmInterfaceAccessBitsBufFree"
+      ],
+      "sha256": "4d8e4f46bc2afc99cb074f425f459b98ca072d50b91e25b7085db0df0081c89d"
+    }
+  ],
+  "r580_archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+  "r580_source_archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+  "r580_source_root": "NVIDIA-kernel-module-source-580.178.04",
+  "r595_source": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/extracted-r615-71-10-package/kernel-open",
+  "runtime_semantics_validated": false,
+  "scratch": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r61571-r580178-full-uvm-ancestry-probe-v2-20261023"
+}

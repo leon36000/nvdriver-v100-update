@@ -1,0 +1,33 @@
+{
+  "schema": "r580-uvm-waitlock-review-inputs-v1",
+  "qualification": "source-only; no module build/load or GPU validation",
+  "claude_code_cli": "2.1.309",
+  "main_model_requested": "claude-opus-5-5",
+  "subagent_model_requested": "claude-sonnet-5-5",
+  "source_archive": {
+    "path": "inputs/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+    "sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8"
+  },
+  "patch": {
+    "path": "inputs/patch/0002-hybrid-isolated-gpu-execution.patch",
+    "sha256": "23145778c944ae2cf222a6df192d97a1b3260c564772f4b353d48f0cf0cb26f0",
+    "dry_run": "passed",
+    "applied_files": [
+      "kernel-open/nvidia-uvm/uvm_gpu.c",
+      "kernel-open/nvidia-uvm/uvm_gpu_semaphore.c",
+      "kernel-open/nvidia-uvm/uvm_push.c",
+      "kernel-open/nvidia-uvm/uvm_migrate_pageable.c"
+    ]
+  },
+  "upstream_source_hashes": {
+    "kernel-open/nvidia-uvm/uvm_push.c": "9628ada0b4007eff5af16525d0d71788045832e5ca268699e2ae82a5dc14b85e",
+    "kernel-open/nvidia-uvm/uvm_tracker.c": "756ce284db092691c5e346c9180299c98e050d4391242c53c19d14fcdff13e41",
+    "kernel-open/nvidia-uvm/uvm_va_block.c": "dd2821620e83cfaeb03fd765d64dcb75d82da83a38107afa4b0c2882570a7b03"
+  },
+  "patched_source_hashes": {
+    "kernel-open/nvidia-uvm/uvm_push.c": "53b1cdd7abc6f5dcea062a314b5580b05329868ad36a61f6a3f0d567f3326227",
+    "kernel-open/nvidia-uvm/uvm_tracker.c": "756ce284db092691c5e346c9180299c98e050d4391242c53c19d14fcdff13e41",
+    "kernel-open/nvidia-uvm/uvm_va_block.c": "dd2821620e83cfaeb03fd765d64dcb75d82da83a38107afa4b0c2882570a7b03",
+    "kernel-open/nvidia-uvm/uvm_migrate_pageable.c": "0aea84a9260f3ae70847e366ef83eae5d7119e0a4865ff631491200e004306bb"
+  }
+}

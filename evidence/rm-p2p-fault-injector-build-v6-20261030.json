@@ -1,0 +1,66 @@
+{
+  "artifact": {
+    "bytes": 16456,
+    "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/driver-hybrid/build/experiments/rm-p2p-fault-v6-20261030/libhybrid_rm_p2p_fault.so",
+    "sha256": "85e7b4c17882fb829f0ff24ff4dc4afd9d993ef7e2e058bf8797119a2fe3a6ae"
+  },
+  "assembly_source": {
+    "path": "src/rm_p2p_fault_injector.S",
+    "sha256": "99334ad77a8b4b47350643de70e55b488e878e7954146578d39d9473eeae3305"
+  },
+  "built_at_utc": "2026-10-30T04:42:03+00:00",
+  "compile_flags": [
+    "-std=gnu11",
+    "-O2",
+    "-fPIC",
+    "-fstack-protector-strong",
+    "-D_FORTIFY_SOURCE=2",
+    "-Wall",
+    "-Wextra",
+    "-Wformat=2",
+    "-Werror"
+  ],
+  "compiler": {
+    "path": "/usr/bin/cc",
+    "version": "cc (Ubuntu 15.2.0-16ubuntu1) 15.2.0"
+  },
+  "dependency_sha256": {
+    "build/experiments/local-rm90e6-master-route-v3-20261030/private-provider-v2/source/common/inc/cpuopsys.h": "7401851203255ef203a5e44532957fb039a341950c0ed2d7b19d51e33114f3a1",
+    "build/experiments/local-rm90e6-master-route-v3-20261030/private-provider-v2/source/common/inc/nv-ioctl-numbers.h": "7f449a019521f2f858a2d485eed1ee0fa4a8ffc82c9aecd484be5d3f6821f87d",
+    "build/experiments/local-rm90e6-master-route-v3-20261030/private-provider-v2/source/common/inc/nvgputypes.h": "dcb4bf6a0eae9883ef36438dac4765a47a90555a01e887c380caf0690c7be08d",
+    "build/experiments/local-rm90e6-master-route-v3-20261030/private-provider-v2/source/common/inc/nvlimits.h": "7c7bf27c5360464b459f6069d2e72f6070bb3fdd0862baccf6c7aa71da67c593",
+    "build/experiments/local-rm90e6-master-route-v3-20261030/private-provider-v2/source/common/inc/nvmisc.h": "6e02e315b3c5e715fc615c30db031a98303b09bd1f07b693095ee6bad82d199f",
+    "build/experiments/local-rm90e6-master-route-v3-20261030/private-provider-v2/source/common/inc/nvos.h": "07f9f453afbf080750663abc9e04e2d3b55500887303ba03bd6855916d2405bd",
+    "build/experiments/local-rm90e6-master-route-v3-20261030/private-provider-v2/source/common/inc/nvstatus.h": "e8267172a1f7a56420d612c6734b3554b9ff6a3d33fdda21b1371ff4ce4b8675",
+    "build/experiments/local-rm90e6-master-route-v3-20261030/private-provider-v2/source/common/inc/nvstatuscodes.h": "143fa91191a368e4fad0eae2a5ec533bcdbd41895184c46c7e2865ebfe6107a8",
+    "build/experiments/local-rm90e6-master-route-v3-20261030/private-provider-v2/source/common/inc/nvtypes.h": "e3901c0991b3a3dc77fffc2269fee84661bdda8a5bc43c0fe70a620af05edd5b",
+    "build/experiments/local-rm90e6-master-route-v3-20261030/private-provider-v2/source/common/inc/rs_access.h": "4d643bbafb99cbcbd2dc7e49536e4364c2629a6bcae17b59ed097c478ca92170",
+    "build/experiments/local-rm90e6-master-route-v3-20261030/private-provider-v2/source/hybrid-sdk/common/sdk/nvidia/inc/alloc/alloc_channel.h": "f0211fbc8bf3f80841f699bf4ccb776d32517308782dfb3c8e99c7652986b5ab",
+    "build/experiments/local-rm90e6-master-route-v3-20261030/private-provider-v2/source/hybrid-sdk/common/sdk/nvidia/inc/class/cl503c.h": "58db3118f0cd03b42c927043354e6471be75b6e4a2bba3c28927941d1b1c3428",
+    "build/experiments/local-rm90e6-master-route-v3-20261030/private-provider-v2/source/hybrid-sdk/common/sdk/nvidia/inc/class/cl9010.h": "f388882c995687540d7515e25f68613e3f8a67a35add99d761afd005656a49c7",
+    "build/experiments/local-rm90e6-master-route-v3-20261030/private-provider-v2/source/hybrid-sdk/common/sdk/nvidia/inc/class/cl9010_callback.h": "2571a29472ad80a60c60f2bcaedc8354179b45c6248c98792503349dae419ba8",
+    "build/experiments/local-rm90e6-master-route-v3-20261030/private-provider-v2/source/hybrid-sdk/common/sdk/nvidia/inc/ctrl/ctrl503c.h": "78ac9e168e017203611f5a1b5e43d0a46c5e57f5033c58c62b7d3eec5257017b",
+    "build/experiments/local-rm90e6-master-route-v3-20261030/private-provider-v2/source/hybrid-sdk/common/sdk/nvidia/inc/ctrl/ctrl503c/ctrl503cbase.h": "9f1f6d56632bcd1447cfcf5ce61724900c5f32bb8f9735ad8d3cfbc4e1c189fe",
+    "build/experiments/local-rm90e6-master-route-v3-20261030/private-provider-v2/source/hybrid-sdk/common/sdk/nvidia/inc/ctrl/ctrlxxxx.h": "3c34cab9ddee358b3480a96795ec5068eae1c3f2328921a8d0a83d0d3f751db7",
+    "build/experiments/local-rm90e6-master-route-v3-20261030/private-provider-v2/source/hybrid-sdk/common/sdk/nvidia/inc/nvcfg_sdk.h": "cb9b9ddf1d9d55527e182c1864fb45dcc7331e6de1498a71814cfc5bbe0c62c8",
+    "build/experiments/local-rm90e6-master-route-v3-20261030/private-provider-v2/source/hybrid-sdk/nvidia/arch/nvalloc/unix/include/nv_escape.h": "12850ee7368dbfeba1e2392f9ff7fb44563d88ed12cbf478d0c0f61a03763570",
+    "src/rm_p2p_fault_injector.S": "99334ad77a8b4b47350643de70e55b488e878e7954146578d39d9473eeae3305",
+    "src/rm_p2p_fault_injector.c": "18e8fdd97524a8153a226476e13a8c4c65ec62009c7d95f9ab08d91fcb0393a8"
+  },
+  "driver_source_version": "R580.196.07 SDK pins from the local private-provider-v2 experiment",
+  "evidence_state": "compiled; synthetic fixture results belong to the separate software-validation receipt; no GPU or kernel module tested",
+  "hardware_execution_validated": false,
+  "pinned_headers": {
+    "common/inc/nv-ioctl-numbers.h": "7f449a019521f2f858a2d485eed1ee0fa4a8ffc82c9aecd484be5d3f6821f87d",
+    "common/inc/nvos.h": "07f9f453afbf080750663abc9e04e2d3b55500887303ba03bd6855916d2405bd",
+    "common/inc/nvtypes.h": "e3901c0991b3a3dc77fffc2269fee84661bdda8a5bc43c0fe70a620af05edd5b",
+    "hybrid-sdk/common/sdk/nvidia/inc/class/cl503c.h": "58db3118f0cd03b42c927043354e6471be75b6e4a2bba3c28927941d1b1c3428",
+    "hybrid-sdk/common/sdk/nvidia/inc/ctrl/ctrl503c.h": "78ac9e168e017203611f5a1b5e43d0a46c5e57f5033c58c62b7d3eec5257017b",
+    "hybrid-sdk/nvidia/arch/nvalloc/unix/include/nv_escape.h": "12850ee7368dbfeba1e2392f9ff7fb44563d88ed12cbf478d0c0f61a03763570"
+  },
+  "schema": "nvidia-hybrid-rm-p2p-fault-injector-build-v2",
+  "source": {
+    "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/driver-hybrid/src/rm_p2p_fault_injector.c",
+    "sha256": "18e8fdd97524a8153a226476e13a8c4c65ec62009c7d95f9ab08d91fcb0393a8"
+  }
+}

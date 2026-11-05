@@ -1,0 +1,38 @@
+{
+  "artifact": {
+    "bytes": 84024,
+    "path": "build/experiments/rm-ioctl-observer-attached-ids-v1-20261021/reproducible/rm_ioctl_observer",
+    "sha256": "e9f24e31e6b00035eb9515420e3e6d0f4ab77bbcd64e627dabcfe87e760e2157"
+  },
+  "command": [
+    "cc",
+    "-std=gnu11",
+    "-O2",
+    "-g",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-DNVRM=1",
+    "-Ibuild/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+    "-Ibuild/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+    "-Ibuild/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+    "-Ibuild/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc",
+    "src/rm_ioctl_observer.c",
+    "-o",
+    "build/experiments/rm-ioctl-observer-attached-ids-v1-20261021/reproducible/rm_ioctl_observer"
+  ],
+  "compiler": "cc (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+  "exit_code": 0,
+  "input_sha256": {
+    "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/ctrl/ctrl0000/ctrl0000gpu.h": "955d3f33157b516870bfa514bbcf613f705c990f0145a473a29e4cad97292b32",
+    "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/nvos.h": "07f9f453afbf080750663abc9e04e2d3b55500887303ba03bd6855916d2405bd",
+    "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/nvtypes.h": "57bf6ee0fc9f604e7d6f224a3b861521526bb0b115e99a33e5704d881daca708",
+    "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include/nv-ioctl-numbers.h": "7f449a019521f2f858a2d485eed1ee0fa4a8ffc82c9aecd484be5d3f6821f87d",
+    "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include/nv_escape.h": "12850ee7368dbfeba1e2392f9ff7fb44563d88ed12cbf478d0c0f61a03763570",
+    "src/rm_ioctl_observer.c": "41e584a1276b293cfd8c5caf4fecc94527f892cbf94a7f4bbf5f69658ca2bf45"
+  },
+  "loaded_or_installed": false,
+  "repeat_build_identical_to_initial": true,
+  "schema": "nvidia-hybrid-observer-build-v2",
+  "target": "x86_64-linux-gnu"
+}

@@ -1,0 +1,136 @@
+{
+  "comparison": {
+    "changed_layout_fields": [
+      {
+        "field": "gpu_get_name_string_buffer_size",
+        "r580": 128,
+        "r595": 64
+      },
+      {
+        "field": "gpu_ecc_unit_count",
+        "r580": 36,
+        "r595": 41
+      },
+      {
+        "field": "nvlink_link_status_info_size",
+        "r580": 208,
+        "r595": 216
+      }
+    ],
+    "changed_parameter_sizes": [
+      {
+        "command": "0x20800110",
+        "r580_bytes": 132,
+        "r595_bytes": 68
+      },
+      {
+        "command": "0x2080012f",
+        "r580_bytes": 1464,
+        "r595_bytes": 1664
+      },
+      {
+        "command": "0x20803002",
+        "r580_bytes": 13344,
+        "r595_bytes": 13864
+      }
+    ],
+    "unchanged": {
+      "gpu_get_name_string_cmd": true,
+      "gpu_query_ecc_status_cmd": true,
+      "nvlink_get_status_cmd": true,
+      "nvlink_link_info_offset": true,
+      "nvlink_max_array_size": true
+    }
+  },
+  "fixture": {
+    "compiler_flags": [
+      "-std=c11",
+      "-Wall",
+      "-Wextra",
+      "-Werror"
+    ],
+    "file": "tests/fixtures/rm_ctrl_layout_probe.c",
+    "sha256": "766fabce75e61b60ca46f95d8c63e599bcaf3dfa34952adce530411bf09e7ef7"
+  },
+  "not_proven": [
+    "compatibility of arbitrary cross-branch RM_CONTROL payloads",
+    "that observed hardware requests use each queried structure",
+    "same-Linux V100 plus Blackwell initialization or CUDA execution",
+    "performance, UVM, P2P, recovery, or long-duration stability"
+  ],
+  "schema": "nvidia-hybrid-rm-control-sdk-layout-probe-v2",
+  "scope": {
+    "classification": "compiled SDK header layout evidence",
+    "hardware_executed": false,
+    "kernel_module_loaded": false,
+    "nested_rm_control_payloads_read": false,
+    "same_linux_hybrid_validated": false
+  },
+  "source_archives": {
+    "r580": {
+      "file_name": "NVIDIA-kernel-module-source-580.178.04.tar.xz",
+      "sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8"
+    },
+    "r595": {
+      "file_name": "source.tar.gz",
+      "sha256": "b8891cb617683e28ef1e4c3add8dbc30e648b8cd6429a3d521f20dde44633262"
+    }
+  },
+  "sources": [
+    {
+      "compiler": "cc",
+      "compiler_version": "cc (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+      "layout": {
+        "gpu_ecc_unit_count": 36,
+        "gpu_get_name_string_buffer_offset": 4,
+        "gpu_get_name_string_buffer_size": 128,
+        "gpu_get_name_string_cmd": 545259792,
+        "gpu_get_name_string_size": 132,
+        "gpu_query_ecc_status_cmd": 545259823,
+        "gpu_query_ecc_status_size": 1464,
+        "nvlink_get_status_cmd": 545271810,
+        "nvlink_get_status_size": 13344,
+        "nvlink_link_info_offset": 32,
+        "nvlink_link_status_info_size": 208,
+        "nvlink_max_array_size": 64
+      },
+      "role": "r580",
+      "sdk_header_sha256": {
+        "ctrl2080gpu.h": "1e9963a06da571064476c173eb2bdc7ce790aefae19425d8787c17615a2ba9cf",
+        "ctrl2080nvlink.h": "f63799466d87cab4672a24b5dd39cf1a13e1312136a892b0a533b506b543bc51",
+        "ctrl2080nvlink_common.h": "3debeb3911988cbd1655fee51a385267894ea40b9fe14b1ea6b23ea7390b87bb"
+      },
+      "source_directory_name": "NVIDIA-kernel-module-source-580.178.04",
+      "version": "580.178.04",
+      "version_mk_sha256": "cbc6488ed2c35ea814120bc80749dd2d11f486c3e98046b3be240d462ee86e7c"
+    },
+    {
+      "compiler": "cc",
+      "compiler_version": "cc (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+      "layout": {
+        "gpu_ecc_unit_count": 41,
+        "gpu_get_name_string_buffer_offset": 4,
+        "gpu_get_name_string_buffer_size": 64,
+        "gpu_get_name_string_cmd": 545259792,
+        "gpu_get_name_string_size": 68,
+        "gpu_query_ecc_status_cmd": 545259823,
+        "gpu_query_ecc_status_size": 1664,
+        "nvlink_get_status_cmd": 545271810,
+        "nvlink_get_status_size": 13864,
+        "nvlink_link_info_offset": 32,
+        "nvlink_link_status_info_size": 216,
+        "nvlink_max_array_size": 64
+      },
+      "role": "r595",
+      "sdk_header_sha256": {
+        "ctrl2080gpu.h": "bf3134db0c8e91c6bd8bb7d3b9dc98291d5dd9ba6f65367b97a3dabd21b58154",
+        "ctrl2080nvlink.h": "ffa628bc835995628cb2a82e62012b529cc9d8355f07369c616c1b60add8c45b",
+        "ctrl2080nvlink_common.h": "25c2515169bf0e2e4fcc2fcd38d43a8e45760bc4a24490940f117f0c43b439da"
+      },
+      "source_directory_name": "open-gpu-kernel-modules-595.99.02",
+      "version": "595.99.02",
+      "version_mk_sha256": "f4e13a41ce676591b322c47d821ecf9d9b3f70171a0e221286162c5fada17234"
+    }
+  ],
+  "tool_sha256": "5f22e2c246a0b8e4eaad969006a1f53c2c8d597e934a7bd173f5e37bde5b8e91"
+}

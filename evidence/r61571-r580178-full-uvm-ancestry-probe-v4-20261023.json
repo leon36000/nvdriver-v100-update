@@ -1,0 +1,1356 @@
+{
+  "added_callback_ancestor_sources": [
+    "uvm_maxwell_access_counter_buffer.c",
+    "uvm_maxwell_ce.c",
+    "uvm_maxwell_host.c",
+    "uvm_maxwell_sec2.c",
+    "uvm_pascal_ce.c",
+    "uvm_pascal_host.c",
+    "uvm_pascal_fault_buffer.c"
+  ],
+  "added_source_list_entries": [
+    "uvm_volta.c",
+    "uvm_volta_ce.c",
+    "uvm_volta_fault_buffer.c",
+    "uvm_volta_host.c",
+    "uvm_volta_mmu.c",
+    "uvm_pascal_mmu.c",
+    "uvm_maxwell_access_counter_buffer.c",
+    "uvm_maxwell_ce.c",
+    "uvm_maxwell_host.c",
+    "uvm_maxwell_sec2.c",
+    "uvm_pascal_ce.c",
+    "uvm_pascal_host.c",
+    "uvm_pascal_fault_buffer.c"
+  ],
+  "added_subchannel_mappings": [
+    "#define UVM_SUBCHANNEL_C36F UVM_SUBCHANNEL_HOST",
+    "#define UVM_SUBCHANNEL_C3B5 UVM_SUBCHANNEL_CE",
+    "#define UVM_SUBCHANNEL_A16F UVM_SUBCHANNEL_HOST",
+    "#define UVM_SUBCHANNEL_B06F UVM_SUBCHANNEL_HOST",
+    "#define UVM_SUBCHANNEL_B0B5 UVM_SUBCHANNEL_CE",
+    "#define UVM_SUBCHANNEL_C06F UVM_SUBCHANNEL_HOST",
+    "#define UVM_SUBCHANNEL_C0B5 UVM_SUBCHANNEL_CE"
+  ],
+  "archive_sha256_matches_expected": true,
+  "build_command_succeeded": false,
+  "build_diagnostics": [
+    "nvidia-uvm/uvm_hal.c:124:21: error: \u2018uvm_hal_maxwell_ce_init\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_ce_init\u2019?",
+    "nvidia-uvm/uvm_hal.c:126:34: error: \u2018uvm_hal_maxwell_ce_semaphore_release\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_semaphore_release\u2019?",
+    "nvidia-uvm/uvm_hal.c:127:36: error: \u2018uvm_hal_maxwell_ce_semaphore_timestamp\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_semaphore_timestamp\u2019?",
+    "nvidia-uvm/uvm_hal.c:128:40: error: \u2018uvm_hal_maxwell_ce_semaphore_reduction_inc\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_semaphore_reduction_inc\u2019?",
+    "nvidia-uvm/uvm_hal.c:129:42: error: \u2018uvm_hal_maxwell_semaphore_target_is_valid\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_semaphore_target_is_valid\u2019?",
+    "nvidia-uvm/uvm_hal.c:130:27: error: \u2018uvm_hal_maxwell_ce_offset_out\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_offset_out\u2019?",
+    "nvidia-uvm/uvm_hal.c:131:30: error: \u2018uvm_hal_maxwell_ce_offset_in_out\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_offset_in_out\u2019?",
+    "nvidia-uvm/uvm_hal.c:132:26: error: \u2018uvm_hal_maxwell_ce_phys_mode\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_ampere_ce_phys_mode\u2019?",
+    "nvidia-uvm/uvm_hal.c:133:25: error: \u2018uvm_hal_maxwell_ce_plc_mode\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_ce_plc_mode\u2019?",
+    "nvidia-uvm/uvm_hal.c:134:34: error: \u2018uvm_hal_maxwell_ce_memcopy_copy_type\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_memcopy_copy_type\u2019?",
+    "nvidia-uvm/uvm_hal.c:135:33: error: \u2018uvm_hal_maxwell_ce_memcopy_is_valid\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_blackwell_ce_memcopy_is_valid\u2019?",
+    "nvidia-uvm/uvm_hal.c:137:24: error: \u2018uvm_hal_maxwell_ce_memcopy\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_ce_memcopy\u2019?",
+    "nvidia-uvm/uvm_hal.c:138:31: error: \u2018uvm_hal_maxwell_ce_memcopy_v_to_v\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_ce_memcopy_v_to_v\u2019?",
+    "nvidia-uvm/uvm_hal.c:139:32: error: \u2018uvm_hal_maxwell_ce_memset_is_valid\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_memset_is_valid\u2019?",
+    "nvidia-uvm/uvm_hal.c:140:25: error: \u2018uvm_hal_maxwell_ce_memset_1\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_memset_1\u2019?",
+    "nvidia-uvm/uvm_hal.c:141:25: error: \u2018uvm_hal_maxwell_ce_memset_4\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_memset_4\u2019?",
+    "nvidia-uvm/uvm_hal.c:142:25: error: \u2018uvm_hal_maxwell_ce_memset_8\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_memset_8\u2019?",
+    "nvidia-uvm/uvm_hal.c:143:27: error: \u2018uvm_hal_maxwell_ce_memset_v_4\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_ce_memset_v_4\u2019?",
+    "nvidia-uvm/uvm_hal.c:144:24: error: \u2018uvm_hal_maxwell_ce_encrypt_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_ce_encrypt_unsupported\u2019?",
+    "nvidia-uvm/uvm_hal.c:145:24: error: \u2018uvm_hal_maxwell_ce_decrypt_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_ce_decrypt_unsupported\u2019?",
+    "nvidia-uvm/uvm_hal.c:152:34: error: \u2018uvm_hal_pascal_ce_semaphore_release\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_semaphore_release\u2019?",
+    "nvidia-uvm/uvm_hal.c:153:36: error: \u2018uvm_hal_pascal_ce_semaphore_timestamp\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_semaphore_timestamp\u2019?",
+    "nvidia-uvm/uvm_hal.c:154:40: error: \u2018uvm_hal_pascal_ce_semaphore_reduction_inc\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_semaphore_reduction_inc\u2019?",
+    "nvidia-uvm/uvm_hal.c:155:27: error: \u2018uvm_hal_pascal_ce_offset_out\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_offset_out\u2019?",
+    "nvidia-uvm/uvm_hal.c:156:30: error: \u2018uvm_hal_pascal_ce_offset_in_out\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_offset_in_out\u2019?",
+    "nvidia-uvm/uvm_hal.c:168:34: error: \u2018uvm_hal_volta_ce_semaphore_release\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_semaphore_release\u2019?",
+    "nvidia-uvm/uvm_hal.c:169:36: error: \u2018uvm_hal_volta_ce_semaphore_timestamp\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_semaphore_timestamp\u2019?",
+    "nvidia-uvm/uvm_hal.c:170:40: error: \u2018uvm_hal_volta_ce_semaphore_reduction_inc\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_semaphore_reduction_inc\u2019?",
+    "nvidia-uvm/uvm_hal.c:171:24: error: \u2018uvm_hal_volta_ce_memcopy\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_ce_memcopy\u2019?",
+    "nvidia-uvm/uvm_hal.c:172:25: error: \u2018uvm_hal_volta_ce_memset_1\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_memset_1\u2019?",
+    "nvidia-uvm/uvm_hal.c:173:25: error: \u2018uvm_hal_volta_ce_memset_4\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_memset_4\u2019?",
+    "nvidia-uvm/uvm_hal.c:174:25: error: \u2018uvm_hal_volta_ce_memset_8\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_memset_8\u2019?",
+    "nvidia-uvm/uvm_hal.c:268:21: error: \u2018uvm_hal_maxwell_host_init_noop\u2019 undeclared here (not in a function)",
+    "nvidia-uvm/uvm_hal.c:271:30: error: \u2018uvm_hal_maxwell_host_wait_for_idle\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_wait_for_idle\u2019?",
+    "nvidia-uvm/uvm_hal.c:272:27: error: \u2018uvm_hal_maxwell_host_membar_sys\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_membar_sys\u2019?",
+    "nvidia-uvm/uvm_hal.c:276:21: error: \u2018uvm_hal_maxwell_host_noop\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_noop\u2019?",
+    "nvidia-uvm/uvm_hal.c:277:26: error: \u2018uvm_hal_maxwell_host_interrupt\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_interrupt\u2019?",
+    "nvidia-uvm/uvm_hal.c:278:34: error: \u2018uvm_hal_maxwell_host_semaphore_acquire\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_host_semaphore_acquire\u2019?",
+    "nvidia-uvm/uvm_hal.c:279:34: error: \u2018uvm_hal_maxwell_host_semaphore_release\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_host_semaphore_release\u2019?",
+    "nvidia-uvm/uvm_hal.c:280:36: error: \u2018uvm_hal_maxwell_host_semaphore_timestamp\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_host_semaphore_timestamp\u2019?",
+    "nvidia-uvm/uvm_hal.c:282:33: error: \u2018uvm_hal_maxwell_host_set_gpfifo_entry\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_host_set_gpfifo_entry\u2019?",
+    "nvidia-uvm/uvm_hal.c:283:32: error: \u2018uvm_hal_maxwell_host_set_gpfifo_noop\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_set_gpfifo_noop\u2019?",
+    "nvidia-uvm/uvm_hal.c:284:51: error: \u2018uvm_hal_maxwell_host_set_gpfifo_pushbuffer_segment_base_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_set_gpfifo_pushbuffer_segment_base_unsupported\u2019?",
+    "nvidia-uvm/uvm_hal.c:285:30: error: \u2018uvm_hal_maxwell_host_write_gpu_put\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_write_gpu_put\u2019?",
+    "nvidia-uvm/uvm_hal.c:286:35: error: \u2018uvm_hal_maxwell_host_tlb_invalidate_all_a16f\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_blackwell_host_tlb_invalidate_all\u2019?",
+    "nvidia-uvm/uvm_hal.c:287:34: error: \u2018uvm_hal_maxwell_host_tlb_invalidate_va\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_blackwell_host_tlb_invalidate_va\u2019?",
+    "nvidia-uvm/uvm_hal.c:288:36: error: \u2018uvm_hal_maxwell_host_tlb_invalidate_phys_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_tlb_invalidate_phys_unsupported\u2019?",
+    "nvidia-uvm/uvm_hal.c:289:36: error: \u2018uvm_hal_maxwell_host_tlb_invalidate_test\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_blackwell_host_tlb_invalidate_test\u2019?",
+    "nvidia-uvm/uvm_hal.c:290:35: error: \u2018uvm_hal_maxwell_host_tlb_flush_prefetch_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_tlb_flush_prefetch_unsupported\u2019?",
+    "nvidia-uvm/uvm_hal.c:291:30: error: \u2018uvm_hal_maxwell_replay_faults_unsupported\u2019 undeclared here (not in a function)",
+    "nvidia-uvm/uvm_hal.c:292:37: error: \u2018uvm_hal_maxwell_cancel_faults_global_unsupported\u2019 undeclared here (not in a function)",
+    "nvidia-uvm/uvm_hal.c:293:39: error: \u2018uvm_hal_maxwell_cancel_faults_targeted_unsupported\u2019 undeclared here (not in a function)",
+    "nvidia-uvm/uvm_hal.c:294:33: error: \u2018uvm_hal_maxwell_cancel_faults_va_unsupported\u2019 undeclared here (not in a function)",
+    "nvidia-uvm/uvm_hal.c:295:48: error: \u2018uvm_hal_maxwell_host_clear_faulted_channel_sw_method_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_clear_faulted_channel_sw_method_unsupported\u2019?",
+    "nvidia-uvm/uvm_hal.c:296:45: error: \u2018uvm_hal_maxwell_host_clear_faulted_channel_method_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_clear_faulted_channel_sw_method_unsupported\u2019?",
+    "nvidia-uvm/uvm_hal.c:297:47: error: \u2018uvm_hal_maxwell_host_clear_faulted_channel_register_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_clear_faulted_channel_register_unsupported\u2019?",
+    "nvidia-uvm/uvm_hal.c:298:41: error: \u2018uvm_hal_maxwell_access_counter_clear_all_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_access_counter_clear_all_t\u2019?",
+    "nvidia-uvm/uvm_hal.c:299:46: error: \u2018uvm_hal_maxwell_access_counter_clear_targeted_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_access_counter_clear_targeted_t\u2019?",
+    "nvidia-uvm/uvm_hal.c:300:46: error: \u2018uvm_hal_maxwell_access_counter_query_clear_op_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_blackwell_access_counter_query_clear_op_gb20x\u2019?",
+    "nvidia-uvm/uvm_hal.c:302:25: error: \u2018uvm_hal_maxwell_get_time\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_get_time\u2019?",
+    "nvidia-uvm/uvm_hal.c:310:35: error: \u2018uvm_hal_maxwell_host_tlb_invalidate_all_b06f\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_blackwell_host_tlb_invalidate_all\u2019?",
+    "nvidia-uvm/uvm_hal.c:317:21: error: \u2018uvm_hal_pascal_host_init\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_init\u2019?",
+    "nvidia-uvm/uvm_hal.c:318:27: error: \u2018uvm_hal_pascal_host_membar_sys\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_membar_sys\u2019?",
+    "nvidia-uvm/uvm_hal.c:319:27: error: \u2018uvm_hal_pascal_host_membar_gpu\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_membar_gpu\u2019?",
+    "nvidia-uvm/uvm_hal.c:320:35: error: \u2018uvm_hal_pascal_host_tlb_invalidate_all\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_host_tlb_invalidate_all\u2019?",
+    "nvidia-uvm/uvm_hal.c:321:34: error: \u2018uvm_hal_pascal_host_tlb_invalidate_va\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_host_tlb_invalidate_va\u2019?",
+    "nvidia-uvm/uvm_hal.c:322:36: error: \u2018uvm_hal_pascal_host_tlb_invalidate_test\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_host_tlb_invalidate_test\u2019?",
+    "nvidia-uvm/uvm_hal.c:323:30: error: \u2018uvm_hal_pascal_replay_faults\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_replay_faults\u2019?",
+    "nvidia-uvm/uvm_hal.c:324:37: error: \u2018uvm_hal_pascal_cancel_faults_global\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_cancel_faults_global\u2019?",
+    "nvidia-uvm/uvm_hal.c:325:39: error: \u2018uvm_hal_pascal_cancel_faults_targeted\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_cancel_faults_targeted\u2019?",
+    "nvidia-uvm/uvm_hal.c:332:30: error: \u2018uvm_hal_volta_host_write_gpu_put\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_write_gpu_put\u2019?",
+    "nvidia-uvm/uvm_hal.c:333:34: error: \u2018uvm_hal_volta_host_tlb_invalidate_va\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_host_tlb_invalidate_va\u2019?",
+    "nvidia-uvm/uvm_hal.c:334:30: error: \u2018uvm_hal_volta_replay_faults\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_replay_faults\u2019?",
+    "nvidia-uvm/uvm_hal.c:335:33: error: \u2018uvm_hal_volta_cancel_faults_va\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_cancel_faults_va\u2019?",
+    "nvidia-uvm/uvm_hal.c:336:45: error: \u2018uvm_hal_volta_host_clear_faulted_channel_method\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_clear_faulted_channel_method\u2019?",
+    "nvidia-uvm/uvm_hal.c:337:36: error: \u2018uvm_hal_volta_host_semaphore_timestamp\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_host_semaphore_timestamp\u2019?",
+    "nvidia-uvm/uvm_hal.c:437:32: error: \u2018uvm_hal_maxwell_arch_init_properties\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_blackwell_arch_init_properties\u2019?",
+    "nvidia-uvm/uvm_hal.c:438:29: error: \u2018uvm_hal_mmu_mode_maxwell\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_mmu_mode_blackwell\u2019?",
+    "nvidia-uvm/uvm_hal.c:439:39: error: \u2018uvm_hal_maxwell_mmu_enable_prefetch_faults_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_mmu_enable_prefetch_faults_t\u2019?",
+    "nvidia-uvm/uvm_hal.c:440:40: error: \u2018uvm_hal_maxwell_mmu_disable_prefetch_faults_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_mmu_disable_prefetch_faults_t\u2019?",
+    "nvidia-uvm/uvm_hal.c:441:41: error: \u2018uvm_hal_maxwell_mmu_client_id_to_utlb_id_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_blackwell_mmu_client_id_to_utlb_id\u2019?",
+    "nvidia-uvm/uvm_hal.c:453:32: error: \u2018uvm_hal_pascal_arch_init_properties\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_ada_arch_init_properties\u2019?",
+    "nvidia-uvm/uvm_hal.c:454:29: error: initialization of \u2018uvm_mmu_mode_hal_t * (*)(void)\u2019 {aka \u2018struct uvm_mmu_mode_hal_struct * (*)(void)\u2019} from incompatible pointer type \u2018uvm_mmu_mode_hal_t * (*)(NvU64)\u2019 {aka \u2018struct uvm_mmu_mode_hal_struct * (*)(long long unsigned int)\u2019} [-Wincompatible-pointer-types]",
+    "nvidia-uvm/uvm_hal.c:455:39: error: \u2018uvm_hal_pascal_mmu_enable_prefetch_faults\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_mmu_enable_prefetch_faults\u2019?",
+    "nvidia-uvm/uvm_hal.c:456:40: error: \u2018uvm_hal_pascal_mmu_disable_prefetch_faults\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_mmu_disable_prefetch_faults\u2019?",
+    "nvidia-uvm/uvm_hal.c:457:41: error: \u2018uvm_hal_pascal_mmu_client_id_to_utlb_id\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_rubin_mmu_client_id_to_utlb_id\u2019?",
+    "nvidia-uvm/uvm_hal.c:464:32: error: \u2018uvm_hal_volta_arch_init_properties\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_ada_arch_init_properties\u2019?",
+    "nvidia-uvm/uvm_hal.c:465:29: error: \u2018uvm_hal_mmu_mode_volta\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_mmu_mode_rubin\u2019?",
+    "nvidia-uvm/uvm_hal.c:466:41: error: \u2018uvm_hal_volta_mmu_client_id_to_utlb_id\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_rubin_mmu_client_id_to_utlb_id\u2019?",
+    "nvidia-uvm/uvm_hal.c:568:42: error: \u2018uvm_hal_maxwell_enable_replayable_faults_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_enable_replayable_faults_t\u2019?",
+    "nvidia-uvm/uvm_hal.c:569:42: error: \u2018uvm_hal_maxwell_disable_replayable_faults_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_disable_replayable_faults_t\u2019?",
+    "nvidia-uvm/uvm_hal.c:570:40: error: \u2018uvm_hal_maxwell_clear_replayable_faults_unsupported\u2019 undeclared here (not in a function)",
+    "nvidia-uvm/uvm_hal.c:571:25: error: \u2018uvm_hal_maxwell_fault_buffer_read_put_unsupported\u2019 undeclared here (not in a function)",
+    "nvidia-uvm/uvm_hal.c:572:25: error: \u2018uvm_hal_maxwell_fault_buffer_read_get_unsupported\u2019 undeclared here (not in a function)",
+    "nvidia-uvm/uvm_hal.c:573:26: error: \u2018uvm_hal_maxwell_fault_buffer_write_get_unsupported\u2019 undeclared here (not in a function)",
+    "nvidia-uvm/uvm_hal.c:574:26: error: \u2018uvm_hal_maxwell_fault_buffer_get_ve_id_unsupported\u2019 undeclared here (not in a function)",
+    "nvidia-uvm/uvm_hal.c:575:36: error: \u2018uvm_hal_maxwell_fault_buffer_get_mmu_engine_type_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_blackwell_fault_buffer_get_mmu_engine_type\u2019?",
+    "nvidia-uvm/uvm_hal.c:576:39: error: \u2018uvm_hal_maxwell_fault_buffer_parse_replayable_entry_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_fault_buffer_parse_replayable_entry_t\u2019?",
+    "nvidia-uvm/uvm_hal.c:577:31: error: \u2018uvm_hal_maxwell_fault_buffer_entry_is_valid_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_fault_buffer_entry_is_valid_t\u2019?",
+    "nvidia-uvm/uvm_hal.c:578:34: error: \u2018uvm_hal_maxwell_fault_buffer_entry_clear_valid_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_pascal_fault_buffer_entry_clear_valid\u2019?",
+    "nvidia-uvm/uvm_hal.c:579:27: error: \u2018uvm_hal_maxwell_fault_buffer_entry_size_unsupported\u2019 undeclared here (not in a function)",
+    "nvidia-uvm/uvm_hal.c:580:43: error: \u2018uvm_hal_maxwell_fault_buffer_parse_non_replayable_entry_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_fault_buffer_parse_non_replayable_entry_t\u2019?",
+    "nvidia-uvm/uvm_hal.c:581:31: error: \u2018uvm_hal_maxwell_fault_buffer_get_fault_type_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_blackwell_fault_buffer_get_fault_type\u2019?",
+    "nvidia-uvm/uvm_hal.c:593:42: error: \u2018uvm_hal_pascal_enable_replayable_faults\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_enable_replayable_faults\u2019?",
+    "nvidia-uvm/uvm_hal.c:594:42: error: \u2018uvm_hal_pascal_disable_replayable_faults\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_disable_replayable_faults\u2019?",
+    "nvidia-uvm/uvm_hal.c:595:40: error: \u2018uvm_hal_pascal_clear_replayable_faults\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_clear_replayable_faults\u2019?",
+    "nvidia-uvm/uvm_hal.c:596:25: error: \u2018uvm_hal_pascal_fault_buffer_read_put\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_fault_buffer_read_put\u2019?",
+    "nvidia-uvm/uvm_hal.c:597:25: error: \u2018uvm_hal_pascal_fault_buffer_read_get\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_fault_buffer_read_get\u2019?",
+    "nvidia-uvm/uvm_hal.c:598:26: error: \u2018uvm_hal_pascal_fault_buffer_write_get\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_rubin_fault_buffer_write_get\u2019?",
+    "nvidia-uvm/uvm_hal.c:599:39: error: \u2018uvm_hal_pascal_fault_buffer_parse_replayable_entry\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_fault_buffer_parse_replayable_entry\u2019?",
+    "nvidia-uvm/uvm_hal.c:600:31: error: \u2018uvm_hal_pascal_fault_buffer_entry_is_valid\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_pascal_fault_buffer_entry_clear_valid\u2019?",
+    "nvidia-uvm/uvm_hal.c:602:27: error: \u2018uvm_hal_pascal_fault_buffer_entry_size\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_fault_buffer_entry_size\u2019?",
+    "nvidia-uvm/uvm_hal.c:603:31: error: \u2018uvm_hal_pascal_fault_buffer_get_fault_type\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_fault_buffer_get_fault_type\u2019?",
+    "nvidia-uvm/uvm_hal.c:610:25: error: \u2018uvm_hal_volta_fault_buffer_read_put\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_fault_buffer_read_put\u2019?",
+    "nvidia-uvm/uvm_hal.c:611:25: error: \u2018uvm_hal_volta_fault_buffer_read_get\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_fault_buffer_read_get\u2019?",
+    "nvidia-uvm/uvm_hal.c:612:26: error: \u2018uvm_hal_volta_fault_buffer_write_get\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_rubin_fault_buffer_write_get\u2019?",
+    "nvidia-uvm/uvm_hal.c:613:26: error: \u2018uvm_hal_volta_fault_buffer_get_ve_id\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_fault_buffer_get_ve_id\u2019?",
+    "nvidia-uvm/uvm_hal.c:614:36: error: \u2018uvm_hal_volta_fault_buffer_get_mmu_engine_type\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_fault_buffer_get_mmu_engine_type\u2019?",
+    "nvidia-uvm/uvm_hal.c:615:39: error: \u2018uvm_hal_volta_fault_buffer_parse_replayable_entry\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_fault_buffer_parse_replayable_entry\u2019?",
+    "nvidia-uvm/uvm_hal.c:616:43: error: \u2018uvm_hal_volta_fault_buffer_parse_non_replayable_entry\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_fault_buffer_parse_non_replayable_entry\u2019?",
+    "nvidia-uvm/uvm_hal.c:617:31: error: \u2018uvm_hal_volta_fault_buffer_get_fault_type\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_fault_buffer_get_fault_type\u2019?",
+    "nvidia-uvm/uvm_hal.c:687:53: error: \u2018uvm_hal_maxwell_enable_access_counter_notifications_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_enable_access_counter_notifications_t\u2019?",
+    "nvidia-uvm/uvm_hal.c:688:53: error: \u2018uvm_hal_maxwell_disable_access_counter_notifications_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_disable_access_counter_notifications_t\u2019?",
+    "nvidia-uvm/uvm_hal.c:689:51: error: \u2018uvm_hal_maxwell_clear_access_counter_notifications_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_clear_access_counter_notifications_t\u2019?",
+    "nvidia-uvm/uvm_hal.c:690:28: error: \u2018uvm_hal_maxwell_access_counter_buffer_parse_entry_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_access_counter_buffer_parse_entry_t\u2019?",
+    "nvidia-uvm/uvm_hal.c:691:31: error: \u2018uvm_hal_maxwell_access_counter_buffer_entry_is_valid_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_access_counter_buffer_entry_is_valid_t\u2019?",
+    "nvidia-uvm/uvm_hal.c:692:34: error: \u2018uvm_hal_maxwell_access_counter_buffer_entry_clear_valid_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_access_counter_buffer_entry_clear_valid_t\u2019?",
+    "nvidia-uvm/uvm_hal.c:693:27: error: \u2018uvm_hal_maxwell_access_counter_buffer_entry_size_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_access_counter_buffer_entry_size_t\u2019?",
+    "nvidia-uvm/uvm_hal.c:761:21: error: \u2018uvm_hal_maxwell_sec2_init_noop\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_sec2_init_noop\u2019?",
+    "nvidia-uvm/uvm_hal.c:762:24: error: \u2018uvm_hal_maxwell_sec2_decrypt_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_sec2_decrypt_unsupported\u2019?",
+    "nvidia-uvm/uvm_hal.c:763:34: error: \u2018uvm_hal_maxwell_sec2_semaphore_release_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_sec2_semaphore_release_unsupported\u2019?",
+    "nvidia-uvm/uvm_hal.c:764:36: error: \u2018uvm_hal_maxwell_sec2_semaphore_timestamp_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_sec2_semaphore_timestamp_unsupported\u2019?",
+    "make[4]: *** [/usr/src/linux-headers-7.0.0-38-generic/scripts/Makefile.build:289: nvidia-uvm/uvm_hal.o] Error 1",
+    "make[3]: *** [/usr/src/linux-headers-7.0.0-38-generic/Makefile:2139: .] Error 2",
+    "make[2]: *** [/usr/src/linux-headers-7.0.0-38-generic/Makefile:248: __sub-make] Error 2",
+    "make[1]: *** [Makefile:248: __sub-make] Error 2",
+    "make: *** [Makefile:115: modules] Error 2"
+  ],
+  "build_exit_code": 2,
+  "build_log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r61571-r580178-full-uvm-ancestry-probe-v4-20261023/uvm-port-build.log",
+  "build_log_sha256": "37fc3d58a9d313be58f23f5a5a0536402fe2a95d15a0b10596c11c4790686fb2",
+  "build_log_size_bytes": 1435003,
+  "callback_ancestor_compile_adaptations": [
+    "restore the R580 Pascal fault-buffer clear-valid prototype in the R615 HAL header;",
+    "preserve the R580 unsupported-Maxwell clear-op NONE encoding as enum value 0 for compilation only; R615 interprets enum 0 as TARGETED, so runtime use is invalid"
+  ],
+  "callback_ancestry_compile_probe_only": true,
+  "command": [
+    "make",
+    "-C",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r61571-r580178-full-uvm-ancestry-probe-v4-20261023",
+    "NV_KERNEL_MODULES=nvidia nvidia-uvm",
+    "modules",
+    "-j12"
+  ],
+  "compatibility_pruned_assignments": [
+    "parent_gpu->tlb_batch.va_invalidate_supported = true;",
+    "parent_gpu->tlb_batch.va_range_invalidate_supported = true;",
+    "parent_gpu->can_map_sysmem_with_large_pages = true;",
+    "parent_gpu->prefetch_fault_supported = true;",
+    "parent_gpu->gpfifo_in_vidmem_supported = true;",
+    "parent_gpu->replayable_faults_supported = true;",
+    "parent_gpu->non_replayable_faults_supported = true;",
+    "parent_gpu->fault_cancel_va_supported = true;",
+    "parent_gpu->scoped_atomics_supported = true;",
+    "parent_gpu->sparse_mappings_supported = true;",
+    "parent_gpu->plc_supported = false;"
+  ],
+  "compile_probe_adapter": true,
+  "compile_probe_only": true,
+  "compile_probe_signature_adaptations": [
+    "unmapped_pte_pascal(NvU64 page_size) -> unmapped_pte_pascal(void)",
+    "poisoned_pte_pascal(void) -> poisoned_pte_pascal(uvm_page_tree_t *tree)"
+  ],
+  "compiled_port_objects": [
+    "nvidia-uvm/uvm_maxwell_access_counter_buffer.o",
+    "nvidia-uvm/uvm_maxwell_ce.o",
+    "nvidia-uvm/uvm_maxwell_host.o",
+    "nvidia-uvm/uvm_maxwell_sec2.o",
+    "nvidia-uvm/uvm_pascal_ce.o",
+    "nvidia-uvm/uvm_pascal_fault_buffer.o",
+    "nvidia-uvm/uvm_pascal_host.o",
+    "nvidia-uvm/uvm_pascal_mmu.o",
+    "nvidia-uvm/uvm_volta.o",
+    "nvidia-uvm/uvm_volta_ce.o",
+    "nvidia-uvm/uvm_volta_fault_buffer.o",
+    "nvidia-uvm/uvm_volta_host.o",
+    "nvidia-uvm/uvm_volta_mmu.o"
+  ],
+  "compiled_volta_objects": [
+    "nvidia-uvm/uvm_volta.o",
+    "nvidia-uvm/uvm_volta_ce.o",
+    "nvidia-uvm/uvm_volta_fault_buffer.o",
+    "nvidia-uvm/uvm_volta_host.o",
+    "nvidia-uvm/uvm_volta_mmu.o"
+  ],
+  "copied_callback_ancestor_dependencies": [
+    "cla16f.h",
+    "clb06f.h",
+    "clb0b5.h",
+    "clc0b5.h",
+    "clc06f.h",
+    "uvm_pascal_fault_buffer.h",
+    "hwref/pascal/gp100/dev_fault.h",
+    "hwref/pascal/gp100/dev_fb.h",
+    "hwref/pascal/gp100/dev_mmu.h"
+  ],
+  "copied_files_sha256": {
+    "cla16f.h": "bad829681de7efa2b0b5a899cd0df4eed2a8e337098932fcfdfc61e4375dbe12",
+    "clb06f.h": "48cba94a1edd05c55ef3b948a64a411a579bb7442d46938332d78cf3d6ab7ecc",
+    "clb0b5.h": "169d958bfa379bfdf24c4656f02265ff5bcf22a2866724ee4299138d29df5332",
+    "clc06f.h": "708c3777a1dac7c65c48aa62de3a8fce38ab4d13da947f552eac6d7a58168382",
+    "clc0b5.h": "595388a2bcf9bf7d9ae90aa013a562872fa37246f24c7c6ac151a77b3e9b8fe9",
+    "clc36f.h": "56cbabbaf8c63cb2e2c0200dec3c18371d46772b0fcf903ab230d0de3b36c70b",
+    "clc3b5.h": "c6321efb3a6581d384495ac735bb80e8c0b1472d73e9043fefc973e25f2d5744",
+    "hwref/pascal/gp100/dev_fault.h": "5b0fd9e20e1850b620f24997c76b789f63292bbdba2b0ed1dd39733477eac9b0",
+    "hwref/pascal/gp100/dev_fb.h": "a2951aeb2889f405b4f269dbe9028bed050e25b99eb45a6b573707c3e532be81",
+    "hwref/pascal/gp100/dev_mmu.h": "40ff19f4b3c95ec7ffe457fe30602770ac627345a4bec24beddb14229e09f7b2",
+    "hwref/volta/gv100/dev_fault.h": "acef4b2abb4feb8f1935b659f7cbf52e3d02e4786ce176cda4d76dd70f54bc13",
+    "hwref/volta/gv100/dev_fb.h": "0175a270fa5af9d3a62d7fda2c9e536b58551db6bb1e9c123b84ffeec9a32584",
+    "hwref/volta/gv100/dev_mmu.h": "6a2656ab46cc7cdfe92c6ab12c7c5246c5d2819651add7a34b2d47fd2e13c483",
+    "uvm_maxwell_access_counter_buffer.c": "09450615b001caebee8776f8a507679453a747508c0fb69e017ad119ac18150f",
+    "uvm_maxwell_ce.c": "917111014f1400fc97046fe3e4812e60fa98955e7945c67c10d9ee5b95760890",
+    "uvm_maxwell_host.c": "55eda4a6b6852a40a3be8870bf3865c50dc106acb14e7e9fc1247669f836c2b8",
+    "uvm_maxwell_sec2.c": "47f6af9905d9a0ac4be2b290fcc76a54aaa168906afe33359214a5d01d8732d7",
+    "uvm_pascal_ce.c": "7a79e535258bd75992606b61097cc77f2dd7db6640c3b0a560e65d728d58ad5b",
+    "uvm_pascal_fault_buffer.c": "a4cafceee01aac86cb2a4a0527729f28ec6cbc17ff34ec7150d5a5fa0dd7df52",
+    "uvm_pascal_fault_buffer.h": "9fab2cf9cf645ebca86c4ab68b7625d1273fa3c6cacb132f0dd56bd1ba1b0f09",
+    "uvm_pascal_host.c": "c8d125fd53813d50c7fe97ce4b768333aea8f5bde35d51abfcd2f9c0554cf407",
+    "uvm_pascal_mmu.c": "0917c435215bcf640628d7f99ab1c5aed25ca1d4a487d8be0c1a17c2044e0ca5",
+    "uvm_volta.c": "ca662fc33698586ec524c939593b6a67fb196d1b03fc6eea19116e5a0553254e",
+    "uvm_volta_ce.c": "fd8758e28cf978335a97de557ee77e2f7c0797ff49f5363183fc99fbab657d3b",
+    "uvm_volta_fault_buffer.c": "d0b8cfcf715246b49741314e0009b78c798719b634269ee44a75ee12f9874e77",
+    "uvm_volta_fault_buffer.h": "3f9696a50f96a62f68d2402ff6e93f98f9c32a1a7c1add2c9ae555d9867f239e",
+    "uvm_volta_host.c": "582c18a24986db6de49ce0c36fa98430062324b0bffd7e2390b2451e5b45f3fb",
+    "uvm_volta_mmu.c": "a4ff6d7ea69fbef25cad7ef1e7b85c3c8fe85e6e9cd1f3be4306a274d3f8e709"
+  },
+  "copied_volta_source_count": 6,
+  "dispatch_ancestors_compile_probe_only": true,
+  "errors": [
+    {
+      "column": "21",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "124",
+      "message": "\u2018uvm_hal_maxwell_ce_init\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_ce_init\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "34",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "126",
+      "message": "\u2018uvm_hal_maxwell_ce_semaphore_release\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_semaphore_release\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "36",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "127",
+      "message": "\u2018uvm_hal_maxwell_ce_semaphore_timestamp\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_semaphore_timestamp\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "40",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "128",
+      "message": "\u2018uvm_hal_maxwell_ce_semaphore_reduction_inc\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_semaphore_reduction_inc\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "42",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "129",
+      "message": "\u2018uvm_hal_maxwell_semaphore_target_is_valid\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_semaphore_target_is_valid\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "27",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "130",
+      "message": "\u2018uvm_hal_maxwell_ce_offset_out\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_offset_out\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "30",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "131",
+      "message": "\u2018uvm_hal_maxwell_ce_offset_in_out\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_offset_in_out\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "26",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "132",
+      "message": "\u2018uvm_hal_maxwell_ce_phys_mode\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_ampere_ce_phys_mode\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "25",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "133",
+      "message": "\u2018uvm_hal_maxwell_ce_plc_mode\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_ce_plc_mode\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "34",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "134",
+      "message": "\u2018uvm_hal_maxwell_ce_memcopy_copy_type\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_memcopy_copy_type\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "33",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "135",
+      "message": "\u2018uvm_hal_maxwell_ce_memcopy_is_valid\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_blackwell_ce_memcopy_is_valid\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "24",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "137",
+      "message": "\u2018uvm_hal_maxwell_ce_memcopy\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_ce_memcopy\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "31",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "138",
+      "message": "\u2018uvm_hal_maxwell_ce_memcopy_v_to_v\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_ce_memcopy_v_to_v\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "32",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "139",
+      "message": "\u2018uvm_hal_maxwell_ce_memset_is_valid\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_memset_is_valid\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "25",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "140",
+      "message": "\u2018uvm_hal_maxwell_ce_memset_1\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_memset_1\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "25",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "141",
+      "message": "\u2018uvm_hal_maxwell_ce_memset_4\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_memset_4\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "25",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "142",
+      "message": "\u2018uvm_hal_maxwell_ce_memset_8\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_memset_8\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "27",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "143",
+      "message": "\u2018uvm_hal_maxwell_ce_memset_v_4\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_ce_memset_v_4\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "24",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "144",
+      "message": "\u2018uvm_hal_maxwell_ce_encrypt_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_ce_encrypt_unsupported\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "24",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "145",
+      "message": "\u2018uvm_hal_maxwell_ce_decrypt_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_ce_decrypt_unsupported\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "34",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "152",
+      "message": "\u2018uvm_hal_pascal_ce_semaphore_release\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_semaphore_release\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "36",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "153",
+      "message": "\u2018uvm_hal_pascal_ce_semaphore_timestamp\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_semaphore_timestamp\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "40",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "154",
+      "message": "\u2018uvm_hal_pascal_ce_semaphore_reduction_inc\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_semaphore_reduction_inc\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "27",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "155",
+      "message": "\u2018uvm_hal_pascal_ce_offset_out\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_offset_out\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "30",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "156",
+      "message": "\u2018uvm_hal_pascal_ce_offset_in_out\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_offset_in_out\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "34",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "168",
+      "message": "\u2018uvm_hal_volta_ce_semaphore_release\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_semaphore_release\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "36",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "169",
+      "message": "\u2018uvm_hal_volta_ce_semaphore_timestamp\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_semaphore_timestamp\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "40",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "170",
+      "message": "\u2018uvm_hal_volta_ce_semaphore_reduction_inc\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_semaphore_reduction_inc\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "24",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "171",
+      "message": "\u2018uvm_hal_volta_ce_memcopy\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_ce_memcopy\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "25",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "172",
+      "message": "\u2018uvm_hal_volta_ce_memset_1\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_memset_1\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "25",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "173",
+      "message": "\u2018uvm_hal_volta_ce_memset_4\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_memset_4\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "25",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "174",
+      "message": "\u2018uvm_hal_volta_ce_memset_8\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_ce_memset_8\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "21",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "268",
+      "message": "\u2018uvm_hal_maxwell_host_init_noop\u2019 undeclared here (not in a function)",
+      "severity": "error"
+    },
+    {
+      "column": "30",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "271",
+      "message": "\u2018uvm_hal_maxwell_host_wait_for_idle\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_wait_for_idle\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "27",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "272",
+      "message": "\u2018uvm_hal_maxwell_host_membar_sys\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_membar_sys\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "21",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "276",
+      "message": "\u2018uvm_hal_maxwell_host_noop\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_noop\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "26",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "277",
+      "message": "\u2018uvm_hal_maxwell_host_interrupt\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_interrupt\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "34",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "278",
+      "message": "\u2018uvm_hal_maxwell_host_semaphore_acquire\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_host_semaphore_acquire\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "34",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "279",
+      "message": "\u2018uvm_hal_maxwell_host_semaphore_release\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_host_semaphore_release\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "36",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "280",
+      "message": "\u2018uvm_hal_maxwell_host_semaphore_timestamp\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_host_semaphore_timestamp\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "33",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "282",
+      "message": "\u2018uvm_hal_maxwell_host_set_gpfifo_entry\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_host_set_gpfifo_entry\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "32",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "283",
+      "message": "\u2018uvm_hal_maxwell_host_set_gpfifo_noop\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_set_gpfifo_noop\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "51",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "284",
+      "message": "\u2018uvm_hal_maxwell_host_set_gpfifo_pushbuffer_segment_base_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_set_gpfifo_pushbuffer_segment_base_unsupported\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "30",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "285",
+      "message": "\u2018uvm_hal_maxwell_host_write_gpu_put\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_write_gpu_put\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "35",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "286",
+      "message": "\u2018uvm_hal_maxwell_host_tlb_invalidate_all_a16f\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_blackwell_host_tlb_invalidate_all\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "34",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "287",
+      "message": "\u2018uvm_hal_maxwell_host_tlb_invalidate_va\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_blackwell_host_tlb_invalidate_va\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "36",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "288",
+      "message": "\u2018uvm_hal_maxwell_host_tlb_invalidate_phys_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_tlb_invalidate_phys_unsupported\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "36",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "289",
+      "message": "\u2018uvm_hal_maxwell_host_tlb_invalidate_test\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_blackwell_host_tlb_invalidate_test\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "35",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "290",
+      "message": "\u2018uvm_hal_maxwell_host_tlb_flush_prefetch_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_tlb_flush_prefetch_unsupported\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "30",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "291",
+      "message": "\u2018uvm_hal_maxwell_replay_faults_unsupported\u2019 undeclared here (not in a function)",
+      "severity": "error"
+    },
+    {
+      "column": "37",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "292",
+      "message": "\u2018uvm_hal_maxwell_cancel_faults_global_unsupported\u2019 undeclared here (not in a function)",
+      "severity": "error"
+    },
+    {
+      "column": "39",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "293",
+      "message": "\u2018uvm_hal_maxwell_cancel_faults_targeted_unsupported\u2019 undeclared here (not in a function)",
+      "severity": "error"
+    },
+    {
+      "column": "33",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "294",
+      "message": "\u2018uvm_hal_maxwell_cancel_faults_va_unsupported\u2019 undeclared here (not in a function)",
+      "severity": "error"
+    },
+    {
+      "column": "48",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "295",
+      "message": "\u2018uvm_hal_maxwell_host_clear_faulted_channel_sw_method_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_clear_faulted_channel_sw_method_unsupported\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "45",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "296",
+      "message": "\u2018uvm_hal_maxwell_host_clear_faulted_channel_method_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_clear_faulted_channel_sw_method_unsupported\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "47",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "297",
+      "message": "\u2018uvm_hal_maxwell_host_clear_faulted_channel_register_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_clear_faulted_channel_register_unsupported\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "41",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "298",
+      "message": "\u2018uvm_hal_maxwell_access_counter_clear_all_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_access_counter_clear_all_t\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "46",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "299",
+      "message": "\u2018uvm_hal_maxwell_access_counter_clear_targeted_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_access_counter_clear_targeted_t\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "46",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "300",
+      "message": "\u2018uvm_hal_maxwell_access_counter_query_clear_op_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_blackwell_access_counter_query_clear_op_gb20x\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "25",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "302",
+      "message": "\u2018uvm_hal_maxwell_get_time\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_get_time\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "35",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "310",
+      "message": "\u2018uvm_hal_maxwell_host_tlb_invalidate_all_b06f\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_blackwell_host_tlb_invalidate_all\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "21",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "317",
+      "message": "\u2018uvm_hal_pascal_host_init\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_init\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "27",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "318",
+      "message": "\u2018uvm_hal_pascal_host_membar_sys\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_membar_sys\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "27",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "319",
+      "message": "\u2018uvm_hal_pascal_host_membar_gpu\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_membar_gpu\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "35",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "320",
+      "message": "\u2018uvm_hal_pascal_host_tlb_invalidate_all\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_host_tlb_invalidate_all\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "34",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "321",
+      "message": "\u2018uvm_hal_pascal_host_tlb_invalidate_va\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_host_tlb_invalidate_va\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "36",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "322",
+      "message": "\u2018uvm_hal_pascal_host_tlb_invalidate_test\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_host_tlb_invalidate_test\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "30",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "323",
+      "message": "\u2018uvm_hal_pascal_replay_faults\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_replay_faults\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "37",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "324",
+      "message": "\u2018uvm_hal_pascal_cancel_faults_global\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_cancel_faults_global\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "39",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "325",
+      "message": "\u2018uvm_hal_pascal_cancel_faults_targeted\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_cancel_faults_targeted\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "30",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "332",
+      "message": "\u2018uvm_hal_volta_host_write_gpu_put\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_write_gpu_put\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "34",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "333",
+      "message": "\u2018uvm_hal_volta_host_tlb_invalidate_va\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_host_tlb_invalidate_va\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "30",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "334",
+      "message": "\u2018uvm_hal_volta_replay_faults\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_replay_faults\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "33",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "335",
+      "message": "\u2018uvm_hal_volta_cancel_faults_va\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_cancel_faults_va\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "45",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "336",
+      "message": "\u2018uvm_hal_volta_host_clear_faulted_channel_method\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_host_clear_faulted_channel_method\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "36",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "337",
+      "message": "\u2018uvm_hal_volta_host_semaphore_timestamp\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_host_semaphore_timestamp\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "32",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "437",
+      "message": "\u2018uvm_hal_maxwell_arch_init_properties\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_blackwell_arch_init_properties\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "29",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "438",
+      "message": "\u2018uvm_hal_mmu_mode_maxwell\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_mmu_mode_blackwell\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "39",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "439",
+      "message": "\u2018uvm_hal_maxwell_mmu_enable_prefetch_faults_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_mmu_enable_prefetch_faults_t\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "40",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "440",
+      "message": "\u2018uvm_hal_maxwell_mmu_disable_prefetch_faults_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_mmu_disable_prefetch_faults_t\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "41",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "441",
+      "message": "\u2018uvm_hal_maxwell_mmu_client_id_to_utlb_id_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_blackwell_mmu_client_id_to_utlb_id\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "32",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "453",
+      "message": "\u2018uvm_hal_pascal_arch_init_properties\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_ada_arch_init_properties\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "29",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "454",
+      "message": "initialization of \u2018uvm_mmu_mode_hal_t * (*)(void)\u2019 {aka \u2018struct uvm_mmu_mode_hal_struct * (*)(void)\u2019} from incompatible pointer type \u2018uvm_mmu_mode_hal_t * (*)(NvU64)\u2019 {aka \u2018struct uvm_mmu_mode_hal_struct * (*)(long long unsigned int)\u2019} [-Wincompatible-pointer-types]",
+      "severity": "error"
+    },
+    {
+      "column": "39",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "455",
+      "message": "\u2018uvm_hal_pascal_mmu_enable_prefetch_faults\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_mmu_enable_prefetch_faults\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "40",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "456",
+      "message": "\u2018uvm_hal_pascal_mmu_disable_prefetch_faults\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_mmu_disable_prefetch_faults\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "41",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "457",
+      "message": "\u2018uvm_hal_pascal_mmu_client_id_to_utlb_id\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_rubin_mmu_client_id_to_utlb_id\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "32",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "464",
+      "message": "\u2018uvm_hal_volta_arch_init_properties\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_ada_arch_init_properties\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "29",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "465",
+      "message": "\u2018uvm_hal_mmu_mode_volta\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_mmu_mode_rubin\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "41",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "466",
+      "message": "\u2018uvm_hal_volta_mmu_client_id_to_utlb_id\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_rubin_mmu_client_id_to_utlb_id\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "42",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "568",
+      "message": "\u2018uvm_hal_maxwell_enable_replayable_faults_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_enable_replayable_faults_t\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "42",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "569",
+      "message": "\u2018uvm_hal_maxwell_disable_replayable_faults_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_disable_replayable_faults_t\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "40",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "570",
+      "message": "\u2018uvm_hal_maxwell_clear_replayable_faults_unsupported\u2019 undeclared here (not in a function)",
+      "severity": "error"
+    },
+    {
+      "column": "25",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "571",
+      "message": "\u2018uvm_hal_maxwell_fault_buffer_read_put_unsupported\u2019 undeclared here (not in a function)",
+      "severity": "error"
+    },
+    {
+      "column": "25",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "572",
+      "message": "\u2018uvm_hal_maxwell_fault_buffer_read_get_unsupported\u2019 undeclared here (not in a function)",
+      "severity": "error"
+    },
+    {
+      "column": "26",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "573",
+      "message": "\u2018uvm_hal_maxwell_fault_buffer_write_get_unsupported\u2019 undeclared here (not in a function)",
+      "severity": "error"
+    },
+    {
+      "column": "26",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "574",
+      "message": "\u2018uvm_hal_maxwell_fault_buffer_get_ve_id_unsupported\u2019 undeclared here (not in a function)",
+      "severity": "error"
+    },
+    {
+      "column": "36",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "575",
+      "message": "\u2018uvm_hal_maxwell_fault_buffer_get_mmu_engine_type_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_blackwell_fault_buffer_get_mmu_engine_type\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "39",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "576",
+      "message": "\u2018uvm_hal_maxwell_fault_buffer_parse_replayable_entry_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_fault_buffer_parse_replayable_entry_t\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "31",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "577",
+      "message": "\u2018uvm_hal_maxwell_fault_buffer_entry_is_valid_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_fault_buffer_entry_is_valid_t\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "34",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "578",
+      "message": "\u2018uvm_hal_maxwell_fault_buffer_entry_clear_valid_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_pascal_fault_buffer_entry_clear_valid\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "27",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "579",
+      "message": "\u2018uvm_hal_maxwell_fault_buffer_entry_size_unsupported\u2019 undeclared here (not in a function)",
+      "severity": "error"
+    },
+    {
+      "column": "43",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "580",
+      "message": "\u2018uvm_hal_maxwell_fault_buffer_parse_non_replayable_entry_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_fault_buffer_parse_non_replayable_entry_t\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "31",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "581",
+      "message": "\u2018uvm_hal_maxwell_fault_buffer_get_fault_type_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_blackwell_fault_buffer_get_fault_type\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "42",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "593",
+      "message": "\u2018uvm_hal_pascal_enable_replayable_faults\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_enable_replayable_faults\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "42",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "594",
+      "message": "\u2018uvm_hal_pascal_disable_replayable_faults\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_disable_replayable_faults\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "40",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "595",
+      "message": "\u2018uvm_hal_pascal_clear_replayable_faults\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_clear_replayable_faults\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "25",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "596",
+      "message": "\u2018uvm_hal_pascal_fault_buffer_read_put\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_fault_buffer_read_put\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "25",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "597",
+      "message": "\u2018uvm_hal_pascal_fault_buffer_read_get\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_fault_buffer_read_get\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "26",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "598",
+      "message": "\u2018uvm_hal_pascal_fault_buffer_write_get\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_rubin_fault_buffer_write_get\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "39",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "599",
+      "message": "\u2018uvm_hal_pascal_fault_buffer_parse_replayable_entry\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_fault_buffer_parse_replayable_entry\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "31",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "600",
+      "message": "\u2018uvm_hal_pascal_fault_buffer_entry_is_valid\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_pascal_fault_buffer_entry_clear_valid\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "27",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "602",
+      "message": "\u2018uvm_hal_pascal_fault_buffer_entry_size\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_fault_buffer_entry_size\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "31",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "603",
+      "message": "\u2018uvm_hal_pascal_fault_buffer_get_fault_type\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_fault_buffer_get_fault_type\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "25",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "610",
+      "message": "\u2018uvm_hal_volta_fault_buffer_read_put\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_fault_buffer_read_put\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "25",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "611",
+      "message": "\u2018uvm_hal_volta_fault_buffer_read_get\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_fault_buffer_read_get\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "26",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "612",
+      "message": "\u2018uvm_hal_volta_fault_buffer_write_get\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_rubin_fault_buffer_write_get\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "26",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "613",
+      "message": "\u2018uvm_hal_volta_fault_buffer_get_ve_id\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_fault_buffer_get_ve_id\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "36",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "614",
+      "message": "\u2018uvm_hal_volta_fault_buffer_get_mmu_engine_type\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_fault_buffer_get_mmu_engine_type\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "39",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "615",
+      "message": "\u2018uvm_hal_volta_fault_buffer_parse_replayable_entry\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_fault_buffer_parse_replayable_entry\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "43",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "616",
+      "message": "\u2018uvm_hal_volta_fault_buffer_parse_non_replayable_entry\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_fault_buffer_parse_non_replayable_entry\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "31",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "617",
+      "message": "\u2018uvm_hal_volta_fault_buffer_get_fault_type\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_fault_buffer_get_fault_type\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "53",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "687",
+      "message": "\u2018uvm_hal_maxwell_enable_access_counter_notifications_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_enable_access_counter_notifications_t\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "53",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "688",
+      "message": "\u2018uvm_hal_maxwell_disable_access_counter_notifications_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_disable_access_counter_notifications_t\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "51",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "689",
+      "message": "\u2018uvm_hal_maxwell_clear_access_counter_notifications_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_clear_access_counter_notifications_t\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "28",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "690",
+      "message": "\u2018uvm_hal_maxwell_access_counter_buffer_parse_entry_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_access_counter_buffer_parse_entry_t\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "31",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "691",
+      "message": "\u2018uvm_hal_maxwell_access_counter_buffer_entry_is_valid_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_access_counter_buffer_entry_is_valid_t\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "34",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "692",
+      "message": "\u2018uvm_hal_maxwell_access_counter_buffer_entry_clear_valid_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_access_counter_buffer_entry_clear_valid_t\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "27",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "693",
+      "message": "\u2018uvm_hal_maxwell_access_counter_buffer_entry_size_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_access_counter_buffer_entry_size_t\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "21",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "761",
+      "message": "\u2018uvm_hal_maxwell_sec2_init_noop\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_sec2_init_noop\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "24",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "762",
+      "message": "\u2018uvm_hal_maxwell_sec2_decrypt_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_sec2_decrypt_unsupported\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "34",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "763",
+      "message": "\u2018uvm_hal_maxwell_sec2_semaphore_release_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_turing_sec2_semaphore_release_unsupported\u2019?",
+      "severity": "error"
+    },
+    {
+      "column": "36",
+      "file": "nvidia-uvm/uvm_hal.c",
+      "line": "764",
+      "message": "\u2018uvm_hal_maxwell_sec2_semaphore_timestamp_unsupported\u2019 undeclared here (not in a function); did you mean \u2018uvm_hal_hopper_sec2_semaphore_timestamp_unsupported\u2019?",
+      "severity": "error"
+    }
+  ],
+  "expected_port_sources_compiled": [
+    "uvm_maxwell_access_counter_buffer.c",
+    "uvm_maxwell_ce.c",
+    "uvm_maxwell_host.c",
+    "uvm_maxwell_sec2.c",
+    "uvm_pascal_ce.c",
+    "uvm_pascal_fault_buffer.c",
+    "uvm_pascal_host.c",
+    "uvm_pascal_mmu.c",
+    "uvm_volta.c",
+    "uvm_volta_ce.c",
+    "uvm_volta_fault_buffer.c",
+    "uvm_volta_host.c",
+    "uvm_volta_mmu.c"
+  ],
+  "expected_port_sources_compiled_this_run": true,
+  "expected_r580_archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+  "expected_volta_sources_compiled": [
+    "uvm_maxwell_access_counter_buffer.c",
+    "uvm_maxwell_ce.c",
+    "uvm_maxwell_host.c",
+    "uvm_maxwell_sec2.c",
+    "uvm_pascal_ce.c",
+    "uvm_pascal_fault_buffer.c",
+    "uvm_pascal_host.c",
+    "uvm_pascal_mmu.c",
+    "uvm_volta.c",
+    "uvm_volta_ce.c",
+    "uvm_volta_fault_buffer.c",
+    "uvm_volta_host.c",
+    "uvm_volta_mmu.c"
+  ],
+  "expected_volta_sources_compiled_this_run": true,
+  "legacy_prefetch_capability_assertion_removed": true,
+  "license_text_detected": true,
+  "linkage_trace_found": false,
+  "linkage_trace_lines": [],
+  "loaded_or_installed": false,
+  "module_changed_by_build": false,
+  "module_elf_valid": false,
+  "module_exists": false,
+  "module_linked": false,
+  "module_linked_this_run": false,
+  "module_sha256": null,
+  "preserved_target_interface_headers": [
+    {
+      "path": "common/inc/nv_uvm_interface.h",
+      "required_declarations": [
+        "nvUvmInterfaceRegisterUvmEvents",
+        "nvUvmInterfaceDeRegisterUvmEvents",
+        "nvUvmInterfaceAccessBitsBufAlloc",
+        "nvUvmInterfaceAccessBitsDump",
+        "nvUvmInterfaceAccessBitsBufFree"
+      ],
+      "sha256": "4d8e4f46bc2afc99cb074f425f459b98ca072d50b91e25b7085db0df0081c89d"
+    }
+  ],
+  "r580_archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+  "r580_source_archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+  "r580_source_root": "NVIDIA-kernel-module-source-580.178.04",
+  "r595_source": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/extracted-r615-71-10-package/kernel-open",
+  "restored_dispatch_ancestor_row_sha256": {
+    "access_counter_buffer_table": [
+      "e134dab36e4c9a60ba0b923f3839377519d8c72720ae53c9014705e6f6b26ab2",
+      "354c3a88974e644b0195a04a037ef49a7c57e0ca3fba28d47fd2af97645dd63d",
+      "20b3b198e45d41507a8c3c31945eecbc72736482a96f51e12b67910f09bd4090",
+      "54d0042f71e2a9bd0529d5072b137bbd7653c6491e8397769fec128fd8b010a3"
+    ],
+    "arch_table": [
+      "865644387088100ac47249cdbfc1c2daa92d7d1dcb064ce1f30efe0e50e20cbd",
+      "79a4c98a755efbe24d7b43e63153e63b30b10ea236596561e07d76444218907c",
+      "65fdfc01904cecbd3e3bacc94730e58d46b34e51f0a8de286dd102d07d131160",
+      "fcb606994a260fb1ed9eb3610fe8ad303cb05c7995f27ca67b84e636e5b7004b"
+    ],
+    "ce_table": [
+      "ee0f2dc64e961d0660ad622939547bb136163e97a77d59974dbf58cc8e226870",
+      "5080466fd5e1d588f505f15ba7c54c80c2bbff016f83eef103bdc4b160205e9e",
+      "7b0c1285912788b9e00eb6fe099c42ee3f7f2d310f0f36afd9b862a8c9db205a",
+      "23fc6c501e524532f9347c031e7cb479d1207f379591164010bd0ab76ff76bac"
+    ],
+    "fault_buffer_table": [
+      "879d9b3a91ecef62ed1593f4dc2777ea9367f2dd1bc7e011acfecc003d0ec8a3",
+      "ef7eff1710b44eb8519b3ba07d403c6b92d3f514bbdeb42a5655032f17c93453",
+      "d9c6fec31478d5cf19263748d75a0a5f714e05c8045f26aa1544683a7e235e00",
+      "90e97991d1f95cc86047e210bfc4ee14d9922bd1b0a295edbb7fcee553d6fc90"
+    ],
+    "host_table": [
+      "ed5e9e37e2e38558e68a3ce4fdbf8afad290e0effd555ba089269ac51be48368",
+      "7cbd2dd7b1298052d69e799108e2acc2abea36e777dbf9f514a1e51cfda62756",
+      "aff9c659c4293e92f72fae0697500e51e7cb11082f7006fae59b0bff067411ad",
+      "ca68eaf3ecbc846ee9ebd4fa9f1fbe8b3101b6b66a3753a626687c734d6630e9"
+    ],
+    "sec2_table": [
+      "f4a73266b3dc56ff51dae2f4c589afeb152772e6d0b4fceee25fd02e5266e5e8",
+      "f850ef68f807ac60c874fd4a2c8935282e8637dc733a8d01c53574f37295a0b4",
+      "7cabd85c6702f31cea8b423ca425c070e8be767fdd311d80ca0f52fd376fb89a",
+      "8b83e63733aca5cfc1230e2e36d50299ea9460d96ea568b423d9d4ca20a97491"
+    ]
+  },
+  "restored_dispatch_ancestor_rows": {
+    "access_counter_buffer_table": [
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM000",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM200",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GP100",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100"
+    ],
+    "arch_table": [
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM000",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM200",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GP100",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100"
+    ],
+    "ce_table": [
+      "MAXWELL_DMA_COPY_A",
+      "PASCAL_DMA_COPY_A",
+      "PASCAL_DMA_COPY_B",
+      "VOLTA_DMA_COPY_A"
+    ],
+    "fault_buffer_table": [
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM000",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM200",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GP100",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100"
+    ],
+    "host_table": [
+      "KEPLER_CHANNEL_GPFIFO_B",
+      "MAXWELL_CHANNEL_GPFIFO_A",
+      "PASCAL_CHANNEL_GPFIFO_A",
+      "VOLTA_CHANNEL_GPFIFO_A"
+    ],
+    "sec2_table": [
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM000",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM200",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GP100",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100"
+    ]
+  },
+  "restored_dispatch_class_id_values": {
+    "KEPLER_CHANNEL_GPFIFO_B": "0x0000A16F",
+    "MAXWELL_CHANNEL_GPFIFO_A": "0x0000B06F",
+    "MAXWELL_DMA_COPY_A": "0x0000B0B5",
+    "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM000": "0x00000110",
+    "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM200": "0x00000120",
+    "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GP100": "0x00000130",
+    "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100": "0x00000140",
+    "PASCAL_CHANNEL_GPFIFO_A": "0x0000C06F",
+    "PASCAL_DMA_COPY_A": "0x0000C0B5",
+    "PASCAL_DMA_COPY_B": "0x0000C1B5",
+    "VOLTA_CHANNEL_GPFIFO_A": "0x0000C36F",
+    "VOLTA_DMA_COPY_A": "0x0000C3B5"
+  },
+  "runtime_semantics_validated": false,
+  "scratch": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r61571-r580178-full-uvm-ancestry-probe-v4-20261023"
+}

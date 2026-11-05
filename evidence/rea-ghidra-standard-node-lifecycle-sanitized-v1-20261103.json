@@ -1,0 +1,67 @@
+{
+  "schema": "rea-ghidra-standard-node-lifecycle-v1",
+  "observed_at_utc": "2026-11-03T00:43:05Z",
+  "tools": {
+    "rea_cli": "6.8.0",
+    "ghidra": "12.1.4",
+    "jdk": "Temurin 21.0.13+9",
+    "ghidra_scope_healthy": true,
+    "ghidra_scope_checks_passed": 9,
+    "optional_environment_healthy": false
+  },
+  "target": {
+    "kind": "project-owned host test harness",
+    "binary_sha256": "769707346a26802ce69b9387fe8b54ba31bd59352f2782cec782410ad0733639",
+    "built_from": [
+      "src/hybrid580-gpu-catalog.c",
+      "src/hybrid580-standard-node-map.c",
+      "src/hybrid580-standard-node-devices.c",
+      "tests/fixtures/standard_node_devices_contract.c"
+    ],
+    "build_flags": ["-std=c11", "-Wall", "-Wextra", "-Werror", "-fsanitize=undefined"],
+    "runtime_result": "standard node device scenarios: 10"
+  },
+  "decompilation": {
+    "provider": "Ghidra",
+    "functions": [
+      {
+        "name": "hybrid580_standard_nodes_register_v1",
+        "normalized_bytes": 11299,
+        "normalized_sha256": "342754824a5f42a2e029a57b77b4b44155e60741c126525cd56e3d56f8e7b00f",
+        "raw_evidence_sha256": "5f82337b27f2dd9e89f10469cb38dfc668a6fbbbc48b36d70ec200db01e704fb"
+      },
+      {
+        "name": "hybrid580_standard_nodes_reset",
+        "normalized_bytes": 3771,
+        "normalized_sha256": "8fa846c6bd47f6fd54461ea4045d66840a8b9d810af6cc419ca27c9b9825bcef",
+        "raw_evidence_sha256": "33915a6beff493472e74c5c8019eff172a6b101118f0c41f6e785016efc74646"
+      }
+    ],
+    "observed_api_names": [
+      "register_chrdev_region",
+      "cdev_init",
+      "cdev_add",
+      "class_create",
+      "device_create",
+      "device_destroy",
+      "class_destroy",
+      "cdev_del",
+      "unregister_chrdev_region"
+    ]
+  },
+  "source_sha256": {
+    "tests/test_standard_node_devices.py": "c30eb6c1145ce13a62a66e6b087f6cade701853055bf91889f470cf15e195bd3",
+    "tests/fixtures/standard_node_devices_contract.c": "b1ee10828f14d3bfe4ae4900d8a13c8c6acf9fe897741b201624811b588b7df4",
+    "tests/fixtures/include/nv-chardev-numbers.h": "8b92ab56fe52aca8cddcad378ab5a55c678d7bfb9599fa9217febe8afac002dc",
+    "src/hybrid580-gpu-catalog.c": "70839bb35175e85fa319c80aa70407c6ce1f52890f26d170a5954baf0bc731b4",
+    "src/hybrid580-standard-node-map.c": "49f6c74dc51a805de09207825c37a93a4e24b91b20467b781b8b99b8acc739e9",
+    "src/hybrid580-standard-node-devices.c": "a5c24f593aa81cb3f49e07210901b8eb076ae3939224f1b67d87be82cedf2f5a"
+  },
+  "qualification": "analyzed-statically",
+  "limitations": [
+    "The binary is a host test harness whose kernel API calls resolve to test doubles.",
+    "This does not test Linux VFS behavior, module insertion, NVIDIA RM, GPU initialization, CUDA, UVM, P2P, or performance.",
+    "REA pseudocode is not original source; raw pseudocode is excluded from this receipt."
+  ],
+  "proprietary_nvidia_binaries_analyzed": false
+}

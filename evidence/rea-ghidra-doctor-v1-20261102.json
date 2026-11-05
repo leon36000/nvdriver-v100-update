@@ -1,0 +1,68 @@
+{
+  "command": "rea doctor --provider ghidra --json",
+  "configuration_action": "No `rea setup` was run; no Codex/Claude registration was changed.",
+  "environment_healthy": false,
+  "environment_scope": "The requested Ghidra provider and Node checks pass; optional analysis engines, REA skill installation and client registrations remain unconfigured.",
+  "node_version": "24.22.1",
+  "observed_at_utc": "2026-11-02T05:04:08.860966+00:00",
+  "provider": {
+    "available": true,
+    "check_count": 8,
+    "failed_checks": [],
+    "id": "ghidra",
+    "version": "12.1.4"
+  },
+  "provider_scope_checks": [
+    {
+      "classification": "config_drift",
+      "code": null,
+      "name": "configuration",
+      "ok": true
+    },
+    {
+      "classification": "unsupported_host",
+      "code": null,
+      "name": "platform",
+      "ok": true
+    },
+    {
+      "classification": "unsupported_host",
+      "code": null,
+      "name": "architecture",
+      "ok": true
+    },
+    {
+      "classification": "config_drift",
+      "code": null,
+      "name": "installation",
+      "ok": true
+    },
+    {
+      "classification": "config_drift",
+      "code": null,
+      "name": "version",
+      "ok": true
+    },
+    {
+      "classification": "config_drift",
+      "code": null,
+      "name": "headless",
+      "ok": true
+    },
+    {
+      "classification": "config_drift",
+      "code": null,
+      "name": "native_decompiler",
+      "ok": true
+    },
+    {
+      "classification": "config_drift",
+      "code": null,
+      "name": "java",
+      "ok": true
+    }
+  ],
+  "rea_version": "6.8.0",
+  "schema": "nvidia-hybrid.rea-ghidra-doctor.v1",
+  "status": "GHIDRA_PROVIDER_HEALTHY"
+}
