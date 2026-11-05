@@ -1,0 +1,141 @@
+{
+  "cases": [
+    {
+      "access_counter_flush_calls": 0,
+      "both_lists_empty_after_walk": true,
+      "channel_destroy_calls": 0,
+      "device_p2p_free_calls": 0,
+      "event_order": "000",
+      "external_allocation_free_calls": 0,
+      "gpu_va_space_destroy_calls": 0,
+      "list_empty_after_walk": true,
+      "mask_zero_calls": 3,
+      "non_replayable_flush_calls": 0,
+      "replayable_flush_calls": 0,
+      "scenario": "empty_list",
+      "source": "r580_candidate"
+    },
+    {
+      "access_counter_flush_calls": 2,
+      "both_lists_empty_after_walk": true,
+      "channel_destroy_calls": 3,
+      "device_p2p_free_calls": 1,
+      "event_order": "000lNDlVlRADlElPlNRAD",
+      "external_allocation_free_calls": 1,
+      "gpu_va_space_destroy_calls": 1,
+      "list_empty_after_walk": true,
+      "mask_zero_calls": 3,
+      "non_replayable_flush_calls": 2,
+      "replayable_flush_calls": 2,
+      "scenario": "mixed_all_types",
+      "source": "r580_candidate"
+    },
+    {
+      "access_counter_flush_calls": 0,
+      "both_lists_empty_after_walk": true,
+      "channel_destroy_calls": 2,
+      "device_p2p_free_calls": 0,
+      "event_order": "000lND000lND",
+      "external_allocation_free_calls": 0,
+      "gpu_va_space_destroy_calls": 0,
+      "list_empty_after_walk": true,
+      "mask_zero_calls": 6,
+      "non_replayable_flush_calls": 2,
+      "replayable_flush_calls": 0,
+      "scenario": "two_lists_reset_masks",
+      "source": "r580_candidate"
+    },
+    {
+      "access_counter_flush_calls": 0,
+      "both_lists_empty_after_walk": true,
+      "channel_destroy_calls": 0,
+      "device_p2p_free_calls": 0,
+      "event_order": "000",
+      "external_allocation_free_calls": 0,
+      "gpu_va_space_destroy_calls": 0,
+      "list_empty_after_walk": true,
+      "mask_zero_calls": 3,
+      "non_replayable_flush_calls": 0,
+      "replayable_flush_calls": 0,
+      "scenario": "empty_list",
+      "source": "r595"
+    },
+    {
+      "access_counter_flush_calls": 2,
+      "both_lists_empty_after_walk": true,
+      "channel_destroy_calls": 3,
+      "device_p2p_free_calls": 1,
+      "event_order": "000lNDlVlRADlElPlNRAD",
+      "external_allocation_free_calls": 1,
+      "gpu_va_space_destroy_calls": 1,
+      "list_empty_after_walk": true,
+      "mask_zero_calls": 3,
+      "non_replayable_flush_calls": 2,
+      "replayable_flush_calls": 2,
+      "scenario": "mixed_all_types",
+      "source": "r595"
+    },
+    {
+      "access_counter_flush_calls": 0,
+      "both_lists_empty_after_walk": true,
+      "channel_destroy_calls": 2,
+      "device_p2p_free_calls": 0,
+      "event_order": "000lND000lND",
+      "external_allocation_free_calls": 0,
+      "gpu_va_space_destroy_calls": 0,
+      "list_empty_after_walk": true,
+      "mask_zero_calls": 6,
+      "non_replayable_flush_calls": 2,
+      "replayable_flush_calls": 0,
+      "scenario": "two_lists_reset_masks",
+      "source": "r595"
+    }
+  ],
+  "compile": {
+    "command": [
+      "/usr/bin/cc",
+      "-std=gnu11",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "/tmp/deferred-free-list-host-t3nb45ok/deferred_free_list_harness.c",
+      "-o",
+      "/tmp/deferred-free-list-host-t3nb45ok/deferred_free_list_harness"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "execution": {
+    "command": [
+      "/tmp/deferred-free-list-host-t3nb45ok/deferred_free_list_harness"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "CASE|r580_candidate|empty_list|000|3|0|0|0|0|0|0|0|1|1\nCASE|r580_candidate|mixed_all_types|000lNDlVlRADlElPlNRAD|3|2|2|2|3|1|1|1|1|1\nCASE|r580_candidate|two_lists_reset_masks|000lND000lND|6|2|0|0|2|0|0|0|1|1\nCASE|r595|empty_list|000|3|0|0|0|0|0|0|0|1|1\nCASE|r595|mixed_all_types|000lNDlVlRADlElPlNRAD|3|2|2|2|3|1|1|1|1|1\nCASE|r595|two_lists_reset_masks|000lND000lND|6|2|0|0|2|0|0|0|1|1\n"
+  },
+  "observed_at_utc": "2026-10-28T06:46:01.156597+00:00",
+  "qualification": {
+    "level": "tested-isolated",
+    "loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "schema": "r580-r595-deferred-free-object-list-host-v1",
+  "scope": "Exact pinned list-walker and channel-helper bodies execute with synthetic Linux-style list links, masks, object containers, and RM/UVM callbacks. The tests cover list order, dispatch, per-call mask initialization, and unlink-before-free. This does not validate Linux list internals, kernel locks, RM, workqueues, GPU faults, module loading, CUDA, or hardware.",
+  "source_functions": {
+    "r580_candidate": {
+      "channel_function_sha256": "1c9a1e2c91a5887da0a03d156a36ae4eaf8027124e50b02c5c4c630af05ad4de",
+      "channel_semantic_function_sha256": "25be510456dc61bd7c81d926e6ee92edf3c3987a0148c53ac669c6e8e4ac1e54",
+      "file_sha256": "2309eb47fad1d4ec4f932f8eae58fc4802b2380a0a95be2e964a9897117b0418",
+      "list_function_sha256": "fe8bdb2d7e37de6133eed2013e9f0c2298ccbfb1c23d8c4050d32c1aad824fe0",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_space.c"
+    },
+    "r595": {
+      "channel_function_sha256": "25be510456dc61bd7c81d926e6ee92edf3c3987a0148c53ac669c6e8e4ac1e54",
+      "channel_semantic_function_sha256": "25be510456dc61bd7c81d926e6ee92edf3c3987a0148c53ac669c6e8e4ac1e54",
+      "file_sha256": "f332076b5d141b23cbe7acaccb48b2b07a0f8fe2e44832fd93551a4a8c345468",
+      "list_function_sha256": "fe8bdb2d7e37de6133eed2013e9f0c2298ccbfb1c23d8c4050d32c1aad824fe0",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_va_space.c"
+    }
+  }
+}

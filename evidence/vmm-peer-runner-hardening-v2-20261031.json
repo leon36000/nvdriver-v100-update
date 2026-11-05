@@ -1,0 +1,58 @@
+{
+  "build_manifest": {
+    "deterministic_rebuilds": 2,
+    "path": "build/vmm-peer-probe-v1-20261031/build-manifest.json",
+    "real_bundle_accepted": true,
+    "sha256": "c41cbc53843545e540909d5614ffe06ab85c38bf281aaee8386d6f54db09ae7f"
+  },
+  "changes": [
+    "pin executable and deterministic build manifest independently",
+    "hash regular files using O_NOFOLLOW and O_NONBLOCK, rejecting symlinks and special files"
+  ],
+  "fatbin": {
+    "path": "build/probe-peer-transfer-v3-20261031/hybrid_probe.sm70-sm120.fatbin",
+    "sha256": "9b6c772590c0e7ce6a95e36fb637b769eceef69856979761d739028d8b45675f"
+  },
+  "focused_tests": {
+    "command": "python3 -B -m unittest tests.test_run_vmm_peer_probe tests.test_vmm_peer_probe_contract -v",
+    "errors": 0,
+    "failures": 0,
+    "process_exit_code": 0,
+    "tests_run": 28
+  },
+  "full_software_suite": {
+    "errors": 0,
+    "failures": 0,
+    "log": "evidence/logs/software-verification-openrm-hal-matrix-v1-20261031T221844Z.log",
+    "log_sha256": "c050d8f856e73fbecffea922b0d737980322459bd73408656b42e0b02ea02d36",
+    "process_exit_code": 0,
+    "report": "evidence/software-verification-openrm-hal-matrix-v1-20261031T221844Z.json",
+    "report_sha256": "dc484a9b3b59699b28e4cc55fce8ba7beb360f1f9447cf5544abaec641e00160",
+    "reported_seconds": 142.172,
+    "skipped": 0,
+    "tests_run": 2283
+  },
+  "hardware": {
+    "candidate_module_installed": false,
+    "candidate_module_loaded": false,
+    "pc3_accessed": false,
+    "tested": false
+  },
+  "implementation_sha256": {
+    "tests/test_run_vmm_peer_probe.py": "02ba3b04c8ba53555df7064d35c8558acbaabf698143f1e5fc06ef814bf2af7b",
+    "tests/test_vmm_peer_probe_contract.py": "f87ed490923fac18dbe028f0b695ca0c86e079d0a9244b5eced00ac01543fa71",
+    "tools/build_vmm_peer_probe.py": "bf5bd5ecbf911b1281d84de6908f7e50fe2c691e4f4cbab1b730290e6509199b",
+    "tools/run_vmm_peer_probe.py": "8a043fba5aa76dac9a56998e20297ec79ffcd513dbf020895930e767589315b2"
+  },
+  "observed_at_utc": "2026-10-31T22:21:24.604638+00:00",
+  "preserved_prior_manifest": {
+    "path": "evidence/vmm-peer-probe-build-manifest-pre-pin-v1-20261031.json",
+    "sha256": "c062cdd092ff5b49a649592564f531bf721603b2fa1b99b96994d3f8f0128e9f"
+  },
+  "probe": {
+    "path": "build/vmm-peer-probe-v1-20261031/hybrid_cuda_vmm_peer_probe",
+    "sha256": "4aaa7341d5314960a5dd3a494a9915cd4c7e0c0bf1158d02d4c54b69e47b791e"
+  },
+  "qualification": "static-and-software-only-no-hardware-validation",
+  "schema": "nvidia-hybrid-vmm-runner-hardening-v2"
+}

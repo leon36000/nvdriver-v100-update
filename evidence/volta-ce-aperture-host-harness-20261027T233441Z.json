@@ -1,0 +1,80 @@
+{
+  "assertion_guard_checks_passed": 4,
+  "assertion_guards": [
+    {
+      "name": "legacy-volta-noncoherent-not-supported",
+      "returncode": -6,
+      "status": "passed"
+    },
+    {
+      "name": "candidate-volta-invalid-aperture-rejected",
+      "returncode": -6,
+      "status": "passed"
+    },
+    {
+      "name": "legacy-maxwell-noncoherent-not-supported",
+      "returncode": -6,
+      "status": "passed"
+    },
+    {
+      "name": "candidate-maxwell-invalid-aperture-rejected",
+      "returncode": -6,
+      "status": "passed"
+    }
+  ],
+  "checks_passed": 10,
+  "classification": "host-executed-source-callback-contract",
+  "compile_flags": [
+    "-std=gnu11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror"
+  ],
+  "compiler": {
+    "path": "/usr/bin/cc",
+    "version": "cc (Ubuntu 15.2.0-16ubuntu1) 15.2.0"
+  },
+  "created_utc": "2026-10-27T23:34:48.219808+00:00",
+  "dispatch_verified_from_candidate_hal_table": true,
+  "hardware_validated": false,
+  "harness_source_sha256": "99452b3666c3dcbf3e1cc9e79d9529197bb190881128530b60066005bc8fd4e6",
+  "limitations": [
+    "The harness executes selected aperture helper bodies on the host CPU, not on a GPU.",
+    "B0B5/C3B5 generated field encodings come from pinned NVIDIA headers; their device behavior is not exercised.",
+    "No copy-engine command submission, BAR1 access, P2P transfer, UVM operation, or CUDA workload is tested."
+  ],
+  "log": "evidence/logs/volta-ce-aperture-host-harness-20261027T233441Z.log",
+  "log_sha256": "7bd4c539d4e5fde6a56f296be2e634d33a41fc589e0b2d3180f18be8372c07fd",
+  "module_installed": false,
+  "module_loaded": false,
+  "results": [
+    "legacy-volta-system-coherent actual=1 expected=1",
+    "candidate-volta-system-coherent actual=1 expected=1",
+    "legacy-maxwell-system-coherent actual=1 expected=1",
+    "candidate-maxwell-system-coherent actual=1 expected=1",
+    "legacy-volta-video-memory actual=0 expected=0",
+    "candidate-volta-video-memory actual=0 expected=0",
+    "legacy-maxwell-video-memory actual=0 expected=0",
+    "candidate-maxwell-video-memory actual=0 expected=0",
+    "candidate-volta-system-noncoherent actual=2 expected=2",
+    "candidate-maxwell-system-noncoherent actual=2 expected=2"
+  ],
+  "schema": "volta-ce-aperture-host-harness-v2",
+  "sources": {
+    "candidate_b0b5_header_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v11-20261027T233405Z/nvidia-uvm/clb0b5.h",
+    "candidate_b0b5_header_sha256": "169d958bfa379bfdf24c4656f02265ff5bcf22a2866724ee4299138d29df5332",
+    "candidate_c3b5_header_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v11-20261027T233405Z/nvidia-uvm/clc3b5.h",
+    "candidate_c3b5_header_sha256": "c6321efb3a6581d384495ac735bb80e8c0b1472d73e9043fefc973e25f2d5744",
+    "candidate_maxwell_ce_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v11-20261027T233405Z/nvidia-uvm/uvm_maxwell_ce.c",
+    "candidate_maxwell_ce_sha256": "ff9b3bf1dcfaa0f2c3b9fd8a0e15656a2d2a50d6ea8f76fb97a996c8ed33c273",
+    "candidate_volta_ce_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v11-20261027T233405Z/nvidia-uvm/uvm_volta_ce.c",
+    "candidate_volta_ce_sha256": "fa4483c1b824cec9907b64382b1607f8e21bf9cfb48f309e0570a4e0c845479d",
+    "r580_b0b5_header_sha256": "169d958bfa379bfdf24c4656f02265ff5bcf22a2866724ee4299138d29df5332",
+    "r580_c3b5_header_sha256": "c6321efb3a6581d384495ac735bb80e8c0b1472d73e9043fefc973e25f2d5744",
+    "r580_ce_sha256": "fd8758e28cf978335a97de557ee77e2f7c0797ff49f5363183fc99fbab657d3b",
+    "r580_maxwell_ce_sha256": "917111014f1400fc97046fe3e4812e60fa98955e7945c67c10d9ee5b95760890"
+  },
+  "status": "passed",
+  "volta_phys_mode_dispatch": "uvm_hal_maxwell_ce_phys_mode"
+}

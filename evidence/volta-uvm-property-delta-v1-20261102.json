@@ -1,0 +1,95 @@
+{
+  "classification": "pinned-source-lexical-property-audit",
+  "common_assignment_count": 22,
+  "common_fields_with_changed_value": [],
+  "created_utc": "2026-11-02T13:31:31.992828+00:00",
+  "limitations": [
+    "A missing old identifier does not establish that its behavior was removed; modern code may encode the capability differently.",
+    "This report does not infer replacements or validate callback semantics, UVM runtime, or hardware behavior.",
+    "Only the Volta architecture-property initializer is compared; other initialization paths remain outside this report."
+  ],
+  "modern_assignment_count": 22,
+  "modern_branch": "R595.99.02+GV100-HAL-v15",
+  "modern_function_body_sha256": "7cabfa10fe2ec9b8cf64bc775ec1a0a9d32e5aaff70ba53dccc96e50bc4e11e2",
+  "modern_initializer": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_volta.c",
+  "modern_initializer_sha256": "ca662fc33698586ec524c939593b6a67fb196d1b03fc6eea19116e5a0553254e",
+  "modern_only_assignments": {},
+  "modern_source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z",
+  "r580_archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+  "r580_archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+  "r580_assignment_count": 33,
+  "r580_function_body_sha256": "3e6af75ded8b348415d4fe98399d65b67e2cc736661384a0400e3b0df669ead7",
+  "r580_initializer": "kernel-open/nvidia-uvm/uvm_volta.c",
+  "r580_initializer_sha256": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653",
+  "r580_only_assignment_count": 11,
+  "r580_only_assignments": [
+    {
+      "field": "can_map_sysmem_with_large_pages",
+      "modern_live_identifier_occurrence_count": 0,
+      "modern_live_identifier_occurrences": [],
+      "r580_value": "true"
+    },
+    {
+      "field": "fault_cancel_va_supported",
+      "modern_live_identifier_occurrence_count": 0,
+      "modern_live_identifier_occurrences": [],
+      "r580_value": "true"
+    },
+    {
+      "field": "gpfifo_in_vidmem_supported",
+      "modern_live_identifier_occurrence_count": 0,
+      "modern_live_identifier_occurrences": [],
+      "r580_value": "true"
+    },
+    {
+      "field": "non_replayable_faults_supported",
+      "modern_live_identifier_occurrence_count": 0,
+      "modern_live_identifier_occurrences": [],
+      "r580_value": "true"
+    },
+    {
+      "field": "plc_supported",
+      "modern_live_identifier_occurrence_count": 0,
+      "modern_live_identifier_occurrences": [],
+      "r580_value": "false"
+    },
+    {
+      "field": "prefetch_fault_supported",
+      "modern_live_identifier_occurrence_count": 0,
+      "modern_live_identifier_occurrences": [],
+      "r580_value": "true"
+    },
+    {
+      "field": "replayable_faults_supported",
+      "modern_live_identifier_occurrence_count": 0,
+      "modern_live_identifier_occurrences": [],
+      "r580_value": "true"
+    },
+    {
+      "field": "scoped_atomics_supported",
+      "modern_live_identifier_occurrence_count": 0,
+      "modern_live_identifier_occurrences": [],
+      "r580_value": "true"
+    },
+    {
+      "field": "sparse_mappings_supported",
+      "modern_live_identifier_occurrence_count": 0,
+      "modern_live_identifier_occurrences": [],
+      "r580_value": "true"
+    },
+    {
+      "field": "tlb_batch.va_invalidate_supported",
+      "modern_live_identifier_occurrence_count": 0,
+      "modern_live_identifier_occurrences": [],
+      "r580_value": "true"
+    },
+    {
+      "field": "tlb_batch.va_range_invalidate_supported",
+      "modern_live_identifier_occurrence_count": 0,
+      "modern_live_identifier_occurrences": [],
+      "r580_value": "true"
+    }
+  ],
+  "r580_source_root": "NVIDIA-kernel-module-source-580.178.04",
+  "schema": "volta-uvm-property-delta-audit-v1"
+}

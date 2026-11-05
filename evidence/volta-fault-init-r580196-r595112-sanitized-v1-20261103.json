@@ -1,0 +1,64 @@
+{
+  "classification": "host-cpu-source-function-execution-with-synthetic-collaborators",
+  "created_utc": "2026-11-03T11:36:20.916236+00:00",
+  "cuda_validated": false,
+  "hardware_validated": false,
+  "host_execution": {
+    "assertion_guard_count": 6,
+    "checks_passed": 420,
+    "checks_per_implementation": 210,
+    "compile_flags": [
+      "-std=gnu11",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Werror"
+    ],
+    "implementations": 2,
+    "vectors_per_implementation": 15
+  },
+  "limitations": [
+    "The harness compiles and executes exact source functions on the CPU with synthetic RM, allocator, tracker, HAL, and ownership collaborators.",
+    "It does not execute the Linux UVM ABI, RM implementation, module, GPU, DMA, interrupts, CUDA context, or live fault delivery.",
+    "The R595 prefetch-false vector is a synthetic counterfactual, not an observed or supported GPU state."
+  ],
+  "module_loaded": false,
+  "normalized_lifecycle_hashes": {
+    "deinit_without_prefetch_expression": "e8242e390b9251dc4f7d1749255b656f406c6ec41b3317439d4b4089050e4c72",
+    "init_without_prefetch_expression": "9f9b2aa81bbefb2abb1817032fd256089ef2f5ba4fa4df9083d4638453a65d71",
+    "non_replayable_deinit": "46be8c999dca2c53f460f5ad03025243b48703bae62d75093dcc1aeb0b171946",
+    "replayable_reinit": "6b4cb874e7637d6fe5ad6be1ffcb724d6be5ce090bd38b14c645b3dde14c2bf4"
+  },
+  "prefetch_capability_delta": {
+    "false_state_vector_is_synthetic_counterfactual": true,
+    "r580_field_present_and_read": true,
+    "r580_gv100_capability_initialized_true": true,
+    "r595_legacy_field_present": false,
+    "r595_prefetch_state_uses_runtime_field": true
+  },
+  "raw_log_sha256": "8494d90b59172340c1fe1082251548d60ef247c6eec62eecbe691c25ae6fe35b",
+  "raw_report_sha256": "04e1f0cf254917967aba763af1b7dd1d5060ffcab178255175f079241e0a658f",
+  "sanitized_utc": "2026-11-03T11:40:02.310878+00:00",
+  "schema": "volta-fault-init-host-harness-sanitized-v1",
+  "source_hashes": {
+    "r580": {
+      "gpu_header_sha256": "11f5a41820746ffb1bc2d70729eaca257eeea3ca71ecbf4fc31fa4a1f3bc5a01",
+      "non_replayable_source_sha256": "588e72e5e3163f2e9a3c1b0d78a5450c97a4393b5b0c8e024915c41460d0250b",
+      "service_source_sha256": "c7991f9a9e029ae1e9dc4aba579ecb37c64408d9600117abdeec82fbc1b245b3",
+      "volta_source_sha256": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653"
+    },
+    "r595": {
+      "gpu_header_sha256": "76c578d204b32499e0004d1f1f43f9a1ce6718be13faa1394a5a63d0d1c7f9b5",
+      "non_replayable_source_sha256": "83fd573b3f5187ded355dec0a835f293716b0d271204d2c617864346fac01888",
+      "service_source_sha256": "e2b98f550ad6ef3efb062d931834f09acd79ecd5fa140a2f54de8e77a5dfac2b",
+      "volta_source_sha256": "ca662fc33698586ec524c939593b6a67fb196d1b03fc6eea19116e5a0553254e"
+    }
+  },
+  "source_profile": "R580.196.07 / R595.112.07",
+  "source_revisions": {
+    "r580_archive_sha256": "21914a460f17190c43cffb75f0c35aef957e267bfefea267bc18638beae17084",
+    "r595_archive_sha256": "567d4ba082a54ef733e7ce87c87401da488a3aabe29837c92feb19011c8250c4",
+    "r595_commit": "d8257d95ae5fed364163e4df51db66df8b1ee0d2"
+  },
+  "status": "passed"
+}

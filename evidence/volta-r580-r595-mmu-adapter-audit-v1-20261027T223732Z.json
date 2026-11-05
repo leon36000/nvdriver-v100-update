@@ -1,0 +1,122 @@
+{
+  "candidate_adaptation": {
+    "Volta PTE encoder": "token-equivalent to pinned R580 source",
+    "Volta factory": "R580 implementation retained; no 128 KiB mode",
+    "poisoned PTE": "R595 tree-aware callback over the retained Volta make_pte function",
+    "unmapped PTE": "R595 no-argument Turing encoding after fixed 64 KiB Volta mode selection"
+  },
+  "checks": {
+    "candidate_poisoned_callback_matches_r595_turing": true,
+    "candidate_r595_volta_wrapper_fixes_64k_mode": true,
+    "candidate_unmapped_callback_matches_r595_turing": true,
+    "candidate_volta_factory_matches_r580_factory_body": true,
+    "candidate_volta_pte_encoder_matches_pinned_r580": true,
+    "r580_production_unmapped_calls_use_big_page_or_explicit_64k": true,
+    "r580_volta_factory_asserts_64k_or_128k_then_rejects_128k": true,
+    "r580_volta_factory_derives_from_pascal": true,
+    "r595_production_unmapped_calls_use_no_argument_contract": true
+  },
+  "classification": "static-source-contracts-pass-runtime-unvalidated",
+  "created_utc": "2026-10-27T22:37:35.259851+00:00",
+  "legacy_unmapped_behavior": {
+    "64k": "VALID=0, VOL=0, PRIVILEGE=1 (0x20 under pinned field definitions)",
+    "other_page_sizes": "0"
+  },
+  "legacy_unmapped_call_sites": [
+    {
+      "argument": "big_page_size",
+      "line": 6461
+    },
+    {
+      "argument": "UVM_PAGE_SIZE_64K",
+      "line": 6876
+    },
+    {
+      "argument": "tree->big_page_size",
+      "line": 6970
+    },
+    {
+      "argument": "big_page_size",
+      "line": 7067
+    },
+    {
+      "argument": "big_page_size",
+      "line": 7203
+    },
+    {
+      "argument": "UVM_PAGE_SIZE_64K",
+      "line": 7373
+    },
+    {
+      "argument": "big_page_size",
+      "line": 7426
+    }
+  ],
+  "limitations": [
+    "Static source equivalence does not execute the MMU HAL or prove GPU PTE behavior.",
+    "Other UVM callbacks and compatibility adaptations remain compile-probe-only.",
+    "No module was installed or loaded and no GPU state was changed."
+  ],
+  "modern_unmapped_call_sites": [
+    {
+      "argument": "",
+      "line": 6223
+    },
+    {
+      "argument": "",
+      "line": 6636
+    },
+    {
+      "argument": "",
+      "line": 6730
+    },
+    {
+      "argument": "",
+      "line": 6829
+    },
+    {
+      "argument": "",
+      "line": 6969
+    },
+    {
+      "argument": "",
+      "line": 7141
+    },
+    {
+      "argument": "",
+      "line": 7193
+    }
+  ],
+  "runtime_or_hardware_validated": false,
+  "schema": "volta-r580-r595-mmu-adapter-audit-v1",
+  "sources": {
+    "candidate_pascal_mmu": {
+      "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_pascal_mmu.c",
+      "sha256": "7706c8d28244148a8d55248ddfb4ebc6007cfc617b54d559406180b6c403f932"
+    },
+    "candidate_volta_mmu": {
+      "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_volta_mmu.c",
+      "sha256": "d98ec18168377ff59f5909887a1dd8a7ecd656f277cff2052bee795cf008b1eb"
+    },
+    "r580_pascal_mmu": {
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia-uvm/uvm_pascal_mmu.c",
+      "sha256": "ffe96be7a232418066906963b7d868a4f271b3fe4eeefe083c79c9b9cb7e4664"
+    },
+    "r580_va_block": {
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia-uvm/uvm_va_block.c",
+      "sha256": "dd2821620e83cfaeb03fd765d64dcb75d82da83a38107afa4b0c2882570a7b03"
+    },
+    "r580_volta_mmu": {
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia-uvm/uvm_volta_mmu.c",
+      "sha256": "a4ff6d7ea69fbef25cad7ef1e7b85c3c8fe85e6e9cd1f3be4306a274d3f8e709"
+    },
+    "r595_turing_mmu": {
+      "path": "build/experiments/r595-r580-patch-replay-fabric-status-v9-20261024/source/kernel-open/nvidia-uvm/uvm_turing_mmu.c",
+      "sha256": "3b990ed6bfb555bff063515e13752b0627a6e68936d5261c6eb812b85c777b8a"
+    },
+    "r595_va_block": {
+      "path": "build/experiments/r595-r580-patch-replay-fabric-status-v9-20261024/source/kernel-open/nvidia-uvm/uvm_va_block.c",
+      "sha256": "faf15872daf79ea83894ce24f7f8c4034809c03114a99da1fd0817288785c931"
+    }
+  }
+}

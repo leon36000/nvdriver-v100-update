@@ -1,0 +1,76 @@
+{
+  "build": {
+    "binary": "build/vmm-peer-probe-v1-20261031/hybrid_cuda_vmm_peer_probe",
+    "binary_sha256": "cb879429edc3c60624b86b39342845caef2a238e139b6273681e52d5b4baa3c6",
+    "fatbin": "build/probe-peer-transfer-v3-20261031/hybrid_probe.sm70-sm120.fatbin",
+    "fatbin_sha256": "9b6c772590c0e7ce6a95e36fb637b769eceef69856979761d739028d8b45675f",
+    "links_libcuda_directly": false,
+    "manifest": "build/vmm-peer-probe-v1-20261031/build-manifest.json",
+    "manifest_sha256": "7dc9a842804b24a002da67cf23c6e7d31563062364ff4f555b8f17262d6163b5",
+    "real_bundle_pin_check": "accepted"
+  },
+  "changes": [
+    "fix JSON serialization of the loaded module_path in VMM probe reports",
+    "allow a passed numerical kernel result to remain observable when cleanup fails while preserving overall failure",
+    "add CPU fake-libcuda scenarios for bidirectional reads without classic peer capability, one-way permission, launch failure, and unmap cleanup failure"
+  ],
+  "correction_note": "Corrects the transcribed SHA-256 for tests/test_vmm_peer_probe_fake_driver.py; no source or test result changed.",
+  "focused_tests": {
+    "command": "python3 -B -m unittest tests.test_vmm_peer_probe_fake_driver tests.test_vmm_peer_probe_contract tests.test_run_vmm_peer_probe -v",
+    "errors": 0,
+    "failures": 0,
+    "log": "evidence/logs/vmm-peer-fake-driver-focused-v1-20261031.log",
+    "log_sha256": "1face6e88b337c4f44498eeb84b2de0d4749e558ef32962870a63a42538ab018",
+    "process_exit_code": 0,
+    "skipped": 0,
+    "tests_run": 33
+  },
+  "full_software_suite": {
+    "errors": 0,
+    "failures": 0,
+    "log": "evidence/logs/software-verification-openrm-hal-matrix-v1-20261031T223125Z.log",
+    "log_sha256": "14060e7b4e98b4332e08a977aae865ee3c358b93fb65411b357610ad2b6b1c47",
+    "process_exit_code": 0,
+    "report": "evidence/software-verification-openrm-hal-matrix-v1-20261031T223125Z.json",
+    "report_sha256": "5369b9ff51a959d3ac715290288541815e5c833c97ca5870f20a726ffb8ac144",
+    "reported_seconds": 143.261,
+    "skipped": 0,
+    "status": "pass",
+    "tests_run": 2288
+  },
+  "hardware": {
+    "candidate_module_installed": false,
+    "candidate_module_loaded": false,
+    "other_pc_accessed": false,
+    "tested": false
+  },
+  "implementation_sha256": {
+    "src/hybrid_cuda_vmm_peer_probe.cpp": "90a7c69ac891dfcc57a0e501297826d41c345493ea5c8d7f868bd7db91be131e",
+    "tests/fixtures/vmm_fake_libcuda.cpp": "a9bc62110e56cc555a05d7cd12b45dfff5a6bc70c33238f35cac6268e14ef8bc",
+    "tests/test_vmm_peer_probe_contract.py": "8de5577b6c374e149d51d12890f24475e7ca4a9e6a27ef029b725606a9f25168",
+    "tests/test_vmm_peer_probe_fake_driver.py": "885740e0d4c562367d92808063bfed4ed4cc86ddcbf0ed23c92c650c021cb53e",
+    "tools/run_vmm_peer_probe.py": "7e2e25efd7274328a7050297654e10074a045804b0603636cca460f35869508f",
+    "tools/vmm_peer_probe_contract.py": "9d30ad0255ae4500c2d23ed1d9307b3a76fd39bb520006d74328425bbcbbef94"
+  },
+  "limitations": [
+    "fake CUDA Driver API is a CPU test double, not a CUDA implementation",
+    "no physical V100 or RTX 5080 behavior was exercised",
+    "same-Linux mixed-generation kernel execution, UVM, hardware P2P, and performance remain unvalidated"
+  ],
+  "observed_at_utc": "2026-10-31T22:35:56Z",
+  "pc3_access_probe": "evidence/pc3-access-probe-v14-20261031.json",
+  "qualification": "static-and-software-only-no-hardware-validation",
+  "readme_shell_syntax": {
+    "blocks_checked": 22,
+    "command": "bash -n",
+    "passed": 22
+  },
+  "schema": "nvidia-hybrid-vmm-probe-software-hardening-v4",
+  "static_analysis": {
+    "command": "/usr/bin/x86_64-linux-gnu-g++-15 -std=c++17 -O2 -Wall -Wextra -Wpedantic -Werror -fanalyzer -I ../tools/cuda13.1-front/usr/local/cuda-13.1/include -c src/hybrid_cuda_vmm_peer_probe.cpp",
+    "log": "evidence/logs/vmm-peer-probe-fanalyzer-pass-v1-20261031.log",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "process_exit_code": 0
+  },
+  "supersedes": "evidence/vmm-peer-probe-software-hardening-v3-20261031.json"
+}

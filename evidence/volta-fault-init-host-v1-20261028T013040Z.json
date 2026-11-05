@@ -1,0 +1,93 @@
+{
+  "assertion_guards": [
+    "--probe-zero-utlb",
+    "--probe-non-divisible-buffer-size"
+  ],
+  "checks_passed": 134,
+  "checks_per_implementation": 67,
+  "classification": "host-cpu-execution-of-pinned-replayable-fault-buffer-init-and-reinit-functions",
+  "compile_flags": [
+    "-std=gnu11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror"
+  ],
+  "compiler": {
+    "path": "/usr/bin/cc",
+    "version": "cc (Ubuntu 15.2.0-16ubuntu1) 15.2.0"
+  },
+  "created_utc": "2026-10-28T01:30:45.091244+00:00",
+  "expected_guard_count": 4,
+  "hardware_validated": false,
+  "implementations_executed": 2,
+  "limits": [
+    "Exact fault_buffer_init_replayable_faults and fault_buffer_reinit_replayable_faults bodies are compiled and called for both pinned source trees.",
+    "HAL entry size, GET/PUT reads, prefetch callbacks, allocator, tracker, and RM ownership API are synthetic CPU collaborators; GET/PUT callback bodies are tested separately by the Volta ring harness.",
+    "Allocation failures preserve the source's partial allocations for caller cleanup; the harness releases its test allocations after observing this contract.",
+    "The R595 prefetch=false vector is a synthetic counterfactual because that release removed the prefetch_fault_supported field; it is not a supported live R595 GPU state.",
+    "No UVM module, RM, GPU, DMA, interrupt, CUDA context, or runtime fault is exercised."
+  ],
+  "log": {
+    "mode": "0600",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/volta-fault-init-host-v1-20261028T013040Z.log",
+    "sha256": "e6d2ffe6dc530e4ce99b6c07bab81286901206ec995d8cdcd3c13eeefc421c93"
+  },
+  "module_loaded": false,
+  "prefetch_false_counterfactual": {
+    "r580": "enabled=false; callback=disable_prefetch_faults",
+    "r595": "enabled=true; callback=enable_prefetch_faults",
+    "scope": "synthetic field value; GV100 source initializes R580 capability true, and R595 has no such field"
+  },
+  "report": {
+    "mode": "0600",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/volta-fault-init-host-v1-20261028T013040Z.json"
+  },
+  "result_stdout_sha256": {
+    "r580": "3539824a7618a8d3e434c882e7f1bad33280d87a8e092da5db26d77c8df92b38",
+    "r595": "72b0066b0aa26162916e615cf0412d55659a65856b5aafa185c590c8ba17c379"
+  },
+  "runner": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/run_volta_fault_init_host_harness.py",
+    "sha256": "300af2bf80e3dd03a529698636c4694e57b65caa7aa7e25b574158188c44b11b"
+  },
+  "schema": "codex.volta-fault-init-host-harness.v1",
+  "source_pair": {
+    "r580": {
+      "capability_fields_present": {
+        "prefetch_fault_supported": true,
+        "replayable_faults_supported": true
+      },
+      "fault_buffer_init_body_sha256": "9fab37556fa02c9b7efd4c7ad59a5d6d92a3b6a2963800b5102a7ad566f8b473",
+      "fault_buffer_reinit_body_sha256": "6b4cb874e7637d6fe5ad6be1ffcb724d6be5ce090bd38b14c645b3dde14c2bf4",
+      "gpu_header_sha256": "11f5a41820746ffb1bc2d70729eaca257eeea3ca71ecbf4fc31fa4a1f3bc5a01",
+      "init_body_without_prefetch_expression_sha256": "9f9b2aa81bbefb2abb1817032fd256089ef2f5ba4fa4df9083d4638453a65d71",
+      "prefetch_capability_read_present": true,
+      "service_source_sha256": "c7991f9a9e029ae1e9dc4aba579ecb37c64408d9600117abdeec82fbc1b245b3",
+      "volta_capability_initialization": {
+        "prefetch_fault_supported_true": true,
+        "replayable_faults_supported_true": true
+      },
+      "volta_source_sha256": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653"
+    },
+    "r595": {
+      "capability_fields_present": {
+        "prefetch_fault_supported": false,
+        "replayable_faults_supported": false
+      },
+      "fault_buffer_init_body_sha256": "675c94f2d66a0614991f4042bf75c0006517ffbe38b42e46fc69ba3920935f2f",
+      "fault_buffer_reinit_body_sha256": "6b4cb874e7637d6fe5ad6be1ffcb724d6be5ce090bd38b14c645b3dde14c2bf4",
+      "gpu_header_sha256": "76c578d204b32499e0004d1f1f43f9a1ce6718be13faa1394a5a63d0d1c7f9b5",
+      "init_body_without_prefetch_expression_sha256": "9f9b2aa81bbefb2abb1817032fd256089ef2f5ba4fa4df9083d4638453a65d71",
+      "prefetch_capability_read_present": false,
+      "service_source_sha256": "e2b98f550ad6ef3efb062d931834f09acd79ecd5fa140a2f54de8e77a5dfac2b",
+      "volta_capability_initialization": {
+        "prefetch_fault_supported_true": false,
+        "replayable_faults_supported_true": false
+      },
+      "volta_source_sha256": "ca662fc33698586ec524c939593b6a67fb196d1b03fc6eea19116e5a0553254e"
+    }
+  },
+  "status": "passed",
+  "vectors_per_implementation": 6
+}

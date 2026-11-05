@@ -1,0 +1,85 @@
+{
+  "cases": [
+    {
+      "event_order": "LSUQ",
+      "queue_flush_calls": 1,
+      "queue_flush_saw_interrupt_lock_released": true,
+      "scheduler_calls": 1,
+      "scheduler_result": 0,
+      "scheduler_saw_interrupt_lock": true,
+      "source": "r580_candidate"
+    },
+    {
+      "event_order": "LSUQ",
+      "queue_flush_calls": 1,
+      "queue_flush_saw_interrupt_lock_released": true,
+      "scheduler_calls": 1,
+      "scheduler_result": 1,
+      "scheduler_saw_interrupt_lock": true,
+      "source": "r580_candidate"
+    },
+    {
+      "event_order": "LSUQ",
+      "queue_flush_calls": 1,
+      "queue_flush_saw_interrupt_lock_released": true,
+      "scheduler_calls": 1,
+      "scheduler_result": 0,
+      "scheduler_saw_interrupt_lock": true,
+      "source": "r595"
+    },
+    {
+      "event_order": "LSUQ",
+      "queue_flush_calls": 1,
+      "queue_flush_saw_interrupt_lock_released": true,
+      "scheduler_calls": 1,
+      "scheduler_result": 1,
+      "scheduler_saw_interrupt_lock": true,
+      "source": "r595"
+    }
+  ],
+  "compile": {
+    "command": [
+      "/usr/bin/cc",
+      "-std=c11",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "/tmp/nonreplayable-flush-host-kko2a2g3/flush_harness.c",
+      "-o",
+      "/tmp/nonreplayable-flush-host-kko2a2g3/flush_harness"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "execution": {
+    "command": [
+      "/tmp/nonreplayable-flush-host-kko2a2g3/flush_harness"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "CASE|r580_candidate|0|LSUQ|1|1|1|1\nCASE|r580_candidate|1|LSUQ|1|1|1|1\nCASE|r595|0|LSUQ|1|1|1|1\nCASE|r595|1|LSUQ|1|1|1|1\n"
+  },
+  "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/volta-nonreplayable-flush-host-v1-20261028T0637Z.log",
+  "log_sha256": "77e01bdd7f56f4c6f3e23b77894a4a6cabc2e44b410621dafff54a296f3ff39e",
+  "observed_at_utc": "2026-10-28T06:37:31.753796+00:00",
+  "qualification": {
+    "level": "tested-isolated",
+    "loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "schema": "r580-r595-nonreplayable-flush-host-v1",
+  "scope": "Exact helper bodies execute with synthetic interrupt-lock, scheduler, and queue collaborators. This checks call ordering only; it does not validate kernel locking, races, RM, GPU interrupts, fault delivery, module loading, CUDA, or hardware.",
+  "source_functions": {
+    "r580_candidate": {
+      "file_sha256": "60c838bdaacce22010cc1de059a83113875b845a953b95d286bbc1fcd50da958",
+      "normalized_function_sha256": "d7f5c4b2fe33745ec7a6ce8c95612921b6480a32f5733158c30a646b1581a778",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_gpu_non_replayable_faults.c"
+    },
+    "r595": {
+      "file_sha256": "83fd573b3f5187ded355dec0a835f293716b0d271204d2c617864346fac01888",
+      "normalized_function_sha256": "d7f5c4b2fe33745ec7a6ce8c95612921b6480a32f5733158c30a646b1581a778",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_gpu_non_replayable_faults.c"
+    }
+  }
+}

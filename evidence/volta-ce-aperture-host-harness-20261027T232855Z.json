@@ -1,0 +1,57 @@
+{
+  "assertion_guard_checks_passed": 2,
+  "assertion_guards": [
+    {
+      "name": "legacy-noncoherent-not-supported",
+      "returncode": -6,
+      "status": "passed"
+    },
+    {
+      "name": "candidate-invalid-aperture-rejected",
+      "returncode": -6,
+      "status": "passed"
+    }
+  ],
+  "checks_passed": 5,
+  "classification": "host-executed-source-callback-contract",
+  "compile_flags": [
+    "-std=gnu11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror"
+  ],
+  "compiler": {
+    "path": "/usr/bin/cc",
+    "version": "cc (Ubuntu 15.2.0-16ubuntu1) 15.2.0"
+  },
+  "created_utc": "2026-10-27T23:28:58.775188+00:00",
+  "hardware_validated": false,
+  "harness_source_sha256": "df6722015c7a64217d18541f0fb50c3aefe98c8a69e8ecc6fa0998415e76a40a",
+  "limitations": [
+    "The harness executes selected callback source on the host CPU, not a GPU.",
+    "C3B5 generated field encodings come from pinned NVIDIA headers; their device behavior is not exercised.",
+    "No copy-engine command submission, BAR1 access, P2P transfer, UVM operation, or CUDA workload is tested."
+  ],
+  "log": "evidence/logs/volta-ce-aperture-host-harness-20261027T232855Z.log",
+  "log_sha256": "ecb7fb0254c66b64801892e54d2ba67bf13b6657f1104209edeeee55ec1429ff",
+  "module_installed": false,
+  "module_loaded": false,
+  "results": [
+    "legacy-system-coherent actual=1 expected=1",
+    "candidate-system-coherent actual=1 expected=1",
+    "legacy-video-memory actual=0 expected=0",
+    "candidate-video-memory actual=0 expected=0",
+    "candidate-system-noncoherent actual=2 expected=2"
+  ],
+  "schema": "volta-ce-aperture-host-harness-v1",
+  "sources": {
+    "candidate_c3b5_header_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v10-20261027T232820Z/nvidia-uvm/clc3b5.h",
+    "candidate_c3b5_header_sha256": "c6321efb3a6581d384495ac735bb80e8c0b1472d73e9043fefc973e25f2d5744",
+    "candidate_ce_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v10-20261027T232820Z/nvidia-uvm/uvm_volta_ce.c",
+    "candidate_ce_sha256": "fa4483c1b824cec9907b64382b1607f8e21bf9cfb48f309e0570a4e0c845479d",
+    "r580_c3b5_header_sha256": "c6321efb3a6581d384495ac735bb80e8c0b1472d73e9043fefc973e25f2d5744",
+    "r580_ce_sha256": "fd8758e28cf978335a97de557ee77e2f7c0797ff49f5363183fc99fbab657d3b"
+  },
+  "status": "passed"
+}

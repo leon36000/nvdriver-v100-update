@@ -1,0 +1,236 @@
+{
+  "architecture_comparison": {
+    "decision_reason": "It keeps the existing single UVM control plane and avoids multiplying the user-space ioctl routing surface. The first discriminating test is whether the documented MemoryAllocSys/DupAllocation path can map one semaphore page from one provider's VA space into the other provider's VA space. The open contract and proprietary RM behavior do not yet prove that cross-provider duplication is supported; if it fails, revisit isolated UVM ownership.",
+    "first_experiment": "shared_system_memory_mapping",
+    "isolated_uvm_owners": {
+      "classification": "larger_kernel_and_userspace_integration",
+      "not_proven_impossible": true,
+      "required_changes": [
+        "distinct module and user-visible device identities for each UVM owner",
+        "independent callback/session routing instead of the current single registry",
+        "one-process CUDA/IOCTL routing to the correct UVM fd and backend",
+        "explicit semantics for cross-owner managed memory and peer operations"
+      ]
+    },
+    "shared_system_memory_mapping": {
+      "classification": "narrowest_first_experiment",
+      "preserves_one_uvm_control_plane": true,
+      "required_contract": "map the same system-memory semaphore allocation from one RM provider's VA space into the other provider's VA space with coherent cross-GPU use",
+      "unproven_requirements": [
+        "provider-local GPU mapping of the same system-memory backing",
+        "DMA/IOMMU address validity and lifetime for both devices",
+        "CPU/GPU visibility, semaphore ordering, invalidation and teardown"
+      ]
+    }
+  },
+  "bridge_registration": {
+    "callback_model": "one frontend registry fans out one UVM callback table to both RMs",
+    "multi_uvm_registration": "rejected_while_registration_active",
+    "session_model": "one logical UVM session is paired across Open and legacy RMs"
+  },
+  "inputs": {
+    "c1_report": {
+      "path": "evidence/r580-uvm-cross-provider-static-v2-20261023T204103Z.json",
+      "sha256": "a02b4d8b9e1498ba1aab379121ebb1f38c206bf5942d035ab96af98aaf63feb9"
+    },
+    "function_sha256": {
+      "alloc_root_chunk": "57de4a2056e77334e6d04015c421c6cafd7aba1f41cd286d118993032b6e7b6b",
+      "configure_address_space": "f4215f19410c3bcfe566342f528f726f57e29b62ec5df85aca825175ce418601",
+      "hybrid580_uvm_register_callbacks_locked": "c0952059b931b26c2948b9f2e7861cdc38b1e070edf9289609b090de46c4a9d7",
+      "nvUvmInterfaceDupAllocation": "0675559214b36def2019f4aa904deb47e0fec4f621136e974b25afc49f5c7d65",
+      "nvUvmInterfaceDupMemory": "9f47aa35cb9c2f4fce97a5b0a64b94f79b50660e988751a9c5ba73852e51ac68",
+      "nvUvmInterfaceGetExternalAllocPtes": "33575c364bfc28af905463d92a7fb2cae47329afc51de99fb2eb39bed8a2c8a4",
+      "nvUvmInterfaceMemoryAllocSys": "4598138ed2022005976b8b32a2893c9cdc249a5f984e8726d875aabdc391c05c",
+      "nvUvmInterfacePmaAllocPages": "058ae4c81838a356984f59b83f28f23eb0059827b42bca25f110d60891635392",
+      "nvUvmInterfacePmaPinPages": "fa71cd20871cfb89da881ad320a27cb47236bd904b9b8fdb311e4616874d70dd",
+      "nvUvmInterfaceSessionCreate": "c63b0c7a7bbc9ca49408391a3e9dee6708c9614bd716b5d0ecca57df5173730e",
+      "nvUvmInterfaceSetPageDirectory": "0f779ece616dba0a9545a639ead52b92749a02df476359b5e469f8f003f9ee2c",
+      "root_chunk_from_address": "a0a0657cd023c37110bc1284ce2bda8c8ed174fc10597d9f5b770191b33c25e8",
+      "uvm_api_mm_initialize": "361e34a874104afa02557f6475ac8e757b576fc0d08770301e7f02b3c76451a5",
+      "uvm_chardev_create": "3a5c4215a84f948c71db6e9ffffa8991e7f721c9de1c85eaf325ca61dde8ffcb",
+      "uvm_file_is_nvidia_uvm": "74909359641e83763ddf3992ee41d3975a42f87544a3c017559ff7897db3e45a",
+      "uvm_global_exit": "8693d65ce9577cfd24c6099003f42f25d3954b0c711f4f303c27b8d8059b850b",
+      "uvm_global_init": "fcad252bf2b10bfcdce06330354c4a1e53ecc8b31448f8f86786db730166f895",
+      "uvm_pmm_gpu_init": "cf5aec3e8345e3778481caa32a8ddd311f35293fe787dbd59add2606f5d2e7ef",
+      "uvm_register_callbacks": "3048abca5d76c3406c690f758572a4b09eee50c90da1d8acf356e1823840120a",
+      "uvm_rm_mem_alloc": "9898299487891f3196d7f522dd57e7a0a95e3d3553e19349c21ce71e71049095",
+      "uvm_rm_mem_map_gpu": "c5909eb779280856a8be3352da5ffb37e755ce80dd020a5bb803912d7eddb964",
+      "uvm_unregister_callbacks": "9c36245aa00cf513789f1ec7054bd8447de964dc2692235628c691f60ce2c09e"
+    },
+    "source_archive": {
+      "path": ".cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+      "sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8"
+    },
+    "source_files": {
+      "hybrid580_uvm_callback_bridge.c": {
+        "bytes": 205110,
+        "path": "src/hybrid580_uvm_callback_bridge.c",
+        "sha256": "6646bdb5605a1f1472df8e82ca8a2683949b074d81b3f9fd45282a9797051c9b"
+      },
+      "hybrid580_uvm_callback_bridge.h": {
+        "bytes": 3122,
+        "path": "src/hybrid580_uvm_callback_bridge.h",
+        "sha256": "f68a880a5e54ebafb083c11f3b6349f5ed47462c1e4ac5db90b05ee176285b4d"
+      },
+      "nv_uvm_interface.c": {
+        "bytes": 56414,
+        "path": "build/experiments/private-open580-native-v4-softdep-v1-20261023/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv_uvm_interface.c",
+        "sha256": "c8a8df6968ea3a844ba224c4e83b33b2281cfb7c1ef5122e119a6b75b118f113"
+      },
+      "nv_uvm_interface.h": {
+        "bytes": 86123,
+        "path": "build/experiments/private-open580-native-v4-softdep-v1-20261023/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nv_uvm_interface.h",
+        "sha256": "68b6cae62ad0bdf6940d48a34084d789cd1f87a06b84310195cd2adc4b9e50f8"
+      },
+      "nv_uvm_types.h": {
+        "bytes": 39722,
+        "path": "build/experiments/private-open580-native-v4-softdep-v1-20261023/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nv_uvm_types.h",
+        "sha256": "5216a6a83924511f38c8a881ee0ffc601e2851e92e6a9b49810f9cc9e90dd614"
+      },
+      "nvidia-uvm.Kbuild": {
+        "bytes": 2811,
+        "path": "build/experiments/private-open580-native-v4-softdep-v1-20261023/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/nvidia-uvm.Kbuild",
+        "sha256": "0e8d3d96e00d6ca8b6b564e4668dd70447d8b6bca9200845180ce7c66902328b"
+      },
+      "uvm.c": {
+        "bytes": 46908,
+        "path": "build/experiments/private-open580-native-v4-softdep-v1-20261023/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm.c",
+        "sha256": "6549ff9293e5a789d53f59c29cbc2af4d7d8aedd0bfe7519699c4239e7ad24b3"
+      },
+      "uvm_global.c": {
+        "bytes": 18035,
+        "path": "build/experiments/private-open580-native-v4-softdep-v1-20261023/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_global.c",
+        "sha256": "aeee2f257a289853f36d9c7b196f1e02d19b84695db44cdd2e00f28b0f1a4489"
+      },
+      "uvm_global.h": {
+        "bytes": 18009,
+        "path": "build/experiments/private-open580-native-v4-softdep-v1-20261023/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_global.h",
+        "sha256": "32c99fb632fa831da1fbae7c4e541e4fc35afd1d3bf94fe5f7ba57f97dc2e33c"
+      },
+      "uvm_gpu.c": {
+        "bytes": 151186,
+        "path": "build/experiments/private-open580-native-v4-softdep-v1-20261023/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_gpu.c",
+        "sha256": "b43bb94bbc465bbb4fb243e6f722cb450d6402f3071971843d61f1f7678bf700"
+      },
+      "uvm_pmm_gpu.c": {
+        "bytes": 148762,
+        "path": "build/experiments/private-open580-native-v4-softdep-v1-20261023/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_pmm_gpu.c",
+        "sha256": "35248129b757c9a405bed7adf7022ea108ebbd9bbb0b091a008935f1247dea9b"
+      },
+      "uvm_rm_mem.c": {
+        "bytes": 14675,
+        "path": "build/experiments/private-open580-native-v4-softdep-v1-20261023/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_rm_mem.c",
+        "sha256": "fdf517f711ce9ae3421e4af2e7fe128f0db4182000eeed32504eacc82d1a43d7"
+      }
+    }
+  },
+  "interpretation": "The source proves the current single-registry bridge rejects a second callback registration while active and the current UVM implementation binds an ioctl fd to one file-operations identity. It does not prove that separately renamed UVM modules or a complete user-space router are impossible. The shared system-memory mapping is selected only as the smallest first experiment, not as a proven API capability. The public UVM prototypes expose no typed Linux-page/DMA/SG/dma-buf import surface. MemoryAllocSys plus DupAllocation is a candidate system-memory mapping path, but cross-provider RM semantics are undocumented and hidden behind proprietary rm_gpu_ops. PMA returns GPU physical addresses owned by a per-device PMA object; SetPageDirectory programs one GPU VA space's page-table root. Neither is a generic host-page import. DMA, coherence, semaphore correctness and hardware behavior remain unvalidated.",
+  "observed_at_utc": "2026-10-23T20:56:29.035453+00:00",
+  "qualification": {
+    "level": "analyzed-statically",
+    "module_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "schema": "nvidia-uvm-owner-isolation-architecture-audit-v2",
+  "single_uvm": {
+    "device_name": "nvidia-uvm",
+    "device_registration": "one dynamically allocated dev_t and one cdev per module instance",
+    "file_identity_uses_fops_pointer": true,
+    "global_gpu_table": "parent_gpus",
+    "global_rm_session": "one g_uvm_global.rm_session_handle per module instance",
+    "ioctl_checks_the_originating_uvm_fd": true,
+    "module_target": "nvidia-uvm.ko"
+  },
+  "source_release": "580.178.04",
+  "system_memory_mapping_surface": {
+    "cross_va_space_system_mapping": {
+      "api": "nvUvmInterfaceDupAllocation",
+      "candidate_for_shared_semaphore_page": true,
+      "cross_provider_mapping_proven": false,
+      "cross_provider_semantics": "not specified by the open header; the implementation is rm_gpu_ops_dup_allocation and the current hybrid bridge rejects cross-provider VA-space pairs before RM dispatch",
+      "documented_behavior": "duplicates the RM physical handle backing a source allocation into a destination VA space; system allocations are accepted by the documented contract",
+      "parameters": [
+        "uvmGpuAddressSpaceHandle srcVaSpace",
+        "NvU64 srcAddress",
+        "uvmGpuAddressSpaceHandle dstVaSpace",
+        "NvU64 dstVaAlignment",
+        "NvU64 *dstAddress"
+      ]
+    },
+    "os_page_import_types_searched": [
+      "struct page",
+      "dma_addr_t",
+      "struct sg_table",
+      "struct scatterlist",
+      "struct dma_buf",
+      "struct vm_area_struct"
+    ],
+    "page_directory": {
+      "classification": "address-space page-table programming, not general OS-page import",
+      "parameters": [
+        "uvmGpuAddressSpaceHandle vaSpace",
+        "NvU64 physAddress",
+        "unsigned numEntries",
+        "NvBool bVidMemAperture",
+        "NvU32 pasid",
+        "NvU64 *dmaAddress"
+      ],
+      "pinned_uvm_behavior": "programs the page-directory root for one RM VA space; UVM supplies its own page-tree physical address and receives an RM DMA address"
+    },
+    "physical_memory_handle_mapping": {
+      "dup_memory_api": "nvUvmInterfaceDupMemory",
+      "dup_memory_parameters": [
+        "uvmGpuDeviceHandle device",
+        "NvHandle hClient",
+        "NvHandle hPhysMemory",
+        "NvHandle *hDupMemory",
+        "UvmGpuMemoryInfo *pGpuMemoryInfo"
+      ],
+      "external_pte_api": "nvUvmInterfaceGetExternalAllocPtes",
+      "external_pte_parameters": [
+        "uvmGpuAddressSpaceHandle vaSpace",
+        "NvHandle hMemory",
+        "NvU64 offset",
+        "NvU64 size",
+        "UvmGpuExternalMappingInfo *gpuExternalMappingInfo"
+      ],
+      "interpretation": "uses RM client/device/physical-memory or duplicated-memory handles; no Linux OS-page object is present in the public prototype"
+    },
+    "pma_pages": {
+      "alloc_parameters": [
+        "void *pPma",
+        "NvLength pageCount",
+        "NvU64 pageSize",
+        "UvmPmaAllocationOptions *pPmaAllocOptions",
+        "NvU64 *pPages"
+      ],
+      "classification": "GPU physical-memory allocator, not host-page import",
+      "documented_page_values": "PA base addresses allocated by the PMA object; allowed page sizes are 64 KiB, 128 KiB, or 2 MiB",
+      "pin_parameters": [
+        "void *pPma",
+        "NvU64 *pPages",
+        "NvLength pageCount",
+        "NvU64 pageSize",
+        "NvU32 flags"
+      ],
+      "pinned_uvm_owner": "PMA object is obtained from the individual GPU device; returned PA indexes that GPU's root-chunk inventory and is bounded by its max_allocatable_address"
+    },
+    "rm_mapping_implementation_boundary": "rm_gpu_ops_* implementations are proprietary and were not inspected or executed",
+    "system_memory_allocation": {
+      "api": "nvUvmInterfaceMemoryAllocSys",
+      "documented_behavior": "allocates system memory and returns a GPU VA in the supplied VA space",
+      "parameters": [
+        "uvmGpuAddressSpaceHandle vaSpace",
+        "NvLength length",
+        "UvmGpuPointer * gpuPointer",
+        "UvmGpuAllocInfo * allocInfo"
+      ],
+      "pinned_uvm_behavior": "allocates through gpu->rm_address_space and records that GPU as the allocation owner",
+      "provider_neutral_import": false
+    },
+    "typed_import_scope_note": "The pinned public prototype scan found no parameters typed as Linux page, DMA, SG, dma-buf, or VMA objects. This does not exclude opaque/private RM paths or other kernel/user interfaces.",
+    "typed_os_page_import_prototypes": [],
+    "typed_os_page_import_surface_declared": false,
+    "uvm_interface_prototype_count": 76
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "design_constraints": {
+    "dpm_phase_coordinator_remains_unvalidated": true,
+    "early_pm_notifier_proven_safe_for_uvm_suspend": false,
+    "managed_faults_back_off_on_global_pm_contention": true,
+    "nv_vma_start_write_is_not_a_pm_gate": true,
+    "reason": "R580 keeps non-returnable VMA open/close callbacks outside the global PM lock, and uvm_suspend synchronizes them by acquiring every VA-space write lock. This static contract does not demonstrate freezer or device-link ordering; do not call UVM from an early PM notifier on this evidence alone.",
+    "uvm_suspend_locks_pm_then_all_va_spaces": true,
+    "vma_open_close_synchronized_by_va_space_locks": true
+  },
+  "generated_utc": "2026-10-21T21:16:08Z",
+  "independent_trees_agree": true,
+  "limitations": [
+    "No UVM VMA callback, Linux PM notifier, device-link callback, RM operation, or kernel module ran.",
+    "No suspend/resume or VMA mutation was tested on live hardware.",
+    "Matching source semantics do not prove both backend RMs can share one live UVM instance."
+  ],
+  "qualification": "static-source-contract-only",
+  "schema": "hybrid580-uvm-vma-pm-v1",
+  "source_trees": [
+    {
+      "entry_wrapper": {
+        "acquires_global_pm_lock": false,
+        "only_manages_thread_context": true
+      },
+      "label": "r580-open-source",
+      "managed_vma": {
+        "close_process_teardown_uses_va_space_rm_read_lock": true,
+        "close_uses_va_space_write_lock": true,
+        "fault_dispatches_managed_cpu_fault": true,
+        "fault_pm_trylock_precedes_va_read_lock": true,
+        "open_close_take_global_pm_lock": false,
+        "open_uses_va_space_write_lock": true,
+        "source_lines": {
+          "close": 510,
+          "cpu_fault": 2531,
+          "fault": 558,
+          "open": 417
+        }
+      },
+      "nv_vma_start_write": {
+        "protects_kernel_vma_writer_sequence": true,
+        "source_lines": {
+          "helper": 932,
+          "set_flags_fallback": 200,
+          "set_flags_wrapper": 231
+        },
+        "used_only_by_nv_vm_flags_set_clear_fallback": true,
+        "uvm_nv_vm_flags_set_sites": 3
+      },
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "common/inc/nv-mm.h": {
+          "bytes": 8022,
+          "sha256": "9a36cf1817b5b4ee3942a8777e02598694a97b5eaf0591e98e2c13526dd86e35"
+        },
+        "nvidia-uvm/uvm.c": {
+          "bytes": 46908,
+          "sha256": "6549ff9293e5a789d53f59c29cbc2af4d7d8aedd0bfe7519699c4239e7ad24b3"
+        },
+        "nvidia-uvm/uvm_api.h": {
+          "bytes": 16534,
+          "sha256": "b8c5246461d7f4279eb226d62aa20774bc8df7af1e6a23613376da8c07f10f28"
+        },
+        "nvidia-uvm/uvm_global.c": {
+          "bytes": 18035,
+          "sha256": "aeee2f257a289853f36d9c7b196f1e02d19b84695db44cdd2e00f28b0f1a4489"
+        },
+        "nvidia-uvm/uvm_lock.h": {
+          "bytes": 58676,
+          "sha256": "dbdf1e68a13c6bb3bf351d6516cf8884c06b016268d4a286dcdb7e68e6963f53"
+        },
+        "nvidia-uvm/uvm_va_space.c": {
+          "bytes": 106199,
+          "sha256": "cff2ab99e9b45143865413cd15d78381ead57b370f4b3bc32ac7584ca9e91693"
+        },
+        "nvidia-uvm/uvm_va_space.h": {
+          "bytes": 40339,
+          "sha256": "5ab237bcd758f5db2e27347457c74b709f9b42963fed17a46a81076ac8251634"
+        },
+        "nvidia/nv-mmap.c": {
+          "bytes": 27079,
+          "sha256": "35617fd599b76bf405874e11545eaab89bc941c0fa2e3ae0aa2f226a9a774d5e"
+        }
+      },
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-clean-v3-20261021/source/kernel-open",
+      "special_vmas": {
+        "callbacks_take_global_pm_lock": false,
+        "device_p2p_close_is_empty": true,
+        "device_p2p_open_uses_va_space_write_lock": true,
+        "semaphore_pool_close_uses_va_space_read_lock": true,
+        "semaphore_pool_open_uses_va_space_write_lock": true,
+        "source_lines": {
+          "device_p2p_close": 727,
+          "device_p2p_open": 673,
+          "semaphore_close": 644,
+          "semaphore_open": 579
+        }
+      },
+      "uvm_mmap": {
+        "global_pm_read_trylock": true,
+        "pm_contention_disables_vma_and_returns_success": true,
+        "releases_global_pm_read_lock": true,
+        "source_line": 759
+      },
+      "uvm_suspend": {
+        "holds_va_space_locks_until_resume": true,
+        "lock_order": [
+          "global UVM PM write",
+          "global VA-space list",
+          "each VA-space write"
+        ],
+        "locks_all_va_spaces_for_write": true,
+        "source_line": 272,
+        "takes_global_pm_write_lock": true,
+        "takes_no_mmap_lock": true
+      }
+    },
+    {
+      "entry_wrapper": {
+        "acquires_global_pm_lock": false,
+        "only_manages_thread_context": true
+      },
+      "label": "r580-proprietary",
+      "managed_vma": {
+        "close_process_teardown_uses_va_space_rm_read_lock": true,
+        "close_uses_va_space_write_lock": true,
+        "fault_dispatches_managed_cpu_fault": true,
+        "fault_pm_trylock_precedes_va_read_lock": true,
+        "open_close_take_global_pm_lock": false,
+        "open_uses_va_space_write_lock": true,
+        "source_lines": {
+          "close": 510,
+          "cpu_fault": 2531,
+          "fault": 558,
+          "open": 417
+        }
+      },
+      "nv_vma_start_write": {
+        "protects_kernel_vma_writer_sequence": true,
+        "source_lines": {
+          "helper": 932,
+          "set_flags_fallback": 204,
+          "set_flags_wrapper": 235
+        },
+        "used_only_by_nv_vm_flags_set_clear_fallback": true,
+        "uvm_nv_vm_flags_set_sites": 3
+      },
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "common/inc/nv-mm.h": {
+          "bytes": 8164,
+          "sha256": "b8a7df9f33acfe22cea20b5730d6db601b3a7ca80410249338a6f3c1aefa8c37"
+        },
+        "nvidia-uvm/uvm.c": {
+          "bytes": 46908,
+          "sha256": "6549ff9293e5a789d53f59c29cbc2af4d7d8aedd0bfe7519699c4239e7ad24b3"
+        },
+        "nvidia-uvm/uvm_api.h": {
+          "bytes": 16534,
+          "sha256": "b8c5246461d7f4279eb226d62aa20774bc8df7af1e6a23613376da8c07f10f28"
+        },
+        "nvidia-uvm/uvm_global.c": {
+          "bytes": 18035,
+          "sha256": "aeee2f257a289853f36d9c7b196f1e02d19b84695db44cdd2e00f28b0f1a4489"
+        },
+        "nvidia-uvm/uvm_lock.h": {
+          "bytes": 58676,
+          "sha256": "dbdf1e68a13c6bb3bf351d6516cf8884c06b016268d4a286dcdb7e68e6963f53"
+        },
+        "nvidia-uvm/uvm_va_space.c": {
+          "bytes": 106199,
+          "sha256": "cff2ab99e9b45143865413cd15d78381ead57b370f4b3bc32ac7584ca9e91693"
+        },
+        "nvidia-uvm/uvm_va_space.h": {
+          "bytes": 40339,
+          "sha256": "5ab237bcd758f5db2e27347457c74b709f9b42963fed17a46a81076ac8251634"
+        },
+        "nvidia/nv-mmap.c": {
+          "bytes": 27079,
+          "sha256": "35617fd599b76bf405874e11545eaab89bc941c0fa2e3ae0aa2f226a9a774d5e"
+        }
+      },
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04",
+      "special_vmas": {
+        "callbacks_take_global_pm_lock": false,
+        "device_p2p_close_is_empty": true,
+        "device_p2p_open_uses_va_space_write_lock": true,
+        "semaphore_pool_close_uses_va_space_read_lock": true,
+        "semaphore_pool_open_uses_va_space_write_lock": true,
+        "source_lines": {
+          "device_p2p_close": 727,
+          "device_p2p_open": 673,
+          "semaphore_close": 644,
+          "semaphore_open": 579
+        }
+      },
+      "uvm_mmap": {
+        "global_pm_read_trylock": true,
+        "pm_contention_disables_vma_and_returns_success": true,
+        "releases_global_pm_read_lock": true,
+        "source_line": 759
+      },
+      "uvm_suspend": {
+        "holds_va_space_locks_until_resume": true,
+        "lock_order": [
+          "global UVM PM write",
+          "global VA-space list",
+          "each VA-space write"
+        ],
+        "locks_all_va_spaces_for_write": true,
+        "source_line": 272,
+        "takes_global_pm_write_lock": true,
+        "takes_no_mmap_lock": true
+      }
+    }
+  ]
+}

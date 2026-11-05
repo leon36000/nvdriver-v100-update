@@ -1,0 +1,111 @@
+{
+  "cases": [
+    {
+      "access_counter_flush_calls": 1,
+      "all_channels_destroyed_after_required_flushes": true,
+      "destroy_calls": 3,
+      "event_order": "NDRADD",
+      "non_replayable_flush_calls": 1,
+      "replayable_flush_calls": 1,
+      "scenario": "multi_channels_same_parent",
+      "source": "r580_candidate"
+    },
+    {
+      "access_counter_flush_calls": 1,
+      "all_channels_destroyed_after_required_flushes": true,
+      "destroy_calls": 2,
+      "event_order": "NRADNRD",
+      "non_replayable_flush_calls": 2,
+      "replayable_flush_calls": 2,
+      "scenario": "separate_parents_and_access_gate",
+      "source": "r580_candidate"
+    },
+    {
+      "access_counter_flush_calls": 1,
+      "all_channels_destroyed_after_required_flushes": true,
+      "destroy_calls": 2,
+      "event_order": "NRADD",
+      "non_replayable_flush_calls": 1,
+      "replayable_flush_calls": 1,
+      "scenario": "gr_then_non_gr_same_parent",
+      "source": "r580_candidate"
+    },
+    {
+      "access_counter_flush_calls": 1,
+      "all_channels_destroyed_after_required_flushes": true,
+      "destroy_calls": 3,
+      "event_order": "NDRADD",
+      "non_replayable_flush_calls": 1,
+      "replayable_flush_calls": 1,
+      "scenario": "multi_channels_same_parent",
+      "source": "r595"
+    },
+    {
+      "access_counter_flush_calls": 1,
+      "all_channels_destroyed_after_required_flushes": true,
+      "destroy_calls": 2,
+      "event_order": "NRADNRD",
+      "non_replayable_flush_calls": 2,
+      "replayable_flush_calls": 2,
+      "scenario": "separate_parents_and_access_gate",
+      "source": "r595"
+    },
+    {
+      "access_counter_flush_calls": 1,
+      "all_channels_destroyed_after_required_flushes": true,
+      "destroy_calls": 2,
+      "event_order": "NRADD",
+      "non_replayable_flush_calls": 1,
+      "replayable_flush_calls": 1,
+      "scenario": "gr_then_non_gr_same_parent",
+      "source": "r595"
+    }
+  ],
+  "compile": {
+    "command": [
+      "/usr/bin/cc",
+      "-std=c11",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "/tmp/deferred-free-channel-host-zerzfxik/deferred_free_harness.c",
+      "-o",
+      "/tmp/deferred-free-channel-host-zerzfxik/deferred_free_harness"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "execution": {
+    "command": [
+      "/tmp/deferred-free-channel-host-zerzfxik/deferred_free_harness"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "CASE|r580_candidate|multi_channels_same_parent|NDRADD|1|1|1|3|1\nCASE|r580_candidate|separate_parents_and_access_gate|NRADNRD|2|2|1|2|1\nCASE|r580_candidate|gr_then_non_gr_same_parent|NRADD|1|1|1|2|1\nCASE|r595|multi_channels_same_parent|NDRADD|1|1|1|3|1\nCASE|r595|separate_parents_and_access_gate|NRADNRD|2|2|1|2|1\nCASE|r595|gr_then_non_gr_same_parent|NRADD|1|1|1|2|1\n"
+  },
+  "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/volta-deferred-free-channel-host-v1-20261028T0640Z.log",
+  "log_sha256": "8008c187e86657f0361806152d38ff5f96c2b2a9aedbc9f0a62a51678bd06250",
+  "observed_at_utc": "2026-10-28T06:40:44.155963+00:00",
+  "qualification": {
+    "level": "tested-isolated",
+    "loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "schema": "r580-r595-deferred-free-channel-host-v1",
+  "scope": "Exact channel-helper bodies run with synthetic masks, channel/parent objects, and flush/destroy APIs. Assertions cover once-per-parent flushes and flush-before-destroy only; this does not validate Linux UVM locks, RM, queue scheduling, GPU faults, module loading, CUDA, or hardware.",
+  "source_functions": {
+    "r580_candidate": {
+      "file_sha256": "2309eb47fad1d4ec4f932f8eae58fc4802b2380a0a95be2e964a9897117b0418",
+      "function_sha256": "1c9a1e2c91a5887da0a03d156a36ae4eaf8027124e50b02c5c4c630af05ad4de",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_space.c",
+      "semantic_function_sha256": "25be510456dc61bd7c81d926e6ee92edf3c3987a0148c53ac669c6e8e4ac1e54"
+    },
+    "r595": {
+      "file_sha256": "f332076b5d141b23cbe7acaccb48b2b07a0f8fe2e44832fd93551a4a8c345468",
+      "function_sha256": "25be510456dc61bd7c81d926e6ee92edf3c3987a0148c53ac669c6e8e4ac1e54",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_va_space.c",
+      "semantic_function_sha256": "25be510456dc61bd7c81d926e6ee92edf3c3987a0148c53ac669c6e8e4ac1e54"
+    }
+  }
+}

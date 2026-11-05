@@ -1,0 +1,22 @@
+{
+  "candidate_source": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_volta_mmu.c",
+  "candidate_source_sha256": "321d5381deebd8b2bd053d31cf750b890aae113b758c528addf5e1c5c043b0de",
+  "created_at_utc": "2026-10-30T05:24:10.195003+00:00",
+  "mutations": [
+    {
+      "expected_vector_observed": "candidate-sys-noncoherent-bar1",
+      "mutant_source_sha256": "946cd8cc036101e1ee65e4f9a6cfc66f3057bcc27d8ecbc2e24a1f09496238c1",
+      "mutation": "noncoherent-aperture-encoding",
+      "result": "rejected-by-numeric-vector"
+    },
+    {
+      "expected_vector_observed": "peer0-47bit-cached-readonly",
+      "mutant_source_sha256": "5fc0b4cf99e3e293bf0742bb7a8b185d9b52e4f71c1333220d67ea87e556750e",
+      "mutation": "peer-47bit-address-high-shift",
+      "result": "rejected-by-numeric-vector"
+    }
+  ],
+  "qualification": "CPU host harness sensitivity check only; no kernel module, RM, CUDA runtime, or GPU was used",
+  "schema": "volta-mmu-host-harness-mutation-check-v1",
+  "status": "pass-mutants-rejected"
+}

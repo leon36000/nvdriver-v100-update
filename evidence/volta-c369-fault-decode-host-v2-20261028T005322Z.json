@@ -1,0 +1,67 @@
+{
+  "assertion_guards_per_implementation": [
+    "--probe-invalid-valid",
+    "--probe-replayable-disabled",
+    "--probe-invalid-access"
+  ],
+  "checks_passed": 6380,
+  "classification": "host-cpu-execution-of-extracted-pinned-C369-replayable-parser",
+  "compile_flags": [
+    "-std=gnu11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror"
+  ],
+  "compiler": {
+    "path": "/usr/bin/cc",
+    "version": "cc (Ubuntu 15.2.0-16ubuntu1) 15.2.0"
+  },
+  "created_utc": "2026-10-28T00:53:28.782291+00:00",
+  "hardware_validated": false,
+  "implementations_executed": 2,
+  "limits": [
+    "The replayable-entry wrapper and selected parser/helper bodies are extracted into temporary host C programs.",
+    "Packets are synthetic little-endian dword arrays built with the pinned C369 field definitions.",
+    "GPU canonical-address translation and GPC client-to-uTLB mapping use explicit identity/deterministic CPU shims.",
+    "Fault-buffer validity and clear-valid callbacks are local test callbacks; confidential-computing decryption is not exercised.",
+    "No UVM module, GPU, CUDA context, hardware fault generation, or VM behavior is exercised."
+  ],
+  "log": {
+    "mode": "0600",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/volta-c369-fault-decode-host-v2-20261028T005322Z.log",
+    "sha256": "33c553e4461a214118b68bc4f402b76f10bca916f6b63e45d35be4fdd16c393a"
+  },
+  "result_stdout_sha256": {
+    "r580": "80f587d0cd502b68b46b4eceffda331de236244df4da34520f2161f0fc1289f1",
+    "r595": "80f587d0cd502b68b46b4eceffda331de236244df4da34520f2161f0fc1289f1"
+  },
+  "same_process_cuda_validated": false,
+  "schema": "codex.volta-c369-fault-decode-host-harness.v1",
+  "source_pair": {
+    "r580": {
+      "c369_header": "755c9258db3cbce8f0cc4b1fb76c7ddda8a65c7f184470282edc1b88ed53aa77",
+      "common_inc_nv_uvm_types": "5216a6a83924511f38c8a881ee0ffc601e2851e92e6a9b49810f9cc9e90dd614",
+      "common_inc_nvmisc": "6e02e315b3c5e715fc615c30db031a98303b09bd1f07b693095ee6bad82d199f",
+      "common_inc_nvstatus": "e8267172a1f7a56420d612c6734b3554b9ff6a3d33fdda21b1371ff4ce4b8675",
+      "common_inc_nvtypes": "e3901c0991b3a3dc77fffc2269fee84661bdda8a5bc43c0fe70a620af05edd5b",
+      "fault_source": "d0b8cfcf715246b49741314e0009b78c798719b634269ee44a75ee12f9874e77",
+      "hal_types": "13b3967d8629067621fb4373d9c3404266d5557bb9e2e468a012dd2f182657ce",
+      "root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open580-native-default-regression-v1-20261024/baseline/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm",
+      "volta_fault_header": "acef4b2abb4feb8f1935b659f7cbf52e3d02e4786ce176cda4d76dd70f54bc13"
+    },
+    "r595": {
+      "c369_header": "755c9258db3cbce8f0cc4b1fb76c7ddda8a65c7f184470282edc1b88ed53aa77",
+      "common_inc_nv_uvm_types": "5515b06a13072584d4668251c2e31bbb724118c914691eb4abf1cd76c1b63e65",
+      "common_inc_nvmisc": "d9e0e0d61dbc40c979092ab6f16a3a55a31754d9c80a3c1a45c022399baa59c2",
+      "common_inc_nvstatus": "e8267172a1f7a56420d612c6734b3554b9ff6a3d33fdda21b1371ff4ce4b8675",
+      "common_inc_nvtypes": "d1a66ddfa18987eb09f61804586de432dadacbede19315386167536c8b0c0acc",
+      "fault_source": "d0b8cfcf715246b49741314e0009b78c798719b634269ee44a75ee12f9874e77",
+      "hal_types": "798124455087fe5384103038e56b6decb86c9e3a52c0962ebebad41d40e23a83",
+      "root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm",
+      "volta_fault_header": "acef4b2abb4feb8f1935b659f7cbf52e3d02e4786ce176cda4d76dd70f54bc13"
+    }
+  },
+  "status": "passed",
+  "vectors_per_implementation": 145
+}

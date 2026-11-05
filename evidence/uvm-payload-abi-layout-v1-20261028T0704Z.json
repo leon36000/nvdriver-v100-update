@@ -1,0 +1,580 @@
+{
+  "comparisons": {
+    "r580_candidate_vs_r595": {
+      "command_deltas": {},
+      "identical": true,
+      "layout_deltas": {}
+    },
+    "r580_proprietary_vs_open_candidate": {
+      "command_deltas": {},
+      "identical": true,
+      "layout_deltas": {}
+    }
+  },
+  "compiler": {
+    "flags": [
+      "-std=gnu11",
+      "-Wall",
+      "-Wextra",
+      "-Werror"
+    ],
+    "path": "x86_64-linux-gnu-gcc-15",
+    "sha256": "b5f1b773a7c733738352000c92a077dc5852a1a2fc6d836b1e411be1e9ec5f88",
+    "version": "x86_64-linux-gnu-gcc-15 (Ubuntu 15.2.0-16ubuntu1) 15.2.0"
+  },
+  "interpretation": "Matching command numbers and host-compiled field layouts are necessary UAPI evidence, not proof that the proprietary userspace sends identical payload values or that either kernel branch accepts the other branch's runtime calls.",
+  "observed_at_utc": "2026-10-28T07:05:06.544391+00:00",
+  "profiles": {
+    "r580_open_candidate": {
+      "common_include": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc",
+      "files": {
+        "common/nvCpuUuid.h": {
+          "bytes": 1644,
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nvCpuUuid.h",
+          "sha256": "a228c1ac5b26b9e4d7d1efa7dd69bf111bd0bbadddd65bb016e610e13871a234"
+        },
+        "common/nv_uvm_user_types.h": {
+          "bytes": 7353,
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nv_uvm_user_types.h",
+          "sha256": "2f83bf2cf6bd7d53ab5fdb08bd820658498e2e0fd50b2d3e51823e043449cfa8"
+        },
+        "common/nvlimits.h": {
+          "bytes": 1967,
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nvlimits.h",
+          "sha256": "7c7bf27c5360464b459f6069d2e72f6070bb3fdd0862baccf6c7aa71da67c593"
+        },
+        "common/nvstatus.h": {
+          "bytes": 4565,
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nvstatus.h",
+          "sha256": "e8267172a1f7a56420d612c6734b3554b9ff6a3d33fdda21b1371ff4ce4b8675"
+        },
+        "common/nvtypes.h": {
+          "bytes": 26572,
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nvtypes.h",
+          "sha256": "e3901c0991b3a3dc77fffc2269fee84661bdda8a5bc43c0fe70a620af05edd5b"
+        },
+        "uvm/uvm_ioctl.h": {
+          "bytes": 41415,
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_ioctl.h",
+          "sha256": "937a3fe1c0b2f4d8cfc18443d41ad10ee85c4445f954cc5c67b460ded2dd4916"
+        },
+        "uvm/uvm_linux_ioctl.h": {
+          "bytes": 1962,
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_linux_ioctl.h",
+          "sha256": "0ffb5cf3679fb5e150745e54b72fab861e319823e419f36376468a60862c2748"
+        },
+        "uvm/uvm_types.h": {
+          "bytes": 59077,
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_types.h",
+          "sha256": "576803d1cf6b2933cc284dd2d5a47974649a1da27e1476d84d083c0f0f6355fa"
+        }
+      },
+      "label": "R580 open candidate UVM",
+      "layout": {
+        "commands": {
+          "UVM_CREATE_RANGE_GROUP": 23,
+          "UVM_INITIALIZE": 805306369,
+          "UVM_MM_INITIALIZE": 75,
+          "UVM_PAGEABLE_MEM_ACCESS": 39,
+          "UVM_PAGEABLE_MEM_ACCESS_ON_GPU": 70,
+          "UVM_REGISTER_GPU": 37
+        },
+        "layouts": {
+          "UVM_CREATE_RANGE_GROUP_PARAMS": {
+            "fields": [
+              {
+                "name": "rangeGroupId",
+                "offset": 0,
+                "size": 8
+              },
+              {
+                "name": "rmStatus",
+                "offset": 8,
+                "size": 4
+              }
+            ],
+            "size": 16
+          },
+          "UVM_INITIALIZE_PARAMS": {
+            "fields": [
+              {
+                "name": "flags",
+                "offset": 0,
+                "size": 8
+              },
+              {
+                "name": "rmStatus",
+                "offset": 8,
+                "size": 4
+              }
+            ],
+            "size": 16
+          },
+          "UVM_MM_INITIALIZE_PARAMS": {
+            "fields": [
+              {
+                "name": "uvmFd",
+                "offset": 0,
+                "size": 4
+              },
+              {
+                "name": "rmStatus",
+                "offset": 4,
+                "size": 4
+              }
+            ],
+            "size": 8
+          },
+          "UVM_PAGEABLE_MEM_ACCESS_ON_GPU_PARAMS": {
+            "fields": [
+              {
+                "name": "gpu_uuid",
+                "offset": 0,
+                "size": 16
+              },
+              {
+                "name": "pageableMemAccess",
+                "offset": 16,
+                "size": 1
+              },
+              {
+                "name": "rmStatus",
+                "offset": 20,
+                "size": 4
+              }
+            ],
+            "size": 24
+          },
+          "UVM_PAGEABLE_MEM_ACCESS_PARAMS": {
+            "fields": [
+              {
+                "name": "pageableMemAccess",
+                "offset": 0,
+                "size": 1
+              },
+              {
+                "name": "rmStatus",
+                "offset": 4,
+                "size": 4
+              }
+            ],
+            "size": 8
+          },
+          "UVM_REGISTER_GPU_PARAMS": {
+            "fields": [
+              {
+                "name": "gpu_uuid",
+                "offset": 0,
+                "size": 16
+              },
+              {
+                "name": "numaEnabled",
+                "offset": 16,
+                "size": 1
+              },
+              {
+                "name": "numaNodeId",
+                "offset": 20,
+                "size": 4
+              },
+              {
+                "name": "rmCtrlFd",
+                "offset": 24,
+                "size": 4
+              },
+              {
+                "name": "hClient",
+                "offset": 28,
+                "size": 4
+              },
+              {
+                "name": "hSmcPartRef",
+                "offset": 32,
+                "size": 4
+              },
+              {
+                "name": "rmStatus",
+                "offset": 36,
+                "size": 4
+              }
+            ],
+            "size": 40
+          }
+        },
+        "pointer_bytes": 8
+      },
+      "source_root": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm"
+    },
+    "r580_proprietary": {
+      "common_include": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc",
+      "files": {
+        "common/nvCpuUuid.h": {
+          "bytes": 1644,
+          "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc/nvCpuUuid.h",
+          "sha256": "a228c1ac5b26b9e4d7d1efa7dd69bf111bd0bbadddd65bb016e610e13871a234"
+        },
+        "common/nv_uvm_user_types.h": {
+          "bytes": 7353,
+          "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc/nv_uvm_user_types.h",
+          "sha256": "2f83bf2cf6bd7d53ab5fdb08bd820658498e2e0fd50b2d3e51823e043449cfa8"
+        },
+        "common/nvlimits.h": {
+          "bytes": 1967,
+          "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc/nvlimits.h",
+          "sha256": "7c7bf27c5360464b459f6069d2e72f6070bb3fdd0862baccf6c7aa71da67c593"
+        },
+        "common/nvstatus.h": {
+          "bytes": 4565,
+          "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc/nvstatus.h",
+          "sha256": "e8267172a1f7a56420d612c6734b3554b9ff6a3d33fdda21b1371ff4ce4b8675"
+        },
+        "common/nvtypes.h": {
+          "bytes": 26572,
+          "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc/nvtypes.h",
+          "sha256": "e3901c0991b3a3dc77fffc2269fee84661bdda8a5bc43c0fe70a620af05edd5b"
+        },
+        "uvm/uvm_ioctl.h": {
+          "bytes": 41415,
+          "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia-uvm/uvm_ioctl.h",
+          "sha256": "937a3fe1c0b2f4d8cfc18443d41ad10ee85c4445f954cc5c67b460ded2dd4916"
+        },
+        "uvm/uvm_linux_ioctl.h": {
+          "bytes": 1962,
+          "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia-uvm/uvm_linux_ioctl.h",
+          "sha256": "0ffb5cf3679fb5e150745e54b72fab861e319823e419f36376468a60862c2748"
+        },
+        "uvm/uvm_types.h": {
+          "bytes": 59077,
+          "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia-uvm/uvm_types.h",
+          "sha256": "576803d1cf6b2933cc284dd2d5a47974649a1da27e1476d84d083c0f0f6355fa"
+        }
+      },
+      "label": "R580 proprietary UVM",
+      "layout": {
+        "commands": {
+          "UVM_CREATE_RANGE_GROUP": 23,
+          "UVM_INITIALIZE": 805306369,
+          "UVM_MM_INITIALIZE": 75,
+          "UVM_PAGEABLE_MEM_ACCESS": 39,
+          "UVM_PAGEABLE_MEM_ACCESS_ON_GPU": 70,
+          "UVM_REGISTER_GPU": 37
+        },
+        "layouts": {
+          "UVM_CREATE_RANGE_GROUP_PARAMS": {
+            "fields": [
+              {
+                "name": "rangeGroupId",
+                "offset": 0,
+                "size": 8
+              },
+              {
+                "name": "rmStatus",
+                "offset": 8,
+                "size": 4
+              }
+            ],
+            "size": 16
+          },
+          "UVM_INITIALIZE_PARAMS": {
+            "fields": [
+              {
+                "name": "flags",
+                "offset": 0,
+                "size": 8
+              },
+              {
+                "name": "rmStatus",
+                "offset": 8,
+                "size": 4
+              }
+            ],
+            "size": 16
+          },
+          "UVM_MM_INITIALIZE_PARAMS": {
+            "fields": [
+              {
+                "name": "uvmFd",
+                "offset": 0,
+                "size": 4
+              },
+              {
+                "name": "rmStatus",
+                "offset": 4,
+                "size": 4
+              }
+            ],
+            "size": 8
+          },
+          "UVM_PAGEABLE_MEM_ACCESS_ON_GPU_PARAMS": {
+            "fields": [
+              {
+                "name": "gpu_uuid",
+                "offset": 0,
+                "size": 16
+              },
+              {
+                "name": "pageableMemAccess",
+                "offset": 16,
+                "size": 1
+              },
+              {
+                "name": "rmStatus",
+                "offset": 20,
+                "size": 4
+              }
+            ],
+            "size": 24
+          },
+          "UVM_PAGEABLE_MEM_ACCESS_PARAMS": {
+            "fields": [
+              {
+                "name": "pageableMemAccess",
+                "offset": 0,
+                "size": 1
+              },
+              {
+                "name": "rmStatus",
+                "offset": 4,
+                "size": 4
+              }
+            ],
+            "size": 8
+          },
+          "UVM_REGISTER_GPU_PARAMS": {
+            "fields": [
+              {
+                "name": "gpu_uuid",
+                "offset": 0,
+                "size": 16
+              },
+              {
+                "name": "numaEnabled",
+                "offset": 16,
+                "size": 1
+              },
+              {
+                "name": "numaNodeId",
+                "offset": 20,
+                "size": 4
+              },
+              {
+                "name": "rmCtrlFd",
+                "offset": 24,
+                "size": 4
+              },
+              {
+                "name": "hClient",
+                "offset": 28,
+                "size": 4
+              },
+              {
+                "name": "hSmcPartRef",
+                "offset": 32,
+                "size": 4
+              },
+              {
+                "name": "rmStatus",
+                "offset": 36,
+                "size": 4
+              }
+            ],
+            "size": 40
+          }
+        },
+        "pointer_bytes": 8
+      },
+      "source_root": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia-uvm"
+    },
+    "r595_open": {
+      "common_include": ".cache/upstream/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5/kernel-open/common/inc",
+      "files": {
+        "common/nvCpuUuid.h": {
+          "bytes": 1644,
+          "path": ".cache/upstream/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5/kernel-open/common/inc/nvCpuUuid.h",
+          "sha256": "a228c1ac5b26b9e4d7d1efa7dd69bf111bd0bbadddd65bb016e610e13871a234"
+        },
+        "common/nv_uvm_user_types.h": {
+          "bytes": 7786,
+          "path": ".cache/upstream/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5/kernel-open/common/inc/nv_uvm_user_types.h",
+          "sha256": "fffd902620642d566fe06619343a151795c7d0e4540c904a41baea24aae03d8c"
+        },
+        "common/nvlimits.h": {
+          "bytes": 1967,
+          "path": ".cache/upstream/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5/kernel-open/common/inc/nvlimits.h",
+          "sha256": "7c7bf27c5360464b459f6069d2e72f6070bb3fdd0862baccf6c7aa71da67c593"
+        },
+        "common/nvstatus.h": {
+          "bytes": 4565,
+          "path": ".cache/upstream/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5/kernel-open/common/inc/nvstatus.h",
+          "sha256": "e8267172a1f7a56420d612c6734b3554b9ff6a3d33fdda21b1371ff4ce4b8675"
+        },
+        "common/nvtypes.h": {
+          "bytes": 27944,
+          "path": ".cache/upstream/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5/kernel-open/common/inc/nvtypes.h",
+          "sha256": "d1a66ddfa18987eb09f61804586de432dadacbede19315386167536c8b0c0acc"
+        },
+        "uvm/uvm_ioctl.h": {
+          "bytes": 38035,
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_ioctl.h",
+          "sha256": "9cc909360f2d19135852390fb66a12fe4d22ca39c19e2609b2ff5e925df4bdf4"
+        },
+        "uvm/uvm_linux_ioctl.h": {
+          "bytes": 1962,
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_linux_ioctl.h",
+          "sha256": "0ffb5cf3679fb5e150745e54b72fab861e319823e419f36376468a60862c2748"
+        },
+        "uvm/uvm_types.h": {
+          "bytes": 58765,
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_types.h",
+          "sha256": "94d4124ee87678f45148fe679bf249e19a89c987815aaff6dc72b45ebf606b14"
+        }
+      },
+      "label": "R595 v15 UVM",
+      "layout": {
+        "commands": {
+          "UVM_CREATE_RANGE_GROUP": 23,
+          "UVM_INITIALIZE": 805306369,
+          "UVM_MM_INITIALIZE": 75,
+          "UVM_PAGEABLE_MEM_ACCESS": 39,
+          "UVM_PAGEABLE_MEM_ACCESS_ON_GPU": 70,
+          "UVM_REGISTER_GPU": 37
+        },
+        "layouts": {
+          "UVM_CREATE_RANGE_GROUP_PARAMS": {
+            "fields": [
+              {
+                "name": "rangeGroupId",
+                "offset": 0,
+                "size": 8
+              },
+              {
+                "name": "rmStatus",
+                "offset": 8,
+                "size": 4
+              }
+            ],
+            "size": 16
+          },
+          "UVM_INITIALIZE_PARAMS": {
+            "fields": [
+              {
+                "name": "flags",
+                "offset": 0,
+                "size": 8
+              },
+              {
+                "name": "rmStatus",
+                "offset": 8,
+                "size": 4
+              }
+            ],
+            "size": 16
+          },
+          "UVM_MM_INITIALIZE_PARAMS": {
+            "fields": [
+              {
+                "name": "uvmFd",
+                "offset": 0,
+                "size": 4
+              },
+              {
+                "name": "rmStatus",
+                "offset": 4,
+                "size": 4
+              }
+            ],
+            "size": 8
+          },
+          "UVM_PAGEABLE_MEM_ACCESS_ON_GPU_PARAMS": {
+            "fields": [
+              {
+                "name": "gpu_uuid",
+                "offset": 0,
+                "size": 16
+              },
+              {
+                "name": "pageableMemAccess",
+                "offset": 16,
+                "size": 1
+              },
+              {
+                "name": "rmStatus",
+                "offset": 20,
+                "size": 4
+              }
+            ],
+            "size": 24
+          },
+          "UVM_PAGEABLE_MEM_ACCESS_PARAMS": {
+            "fields": [
+              {
+                "name": "pageableMemAccess",
+                "offset": 0,
+                "size": 1
+              },
+              {
+                "name": "rmStatus",
+                "offset": 4,
+                "size": 4
+              }
+            ],
+            "size": 8
+          },
+          "UVM_REGISTER_GPU_PARAMS": {
+            "fields": [
+              {
+                "name": "gpu_uuid",
+                "offset": 0,
+                "size": 16
+              },
+              {
+                "name": "numaEnabled",
+                "offset": 16,
+                "size": 1
+              },
+              {
+                "name": "numaNodeId",
+                "offset": 20,
+                "size": 4
+              },
+              {
+                "name": "rmCtrlFd",
+                "offset": 24,
+                "size": 4
+              },
+              {
+                "name": "hClient",
+                "offset": 28,
+                "size": 4
+              },
+              {
+                "name": "hSmcPartRef",
+                "offset": 32,
+                "size": 4
+              },
+              {
+                "name": "rmStatus",
+                "offset": 36,
+                "size": 4
+              }
+            ],
+            "size": 40
+          }
+        },
+        "pointer_bytes": 8
+      },
+      "source_root": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm"
+    }
+  },
+  "qualification": "compiled-exact-uapi-header-layout-only",
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-hybrid-uvm-payload-abi-compare-v1",
+  "scope": {
+    "ioctl_executed": false,
+    "kernel_vfs_executed": false,
+    "only_64_bit_host_layout_compiled": true,
+    "runtime_abi_validated": false,
+    "trace_payloads_read": false
+  },
+  "status": "pass"
+}

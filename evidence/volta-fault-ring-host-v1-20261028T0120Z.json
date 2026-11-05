@@ -1,0 +1,95 @@
+{
+  "assertion_guards_per_implementation": [
+    "--probe-put-getptr-corrupted",
+    "--probe-get-out-of-range",
+    "--probe-write-get-out-of-range"
+  ],
+  "checks_passed": 72,
+  "classification": "host-cpu-execution-of-extracted-pinned-GV100-Volta-fault-ring-register-callbacks",
+  "compile_flags": [
+    "-std=gnu11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror"
+  ],
+  "compiler": {
+    "path": "/usr/bin/cc",
+    "version": "cc (Ubuntu 15.2.0-16ubuntu1) 15.2.0"
+  },
+  "created_utc": "2026-10-28T01:12:50.490345+00:00",
+  "dma_ordering_validated": false,
+  "expected_guard_count": 6,
+  "hardware_validated": false,
+  "implementations_executed": 2,
+  "limits": [
+    "Exact pinned Volta read_put, read_get, and write_get bodies are compiled and host-executed for both snapshots.",
+    "Synthetic volatile register words use instrumented CPU READ_ONCE/WRITE_ONCE shims; this checks C access ordering but not BAR access, CPU/GPU ordering, posted writes, or fault arrival races.",
+    "Normal write_get checks the pointer write precedes a second write that clears GETPTR_CORRUPTED and OVERFLOW; confidential-computing mode checks the single pointer write path.",
+    "No GPU, UVM module, interrupt, DMA, ring allocation, CUDA context, or runtime fault is exercised."
+  ],
+  "log": {
+    "mode": "0600",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/volta-fault-ring-host-v1-20261028T0120Z.log",
+    "sha256": "1f4cbfbc98d5d49f2c6d16c0a92804a4d2b21fc7f3e42c6cda2d6e122d0140cf"
+  },
+  "report": {
+    "mode": "0600",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/volta-fault-ring-host-v1-20261028T0120Z.json"
+  },
+  "result_stdout_sha256": {
+    "r580": "1bf304d342ed3f269144f31dc2ffc13aed7b4307a19a2047c6be3445eeb0b11a",
+    "r595": "1bf304d342ed3f269144f31dc2ffc13aed7b4307a19a2047c6be3445eeb0b11a"
+  },
+  "runner": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/run_volta_fault_ring_host_harness.py",
+    "sha256": "94ca7fbfbbdaed6c1d89139c8bc23d25b7a9258665037708989068e588b16f88"
+  },
+  "schema": "codex.volta-fault-ring-host-harness.v1",
+  "source_pair": {
+    "r580": {
+      "dev_fb_header_sha256": "0175a270fa5af9d3a62d7fda2c9e536b58551db6bb1e9c123b84ffeec9a32584",
+      "fault_source_sha256": "d0b8cfcf715246b49741314e0009b78c798719b634269ee44a75ee12f9874e77",
+      "function_body_sha256": {
+        "uvm_hal_volta_fault_buffer_read_get": "fdfefe04a9f1b293eca0e94a8bdab46436c95e152216644b3512c88f023158f2",
+        "uvm_hal_volta_fault_buffer_read_put": "6e6f10cf96bd3cb01898ff129b187c1c798cefc7dc2b419e981f4193983bd114",
+        "uvm_hal_volta_fault_buffer_write_get": "730e632d766d63c6d242e0cfe23187b6420a7c7ca4d5a9c57937c07bb3ad36bf"
+      },
+      "gv100_callback_origins": {
+        "read_get": "GV100",
+        "read_put": "GV100",
+        "write_get": "GV100"
+      },
+      "gv100_fault_buffer_callbacks": {
+        "read_get": "uvm_hal_volta_fault_buffer_read_get",
+        "read_put": "uvm_hal_volta_fault_buffer_read_put",
+        "write_get": "uvm_hal_volta_fault_buffer_write_get"
+      },
+      "root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open580-native-default-regression-v1-20261024/baseline/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm",
+      "uvm_hal_source_sha256": "9e1c8c1e0e70d26328809713fc7af7f79e49a57a545ea474b36d70a07d56325d"
+    },
+    "r595": {
+      "dev_fb_header_sha256": "0175a270fa5af9d3a62d7fda2c9e536b58551db6bb1e9c123b84ffeec9a32584",
+      "fault_source_sha256": "d0b8cfcf715246b49741314e0009b78c798719b634269ee44a75ee12f9874e77",
+      "function_body_sha256": {
+        "uvm_hal_volta_fault_buffer_read_get": "fdfefe04a9f1b293eca0e94a8bdab46436c95e152216644b3512c88f023158f2",
+        "uvm_hal_volta_fault_buffer_read_put": "6e6f10cf96bd3cb01898ff129b187c1c798cefc7dc2b419e981f4193983bd114",
+        "uvm_hal_volta_fault_buffer_write_get": "730e632d766d63c6d242e0cfe23187b6420a7c7ca4d5a9c57937c07bb3ad36bf"
+      },
+      "gv100_callback_origins": {
+        "read_get": "GV100",
+        "read_put": "GV100",
+        "write_get": "GV100"
+      },
+      "gv100_fault_buffer_callbacks": {
+        "read_get": "uvm_hal_volta_fault_buffer_read_get",
+        "read_put": "uvm_hal_volta_fault_buffer_read_put",
+        "write_get": "uvm_hal_volta_fault_buffer_write_get"
+      },
+      "root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm",
+      "uvm_hal_source_sha256": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248"
+    }
+  },
+  "status": "passed",
+  "vectors_per_implementation": 11
+}

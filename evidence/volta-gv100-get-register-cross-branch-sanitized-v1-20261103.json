@@ -1,0 +1,72 @@
+{
+  "get_register_fields": {
+    "NV_PFB_PRI_MMU_FAULT_BUFFER_GET(i)": "(0x00100E2C+(i)*20)",
+    "NV_PFB_PRI_MMU_FAULT_BUFFER_GET_GETPTR_CORRUPTED": "30:30",
+    "NV_PFB_PRI_MMU_FAULT_BUFFER_GET_GETPTR_CORRUPTED_CLEAR": "0x00000001",
+    "NV_PFB_PRI_MMU_FAULT_BUFFER_GET_GETPTR_CORRUPTED_NO": "0x00000000",
+    "NV_PFB_PRI_MMU_FAULT_BUFFER_GET_GETPTR_CORRUPTED_YES": "0x00000001",
+    "NV_PFB_PRI_MMU_FAULT_BUFFER_GET_OVERFLOW": "31:31",
+    "NV_PFB_PRI_MMU_FAULT_BUFFER_GET_OVERFLOW_CLEAR": "0x00000001",
+    "NV_PFB_PRI_MMU_FAULT_BUFFER_GET_OVERFLOW_NO": "0x00000000",
+    "NV_PFB_PRI_MMU_FAULT_BUFFER_GET_OVERFLOW_YES": "0x00000001",
+    "NV_PFB_PRI_MMU_FAULT_BUFFER_GET_PTR": "19:0",
+    "NV_PFB_PRI_MMU_FAULT_BUFFER_GET__SIZE_1": "2"
+  },
+  "hardware_validated": false,
+  "host_harness": {
+    "checks_passed": 244,
+    "debug_assertions_are_test_model_only": true,
+    "implementations_executed": 2,
+    "private_log_sha256": "78ea278bcf75bae7c0d70cef42c0b9559883b4a958382a82978372c53966bb7e",
+    "private_report_sha256": "47436753bff8ac618899a11448fd924227fed31ebe4de6cfff47d7ce4b8c8ab8",
+    "release_status_probes_passed": 2,
+    "runner_sha256": "ef799f222cca648009d3a47004bc0b923afdb9c6720a56c1574ff8a459801d9c",
+    "schema": "codex.volta-fault-ring-host-harness.v5"
+  },
+  "limitations": [
+    "No physical GPU or MMIO was accessed.",
+    "No DMA ordering or live overflow recovery was validated.",
+    "The R595 Volta UVM behavior is an explicit compatibility overlay; matching register definitions do not establish native R595 Volta dispatch."
+  ],
+  "modern_published_headers": [
+    {
+      "header_path": "src/common/inc/swref/published/volta/gv100/dev_fb.h",
+      "sha256": "d2590fe14ddf7b2a7d388612c66319017b6bb3db797b7aaabb54b40eb4ee0900",
+      "version": "R595.99.02"
+    },
+    {
+      "commit": "d8257d95ae5fed364163e4df51db66df8b1ee0d2",
+      "header_path": "src/common/inc/swref/published/volta/gv100/dev_fb.h",
+      "sha256": "d2590fe14ddf7b2a7d388612c66319017b6bb3db797b7aaabb54b40eb4ee0900",
+      "source_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/d8257d95ae5fed364163e4df51db66df8b1ee0d2/src/common/inc/swref/published/volta/gv100/dev_fb.h",
+      "version": "R595.112.07"
+    },
+    {
+      "commit": "1a82fbfda8f321b056eb3568850f9316c5e465c",
+      "header_path": "src/common/inc/swref/published/volta/gv100/dev_fb.h",
+      "sha256": "d2590fe14ddf7b2a7d388612c66319017b6bb3db797b7aaabb54b40eb4ee0900",
+      "source_url": "https://github.com/NVIDIA/open-gpu-kernel-modules/blob/1a82fbfda8f321b056eb3568850f9316c5e465c5/src/common/inc/swref/published/volta/gv100/dev_fb.h",
+      "version": "R615.78.08"
+    }
+  ],
+  "module_loaded_or_installed": false,
+  "observed_at_utc": "2026-11-03T03:50:23.962704+00:00",
+  "qualification": "static-source-and-host-cpu-only",
+  "r580_fault_service_source_sha256": "c7991f9a9e029ae1e9dc4aba579ecb37c64408d9600117abdeec82fbc1b245b3",
+  "r595_fault_service_source_sha256": "e2b98f550ad6ef3efb062d931834f09acd79ecd5fa140a2f54de8e77a5dfac2b",
+  "schema": "nvidia-hybrid-volta-gv100-get-register-sanitized-v1",
+  "status": "passed_static_and_host_cpu",
+  "volta_callback_source_sha256": "d0b8cfcf715246b49741314e0009b78c798719b634269ee44a75ee12f9874e77",
+  "volta_uvm_overlay_headers": [
+    {
+      "header_path": "hwref/volta/gv100/dev_fb.h",
+      "sha256": "0175a270fa5af9d3a62d7fda2c9e536b58551db6bb1e9c123b84ffeec9a32584",
+      "source": "R580.178.04 baseline"
+    },
+    {
+      "header_path": "hwref/volta/gv100/dev_fb.h",
+      "sha256": "0175a270fa5af9d3a62d7fda2c9e536b58551db6bb1e9c123b84ffeec9a32584",
+      "source": "R595.99.02 Volta compatibility overlay"
+    }
+  ]
+}

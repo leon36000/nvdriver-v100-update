@@ -1,0 +1,136 @@
+{
+  "assertion_guards_per_implementation": [
+    "--probe-invalid-valid",
+    "--probe-replayable-disabled",
+    "--probe-invalid-access",
+    "--probe-out-of-range-index"
+  ],
+  "checks_passed": 6424,
+  "classification": "host-cpu-execution-of-extracted-pinned-C369-fault-buffer-parsers",
+  "compile_flags": [
+    "-std=gnu11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror"
+  ],
+  "compiler": {
+    "path": "/usr/bin/cc",
+    "version": "cc (Ubuntu 15.2.0-16ubuntu1) 15.2.0"
+  },
+  "created_utc": "2026-10-28T01:05:09.480191+00:00",
+  "hardware_validated": false,
+  "implementations_executed": 2,
+  "limits": [
+    "The replayable and non-replayable Volta parser paths plus the selected Pascal entry accessors and valid/clear callbacks are extracted into temporary host C programs.",
+    "Packets are synthetic little-endian dword arrays built with the pinned C369 field definitions.",
+    "The exact Pascal callback reads and clears the B069 VALID bit; compile-time assertions verify its packet size and VALID field word, shift, and width match the C369 packet.",
+    "GPU canonical-address translation and GPC client-to-uTLB mapping use explicit identity/deterministic CPU shims.",
+    "The HAL callback wrappers only count invocations and delegate to the extracted Pascal functions. Confidential-computing mode is disabled, so metadata-valid handling is not exercised.",
+    "The non-replayable parser receives a copied packet and is checked to leave its VALID bit unchanged without valid/clear callbacks.",
+    "No UVM module, GPU, CUDA context, hardware fault generation, or VM behavior is exercised."
+  ],
+  "log": {
+    "mode": "0600",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/volta-c369-fault-decode-host-v5-20261028T0105Z.log",
+    "sha256": "e0fcd706d925c2635201f00ef8f2d460e773f0693bbdfe25fc8569cef19625ac"
+  },
+  "result_stdout_sha256": {
+    "r580": "ad2827cad9228deaeb144732c00e9f7c8c8d75ef03e3d49173536ece643c4672",
+    "r595": "ad2827cad9228deaeb144732c00e9f7c8c8d75ef03e3d49173536ece643c4672"
+  },
+  "runner": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/run_volta_fault_decode_host_harness.py",
+    "sha256": "de464a0c051c33423ebf0e4e25e1320920934d066d21dfb715ee0b4d0ef2e8ce"
+  },
+  "same_process_cuda_validated": false,
+  "schema": "codex.volta-c369-fault-decode-host-harness.v1",
+  "source_pair": {
+    "r580": {
+      "c369_header": "755c9258db3cbce8f0cc4b1fb76c7ddda8a65c7f184470282edc1b88ed53aa77",
+      "clb069_header": "12a6ba874dfe06a6982e1a479cb4416f1399dd664c1dc034dccd6588cb7c4ccb",
+      "common_inc_nv_uvm_types": "5216a6a83924511f38c8a881ee0ffc601e2851e92e6a9b49810f9cc9e90dd614",
+      "common_inc_nvmisc": "6e02e315b3c5e715fc615c30db031a98303b09bd1f07b693095ee6bad82d199f",
+      "common_inc_nvstatus": "e8267172a1f7a56420d612c6734b3554b9ff6a3d33fdda21b1371ff4ce4b8675",
+      "common_inc_nvtypes": "e3901c0991b3a3dc77fffc2269fee84661bdda8a5bc43c0fe70a620af05edd5b",
+      "fault_source": "d0b8cfcf715246b49741314e0009b78c798719b634269ee44a75ee12f9874e77",
+      "gv100_fault_buffer_callback_origins": {
+        "entry_clear_valid": "GP100",
+        "entry_is_valid": "GP100",
+        "get_fault_type": "GV100",
+        "parse_non_replayable_entry": "GV100",
+        "parse_replayable_entry": "GV100"
+      },
+      "gv100_fault_buffer_callbacks": {
+        "entry_clear_valid": "uvm_hal_pascal_fault_buffer_entry_clear_valid",
+        "entry_is_valid": "uvm_hal_pascal_fault_buffer_entry_is_valid",
+        "get_fault_type": "uvm_hal_volta_fault_buffer_get_fault_type",
+        "parse_non_replayable_entry": "uvm_hal_volta_fault_buffer_parse_non_replayable_entry",
+        "parse_replayable_entry": "uvm_hal_volta_fault_buffer_parse_replayable_entry"
+      },
+      "hal_source": "9e1c8c1e0e70d26328809713fc7af7f79e49a57a545ea474b36d70a07d56325d",
+      "hal_types": "13b3967d8629067621fb4373d9c3404266d5557bb9e2e468a012dd2f182657ce",
+      "pascal_c369_packet_contract": {
+        "b069_packet_size_bytes": "32",
+        "b069_valid_field": "MW((31+7*32):(7*32+31))",
+        "c369_packet_size_bytes": "32",
+        "c369_valid_field": "MW((31+7*32):(7*32+31))"
+      },
+      "pascal_callback_body_sha256": {
+        "uvm_hal_pascal_fault_buffer_entry_clear_valid": "b17827bbac3afed78e09b46f2d0059760a26de75efdac99de0535f4f45d315af",
+        "uvm_hal_pascal_fault_buffer_entry_is_valid": "902c765da722f21acd27b65eacab76a5234c79763c60100f756a9d2bbe893d58"
+      },
+      "pascal_entry_accessor_body_sha256": {
+        "get_fault_buffer_entry": "d415e7f894826412d97bd2cc7d5312546679dc54a7f757dd35bb83839e7af354",
+        "get_fault_buffer_entry_metadata": "bd64ea00c2696da8c97b7b919e7cd4636361fd3451c83538abdb5421ee0813d1"
+      },
+      "pascal_fault_source": "a4cafceee01aac86cb2a4a0527729f28ec6cbc17ff34ec7150d5a5fa0dd7df52",
+      "root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open580-native-default-regression-v1-20261024/baseline/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm",
+      "volta_fault_header": "acef4b2abb4feb8f1935b659f7cbf52e3d02e4786ce176cda4d76dd70f54bc13"
+    },
+    "r595": {
+      "c369_header": "755c9258db3cbce8f0cc4b1fb76c7ddda8a65c7f184470282edc1b88ed53aa77",
+      "clb069_header": "12a6ba874dfe06a6982e1a479cb4416f1399dd664c1dc034dccd6588cb7c4ccb",
+      "common_inc_nv_uvm_types": "5515b06a13072584d4668251c2e31bbb724118c914691eb4abf1cd76c1b63e65",
+      "common_inc_nvmisc": "d9e0e0d61dbc40c979092ab6f16a3a55a31754d9c80a3c1a45c022399baa59c2",
+      "common_inc_nvstatus": "e8267172a1f7a56420d612c6734b3554b9ff6a3d33fdda21b1371ff4ce4b8675",
+      "common_inc_nvtypes": "d1a66ddfa18987eb09f61804586de432dadacbede19315386167536c8b0c0acc",
+      "fault_source": "d0b8cfcf715246b49741314e0009b78c798719b634269ee44a75ee12f9874e77",
+      "gv100_fault_buffer_callback_origins": {
+        "entry_clear_valid": "GV100",
+        "entry_is_valid": "GV100",
+        "get_fault_type": "GV100",
+        "parse_non_replayable_entry": "GV100",
+        "parse_replayable_entry": "GV100"
+      },
+      "gv100_fault_buffer_callbacks": {
+        "entry_clear_valid": "uvm_hal_pascal_fault_buffer_entry_clear_valid",
+        "entry_is_valid": "uvm_hal_pascal_fault_buffer_entry_is_valid",
+        "get_fault_type": "uvm_hal_volta_fault_buffer_get_fault_type",
+        "parse_non_replayable_entry": "uvm_hal_volta_fault_buffer_parse_non_replayable_entry",
+        "parse_replayable_entry": "uvm_hal_volta_fault_buffer_parse_replayable_entry"
+      },
+      "hal_source": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248",
+      "hal_types": "798124455087fe5384103038e56b6decb86c9e3a52c0962ebebad41d40e23a83",
+      "pascal_c369_packet_contract": {
+        "b069_packet_size_bytes": "32",
+        "b069_valid_field": "MW((31+7*32):(7*32+31))",
+        "c369_packet_size_bytes": "32",
+        "c369_valid_field": "MW((31+7*32):(7*32+31))"
+      },
+      "pascal_callback_body_sha256": {
+        "uvm_hal_pascal_fault_buffer_entry_clear_valid": "b17827bbac3afed78e09b46f2d0059760a26de75efdac99de0535f4f45d315af",
+        "uvm_hal_pascal_fault_buffer_entry_is_valid": "902c765da722f21acd27b65eacab76a5234c79763c60100f756a9d2bbe893d58"
+      },
+      "pascal_entry_accessor_body_sha256": {
+        "get_fault_buffer_entry": "d415e7f894826412d97bd2cc7d5312546679dc54a7f757dd35bb83839e7af354",
+        "get_fault_buffer_entry_metadata": "bd64ea00c2696da8c97b7b919e7cd4636361fd3451c83538abdb5421ee0813d1"
+      },
+      "pascal_fault_source": "ba3cd6e3bfb4972f6e970b307e7b6343e2b4f265842803a1947993331f306050",
+      "root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm",
+      "volta_fault_header": "acef4b2abb4feb8f1935b659f7cbf52e3d02e4786ce176cda4d76dd70f54bc13"
+    }
+  },
+  "status": "passed",
+  "vectors_per_implementation": 146
+}

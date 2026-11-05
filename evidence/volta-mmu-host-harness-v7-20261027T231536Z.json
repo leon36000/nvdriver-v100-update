@@ -1,0 +1,137 @@
+{
+  "assertion_guard_checks_passed": 2,
+  "assertion_guard_results": [
+    {
+      "expected_assertion_text": "_v ==",
+      "name": "hwvalue64-field-overflow",
+      "status": "passed"
+    },
+    {
+      "expected_assertion_text": "_aperture >= UVM_APERTURE_PEER_0",
+      "name": "peer-id-out-of-range",
+      "status": "passed"
+    }
+  ],
+  "checks_passed": 32,
+  "classification": "host-executed-source-callback-contract",
+  "compile_flags": [
+    "-std=gnu11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror"
+  ],
+  "compiler": {
+    "path": "/usr/bin/cc",
+    "version": "cc (Ubuntu 15.2.0-16ubuntu1) 15.2.0"
+  },
+  "created_utc": "2026-10-27T23:15:41.753602+00:00",
+  "hardware_validated": false,
+  "harness_source_sha256": "3d8fea00b1942869712ca47653ea6160a5d49a115b686365eb772d708dd60bde",
+  "limitations": [
+    "The harness executes selected callback source on the host CPU, not the GPU.",
+    "The aperture/protection, page-table allocation, page-directory, and ATS-global declarations are bounded test shims checked against pinned R580 field contracts; NVIDIA DRF macros and generated GV100 fields are included from pinned headers.",
+    "Callback helper names are preprocessor-namespaced to execute R580 and candidate bodies in one host translation unit; the poisoned-PTE call target is similarly renamed to avoid symbol collision.",
+    "The candidate generated GV100 MMU header must be byte-identical to the pinned R580 header. The HWVALUE64 shim retains the source round-trip assertion, exercised with a field-overflow rejection probe.",
+    "This does not validate page-table memory ordering, GPU interpretation, UVM, CUDA, P2P, or any complete kernel module."
+  ],
+  "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/volta-mmu-host-harness-v7-20261027T231536Z.log",
+  "log_sha256": "b0f7153d26b4b4b280adf6ecf08473a113658bc7415fdcbd3641fa52f4db91a7",
+  "module_installed": false,
+  "module_loaded": false,
+  "results": [
+    "r580-unmapped-64k actual=0x20 expected=0x20",
+    "r580-unmapped-4k actual=0x0 expected=0x0",
+    "candidate-unmapped-64k actual=0x20 expected=0x20",
+    "sys-cached-readonly actual=0x399999999999c5 expected=0x399999999999c5",
+    "candidate-sys-noncoherent-bar1 actual=0x399999999999c7 expected=0x399999999999c7",
+    "vid-cached-readonly actual=0x1bbbbbbc1 expected=0x1bbbbbbc1",
+    "peer0-low-cached-readonly actual=0x1bbbbbbc3 expected=0x1bbbbbbc3",
+    "peer0-47bit-cached-readonly actual=0x2dd1bbbbbbc3 expected=0x2dd1bbbbbbc3",
+    "r580-poisoned-pascal actual=0x1bad000e9 expected=0x1bad000e9",
+    "candidate-poisoned-volta actual=0x1bad000e9 expected=0x1bad000e9",
+    "r580-zero-pde actual=0x0 expected=0x0",
+    "candidate-zero-pde actual=0x0 expected=0x0",
+    "r580-zero-dual-pde-low actual=0x0 expected=0x0",
+    "r580-zero-dual-pde-high actual=0x0 expected=0x0",
+    "candidate-zero-dual-pde-low actual=0x0 expected=0x0",
+    "candidate-zero-dual-pde-high actual=0x0 expected=0x0",
+    "r580-single-sys-pde actual=0x3999999999990c expected=0x3999999999990c",
+    "candidate-single-sys-pde actual=0x3999999999990c expected=0x3999999999990c",
+    "r580-single-vid-pde actual=0x1bbbbbb0a expected=0x1bbbbbb0a",
+    "candidate-single-vid-pde actual=0x1bbbbbb0a expected=0x1bbbbbb0a",
+    "r580-dual-pde-big-sys-small-vid-low actual=0x3999999999999c expected=0x3999999999999c",
+    "r580-dual-pde-big-sys-small-vid-high actual=0x1bbbbbb0a expected=0x1bbbbbb0a",
+    "candidate-dual-pde-big-sys-small-vid-low actual=0x3999999999999c expected=0x3999999999999c",
+    "candidate-dual-pde-big-sys-small-vid-high actual=0x1bbbbbb0a expected=0x1bbbbbb0a",
+    "r580-dual-pde-big-vid-small-sys-low actual=0x1bbbbbbba expected=0x1bbbbbbba",
+    "r580-dual-pde-big-vid-small-sys-high actual=0x3999999999990c expected=0x3999999999990c",
+    "candidate-dual-pde-big-vid-small-sys-low actual=0x1bbbbbbba expected=0x1bbbbbbba",
+    "candidate-dual-pde-big-vid-small-sys-high actual=0x3999999999990c expected=0x3999999999990c",
+    "r580-no-ats-depth2-disabled actual=0x1bbbbbb0a expected=0x1bbbbbb0a",
+    "candidate-no-ats-depth2-disabled actual=0x1bbbbbb0a expected=0x1bbbbbb0a",
+    "r580-no-ats-depth2-enabled actual=0x1bbbbbb2a expected=0x1bbbbbb2a",
+    "candidate-no-ats-depth2-enabled actual=0x1bbbbbb2a expected=0x1bbbbbb2a"
+  ],
+  "runner_sha256": "6ba94dffc9fbaddbe51b447faa3d717e294bd95ab422ea1217fea827ccf7ab6b",
+  "schema": "volta-mmu-host-harness-v5",
+  "sources": {
+    "candidate_pascal_mmu": {
+      "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v6-20261027T231459Z/nvidia-uvm/uvm_pascal_mmu.c",
+      "sha256": "7706c8d28244148a8d55248ddfb4ebc6007cfc617b54d559406180b6c403f932"
+    },
+    "candidate_volta_mmu": {
+      "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v6-20261027T231459Z/nvidia-uvm/uvm_volta_mmu.c",
+      "sha256": "321d5381deebd8b2bd053d31cf750b890aae113b758c528addf5e1c5c043b0de"
+    },
+    "nvmisc": {
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc/nvmisc.h",
+      "sha256": "6e02e315b3c5e715fc615c30db031a98303b09bd1f07b693095ee6bad82d199f"
+    },
+    "nvtypes": {
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc/nvtypes.h",
+      "sha256": "e3901c0991b3a3dc77fffc2269fee84661bdda8a5bc43c0fe70a620af05edd5b"
+    },
+    "pascal_dev_mmu": {
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia-uvm/hwref/pascal/gp100/dev_mmu.h",
+      "sha256": "40ff19f4b3c95ec7ffe457fe30602770ac627345a4bec24beddb14229e09f7b2"
+    },
+    "r580_global_h": {
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia-uvm/uvm_global.h",
+      "sha256": "32c99fb632fa831da1fbae7c4e541e4fc35afd1d3bf94fe5f7ba57f97dc2e33c"
+    },
+    "r580_hal_types": {
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia-uvm/uvm_hal_types.h",
+      "sha256": "13b3967d8629067621fb4373d9c3404266d5557bb9e2e468a012dd2f182657ce"
+    },
+    "r580_mmu_header": {
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia-uvm/uvm_mmu.h",
+      "sha256": "9676e8dd2e3ce37390fdac6a8dd18d728d23e81ce4f47f7978971928ec9ba419"
+    },
+    "r580_page_tree_test": {
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia-uvm/uvm_page_tree_test.c",
+      "sha256": "256607e85c1bd4490a338ce161b78489a52de2e636c567de20b704fd1d20a696"
+    },
+    "r580_pascal_mmu": {
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia-uvm/uvm_pascal_mmu.c",
+      "sha256": "ffe96be7a232418066906963b7d868a4f271b3fe4eeefe083c79c9b9cb7e4664"
+    },
+    "r580_volta_dev_mmu": {
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia-uvm/hwref/volta/gv100/dev_mmu.h",
+      "sha256": "6a2656ab46cc7cdfe92c6ab12c7c5246c5d2819651add7a34b2d47fd2e13c483"
+    },
+    "r580_volta_mmu": {
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia-uvm/uvm_volta_mmu.c",
+      "sha256": "a4ff6d7ea69fbef25cad7ef1e7b85c3c8fe85e6e9cd1f3be4306a274d3f8e709"
+    },
+    "uvm_user_types": {
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc/nv_uvm_user_types.h",
+      "sha256": "2f83bf2cf6bd7d53ab5fdb08bd820658498e2e0fd50b2d3e51823e043449cfa8"
+    },
+    "volta_dev_mmu": {
+      "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v6-20261027T231459Z/nvidia-uvm/hwref/volta/gv100/dev_mmu.h",
+      "sha256": "6a2656ab46cc7cdfe92c6ab12c7c5246c5d2819651add7a34b2d47fd2e13c483"
+    }
+  },
+  "status": "passed"
+}

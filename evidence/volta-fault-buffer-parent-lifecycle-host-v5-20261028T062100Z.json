@@ -1,0 +1,196 @@
+{
+  "assertion_guards": [
+    "--probe-zero-utlb",
+    "--probe-non-divisible-buffer-size",
+    "--probe-tracker-nonempty"
+  ],
+  "checks_passed": 420,
+  "checks_per_implementation": 210,
+  "classification": "host-cpu-execution-of-pinned-volta-fault-buffer-lifecycle-v5",
+  "compile_flags": [
+    "-std=gnu11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror"
+  ],
+  "compiler": {
+    "path": "/usr/bin/cc",
+    "version": "cc (Ubuntu 15.2.0-16ubuntu1) 15.2.0"
+  },
+  "created_utc": "2026-10-28T06:21:02.383490+00:00",
+  "deinit_prefetch_contract": {
+    "r580": "reenable only when RM faultBufferHandle exists, prefetch is disabled, and prefetch_fault_supported is true",
+    "r595": "reenable when RM faultBufferHandle exists and prefetch is disabled",
+    "synthetic_case": "the final vector sets the compatibility-shim capability false on both sources; this is a R580 counterfactual and not a live R595 field"
+  },
+  "deinit_prefetch_vectors_per_implementation": 4,
+  "expected_guard_count": 6,
+  "hardware_validated": false,
+  "implementations_executed": 2,
+  "inner_helper_vectors_per_implementation": 10,
+  "limits": [
+    "Exact replayable init/reinit/deinit helpers, both exact non-replayable helpers, and the outer parent init/resume/deinit bodies are compiled and called for both pinned source trees.",
+    "Exact fault_buffer_deinit_replayable_faults body is called after all three allocation failure points, RM page-fault ownership failure, and prefetch cleanup states; frees are counted and returned pointers checked null.",
+    "The exact non-replayable init helper is reached three times per source and its exact deinit helper five times across RM-init failure, replayable-init failure, both non-replayable allocation failures, and successful resume/teardown.",
+    "RM interface calls, allocator, trackers, HAL, and cache-entry type representation are synthetic collaborators; RM implementation bodies and the real kernel UVM ABI layout are not executed here.",
+    "The nonempty-tracker guard aborts at the source UVM_ASSERT before deinit proceeds.",
+    "HAL entry size, GET/PUT reads, prefetch callbacks, allocator, tracker, and RM ownership API are synthetic CPU collaborators; GET/PUT callback bodies are tested separately by the Volta ring harness.",
+    "Partial-allocation cleanup executes the NVIDIA deinit helper against CPU allocations, not the kernel allocator or live RM objects.",
+    "The R595 prefetch=false vector is a synthetic counterfactual because that release removed the prefetch_fault_supported field; it is not a supported live R595 GPU state.",
+    "No UVM module, RM, GPU, DMA, interrupt, CUDA context, or runtime fault is exercised."
+  ],
+  "log": {
+    "mode": "0600",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/volta-fault-buffer-parent-lifecycle-host-v5-20261028T062100Z.log",
+    "sha256": "5277dd75fd36f3c1b7de314eeba1a9818bc7f33bcfcd0bbb126eb04192c3682f"
+  },
+  "module_loaded": false,
+  "non_replayable_deinit_calls_per_implementation": 5,
+  "non_replayable_helper_contract": {
+    "allocation_failures": [
+      "shadow buffer allocation",
+      "fault-cache allocation after shadow-buffer success"
+    ],
+    "executed_functions": [
+      "uvm_parent_gpu_fault_buffer_init_non_replayable_faults",
+      "uvm_parent_gpu_fault_buffer_deinit_non_replayable_faults"
+    ],
+    "scope": "exact helper arithmetic and control flow execute, but the cache-entry type layout is a host-harness substitute rather than the kernel UVM ABI type",
+    "synthetic_inputs": {
+      "derived_max_faults": 3,
+      "hal_entry_size_bytes": 32,
+      "rm_buffer_size_bytes": 96,
+      "test_cache_entry_size_bytes": 16,
+      "test_fault_cache_allocation_bytes": 48
+    }
+  },
+  "non_replayable_init_attempts_per_implementation": 3,
+  "outer_caller_contract": {
+    "executed_functions": [
+      "uvm_parent_gpu_fault_buffer_init",
+      "uvm_parent_gpu_fault_buffer_resume",
+      "uvm_parent_gpu_fault_buffer_deinit"
+    ],
+    "failure_paths": [
+      "RM init failure clears a partially populated faultBufferHandle and skips RM destroy",
+      "replayable allocation failure unwinds partial UVM state and releases RM page-fault ownership",
+      "first non-replayable allocation failure unwinds replayable state and destroys RM fault info",
+      "second non-replayable allocation failure frees the partial shadow buffer, unwinds replayable state, and destroys RM fault info",
+      "success followed by resume refresh and deinit releases owned resources"
+    ],
+    "r580": "asserts replayable support and conditionally initializes/deinitializes non-replayable fault buffers",
+    "r595": "omits replayable support assertions and calls non-replayable init/deinit unconditionally",
+    "synthetic_collaborators": [
+      "nvUvmInterfaceInitFaultInfo",
+      "nvUvmInterfaceOwnPageFaultIntr",
+      "nvUvmInterfaceDestroyFaultInfo",
+      "allocator, tracker, HAL callbacks, and synthetic non-replayable cache-entry representation"
+    ]
+  },
+  "outer_caller_vectors_per_implementation": 5,
+  "partial_cleanup_vectors_per_implementation": 4,
+  "prefetch_false_counterfactual": {
+    "r580": "enabled=false; callback=disable_prefetch_faults",
+    "r595": "enabled=true; callback=enable_prefetch_faults",
+    "scope": "synthetic field value; GV100 source initializes R580 capability true, and R595 has no such field"
+  },
+  "reinit_contract": {
+    "prefetch": "exact helper replays enable/disable according to fault_buffer.prefetch_faults_enabled",
+    "readback": "exact helper refreshes cached GET and PUT from the selected Volta HAL callbacks",
+    "states": [
+      "prefetch-enabled",
+      "prefetch-disabled"
+    ]
+  },
+  "reinit_vectors_per_implementation": 2,
+  "report": {
+    "mode": "0600",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/volta-fault-buffer-parent-lifecycle-host-v5-20261028T062100Z.json"
+  },
+  "result_stdout_sha256": {
+    "r580": "fe0e53bbcfb37031d510f1c9259bb2f92159b627b48e60d87f0b0f4af0c1ee3c",
+    "r595": "3ccf54e58a55720d72f2afb0c95df0ef6afee8cd3fe4ece4109a39c23f611483"
+  },
+  "runner": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/run_volta_fault_init_host_harness.py",
+    "sha256": "43d1959f8563cf481140095875a653a197c00d08e16b92b7c317465e3e0a4709"
+  },
+  "schema": "codex.volta-fault-init-host-harness.v4",
+  "source_pair": {
+    "r580": {
+      "capability_fields_present": {
+        "non_replayable_faults_supported": true,
+        "prefetch_fault_supported": true,
+        "replayable_faults_supported": true
+      },
+      "deinit_body_without_prefetch_expression_sha256": "e8242e390b9251dc4f7d1749255b656f406c6ec41b3317439d4b4089050e4c72",
+      "deinit_prefetch_capability_read_present": true,
+      "fault_buffer_deinit_body_sha256": "8af117f2c38f592c1e1facf2c7c913d3d5f715233759a0f29b9d1d48c2cfe0a5",
+      "fault_buffer_init_body_sha256": "9fab37556fa02c9b7efd4c7ad59a5d6d92a3b6a2963800b5102a7ad566f8b473",
+      "fault_buffer_reinit_body_sha256": "6b4cb874e7637d6fe5ad6be1ffcb724d6be5ce090bd38b14c645b3dde14c2bf4",
+      "gpu_header_sha256": "11f5a41820746ffb1bc2d70729eaca257eeea3ca71ecbf4fc31fa4a1f3bc5a01",
+      "init_body_without_prefetch_expression_sha256": "9f9b2aa81bbefb2abb1817032fd256089ef2f5ba4fa4df9083d4638453a65d71",
+      "non_replayable_deinit_body_sha256": "46be8c999dca2c53f460f5ad03025243b48703bae62d75093dcc1aeb0b171946",
+      "non_replayable_init_body_sha256": "fb754753dcdcb2e85c33e0169d13aa267fb910964ffed87be0b49e65e0c25702",
+      "non_replayable_init_capability_assert_present": true,
+      "non_replayable_init_without_capability_assert_sha256": "9bfd56443847d2b34c7c9f268ef757fdf98138d8d0c16efb484920b6e69f4759",
+      "non_replayable_source_sha256": "588e72e5e3163f2e9a3c1b0d78a5450c97a4393b5b0c8e024915c41460d0250b",
+      "nonreplayable_deinit_is_conditional": true,
+      "nonreplayable_init_is_conditional": true,
+      "parent_deinit_body_sha256": "968290b9ae9e285fe9786479f4c19bcdef0d335ab2a7305b7985b727acc3587c",
+      "parent_fault_buffer_init_body_sha256": "5443ab1ea632d7c95f4f9e7df4964cf3fa93088c652d0678de6d71a746653a41",
+      "parent_resume_body_sha256": "e8bbf1ac850e2483e25e64357366d5d52cc7390897499a11579565fb8cd93035",
+      "prefetch_capability_read_present": true,
+      "replayable_capability_assert_in_parent_init": true,
+      "replayable_capability_assert_in_parent_resume": true,
+      "service_source_sha256": "c7991f9a9e029ae1e9dc4aba579ecb37c64408d9600117abdeec82fbc1b245b3",
+      "volta_capability_initialization": {
+        "non_replayable_faults_supported_true": true,
+        "prefetch_fault_supported_true": true,
+        "replayable_faults_supported_true": true
+      },
+      "volta_source_sha256": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653"
+    },
+    "r595": {
+      "capability_fields_present": {
+        "non_replayable_faults_supported": false,
+        "prefetch_fault_supported": false,
+        "replayable_faults_supported": false
+      },
+      "deinit_body_without_prefetch_expression_sha256": "e8242e390b9251dc4f7d1749255b656f406c6ec41b3317439d4b4089050e4c72",
+      "deinit_prefetch_capability_read_present": false,
+      "fault_buffer_deinit_body_sha256": "0dce92b4c39fb4db283cb1d60aef691f5856e2b8daaea2010f7b7cc90be11372",
+      "fault_buffer_init_body_sha256": "675c94f2d66a0614991f4042bf75c0006517ffbe38b42e46fc69ba3920935f2f",
+      "fault_buffer_reinit_body_sha256": "6b4cb874e7637d6fe5ad6be1ffcb724d6be5ce090bd38b14c645b3dde14c2bf4",
+      "gpu_header_sha256": "76c578d204b32499e0004d1f1f43f9a1ce6718be13faa1394a5a63d0d1c7f9b5",
+      "init_body_without_prefetch_expression_sha256": "9f9b2aa81bbefb2abb1817032fd256089ef2f5ba4fa4df9083d4638453a65d71",
+      "non_replayable_deinit_body_sha256": "46be8c999dca2c53f460f5ad03025243b48703bae62d75093dcc1aeb0b171946",
+      "non_replayable_init_body_sha256": "9bfd56443847d2b34c7c9f268ef757fdf98138d8d0c16efb484920b6e69f4759",
+      "non_replayable_init_capability_assert_present": false,
+      "non_replayable_init_without_capability_assert_sha256": "9bfd56443847d2b34c7c9f268ef757fdf98138d8d0c16efb484920b6e69f4759",
+      "non_replayable_source_sha256": "83fd573b3f5187ded355dec0a835f293716b0d271204d2c617864346fac01888",
+      "nonreplayable_deinit_is_conditional": false,
+      "nonreplayable_init_is_conditional": false,
+      "parent_deinit_body_sha256": "0d3c9ab13c084c3f55efad35658e9d1c58916cd7b89ff1f891d7016d7bd7d048",
+      "parent_fault_buffer_init_body_sha256": "d8ac4d8690ddf35245ac30c83bde7b5bd31ae5a78dacd1ec67aebd592ae536b1",
+      "parent_resume_body_sha256": "7623abe672f950a6d89b452965c09cbdb2d42779ce6e9dec1dfa8aa703679f3b",
+      "prefetch_capability_read_present": false,
+      "replayable_capability_assert_in_parent_init": false,
+      "replayable_capability_assert_in_parent_resume": false,
+      "service_source_sha256": "e2b98f550ad6ef3efb062d931834f09acd79ecd5fa140a2f54de8e77a5dfac2b",
+      "volta_capability_initialization": {
+        "non_replayable_faults_supported_true": false,
+        "prefetch_fault_supported_true": false,
+        "replayable_faults_supported_true": false
+      },
+      "volta_source_sha256": "ca662fc33698586ec524c939593b6a67fb196d1b03fc6eea19116e5a0553254e"
+    }
+  },
+  "status": "passed",
+  "supersedes": {
+    "reason": "v4 used synthetic non-replayable callbacks; v5 executes the exact pinned R580/R595 helpers through parent init, unwind, and teardown",
+    "report": "volta-fault-buffer-parent-lifecycle-host-v4-20261028T061343Z.json"
+  },
+  "vectors_per_implementation": 15
+}

@@ -1,0 +1,33 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "tests.test_volta_mmu_host_harness",
+    "tests.test_volta_mmu_adapter_audit",
+    "-v"
+  ],
+  "finished_at_utc": "2026-10-31T21:02:46+00:00",
+  "hardware_validated": false,
+  "log": {
+    "bytes": 2841,
+    "mode": "0600",
+    "path": "evidence/logs/volta-mmu-focused-tests-v1-20261031T2102Z.log",
+    "sha256": "6869e22f1c0fa02b7141ece2b6f375b0dea1a6c321c524543b21e61966ee912e"
+  },
+  "module_installed": false,
+  "module_loaded": false,
+  "process_exit_code": 0,
+  "reported_duration_seconds": 11.171,
+  "schema": "volta-mmu-focused-tests-v1",
+  "source_hashes": {
+    "tests/test_volta_mmu_adapter_audit.py": "62981a91b402e6a26facaaad6e71fb493fee0f337131c835b393a3cb64acc081",
+    "tests/test_volta_mmu_host_harness.py": "658b3995be700d6ed7ba1de89e874d1e70b3e5fd66243554f9f696075f76def1",
+    "tools/run_volta_mmu_host_harness.py": "03ef9bebcddd946ce2ef89f531243ff72253fb876b87204b1bfbf612774b96eb"
+  },
+  "started_at_utc": "2026-10-31T21:02:35+00:00",
+  "status": "passed",
+  "tests_run": 14,
+  "working_directory": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid"
+}

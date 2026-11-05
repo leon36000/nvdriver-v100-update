@@ -1,0 +1,102 @@
+{
+  "architecture_comparison": {
+    "decision_reason": "It keeps the existing single UVM control plane and avoids multiplying the user-space ioctl routing surface. The experiment must first prove one system-memory semaphore page can be mapped, used, synchronized and retired by both provider-local address spaces.",
+    "first_experiment": "shared_system_memory_mapping",
+    "isolated_uvm_owners": {
+      "classification": "larger_kernel_and_userspace_integration",
+      "not_proven_impossible": true,
+      "required_changes": [
+        "distinct module and user-visible device identities for each UVM owner",
+        "independent callback/session routing instead of the current single registry",
+        "one-process CUDA/IOCTL routing to the correct UVM fd and backend",
+        "explicit semantics for cross-owner managed memory and peer operations"
+      ]
+    },
+    "shared_system_memory_mapping": {
+      "classification": "narrowest_first_experiment",
+      "preserves_one_uvm_control_plane": true,
+      "required_contract": "map the same system-memory semaphore allocation from one RM provider's VA space into the other provider's VA space with coherent cross-GPU use",
+      "unproven_requirements": [
+        "provider-local GPU mapping of the same system-memory backing",
+        "DMA/IOMMU address validity and lifetime for both devices",
+        "CPU/GPU visibility, semaphore ordering, invalidation and teardown"
+      ]
+    }
+  },
+  "bridge_registration": {
+    "callback_model": "one frontend registry fans out one UVM callback table to both RMs",
+    "multi_uvm_registration": "rejected_while_registration_active",
+    "session_model": "one logical UVM session is paired across Open and legacy RMs"
+  },
+  "inputs": {
+    "c1_report": {
+      "path": "evidence/r580-uvm-cross-provider-static-v2-20261023T204103Z.json",
+      "sha256": "a02b4d8b9e1498ba1aab379121ebb1f38c206bf5942d035ab96af98aaf63feb9"
+    },
+    "function_sha256": {
+      "hybrid580_uvm_register_callbacks_locked": "c0952059b931b26c2948b9f2e7861cdc38b1e070edf9289609b090de46c4a9d7",
+      "nvUvmInterfaceSessionCreate": "c63b0c7a7bbc9ca49408391a3e9dee6708c9614bd716b5d0ecca57df5173730e",
+      "uvm_api_mm_initialize": "361e34a874104afa02557f6475ac8e757b576fc0d08770301e7f02b3c76451a5",
+      "uvm_chardev_create": "3a5c4215a84f948c71db6e9ffffa8991e7f721c9de1c85eaf325ca61dde8ffcb",
+      "uvm_file_is_nvidia_uvm": "74909359641e83763ddf3992ee41d3975a42f87544a3c017559ff7897db3e45a",
+      "uvm_global_exit": "8693d65ce9577cfd24c6099003f42f25d3954b0c711f4f303c27b8d8059b850b",
+      "uvm_global_init": "fcad252bf2b10bfcdce06330354c4a1e53ecc8b31448f8f86786db730166f895",
+      "uvm_register_callbacks": "3048abca5d76c3406c690f758572a4b09eee50c90da1d8acf356e1823840120a",
+      "uvm_unregister_callbacks": "9c36245aa00cf513789f1ec7054bd8447de964dc2692235628c691f60ce2c09e"
+    },
+    "source_archive": {
+      "path": ".cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+      "sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8"
+    },
+    "source_files": {
+      "hybrid580_uvm_callback_bridge.c": {
+        "bytes": 205110,
+        "path": "src/hybrid580_uvm_callback_bridge.c",
+        "sha256": "6646bdb5605a1f1472df8e82ca8a2683949b074d81b3f9fd45282a9797051c9b"
+      },
+      "hybrid580_uvm_callback_bridge.h": {
+        "bytes": 3122,
+        "path": "src/hybrid580_uvm_callback_bridge.h",
+        "sha256": "f68a880a5e54ebafb083c11f3b6349f5ed47462c1e4ac5db90b05ee176285b4d"
+      },
+      "nvidia-uvm.Kbuild": {
+        "bytes": 2811,
+        "path": "build/experiments/private-open580-native-v4-softdep-v1-20261023/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/nvidia-uvm.Kbuild",
+        "sha256": "0e8d3d96e00d6ca8b6b564e4668dd70447d8b6bca9200845180ce7c66902328b"
+      },
+      "uvm.c": {
+        "bytes": 46908,
+        "path": "build/experiments/private-open580-native-v4-softdep-v1-20261023/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm.c",
+        "sha256": "6549ff9293e5a789d53f59c29cbc2af4d7d8aedd0bfe7519699c4239e7ad24b3"
+      },
+      "uvm_global.c": {
+        "bytes": 18035,
+        "path": "build/experiments/private-open580-native-v4-softdep-v1-20261023/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_global.c",
+        "sha256": "aeee2f257a289853f36d9c7b196f1e02d19b84695db44cdd2e00f28b0f1a4489"
+      },
+      "uvm_global.h": {
+        "bytes": 18009,
+        "path": "build/experiments/private-open580-native-v4-softdep-v1-20261023/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_global.h",
+        "sha256": "32c99fb632fa831da1fbae7c4e541e4fc35afd1d3bf94fe5f7ba57f97dc2e33c"
+      }
+    }
+  },
+  "interpretation": "The source proves the current single-registry bridge rejects a second callback registration while active and the current UVM implementation binds an ioctl fd to one file-operations identity. It does not prove that separately renamed UVM modules or a complete user-space router are impossible. The shared system-memory mapping is selected only as the smallest first experiment; DMA, coherence, semaphore correctness and hardware behavior remain unvalidated.",
+  "observed_at_utc": "2026-10-23T20:49:22.096999+00:00",
+  "qualification": {
+    "level": "analyzed-statically",
+    "module_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "schema": "nvidia-uvm-owner-isolation-architecture-audit-v1",
+  "single_uvm": {
+    "device_name": "nvidia-uvm",
+    "device_registration": "one dynamically allocated dev_t and one cdev per module instance",
+    "file_identity_uses_fops_pointer": true,
+    "global_gpu_table": "parent_gpus",
+    "global_rm_session": "one g_uvm_global.rm_session_handle per module instance",
+    "ioctl_checks_the_originating_uvm_fd": true,
+    "module_target": "nvidia-uvm.ko"
+  },
+  "source_release": "580.178.04"
+}

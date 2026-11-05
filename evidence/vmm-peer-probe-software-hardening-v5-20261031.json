@@ -1,0 +1,82 @@
+{
+  "build": {
+    "binary": "build/vmm-peer-probe-v3-20261031/hybrid_cuda_vmm_peer_probe",
+    "binary_sha256": "3ebe23609679621035c14f2eec895e4df5df0cbe9bd8e00cddde23e8b9cd92e0",
+    "deterministic_rebuild_log": "evidence/logs/vmm-peer-probe-v3-rebuild-v1-20261031.log",
+    "deterministic_rebuild_log_sha256": "f7ffcb5ddcf13923b3ae3b41a1220c321ea201e6602cf6aeb1b69428d9fe188d",
+    "fatbin": "build/probe-peer-transfer-v3-20261031/hybrid_probe.sm70-sm120.fatbin",
+    "fatbin_sha256": "9b6c772590c0e7ce6a95e36fb637b769eceef69856979761d739028d8b45675f",
+    "links_libcuda_directly": false,
+    "manifest": "build/vmm-peer-probe-v3-20261031/build-manifest.json",
+    "manifest_sha256": "52daa929819bc3b82407a6f3fa16824dc9083a45ac8cd81510ded7b87f8e2e5d",
+    "real_bundle_pin_check": "accepted"
+  },
+  "changes": [
+    "fix VMM report JSON serialization for module_path",
+    "preserve numerical kernel result when cleanup later fails while keeping overall status failed",
+    "skip cuMemRelease and cuMemAddressFree if cuMemUnmap fails, preserving the dependency chain",
+    "stop before reverse-direction execution after any direction cleanup failure to avoid accumulating mappings",
+    "CPU fake-libcuda scenarios cover bidirectional reads, one-way permission failure, kernel launch failure, unmap failure, and dependent-cleanup short-circuit"
+  ],
+  "correction_note": "Records the dependency-aware VMM teardown and reverse-direction stop, the v3 build pins, refreshed 33-case focused tests, and full-suite rerun. v4 remains preserved with its earlier code/artifact hashes.",
+  "focused_tests": {
+    "command": "python3 -B -m unittest tests.test_vmm_peer_probe_fake_driver tests.test_vmm_peer_probe_contract tests.test_run_vmm_peer_probe -v",
+    "errors": 0,
+    "failures": 0,
+    "log": "evidence/logs/vmm-peer-fake-driver-focused-v3-20261031.log",
+    "log_sha256": "6fde2787bd6958e0ce5d629880fe055407c881a51b7a88d0774e81b772648700",
+    "process_exit_code": 0,
+    "skipped": 0,
+    "tests_run": 33
+  },
+  "full_software_suite": {
+    "errors": 0,
+    "failures": 0,
+    "log": "evidence/logs/software-verification-openrm-hal-matrix-v1-20261031T224223Z.log",
+    "log_sha256": "b515f5044661cc2d9dc364de9636487bdf7460ef4f950c1e145fe41237e3a63c",
+    "process_exit_code": 0,
+    "qualification": "software-suite-only",
+    "report": "evidence/software-verification-openrm-hal-matrix-v1-20261031T224223Z.json",
+    "report_sha256": "26d3ea218f510166df68231d7ea151870071554272b1200747d60b084b530401",
+    "reported_seconds": 141.195,
+    "skipped": 0,
+    "status": "pass",
+    "tests_run": 2288
+  },
+  "hardware": {
+    "candidate_module_installed": false,
+    "candidate_module_loaded": false,
+    "other_pc_accessed": false,
+    "tested": false
+  },
+  "implementation_sha256": {
+    "src/hybrid_cuda_vmm_peer_probe.cpp": "5af98eb2e547db18d793121a78d8c09e985e67e83d6f295b4f666321428e012e",
+    "tests/fixtures/vmm_fake_libcuda.cpp": "b743bb3b164d9bc5db68494d8369189001025941c6ffcb6afb83ca0adcfaefe9",
+    "tests/test_vmm_peer_probe_contract.py": "8de5577b6c374e149d51d12890f24475e7ca4a9e6a27ef029b725606a9f25168",
+    "tests/test_vmm_peer_probe_fake_driver.py": "fbf03b7afeb083a550401ff2aab73ff28269fcaa3e19b1cdd24eab21297dab05",
+    "tools/build_vmm_peer_probe.py": "c4f98fab8eef0b735cbc3857d8da93e4eaa0b38819369d74063d2e9b422d8c79",
+    "tools/run_vmm_peer_probe.py": "7cc6816c5f3ba2c91e3a8f0b9afadf383ab13630c8f7af15bcfd9dcbb0775828",
+    "tools/vmm_peer_probe_contract.py": "9d30ad0255ae4500c2d23ed1d9307b3a76fd39bb520006d74328425bbcbbef94"
+  },
+  "limitations": [
+    "fake CUDA Driver API is a CPU test double and does not implement GPU VMM semantics",
+    "no physical V100 or RTX 5080 behavior was exercised",
+    "same-Linux mixed-generation CUDA execution, UVM, hardware P2P, performance, and stability remain unvalidated"
+  ],
+  "observed_at_utc": "2026-10-31T22:44:45.118892+00:00",
+  "pc3_access_probe": "evidence/pc3-access-probe-v14-20261031.json",
+  "qualification": "static-and-software-only-no-hardware-validation",
+  "readme_shell_syntax": {
+    "blocks_checked": 22,
+    "command": "bash -n",
+    "passed": 22
+  },
+  "schema": "nvidia-hybrid-vmm-probe-software-hardening-v5",
+  "static_analysis": {
+    "command": "/usr/bin/x86_64-linux-gnu-g++-15 -std=c++17 -O2 -Wall -Wextra -Wpedantic -Werror -fanalyzer -I ../tools/cuda13.1-front/usr/local/cuda-13.1/include -c src/hybrid_cuda_vmm_peer_probe.cpp",
+    "log": "evidence/logs/vmm-peer-probe-fanalyzer-v3-20261031.log",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "process_exit_code": 0
+  },
+  "supersedes": "evidence/vmm-peer-probe-software-hardening-v4-20261031.json"
+}

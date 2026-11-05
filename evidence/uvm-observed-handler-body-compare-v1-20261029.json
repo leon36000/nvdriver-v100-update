@@ -1,0 +1,1489 @@
+{
+  "captures": [
+    {
+      "capture": "pc3-v100-context-ioctl-sequence-v1-20261028.json",
+      "capture_sha256": "8c7c9c2cb9369afcb7f0139ae03f82054103b35de485324022ddd566d1427588",
+      "driver_version": "580.178.04",
+      "guest_name": "Tesla V100-SXM2-16GB",
+      "kernel_release": "6.8.0-147-generic",
+      "payload_bytes_observed": false,
+      "request_count": 16
+    },
+    {
+      "capture": "pc3-v100-context-ioctl-sequence-v2-20261028.json",
+      "capture_sha256": "b7857cabab5f2b121c79a7134a76f856462af7355f29a5b1ac60673a3694244a",
+      "driver_version": "580.178.04",
+      "guest_name": "Tesla V100-SXM2-16GB",
+      "kernel_release": "6.8.0-147-generic",
+      "payload_bytes_observed": false,
+      "request_count": 16
+    }
+  ],
+  "comparison_method": "C lexical token sequences for the uniquely defined NV_STATUS handler, discarding only whitespace and comments; no AST or semantic analysis",
+  "different_handler_count": 1,
+  "handlers": [
+    {
+      "baseline": {
+        "end_line": 2160,
+        "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_range.c",
+        "start_line": 2109,
+        "token_count": 228,
+        "token_sha256": "08d606b4e627cd4777d965af536554c7d9dc160a961f9cb15204d0cde8e6d1cc"
+      },
+      "candidate": {
+        "end_line": 1875,
+        "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_va_range.c",
+        "start_line": 1824,
+        "token_count": 228,
+        "token_sha256": "08d606b4e627cd4777d965af536554c7d9dc160a961f9cb15204d0cde8e6d1cc"
+      },
+      "handler": "uvm_api_alloc_semaphore_pool",
+      "requests": [
+        {
+          "count_each_capture": 1,
+          "handler": "uvm_api_alloc_semaphore_pool",
+          "name": "UVM_ALLOC_SEMAPHORE_POOL",
+          "request": "0x44"
+        }
+      ],
+      "token_sequences_identical": true
+    },
+    {
+      "baseline": {
+        "end_line": 627,
+        "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_map_external.c",
+        "start_line": 623,
+        "token_count": 31,
+        "token_sha256": "0423a80dd87eed1ac91f3045c7cdcdb8a851bf16767a8b81deda44a73784db60"
+      },
+      "candidate": {
+        "end_line": 626,
+        "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_map_external.c",
+        "start_line": 622,
+        "token_count": 31,
+        "token_sha256": "0423a80dd87eed1ac91f3045c7cdcdb8a851bf16767a8b81deda44a73784db60"
+      },
+      "handler": "uvm_api_create_external_range",
+      "requests": [
+        {
+          "count_each_capture": 26,
+          "handler": "uvm_api_create_external_range",
+          "name": "UVM_CREATE_EXTERNAL_RANGE",
+          "request": "0x49"
+        }
+      ],
+      "token_sequences_identical": true
+    },
+    {
+      "baseline": {
+        "end_line": 122,
+        "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_range_group.c",
+        "start_line": 88,
+        "token_count": 175,
+        "token_sha256": "248cb7a918878f8ee160b5cdb4c05bb33b8ff50c20f9027980cc75e996ab9479"
+      },
+      "candidate": {
+        "end_line": 122,
+        "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_range_group.c",
+        "start_line": 88,
+        "token_count": 175,
+        "token_sha256": "248cb7a918878f8ee160b5cdb4c05bb33b8ff50c20f9027980cc75e996ab9479"
+      },
+      "handler": "uvm_api_create_range_group",
+      "requests": [
+        {
+          "count_each_capture": 8,
+          "handler": "uvm_api_create_range_group",
+          "name": "UVM_CREATE_RANGE_GROUP",
+          "request": "0x17"
+        }
+      ],
+      "token_sequences_identical": true
+    },
+    {
+      "baseline": {
+        "end_line": 159,
+        "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_range_group.c",
+        "start_line": 140,
+        "token_count": 84,
+        "token_sha256": "bf751179d4034767747c9549264cae0e694fccd4f87dcbf042c37378665aeff7"
+      },
+      "candidate": {
+        "end_line": 159,
+        "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_range_group.c",
+        "start_line": 140,
+        "token_count": 84,
+        "token_sha256": "bf751179d4034767747c9549264cae0e694fccd4f87dcbf042c37378665aeff7"
+      },
+      "handler": "uvm_api_destroy_range_group",
+      "requests": [
+        {
+          "count_each_capture": 7,
+          "handler": "uvm_api_destroy_range_group",
+          "name": "UVM_DESTROY_RANGE_GROUP",
+          "request": "0x18"
+        }
+      ],
+      "token_sequences_identical": true
+    },
+    {
+      "baseline": {
+        "end_line": 743,
+        "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_range.c",
+        "start_line": 740,
+        "token_count": 31,
+        "token_sha256": "5856aa111544ff20c142345413ca44765a0036547765e9ea0656fc8ce1fabd0f"
+      },
+      "candidate": {
+        "end_line": 745,
+        "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_va_range.c",
+        "start_line": 742,
+        "token_count": 27,
+        "token_sha256": "ea18f331ae50d2fbb268ddd30b07bd2fffd5cb6730b6b277b0176bfe8fffd786"
+      },
+      "handler": "uvm_api_free",
+      "requests": [
+        {
+          "count_each_capture": 28,
+          "handler": "uvm_api_free",
+          "name": "UVM_FREE",
+          "request": "0x22"
+        }
+      ],
+      "token_sequences_identical": false
+    },
+    {
+      "baseline": {
+        "end_line": 987,
+        "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm.c",
+        "start_line": 927,
+        "token_count": 155,
+        "token_sha256": "525e45936352d24c4a27456a0d96cc7f3c3fbf48cf0e119b708326a4fa23121c"
+      },
+      "candidate": {
+        "end_line": 987,
+        "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm.c",
+        "start_line": 927,
+        "token_count": 155,
+        "token_sha256": "525e45936352d24c4a27456a0d96cc7f3c3fbf48cf0e119b708326a4fa23121c"
+      },
+      "handler": "uvm_api_initialize",
+      "requests": [
+        {
+          "count_each_capture": 1,
+          "handler": "uvm_api_initialize",
+          "name": "UVM_INITIALIZE",
+          "request": "0x30000001"
+        }
+      ],
+      "token_sequences_identical": true
+    },
+    {
+      "baseline": {
+        "end_line": 2107,
+        "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_range.c",
+        "start_line": 2099,
+        "token_count": 31,
+        "token_sha256": "05e3878070fa64f3f2983343dbd15750f818d90e450c74065533544a148d7518"
+      },
+      "candidate": {
+        "end_line": 1822,
+        "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_va_range.c",
+        "start_line": 1814,
+        "token_count": 31,
+        "token_sha256": "05e3878070fa64f3f2983343dbd15750f818d90e450c74065533544a148d7518"
+      },
+      "handler": "uvm_api_map_dynamic_parallelism_region",
+      "requests": [
+        {
+          "count_each_capture": 1,
+          "handler": "uvm_api_map_dynamic_parallelism_region",
+          "name": "UVM_MAP_DYNAMIC_PARALLELISM_REGION",
+          "request": "0x41"
+        }
+      ],
+      "token_sequences_identical": true
+    },
+    {
+      "baseline": {
+        "end_line": 1093,
+        "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_map_external.c",
+        "start_line": 1089,
+        "token_count": 31,
+        "token_sha256": "9eccf317ae6e6a870be6693aeacdc0d6084250ae3aa63e32d7091b84711d014d"
+      },
+      "candidate": {
+        "end_line": 1091,
+        "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_map_external.c",
+        "start_line": 1087,
+        "token_count": 31,
+        "token_sha256": "9eccf317ae6e6a870be6693aeacdc0d6084250ae3aa63e32d7091b84711d014d"
+      },
+      "handler": "uvm_api_map_external_allocation",
+      "requests": [
+        {
+          "count_each_capture": 26,
+          "handler": "uvm_api_map_external_allocation",
+          "name": "UVM_MAP_EXTERNAL_ALLOCATION",
+          "request": "0x21"
+        }
+      ],
+      "token_sequences_identical": true
+    },
+    {
+      "baseline": {
+        "end_line": 139,
+        "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm.c",
+        "start_line": 59,
+        "token_count": 270,
+        "token_sha256": "2b26ab9d6e57845333f599c149d29400b4338fb451eddd9a4b4d49b599be8aff"
+      },
+      "candidate": {
+        "end_line": 139,
+        "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm.c",
+        "start_line": 59,
+        "token_count": 270,
+        "token_sha256": "2b26ab9d6e57845333f599c149d29400b4338fb451eddd9a4b4d49b599be8aff"
+      },
+      "handler": "uvm_api_mm_initialize",
+      "requests": [
+        {
+          "count_each_capture": 1,
+          "handler": "uvm_api_mm_initialize",
+          "name": "UVM_MM_INITIALIZE",
+          "request": "0x4b"
+        }
+      ],
+      "token_sequences_identical": true
+    },
+    {
+      "baseline": {
+        "end_line": 994,
+        "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm.c",
+        "start_line": 989,
+        "token_count": 39,
+        "token_sha256": "dead9830f7290eb7b94e067b603d2dd4250048153d3e0552a3489da61a0951cb"
+      },
+      "candidate": {
+        "end_line": 994,
+        "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm.c",
+        "start_line": 989,
+        "token_count": 39,
+        "token_sha256": "dead9830f7290eb7b94e067b603d2dd4250048153d3e0552a3489da61a0951cb"
+      },
+      "handler": "uvm_api_pageable_mem_access",
+      "requests": [
+        {
+          "count_each_capture": 1,
+          "handler": "uvm_api_pageable_mem_access",
+          "name": "UVM_PAGEABLE_MEM_ACCESS",
+          "request": "0x27"
+        }
+      ],
+      "token_sequences_identical": true
+    },
+    {
+      "baseline": {
+        "end_line": 748,
+        "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_user_channel.c",
+        "start_line": 738,
+        "token_count": 71,
+        "token_sha256": "4b624e82f48d202274822fe480a79d15deaebbea29713c5defed8cf5873d70c2"
+      },
+      "candidate": {
+        "end_line": 749,
+        "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_user_channel.c",
+        "start_line": 739,
+        "token_count": 71,
+        "token_sha256": "4b624e82f48d202274822fe480a79d15deaebbea29713c5defed8cf5873d70c2"
+      },
+      "handler": "uvm_api_register_channel",
+      "requests": [
+        {
+          "count_each_capture": 16,
+          "handler": "uvm_api_register_channel",
+          "name": "UVM_REGISTER_CHANNEL",
+          "request": "0x1b"
+        }
+      ],
+      "token_sequences_identical": true
+    },
+    {
+      "baseline": {
+        "end_line": 3830,
+        "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_gpu.c",
+        "start_line": 3809,
+        "token_count": 104,
+        "token_sha256": "27d4615403e448e3d3a10cb27553239fcb23001a54461afa056ae432d13be76f"
+      },
+      "candidate": {
+        "end_line": 4049,
+        "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_gpu.c",
+        "start_line": 4028,
+        "token_count": 104,
+        "token_sha256": "27d4615403e448e3d3a10cb27553239fcb23001a54461afa056ae432d13be76f"
+      },
+      "handler": "uvm_api_register_gpu",
+      "requests": [
+        {
+          "count_each_capture": 1,
+          "handler": "uvm_api_register_gpu",
+          "name": "UVM_REGISTER_GPU",
+          "request": "0x25"
+        }
+      ],
+      "token_sequences_identical": true
+    },
+    {
+      "baseline": {
+        "end_line": 3848,
+        "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_gpu.c",
+        "start_line": 3839,
+        "token_count": 63,
+        "token_sha256": "d602326f9f3538f6b1d751df6d5cc60187977991cac274464e93d0d46ed4eaab"
+      },
+      "candidate": {
+        "end_line": 4067,
+        "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_gpu.c",
+        "start_line": 4058,
+        "token_count": 63,
+        "token_sha256": "d602326f9f3538f6b1d751df6d5cc60187977991cac274464e93d0d46ed4eaab"
+      },
+      "handler": "uvm_api_register_gpu_va_space",
+      "requests": [
+        {
+          "count_each_capture": 1,
+          "handler": "uvm_api_register_gpu_va_space",
+          "name": "UVM_REGISTER_GPU_VASPACE",
+          "request": "0x19"
+        }
+      ],
+      "token_sequences_identical": true
+    },
+    {
+      "baseline": {
+        "end_line": 924,
+        "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_user_channel.c",
+        "start_line": 914,
+        "token_count": 57,
+        "token_sha256": "c9b4d9b3bbab8983fe9a2bb1be1763620892996702251a613b65af5c81106ce4"
+      },
+      "candidate": {
+        "end_line": 957,
+        "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_user_channel.c",
+        "start_line": 947,
+        "token_count": 57,
+        "token_sha256": "c9b4d9b3bbab8983fe9a2bb1be1763620892996702251a613b65af5c81106ce4"
+      },
+      "handler": "uvm_api_unregister_channel",
+      "requests": [
+        {
+          "count_each_capture": 16,
+          "handler": "uvm_api_unregister_channel",
+          "name": "UVM_UNREGISTER_CHANNEL",
+          "request": "0x1c"
+        }
+      ],
+      "token_sequences_identical": true
+    },
+    {
+      "baseline": {
+        "end_line": 3854,
+        "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_gpu.c",
+        "start_line": 3850,
+        "token_count": 34,
+        "token_sha256": "42013ba5fc9796083604b35bddcbff9aa51babfe59b91ec939f4bfcaf8e79e10"
+      },
+      "candidate": {
+        "end_line": 4073,
+        "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_gpu.c",
+        "start_line": 4069,
+        "token_count": 34,
+        "token_sha256": "42013ba5fc9796083604b35bddcbff9aa51babfe59b91ec939f4bfcaf8e79e10"
+      },
+      "handler": "uvm_api_unregister_gpu_va_space",
+      "requests": [
+        {
+          "count_each_capture": 1,
+          "handler": "uvm_api_unregister_gpu_va_space",
+          "name": "UVM_UNREGISTER_GPU_VASPACE",
+          "request": "0x1a"
+        }
+      ],
+      "token_sequences_identical": true
+    },
+    {
+      "baseline": {
+        "end_line": 777,
+        "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_range.c",
+        "start_line": 762,
+        "token_count": 90,
+        "token_sha256": "02ddad77e669e720a1809916d7743db368ecf0446b04fb7835445cc8dccc3d5d"
+      },
+      "candidate": {
+        "end_line": 779,
+        "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_va_range.c",
+        "start_line": 764,
+        "token_count": 90,
+        "token_sha256": "02ddad77e669e720a1809916d7743db368ecf0446b04fb7835445cc8dccc3d5d"
+      },
+      "handler": "uvm_api_validate_va_range",
+      "requests": [
+        {
+          "count_each_capture": 1,
+          "handler": "uvm_api_validate_va_range",
+          "name": "UVM_VALIDATE_VA_RANGE",
+          "request": "0x48"
+        }
+      ],
+      "token_sequences_identical": true
+    }
+  ],
+  "observed_at_utc": "2026-10-29T15:13:20.145171+00:00",
+  "observed_handler_count": 16,
+  "payload_bytes_observed": false,
+  "qualification": "analyzed-statically",
+  "route_coverage_report": {
+    "path": "evidence/r580-r595-v100-observed-uvm-route-coverage-v2-20261029.json",
+    "sha256": "3f0536663f3fc0c0041221a30ca7cd0fba2719fb635501d6d9eac42d3543b99b"
+  },
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-hybrid-observed-uvm-handler-body-token-compare-v1",
+  "scope_limits": [
+    "This is lexical identity, not semantic equivalence or ABI proof.",
+    "Callees, macros, data structures, and generated code were not compared.",
+    "The stock captures omit ioctl payload bytes.",
+    "No candidate module was loaded and no GPU was accessed."
+  ],
+  "source_trees": {
+    "baseline": {
+      "c_files": [
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/nv-kthread-q-selftest.c",
+          "sha256": "c40423b0ee26b7e5941d2b0a6be254b78c58b7468de4daf8257f7691b839fd03"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/nv-kthread-q.c",
+          "sha256": "13222c7db5bd1e57c5d36d0125d4cca4da1d288e5e52ac679f005668bc2e6274"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/nvCpuUuid.c",
+          "sha256": "a230d3f8553974dffc867d2a14a4e1cac4aea231649ce2ccddf5397211049cf6"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/nvstatus.c",
+          "sha256": "712c99bc6b17cd888d2b21dab3ee17948468a3676de2777331ec2c96505952ea"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm.c",
+          "sha256": "6549ff9293e5a789d53f59c29cbc2af4d7d8aedd0bfe7519699c4239e7ad24b3"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_ada.c",
+          "sha256": "c3e2ced50fedd5f0f234146634b7cad83b1c110d39e4b1f3bc50877faac1e65f"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_ampere.c",
+          "sha256": "9bb23ba5c3ffc627222beaea796f7846827c617fa0df89405989d6ba8830af66"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_ampere_ce.c",
+          "sha256": "2d2ab7e91e64699bc299ea128001cb290b9666ff492c2d58a60fc02917f45922"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_ampere_fault_buffer.c",
+          "sha256": "824203dc13dcc0eba943ad4d77c9541a76c5798713227d74a32cacf2c207b73a"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_ampere_host.c",
+          "sha256": "7b951347fccb01d2fb5337df1c21706ec010ec9849ccd7e7808a3a15c968c3e9"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_ampere_mmu.c",
+          "sha256": "3680b3a2b196870fbd4634e0825408d67de25a7db84d25e2a16095e72c0cb810"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_ats.c",
+          "sha256": "e637830fc7735d68638e34d3001455de80a08d6505b9760705739da6d95244ca"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_ats_faults.c",
+          "sha256": "4ad27640aa15efd4ec7e87fa649aa67049441b63208285cd6cfed5bc87fb41cc"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_ats_sva.c",
+          "sha256": "2fc324dd5eabdca43c62fb07e77779e48037c1c66988247f6219bf8cf4ab081a"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_blackwell.c",
+          "sha256": "47ce5838ec0e78e0c2147d27d4ebc9b6a9188c8350e7aabdb8ea186d52108840"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_blackwell_fault_buffer.c",
+          "sha256": "9fa867cce504d99e6bbdde7ca311ba0448f79f726000d614975e00aabebedc55"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_blackwell_host.c",
+          "sha256": "c5634282b6377f40eef1cd097d21b2034d163c5b2efd85b4c1bd83295508d16d"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_blackwell_mmu.c",
+          "sha256": "eeb057979921fd1fd1e7005e8927c0efdc70d306c3be1a1f2c28c04b1813c336"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_ce_test.c",
+          "sha256": "2108c0950e199f9a322e5ba632e0d18c9008bd9e1581ebb563f16887020630e5"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_channel.c",
+          "sha256": "64fcdb55ecba388c8ed6c656ca72b60f2b6f4b8bc0ebaffd794ed1e78068a248"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_channel_test.c",
+          "sha256": "f846b5e2925258bb1643e389bee4016743a73a6f396571e0621aac109bb94e87"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_common.c",
+          "sha256": "4703e2717dc3eb71bdbaa08f2759887e26ddf129a93918a4014ed19d7089bfa2"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_conf_computing.c",
+          "sha256": "a6f00c57334ce6bb397cb69b129cb72ba938460e10dd2fc8fddb680edfe273c0"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_fault_buffer_flush_test.c",
+          "sha256": "13ac60c873ae46a6ca2fbba4969b9c10e4d7e54fadb4911f6adc766a338142b6"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_fd_type.c",
+          "sha256": "2b67296b7ab45c0a47181c11cc0af2e67ba98d4d9270e4bd0a46ebcd67eff639"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_get_rm_ptes_test.c",
+          "sha256": "3ec1fa648d8447280e07d6ffeae20ee2f7a106e2d99f3cf02f11d1dde5f9580d"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_global.c",
+          "sha256": "2979bb79d02897e8e5e8856665604d857b34b36b7a831d895c8b1b1b0bfe7c00"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_gpu.c",
+          "sha256": "23bb5a514a99b1c747e683ddd3612511647cc3e95745ccdc1b1e22db3d584197"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_gpu_access_counters.c",
+          "sha256": "cda1dfa8ca763d78a4db2b30aa559b75334e5fe0f0262b32de7be22d7f73357d"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_gpu_isr.c",
+          "sha256": "656f815d52eb4bea0808187027547789633d799cbbb51dcd462d93550d0182d7"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_gpu_non_replayable_faults.c",
+          "sha256": "60c838bdaacce22010cc1de059a83113875b845a953b95d286bbc1fcd50da958"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_gpu_replayable_faults.c",
+          "sha256": "c7991f9a9e029ae1e9dc4aba579ecb37c64408d9600117abdeec82fbc1b245b3"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_gpu_semaphore.c",
+          "sha256": "4224b4f808c9f86279cb97bfa9645e6b592ace4b2f4213e81848d1ebba4258a3"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_gpu_semaphore_test.c",
+          "sha256": "2c9339e77c04cb94bf361ee881260ef7e5dc100dfa6bb2dccf41f6bd81c70155"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_hal.c",
+          "sha256": "9e1c8c1e0e70d26328809713fc7af7f79e49a57a545ea474b36d70a07d56325d"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_hmm.c",
+          "sha256": "6e0476ded5b3adc6f5996bcd83e18012f7c38b6ccb662c9d9befd8b2e885cfc9"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_hopper.c",
+          "sha256": "5750d496b5c6f0903ebcb1c2a77ef228e3430964d77cddc16cf08c7f90562902"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_hopper_ce.c",
+          "sha256": "26efc1ddea7f2c9b16c8e4bae44424b8271b85ca98a3f291f0c9e54cfbbcd694"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_hopper_fault_buffer.c",
+          "sha256": "62265011327da0454a060ee58933dc0e8c8cf857b5a7b599648ce6bb2785c45f"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_hopper_host.c",
+          "sha256": "63afaf72e0993a75fc8e5630a6c609742d47a8da2fca97805dff7160860e2ea5"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_hopper_mmu.c",
+          "sha256": "d7fc290482a86ae3dafbc2e5625f9c632dfdee736c1b33df68073d1c2116c810"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_hopper_sec2.c",
+          "sha256": "ef4e687142882876c249eaac51a0defb5213b79d2bc36fbb620e02c902efaad1"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_host_test.c",
+          "sha256": "ad1ab9157ec9113575f351b15e3a8ea5543b74a9a99af60154cda56d6ff8025a"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_kvmalloc.c",
+          "sha256": "c076016dc5fcad9619eb935af1e187070653b1a97b34d392c66e0b320356d9db"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_kvmalloc_test.c",
+          "sha256": "8c5a54dd56cce17c256ba8d806e927279f734e3a095f2576d843ec086de75786"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_linux.c",
+          "sha256": "72f505a96078109a5984e10999288d63dafe05ca4f5e52db15d4a930a67f281d"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_lock.c",
+          "sha256": "a79a089e74a8d89eec19f87f7a790367fbc8a7c84e52a7f409772001391d7036"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_lock_test.c",
+          "sha256": "a670869f40e4e370d557bf748dd99483bbf5af43dd2e25622d22e6381ae3e36b"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_map_external.c",
+          "sha256": "1e72573e3ebc2c3117768ab0517e4b7e9acdb62af2368513a37500d6f13c11dd"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_maxwell.c",
+          "sha256": "cacff13f42270bfee8703c4646a557c4ea7c626521c867a5a7b69956f3490456"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_maxwell_access_counter_buffer.c",
+          "sha256": "09450615b001caebee8776f8a507679453a747508c0fb69e017ad119ac18150f"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_maxwell_ce.c",
+          "sha256": "917111014f1400fc97046fe3e4812e60fa98955e7945c67c10d9ee5b95760890"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_maxwell_fault_buffer.c",
+          "sha256": "41e154d831941617008bb1bc9a33d6fd0a8dff9308d31c503d0a70bff45b6e63"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_maxwell_host.c",
+          "sha256": "184c79ac70133209a320b64dfa4896525066a3894423ad95848ba75d6c45ca76"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_maxwell_mmu.c",
+          "sha256": "2d39f3cdd775185712e41015a3a8723d77c327b94d60ec61783acc550b9f602a"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_maxwell_sec2.c",
+          "sha256": "47f6af9905d9a0ac4be2b290fcc76a54aaa168906afe33359214a5d01d8732d7"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_mem.c",
+          "sha256": "e98ce17dd9902f5a8b6cf8fb3919b3e85a4f82814029011af64c6e287a1d84d2"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_mem_test.c",
+          "sha256": "1d4f277d93f0f4f235bcf11f7318c8a05704f6fab3ba2522b2859327441bc2dc"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_migrate.c",
+          "sha256": "e8fb855d0fc4150107118752b6a5e897b2c5f7d770243278f631a49ca4b36e36"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_migrate_pageable.c",
+          "sha256": "0aea84a9260f3ae70847e366ef83eae5d7119e0a4865ff631491200e004306bb"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_mmu.c",
+          "sha256": "61dcbb1826e6104452d82d319b5b8c810e328e6a606f619e0efaa273d162bdea"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_page_tree_test.c",
+          "sha256": "256607e85c1bd4490a338ce161b78489a52de2e636c567de20b704fd1d20a696"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_pascal.c",
+          "sha256": "979407e323c1e93749023d0d1b95d122ab07b99fb1fe88ab90d1c47b36131d8f"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_pascal_ce.c",
+          "sha256": "7a79e535258bd75992606b61097cc77f2dd7db6640c3b0a560e65d728d58ad5b"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_pascal_fault_buffer.c",
+          "sha256": "a4cafceee01aac86cb2a4a0527729f28ec6cbc17ff34ec7150d5a5fa0dd7df52"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_pascal_host.c",
+          "sha256": "c8d125fd53813d50c7fe97ce4b768333aea8f5bde35d51abfcd2f9c0554cf407"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_pascal_mmu.c",
+          "sha256": "ffe96be7a232418066906963b7d868a4f271b3fe4eeefe083c79c9b9cb7e4664"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_peer_identity_mappings_test.c",
+          "sha256": "9b8c47f319be79cdc2b72e83f3a3a8b02de768b6c76b0d326d9a7a5e146234e3"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_perf_events.c",
+          "sha256": "f96a7d436fe0d7f25d89d2551419086a068ceb42bc1c18452e92b1bc5de219de"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_perf_events_test.c",
+          "sha256": "de65b67addbf33b8e7b26f6c69dd148f8311da5e15b7d76270b58143f86a9abd"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_perf_heuristics.c",
+          "sha256": "d8e1e0e5f74a43cf48004cf2da5e378fb435022819270ec5640181447c31f5a6"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_perf_module.c",
+          "sha256": "1967c3498c0af0680b1e477ac11937a21bafae39303df3715a243673cc8a8792"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_perf_module_test.c",
+          "sha256": "5d0be280e8a963db2624bd24d9cd65532e72a40f1d85205c2b0d814b9a63d9b7"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_perf_prefetch.c",
+          "sha256": "fe3d4e338321cecb16fde67b0dd9affc57909b5a61b8f91f5538482bdf1f1f7c"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_perf_thrashing.c",
+          "sha256": "a41ebea7945fb2bb1d3226ca6abf72989bc9f4ccccde0fc286723289f36f00de"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_perf_utils.c",
+          "sha256": "0f194e41ce558e3c0f60cb804015f7120db8ecc261df8421244c91687ec8c659"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_perf_utils_test.c",
+          "sha256": "4a16bb121a62e275cd73ddfac0a7cd809f451aa04f4606ad3aa463fc0b5363bd"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_pmm_gpu.c",
+          "sha256": "35248129b757c9a405bed7adf7022ea108ebbd9bbb0b091a008935f1247dea9b"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_pmm_sysmem.c",
+          "sha256": "83d371c8395a5e1e36a18c8efcb0d9dabd93e4a6e29e7a0651aad4c4ba9e5932"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_pmm_sysmem_test.c",
+          "sha256": "14389ebe63c67676599f987c8d77b0a9560940009351a44ea7cc03e44db49957"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_pmm_test.c",
+          "sha256": "fdbae9de9b14967e7cb36f81fd4e9726fe43d857239419d58d88fb9078aff7b2"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_policy.c",
+          "sha256": "0aa0dfa810e67b1b78c3de96581089b37cc4421ed20f5adedecb4df638ac95db"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_populate_pageable.c",
+          "sha256": "418ec47eac64fe51f273067024e24c69bc584c8e9e717d38861c40e885306e93"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_processors.c",
+          "sha256": "3c80cd5f6e08633337f67e2601f99193d87f9d80c2e4a3c33ce32f5c454e3081"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_procfs.c",
+          "sha256": "cd0b384f4c596b79716c626035236a58d67444619f06a0a88674007094d2c540"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_pte_batch.c",
+          "sha256": "30589fc78423a572bc03ab1dd51d1c2c807403b665bc6c2bafcb102cc7eea8c0"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_push.c",
+          "sha256": "53b1cdd7abc6f5dcea062a314b5580b05329868ad36a61f6a3f0d567f3326227"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_push_test.c",
+          "sha256": "33d6978c9cd7e2feafddeda76245543e44d999d13826c78adfabf96c86efd3ab"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_pushbuffer.c",
+          "sha256": "7031f10fc2215d792d58675b503623be5792e13fa4304d14f9b60b811a0a812c"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_range_allocator.c",
+          "sha256": "a12b06e101831b28e44903c4e9fa5abf81c184e9249c8b3c95d5d25fbd032a31"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_range_allocator_test.c",
+          "sha256": "61a0efa18b056f325663debc609f973ffad083efd60f6b0eec27c3aabcefc86b"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_range_group.c",
+          "sha256": "18d3cd5875914ee7583b19f33877e06e8f0447da93b704e0887403975abc7d90"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_range_group_tree_test.c",
+          "sha256": "d16a39f27e25f5424f76e9ba70a4e2369db39b7be12c9947347e43230b12e0cb"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_range_tree.c",
+          "sha256": "cd455bb8852b131b052ffba315abd057020edfb6689a681d7806feb28d2bf3f0"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_range_tree_test.c",
+          "sha256": "7ae4a41421b984acdfd3506f5dc268c40f90d07f616a4535d3489ea36a7ec747"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_rb_tree.c",
+          "sha256": "df4b1d157bc9736dccf6c3d3392bb3f8a434ccab9aa084c51e91f58ada7f2803"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_rb_tree_test.c",
+          "sha256": "a552153306ecb5cfd6f9cd0749744f3e4500218039fe3246d1f1a40d445f5e88"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_rm_mem.c",
+          "sha256": "fdf517f711ce9ae3421e4af2e7fe128f0db4182000eeed32504eacc82d1a43d7"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_rm_mem_test.c",
+          "sha256": "eb4a886963fc226830e58268797a25f0d5b3f8af2aaba645ccfb16106aafb2f4"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_sec2_test.c",
+          "sha256": "da3f733aec3739cb1f963dfac526278f690b785ea887e9958467bff2a5a35ad4"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_test.c",
+          "sha256": "28114c2b6616aaac935c1995a280c55099117444f491325918f64e61a6e51ba4"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_test_file.c",
+          "sha256": "f13ccf6f781408d266da2f907ef3babc33e6c2e03f2be36bf97d8b0fc7f21bf7"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_test_rng.c",
+          "sha256": "1328d5f2ff55d855966e4ee33fe98fd73960fbfd0b22cf8073047ee9503d671d"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_thread_context.c",
+          "sha256": "2f1dcc4cc667bfc1255cfe91b15a122e7227b5eab396e9c11a6c20a0fbb25d4b"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_thread_context_test.c",
+          "sha256": "ee4cbcef3bb97b27594edb15191b9270135843b0a693bbf27d74685498f4505b"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_tlb_batch.c",
+          "sha256": "50b483edb848257dd789b4e64490372942124116ab60bd99e8dc27a8d1c22907"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_tools.c",
+          "sha256": "42557042482532ac9ec39918663bfb0ea8c78ac0cd977a2725168c632e37ba1e"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_tracker.c",
+          "sha256": "756ce284db092691c5e346c9180299c98e050d4391242c53c19d14fcdff13e41"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_tracker_test.c",
+          "sha256": "517fe4ab345c0d90fc53a53dbf715bea1fea945dafc171142f74c5ae7240a0b9"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_turing.c",
+          "sha256": "23d1275e5d81e740999d89e50001617c5241707553284fdabf46054c172ffa68"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_turing_access_counter_buffer.c",
+          "sha256": "c069e85c6e35e0a30a5e50b31752f0d2b758491fdecca28389f9ad8027cdd702"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_turing_fault_buffer.c",
+          "sha256": "62dd37f0eb055600964d2e2433402e5603726d1841558a4bdde9bb483bec2820"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_turing_host.c",
+          "sha256": "2542e3dd1ce48c9b8c1edaecd4e2bbe09f9fa0e6adbd0a9e1974ff6ba7116147"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_turing_mmu.c",
+          "sha256": "a48952c2c382e21563558a1dac95cf31230eeb91059259101a172f18d6c0bb45"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_user_channel.c",
+          "sha256": "8fe5ce63871dbf7509c4ebbe7d0eeee8e0008693622479aed452d3b7c42015b6"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_block.c",
+          "sha256": "dd2821620e83cfaeb03fd765d64dcb75d82da83a38107afa4b0c2882570a7b03"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_block_test.c",
+          "sha256": "a520de4d5b1fd128e7c43984b05e8a7a807e711152b4e435578788bc3eb8dadf"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_policy.c",
+          "sha256": "619ad2aaf2760e7edcf31b05e3e204b4ccbb5514a40ebd0a7eb67cd84bba135f"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_range.c",
+          "sha256": "10c80433314c9b38cc84f82ac156f2df9d0f5c9d3c73a9e64179047eb2148878"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_range_device_p2p.c",
+          "sha256": "64090e24a6cd722769bf2023d3299485ce516eb03334adfbc459ebc0738c19b5"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_space.c",
+          "sha256": "2309eb47fad1d4ec4f932f8eae58fc4802b2380a0a95be2e964a9897117b0418"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_space_mm.c",
+          "sha256": "f9a8e86af533a538834fc55b04896703da16d76bb57d4f481532a85d287e905c"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_volta.c",
+          "sha256": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_volta_ce.c",
+          "sha256": "fd8758e28cf978335a97de557ee77e2f7c0797ff49f5363183fc99fbab657d3b"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_volta_fault_buffer.c",
+          "sha256": "d0b8cfcf715246b49741314e0009b78c798719b634269ee44a75ee12f9874e77"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_volta_host.c",
+          "sha256": "582c18a24986db6de49ce0c36fa98430062324b0bffd7e2390b2451e5b45f3fb"
+        },
+        {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_volta_mmu.c",
+          "sha256": "a4ff6d7ea69fbef25cad7ef1e7b85c3c8fe85e6e9cd1f3be4306a274d3f8e709"
+        }
+      ],
+      "route_source": {
+        "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm.c",
+        "sha256": "6549ff9293e5a789d53f59c29cbc2af4d7d8aedd0bfe7519699c4239e7ad24b3"
+      }
+    },
+    "candidate": {
+      "c_files": [
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/nv-kthread-q-selftest.c",
+          "sha256": "c40423b0ee26b7e5941d2b0a6be254b78c58b7468de4daf8257f7691b839fd03"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/nv-kthread-q.c",
+          "sha256": "b6d45a8394ae412237a5e0b8c5032ab490715e3ee1a63d62a69f9b61526e0814"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/nvCpuUuid.c",
+          "sha256": "a230d3f8553974dffc867d2a14a4e1cac4aea231649ce2ccddf5397211049cf6"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/nvstatus.c",
+          "sha256": "712c99bc6b17cd888d2b21dab3ee17948468a3676de2777331ec2c96505952ea"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm.c",
+          "sha256": "5e0f8e0c531ee33f2add193ca7ca9c391e2428b194c6b8e3570ea0a99d7c0812"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_ada.c",
+          "sha256": "4dd70fba0ab0c4c2e6cf2959d34e8ddc5e8c8e38606ec094bf6b1434ade622a5"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_ampere.c",
+          "sha256": "07fd7202c2a3bed9931f479f20d78084c3e759f475c603ae256395031234de2a"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_ampere_ce.c",
+          "sha256": "dde81b36a08bd027e0ff847e8aad961472195c9f42f8530c60e8dbce64060730"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_ampere_fault_buffer.c",
+          "sha256": "824203dc13dcc0eba943ad4d77c9541a76c5798713227d74a32cacf2c207b73a"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_ampere_host.c",
+          "sha256": "a3ecc269f18ec583b74769d62f133288bb9804b1b152976338a07aa685d3f010"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_ampere_mmu.c",
+          "sha256": "8e0701511e24c8d0711b5900e18ab704f512da626a7cdbce7b69643805608050"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_ats.c",
+          "sha256": "e637830fc7735d68638e34d3001455de80a08d6505b9760705739da6d95244ca"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_ats_faults.c",
+          "sha256": "5d399675793be96466cc587950301f81d0dc87bb3f7bb1f8b00e1cd1c089f97d"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_ats_sva.c",
+          "sha256": "2fc324dd5eabdca43c62fb07e77779e48037c1c66988247f6219bf8cf4ab081a"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_blackwell.c",
+          "sha256": "9527bc4a73b470e711443c99601c228805e414967b70c30997aaa8b594d1d505"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_blackwell_ce.c",
+          "sha256": "19e578317fa4af820901fe03a0d6855e483c72282261d5e75a1eba25c4b1a4d9"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_blackwell_fault_buffer.c",
+          "sha256": "9fa867cce504d99e6bbdde7ca311ba0448f79f726000d614975e00aabebedc55"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_blackwell_host.c",
+          "sha256": "02a5876f3d71cbe656bcb76f55c2e71ba5838333fad517bd1e1331508331e492"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_blackwell_mmu.c",
+          "sha256": "484eca95ef743395d6ddab3ad1f2214c8e5831044b9cdc1856a7978e97295821"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_ce_test.c",
+          "sha256": "46ad7f597d8357fb3a032dd4ddae49b4a8c910ac5389a25f634ea15d42e937a9"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_channel.c",
+          "sha256": "34a6816a77e55515179607558c4ddae65a8ae2bb591bc6e481a918370d1bc675"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_channel_test.c",
+          "sha256": "d68f7f769b2de814d2470abe4afef01da6a7fe6d75e2c228b6fe7cc8a5717720"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_common.c",
+          "sha256": "4703e2717dc3eb71bdbaa08f2759887e26ddf129a93918a4014ed19d7089bfa2"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_conf_computing.c",
+          "sha256": "a6f00c57334ce6bb397cb69b129cb72ba938460e10dd2fc8fddb680edfe273c0"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_fault_buffer_flush_test.c",
+          "sha256": "5a0e84fa6b8438129e907ffe2807f4578a7a52e5f7ce300f34dad424fb726a4d"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_fd_type.c",
+          "sha256": "2b67296b7ab45c0a47181c11cc0af2e67ba98d4d9270e4bd0a46ebcd67eff639"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_get_rm_ptes_test.c",
+          "sha256": "9ed0fd644cb611dc4a668ce671b0dadd9dcb422f4c637cafd180cb72c70e1d92"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_global.c",
+          "sha256": "0f3062a7ae1c96c00c276602bed6421fbc1f8a74405d8c9292cb804f1b562e1e"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_gpu.c",
+          "sha256": "66881c4ae46461314d41342b2a27df9119d68d68f90d181e3a32670dcc19f590"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_gpu_access_counters.c",
+          "sha256": "5ed8a400028bddcc3d20e407a19732a46f818d030ecbea90d596b1a9c98fe5e6"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_gpu_isr.c",
+          "sha256": "2bc919e0af0583da15cadc43169c22ab565ef7f6dc296ac59092e747d3e697d2"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_gpu_non_replayable_faults.c",
+          "sha256": "83fd573b3f5187ded355dec0a835f293716b0d271204d2c617864346fac01888"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_gpu_replayable_faults.c",
+          "sha256": "e2b98f550ad6ef3efb062d931834f09acd79ecd5fa140a2f54de8e77a5dfac2b"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_gpu_semaphore.c",
+          "sha256": "1472d3bdcd91b35095fb7ae6aa1f66a075ea495c08d106ed7da497176a3d629f"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_gpu_semaphore_test.c",
+          "sha256": "2c9339e77c04cb94bf361ee881260ef7e5dc100dfa6bb2dccf41f6bd81c70155"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_hal.c",
+          "sha256": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_hmm.c",
+          "sha256": "9fb7477ee9c9058493a99847f9395a22959c04ceed33f1120849ec3f71e38d04"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_hopper.c",
+          "sha256": "fbe1ce04e43baae8c696cfd44dacd5e37049176fa49b90d06ceee4f4a935f28d"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_hopper_ce.c",
+          "sha256": "f5601a582bd2ded21cddb05e827ae6a12a4f011391d516a9fa2ce1b6d4bc918e"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_hopper_fault_buffer.c",
+          "sha256": "62265011327da0454a060ee58933dc0e8c8cf857b5a7b599648ce6bb2785c45f"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_hopper_host.c",
+          "sha256": "63afaf72e0993a75fc8e5630a6c609742d47a8da2fca97805dff7160860e2ea5"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_hopper_mmu.c",
+          "sha256": "a1147c363d861ca12d53ef80cbcd7b1bf6dbcf231554e1f9921dc35e49276f7f"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_hopper_sec2.c",
+          "sha256": "55854b22034f4264d4e07a5f58a532e23960a29ab7caa11e79ce46494b345347"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_host_test.c",
+          "sha256": "ad1ab9157ec9113575f351b15e3a8ea5543b74a9a99af60154cda56d6ff8025a"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_kvmalloc.c",
+          "sha256": "c076016dc5fcad9619eb935af1e187070653b1a97b34d392c66e0b320356d9db"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_kvmalloc_test.c",
+          "sha256": "8c5a54dd56cce17c256ba8d806e927279f734e3a095f2576d843ec086de75786"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_linux.c",
+          "sha256": "72f505a96078109a5984e10999288d63dafe05ca4f5e52db15d4a930a67f281d"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_lock.c",
+          "sha256": "a79a089e74a8d89eec19f87f7a790367fbc8a7c84e52a7f409772001391d7036"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_lock_test.c",
+          "sha256": "a670869f40e4e370d557bf748dd99483bbf5af43dd2e25622d22e6381ae3e36b"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_map_external.c",
+          "sha256": "bd5284ad85f61bd7e368e056331c4e34efb9c169f99ba98ed3b539b6dd491e05"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_maxwell_access_counter_buffer.c",
+          "sha256": "09450615b001caebee8776f8a507679453a747508c0fb69e017ad119ac18150f"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_maxwell_ce.c",
+          "sha256": "fe5db9416c5681be0d269220cfa42bcc84227fa671abca62cafd60719bb44f9a"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_maxwell_host.c",
+          "sha256": "2f8fc36255e968e7fb83cde5db650eef9808ccb16e13c2e7b37487747c2a6484"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_maxwell_sec2.c",
+          "sha256": "47f6af9905d9a0ac4be2b290fcc76a54aaa168906afe33359214a5d01d8732d7"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_mem.c",
+          "sha256": "b185d50a70a0f92cfa26addb929fd94fa615dc41b4cb20670bfbff966a9f1087"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_mem_test.c",
+          "sha256": "1d4f277d93f0f4f235bcf11f7318c8a05704f6fab3ba2522b2859327441bc2dc"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_migrate.c",
+          "sha256": "d5c0e903f6795f6d786f68204a5855fd21d930ee85d4416d074f1d71927b2c56"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_migrate_pageable.c",
+          "sha256": "e7178513d684596aadbe24c1f699eb9e7b13b7f39c19805fe213bbef090898da"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_mmu.c",
+          "sha256": "4b1b2234c78b24881c8b8854961f00d575e8b70df4e2be08d881833308b03297"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_page_tree_test.c",
+          "sha256": "14b30d80411dc0ce0eddecb1f6fb1f4493eb0a381abeecb1991b04e635b63330"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_pascal_ce.c",
+          "sha256": "b4ef58478090f20c7135866e08064e07e030d3bd3f31e90f8ce57baf5a52c981"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_pascal_fault_buffer.c",
+          "sha256": "ba3cd6e3bfb4972f6e970b307e7b6343e2b4f265842803a1947993331f306050"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_pascal_host.c",
+          "sha256": "978e1c6e129ea8fc8ec4f468aa5d4013a533f0fd2e67102cc3738ad57af2776d"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_pascal_mmu.c",
+          "sha256": "7706c8d28244148a8d55248ddfb4ebc6007cfc617b54d559406180b6c403f932"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_peer_identity_mappings_test.c",
+          "sha256": "9b8c47f319be79cdc2b72e83f3a3a8b02de768b6c76b0d326d9a7a5e146234e3"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_perf_events.c",
+          "sha256": "f96a7d436fe0d7f25d89d2551419086a068ceb42bc1c18452e92b1bc5de219de"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_perf_events_test.c",
+          "sha256": "de65b67addbf33b8e7b26f6c69dd148f8311da5e15b7d76270b58143f86a9abd"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_perf_heuristics.c",
+          "sha256": "d8e1e0e5f74a43cf48004cf2da5e378fb435022819270ec5640181447c31f5a6"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_perf_module.c",
+          "sha256": "1967c3498c0af0680b1e477ac11937a21bafae39303df3715a243673cc8a8792"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_perf_module_test.c",
+          "sha256": "5d0be280e8a963db2624bd24d9cd65532e72a40f1d85205c2b0d814b9a63d9b7"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_perf_prefetch.c",
+          "sha256": "12d67324e383cacb74f3a61099ca4951c8f4bb9173e3906b3f1ae11c905ddb79"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_perf_thrashing.c",
+          "sha256": "11a31e409aaa0d30087c4c5f4f80b848dfd0fa5efbc1ae0044c6262e4bfcbc46"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_perf_utils.c",
+          "sha256": "0f194e41ce558e3c0f60cb804015f7120db8ecc261df8421244c91687ec8c659"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_perf_utils_test.c",
+          "sha256": "4a16bb121a62e275cd73ddfac0a7cd809f451aa04f4606ad3aa463fc0b5363bd"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_pmm_gpu.c",
+          "sha256": "074cd307b7700270453fa4509fcbdf12400165fb1dd4cfb7cd8e8997554640ff"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_pmm_sysmem.c",
+          "sha256": "020e3994ab8a82ba8f1f974b140b2ffba49406a646151cbe5272014792caf4f8"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_pmm_sysmem_test.c",
+          "sha256": "e604b640014fe08f933a8b8fe1ec5c29e069e91e02fba29df0774097c1e155f4"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_pmm_test.c",
+          "sha256": "b18fd95e43127746237290bf165dc1c397e3dd6568565711afbd4b4c937b50ac"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_policy.c",
+          "sha256": "8843ff3468d51c9e93e1c08d04714244823638fcbc3c6e9fb021a11862cd2407"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_populate_pageable.c",
+          "sha256": "418ec47eac64fe51f273067024e24c69bc584c8e9e717d38861c40e885306e93"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_processors.c",
+          "sha256": "3c80cd5f6e08633337f67e2601f99193d87f9d80c2e4a3c33ce32f5c454e3081"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_procfs.c",
+          "sha256": "d24b7828a66babf9723351a31b38b2ed74ee2dc7abc167a243e9706a19d706a4"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_pte_batch.c",
+          "sha256": "30589fc78423a572bc03ab1dd51d1c2c807403b665bc6c2bafcb102cc7eea8c0"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_push.c",
+          "sha256": "9628ada0b4007eff5af16525d0d71788045832e5ca268699e2ae82a5dc14b85e"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_push_test.c",
+          "sha256": "33d6978c9cd7e2feafddeda76245543e44d999d13826c78adfabf96c86efd3ab"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_pushbuffer.c",
+          "sha256": "7031f10fc2215d792d58675b503623be5792e13fa4304d14f9b60b811a0a812c"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_range_allocator.c",
+          "sha256": "a12b06e101831b28e44903c4e9fa5abf81c184e9249c8b3c95d5d25fbd032a31"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_range_allocator_test.c",
+          "sha256": "61a0efa18b056f325663debc609f973ffad083efd60f6b0eec27c3aabcefc86b"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_range_group.c",
+          "sha256": "23debe93bae60856c6e4156bec4cb38a502b5d321d05084ecc373a651eadecab"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_range_group_tree_test.c",
+          "sha256": "d16a39f27e25f5424f76e9ba70a4e2369db39b7be12c9947347e43230b12e0cb"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_range_tree.c",
+          "sha256": "cd455bb8852b131b052ffba315abd057020edfb6689a681d7806feb28d2bf3f0"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_range_tree_test.c",
+          "sha256": "7ae4a41421b984acdfd3506f5dc268c40f90d07f616a4535d3489ea36a7ec747"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_rb_tree.c",
+          "sha256": "df4b1d157bc9736dccf6c3d3392bb3f8a434ccab9aa084c51e91f58ada7f2803"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_rb_tree_test.c",
+          "sha256": "a552153306ecb5cfd6f9cd0749744f3e4500218039fe3246d1f1a40d445f5e88"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_rm_mem.c",
+          "sha256": "fdf517f711ce9ae3421e4af2e7fe128f0db4182000eeed32504eacc82d1a43d7"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_rm_mem_test.c",
+          "sha256": "eb4a886963fc226830e58268797a25f0d5b3f8af2aaba645ccfb16106aafb2f4"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_sec2_test.c",
+          "sha256": "da3f733aec3739cb1f963dfac526278f690b785ea887e9958467bff2a5a35ad4"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_test.c",
+          "sha256": "2134c7be438b6d1d03f4435e714311021cf9e7bdc48cc4beeb0045d559eb60a8"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_test_file.c",
+          "sha256": "f13ccf6f781408d266da2f907ef3babc33e6c2e03f2be36bf97d8b0fc7f21bf7"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_test_rng.c",
+          "sha256": "1328d5f2ff55d855966e4ee33fe98fd73960fbfd0b22cf8073047ee9503d671d"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_thread_context.c",
+          "sha256": "2f1dcc4cc667bfc1255cfe91b15a122e7227b5eab396e9c11a6c20a0fbb25d4b"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_thread_context_test.c",
+          "sha256": "ee4cbcef3bb97b27594edb15191b9270135843b0a693bbf27d74685498f4505b"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_tlb_batch.c",
+          "sha256": "307bc42044e4aa64ba30c7f26706c5ae05dea87885bb034e6b53a8f8cd10e170"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_tools.c",
+          "sha256": "42557042482532ac9ec39918663bfb0ea8c78ac0cd977a2725168c632e37ba1e"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_tracker.c",
+          "sha256": "756ce284db092691c5e346c9180299c98e050d4391242c53c19d14fcdff13e41"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_tracker_test.c",
+          "sha256": "517fe4ab345c0d90fc53a53dbf715bea1fea945dafc171142f74c5ae7240a0b9"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_turing.c",
+          "sha256": "da2cdf622a9476645bc9323a308036cecc8b27c9f5d9a638e48090f82fd53b28"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_turing_access_counter_buffer.c",
+          "sha256": "c069e85c6e35e0a30a5e50b31752f0d2b758491fdecca28389f9ad8027cdd702"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_turing_ce.c",
+          "sha256": "ce84d0554367b302fd95455ee967b96604ca22087663695287ec4b386d41b2a0"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_turing_fault_buffer.c",
+          "sha256": "118cf13a9706624dcf22f2868d2131eaf87407fe01998d36ffc4e2b9441a9297"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_turing_host.c",
+          "sha256": "ac43e94462dd2a7c1a9c456fc23153e586361d3463a63abbf66495eaba71ac33"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_turing_mmu.c",
+          "sha256": "3b990ed6bfb555bff063515e13752b0627a6e68936d5261c6eb812b85c777b8a"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_turing_sec2.c",
+          "sha256": "7cbfbde7fead3255466a05f2fcf7bf926ce0be7ba1cff73d6043f721f782f507"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_user_channel.c",
+          "sha256": "9a6cec689eaf9c1edd1b7defa9ee7e74215382d802e7ab192b52caa1d0e93fe7"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_va_block.c",
+          "sha256": "faf15872daf79ea83894ce24f7f8c4034809c03114a99da1fd0817288785c931"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_va_block_test.c",
+          "sha256": "a520de4d5b1fd128e7c43984b05e8a7a807e711152b4e435578788bc3eb8dadf"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_va_policy.c",
+          "sha256": "45e5ca5eed00ea8535e55c3aede6b3e94735885f40b6e06434356a91295fcbe9"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_va_range.c",
+          "sha256": "26c4c705ea797d0247740678b545d5b2394839eba61d79bef50182ffe6537787"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_va_range_device_p2p.c",
+          "sha256": "8c3068201d9ef453f0f2efc365d6dd265cf0b5e465bb649913790c304c82503c"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_va_space.c",
+          "sha256": "f332076b5d141b23cbe7acaccb48b2b07a0f8fe2e44832fd93551a4a8c345468"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_va_space_mm.c",
+          "sha256": "3153e9d1e6444eaa7246dd2b2014583c90755fec77b48e38b77edd99bd83fc98"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_volta.c",
+          "sha256": "ca662fc33698586ec524c939593b6a67fb196d1b03fc6eea19116e5a0553254e"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_volta_ce.c",
+          "sha256": "fa4483c1b824cec9907b64382b1607f8e21bf9cfb48f309e0570a4e0c845479d"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_volta_fault_buffer.c",
+          "sha256": "d0b8cfcf715246b49741314e0009b78c798719b634269ee44a75ee12f9874e77"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_volta_host.c",
+          "sha256": "582c18a24986db6de49ce0c36fa98430062324b0bffd7e2390b2451e5b45f3fb"
+        },
+        {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_volta_mmu.c",
+          "sha256": "321d5381deebd8b2bd053d31cf750b890aae113b758c528addf5e1c5c043b0de"
+        }
+      ],
+      "route_source": {
+        "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm.c",
+        "sha256": "5e0f8e0c531ee33f2add193ca7ca9c391e2428b194c6b8e3570ea0a99d7c0812"
+      }
+    }
+  },
+  "token_identical_handler_count": 15
+}
