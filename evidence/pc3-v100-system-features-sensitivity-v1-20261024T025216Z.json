@@ -1,0 +1,403 @@
+{
+  "api_outcomes_equal": true,
+  "complete": false,
+  "credential_value_logged": false,
+  "credential_value_persisted": false,
+  "execution_scope": {
+    "firmware_changed": false,
+    "gpu_reset_requested": false,
+    "pci_binding_changed": false,
+    "system_module_loaded_or_changed": false
+  },
+  "guest": {
+    "cleanup_passed": true,
+    "driver_or_module_changed": false,
+    "execution_scope": {
+      "experimental_module_loaded": false,
+      "gpu_reset_requested": false,
+      "pci_binding_changed": false,
+      "read_only": true,
+      "stock_driver_changed": false,
+      "vm_management_issued": false
+    },
+    "gpu": {
+      "driver_version": "580.178.04",
+      "name": "Tesla V100-SXM2-16GB",
+      "pci": "0000:00:05.0",
+      "uuid": "GPU-42d06a85-027a-75ea-7857-a8de27ad465e"
+    },
+    "gpu_compute_processes_after": [],
+    "gpu_compute_processes_before": [],
+    "gpu_reset_requested": false,
+    "hostname": "pc3-v100",
+    "kernel_release": "6.8.0-147-generic",
+    "libcuda": {
+      "driver_api": 13000,
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+      "sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9"
+    },
+    "module_identity_after": {
+      "loaded": true,
+      "path": "/lib/modules/6.8.0-147-generic/updates/dkms/nvidia.ko.zst",
+      "sha256": "d8e9d365ebd61e6bfddabb16d103134973ea9c3a7e95dc6ad8d2a2a08c99aa0c",
+      "version": "580.178.04"
+    },
+    "module_identity_before": {
+      "loaded": true,
+      "path": "/lib/modules/6.8.0-147-generic/updates/dkms/nvidia.ko.zst",
+      "sha256": "d8e9d365ebd61e6bfddabb16d103134973ea9c3a7e95dc6ad8d2a2a08c99aa0c",
+      "version": "580.178.04"
+    },
+    "runs": [
+      {
+        "cuda": {
+          "cu_init": 1,
+          "device": null,
+          "device_count": null,
+          "device_count_status": 3,
+          "driver_api": 13000,
+          "driver_get_version_status": 0
+        },
+        "ioctl_records": [
+          {
+            "exposed_mask": 9,
+            "kernel_mask": 9,
+            "transport": "direct"
+          }
+        ],
+        "probe_exit_code": 0,
+        "requested_mask": 9
+      },
+      {
+        "cuda": {
+          "cu_init": 1,
+          "device": null,
+          "device_count": null,
+          "device_count_status": 3,
+          "driver_api": 13000,
+          "driver_get_version_status": 0
+        },
+        "ioctl_records": [
+          {
+            "exposed_mask": 8,
+            "kernel_mask": 9,
+            "transport": "direct"
+          }
+        ],
+        "probe_exit_code": 0,
+        "requested_mask": 8
+      },
+      {
+        "cuda": {
+          "cu_init": 1,
+          "device": null,
+          "device_count": null,
+          "device_count_status": 3,
+          "driver_api": 13000,
+          "driver_get_version_status": 0
+        },
+        "ioctl_records": [
+          {
+            "exposed_mask": 1,
+            "kernel_mask": 9,
+            "transport": "direct"
+          }
+        ],
+        "probe_exit_code": 0,
+        "requested_mask": 1
+      },
+      {
+        "cuda": {
+          "cu_init": 1,
+          "device": null,
+          "device_count": null,
+          "device_count_status": 3,
+          "driver_api": 13000,
+          "driver_get_version_status": 0
+        },
+        "ioctl_records": [
+          {
+            "exposed_mask": 0,
+            "kernel_mask": 9,
+            "transport": "direct"
+          }
+        ],
+        "probe_exit_code": 0,
+        "requested_mask": 0
+      }
+    ],
+    "schema": "nvidia-hybrid-v100-system-features-sensitivity-guest-v1",
+    "status": "observed",
+    "temporary_payload_remaining": false
+  },
+  "interposer": {
+    "bytes": 16072,
+    "compiled_with": "cc -std=gnu11 -Wall -Wextra -Werror -DNVRM=1 -fPIC -shared",
+    "sha256": "48637b6e195e9a7d91398f5928ca9c30a8ca6ee1304590434322c7ef9d67103c"
+  },
+  "interposer_source_sha256": "c33cb3076145ecfc59edc27d36e4a27106748e8e29f8d2906346186ce89d8700",
+  "masks": [
+    9,
+    8,
+    1,
+    0
+  ],
+  "observed_at_utc": "2026-10-24T02:52:16+00:00",
+  "remote_guest_code_sha256": "2821230ae4fb1573d199abe7e88b7fdbca8513838cc92d95b7e4fe14dacb6b06",
+  "remote_report": {
+    "experimental_module_loaded": false,
+    "guest": {
+      "cleanup_passed": true,
+      "driver_or_module_changed": false,
+      "execution_scope": {
+        "experimental_module_loaded": false,
+        "gpu_reset_requested": false,
+        "pci_binding_changed": false,
+        "read_only": true,
+        "stock_driver_changed": false,
+        "vm_management_issued": false
+      },
+      "gpu": {
+        "driver_version": "580.178.04",
+        "name": "Tesla V100-SXM2-16GB",
+        "pci": "0000:00:05.0",
+        "uuid": "GPU-42d06a85-027a-75ea-7857-a8de27ad465e"
+      },
+      "gpu_compute_processes_after": [],
+      "gpu_compute_processes_before": [],
+      "gpu_reset_requested": false,
+      "hostname": "pc3-v100",
+      "kernel_release": "6.8.0-147-generic",
+      "libcuda": {
+        "driver_api": 13000,
+        "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+        "sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9"
+      },
+      "module_identity_after": {
+        "loaded": true,
+        "path": "/lib/modules/6.8.0-147-generic/updates/dkms/nvidia.ko.zst",
+        "sha256": "d8e9d365ebd61e6bfddabb16d103134973ea9c3a7e95dc6ad8d2a2a08c99aa0c",
+        "version": "580.178.04"
+      },
+      "module_identity_before": {
+        "loaded": true,
+        "path": "/lib/modules/6.8.0-147-generic/updates/dkms/nvidia.ko.zst",
+        "sha256": "d8e9d365ebd61e6bfddabb16d103134973ea9c3a7e95dc6ad8d2a2a08c99aa0c",
+        "version": "580.178.04"
+      },
+      "runs": [
+        {
+          "cuda": {
+            "cu_init": 1,
+            "device": null,
+            "device_count": null,
+            "device_count_status": 3,
+            "driver_api": 13000,
+            "driver_get_version_status": 0
+          },
+          "ioctl_records": [
+            {
+              "exposed_mask": 9,
+              "kernel_mask": 9,
+              "transport": "direct"
+            }
+          ],
+          "probe_exit_code": 0,
+          "requested_mask": 9
+        },
+        {
+          "cuda": {
+            "cu_init": 1,
+            "device": null,
+            "device_count": null,
+            "device_count_status": 3,
+            "driver_api": 13000,
+            "driver_get_version_status": 0
+          },
+          "ioctl_records": [
+            {
+              "exposed_mask": 8,
+              "kernel_mask": 9,
+              "transport": "direct"
+            }
+          ],
+          "probe_exit_code": 0,
+          "requested_mask": 8
+        },
+        {
+          "cuda": {
+            "cu_init": 1,
+            "device": null,
+            "device_count": null,
+            "device_count_status": 3,
+            "driver_api": 13000,
+            "driver_get_version_status": 0
+          },
+          "ioctl_records": [
+            {
+              "exposed_mask": 1,
+              "kernel_mask": 9,
+              "transport": "direct"
+            }
+          ],
+          "probe_exit_code": 0,
+          "requested_mask": 1
+        },
+        {
+          "cuda": {
+            "cu_init": 1,
+            "device": null,
+            "device_count": null,
+            "device_count_status": 3,
+            "driver_api": 13000,
+            "driver_get_version_status": 0
+          },
+          "ioctl_records": [
+            {
+              "exposed_mask": 0,
+              "kernel_mask": 9,
+              "transport": "direct"
+            }
+          ],
+          "probe_exit_code": 0,
+          "requested_mask": 0
+        }
+      ],
+      "schema": "nvidia-hybrid-v100-system-features-sensitivity-guest-v1",
+      "status": "observed",
+      "temporary_payload_remaining": false
+    },
+    "guest_transport": {
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 2380,
+      "stdout_sha256": "745b06b5951753edaafd548f25004b903f3efc53af14298cda241d8f84011c1b"
+    },
+    "host": {
+      "guest_host_key_verified": true,
+      "hostname": "pc3",
+      "kernel_release": "7.0.0-38-generic",
+      "sudo_identity_verified": true
+    },
+    "kprobe_attached": false,
+    "pci_binding_changed": false,
+    "read_only": true,
+    "schema": "nvidia-hybrid-pc3-v100-trace-capability-v3",
+    "status": "observed",
+    "stock_driver_changed": false,
+    "trace_event_definition_write_attempted": false,
+    "vm_management_issued": false
+  },
+  "remote_script_sha256": "c35971bb43e884f1def78fc08fbcbf96464b56478587af56db9658fef5fd988d",
+  "runner_sha256": "daf889b3a31fad695fbf43f4b244e4ab41513b2af64801b01dd3fe4355127f29",
+  "runs": [
+    {
+      "cuda": {
+        "cu_init": 1,
+        "device": null,
+        "device_count": null,
+        "device_count_status": 3,
+        "driver_api": 13000,
+        "driver_get_version_status": 0
+      },
+      "ioctl_records": [
+        {
+          "exposed_mask": 9,
+          "kernel_mask": 9,
+          "transport": "direct"
+        }
+      ],
+      "override_observed": true,
+      "probe_exit_code": 0,
+      "requested_mask": 9
+    },
+    {
+      "cuda": {
+        "cu_init": 1,
+        "device": null,
+        "device_count": null,
+        "device_count_status": 3,
+        "driver_api": 13000,
+        "driver_get_version_status": 0
+      },
+      "ioctl_records": [
+        {
+          "exposed_mask": 8,
+          "kernel_mask": 9,
+          "transport": "direct"
+        }
+      ],
+      "override_observed": true,
+      "probe_exit_code": 0,
+      "requested_mask": 8
+    },
+    {
+      "cuda": {
+        "cu_init": 1,
+        "device": null,
+        "device_count": null,
+        "device_count_status": 3,
+        "driver_api": 13000,
+        "driver_get_version_status": 0
+      },
+      "ioctl_records": [
+        {
+          "exposed_mask": 1,
+          "kernel_mask": 9,
+          "transport": "direct"
+        }
+      ],
+      "override_observed": true,
+      "probe_exit_code": 0,
+      "requested_mask": 1
+    },
+    {
+      "cuda": {
+        "cu_init": 1,
+        "device": null,
+        "device_count": null,
+        "device_count_status": 3,
+        "driver_api": 13000,
+        "driver_get_version_status": 0
+      },
+      "ioctl_records": [
+        {
+          "exposed_mask": 0,
+          "kernel_mask": 9,
+          "transport": "direct"
+        }
+      ],
+      "override_observed": true,
+      "probe_exit_code": 0,
+      "requested_mask": 0
+    }
+  ],
+  "schema": "nvidia-hybrid-v100-system-features-sensitivity-v1",
+  "status": "incomplete",
+  "target": "pc3@pc3",
+  "transport": {
+    "experimental_module_loaded": false,
+    "host": {
+      "guest_host_key_verified": true,
+      "hostname": "pc3",
+      "kernel_release": "7.0.0-38-generic",
+      "sudo_identity_verified": true
+    },
+    "kprobe_attached": false,
+    "pci_binding_changed": false,
+    "read_only": true,
+    "stock_driver_changed": false,
+    "vm_management_issued": false
+  },
+  "transport_helpers": {
+    "reference_runner_sha256": "ff4572c4cc1feea88526de12a57404f5707c248d436b492cade025d157a8e79e",
+    "trace_audit_sha256": "fa486b2c0c5d818bde34de5e29b61bfe5579ecb8f01e792613df2245fdd540bf"
+  },
+  "transport_io": {
+    "returncode": 0,
+    "stderr_bytes": 1,
+    "stderr_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "stdout_bytes": 3054,
+    "stdout_sha256": "ff4a4412a7bc235c076dfb62f9bcae3073a4ea6fde9afd006928041e72fc51c6"
+  }
+}

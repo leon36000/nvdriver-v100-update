@@ -1,0 +1,50 @@
+{
+  "authorization": "User authorized testing on the Tesla V100 and RTX5080.",
+  "changes": {
+    "driver_changed": false,
+    "experimental_module_loaded": false,
+    "pci_binding_changed": false,
+    "vm_state_changed": false
+  },
+  "guest_ssh": {
+    "accounts_attempted": [
+      "pc3",
+      "ubuntu",
+      "root",
+      "v100",
+      "nvidia"
+    ],
+    "guest_shell_command_executed": false,
+    "host_key_fingerprint": "SHA256:wqpBfvwVW7iYhOk7LWB8y438NOQHSgfcUgnOGaRK6ts",
+    "host_key_verification": "strict; guest ED25519 fingerprint obtained through the verified PC3-to-QEMU forward",
+    "publickey_authentication": "no configured key accepted for attempted accounts"
+  },
+  "next_action": "Obtain the existing VM SSH account/alias or an already configured console route, then run the guarded SM70 numeric reference under the guest driver.",
+  "observed_at_utc": "2026-10-20T08:25:13.147540+00:00",
+  "pc3": {
+    "hostname": "pc3",
+    "kernel_release": "7.0.0-38-generic"
+  },
+  "schema": "nvidia-hybrid-pc3-v100-test-access-v1",
+  "test": {
+    "reason": "No authorized guest SSH identity is configured in the current session.",
+    "v100_cuda_probe_run": false
+  },
+  "v100": {
+    "host_driver_binding": "vfio-pci",
+    "model": "NVIDIA Tesla V100 SXM2 16GB",
+    "pci_bdf": "0000:81:00.0",
+    "pci_id": "10de:1db1"
+  },
+  "vm": {
+    "active": true,
+    "label": "pc3-v100-skinny",
+    "management_or_guest_command_issued": false,
+    "ssh_forward": {
+      "guest_port": 22,
+      "host_bind": "127.0.0.1",
+      "host_port": 22223,
+      "source": "QEMU process arguments read on authenticated PC3 host"
+    }
+  }
+}

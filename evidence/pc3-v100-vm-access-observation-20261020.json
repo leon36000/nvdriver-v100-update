@@ -1,0 +1,67 @@
+{
+  "observed_at_utc": "2026-10-20T08:18:16.740859+00:00",
+  "privacy_redaction": {
+    "observed_at_utc": "2026-10-20T08:25:13.147263+00:00",
+    "original_report_sha256": "f84b6c794ea6186cd42ba32ba7c1448c3d313003afab556b80c755675a63a378",
+    "reason": "The raw Tailscale status contained peer identifiers and personal data not needed for the GPU access finding.",
+    "removed_fields": [
+      "remote.addresses.stdout",
+      "remote.neighbors.stdout",
+      "remote.tailscale_status.stdout"
+    ]
+  },
+  "remote": {
+    "addresses": {
+      "exit_code": 0,
+      "reason": "Unneeded host-network detail or Tailscale peer identifiers were removed.",
+      "stdout_redacted": true
+    },
+    "hostname": "pc3",
+    "kernel": "7.0.0-38-generic",
+    "listening_tcp": {
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "State  Recv-Q Send-Q               Local Address:Port  Peer Address:Port\nLISTEN 0      4096                    127.0.0.54:53         0.0.0.0:*   \nLISTEN 0      1                        127.0.0.1:22223      0.0.0.0:*   \nLISTEN 0      4096                     127.0.0.1:6444       0.0.0.0:*   \nLISTEN 0      4096                 127.0.0.53%lo:53         0.0.0.0:*   \nLISTEN 0      4096                       0.0.0.0:22         0.0.0.0:*   \nLISTEN 0      4096                     127.0.0.1:10010      0.0.0.0:*   \nLISTEN 0      4096                     127.0.0.1:10249      0.0.0.0:*   \nLISTEN 0      4096                     127.0.0.1:10248      0.0.0.0:*   \nLISTEN 0      4096                     127.0.0.1:10256      0.0.0.0:*   \nLISTEN 0      4096                 100.90.188.53:55267      0.0.0.0:*   \nLISTEN 0      4096   [fd7a:115c:a1e0::fe2e:bc36]:50901         [::]:*   \nLISTEN 0      4096                             *:10250            *:*   \nLISTEN 0      4096                         [::1]:6444          [::]:*   \nLISTEN 0      4096                          [::]:22            [::]:*   \n"
+    },
+    "neighbors": {
+      "exit_code": 0,
+      "reason": "Unneeded host-network detail or Tailscale peer identifiers were removed.",
+      "stdout_redacted": true
+    },
+    "qemu_processes": [
+      {
+        "comm": "qemu-system-x86",
+        "label": "pc3-v100-skinny",
+        "pid": 27808,
+        "ssh_forward_ports": []
+      }
+    ],
+    "tailscale_status": {
+      "exit_code": 0,
+      "reason": "Unneeded host-network detail or Tailscale peer identifiers were removed.",
+      "stdout_redacted": true
+    }
+  },
+  "schema": "pc3-v100-vm-access-observation-v1",
+  "scope": "read-only discovery of the assigned guest access path; no VM management or state change",
+  "ssh_argv": [
+    "ssh",
+    "-F",
+    "/dev/null",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "ConnectTimeout=10",
+    "-o",
+    "ConnectionAttempts=1",
+    "-o",
+    "HostKeyAlias=pc3",
+    "--",
+    "pc3@pc3",
+    "python3 -c 'import json,os,re,subprocess\nfrom pathlib import Path\ndef run(argv):\n try:\n  r=subprocess.run(argv,text=True,capture_output=True,timeout=12,check=False)\n  return {'\"'\"'exit_code'\"'\"':r.returncode,'\"'\"'stdout'\"'\"':r.stdout,'\"'\"'stderr'\"'\"':r.stderr}\n except Exception as e:return {'\"'\"'error'\"'\"':type(e).__name__+'\"'\"': '\"'\"'+str(e)}\nprocs=[]\nfor d in Path('\"'\"'/proc'\"'\"').iterdir():\n if not d.name.isdigit():continue\n try:\n  comm=(d/'\"'\"'comm'\"'\"').read_text().strip()\n  if '\"'\"'qemu'\"'\"' not in comm.lower():continue\n  args=[x.decode('\"'\"'utf-8'\"'\"','\"'\"'replace'\"'\"') for x in (d/'\"'\"'cmdline'\"'\"').read_bytes().split(b'\"'\"'\\0'\"'\"') if x]\n  label=None;ports=[]\n  for i,a in enumerate(args[:-1]):\n   if a=='\"'\"'-name'\"'\"': label=args[i+1].split('\"'\"','\"'\"',1)[0].replace('\"'\"'guest='\"'\"','\"'\"''\"'\"')[:100]\n   ports += [int(m.group(1)) for m in re.finditer(r'\"'\"'hostfwd=tcp::(\\d+)-:22'\"'\"',a)]\n  procs.append({'\"'\"'pid'\"'\"':int(d.name),'\"'\"'comm'\"'\"':comm,'\"'\"'label'\"'\"':label,'\"'\"'ssh_forward_ports'\"'\"':sorted(set(ports))})\n except (OSError,PermissionError):pass\nres={'\"'\"'hostname'\"'\"':os.uname().nodename,'\"'\"'kernel'\"'\"':os.uname().release,'\"'\"'qemu_processes'\"'\"':procs,'\"'\"'listening_tcp'\"'\"':run(['\"'\"'ss'\"'\"','\"'\"'-lnt'\"'\"']), '\"'\"'addresses'\"'\"':run(['\"'\"'ip'\"'\"','\"'\"'-br'\"'\"','\"'\"'addr'\"'\"']), '\"'\"'neighbors'\"'\"':run(['\"'\"'ip'\"'\"','\"'\"'neigh'\"'\"']), '\"'\"'tailscale_status'\"'\"':run(['\"'\"'tailscale'\"'\"','\"'\"'status'\"'\"','\"'\"'--json'\"'\"'])}\nprint(json.dumps(res,sort_keys=True))'"
+  ],
+  "ssh_exit_code": 0,
+  "ssh_stderr": ""
+}

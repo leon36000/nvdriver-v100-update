@@ -1,0 +1,90 @@
+{
+  "credential_file": "/home/pc6/Desktop/ACCES-BANC-GPU.env",
+  "credential_host": "gx10-e526",
+  "failure_stage": "remote_report_validation",
+  "finished_utc": "2026-10-22T05:44:17+00:00",
+  "host_key_alias": "pc3",
+  "pc3_ssh_returncode": 0,
+  "read_only_requested": true,
+  "remote_stderr_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+  "remote_stdout_bytes": 1799,
+  "remote_stdout_sha256": "81c39bc0e1e3c7b28857c230f287875d0ebb90d5ff17dfbe7909ddea573881de",
+  "remote_summary": {
+    "guest": {
+      "execution_scope": {
+        "experimental_module_loaded": false,
+        "kprobe_attached": false,
+        "pci_binding_changed": false,
+        "read_only": true,
+        "stock_driver_changed": false,
+        "vm_management_issued": false
+      },
+      "gpus": [
+        {
+          "driver_version": "580.178.04",
+          "name": "Tesla V100-SXM2-16GB",
+          "pci": null
+        }
+      ],
+      "hostname": "pc3-v100",
+      "kernel_probe_config": {
+        "config_file_present": true,
+        "config_kprobe_events": "y",
+        "config_kprobes": "y",
+        "kptr_restrict": "1"
+      },
+      "kernel_release": "6.8.0-147-generic",
+      "stock_module": {
+        "file": {
+          "basename": "nvidia.ko.zst",
+          "bytes": 82127431
+        },
+        "module_symbol_table_readable": false,
+        "target_symbol_offsets": {},
+        "version": "580.178.04"
+      },
+      "stock_nvidia_module_loaded": true,
+      "trace_interfaces": {
+        "available_filter_functions_targets": null,
+        "debugfs_available_filter_functions_targets": null,
+        "debugfs_kprobe_events": {
+          "mode": null,
+          "present": false,
+          "readable": false
+        },
+        "debugfs_kprobes_list": {
+          "mode": null,
+          "present": false,
+          "readable": false
+        },
+        "proc_kallsyms_target_names": [],
+        "tracefs_kprobe_events": {
+          "mode": null,
+          "present": false,
+          "readable": false
+        }
+      }
+    },
+    "guest_transport": {
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 1174,
+      "stdout_sha256": "4eab6a1bc2666248845deaeb506fa70da7f14b853f6bbe537527a424b540081a"
+    },
+    "host": {
+      "guest_host_key_verified": true,
+      "hostname": "pc3",
+      "kernel_release": "7.0.0-38-generic",
+      "sudo_identity_verified": true
+    },
+    "schema": "nvidia-hybrid-pc3-v100-trace-capability-v1",
+    "status": "observed"
+  },
+  "schema": "nvidia-hybrid-pc3-v100-trace-capability-transport-v1",
+  "started_utc": "2026-10-22T05:44:15+00:00",
+  "status": "failed",
+  "target": "pc3@100.90.188.53",
+  "transport_helper_sha256": "cc721874f86406260575d425ea292847dcb2af10b19aec8b6ce4127dea251901",
+  "validation_error": "guest GPU identity is not the expected single V100",
+  "validation_error_class": "ValueError"
+}

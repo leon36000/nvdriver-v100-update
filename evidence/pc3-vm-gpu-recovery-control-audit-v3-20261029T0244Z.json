@@ -1,0 +1,98 @@
+{
+  "audit_provenance": {
+    "local_tool_sha256": "47eb360ac9f81a00e9192b45a5132eeeabd39e1a433f5bc54b947536d36c63c3",
+    "qualification": "read-only-pci-group-and-qemu-hostdev-metadata",
+    "remote_script_sha256": "0d9b038282db02943851daa47bd98ef95c0668b443775779efca177d4245f860",
+    "transport": {
+      "host_key_alias": "pc3",
+      "sudo_value_logged": false,
+      "sudo_value_persisted": false,
+      "target": "pc3@pc3"
+    }
+  },
+  "canary_ready": false,
+  "candidate_tested": false,
+  "host": "pc3",
+  "host_control_channel_observed": false,
+  "hypervisor": {
+    "instances": [
+      {
+        "cmdline_sha256": "cb5d725d88c74d01e77b1508ada108bff3a1df7b51f15c25865f25e819c594ce",
+        "hostdev_bdfs": [
+          "0000:81:00.0"
+        ],
+        "recovery_channels": {
+          "fd_scan_complete": true,
+          "monitor_transports": [
+            "none"
+          ],
+          "monitor_unix_socket_fd_match": false,
+          "no_reboot_flag": false,
+          "no_shutdown_flag": false,
+          "open_pty_fd_count": 0,
+          "qmp_transports": [],
+          "qmp_unix_socket_fd_match": false,
+          "serial_transports": [
+            "file"
+          ],
+          "systemd_managed": true,
+          "systemd_owner": {
+            "active_state": "active",
+            "kill_mode": "control-group",
+            "query_complete": true,
+            "restart_delay": "5s",
+            "restart_policy": "on-failure",
+            "sub_state": "running",
+            "unit_name": "pc3-v100-qemu.service"
+          }
+        }
+      }
+    ],
+    "qemu_binary_available": true,
+    "qemu_process_count": 1,
+    "qm_available": false,
+    "virsh_available": false
+  },
+  "inputs": {
+    "host_snapshot": {
+      "path": "evidence/pc3-canary-host-state-signing-preflight-v17-20261029T0155Z.json",
+      "sha256": "1e0dd74f5d57da6c7270ad048f9e3296f611765d82107a5fdac67754e7b905ab"
+    }
+  },
+  "kernel_release": "7.0.0-38-generic",
+  "loaded_nvidia_module_version": "595.99.02",
+  "observed_at_utc": "2026-10-29T02:43:17.667936+00:00",
+  "qemu_unit_recovery_policy_observed": "on-failure",
+  "rtx5080_currently_assigned_to_vm": false,
+  "rtx5080_iommu_group": {
+    "all_group_members_captured": true,
+    "group_id": 13,
+    "members": [
+      {
+        "class": "0x030000",
+        "device_id": "0x2c02",
+        "driver": "nvidia",
+        "pci": "0000:02:00.0",
+        "vendor_id": "0x10de"
+      },
+      {
+        "class": "0x040300",
+        "device_id": "0x22e9",
+        "driver": "snd_hda_intel",
+        "pci": "0000:02:00.1",
+        "vendor_id": "0x10de"
+      }
+    ]
+  },
+  "schema": "pc3-vm-gpu-recovery-control-audit-v3",
+  "state_changes": {
+    "candidate_loaded": false,
+    "pc3_contacted": true,
+    "pci_rebound": false,
+    "qemu_reconfigured": false,
+    "system_or_vm_state_changed": false
+  },
+  "status": "vm-assignment-observed",
+  "vm_reset_recovery_verified": false,
+  "vm_route_requires_rtx_and_audio_rebind": true
+}

@@ -1,0 +1,70 @@
+{
+  "audit_provenance": {
+    "local_tool_sha256": "af22787cc040449730d67e901904071672e5c39b854e3168df06d0ca2393a018",
+    "qualification": "read-only-pci-group-and-qemu-hostdev-metadata",
+    "remote_script_sha256": "4a07b151b9d9c7ad89d852563c015d349878b956945982f851f15d6624250051",
+    "transport": {
+      "host_key_alias": "pc3",
+      "sudo_value_logged": false,
+      "sudo_value_persisted": false,
+      "target": "pc3@pc3"
+    }
+  },
+  "canary_ready": false,
+  "candidate_tested": false,
+  "host": "pc3",
+  "hypervisor": {
+    "instances": [
+      {
+        "cmdline_sha256": "cb5d725d88c74d01e77b1508ada108bff3a1df7b51f15c25865f25e819c594ce",
+        "hostdev_bdfs": [
+          "0000:81:00.0"
+        ]
+      }
+    ],
+    "qemu_binary_available": true,
+    "qemu_process_count": 1,
+    "qm_available": false,
+    "virsh_available": false
+  },
+  "inputs": {
+    "host_snapshot": {
+      "path": "evidence/pc3-canary-host-state-signing-preflight-v17-20261029T0155Z.json",
+      "sha256": "1e0dd74f5d57da6c7270ad048f9e3296f611765d82107a5fdac67754e7b905ab"
+    }
+  },
+  "kernel_release": "7.0.0-38-generic",
+  "loaded_nvidia_module_version": "595.99.02",
+  "observed_at_utc": "2026-10-29T02:09:05.180080+00:00",
+  "rtx5080_currently_assigned_to_vm": false,
+  "rtx5080_iommu_group": {
+    "all_group_members_captured": true,
+    "group_id": 13,
+    "members": [
+      {
+        "class": "0x030000",
+        "device_id": "0x2c02",
+        "driver": "nvidia",
+        "pci": "0000:02:00.0",
+        "vendor_id": "0x10de"
+      },
+      {
+        "class": "0x040300",
+        "device_id": "0x22e9",
+        "driver": "snd_hda_intel",
+        "pci": "0000:02:00.1",
+        "vendor_id": "0x10de"
+      }
+    ]
+  },
+  "schema": "pc3-vm-gpu-assignment-audit-v1",
+  "state_changes": {
+    "candidate_loaded": false,
+    "pc3_contacted": true,
+    "pci_rebound": false,
+    "qemu_reconfigured": false,
+    "system_or_vm_state_changed": false
+  },
+  "status": "vm-assignment-observed",
+  "vm_route_requires_rtx_and_audio_rebind": true
+}

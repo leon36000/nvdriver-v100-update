@@ -1,0 +1,299 @@
+{
+  "blackwell": {
+    "allocation_records": 16,
+    "class_id_histogram": {
+      "0xc96f": 16
+    },
+    "identity": {
+      "driver": "595.99.02",
+      "gpu": "NVIDIA GeForce RTX 5080",
+      "pci": "00000000:02:00.0",
+      "sm": 120
+    },
+    "payload_snapshots": 32,
+    "phases": {
+      "entry": {
+        "cidPresent": {
+          "false": 16
+        },
+        "classPayloadBytes": {
+          "368": 16
+        },
+        "engineType": {
+          "0": 16
+        },
+        "flags": {
+          "0": 12,
+          "16": 4
+        },
+        "gpFifoEntries": {
+          "1024": 16
+        },
+        "gpFifoOffsetNonzero": {
+          "true": 16
+        },
+        "hContextSharePresent": {
+          "false": 8,
+          "true": 8
+        },
+        "hObjectBufferPresent": {
+          "true": 16
+        },
+        "hObjectEccErrorPresent": {
+          "false": 16
+        },
+        "hObjectErrorPresent": {
+          "true": 16
+        },
+        "hUserdMemoryPresentCount": {
+          "1": 16
+        },
+        "hVASpacePresent": {
+          "false": 16
+        },
+        "memoryDescriptors": {
+          "{\"instanceMem\":{\"addressSpace\":0,\"basePresent\":false,\"cacheAttrib\":0,\"size\":0},\"mthdbufMem\":{\"addressSpace\":0,\"basePresent\":false,\"cacheAttrib\":0,\"size\":0},\"ramfcMem\":{\"addressSpace\":0,\"basePresent\":false,\"cacheAttrib\":0,\"size\":0},\"userdMem\":{\"addressSpace\":0,\"basePresent\":false,\"cacheAttrib\":0,\"size\":0}}": 16
+        },
+        "paramsSize": {
+          "0": 16
+        },
+        "reservedFields": {
+          "{\"decryptIvZero\":true,\"eccErrorNotifierMemZero\":true,\"encryptIvZero\":true,\"errorNotifierMemZero\":true,\"hPhysChannelGroupPresent\":false,\"hmacNonceZero\":true,\"internalFlagsZero\":true,\"processIdZero\":true,\"subProcessIdZero\":true,\"tpcConfigIdZero\":true}": 16
+        },
+        "subDeviceId": {
+          "0": 16
+        },
+        "userdOffsetNonzeroCount": {
+          "1": 16
+        }
+      },
+      "exit": {
+        "cidPresent": {
+          "true": 16
+        },
+        "classPayloadBytes": {
+          "368": 16
+        },
+        "engineType": {
+          "0": 16
+        },
+        "flags": {
+          "0": 12,
+          "16": 4
+        },
+        "gpFifoEntries": {
+          "1024": 16
+        },
+        "gpFifoOffsetNonzero": {
+          "true": 16
+        },
+        "hContextSharePresent": {
+          "false": 8,
+          "true": 8
+        },
+        "hObjectBufferPresent": {
+          "true": 16
+        },
+        "hObjectEccErrorPresent": {
+          "false": 16
+        },
+        "hObjectErrorPresent": {
+          "true": 16
+        },
+        "hUserdMemoryPresentCount": {
+          "1": 16
+        },
+        "hVASpacePresent": {
+          "false": 16
+        },
+        "memoryDescriptors": {
+          "{\"instanceMem\":{\"addressSpace\":0,\"basePresent\":false,\"cacheAttrib\":0,\"size\":0},\"mthdbufMem\":{\"addressSpace\":0,\"basePresent\":false,\"cacheAttrib\":0,\"size\":0},\"ramfcMem\":{\"addressSpace\":0,\"basePresent\":false,\"cacheAttrib\":0,\"size\":0},\"userdMem\":{\"addressSpace\":0,\"basePresent\":false,\"cacheAttrib\":0,\"size\":0}}": 16
+        },
+        "paramsSize": {
+          "0": 16
+        },
+        "reservedFields": {
+          "{\"decryptIvZero\":true,\"eccErrorNotifierMemZero\":true,\"encryptIvZero\":true,\"errorNotifierMemZero\":true,\"hPhysChannelGroupPresent\":false,\"hmacNonceZero\":true,\"internalFlagsZero\":true,\"processIdZero\":true,\"subProcessIdZero\":true,\"tpcConfigIdZero\":true}": 16
+        },
+        "subDeviceId": {
+          "0": 16
+        },
+        "userdOffsetNonzeroCount": {
+          "1": 16
+        }
+      }
+    },
+    "successful_syscalls": 16
+  },
+  "class_payload_size_bytes": 368,
+  "differences": [
+    {
+      "blackwell": {
+        "0": 12,
+        "16": 4
+      },
+      "field": "flags",
+      "phase": "entry",
+      "v100": {
+        "0": 16
+      }
+    },
+    {
+      "blackwell": {
+        "0": 12,
+        "16": 4
+      },
+      "field": "flags",
+      "phase": "exit",
+      "v100": {
+        "0": 16
+      }
+    }
+  ],
+  "hybrid_compatibility_validated": false,
+  "inputs": {
+    "blackwell": {
+      "bytes": 300790,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-rtx5080-channel-allocation-v4-20261021.json",
+      "sha256": "0e7dae9d5182404d2908015d8e5b605c836d85318978b69b445c58ec98a29b67"
+    },
+    "v100": {
+      "bytes": 86717,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-v100-guest-channel-allocation-v1-20261021.json",
+      "sha256": "8c850c992cab846acb8c704e494986bbc9f7093144b5340084fcb2bf0090487f"
+    }
+  },
+  "limitations": [
+    "The V100/R580 and RTX5080/R595 captures ran in separate Linux kernels.",
+    "Observed input packets are not a cross-driver allocation experiment.",
+    "Matching structure layout does not prove matching handle ownership or RM behavior.",
+    "This capture does not validate the experimental frontend, CUDA coexistence, UVM, P2P, or performance."
+  ],
+  "qualification": "separate-installed-driver-channel-observation",
+  "same_class_payload_size": true,
+  "schema": "nvidia-hybrid-channel-alloc-comparison-v1",
+  "v100": {
+    "allocation_records": 16,
+    "class_id_histogram": {
+      "0xc36f": 16
+    },
+    "identity": {
+      "driver": "580.178.04",
+      "gpu": "Tesla V100-SXM2-16GB",
+      "pci": "0000:00:05.0",
+      "sm": 70
+    },
+    "payload_snapshots": 32,
+    "phases": {
+      "entry": {
+        "cidPresent": {
+          "false": 16
+        },
+        "classPayloadBytes": {
+          "368": 16
+        },
+        "engineType": {
+          "0": 16
+        },
+        "flags": {
+          "0": 16
+        },
+        "gpFifoEntries": {
+          "1024": 16
+        },
+        "gpFifoOffsetNonzero": {
+          "true": 16
+        },
+        "hContextSharePresent": {
+          "false": 8,
+          "true": 8
+        },
+        "hObjectBufferPresent": {
+          "true": 16
+        },
+        "hObjectEccErrorPresent": {
+          "false": 16
+        },
+        "hObjectErrorPresent": {
+          "true": 16
+        },
+        "hUserdMemoryPresentCount": {
+          "1": 16
+        },
+        "hVASpacePresent": {
+          "false": 16
+        },
+        "memoryDescriptors": {
+          "{\"instanceMem\":{\"addressSpace\":0,\"basePresent\":false,\"cacheAttrib\":0,\"size\":0},\"mthdbufMem\":{\"addressSpace\":0,\"basePresent\":false,\"cacheAttrib\":0,\"size\":0},\"ramfcMem\":{\"addressSpace\":0,\"basePresent\":false,\"cacheAttrib\":0,\"size\":0},\"userdMem\":{\"addressSpace\":0,\"basePresent\":false,\"cacheAttrib\":0,\"size\":0}}": 16
+        },
+        "paramsSize": {
+          "0": 16
+        },
+        "reservedFields": {
+          "{\"decryptIvZero\":true,\"eccErrorNotifierMemZero\":true,\"encryptIvZero\":true,\"errorNotifierMemZero\":true,\"hPhysChannelGroupPresent\":false,\"hmacNonceZero\":true,\"internalFlagsZero\":true,\"processIdZero\":true,\"subProcessIdZero\":true,\"tpcConfigIdZero\":true}": 16
+        },
+        "subDeviceId": {
+          "0": 16
+        },
+        "userdOffsetNonzeroCount": {
+          "1": 16
+        }
+      },
+      "exit": {
+        "cidPresent": {
+          "true": 16
+        },
+        "classPayloadBytes": {
+          "368": 16
+        },
+        "engineType": {
+          "0": 16
+        },
+        "flags": {
+          "0": 16
+        },
+        "gpFifoEntries": {
+          "1024": 16
+        },
+        "gpFifoOffsetNonzero": {
+          "true": 16
+        },
+        "hContextSharePresent": {
+          "false": 8,
+          "true": 8
+        },
+        "hObjectBufferPresent": {
+          "true": 16
+        },
+        "hObjectEccErrorPresent": {
+          "false": 16
+        },
+        "hObjectErrorPresent": {
+          "true": 16
+        },
+        "hUserdMemoryPresentCount": {
+          "1": 16
+        },
+        "hVASpacePresent": {
+          "false": 16
+        },
+        "memoryDescriptors": {
+          "{\"instanceMem\":{\"addressSpace\":0,\"basePresent\":false,\"cacheAttrib\":0,\"size\":0},\"mthdbufMem\":{\"addressSpace\":0,\"basePresent\":false,\"cacheAttrib\":0,\"size\":0},\"ramfcMem\":{\"addressSpace\":0,\"basePresent\":false,\"cacheAttrib\":0,\"size\":0},\"userdMem\":{\"addressSpace\":0,\"basePresent\":false,\"cacheAttrib\":0,\"size\":0}}": 16
+        },
+        "paramsSize": {
+          "0": 16
+        },
+        "reservedFields": {
+          "{\"decryptIvZero\":true,\"eccErrorNotifierMemZero\":true,\"encryptIvZero\":true,\"errorNotifierMemZero\":true,\"hPhysChannelGroupPresent\":false,\"hmacNonceZero\":true,\"internalFlagsZero\":true,\"processIdZero\":true,\"subProcessIdZero\":true,\"tpcConfigIdZero\":true}": 16
+        },
+        "subDeviceId": {
+          "0": 16
+        },
+        "userdOffsetNonzeroCount": {
+          "1": 16
+        }
+      }
+    },
+    "successful_syscalls": 16
+  }
+}

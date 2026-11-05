@@ -1,0 +1,31 @@
+{
+  "action": "inspect",
+  "canary_id": "91ba74cd266e4165a97bafb142028fb1",
+  "observed_at_utc": "2026-10-29T02:59:26.981280+00:00",
+  "remote": {
+    "action": "inspect",
+    "canary_id": "91ba74cd266e4165a97bafb142028fb1",
+    "host": "pc3",
+    "qemu_command_digest": "cb5d725d88c74d01e77b1508ada108bff3a1df7b51f15c25865f25e819c594ce",
+    "qemu_process_count": 1,
+    "qemu_service_active": true,
+    "qemu_service_substate": "running",
+    "qemu_unit_active_enter_timestamp": "Thu 2026-10-29 02:56:36 UTC",
+    "qemu_unit_invocation_id": "787563cbf9734187ba6360f4b3132a89",
+    "restart_action": null,
+    "restart_event": "restart_finished",
+    "restart_returncode": 0,
+    "rollback_started": false,
+    "schema": "pc3-v100-canary-watchdog-remote-v1",
+    "status": "restart-finished",
+    "system_state_changed": false,
+    "target_service": "pc3-v100-qemu.service",
+    "timer_active": false
+  },
+  "remote_program_sha256": "8299c92bb58811b60bd48fb814b7bfc61e27d755792868b37c0662431198737f",
+  "schema": "pc3-v100-canary-watchdog-v1",
+  "status": "restart-finished",
+  "system_state_changed": false,
+  "target_service": "pc3-v100-qemu.service",
+  "watchdog_payload_sha256": "7de913e9a91436310ee0baa59b76ec4ebd76ae98df64cb84ea2054888172595e"
+}

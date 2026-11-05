@@ -1,0 +1,525 @@
+{
+  "comparison": {
+    "call_counts_equal": false,
+    "payload_status_observed": false,
+    "request_count_deltas": [
+      {
+        "node": "/dev/nvidia-uvm",
+        "request": "0x46",
+        "rtx_count": 1,
+        "v100_count": 0,
+        "v100_minus_rtx": -1
+      },
+      {
+        "node": "/dev/nvidia0",
+        "request": "0xc00446c9",
+        "rtx_count": 10,
+        "v100_count": 9,
+        "v100_minus_rtx": -1
+      },
+      {
+        "node": "/dev/nvidia0",
+        "request": "0xc01046ce",
+        "rtx_count": 8,
+        "v100_count": 7,
+        "v100_minus_rtx": -1
+      },
+      {
+        "node": "/dev/nvidia0",
+        "request": "0xc0384627",
+        "rtx_count": 4,
+        "v100_count": 5,
+        "v100_minus_rtx": 1
+      },
+      {
+        "node": "/dev/nvidiactl",
+        "request": "0xc0104629",
+        "rtx_count": 93,
+        "v100_count": 97,
+        "v100_minus_rtx": 4
+      },
+      {
+        "node": "/dev/nvidiactl",
+        "request": "0xc020462a",
+        "rtx_count": 170,
+        "v100_count": 173,
+        "v100_minus_rtx": 3
+      },
+      {
+        "node": "/dev/nvidiactl",
+        "request": "0xc028465e",
+        "rtx_count": 2,
+        "v100_count": 1,
+        "v100_minus_rtx": -1
+      },
+      {
+        "node": "/dev/nvidiactl",
+        "request": "0xc030462b",
+        "rtx_count": 92,
+        "v100_count": 95,
+        "v100_minus_rtx": 3
+      },
+      {
+        "node": "/dev/nvidiactl",
+        "request": "0xc038464e",
+        "rtx_count": 26,
+        "v100_count": 25,
+        "v100_minus_rtx": -1
+      }
+    ],
+    "rm_alloc_ioctl": {
+      "request": "0xc030462b",
+      "rtx5080_count": 99,
+      "v100_count": 102
+    },
+    "rtx5080_call_count": 606,
+    "same_linux_or_cross_backend_compatibility_validated": false,
+    "sequence": {
+      "common_prefix_calls": 56,
+      "first_divergence": {
+        "rtx5080_call": [
+          "/dev/nvidia0",
+          "0xc00446c9",
+          0
+        ],
+        "v100_call": [
+          "/dev/nvidiactl",
+          "0xc020462a",
+          0
+        ],
+        "zero_based_index": 56
+      },
+      "pid_file_descriptor_and_pointer_values_compared": false
+    },
+    "uvm_ioctl_calls": {
+      "rtx5080": 159,
+      "v100": 158
+    },
+    "uvm_workload_validated": false,
+    "v100_call_count": 612
+  },
+  "inputs": {
+    "rtx5080": {
+      "call_count": 606,
+      "driver": "595.99.02",
+      "driver_api": 13020,
+      "gpu": "NVIDIA GeForce RTX 5080",
+      "kernel": "7.0.0-38-generic",
+      "negative_syscall_returns": 0,
+      "node_call_counts": {
+        "/dev/nvidia-uvm": 159,
+        "/dev/nvidia0": 37,
+        "/dev/nvidiactl": 410
+      },
+      "pci": "00000000:02:00.0",
+      "qualification": "rtx5080-reference-validated-hybrid-incomplete",
+      "report_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-rtx5080-managed-memory-v1-20261020.json",
+      "report_sha256": "4347ea99e8292be7c6481b7baa9cbaff3ccdec1448b43a3837c49a29cd253e4a",
+      "request_counts": [
+        {
+          "count": 9,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x17"
+        },
+        {
+          "count": 8,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x18"
+        },
+        {
+          "count": 1,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x19"
+        },
+        {
+          "count": 1,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x1a"
+        },
+        {
+          "count": 16,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x1b"
+        },
+        {
+          "count": 16,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x1c"
+        },
+        {
+          "count": 3,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x1f"
+        },
+        {
+          "count": 27,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x21"
+        },
+        {
+          "count": 29,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x22"
+        },
+        {
+          "count": 1,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x25"
+        },
+        {
+          "count": 1,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x27"
+        },
+        {
+          "count": 3,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x2b"
+        },
+        {
+          "count": 4,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x2d"
+        },
+        {
+          "count": 6,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x2f"
+        },
+        {
+          "count": 1,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x30000001"
+        },
+        {
+          "count": 1,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x41"
+        },
+        {
+          "count": 1,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x44"
+        },
+        {
+          "count": 1,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x46"
+        },
+        {
+          "count": 2,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x48"
+        },
+        {
+          "count": 27,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x49"
+        },
+        {
+          "count": 1,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x4b"
+        },
+        {
+          "count": 10,
+          "node": "/dev/nvidia0",
+          "request": "0xc00446c9"
+        },
+        {
+          "count": 8,
+          "node": "/dev/nvidia0",
+          "request": "0xc01046ce"
+        },
+        {
+          "count": 7,
+          "node": "/dev/nvidia0",
+          "request": "0xc01046cf"
+        },
+        {
+          "count": 7,
+          "node": "/dev/nvidia0",
+          "request": "0xc030462b"
+        },
+        {
+          "count": 4,
+          "node": "/dev/nvidia0",
+          "request": "0xc0384627"
+        },
+        {
+          "count": 1,
+          "node": "/dev/nvidia0",
+          "request": "0xc23046d7"
+        },
+        {
+          "count": 2,
+          "node": "/dev/nvidiactl",
+          "request": "0xc00846d6"
+        },
+        {
+          "count": 93,
+          "node": "/dev/nvidiactl",
+          "request": "0xc0104629"
+        },
+        {
+          "count": 170,
+          "node": "/dev/nvidiactl",
+          "request": "0xc020462a"
+        },
+        {
+          "count": 23,
+          "node": "/dev/nvidiactl",
+          "request": "0xc020464f"
+        },
+        {
+          "count": 2,
+          "node": "/dev/nvidiactl",
+          "request": "0xc028465e"
+        },
+        {
+          "count": 92,
+          "node": "/dev/nvidiactl",
+          "request": "0xc030462b"
+        },
+        {
+          "count": 26,
+          "node": "/dev/nvidiactl",
+          "request": "0xc038464e"
+        },
+        {
+          "count": 2,
+          "node": "/dev/nvidiactl",
+          "request": "0xc90046c8"
+        }
+      ],
+      "rm_alloc_packet_sizes": [
+        {
+          "bytes": 48,
+          "count": 99
+        }
+      ],
+      "rm_alloc_request_count": 99,
+      "sidecar_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-rtx5080-managed-memory-v1-20261020.json.strace.gz",
+      "sidecar_sha256": "16cfe3ed72bcbea0b49d6daf87659142cbe32c309a0e3c94739248f1c7e47d57",
+      "strace_version": "strace -- version 6.19",
+      "trace_bytes": 46051,
+      "trace_sha256": "3e44dda490f792cbeea89f994bd82416e484fa06bafb6aa7d2b016c194c06c0a",
+      "unparsed_line_count": 0,
+      "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77",
+      "uvm_ioctl_call_count": 159,
+      "uvm_workload_validated": false
+    },
+    "v100": {
+      "call_count": 612,
+      "driver": "580.178.04",
+      "driver_api": 13000,
+      "gpu": "Tesla V100-SXM2-16GB",
+      "kernel": "6.8.0-147-generic",
+      "negative_syscall_returns": 0,
+      "node_call_counts": {
+        "/dev/nvidia-uvm": 158,
+        "/dev/nvidia0": 36,
+        "/dev/nvidiactl": 418
+      },
+      "pci": "0000:00:05.0",
+      "qualification": "v100-reference-validated",
+      "report_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-v100-managed-memory-v1-20261020.json",
+      "report_sha256": "8b00f92f379de8af62e498c3c70ee2e830a6004e6e6da8f249fe6161679a7985",
+      "request_counts": [
+        {
+          "count": 9,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x17"
+        },
+        {
+          "count": 8,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x18"
+        },
+        {
+          "count": 1,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x19"
+        },
+        {
+          "count": 1,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x1a"
+        },
+        {
+          "count": 16,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x1b"
+        },
+        {
+          "count": 16,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x1c"
+        },
+        {
+          "count": 3,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x1f"
+        },
+        {
+          "count": 27,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x21"
+        },
+        {
+          "count": 29,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x22"
+        },
+        {
+          "count": 1,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x25"
+        },
+        {
+          "count": 1,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x27"
+        },
+        {
+          "count": 3,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x2b"
+        },
+        {
+          "count": 4,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x2d"
+        },
+        {
+          "count": 6,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x2f"
+        },
+        {
+          "count": 1,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x30000001"
+        },
+        {
+          "count": 1,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x41"
+        },
+        {
+          "count": 1,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x44"
+        },
+        {
+          "count": 2,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x48"
+        },
+        {
+          "count": 27,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x49"
+        },
+        {
+          "count": 1,
+          "node": "/dev/nvidia-uvm",
+          "request": "0x4b"
+        },
+        {
+          "count": 9,
+          "node": "/dev/nvidia0",
+          "request": "0xc00446c9"
+        },
+        {
+          "count": 7,
+          "node": "/dev/nvidia0",
+          "request": "0xc01046ce"
+        },
+        {
+          "count": 7,
+          "node": "/dev/nvidia0",
+          "request": "0xc01046cf"
+        },
+        {
+          "count": 7,
+          "node": "/dev/nvidia0",
+          "request": "0xc030462b"
+        },
+        {
+          "count": 5,
+          "node": "/dev/nvidia0",
+          "request": "0xc0384627"
+        },
+        {
+          "count": 1,
+          "node": "/dev/nvidia0",
+          "request": "0xc23046d7"
+        },
+        {
+          "count": 2,
+          "node": "/dev/nvidiactl",
+          "request": "0xc00846d6"
+        },
+        {
+          "count": 97,
+          "node": "/dev/nvidiactl",
+          "request": "0xc0104629"
+        },
+        {
+          "count": 173,
+          "node": "/dev/nvidiactl",
+          "request": "0xc020462a"
+        },
+        {
+          "count": 23,
+          "node": "/dev/nvidiactl",
+          "request": "0xc020464f"
+        },
+        {
+          "count": 1,
+          "node": "/dev/nvidiactl",
+          "request": "0xc028465e"
+        },
+        {
+          "count": 95,
+          "node": "/dev/nvidiactl",
+          "request": "0xc030462b"
+        },
+        {
+          "count": 25,
+          "node": "/dev/nvidiactl",
+          "request": "0xc038464e"
+        },
+        {
+          "count": 2,
+          "node": "/dev/nvidiactl",
+          "request": "0xc90046c8"
+        }
+      ],
+      "rm_alloc_packet_sizes": [
+        {
+          "bytes": 48,
+          "count": 102
+        }
+      ],
+      "rm_alloc_request_count": 102,
+      "sidecar_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-v100-managed-memory-v1-20261020.json.strace.gz",
+      "sidecar_sha256": "d2ecc69f2c5f0c52b2bdfb10c59cc3c6dad599e6fa72577b0c9fe04fe1a391cd",
+      "strace_version": "strace -- version 6.8",
+      "trace_bytes": 46529,
+      "trace_sha256": "75e424b9a451ba185b717eae6a1b4441eac84c9c85e6ffe5a219b04e6a3cff31",
+      "unparsed_line_count": 0,
+      "uuid": "GPU-42d06a85-027a-75ea-7857-a8de27ad465e",
+      "uvm_ioctl_call_count": 158,
+      "uvm_workload_validated": false
+    }
+  },
+  "qualification": "verified-metadata-comparison-only",
+  "schema": "nvidia-hybrid-installed-driver-ioctl-comparison-v1",
+  "scope": "ioctl request metadata only; syscall arguments, pointed memory, RM payload status, file-object identity, UVM migration, and hybrid compatibility are not established",
+  "tool": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/compare_ioctl_trace_evidence.py",
+    "sha256": "6feb9c6980d47e3ca3a5205ccbf1a4f9bd3330a33297103ef98ecef83359224e"
+  }
+}

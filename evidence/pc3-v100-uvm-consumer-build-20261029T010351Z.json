@@ -1,0 +1,481 @@
+{
+  "build_failure": null,
+  "builder_exit_code": 0,
+  "builder_report": {
+    "build": {
+      "command": [
+        "make",
+        "-C",
+        "/tmp/codex-hybrid-uvm-6906a1c2c33b4a68bdff10a611659a30/build/experiments/pc3-v100-uvm-consumer-6906a1c2c33b4a68bdff10a611659a30/scratch/NVIDIA-kernel-module-source-580.178.04",
+        "KERNEL_UNAME=6.8.0-147-generic",
+        "NV_KERNEL_MODULES=nvidia-uvm",
+        "NV_VERBOSE=1",
+        "KBUILD_EXTRA_SYMBOLS=/tmp/codex-hybrid-uvm-6906a1c2c33b4a68bdff10a611659a30/build/experiments/pc3-v100-uvm-consumer-input/frontend-Module.symvers",
+        "modules",
+        "-j",
+        "4"
+      ],
+      "elapsed_seconds": 54.176,
+      "exit_code": 0,
+      "frontend_consumer_binding": {
+        "frontend_is_only_provider_dependency": true,
+        "frontend_module_name": "nvidia",
+        "matching_frontend_crc_count": 77,
+        "mismatched_symbols": {},
+        "module_dependencies": [
+          "nvidia"
+        ],
+        "module_version_source": "ELF __versions compact-record parser",
+        "passed": true,
+        "symvers_unchanged_after_build": true,
+        "uvm_interface_import_count": 77
+      },
+      "frontend_symvers_unchanged_after_build": true,
+      "kernel_release": "6.8.0-147-generic",
+      "log": "evidence/logs/pc3-v100-uvm-consumer-6906a1c2c33b4a68bdff10a611659a30.log",
+      "log_sha256": "54e494a5085bd3516c4e29e021b318a07a5fd457768c2af368a816b900063a6c",
+      "module_identity": {
+        "actual_module_name": "nvidia_uvm",
+        "expected_module_name": "nvidia_uvm",
+        "modinfo_exit_code": 0,
+        "module_name_matches": true
+      },
+      "module_symvers": {
+        "bytes": 0,
+        "path": "/tmp/codex-hybrid-uvm-6906a1c2c33b4a68bdff10a611659a30/build/experiments/pc3-v100-uvm-consumer-6906a1c2c33b4a68bdff10a611659a30/scratch/NVIDIA-kernel-module-source-580.178.04/kernel-open/Module.symvers",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "modules": {
+        "nvidia-uvm.ko": {
+          "bytes": 61292768,
+          "path": "/tmp/codex-hybrid-uvm-6906a1c2c33b4a68bdff10a611659a30/build/experiments/pc3-v100-uvm-consumer-6906a1c2c33b4a68bdff10a611659a30/scratch/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm.ko",
+          "sha256": "71762349a0cd3e004f57962926376905e58b2d2ad9701d5dd119acdc1c0e0d76"
+        }
+      },
+      "nvidia_kernel_module_built": false,
+      "scratch_package": "/tmp/codex-hybrid-uvm-6906a1c2c33b4a68bdff10a611659a30/build/experiments/pc3-v100-uvm-consumer-6906a1c2c33b4a68bdff10a611659a30/scratch/NVIDIA-kernel-module-source-580.178.04"
+    },
+    "completed_at_utc": "2026-10-29T01:04:49.633363+00:00",
+    "inputs": {
+      "expected_frontend_module_symvers_sha256": "cfbeb43bc5afa2952750729790cfff475e02f04688a7c8c5d12edffbea3b8611",
+      "frontend_module_name": "nvidia",
+      "frontend_module_symvers": {
+        "path": "/tmp/codex-hybrid-uvm-6906a1c2c33b4a68bdff10a611659a30/build/experiments/pc3-v100-uvm-consumer-input/frontend-Module.symvers",
+        "sha256": "cfbeb43bc5afa2952750729790cfff475e02f04688a7c8c5d12edffbea3b8611"
+      },
+      "implementation_sha256": {
+        "tools/build_hybrid_frontend.py": "0674523e1b2821c3ee965b18ee22d7cff01289b5c8c0dead7f76f5d2563caa14",
+        "tools/probe_r580_uvm_isolated_execution.py": "3f2bb696e03de1da724bd8076cc1a674b73efe76666b2df324cf32553c613198"
+      },
+      "owner_namespace": null,
+      "patches": [
+        {
+          "apply_command": [
+            "patch",
+            "--batch",
+            "--fuzz=0",
+            "--forward",
+            "-p1",
+            "-i",
+            "/tmp/codex-hybrid-uvm-6906a1c2c33b4a68bdff10a611659a30/patches/r580.178.04/uvm/0002-hybrid-isolated-gpu-execution.patch"
+          ],
+          "apply_output": "patching file kernel-open/nvidia-uvm/uvm_gpu.c\npatching file kernel-open/nvidia-uvm/uvm_gpu_semaphore.c\npatching file kernel-open/nvidia-uvm/uvm_push.c\npatching file kernel-open/nvidia-uvm/uvm_migrate_pageable.c\n",
+          "path": "patches/r580.178.04/uvm/0002-hybrid-isolated-gpu-execution.patch",
+          "sha256": "23145778c944ae2cf222a6df192d97a1b3260c564772f4b353d48f0cf0cb26f0"
+        },
+        {
+          "apply_command": [
+            "patch",
+            "--batch",
+            "--fuzz=0",
+            "--forward",
+            "-p1",
+            "-i",
+            "/tmp/codex-hybrid-uvm-6906a1c2c33b4a68bdff10a611659a30/patches/r580.178.04/uvm/0003-pass-control-fd-to-dup-memory.patch"
+          ],
+          "apply_output": "patching file kernel-open/nvidia/nv_uvm_interface.c\npatching file kernel-open/nvidia-uvm/uvm_map_external.c\npatching file kernel-open/common/inc/hybrid580_uvm_control_fd_dispatch.h\n",
+          "path": "patches/r580.178.04/uvm/0003-pass-control-fd-to-dup-memory.patch",
+          "sha256": "1ea8a83f9af76d1d8189aa04647591d92e02ce7ad3a55db8c55cb13e280c1be6"
+        },
+        {
+          "apply_command": [
+            "patch",
+            "--batch",
+            "--fuzz=0",
+            "--forward",
+            "-p1",
+            "-i",
+            "/tmp/codex-hybrid-uvm-6906a1c2c33b4a68bdff10a611659a30/patches/r580.178.04/uvm/0004-share-linux-conftests-with-uvm-consumer.patch"
+          ],
+          "apply_output": "patching file kernel-open/nvidia/nvidia.Kbuild\npatching file kernel-open/nvidia-uvm/nvidia-uvm.Kbuild\npatching file kernel-open/common/nvidia-kernel-interface-conftests.Kbuild\n",
+          "path": "patches/r580.178.04/uvm/0004-share-linux-conftests-with-uvm-consumer.patch",
+          "sha256": "53358544aa10f7ede4827bbce1ee909da2bbea61a7ab03242d0b258aac10517a"
+        },
+        {
+          "apply_command": [
+            "patch",
+            "--batch",
+            "--fuzz=0",
+            "--forward",
+            "-p1",
+            "-i",
+            "/tmp/codex-hybrid-uvm-6906a1c2c33b4a68bdff10a611659a30/patches/r580.178.04/uvm/0005-pass-control-fd-to-dup-address-space.patch"
+          ],
+          "apply_output": "patching file kernel-open/common/inc/hybrid580_uvm_control_fd_dispatch.h\npatching file kernel-open/nvidia-uvm/uvm_va_space.c\n",
+          "path": "patches/r580.178.04/uvm/0005-pass-control-fd-to-dup-address-space.patch",
+          "sha256": "1dad3e5b60c5ca306c6f36f20e2147b9b8f9eb784e89b321cccd8e0d4dead61c"
+        },
+        {
+          "apply_command": [
+            "patch",
+            "--batch",
+            "--fuzz=0",
+            "--forward",
+            "-p1",
+            "-i",
+            "/tmp/codex-hybrid-uvm-6906a1c2c33b4a68bdff10a611659a30/patches/r580.178.04/uvm/0006-pin-control-file-before-va-space-registration.patch"
+          ],
+          "apply_output": "patching file kernel-open/nvidia-uvm/uvm.c\npatching file kernel-open/nvidia-uvm/uvm_api.h\npatching file kernel-open/nvidia-uvm/uvm_common.h\npatching file kernel-open/nvidia-uvm/uvm_gpu.c\nHunk #1 succeeded at 3836 (offset 8 lines).\npatching file kernel-open/nvidia-uvm/uvm_va_space.c\npatching file kernel-open/common/inc/hybrid580_uvm_control_fd_dispatch.h\n",
+          "path": "patches/r580.178.04/uvm/0006-pin-control-file-before-va-space-registration.patch",
+          "sha256": "9427ad3354ba4188befc7126f515442054d35704e424909066acf4ae0cd1f241"
+        },
+        {
+          "apply_command": [
+            "patch",
+            "--batch",
+            "--fuzz=0",
+            "--forward",
+            "-p1",
+            "-i",
+            "/tmp/codex-hybrid-uvm-6906a1c2c33b4a68bdff10a611659a30/patches/r580.178.04/uvm/0007-reject-cross-gpu-tracker-dependencies.patch"
+          ],
+          "apply_output": "patching file kernel-open/nvidia-uvm/uvm_tracker.c\npatching file kernel-open/nvidia-uvm/uvm_tracker.h\npatching file kernel-open/nvidia-uvm/uvm_push.h\npatching file kernel-open/nvidia-uvm/uvm_push.c\npatching file kernel-open/nvidia-uvm/uvm_migrate_pageable.c\npatching file kernel-open/nvidia-uvm/uvm_gpu.c\npatching file kernel-open/nvidia-uvm/uvm_gpu_semaphore.c\n",
+          "path": "patches/r580.178.04/uvm/0007-reject-cross-gpu-tracker-dependencies.patch",
+          "sha256": "b8ce083d3f380e63e5d1028a1c14c8481983b8a2365f1451320101cbed16424d"
+        },
+        {
+          "apply_command": [
+            "patch",
+            "--batch",
+            "--fuzz=0",
+            "--forward",
+            "-p1",
+            "-i",
+            "/tmp/codex-hybrid-uvm-6906a1c2c33b4a68bdff10a611659a30/patches/r580.178.04/uvm/0008-pmm-allocation-outside-va-block-lock.patch"
+          ],
+          "apply_output": "patching file kernel-open/nvidia-uvm/uvm_va_block.c\nHunk #1 succeeded at 1996 (offset 1995 lines).\n",
+          "path": "patches/r580.178.04/uvm/0008-pmm-allocation-outside-va-block-lock.patch",
+          "sha256": "b532998cbca0a7ca566690a448f6984dff50f22219c60ccd9fa08578c7c40baa"
+        },
+        {
+          "apply_command": [
+            "patch",
+            "--batch",
+            "--fuzz=0",
+            "--forward",
+            "-p1",
+            "-i",
+            "/tmp/codex-hybrid-uvm-6906a1c2c33b4a68bdff10a611659a30/patches/r580.178.04/uvm/0009-reject-hmm-gpu-migration-in-isolated-mode.patch"
+          ],
+          "apply_output": "patching file kernel-open/nvidia-uvm/uvm_hmm.c\n",
+          "path": "patches/r580.178.04/uvm/0009-reject-hmm-gpu-migration-in-isolated-mode.patch",
+          "sha256": "e5970b1c9d5ef68d3b5dc1c4a7a64bd2f256204d694b5c9f4518dc4c1b17f273"
+        },
+        {
+          "apply_command": [
+            "patch",
+            "--batch",
+            "--fuzz=0",
+            "--forward",
+            "-p1",
+            "-i",
+            "/tmp/codex-hybrid-uvm-6906a1c2c33b4a68bdff10a611659a30/patches/r580.178.04/uvm/0010-reject-unsupported-isolated-staged-migrations.patch"
+          ],
+          "apply_output": "patching file kernel-open/nvidia-uvm/uvm_va_block.c\n",
+          "path": "patches/r580.178.04/uvm/0010-reject-unsupported-isolated-staged-migrations.patch",
+          "sha256": "24977b5437402c2661d5fb6770b8d04dd22dd1aa413b1e1d90053cf4d87c183c"
+        },
+        {
+          "apply_command": [
+            "patch",
+            "--batch",
+            "--fuzz=0",
+            "--forward",
+            "-p1",
+            "-i",
+            "/tmp/codex-hybrid-uvm-6906a1c2c33b4a68bdff10a611659a30/patches/r580.178.04/uvm/0011-preflight-unsupported-staging-before-unmap.patch"
+          ],
+          "apply_output": "patching file kernel-open/nvidia-uvm/uvm_va_block.c\n",
+          "path": "patches/r580.178.04/uvm/0011-preflight-unsupported-staging-before-unmap.patch",
+          "sha256": "b79bfcf61fbb564956f939ea486fa4a2a0e50e19cc780408d89d9bcd8442ca27"
+        },
+        {
+          "apply_command": [
+            "patch",
+            "--batch",
+            "--fuzz=0",
+            "--forward",
+            "-p1",
+            "-i",
+            "/tmp/codex-hybrid-uvm-6906a1c2c33b4a68bdff10a611659a30/patches/r580.178.04/uvm/0012-exact-isolated-staged-page-mask.patch"
+          ],
+          "apply_output": "patching file kernel-open/nvidia-uvm/uvm_va_block.c\n",
+          "path": "patches/r580.178.04/uvm/0012-exact-isolated-staged-page-mask.patch",
+          "sha256": "d974ecd32d54df399ddd3a68304cc2e05bd2a2e1b536908c5e7ec20aef2a80a0"
+        },
+        {
+          "apply_command": [
+            "patch",
+            "--batch",
+            "--fuzz=0",
+            "--forward",
+            "-p1",
+            "-i",
+            "/tmp/codex-hybrid-uvm-6906a1c2c33b4a68bdff10a611659a30/patches/r580.178.04/uvm/0013-reject-foreign-pmm-trackers-in-isolated-mode.patch"
+          ],
+          "apply_output": "patching file kernel-open/nvidia-uvm/uvm_pmm_gpu.c\npatching file kernel-open/nvidia-uvm/uvm_pmm_gpu.c\n",
+          "path": "patches/r580.178.04/uvm/0013-reject-foreign-pmm-trackers-in-isolated-mode.patch",
+          "sha256": "30483b31d264f524c2b571e9d97ff9efd5ffcd97b775a6a82cff29781c9b24c0"
+        },
+        {
+          "apply_command": [
+            "patch",
+            "--batch",
+            "--fuzz=0",
+            "--forward",
+            "-p1",
+            "-i",
+            "/tmp/codex-hybrid-uvm-6906a1c2c33b4a68bdff10a611659a30/patches/r580.178.04/uvm/0014-reject-foreign-pmm-trackers-before-eviction.patch"
+          ],
+          "apply_output": "patching file kernel-open/nvidia-uvm/uvm_va_block.c\n",
+          "path": "patches/r580.178.04/uvm/0014-reject-foreign-pmm-trackers-before-eviction.patch",
+          "sha256": "1b9b160fe7af6775dd660317d0214a2ae4fae834e4d1281ba366f7a2e482f56e"
+        }
+      ],
+      "source_archive": {
+        "path": ".cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+        "sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8"
+      },
+      "source_files": {
+        "common/inc/nv_uvm_interface.h": "68b6cae62ad0bdf6940d48a34084d789cd1f87a06b84310195cd2adc4b9e50f8",
+        "nvidia-uvm/nvidia-uvm.Kbuild": "0e8d3d96e00d6ca8b6b564e4668dd70447d8b6bca9200845180ce7c66902328b",
+        "nvidia-uvm/uvm_channel_test.c": "f846b5e2925258bb1643e389bee4016743a73a6f396571e0621aac109bb94e87",
+        "nvidia-uvm/uvm_gpu.c": "b43bb94bbc465bbb4fb243e6f722cb450d6402f3071971843d61f1f7678bf700",
+        "nvidia-uvm/uvm_gpu_semaphore.c": "1472d3bdcd91b35095fb7ae6aa1f66a075ea495c08d106ed7da497176a3d629f",
+        "nvidia-uvm/uvm_map_external.c": "4115e9f2de1fc9ad460a61168e78e68ede19c57ac6216740dc57475b29d07511",
+        "nvidia-uvm/uvm_migrate_pageable.c": "e7178513d684596aadbe24c1f699eb9e7b13b7f39c19805fe213bbef090898da",
+        "nvidia-uvm/uvm_push.c": "9628ada0b4007eff5af16525d0d71788045832e5ca268699e2ae82a5dc14b85e",
+        "nvidia/nv_uvm_interface.c": "b41c704d29363dd52dd0ea669ee253a37185f5826c7db56a07dec21c3d24eddc",
+        "nvidia/nvidia.Kbuild": "adee2cdb65f387611e2816d91beb4c3ce3a45f648831d8b1e79a2564b160f406"
+      },
+      "source_package": "/tmp/codex-hybrid-uvm-6906a1c2c33b4a68bdff10a611659a30/build/experiments/pc3-v100-uvm-consumer-6906a1c2c33b4a68bdff10a611659a30/scratch/NVIDIA-kernel-module-source-580.178.04",
+      "source_version": "580.178.04"
+    },
+    "qualification": {
+      "level": "compiled-frontend-bound-uvm",
+      "module_loaded_or_installed": false,
+      "runtime_or_hardware_validated": false
+    },
+    "schema": "r580-uvm-isolated-gpu-execution-build-v5",
+    "scope": "clean pinned R580 UVM-only consumer build against the supplied hybrid frontend; stock module/device/procfs identity retained; no install, module insertion, GPU access, VM change, or reboot",
+    "started_at_utc": "2026-10-29T01:03:55.312408+00:00"
+  },
+  "builder_report_sha256": "f4e356eaf65c3e29ad25dababd61c638a84c65206d3911bd153e37fee61cc9ee",
+  "bundle": {
+    "bytes": 22568960,
+    "frontend_module_symvers": "build/experiments/pc3-v100-hybrid-frontend-c86a28fabfb54a6cafd823f3d96c9334/Module.symvers",
+    "frontend_module_symvers_sha256": "cfbeb43bc5afa2952750729790cfff475e02f04688a7c8c5d12edffbea3b8611",
+    "frontend_report": "evidence/pc3-v100-hybrid-frontend-build-20261029T010258Z.json",
+    "frontend_report_sha256": "5506b8a2cede0178d0fe63f45b12e7afde0978ce2b81251b3e3494156c6d8d6f",
+    "guest_script_sha256": "7b672a5a8e117917b929bdf8855b9e83444b482ba7821225a12b994e5ccb17f4",
+    "pinned_inputs": [
+      {
+        "bytes": 22267204,
+        "path": ".cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+        "sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+        "source_path": ".cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz"
+      },
+      {
+        "bytes": 15362,
+        "path": "build/experiments/pc3-v100-uvm-consumer-input/frontend-Module.symvers",
+        "sha256": "cfbeb43bc5afa2952750729790cfff475e02f04688a7c8c5d12edffbea3b8611",
+        "source_path": "build/experiments/pc3-v100-hybrid-frontend-c86a28fabfb54a6cafd823f3d96c9334/Module.symvers"
+      },
+      {
+        "bytes": 4344,
+        "path": "patches/r580.178.04/uvm/0002-hybrid-isolated-gpu-execution.patch",
+        "sha256": "23145778c944ae2cf222a6df192d97a1b3260c564772f4b353d48f0cf0cb26f0",
+        "source_path": "patches/r580.178.04/uvm/0002-hybrid-isolated-gpu-execution.patch"
+      },
+      {
+        "bytes": 2914,
+        "path": "patches/r580.178.04/uvm/0003-pass-control-fd-to-dup-memory.patch",
+        "sha256": "1ea8a83f9af76d1d8189aa04647591d92e02ce7ad3a55db8c55cb13e280c1be6",
+        "source_path": "patches/r580.178.04/uvm/0003-pass-control-fd-to-dup-memory.patch"
+      },
+      {
+        "bytes": 17884,
+        "path": "patches/r580.178.04/uvm/0004-share-linux-conftests-with-uvm-consumer.patch",
+        "sha256": "53358544aa10f7ede4827bbce1ee909da2bbea61a7ab03242d0b258aac10517a",
+        "source_path": "patches/r580.178.04/uvm/0004-share-linux-conftests-with-uvm-consumer.patch"
+      },
+      {
+        "bytes": 1863,
+        "path": "patches/r580.178.04/uvm/0005-pass-control-fd-to-dup-address-space.patch",
+        "sha256": "1dad3e5b60c5ca306c6f36f20e2147b9b8f9eb784e89b321cccd8e0d4dead61c",
+        "source_path": "patches/r580.178.04/uvm/0005-pass-control-fd-to-dup-address-space.patch"
+      },
+      {
+        "bytes": 6564,
+        "path": "patches/r580.178.04/uvm/0006-pin-control-file-before-va-space-registration.patch",
+        "sha256": "9427ad3354ba4188befc7126f515442054d35704e424909066acf4ae0cd1f241",
+        "source_path": "patches/r580.178.04/uvm/0006-pin-control-file-before-va-space-registration.patch"
+      },
+      {
+        "bytes": 5931,
+        "path": "patches/r580.178.04/uvm/0007-reject-cross-gpu-tracker-dependencies.patch",
+        "sha256": "b8ce083d3f380e63e5d1028a1c14c8481983b8a2365f1451320101cbed16424d",
+        "source_path": "patches/r580.178.04/uvm/0007-reject-cross-gpu-tracker-dependencies.patch"
+      },
+      {
+        "bytes": 1444,
+        "path": "patches/r580.178.04/uvm/0008-pmm-allocation-outside-va-block-lock.patch",
+        "sha256": "b532998cbca0a7ca566690a448f6984dff50f22219c60ccd9fa08578c7c40baa",
+        "source_path": "patches/r580.178.04/uvm/0008-pmm-allocation-outside-va-block-lock.patch"
+      },
+      {
+        "bytes": 1418,
+        "path": "patches/r580.178.04/uvm/0009-reject-hmm-gpu-migration-in-isolated-mode.patch",
+        "sha256": "e5970b1c9d5ef68d3b5dc1c4a7a64bd2f256204d694b5c9f4518dc4c1b17f273",
+        "source_path": "patches/r580.178.04/uvm/0009-reject-hmm-gpu-migration-in-isolated-mode.patch"
+      },
+      {
+        "bytes": 1529,
+        "path": "patches/r580.178.04/uvm/0010-reject-unsupported-isolated-staged-migrations.patch",
+        "sha256": "24977b5437402c2661d5fb6770b8d04dd22dd1aa413b1e1d90053cf4d87c183c",
+        "source_path": "patches/r580.178.04/uvm/0010-reject-unsupported-isolated-staged-migrations.patch"
+      },
+      {
+        "bytes": 4789,
+        "path": "patches/r580.178.04/uvm/0011-preflight-unsupported-staging-before-unmap.patch",
+        "sha256": "b79bfcf61fbb564956f939ea486fa4a2a0e50e19cc780408d89d9bcd8442ca27",
+        "source_path": "patches/r580.178.04/uvm/0011-preflight-unsupported-staging-before-unmap.patch"
+      },
+      {
+        "bytes": 6240,
+        "path": "patches/r580.178.04/uvm/0012-exact-isolated-staged-page-mask.patch",
+        "sha256": "d974ecd32d54df399ddd3a68304cc2e05bd2a2e1b536908c5e7ec20aef2a80a0",
+        "source_path": "patches/r580.178.04/uvm/0012-exact-isolated-staged-page-mask.patch"
+      },
+      {
+        "bytes": 1288,
+        "path": "patches/r580.178.04/uvm/0013-reject-foreign-pmm-trackers-in-isolated-mode.patch",
+        "sha256": "30483b31d264f524c2b571e9d97ff9efd5ffcd97b775a6a82cff29781c9b24c0",
+        "source_path": "patches/r580.178.04/uvm/0013-reject-foreign-pmm-trackers-in-isolated-mode.patch"
+      },
+      {
+        "bytes": 655,
+        "path": "patches/r580.178.04/uvm/0014-reject-foreign-pmm-trackers-before-eviction.patch",
+        "sha256": "1b9b160fe7af6775dd660317d0214a2ae4fae834e4d1281ba366f7a2e482f56e",
+        "source_path": "patches/r580.178.04/uvm/0014-reject-foreign-pmm-trackers-before-eviction.patch"
+      },
+      {
+        "bytes": 45968,
+        "path": "tools/audit_hybrid_uvm_abi.py",
+        "sha256": "8f49361c6d3b884f790a408190067c966e3628f11ca1b8a906622d5f42985662",
+        "source_path": "tools/audit_hybrid_uvm_abi.py"
+      },
+      {
+        "bytes": 19400,
+        "path": "tools/audit_uvm_interface_ownership.py",
+        "sha256": "1884f619446f691ed2aa9aa896d7b6d6a47b304f734f3abee9221d88d2600d86",
+        "source_path": "tools/audit_uvm_interface_ownership.py"
+      },
+      {
+        "bytes": 32020,
+        "path": "tools/audit_uvm_owner_isolation_architecture.py",
+        "sha256": "1189b7a6bbe1ce15643b307bb2598580f6135876cc1c584dd6ca6312d8d698e4",
+        "source_path": "tools/audit_uvm_owner_isolation_architecture.py"
+      },
+      {
+        "bytes": 81673,
+        "path": "tools/build_hybrid_frontend.py",
+        "sha256": "0674523e1b2821c3ee965b18ee22d7cff01289b5c8c0dead7f76f5d2563caa14",
+        "source_path": "tools/build_hybrid_frontend.py"
+      },
+      {
+        "bytes": 35177,
+        "path": "tools/probe_r580_uvm_isolated_execution.py",
+        "sha256": "3f2bb696e03de1da724bd8076cc1a674b73efe76666b2df324cf32553c613198",
+        "source_path": "tools/probe_r580_uvm_isolated_execution.py"
+      }
+    ],
+    "runner_sha256": "dbd2c1cee1f52604e206e2f8c8406dcd05424eeb31a2ae8f4988e07f3849554a",
+    "sha256": "864ddafa26740fb8f41e71545bd8db5b011aa1226d482795863f7c31343e5612"
+  },
+  "cuda_execution_tested": false,
+  "frontend_consumer_binding": {
+    "frontend_is_only_provider_dependency": true,
+    "frontend_module_name": "nvidia",
+    "matching_frontend_crc_count": 77,
+    "mismatched_symbols": {},
+    "module_dependencies": [
+      "nvidia"
+    ],
+    "module_version_source": "ELF __versions compact-record parser",
+    "passed": true,
+    "symvers_unchanged_after_build": true,
+    "uvm_interface_import_count": 77
+  },
+  "gpu_accessed": false,
+  "guest_hostname": "pc3-v100",
+  "guest_kernel_release": "6.8.0-147-generic",
+  "kernel_build_config": {
+    "path": "/lib/modules/6.8.0-147-generic/build/include/config/auto.conf",
+    "readable": true,
+    "selected_options": {
+      "CONFIG_DEBUG_INFO": "y",
+      "CONFIG_MODULES": "y",
+      "CONFIG_MODVERSIONS": "y"
+    },
+    "sha256": "d9de805a473f5e989435ad240679c20dd1d3f54ba994073d9a113401ef74d3ab"
+  },
+  "module_installed": false,
+  "module_loaded": false,
+  "observed_at_utc": "2026-10-29T01:04:51+00:00",
+  "pc3_stage_bundle_removed": true,
+  "qualification": "compiled-frontend-bound-uvm",
+  "remote_bundle_removed": true,
+  "remote_scratch_removed": true,
+  "retrieved_artifacts": [
+    {
+      "bytes": 13922,
+      "path": "evidence/pc3-v100-uvm-consumer-6906a1c2c33b4a68bdff10a611659a30.json",
+      "sha256": "f4e356eaf65c3e29ad25dababd61c638a84c65206d3911bd153e37fee61cc9ee"
+    },
+    {
+      "bytes": 4428140,
+      "path": "evidence/logs/pc3-v100-uvm-consumer-6906a1c2c33b4a68bdff10a611659a30.log",
+      "sha256": "54e494a5085bd3516c4e29e021b318a07a5fd457768c2af368a816b900063a6c"
+    },
+    {
+      "bytes": 61292768,
+      "path": "build/experiments/pc3-v100-uvm-consumer-6906a1c2c33b4a68bdff10a611659a30/scratch/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm.ko",
+      "sha256": "71762349a0cd3e004f57962926376905e58b2d2ad9701d5dd119acdc1c0e0d76"
+    },
+    {
+      "bytes": 21420,
+      "path": "build/experiments/pc3-v100-uvm-consumer-6906a1c2c33b4a68bdff10a611659a30/scratch/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm.mod.c",
+      "sha256": "4ce75df439fef3ab97dc9b5f8dc4bee3b7fa4d6ed2ffe4966d32916d54ada4b6"
+    },
+    {
+      "bytes": 0,
+      "path": "build/experiments/pc3-v100-uvm-consumer-6906a1c2c33b4a68bdff10a611659a30/scratch/NVIDIA-kernel-module-source-580.178.04/kernel-open/Module.symvers",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "run_id": "6906a1c2c33b4a68bdff10a611659a30",
+  "schema": "nvidia-hybrid-pc3-v100-uvm-consumer-build-capture-v1",
+  "status": "compiled-frontend-bound-uvm",
+  "target": "pc3@pc3"
+}

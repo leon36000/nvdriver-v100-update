@@ -1,0 +1,24 @@
+{
+  "action": "arm",
+  "canary_id": "91ba74cd266e4165a97bafb142028fb1",
+  "observed_at_utc": "2026-10-29T02:54:34.560251+00:00",
+  "remote": {
+    "action": "arm",
+    "canary_id": "91ba74cd266e4165a97bafb142028fb1",
+    "host": "pc3",
+    "qemu_command_digest": "cb5d725d88c74d01e77b1508ada108bff3a1df7b51f15c25865f25e819c594ce",
+    "rollback_started": false,
+    "schema": "pc3-v100-canary-watchdog-remote-v1",
+    "status": "armed",
+    "system_state_changed": true,
+    "target_service": "pc3-v100-qemu.service",
+    "timer_active": true,
+    "unit_restart_delay": "5s"
+  },
+  "remote_program_sha256": "e07c40266f9f2f1bbca4ae5fd1dbd68724e52aec26b952945c74b4682f7cf9a2",
+  "schema": "pc3-v100-canary-watchdog-v1",
+  "status": "armed",
+  "system_state_changed": true,
+  "target_service": "pc3-v100-qemu.service",
+  "watchdog_payload_sha256": "0853da426658e19eac02480cba064dbe615af5c22bdc1dc0cce1c94674e1d201"
+}
