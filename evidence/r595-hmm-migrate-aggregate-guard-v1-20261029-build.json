@@ -1,0 +1,39 @@
+{
+  "schema": "r595-hmm-migration-aggregate-guard-build-v1",
+  "observed_at_utc": "2026-10-29T04:21:02.488160+00:00",
+  "qualification": "compiled-only",
+  "scope": "R595.99.02 nvidia-uvm incremental candidate; static compilation and symbol closure only. No module installation/loading or runtime/hardware validation.",
+  "kernel_release": "7.0.0-38-generic",
+  "source_parent": "build/experiments/r595-hmm-isolated-cpu-fallback-v1-20261029/candidate",
+  "source_parent_module_sha256": "1ca650b4d5561456cdf90a640cb75d8d984ee277caf0cad6722cce79ab8b6bf3",
+  "patch": "patches/r595.99.02/0010-r595-hmm-migration-aggregate-guard.patch",
+  "patch_sha256": "54a691668b1428d9f4ede71f35297fbcd8ba84d5255131934f484097486cdc5a",
+  "preimage_uvm_migrate_sha256": "d5c0e903f6795f6d786f68204a5855fd21d930ee85d4416d074f1d71927b2c56",
+  "patched_uvm_migrate_sha256": "5088de1e0091250c17ab4d7638eaa13fa85e9c29c3ed54e0049e52d494509b47",
+  "build": {
+    "command": [
+      "make",
+      "-B",
+      "NV_KERNEL_MODULES=nvidia-uvm",
+      "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-provider-identity-frontend-v1-20261028T2032Z/Module.symvers",
+      "NV_KERNEL_EXTRA_CONFTEST_KBUILD=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-hmm-migrate-aggregate-guard-v1-20261029/candidate/nvidia-conftest-only.Kbuild",
+      "modules",
+      "-j4"
+    ],
+    "exit_code": 0,
+    "log": "evidence/logs/r595-hmm-migrate-aggregate-guard-v1-20261029-build.log",
+    "log_sha256": "b4674cc5740a5bcc2fa15539fa2899b21f8f426522181402a503e3657ccb821f",
+    "log_mode": "0600"
+  },
+  "candidate_module": {
+    "path": "build/experiments/r595-hmm-migrate-aggregate-guard-v1-20261029/candidate/nvidia-uvm.ko",
+    "sha256": "e0e6a992335c14252806ff036c4a439413909672ad90048527db9570b151fc57",
+    "version": "595.99.02",
+    "name": "nvidia_uvm",
+    "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions"
+  },
+  "module_installed": false,
+  "module_loaded": false,
+  "runtime_or_hardware_validated": false,
+  "known_build_note": "BTF generation was skipped because vmlinux was unavailable; module link completed successfully."
+}

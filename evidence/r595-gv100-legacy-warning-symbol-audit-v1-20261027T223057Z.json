@@ -1,0 +1,395 @@
+{
+  "schema": "r595-gv100-legacy-warning-symbol-audit-v1",
+  "created_utc": "2026-10-27T22:30:57.171524+00:00",
+  "classification": "32 source-defined global functions have no other staged C/header occurrence, no relocation reference in the linked nvidia-uvm.o, and no Module.symvers export",
+  "limitations": [
+    "Static source and ELF relocation evidence only; no load or runtime test.",
+    "The audit does not establish callback semantics or whether future source changes will reference these functions."
+  ],
+  "build_report": "evidence/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z.json",
+  "build_report_sha256": "f2d3591d8e0f4f32fb9c5ae0d78bb344c579b3407564835728da4d4dc6444322",
+  "partial_link": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm.o",
+  "partial_link_sha256": "4c7d530815893379ecbd2260ba672e7c49fddeaf51c892f21223032f1377b03f",
+  "module_symvers_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "source_scan_command": [
+    "rg",
+    "-n",
+    "-w",
+    "--with-filename",
+    "-g",
+    "*.[ch]",
+    "-e",
+    "<32 exact names>",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm"
+  ],
+  "relocation_scan_command": [
+    "readelf",
+    "-Wr",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm.o"
+  ],
+  "definition_scan_command": [
+    "nm",
+    "-g",
+    "--defined-only",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm.o"
+  ],
+  "prototype_warning_count": 32,
+  "source_definitions_only_count": 32,
+  "partial_link_definition_count": 32,
+  "relocation_reference_count": 0,
+  "export_count": 0,
+  "symbols": [
+    {
+      "symbol": "uvm_hal_pascal_ce_semaphore_release",
+      "warning": "nvidia-uvm/uvm_pascal_ce.c:42:6: warning: no previous prototype for ‘uvm_hal_pascal_ce_semaphore_release’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_pascal_ce.c:42:void uvm_hal_pascal_ce_semaphore_release(uvm_push_t *push, NvU64 gpu_va, NvU32 payload)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_pascal_host_tlb_invalidate_va",
+      "warning": "nvidia-uvm/uvm_pascal_host.c:95:6: warning: no previous prototype for ‘uvm_hal_pascal_host_tlb_invalidate_va’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_pascal_host.c:95:void uvm_hal_pascal_host_tlb_invalidate_va(uvm_push_t *push,"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_pascal_ce_semaphore_reduction_inc",
+      "warning": "nvidia-uvm/uvm_pascal_ce.c:73:6: warning: no previous prototype for ‘uvm_hal_pascal_ce_semaphore_reduction_inc’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_pascal_ce.c:73:void uvm_hal_pascal_ce_semaphore_reduction_inc(uvm_push_t *push, NvU64 gpu_va, NvU32 payload)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_pascal_ce_semaphore_timestamp",
+      "warning": "nvidia-uvm/uvm_pascal_ce.c:107:6: warning: no previous prototype for ‘uvm_hal_pascal_ce_semaphore_timestamp’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_pascal_ce.c:107:void uvm_hal_pascal_ce_semaphore_timestamp(uvm_push_t *push, NvU64 gpu_va)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_pascal_replay_faults",
+      "warning": "nvidia-uvm/uvm_pascal_host.c:248:6: warning: no previous prototype for ‘uvm_hal_pascal_replay_faults’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_pascal_host.c:248:void uvm_hal_pascal_replay_faults(uvm_push_t *push, uvm_fault_replay_type_t type)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_maxwell_host_membar_sys",
+      "warning": "nvidia-uvm/uvm_maxwell_host.c:37:6: warning: no previous prototype for ‘uvm_hal_maxwell_host_membar_sys’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_maxwell_host.c:37:void uvm_hal_maxwell_host_membar_sys(uvm_push_t *push)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_maxwell_host_tlb_invalidate_all_a16f",
+      "warning": "nvidia-uvm/uvm_maxwell_host.c:43:6: warning: no previous prototype for ‘uvm_hal_maxwell_host_tlb_invalidate_all_a16f’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_maxwell_host.c:43:void uvm_hal_maxwell_host_tlb_invalidate_all_a16f(uvm_push_t *push,"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_maxwell_host_tlb_invalidate_all_b06f",
+      "warning": "nvidia-uvm/uvm_maxwell_host.c:72:6: warning: no previous prototype for ‘uvm_hal_maxwell_host_tlb_invalidate_all_b06f’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_maxwell_host.c:72:void uvm_hal_maxwell_host_tlb_invalidate_all_b06f(uvm_push_t *push,"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_maxwell_host_tlb_invalidate_va",
+      "warning": "nvidia-uvm/uvm_maxwell_host.c:106:6: warning: no previous prototype for ‘uvm_hal_maxwell_host_tlb_invalidate_va’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_maxwell_host.c:106:void uvm_hal_maxwell_host_tlb_invalidate_va(uvm_push_t *push,"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_maxwell_host_tlb_invalidate_test",
+      "warning": "nvidia-uvm/uvm_maxwell_host.c:123:6: warning: no previous prototype for ‘uvm_hal_maxwell_host_tlb_invalidate_test’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_maxwell_host.c:123:void uvm_hal_maxwell_host_tlb_invalidate_test(uvm_push_t *push,"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_maxwell_host_semaphore_timestamp",
+      "warning": "nvidia-uvm/uvm_maxwell_host.c:226:6: warning: no previous prototype for ‘uvm_hal_maxwell_host_semaphore_timestamp’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_maxwell_host.c:226:void uvm_hal_maxwell_host_semaphore_timestamp(uvm_push_t *push, NvU64 gpu_va)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_maxwell_host_write_gpu_put",
+      "warning": "nvidia-uvm/uvm_maxwell_host.c:283:6: warning: no previous prototype for ‘uvm_hal_maxwell_host_write_gpu_put’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_maxwell_host.c:283:void uvm_hal_maxwell_host_write_gpu_put(uvm_channel_t *channel, NvU32 gpu_put)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_maxwell_host_init_noop",
+      "warning": "nvidia-uvm/uvm_maxwell_host.c:288:6: warning: no previous prototype for ‘uvm_hal_maxwell_host_init_noop’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_maxwell_host.c:288:void uvm_hal_maxwell_host_init_noop(uvm_push_t *push)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_maxwell_replay_faults_unsupported",
+      "warning": "nvidia-uvm/uvm_maxwell_host.c:292:6: warning: no previous prototype for ‘uvm_hal_maxwell_replay_faults_unsupported’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_maxwell_host.c:292:void uvm_hal_maxwell_replay_faults_unsupported(uvm_push_t *push, uvm_fault_replay_type_t type)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_maxwell_cancel_faults_global_unsupported",
+      "warning": "nvidia-uvm/uvm_maxwell_host.c:297:6: warning: no previous prototype for ‘uvm_hal_maxwell_cancel_faults_global_unsupported’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_maxwell_host.c:297:void uvm_hal_maxwell_cancel_faults_global_unsupported(uvm_push_t *push, uvm_gpu_phys_address_t instance_ptr)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_maxwell_cancel_faults_targeted_unsupported",
+      "warning": "nvidia-uvm/uvm_maxwell_host.c:302:6: warning: no previous prototype for ‘uvm_hal_maxwell_cancel_faults_targeted_unsupported’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_maxwell_host.c:302:void uvm_hal_maxwell_cancel_faults_targeted_unsupported(uvm_push_t *push,"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_maxwell_cancel_faults_va_unsupported",
+      "warning": "nvidia-uvm/uvm_maxwell_host.c:310:6: warning: no previous prototype for ‘uvm_hal_maxwell_cancel_faults_va_unsupported’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_maxwell_host.c:310:void uvm_hal_maxwell_cancel_faults_va_unsupported(uvm_push_t *push,"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_maxwell_host_clear_faulted_channel_method_unsupported",
+      "warning": "nvidia-uvm/uvm_maxwell_host.c:325:6: warning: no previous prototype for ‘uvm_hal_maxwell_host_clear_faulted_channel_method_unsupported’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_maxwell_host.c:325:void uvm_hal_maxwell_host_clear_faulted_channel_method_unsupported(uvm_push_t *push,"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_maxwell_ce_offset_out",
+      "warning": "nvidia-uvm/uvm_maxwell_ce.c:39:6: warning: no previous prototype for ‘uvm_hal_maxwell_ce_offset_out’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_maxwell_ce.c:39:void uvm_hal_maxwell_ce_offset_out(uvm_push_t *push, NvU64 offset_out)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_maxwell_ce_offset_in_out",
+      "warning": "nvidia-uvm/uvm_maxwell_ce.c:45:6: warning: no previous prototype for ‘uvm_hal_maxwell_ce_offset_in_out’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_maxwell_ce.c:45:void uvm_hal_maxwell_ce_offset_in_out(uvm_push_t *push, NvU64 offset_in, NvU64 offset_out)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_maxwell_ce_semaphore_release",
+      "warning": "nvidia-uvm/uvm_maxwell_ce.c:63:6: warning: no previous prototype for ‘uvm_hal_maxwell_ce_semaphore_release’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_maxwell_ce.c:63:void uvm_hal_maxwell_ce_semaphore_release(uvm_push_t *push, NvU64 gpu_va, NvU32 payload)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_maxwell_ce_semaphore_reduction_inc",
+      "warning": "nvidia-uvm/uvm_maxwell_ce.c:89:6: warning: no previous prototype for ‘uvm_hal_maxwell_ce_semaphore_reduction_inc’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_maxwell_ce.c:89:void uvm_hal_maxwell_ce_semaphore_reduction_inc(uvm_push_t *push, NvU64 gpu_va, NvU32 payload)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_maxwell_ce_semaphore_timestamp",
+      "warning": "nvidia-uvm/uvm_maxwell_ce.c:118:6: warning: no previous prototype for ‘uvm_hal_maxwell_ce_semaphore_timestamp’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_maxwell_ce.c:118:void uvm_hal_maxwell_ce_semaphore_timestamp(uvm_push_t *push, NvU64 gpu_va)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_maxwell_ce_memcopy",
+      "warning": "nvidia-uvm/uvm_maxwell_ce.c:251:6: warning: no previous prototype for ‘uvm_hal_maxwell_ce_memcopy’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_maxwell_ce.c:251:void uvm_hal_maxwell_ce_memcopy(uvm_push_t *push, uvm_gpu_address_t dst, uvm_gpu_address_t src, size_t size)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_maxwell_ce_memset_1",
+      "warning": "nvidia-uvm/uvm_maxwell_ce.c:379:6: warning: no previous prototype for ‘uvm_hal_maxwell_ce_memset_1’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_maxwell_ce.c:379:void uvm_hal_maxwell_ce_memset_1(uvm_push_t *push, uvm_gpu_address_t dst, NvU8 value, size_t size)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_maxwell_ce_memset_4",
+      "warning": "nvidia-uvm/uvm_maxwell_ce.c:390:6: warning: no previous prototype for ‘uvm_hal_maxwell_ce_memset_4’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_maxwell_ce.c:390:void uvm_hal_maxwell_ce_memset_4(uvm_push_t *push, uvm_gpu_address_t dst, NvU32 value, size_t size)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_maxwell_ce_memset_8",
+      "warning": "nvidia-uvm/uvm_maxwell_ce.c:405:6: warning: no previous prototype for ‘uvm_hal_maxwell_ce_memset_8’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_maxwell_ce.c:405:void uvm_hal_maxwell_ce_memset_8(uvm_push_t *push, uvm_gpu_address_t dst, NvU64 value, size_t size)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_pascal_fault_buffer_read_put",
+      "warning": "nvidia-uvm/uvm_pascal_fault_buffer.c:64:7: warning: no previous prototype for ‘uvm_hal_pascal_fault_buffer_read_put’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_pascal_fault_buffer.c:64:NvU32 uvm_hal_pascal_fault_buffer_read_put(uvm_parent_gpu_t *parent_gpu)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_pascal_fault_buffer_read_get",
+      "warning": "nvidia-uvm/uvm_pascal_fault_buffer.c:72:7: warning: no previous prototype for ‘uvm_hal_pascal_fault_buffer_read_get’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_pascal_fault_buffer.c:72:NvU32 uvm_hal_pascal_fault_buffer_read_get(uvm_parent_gpu_t *parent_gpu)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_pascal_fault_buffer_write_get",
+      "warning": "nvidia-uvm/uvm_pascal_fault_buffer.c:80:6: warning: no previous prototype for ‘uvm_hal_pascal_fault_buffer_write_get’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_pascal_fault_buffer.c:80:void uvm_hal_pascal_fault_buffer_write_get(uvm_parent_gpu_t *parent_gpu, NvU32 index)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_pascal_fault_buffer_get_fault_type",
+      "warning": "nvidia-uvm/uvm_pascal_fault_buffer.c:108:18: warning: no previous prototype for ‘uvm_hal_pascal_fault_buffer_get_fault_type’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_pascal_fault_buffer.c:108:uvm_fault_type_t uvm_hal_pascal_fault_buffer_get_fault_type(const NvU32 *fault_entry)"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    },
+    {
+      "symbol": "uvm_hal_pascal_fault_buffer_parse_replayable_entry",
+      "warning": "nvidia-uvm/uvm_pascal_fault_buffer.c:222:11: warning: no previous prototype for ‘uvm_hal_pascal_fault_buffer_parse_replayable_entry’ [-Wmissing-prototypes]",
+      "source_occurrences": 1,
+      "source_locations": [
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v5-20261027T222520Z/nvidia-uvm/uvm_pascal_fault_buffer.c:222:NV_STATUS uvm_hal_pascal_fault_buffer_parse_replayable_entry(uvm_parent_gpu_t *parent_gpu,"
+      ],
+      "defined_in_partial_link": true,
+      "relocation_reference_count": 0,
+      "exported_in_module_symvers": false
+    }
+  ]
+}

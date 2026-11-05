@@ -1,0 +1,41 @@
+{
+  "schema": "r595-uvm-bundle-input-adapter-v1",
+  "observed_at_utc": "2026-10-29T04:04:04Z",
+  "qualification": "derived-bundle-input-only; source build report is authoritative",
+  "runtime_or_hardware_validated": false,
+  "module_installed": false,
+  "module_loaded": false,
+  "source_build_report": "evidence/r595-hmm-isolated-cpu-fallback-v1-20261029-build.json",
+  "source_build_report_sha256": "dd3760a1166a792f73c8cb246423886b3846072b8c14610a0b10a6c005449fc5",
+  "static_symbol_closure_report": "evidence/r595-hmm-isolated-cpu-fallback-v1-20261029-symbol-closure.json",
+  "static_symbol_closure_report_sha256": "0ff0596094f386a25f37f2f411380199fa134f0e977ba24395bf052733c4998f",
+  "candidate_module": {
+    "path": "build/experiments/r595-hmm-isolated-cpu-fallback-v1-20261029/candidate/nvidia-uvm.ko",
+    "sha256": "1ca650b4d5561456cdf90a640cb75d8d984ee277caf0cad6722cce79ab8b6bf3",
+    "name": "nvidia_uvm",
+    "linked_this_run": true
+  },
+  "build": {
+    "build_command_succeeded": true,
+    "exit_code": 0,
+    "kernel_release": "7.0.0-38-generic",
+    "command": [
+      "make",
+      "-B",
+      "NV_KERNEL_MODULES=nvidia-uvm",
+      "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-provider-identity-frontend-v1-20261028T2032Z/Module.symvers",
+      "NV_KERNEL_EXTRA_CONFTEST_KBUILD=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-hmm-isolated-cpu-fallback-v1-20261029/candidate/nvidia-conftest-only.Kbuild",
+      "modules",
+      "-j4"
+    ],
+    "frontend_module_symvers": {
+      "path": "build/experiments/r595-provider-identity-frontend-v1-20261028T2032Z/Module.symvers",
+      "expected_sha256": "dbcf0cc653a970395534635d7ef533c3626112a41b12f8b5cbaf6504bb903e08",
+      "sha256_before": "dbcf0cc653a970395534635d7ef533c3626112a41b12f8b5cbaf6504bb903e08",
+      "sha256_after": "dbcf0cc653a970395534635d7ef533c3626112a41b12f8b5cbaf6504bb903e08",
+      "unchanged": true
+    }
+  },
+  "parent_adapter": "evidence/r595-provider-id-validation-uvm-bundle-input-v1-20261029.json",
+  "parent_adapter_sha256": "fd19be935a62aadc2f61160b0875bdb3685fa6c242cb6c7db21b46eb4f397419"
+}

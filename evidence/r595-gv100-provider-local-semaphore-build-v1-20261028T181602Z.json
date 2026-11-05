@@ -1,0 +1,72 @@
+{
+  "build_log": {
+    "bytes": 12517,
+    "mode": "0o600",
+    "path": "evidence/logs/r595-gv100-provider-local-semaphore-v1-20261028T181535Z-build.log",
+    "sha256": "f5d826361ffdb7a226ea1ab83f4d209af6e4388c7f3f20b6830e63b7628db0bf"
+  },
+  "candidate_module": {
+    "bytes": 61998696,
+    "depends": "nvidia",
+    "name": "nvidia_uvm",
+    "path": "build/experiments/r595-gv100-provider-local-semaphore-v1-20261028T181441Z/nvidia-uvm.ko",
+    "sha256": "181ed866d383e37eb81a0fd6b49cd08a7eb87f7d88054711a13a8b60f010d86b",
+    "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+    "version": "595.99.02"
+  },
+  "command": [
+    "make",
+    "-C",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-provider-local-semaphore-v1-20261028T181441Z",
+    "-B",
+    "NV_KERNEL_MODULES=nvidia-uvm",
+    "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-provider-query-frontend-v1/Module.symvers",
+    "NV_KERNEL_EXTRA_CONFTEST_KBUILD=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-provider-local-semaphore-v1-20261028T181441Z/nvidia-conftest-only.Kbuild",
+    "modules",
+    "-j4"
+  ],
+  "extension_import": {
+    "export_crc": "0x3b92280a",
+    "import_crc": "0x3b92280a",
+    "matches": true,
+    "symbol": "nvUvmInterfaceAreGpuProvidersSame"
+  },
+  "frontend": {
+    "module": "build/experiments/r595-provider-query-frontend-v1/nvidia.ko",
+    "module_symvers": "build/experiments/r595-provider-query-frontend-v1/Module.symvers",
+    "module_symvers_sha256": "69b1b371c2108b21a56202cb8958c2ac3b48961a072e30ba9264485595476af7",
+    "provider_query_export_crc": "0x3b92280a",
+    "sha256": "c0542d91a9a27f8ea296bf359ac52fdbe04e152a633b982f9db4980882ef527e"
+  },
+  "kernel_release": "7.0.0-38-generic",
+  "known_build_warnings": [
+    "pahole version differs from the one used to build the kernel",
+    "BTF skipped because vmlinux is unavailable"
+  ],
+  "limitations": [
+    "No module insertion, RM initialization, GPU registration, CUDA context, kernel, UVM migration, or peer mapping was exercised.",
+    "Provider-local semaphore mapping is a compiled prototype only; it has not been validated on a live kernel."
+  ],
+  "module_installed": false,
+  "module_loaded": false,
+  "observed_at_utc": "2026-10-28T18:16:44.448888+00:00",
+  "qualification": "isolated-build-and-software-contracts-only",
+  "runtime_or_hardware_validated": false,
+  "schema": "r595-provider-local-system-semaphore-build-v1",
+  "source_and_patch_sha256": {
+    "build/experiments/r595-gv100-provider-local-semaphore-v1-20261028T181441Z/nvidia-uvm/hybrid580_uvm_provider_dispatch.h": "b19f5fba4e5c877a8cb906c156595f313b7238638430a9b00385662ba088a378",
+    "build/experiments/r595-gv100-provider-local-semaphore-v1-20261028T181441Z/nvidia-uvm/uvm_gpu.c": "1cafe1ac49ed0a01c19e213dc8f79276bd477dd4587afb778b9b8d4cb7a715e3",
+    "build/experiments/r595-gv100-provider-local-semaphore-v1-20261028T181441Z/nvidia-uvm/uvm_gpu_semaphore.c": "19f0ce4f4a7dfaa329eb5eebb72418126a6be05887d28b40c1279736d9b72ee2",
+    "build/experiments/r595-gv100-provider-local-semaphore-v1-20261028T181441Z/nvidia-uvm/uvm_va_space.c": "f3396e769c7fd229ffede4af0345714f9f6001833c1c884c2fc78bda997e6be4",
+    "build/experiments/r595-provider-query-frontend-v1/Module.symvers": "69b1b371c2108b21a56202cb8958c2ac3b48961a072e30ba9264485595476af7",
+    "build/experiments/r595-provider-query-frontend-v1/nvidia.ko": "c0542d91a9a27f8ea296bf359ac52fdbe04e152a633b982f9db4980882ef527e",
+    "patches/r595.99.02/0001-uvm-rm-control-fd-address-space-dispatch.patch": "ea8b78632e55f80ab5ef717b9250131ad599bd427ffad7bdc6d4b3328a881c2d",
+    "patches/r595.99.02/0002-uvm-provider-local-system-semaphore-pools.patch": "6c37c2274ce940ab1c287b2dbf6300624087ed745321d504f8ce9c0971ef8bf3",
+    "src/hybrid580_uvm_callback_bridge.c": "fa44c394053ad60db183a03c51a301a3f147cde2aa6976f719fd439c4d41fcfa",
+    "src/hybrid580_uvm_gpu_registry.h": "812cfd4d6359c01ddde8d943ef49e5cb75bac4eea672fc6c21571f7812031a02",
+    "src/hybrid580_uvm_provider_dispatch.h": "1c3bedd8d8ec8d0d0dcf8f1c7a35729aa1becc95d542485554dc5409f5abd95f",
+    "tools/build_hybrid_frontend.py": "5a583e5061b50d4ac38ba06a7c0d72b6b9d4dd920e03d6424704e860e99a2f87"
+  },
+  "source_base": "NVIDIA open-gpu-kernel-modules R595.99.02 with pinned R580.178.04 GV100 UVM HAL overlay",
+  "status": "passed"
+}

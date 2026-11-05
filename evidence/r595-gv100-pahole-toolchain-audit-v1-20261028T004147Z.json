@@ -1,0 +1,103 @@
+{
+  "btf_result": {
+    "generation_attempt_logged": "BTF [M] nvidia-uvm.ko",
+    "module_has_BTF_ext_section": false,
+    "module_has_BTF_section": false,
+    "module_has_debug_info_section": true,
+    "result": "module BTF was not produced: Linux Makefile.modfinal requires objtree/vmlinux; header/build tree has no vmlinux even though raw base BTF is available under /sys/kernel/btf/vmlinux"
+  },
+  "kbuild_source": {
+    "behavior": "skip BTF when objtree/vmlinux is absent; otherwise pass that ELF to gen-btf.sh",
+    "lines": "43-46",
+    "path": "/usr/src/linux-headers-7.0.0-38-generic/scripts/Makefile.modfinal"
+  },
+  "kernel": {
+    "btf_modules_enabled": true,
+    "config_pahole_version": 131,
+    "kbuild_pahole_version_script": "/usr/src/linux-headers-7.0.0-38-generic/scripts/pahole-version.sh",
+    "live_sysfs_btf_raw_dump": "passed",
+    "live_sysfs_vmlinux_btf_bytes": 7067009,
+    "live_sysfs_vmlinux_btf_sha256": "2b91134c0f8fdf86be01ddf92bd7bb12393b0137aedd190556d0f26bddddd12b",
+    "objtree_vmlinux_present": false,
+    "release": "7.0.0-38-generic",
+    "reported_version": "131"
+  },
+  "observed_at_utc": "2026-10-28T00:41:47Z",
+  "packages": {
+    "download_directory": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/tooling/pahole-1.31/quarantine",
+    "download_directory_mode": "0o700",
+    "extracted_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/tooling/pahole-1.31/rootfs",
+    "extraction_only": true,
+    "origin": "APT resolute/universe amd64 index; fetched from configured ca.archive.ubuntu.com mirror",
+    "records": {
+      "libdwarves1": {
+        "dpkg_identity": [
+          "Package: libdwarves1",
+          "Version: 1.31-2ubuntu1"
+        ],
+        "file": "libdwarves1_1.31-2ubuntu1_amd64.deb",
+        "indexed_sha256": "f6b00e79db3d3683619918d14c32ab13871550591d1a1ffea855ac7a03e6244d",
+        "mode": "0o644",
+        "sha256": "f6b00e79db3d3683619918d14c32ab13871550591d1a1ffea855ac7a03e6244d",
+        "size_bytes": 93230,
+        "version": "1.31-2ubuntu1"
+      },
+      "pahole": {
+        "dpkg_identity": [
+          "Package: pahole",
+          "Version: 1.31-2ubuntu1"
+        ],
+        "file": "pahole_1.31-2ubuntu1_amd64.deb",
+        "indexed_sha256": "dd3396a360290f7c04b1d55b836311e5da0ad15f93648d6f061f15c8554a9833",
+        "mode": "0o644",
+        "sha256": "dd3396a360290f7c04b1d55b836311e5da0ad15f93648d6f061f15c8554a9833",
+        "size_bytes": 110574,
+        "version": "1.31-2ubuntu1"
+      }
+    },
+    "system_install_status": [
+      {
+        "installed": false,
+        "package": "pahole"
+      },
+      {
+        "installed": false,
+        "package": "libdwarves1"
+      }
+    ]
+  },
+  "pahole": {
+    "kernel_version_check": "131 matches CONFIG_PAHOLE_VERSION=131",
+    "ld_library_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/tooling/pahole-1.31/rootfs/usr/lib/x86_64-linux-gnu",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/tooling/pahole-1.31/rootfs/usr/bin/pahole",
+    "sha256": "8641cad0cda54800debbf800a29b34309bc857f1450d84195ff83e23ec7ec1ca",
+    "version": "v1.31"
+  },
+  "schema": "r595-gv100-local-pahole-btf-audit-v1",
+  "system_changes": {
+    "apt_install": false,
+    "gpu_or_pci_change": false,
+    "kernel_or_driver_change": false,
+    "module_install_or_load": false,
+    "reboot": false
+  },
+  "v14": {
+    "report": "evidence/r595-gv100-hal-standard-nvidia-frontend-v14-20261028T004102Z.json",
+    "report_sha256": "d817ee7364a976956a5e5e64f0bdf64ac8896bc5f56aa4baef21dabc1d7bd5dd",
+    "result": "ORIG_PAHOLE alone was overwritten by NVIDIA source Makefile assignment from PAHOLE; produced pahole mismatch warning and BTF skip; superseded by v15"
+  },
+  "v15_build": {
+    "candidate_module": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm.ko",
+    "candidate_module_sha256": "21c6b16c4fc64d81b4326866ea708b8229735035724fcc8bfb95788b8c442b1b",
+    "hardware_validated": false,
+    "log": "evidence/logs/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z.log",
+    "log_sha256": "944a53104b921bcc5c049b177ffefc1c435b4721f849e175f16b392766660adf",
+    "module_installed": false,
+    "module_loaded": false,
+    "report": "evidence/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z.json",
+    "report_sha256": "2532a7ced3caf3e9d8217077efffca99adc21b54135e37b9c93ebdba79d8864c",
+    "six_gv100_rows_complete": true,
+    "status": "passed",
+    "warnings": []
+  }
+}

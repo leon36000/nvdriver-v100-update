@@ -1,0 +1,74 @@
+{
+  "schema": "r595-full-patched-open-build-system-features-v1",
+  "observed_at_utc": "2026-10-24T01:49:29.326358+00:00",
+  "qualification": "compiled-full-patched-open-backend",
+  "source_version": "595.99.02",
+  "patch_replay_report": "evidence/r595-r580-patch-port-system-features-v6-20261023.json",
+  "patch_replay_report_sha256": "70f0a6fe72c5406449afde0ed5926010427077a79b6ee0f907cb3f4dd22d3ee6",
+  "patch_replay_qualification": "all-r580-open-patches-apply-to-r595-source",
+  "patch_count": 40,
+  "source_tree": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-r580-patch-replay-system-features-v6-20261023/source",
+  "source_manifest_expected_sha256": "6d4ae86fb03f3afac63007c3c13422b114c93f5ab6a271ccb3dde5fb2440c066",
+  "source_manifest_sha256": "6d4ae86fb03f3afac63007c3c13422b114c93f5ab6a271ccb3dde5fb2440c066",
+  "source_package_modified": false,
+  "source_files_modified_by_build": true,
+  "kernel_release": "7.0.0-38-generic",
+  "command": [
+    "make",
+    "-C",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-r580-patch-replay-system-features-v6-20261023/source/kernel-open",
+    "KERNEL_UNAME=7.0.0-38-generic",
+    "NV_KERNEL_MODULES=nvidia",
+    "-j2",
+    "modules"
+  ],
+  "jobs": 2,
+  "core_object": {
+    "source_path": "/usr/src/nvidia-595.99.02/nvidia/nv-kernel.o_binary",
+    "source_sha256": "c19870e43606b4358d9274c4d3dec2adb1822d65ce1203520a8184cf043cafe8",
+    "copied_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-r580-patch-replay-system-features-v6-20261023/source/kernel-open/nvidia/nv-kernel.o_binary",
+    "copied_sha256": "c19870e43606b4358d9274c4d3dec2adb1822d65ce1203520a8184cf043cafe8",
+    "bytes": 17583896,
+    "version": "595.99.02"
+  },
+  "log": {
+    "path": "evidence/logs/r595-full-patched-open-system-features-v2-20261024T0146Z.log",
+    "mode": "0600",
+    "sha256": "c5a8957f514fb785dcefe44440f93b4c62c757b3df6a3a479b139b0d444e1694"
+  },
+  "exit_code": 0,
+  "module_compiled": true,
+  "module_loaded": false,
+  "module_installed": false,
+  "hardware_validated": false,
+  "gpu_accessed": false,
+  "module": {
+    "path": "build/experiments/r595-r580-patch-replay-system-features-v6-20261023/source/kernel-open/hybrid580_open.ko",
+    "bytes": 37192416,
+    "sha256": "a81256cf9d7a5d05c82f36688bc6b92c4955d6d1fd9e859122d953b593f9f19f"
+  },
+  "module_symvers": {
+    "path": "build/experiments/r595-r580-patch-replay-system-features-v6-20261023/source/kernel-open/Module.symvers",
+    "bytes": 12291,
+    "sha256": "02d1db5ca529eea3d1946335b8b324141e8a84edd7eb45e7fc32dfa2200321c4"
+  },
+  "system_features_export": {
+    "symbol": "hybrid580_open_control_session_system_features_v1",
+    "export_flavor": "EXPORT_SYMBOL",
+    "present_in_module_symvers": true,
+    "present_in_ko": true
+  },
+  "build_warnings": {
+    "objtool_naked_return_count": 11141,
+    "pahole_missing": true,
+    "btf_skipped": true
+  },
+  "inputs_unchanged": {
+    "official_r595_source": true,
+    "installed_core_binary": true,
+    "patch_inputs": true,
+    "replay_report": true
+  },
+  "module_loaded_or_installed": false,
+  "hardware_tested": false
+}

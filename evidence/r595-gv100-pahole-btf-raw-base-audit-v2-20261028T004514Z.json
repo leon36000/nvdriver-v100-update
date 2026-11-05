@@ -1,0 +1,115 @@
+{
+  "detached_btf_generation": {
+    "command": [
+      "pahole",
+      "-J",
+      "--lang_exclude=rust",
+      "--btf_base",
+      "/sys/kernel/btf/vmlinux",
+      "--btf_encode_detached=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/tooling/pahole-1.31/raw-sysfs-base-v1/nvidia-uvm-v15.BTF",
+      "<copy of nvidia-uvm.ko>"
+    ],
+    "detached_btf_bytes": 265735,
+    "detached_btf_sha256": "2a30b9b219b658f5880f94ad4f4437219ce17a7c1877c92b9ddb27c92b729520",
+    "exit_code": 0,
+    "log": ".cache/tooling/pahole-1.31/raw-sysfs-base-v1/pahole.log",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_module_sha256": "21c6b16c4fc64d81b4326866ea708b8229735035724fcc8bfb95788b8c442b1b"
+  },
+  "gen_btf_on_copy": {
+    "base_btf": "/sys/kernel/btf/vmlinux",
+    "btf_section_headers": [
+      "[67] .BTF              PROGBITS        0000000000000000 1efe068 040e07 00      0   0  1"
+    ],
+    "exit_code": 0,
+    "input_sha256": "21c6b16c4fc64d81b4326866ea708b8229735035724fcc8bfb95788b8c442b1b",
+    "log": ".cache/tooling/pahole-1.31/raw-sysfs-base-v1/gen-btf-test.log",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "module_btf_base_section_present": false,
+    "module_btf_ids_section_present": false,
+    "module_btf_section_present": true,
+    "output_bytes": 62257984,
+    "output_path": ".cache/tooling/pahole-1.31/raw-sysfs-base-v1/nvidia-uvm-genbtf-test-copy.ko",
+    "output_sha256": "f53515da972f637cb7ed081f69880ce52a63642590a2538d55fdb2f7e2afd8fa",
+    "resolve_btfids": "/usr/src/linux-headers-7.0.0-38-generic/tools/bpf/resolve_btfids/resolve_btfids",
+    "script": "/usr/src/linux-headers-7.0.0-38-generic/scripts/gen-btf.sh",
+    "script_sha256": "7297bcbbf1623f38bc47d167b2608eaf8ed410215f8b09b32da3038b45119c0e"
+  },
+  "kernel_base": {
+    "bpftool_raw_base_dump_passed": true,
+    "headers_tree": "/usr/src/linux-headers-7.0.0-38-generic",
+    "headers_tree_has_vmlinux": false,
+    "live_base_bytes": 7067009,
+    "live_base_path": "/sys/kernel/btf/vmlinux",
+    "live_base_sha256": "2b91134c0f8fdf86be01ddf92bd7bb12393b0137aedd190556d0f26bddddd12b",
+    "release": "7.0.0-38-generic"
+  },
+  "limits": {
+    "btf_enhanced_file_is_a_private_copy": true,
+    "candidate_loaded_or_installed": false,
+    "gpu_hardware_validated": false,
+    "this_experiment_does_not_change_build_or_runtime_semantics": true
+  },
+  "observed_at_utc": "2026-10-28T00:45:14Z",
+  "package_stage": {
+    "directory": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/tooling",
+    "extracted_only": true,
+    "kernel_config_pahole_version": 131,
+    "kernel_pahole_version_script_result": 131,
+    "origin": "APT resolute/universe amd64 index, fetched from configured ca.archive.ubuntu.com mirror",
+    "packages": {
+      "libdwarves1": {
+        "file": "libdwarves1_1.31-2ubuntu1_amd64.deb",
+        "sha256": "f6b00e79db3d3683619918d14c32ab13871550591d1a1ffea855ac7a03e6244d",
+        "size_bytes": 93230,
+        "version": "1.31-2ubuntu1"
+      },
+      "pahole": {
+        "file": "pahole_1.31-2ubuntu1_amd64.deb",
+        "sha256": "dd3396a360290f7c04b1d55b836311e5da0ad15f93648d6f061f15c8554a9833",
+        "size_bytes": 110574,
+        "version": "1.31-2ubuntu1"
+      }
+    },
+    "pahole_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/tooling/pahole-1.31/rootfs/usr/bin/pahole",
+    "pahole_sha256": "8641cad0cda54800debbf800a29b34309bc857f1450d84195ff83e23ec7ec1ca",
+    "pahole_version": "v1.31",
+    "quarantine_directory": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/tooling/quarantine",
+    "quarantine_mode": "0700",
+    "system_packages_installed": false
+  },
+  "schema": "r595-gv100-pahole-btf-raw-base-audit-v2",
+  "split_btf_validation": {
+    "binary": ".cache/tooling/pahole-1.31/raw-sysfs-base-v1/validate_module_split_btf",
+    "binary_sha256": "69d2c1f463ed5c5cef73a37699886916ec46325ce8a26b0dfcc690f08104f9cd",
+    "bpftool_standalone_dump_exit": 234,
+    "bpftool_standalone_error": "Invalid argument",
+    "exit_code": 0,
+    "interpretation": "standalone bpftool parsing did not supply the split base; libbpf split parser with the exact base succeeded",
+    "log": ".cache/tooling/pahole-1.31/raw-sysfs-base-v1/split-btf-validation.log",
+    "log_sha256": "ca178b1bd7c1ba9a7c2bcd3fc1607e5b3e817408b36542b62f53c3178f79c003",
+    "method": "libbpf btf__parse_raw(base) + btf__parse_elf_split(module, base)",
+    "output": "base_types=169006 module_total_types=174434 split_base_matches=1",
+    "source": ".cache/tooling/pahole-1.31/raw-sysfs-base-v1/validate_module_split_btf.c",
+    "source_sha256": "f8b94889b85e294862e3ac8573864d1f1838d69fd1afa90c0a725e705036d846"
+  },
+  "system_changes": {
+    "apt_install": false,
+    "gpu_or_pci_change": false,
+    "kernel_or_driver_change": false,
+    "module_load": false,
+    "reboot": false
+  },
+  "v15_standard_build": {
+    "candidate_sha256": "21c6b16c4fc64d81b4326866ea708b8229735035724fcc8bfb95788b8c442b1b",
+    "log": "evidence/logs/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z.log",
+    "log_sha256": "944a53104b921bcc5c049b177ffefc1c435b4721f849e175f16b392766660adf",
+    "module_has_btf": false,
+    "module_has_debug_info": true,
+    "report": "evidence/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z.json",
+    "report_sha256": "2532a7ced3caf3e9d8217077efffca99adc21b54135e37b9c93ebdba79d8864c",
+    "skip_reason": "unavailability of vmlinux in kernel objtree",
+    "standard_kbuild_btf_skipped": true,
+    "warnings": []
+  }
+}

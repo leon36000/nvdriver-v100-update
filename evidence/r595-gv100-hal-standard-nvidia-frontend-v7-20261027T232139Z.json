@@ -1,0 +1,520 @@
+{
+  "additional_source_files": [
+    "uvm_maxwell_access_counter_buffer.c",
+    "uvm_maxwell_ce.c",
+    "uvm_maxwell_host.c",
+    "uvm_maxwell_sec2.c",
+    "uvm_pascal_ce.c",
+    "uvm_pascal_host.c"
+  ],
+  "additional_source_hashes": null,
+  "build": null,
+  "build_log_copy": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/r595-gv100-hal-standard-nvidia-frontend-v7-20261027T232139Z.log",
+  "build_log_sha256": "dc59f0971fcc92740ecb91304172f6407749c356eb70b03122456922f665692c",
+  "callback_source_map": {
+    "uvm_hal_ce_memcopy_patch_src_stub": [
+      "uvm_hal.c"
+    ],
+    "uvm_hal_host_l2_invalidate_unsupported": [
+      "uvm_hal.c"
+    ],
+    "uvm_hal_maxwell_access_counter_buffer_entry_clear_valid_unsupported": [
+      "uvm_maxwell_access_counter_buffer.c"
+    ],
+    "uvm_hal_maxwell_access_counter_buffer_entry_is_valid_unsupported": [
+      "uvm_maxwell_access_counter_buffer.c"
+    ],
+    "uvm_hal_maxwell_access_counter_buffer_entry_size_unsupported": [
+      "uvm_maxwell_access_counter_buffer.c"
+    ],
+    "uvm_hal_maxwell_access_counter_buffer_parse_entry_unsupported": [
+      "uvm_maxwell_access_counter_buffer.c"
+    ],
+    "uvm_hal_maxwell_access_counter_clear_all_unsupported": [
+      "uvm_maxwell_host.c"
+    ],
+    "uvm_hal_maxwell_access_counter_clear_targeted_unsupported": [
+      "uvm_maxwell_host.c"
+    ],
+    "uvm_hal_maxwell_access_counter_query_clear_op_unsupported": [
+      "uvm_maxwell_host.c"
+    ],
+    "uvm_hal_maxwell_ce_decrypt_unsupported": [
+      "uvm_maxwell_ce.c"
+    ],
+    "uvm_hal_maxwell_ce_encrypt_unsupported": [
+      "uvm_maxwell_ce.c"
+    ],
+    "uvm_hal_maxwell_ce_init": [
+      "uvm_maxwell_ce.c"
+    ],
+    "uvm_hal_maxwell_ce_memcopy_copy_type": [
+      "uvm_maxwell_ce.c"
+    ],
+    "uvm_hal_maxwell_ce_memcopy_is_valid": [
+      "uvm_maxwell_ce.c"
+    ],
+    "uvm_hal_maxwell_ce_memcopy_v_to_v": [
+      "uvm_maxwell_ce.c"
+    ],
+    "uvm_hal_maxwell_ce_memset_is_valid": [
+      "uvm_maxwell_ce.c"
+    ],
+    "uvm_hal_maxwell_ce_memset_v_4": [
+      "uvm_maxwell_ce.c"
+    ],
+    "uvm_hal_maxwell_ce_phys_mode": [
+      "uvm_maxwell_ce.c"
+    ],
+    "uvm_hal_maxwell_ce_plc_mode": [
+      "uvm_maxwell_ce.c"
+    ],
+    "uvm_hal_maxwell_clear_access_counter_notifications_unsupported": [
+      "uvm_maxwell_access_counter_buffer.c"
+    ],
+    "uvm_hal_maxwell_disable_access_counter_notifications_unsupported": [
+      "uvm_maxwell_access_counter_buffer.c"
+    ],
+    "uvm_hal_maxwell_enable_access_counter_notifications_unsupported": [
+      "uvm_maxwell_access_counter_buffer.c"
+    ],
+    "uvm_hal_maxwell_get_time": [
+      "uvm_maxwell_host.c"
+    ],
+    "uvm_hal_maxwell_host_clear_faulted_channel_register_unsupported": [
+      "uvm_maxwell_host.c"
+    ],
+    "uvm_hal_maxwell_host_clear_faulted_channel_sw_method_unsupported": [
+      "uvm_maxwell_host.c"
+    ],
+    "uvm_hal_maxwell_host_interrupt": [
+      "uvm_maxwell_host.c"
+    ],
+    "uvm_hal_maxwell_host_noop": [
+      "uvm_maxwell_host.c"
+    ],
+    "uvm_hal_maxwell_host_semaphore_acquire": [
+      "uvm_maxwell_host.c"
+    ],
+    "uvm_hal_maxwell_host_semaphore_release": [
+      "uvm_maxwell_host.c"
+    ],
+    "uvm_hal_maxwell_host_set_gpfifo_entry": [
+      "uvm_maxwell_host.c"
+    ],
+    "uvm_hal_maxwell_host_set_gpfifo_noop": [
+      "uvm_maxwell_host.c"
+    ],
+    "uvm_hal_maxwell_host_set_gpfifo_pushbuffer_segment_base_unsupported": [
+      "uvm_maxwell_host.c"
+    ],
+    "uvm_hal_maxwell_host_tlb_flush_prefetch_unsupported": [
+      "uvm_maxwell_host.c"
+    ],
+    "uvm_hal_maxwell_host_tlb_invalidate_phys_unsupported": [
+      "uvm_maxwell_host.c"
+    ],
+    "uvm_hal_maxwell_host_wait_for_idle": [
+      "uvm_maxwell_host.c"
+    ],
+    "uvm_hal_maxwell_sec2_decrypt_unsupported": [
+      "uvm_maxwell_sec2.c"
+    ],
+    "uvm_hal_maxwell_sec2_init_noop": [
+      "uvm_maxwell_sec2.c"
+    ],
+    "uvm_hal_maxwell_sec2_semaphore_release_unsupported": [
+      "uvm_maxwell_sec2.c"
+    ],
+    "uvm_hal_maxwell_sec2_semaphore_timestamp_unsupported": [
+      "uvm_maxwell_sec2.c"
+    ],
+    "uvm_hal_maxwell_semaphore_target_is_valid": [
+      "uvm_maxwell_ce.c"
+    ],
+    "uvm_hal_method_is_valid_stub": [
+      "uvm_hal.c"
+    ],
+    "uvm_hal_mmu_mode_volta": [
+      "uvm_volta_mmu.c"
+    ],
+    "uvm_hal_pascal_cancel_faults_global": [
+      "uvm_pascal_host.c"
+    ],
+    "uvm_hal_pascal_cancel_faults_targeted": [
+      "uvm_pascal_host.c"
+    ],
+    "uvm_hal_pascal_ce_offset_in_out": [
+      "uvm_pascal_ce.c"
+    ],
+    "uvm_hal_pascal_ce_offset_out": [
+      "uvm_pascal_ce.c"
+    ],
+    "uvm_hal_pascal_clear_replayable_faults": [
+      "uvm_pascal_fault_buffer.c"
+    ],
+    "uvm_hal_pascal_disable_replayable_faults": [
+      "uvm_pascal_fault_buffer.c"
+    ],
+    "uvm_hal_pascal_enable_replayable_faults": [
+      "uvm_pascal_fault_buffer.c"
+    ],
+    "uvm_hal_pascal_fault_buffer_entry_clear_valid": [
+      "uvm_pascal_fault_buffer.c"
+    ],
+    "uvm_hal_pascal_fault_buffer_entry_is_valid": [
+      "uvm_pascal_fault_buffer.c"
+    ],
+    "uvm_hal_pascal_fault_buffer_entry_size": [
+      "uvm_pascal_fault_buffer.c"
+    ],
+    "uvm_hal_pascal_host_init": [
+      "uvm_pascal_host.c"
+    ],
+    "uvm_hal_pascal_host_membar_gpu": [
+      "uvm_pascal_host.c"
+    ],
+    "uvm_hal_pascal_host_membar_sys": [
+      "uvm_pascal_host.c"
+    ],
+    "uvm_hal_pascal_host_tlb_invalidate_all": [
+      "uvm_pascal_host.c"
+    ],
+    "uvm_hal_pascal_host_tlb_invalidate_test": [
+      "uvm_pascal_host.c"
+    ],
+    "uvm_hal_pascal_mmu_disable_prefetch_faults": [
+      "uvm_pascal_mmu.c"
+    ],
+    "uvm_hal_pascal_mmu_enable_prefetch_faults": [
+      "uvm_pascal_mmu.c"
+    ],
+    "uvm_hal_volta_arch_init_properties": [
+      "uvm_volta.c"
+    ],
+    "uvm_hal_volta_cancel_faults_va": [
+      "uvm_volta_host.c"
+    ],
+    "uvm_hal_volta_ce_memcopy": [
+      "uvm_volta_ce.c"
+    ],
+    "uvm_hal_volta_ce_memset_1": [
+      "uvm_volta_ce.c"
+    ],
+    "uvm_hal_volta_ce_memset_4": [
+      "uvm_volta_ce.c"
+    ],
+    "uvm_hal_volta_ce_memset_8": [
+      "uvm_volta_ce.c"
+    ],
+    "uvm_hal_volta_ce_semaphore_reduction_inc": [
+      "uvm_volta_ce.c"
+    ],
+    "uvm_hal_volta_ce_semaphore_release": [
+      "uvm_volta_ce.c"
+    ],
+    "uvm_hal_volta_ce_semaphore_timestamp": [
+      "uvm_volta_ce.c"
+    ],
+    "uvm_hal_volta_fault_buffer_get_fault_type": [
+      "uvm_volta_fault_buffer.c"
+    ],
+    "uvm_hal_volta_fault_buffer_get_mmu_engine_type": [
+      "uvm_volta_fault_buffer.c"
+    ],
+    "uvm_hal_volta_fault_buffer_get_ve_id": [
+      "uvm_volta_fault_buffer.c"
+    ],
+    "uvm_hal_volta_fault_buffer_parse_non_replayable_entry": [
+      "uvm_volta_fault_buffer.c"
+    ],
+    "uvm_hal_volta_fault_buffer_parse_replayable_entry": [
+      "uvm_volta_fault_buffer.c"
+    ],
+    "uvm_hal_volta_fault_buffer_read_get": [
+      "uvm_volta_fault_buffer.c"
+    ],
+    "uvm_hal_volta_fault_buffer_read_put": [
+      "uvm_volta_fault_buffer.c"
+    ],
+    "uvm_hal_volta_fault_buffer_write_get": [
+      "uvm_volta_fault_buffer.c"
+    ],
+    "uvm_hal_volta_host_clear_faulted_channel_method": [
+      "uvm_volta_host.c"
+    ],
+    "uvm_hal_volta_host_semaphore_timestamp": [
+      "uvm_volta_host.c"
+    ],
+    "uvm_hal_volta_host_tlb_invalidate_va": [
+      "uvm_volta_host.c"
+    ],
+    "uvm_hal_volta_host_write_gpu_put": [
+      "uvm_volta_host.c"
+    ],
+    "uvm_hal_volta_mmu_client_id_to_utlb_id": [
+      "uvm_volta_mmu.c"
+    ],
+    "uvm_hal_volta_replay_faults": [
+      "uvm_volta_host.c"
+    ]
+  },
+  "candidate_module": {
+    "linked_this_run": false,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v7-20261027T232139Z/nvidia-uvm.ko",
+    "sha256": null,
+    "symbol_audit": null
+  },
+  "classification": "isolated-complete-gv100-uvm-hal-compile-link-probe-only",
+  "compiled_candidate_objects": [],
+  "complete_hal_row_staging": null,
+  "created_utc": "2026-10-27T23:21:54.020196+00:00",
+  "error": "ValueError: GV100 architecture value must be defined once as 0x140",
+  "expected_r580_archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+  "fault_buffer_row_staging": null,
+  "hardware_validated": false,
+  "legacy_header_dependency_staging": null,
+  "legacy_subchannel_alias_adaptation": null,
+  "limitations": [
+    "This candidate is built only from pinned open-source R580/R595 UVM inputs and explicit rows; it is never installed or loaded.",
+    "A complete HAL table set and successful link do not prove RM registration, runtime class IDs, callback semantics, fault recovery, memory coherency, UVM operation, or CUDA execution.",
+    "The R595 no-argument MMU lookup is adapted through the R580 factory's valid 64K selector; the inherited page-size mask includes 2M/64K/4K and runtime behavior remains unvalidated.",
+    "The reused compile adapter prunes R580 capability assignments and adapts two Pascal MMU signatures; resulting runtime semantics are unvalidated.",
+    "Legacy host/CE class aliases and the unreachable Maxwell NONE enum fallback are adapted from the pinned R580 definitions; runtime command routing is unvalidated.",
+    "The Pascal prefetch-fault register helper is byte-for-byte equivalent after comment/whitespace normalization to R595 Turing's helper; the R580 capability assertion is absent from R595 structures, and GV100 prefetch-fault capability/runtime behavior remains unvalidated.",
+    "Some inherited R580 callbacks are deliberately named unsupported or stub; they preserve the source-defined fallback and do not imply those features are supported."
+  ],
+  "modern_mmu_callback_adapter": {
+    "128k_excluded_by_pascal_page_size_mask": true,
+    "adapted_r595_header_sha256": "a55fa72efd34c3f3242757e9bf0b78e3886242ae52b02b80a0af676abc3e45fc",
+    "adapted_volta_source_sha256": "321d5381deebd8b2bd053d31cf750b890aae113b758c528addf5e1c5c043b0de",
+    "adapter_argument": "UVM_PAGE_SIZE_64K",
+    "adapter_symbol": "uvm_hal_mmu_mode_volta_r595",
+    "input_r595_header_sha256": "fe8a987cc0b701b1f2117c863ab6c02bf192b9e5c71cd72f45fb856ccb60f661",
+    "input_volta_source_sha256": "a4ff6d7ea69fbef25cad7ef1e7b85c3c8fe85e6e9cd1f3be4306a274d3f8e709",
+    "legacy_128k_rejected": true,
+    "legacy_factory_preserved": true,
+    "legacy_symbol": "uvm_hal_mmu_mode_volta",
+    "pascal_page_sizes_advertised": [
+      "UVM_PAGE_SIZE_2M",
+      "UVM_PAGE_SIZE_4K",
+      "UVM_PAGE_SIZE_64K"
+    ],
+    "r595_callback_contract": "no arguments; valid page sizes returned by page_sizes()",
+    "system_noncoherent_pte_adapter": {
+      "adapted_source_sha256": "321d5381deebd8b2bd053d31cf750b890aae113b758c528addf5e1c5c043b0de",
+      "aperture": "UVM_APERTURE_SYS_NON_COHERENT",
+      "gv100_pte_aperture_macro": "NV_MMU_VER2_PTE_APERTURE_SYSTEM_NON_COHERENT_MEMORY",
+      "gv100_pte_aperture_value": 3,
+      "input_source_sha256": "d98ec18168377ff59f5909887a1dd8a7ecd656f277cff2052bee795cf008b1eb",
+      "noncoherent_aperture_is_gv100_pte_value_3": true,
+      "pde_or_page_table_allocation_behavior_changed": false,
+      "uses_system_physical_address_field": true
+    }
+  },
+  "modern_prefetch_callback_adaptation": null,
+  "module_installed": false,
+  "module_loaded": false,
+  "preparation": {
+    "added_callback_ancestor_sources": [],
+    "added_source_list_entries": [
+      "uvm_volta.c",
+      "uvm_volta_ce.c",
+      "uvm_volta_fault_buffer.c",
+      "uvm_volta_host.c",
+      "uvm_volta_mmu.c",
+      "uvm_pascal_mmu.c"
+    ],
+    "added_subchannel_mappings": [
+      "#define UVM_SUBCHANNEL_C36F UVM_SUBCHANNEL_HOST",
+      "#define UVM_SUBCHANNEL_C3B5 UVM_SUBCHANNEL_CE",
+      "#define UVM_SUBCHANNEL_A16F UVM_SUBCHANNEL_HOST",
+      "#define UVM_SUBCHANNEL_B06F UVM_SUBCHANNEL_HOST",
+      "#define UVM_SUBCHANNEL_B0B5 UVM_SUBCHANNEL_CE",
+      "#define UVM_SUBCHANNEL_C06F UVM_SUBCHANNEL_HOST",
+      "#define UVM_SUBCHANNEL_C0B5 UVM_SUBCHANNEL_CE"
+    ],
+    "archive_sha256_matches_expected": true,
+    "build_artifact_exclusion_policy": [
+      "exclude generated conftest and .tmp_versions directories",
+      "exclude Module.symvers and modules.order",
+      "exclude generated .o, .ko, .mod, .mod.c, and .mod.o files",
+      "exclude hidden Kbuild .cmd and .d dependency files",
+      "preserve source inputs including nv-kernel.o_binary"
+    ],
+    "callback_ancestor_compile_adaptations": [],
+    "callback_ancestry_compile_probe_only": false,
+    "compatibility_pruned_assignments": [
+      "parent_gpu->tlb_batch.va_invalidate_supported = true;",
+      "parent_gpu->tlb_batch.va_range_invalidate_supported = true;",
+      "parent_gpu->can_map_sysmem_with_large_pages = true;",
+      "parent_gpu->prefetch_fault_supported = true;",
+      "parent_gpu->gpfifo_in_vidmem_supported = true;",
+      "parent_gpu->replayable_faults_supported = true;",
+      "parent_gpu->non_replayable_faults_supported = true;",
+      "parent_gpu->fault_cancel_va_supported = true;",
+      "parent_gpu->scoped_atomics_supported = true;",
+      "parent_gpu->sparse_mappings_supported = true;",
+      "parent_gpu->plc_supported = false;"
+    ],
+    "compile_probe_adapter": true,
+    "compile_probe_only": true,
+    "compile_probe_signature_adaptations": [
+      "unmapped_pte_pascal(NvU64 page_size) -> unmapped_pte_pascal(void)",
+      "poisoned_pte_pascal(void) -> poisoned_pte_pascal(uvm_page_tree_t *tree)"
+    ],
+    "copied_callback_ancestor_dependencies": [],
+    "copied_files_sha256": {
+      "clc36f.h": "56cbabbaf8c63cb2e2c0200dec3c18371d46772b0fcf903ab230d0de3b36c70b",
+      "clc3b5.h": "c6321efb3a6581d384495ac735bb80e8c0b1472d73e9043fefc973e25f2d5744",
+      "hwref/pascal/gp100/dev_fault.h": "5b0fd9e20e1850b620f24997c76b789f63292bbdba2b0ed1dd39733477eac9b0",
+      "hwref/pascal/gp100/dev_fb.h": "a2951aeb2889f405b4f269dbe9028bed050e25b99eb45a6b573707c3e532be81",
+      "hwref/pascal/gp100/dev_mmu.h": "40ff19f4b3c95ec7ffe457fe30602770ac627345a4bec24beddb14229e09f7b2",
+      "hwref/volta/gv100/dev_fault.h": "acef4b2abb4feb8f1935b659f7cbf52e3d02e4786ce176cda4d76dd70f54bc13",
+      "hwref/volta/gv100/dev_fb.h": "0175a270fa5af9d3a62d7fda2c9e536b58551db6bb1e9c123b84ffeec9a32584",
+      "hwref/volta/gv100/dev_mmu.h": "6a2656ab46cc7cdfe92c6ab12c7c5246c5d2819651add7a34b2d47fd2e13c483",
+      "uvm_pascal_fault_buffer.h": "9fab2cf9cf645ebca86c4ab68b7625d1273fa3c6cacb132f0dd56bd1ba1b0f09",
+      "uvm_pascal_mmu.c": "7706c8d28244148a8d55248ddfb4ebc6007cfc617b54d559406180b6c403f932",
+      "uvm_volta.c": "ca662fc33698586ec524c939593b6a67fb196d1b03fc6eea19116e5a0553254e",
+      "uvm_volta_ce.c": "fd8758e28cf978335a97de557ee77e2f7c0797ff49f5363183fc99fbab657d3b",
+      "uvm_volta_fault_buffer.c": "d0b8cfcf715246b49741314e0009b78c798719b634269ee44a75ee12f9874e77",
+      "uvm_volta_fault_buffer.h": "3f9696a50f96a62f68d2402ff6e93f98f9c32a1a7c1add2c9ae555d9867f239e",
+      "uvm_volta_host.c": "582c18a24986db6de49ce0c36fa98430062324b0bffd7e2390b2451e5b45f3fb",
+      "uvm_volta_mmu.c": "a4ff6d7ea69fbef25cad7ef1e7b85c3c8fe85e6e9cd1f3be4306a274d3f8e709"
+    },
+    "copied_volta_source_count": 6,
+    "dispatch_ancestors_compile_probe_only": false,
+    "dispatch_arch_mmu_mode_adaptations": {},
+    "expected_r580_archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+    "legacy_prefetch_capability_assertion_removed": false,
+    "license_text_detected": true,
+    "loaded_or_installed": false,
+    "preserved_target_interface_headers": [],
+    "r580_archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+    "r580_source_archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+    "r580_source_root": "NVIDIA-kernel-module-source-580.178.04",
+    "r595_source": "/usr/src/nvidia-595.99.02",
+    "restored_dispatch_ancestor_compile_row_sha256": {},
+    "restored_dispatch_ancestor_row_sha256": {},
+    "restored_dispatch_ancestor_rows": {},
+    "restored_dispatch_callback_prototypes": {},
+    "restored_dispatch_class_id_values": {},
+    "runtime_semantics_validated": false,
+    "scratch": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v7-20261027T232139Z",
+    "stubbed_callback_parent_properties": [],
+    "stubbed_maxwell_mmu_callbacks": []
+  },
+  "prototype_staging": null,
+  "r580_archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+  "r580_archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+  "r580_resolved_callback_count": 82,
+  "r580_resolved_callbacks_by_table": {
+    "access_counter_buffer_table": {
+      "clear_access_counter_notifications": "uvm_hal_maxwell_clear_access_counter_notifications_unsupported",
+      "disable_access_counter_notifications": "uvm_hal_maxwell_disable_access_counter_notifications_unsupported",
+      "enable_access_counter_notifications": "uvm_hal_maxwell_enable_access_counter_notifications_unsupported",
+      "entry_clear_valid": "uvm_hal_maxwell_access_counter_buffer_entry_clear_valid_unsupported",
+      "entry_is_valid": "uvm_hal_maxwell_access_counter_buffer_entry_is_valid_unsupported",
+      "entry_size": "uvm_hal_maxwell_access_counter_buffer_entry_size_unsupported",
+      "parse_entry": "uvm_hal_maxwell_access_counter_buffer_parse_entry_unsupported"
+    },
+    "arch_table": {
+      "disable_prefetch_faults": "uvm_hal_pascal_mmu_disable_prefetch_faults",
+      "enable_prefetch_faults": "uvm_hal_pascal_mmu_enable_prefetch_faults",
+      "init_properties": "uvm_hal_volta_arch_init_properties",
+      "mmu_client_id_to_utlb_id": "uvm_hal_volta_mmu_client_id_to_utlb_id",
+      "mmu_mode_hal": "uvm_hal_mmu_mode_volta"
+    },
+    "ce_table": {
+      "decrypt": "uvm_hal_maxwell_ce_decrypt_unsupported",
+      "encrypt": "uvm_hal_maxwell_ce_encrypt_unsupported",
+      "init": "uvm_hal_maxwell_ce_init",
+      "memcopy": "uvm_hal_volta_ce_memcopy",
+      "memcopy_copy_type": "uvm_hal_maxwell_ce_memcopy_copy_type",
+      "memcopy_is_valid": "uvm_hal_maxwell_ce_memcopy_is_valid",
+      "memcopy_patch_src": "uvm_hal_ce_memcopy_patch_src_stub",
+      "memcopy_v_to_v": "uvm_hal_maxwell_ce_memcopy_v_to_v",
+      "memset_1": "uvm_hal_volta_ce_memset_1",
+      "memset_4": "uvm_hal_volta_ce_memset_4",
+      "memset_8": "uvm_hal_volta_ce_memset_8",
+      "memset_is_valid": "uvm_hal_maxwell_ce_memset_is_valid",
+      "memset_v_4": "uvm_hal_maxwell_ce_memset_v_4",
+      "method_is_valid": "uvm_hal_method_is_valid_stub",
+      "offset_in_out": "uvm_hal_pascal_ce_offset_in_out",
+      "offset_out": "uvm_hal_pascal_ce_offset_out",
+      "phys_mode": "uvm_hal_maxwell_ce_phys_mode",
+      "plc_mode": "uvm_hal_maxwell_ce_plc_mode",
+      "semaphore_reduction_inc": "uvm_hal_volta_ce_semaphore_reduction_inc",
+      "semaphore_release": "uvm_hal_volta_ce_semaphore_release",
+      "semaphore_target_is_valid": "uvm_hal_maxwell_semaphore_target_is_valid",
+      "semaphore_timestamp": "uvm_hal_volta_ce_semaphore_timestamp"
+    },
+    "fault_buffer_table": {
+      "clear_replayable_faults": "uvm_hal_pascal_clear_replayable_faults",
+      "disable_replayable_faults": "uvm_hal_pascal_disable_replayable_faults",
+      "enable_replayable_faults": "uvm_hal_pascal_enable_replayable_faults",
+      "entry_clear_valid": "uvm_hal_pascal_fault_buffer_entry_clear_valid",
+      "entry_is_valid": "uvm_hal_pascal_fault_buffer_entry_is_valid",
+      "entry_size": "uvm_hal_pascal_fault_buffer_entry_size",
+      "get_fault_type": "uvm_hal_volta_fault_buffer_get_fault_type",
+      "get_mmu_engine_type": "uvm_hal_volta_fault_buffer_get_mmu_engine_type",
+      "get_ve_id": "uvm_hal_volta_fault_buffer_get_ve_id",
+      "parse_non_replayable_entry": "uvm_hal_volta_fault_buffer_parse_non_replayable_entry",
+      "parse_replayable_entry": "uvm_hal_volta_fault_buffer_parse_replayable_entry",
+      "read_get": "uvm_hal_volta_fault_buffer_read_get",
+      "read_put": "uvm_hal_volta_fault_buffer_read_put",
+      "write_get": "uvm_hal_volta_fault_buffer_write_get"
+    },
+    "host_table": {
+      "access_counter_clear_all": "uvm_hal_maxwell_access_counter_clear_all_unsupported",
+      "access_counter_clear_targeted": "uvm_hal_maxwell_access_counter_clear_targeted_unsupported",
+      "access_counter_query_clear_op": "uvm_hal_maxwell_access_counter_query_clear_op_unsupported",
+      "cancel_faults_global": "uvm_hal_pascal_cancel_faults_global",
+      "cancel_faults_targeted": "uvm_hal_pascal_cancel_faults_targeted",
+      "cancel_faults_va": "uvm_hal_volta_cancel_faults_va",
+      "clear_faulted_channel_method": "uvm_hal_volta_host_clear_faulted_channel_method",
+      "clear_faulted_channel_register": "uvm_hal_maxwell_host_clear_faulted_channel_register_unsupported",
+      "clear_faulted_channel_sw_method": "uvm_hal_maxwell_host_clear_faulted_channel_sw_method_unsupported",
+      "get_time": "uvm_hal_maxwell_get_time",
+      "init": "uvm_hal_pascal_host_init",
+      "interrupt": "uvm_hal_maxwell_host_interrupt",
+      "l2_invalidate": "uvm_hal_host_l2_invalidate_unsupported",
+      "membar_gpu": "uvm_hal_pascal_host_membar_gpu",
+      "membar_sys": "uvm_hal_pascal_host_membar_sys",
+      "method_is_valid": "uvm_hal_method_is_valid_stub",
+      "noop": "uvm_hal_maxwell_host_noop",
+      "replay_faults": "uvm_hal_volta_replay_faults",
+      "semaphore_acquire": "uvm_hal_maxwell_host_semaphore_acquire",
+      "semaphore_release": "uvm_hal_maxwell_host_semaphore_release",
+      "semaphore_target_is_valid": "uvm_hal_maxwell_semaphore_target_is_valid",
+      "semaphore_timestamp": "uvm_hal_volta_host_semaphore_timestamp",
+      "set_gpfifo_entry": "uvm_hal_maxwell_host_set_gpfifo_entry",
+      "set_gpfifo_noop": "uvm_hal_maxwell_host_set_gpfifo_noop",
+      "set_gpfifo_pushbuffer_segment_base": "uvm_hal_maxwell_host_set_gpfifo_pushbuffer_segment_base_unsupported",
+      "sw_method_is_valid": "uvm_hal_method_is_valid_stub",
+      "tlb_flush_prefetch": "uvm_hal_maxwell_host_tlb_flush_prefetch_unsupported",
+      "tlb_invalidate_all": "uvm_hal_pascal_host_tlb_invalidate_all",
+      "tlb_invalidate_phys": "uvm_hal_maxwell_host_tlb_invalidate_phys_unsupported",
+      "tlb_invalidate_test": "uvm_hal_pascal_host_tlb_invalidate_test",
+      "tlb_invalidate_va": "uvm_hal_volta_host_tlb_invalidate_va",
+      "wait_for_idle": "uvm_hal_maxwell_host_wait_for_idle",
+      "write_gpu_put": "uvm_hal_volta_host_write_gpu_put"
+    },
+    "sec2_table": {
+      "decrypt": "uvm_hal_maxwell_sec2_decrypt_unsupported",
+      "init": "uvm_hal_maxwell_sec2_init_noop",
+      "semaphore_release": "uvm_hal_maxwell_sec2_semaphore_release_unsupported",
+      "semaphore_target_is_valid": "uvm_hal_maxwell_semaphore_target_is_valid",
+      "semaphore_timestamp": "uvm_hal_maxwell_sec2_semaphore_timestamp_unsupported"
+    }
+  },
+  "r595_source": "/usr/src/nvidia-595.99.02",
+  "required_candidate_objects": [],
+  "schema": "r595-gv100-complete-hal-probe-v7",
+  "scratch": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-standard-nvidia-frontend-v7-20261027T232139Z",
+  "source_staging": null,
+  "staged_row_callbacks_by_table": {},
+  "status": "failed",
+  "unsupported_access_counter_enum_adaptation": null,
+  "volta_plc_external_map_guard": null
+}

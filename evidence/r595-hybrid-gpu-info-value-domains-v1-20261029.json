@@ -1,0 +1,78 @@
+{
+  "branches": {
+    "R580.196.07": {
+      "compile_exit_code": 0,
+      "fixture_sha256": "4d410d4f87a92df0343a295ea84af724506e76b9ad676bf0dc9e40846acb3aa7",
+      "headers_sha256": {
+        "common/inc/nv_uvm_types.h": "5216a6a83924511f38c8a881ee0ffc601e2851e92e6a9b49810f9cc9e90dd614",
+        "common/inc/nv_uvm_user_types.h": "2f83bf2cf6bd7d53ab5fdb08bd820658498e2e0fd50b2d3e51823e043449cfa8",
+        "nvidia-uvm/ctrl2080mc.h": "436710b6cc1f656c6f00c9b857f0f5b4931b43ccce22fa7129ccd9b30a00721a"
+      },
+      "run_exit_code": 0,
+      "source_tree": "build/experiments/r58019607-sync-boost-legacy-build-v2/source",
+      "values": {
+        "gpu_arch_gv100": 320,
+        "sysmem_link": {
+          "c2c": 7,
+          "none": 0,
+          "nvlink1": 2,
+          "nvlink2": 3,
+          "nvlink3": 4,
+          "nvlink4": 5,
+          "nvlink5": 6,
+          "pcie": 1
+        },
+        "virt_mode": {
+          "count": 4,
+          "legacy": 1,
+          "none": 0,
+          "sriov_heavy": 2,
+          "sriov_standard": 3
+        }
+      }
+    },
+    "R595.99.02": {
+      "compile_exit_code": 0,
+      "fixture_sha256": "4d410d4f87a92df0343a295ea84af724506e76b9ad676bf0dc9e40846acb3aa7",
+      "headers_sha256": {
+        "common/inc/nv_uvm_types.h": "5515b06a13072584d4668251c2e31bbb724118c914691eb4abf1cd76c1b63e65",
+        "common/inc/nv_uvm_user_types.h": "fffd902620642d566fe06619343a151795c7d0e4540c904a41baea24aae03d8c",
+        "nvidia-uvm/ctrl2080mc.h": "e7044317cefd8a86de3f53c702e4ce734497e5da5458fc0f10a6ed2517e4729e"
+      },
+      "run_exit_code": 0,
+      "source_tree": "build/experiments/r595-syncboost-open-build-v2/source/kernel-open",
+      "values": {
+        "gpu_arch_gv100": 320,
+        "sysmem_link": {
+          "c2c": 8,
+          "none": 0,
+          "nvlink1": 3,
+          "nvlink2": 4,
+          "nvlink3": 5,
+          "nvlink4": 6,
+          "nvlink5": 7,
+          "pcie": 1,
+          "pcie_bar1": 2
+        },
+        "virt_mode": {
+          "count": 4,
+          "legacy": 1,
+          "none": 0,
+          "sriov_heavy": 2,
+          "sriov_standard": 3
+        }
+      }
+    }
+  },
+  "classification": "exact-header-host-compile-and-execution",
+  "comparison": {
+    "gpu_arch_gv100_equal": true,
+    "sysmem_link_values_equal": false,
+    "virt_mode_values_equal": true
+  },
+  "compiler": "cc (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+  "hardware_validated": false,
+  "observed_at_utc": "2026-10-29T16:13:16.093818+00:00",
+  "qualification": "host-software-only",
+  "schema": "hybrid-uvm-gpu-info-value-domain-probe-v1"
+}

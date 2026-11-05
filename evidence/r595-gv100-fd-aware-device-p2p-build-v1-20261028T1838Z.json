@@ -1,0 +1,141 @@
+{
+  "build": {
+    "command": [
+      "make",
+      "-B",
+      "NV_KERNEL_MODULES=nvidia-uvm",
+      "KBUILD_EXTRA_SYMBOLS=build/experiments/r595-provider-query-frontend-v1/Module.symvers",
+      "NV_KERNEL_EXTRA_CONFTEST_KBUILD=build/experiments/r595-gv100-fd-aware-device-p2p-v1-20261028T1838Z/nvidia-conftest-only.Kbuild",
+      "modules",
+      "-j4"
+    ],
+    "exit_code": 0,
+    "log": {
+      "mode": "0o600",
+      "path": "evidence/logs/r595-gv100-fd-aware-device-p2p-v1-20261028T1838Z-build.log",
+      "sha256": "3bee49a9b645e3f94aa82369abd224232d7a8aaf1310c0b5dddc9e229d13dd18"
+    },
+    "warnings": [
+      "pahole is not installed; BTF generation was skipped because vmlinux is unavailable"
+    ]
+  },
+  "candidate_module": {
+    "depends": "nvidia",
+    "installed": false,
+    "loaded": false,
+    "name": "nvidia_uvm",
+    "path": "build/experiments/r595-gv100-fd-aware-device-p2p-v1-20261028T1838Z/nvidia-uvm.ko",
+    "sha256": "b3e7b74cc3c576bc229e0ede10fc378d8763592d70cc6bc53e1a4243f6670b18",
+    "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+    "version": "595.99.02"
+  },
+  "complete_software_suite": {
+    "loaded_or_installed": false,
+    "log": "evidence/logs/software-verification-r595-dup-allocation-scope-v1-20261028T1840Z.log",
+    "log_sha256": "341eea3bb1dea414f1c5feaa5e6ccdfde8e500e868e0e736a52e66856e08fcec",
+    "path": "evidence/software-verification-r595-dup-allocation-scope-v1-20261028T1840Z.json",
+    "process_exit_code": 0,
+    "qualification": "software-suite-only",
+    "reported_seconds": 111.285,
+    "runtime_or_hardware_validated": false,
+    "sha256": "7bbb2dcbed9e3510b2d367acb4a11d171688878648a63c06f0bd15483b218a74",
+    "status": "pass",
+    "tests_run": 1760
+  },
+  "device_p2p_control_fd_contract": {
+    "cross_provider_duplication": "frontend rejects before backend RM dispatch",
+    "fd_threaded_through": [
+      "alloc_coherent_device_p2p",
+      "alloc_zone_device_p2p",
+      "alloc_device_p2p_mem"
+    ],
+    "input_field": "UVM_ALLOC_DEVICE_P2P_PARAMS.rmCtrlFd",
+    "legacy_production_dup_memory_calls_remaining": 0,
+    "production_duplication_routes_updated": 3,
+    "remaining_legacy_call_sites": "two UVM in-module test paths; not production call paths",
+    "verified_pinned_header_sha256": "9cc909360f2d19135852390fb66a12fe4d22ca39c19e2609b2ff5e925df4bdf4"
+  },
+  "external_allocation_control_fd_contract": {
+    "cross_provider_duplication": "frontend rejects before backend RM dispatch",
+    "legacy_no_fd_api_behavior": "NV_ERR_NOT_SUPPORTED",
+    "parent_build_report": {
+      "path": "evidence/r595-gv100-fd-aware-external-map-build-v1-20261028T182418Z.json",
+      "sha256": "7d8deb3f1bf558552ab4dd63b1c8ff053170581b1b03c0396ff8d48fa70479a7"
+    },
+    "production_route_updated": true
+  },
+  "focused_tests": {
+    "command": "python3 -B -m unittest tests.test_r595_device_p2p_control_fd tests.test_r595_external_map_control_fd -v",
+    "qualification": "CPU-and-exact-source-patch-contracts",
+    "status": "pass",
+    "tests_run": 4
+  },
+  "frontend": {
+    "module": "build/experiments/r595-provider-query-frontend-v1/nvidia.ko",
+    "module_symvers": "build/experiments/r595-provider-query-frontend-v1/Module.symvers",
+    "module_symvers_sha256": "69b1b371c2108b21a56202cb8958c2ac3b48961a072e30ba9264485595476af7",
+    "sha256": "c0542d91a9a27f8ea296bf359ac52fdbe04e152a633b982f9db4980882ef527e"
+  },
+  "kernel_release": "7.0.0-38-generic",
+  "limitations": [
+    "No experimental module was installed or loaded.",
+    "No CUDA context, UVM ioctl, Resource Manager callback, P2P mapping, kernel, or transfer ran through this candidate on hardware.",
+    "This does not prove same-process V100 plus Blackwell operation, UVM migration, peer access, stability, or performance.",
+    "Cross-provider explicit P2P remains intentionally unsupported by the frontend ownership boundary."
+  ],
+  "observed_at_utc": "2026-10-28T18:33:47Z",
+  "patch_application": {
+    "fuzz": 0,
+    "new_patch": "patches/r595.99.02/0004-uvm-device-p2p-control-fd.patch",
+    "offset_on_candidate_overlay": 0,
+    "offset_on_pinned_base": 0,
+    "source_sha256_before_overlay": "8c3068201d9ef453f0f2efc365d6dd265cf0b5e465bb649913790c304c82503c"
+  },
+  "patch_stack": {
+    "patches/r595.99.02/0001-uvm-rm-control-fd-address-space-dispatch.patch": "ea8b78632e55f80ab5ef717b9250131ad599bd427ffad7bdc6d4b3328a881c2d",
+    "patches/r595.99.02/0002-uvm-provider-local-system-semaphore-pools.patch": "6c37c2274ce940ab1c287b2dbf6300624087ed745321d504f8ce9c0971ef8bf3",
+    "patches/r595.99.02/0003-uvm-external-allocation-control-fd.patch": "7f43c90b720162f0d1c4af584a97d4400f1768dd6b67986cb68e9d7489ee1d",
+    "patches/r595.99.02/0004-uvm-device-p2p-control-fd.patch": "f7e6b6ba565ddd0c4059a4ae100ae25e70b37261abd6651ada2983a0c4f68de8"
+  },
+  "qualification": "isolated-build-and-static-abi-closure-only",
+  "related_dup_allocation_scope_report": {
+    "path": "evidence/r595-uvm-dup-allocation-scope-v1-20261028T1837Z.json",
+    "sha256": "09aea3501aca5e2a1c4add47a20bd85911c7a125a8ae8015d3e4324cd1a038eb",
+    "test": "tests/test_r595_dup_allocation_scope.py",
+    "test_sha256": "6bf0bc86c23c2b86905b55de3be06c4dc4ea6dec979af80583ed287d64440c63"
+  },
+  "schema": "r595-gv100-fd-aware-device-p2p-build-v1",
+  "source_base": "NVIDIA Open GPU Kernel Modules R595.99.02 with pinned R580.178.04 GV100 UVM HAL overlay and provider-local semaphore patch",
+  "source_sha256": {
+    "candidate_hybrid580_uvm_memory_dispatch.h": "e10959e8cf25f902d165762aafcdbae8a26085638a30abd5a3c169e842173ccd",
+    "candidate_hybrid580_uvm_provider_dispatch.h": "b19f5fba4e5c877a8cb906c156595f313b7238638430a9b00385662ba088a378",
+    "candidate_uvm_gpu.c": "1cafe1ac49ed0a01c19e213dc8f79276bd477dd4587afb778b9b8d4cb7a715e3",
+    "candidate_uvm_gpu_semaphore.c": "19f0ce4f4a7dfaa329eb5eebb72418126a6be05887d28b40c1279736d9b72ee2",
+    "candidate_uvm_map_external.c": "9e396bb918e9d77eedfe8858c08334ede1e5eff1dbcb2e8afea57a3f987425bc",
+    "candidate_uvm_va_range_device_p2p.c": "3466d6b4fb71fc00f591e51ea5fcd0fde0dfacc970dbd66f8155063fb80eb168",
+    "pinned_R595_uvm_ioctl.h": "9cc909360f2d19135852390fb66a12fe4d22ca39c19e2609b2ff5e925df4bdf4",
+    "pinned_R595_uvm_va_range_device_p2p.c": "8c3068201d9ef453f0f2efc365d6dd265cf0b5e465bb649913790c304c82503c"
+  },
+  "static_symbol_closure": {
+    "hybrid_extension_imports": 3,
+    "issues": 0,
+    "module_interface_mode": "hybrid-extended",
+    "path": "evidence/r595-uvm-device-p2p-static-closure-v2-20261028T1838Z.json",
+    "private_imports": 145,
+    "r595_standard_imports": 78,
+    "sha256": "9d8afefbfe98435b785e254af44ef7cf9389e4511b1bc787b99016c99be4411e"
+  },
+  "superseded_complete_software_suite": {
+    "loaded_or_installed": false,
+    "log": "evidence/logs/software-verification-r595-device-p2p-control-fd-v1-20261028T1838Z.log",
+    "log_sha256": "c61970b23647287ed8cf6dd1a512cbede4282d6e6f59b2046f0d1276b546c038",
+    "path": "evidence/software-verification-r595-device-p2p-control-fd-v1-20261028T1838Z.json",
+    "process_exit_code": 0,
+    "qualification": "software-suite-only",
+    "reported_seconds": 112.022,
+    "runtime_or_hardware_validated": false,
+    "sha256": "11e6a293a5001596ce363add1bee69e312c80ffbd8f052943bd8291091bea484",
+    "status": "pass",
+    "tests_run": 1757
+  }
+}

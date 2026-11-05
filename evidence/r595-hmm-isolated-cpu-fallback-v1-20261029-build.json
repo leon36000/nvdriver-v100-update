@@ -1,0 +1,39 @@
+{
+  "schema": "r595-hmm-isolated-cpu-fallback-build-v1",
+  "experiment": "r595-hmm-isolated-cpu-fallback-v1-20261029",
+  "observed_at_utc": "2026-10-29T04:04:04Z",
+  "qualification": "compiled-only",
+  "source_parent": "build/experiments/r595-provider-id-validation-v1-20261029/candidate",
+  "patch": "patches/r595.99.02/0009-r595-hmm-isolated-mode-cpu-fallback.patch",
+  "patch_sha256": "4669ccbdda43742e253b802a96ab452abfa489465b97bd07b1fe26de71062739",
+  "build": {
+    "command": [
+      "make",
+      "-B",
+      "NV_KERNEL_MODULES=nvidia-uvm",
+      "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-provider-identity-frontend-v1-20261028T2032Z/Module.symvers",
+      "NV_KERNEL_EXTRA_CONFTEST_KBUILD=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-hmm-isolated-cpu-fallback-v1-20261029/candidate/nvidia-conftest-only.Kbuild",
+      "modules",
+      "-j4"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 18.137,
+    "kernel_release": "7.0.0-38-generic",
+    "working_directory": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-hmm-isolated-cpu-fallback-v1-20261029/candidate",
+    "log": "evidence/logs/r595-hmm-isolated-cpu-fallback-v1-20261029-build.log",
+    "log_mode": "0600",
+    "log_sha256": "c3b6e2ced9880e667fbe1c5641da4e4aaa888c2e7970233e4f51e67c8130c115"
+  },
+  "candidate_module": {
+    "path": "build/experiments/r595-hmm-isolated-cpu-fallback-v1-20261029/candidate/nvidia-uvm.ko",
+    "exists": true,
+    "sha256": "1ca650b4d5561456cdf90a640cb75d8d984ee277caf0cad6722cce79ab8b6bf3",
+    "size_bytes": 62019920
+  },
+  "module_installed": false,
+  "module_loaded": false,
+  "runtime_or_hardware_validated": false,
+  "limitations": [
+    "Build result does not establish module load, RM initialization, CUDA execution, or hybrid GPU operation."
+  ]
+}

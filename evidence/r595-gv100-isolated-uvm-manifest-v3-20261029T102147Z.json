@@ -1,0 +1,111 @@
+{
+  "activation_performed": false,
+  "configuration": {
+    "activation_performed": false,
+    "bound_module_sha256": "6a7828ca9c9008b20028fdbe9e55b56f153d25465f045331e81f8cbe47c1068e",
+    "bytes": 408,
+    "default_without_option": "disabled",
+    "isolated_execution_required": true,
+    "module": "nvidia_uvm",
+    "options": [
+      "uvm_hybrid_isolated_gpu_execution=1"
+    ],
+    "path": "packaging/modprobe.d/hybrid595-standard-uvm.conf",
+    "sha256": "6948c243c4a223a9ead75310e7830ca0c41d133f04bc4571543f12bfd2358d2d"
+  },
+  "created_at_utc": "2026-10-29T10:24:12.504062+00:00",
+  "dependency_load_order": [
+    "hybrid580_open.ko",
+    "hybrid580_legacy.ko",
+    "nvidia.ko",
+    "nvidia_uvm.ko"
+  ],
+  "evidence": {
+    "bundle_audit": {
+      "bytes": 15029,
+      "path": "evidence/r595-syncboost-nvidia-gv100-hal-bundle-audit-v4-uvm-isolation-20261029T1003Z.json",
+      "qualification": "static-module-bundle-closure",
+      "schema": "hybrid-module-bundle-static-audit-v1",
+      "sha256": "255dc82aec11ad0fdf739ec4f48b7b45bd1d88a7f12204eab6da24557b8f4edb"
+    },
+    "bundle_audit_implementation": {
+      "bytes": 32041,
+      "path": "tools/audit_hybrid_candidate_bundle.py",
+      "sha256": "fe132dc20ab3309e73628ac1fb7ffa4d4cca29279badb1f6ce9afdb450d5fdfe"
+    },
+    "depmod": {
+      "bytes": 5799,
+      "path": "evidence/r595-syncboost-nvidia-gv100-hal-bundle-depmod-v4-uvm-isolation-20261029T1003Z.json",
+      "qualification": "isolated-dependency-map-only",
+      "schema": "hybrid-module-bundle-depmod-static-v1",
+      "sha256": "41d72f7529b687923268c5cccf4c91595194ae25701554418a63707b129feebe"
+    },
+    "manifest_generator": {
+      "bytes": 16897,
+      "path": "tools/create_r595_uvm_isolation_manifest.py",
+      "sha256": "cb25c5aa0fe013d4f172ac98be165560424a005e7b43416e5d152272fca898a0"
+    },
+    "manifest_test": {
+      "bytes": 15603,
+      "path": "tests/test_create_r595_uvm_isolation_manifest.py",
+      "sha256": "b14320315d1bb24b792b821ea249de3e8aa3cf3b0be69d3522d544db2efd216d"
+    },
+    "pc3_preflight": {
+      "bytes": 8120,
+      "path": "evidence/pc3-canary-preflight-r595-open-r580196-uvm-isolated-v5-20261029T101320Z.json",
+      "qualification": "static-preflight-only",
+      "schema": "nvidia-hybrid-canary-preflight-v5",
+      "sha256": "3c5b570f4576e4216e870a751f84b64d670d9c0524a48e85a2a24ffa9e313fef"
+    },
+    "software_suite": {
+      "bytes": 37774,
+      "path": "evidence/software-verification-openrm-hal-matrix-v1-20261029T102147Z.json",
+      "qualification": "software-suite-only",
+      "schema": "software-verification-openrm-hal-matrix-v1",
+      "sha256": "84f8fa2b12d68f3c999561cc5a801ff9e60d4ce576ead8f039417ef393a8a899"
+    },
+    "uvm_build": {
+      "bytes": 62295,
+      "path": "evidence/r595-gv100-isolated-196hal-v4-20261029T095341Z-build.json",
+      "qualification": null,
+      "schema": "r595-gv100-complete-hal-probe-v10",
+      "sha256": "2f0a0658409315ac9b64eea98a08da5413faa40b39c68ca5967cae0ac0de91ce"
+    }
+  },
+  "kernel_release": "7.0.0-38-generic",
+  "module": {
+    "bytes": 62024368,
+    "depends": [
+      "nvidia"
+    ],
+    "name": "nvidia_uvm",
+    "path": "build/experiments/r595-gv100-isolated-196hal-v4-20261029T095341Z/candidate/nvidia-uvm.ko",
+    "sha256": "6a7828ca9c9008b20028fdbe9e55b56f153d25465f045331e81f8cbe47c1068e",
+    "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+    "version": "595.99.02"
+  },
+  "module_loaded_or_installed": false,
+  "pc3_preflight": {
+    "blocker_codes": [
+      "loaded_module_name_conflict",
+      "loaded_module_name_conflict",
+      "unsigned_modules_rejected_by_policy",
+      "signature_trust_unverified",
+      "standard_device_numbers_in_use",
+      "standard_device_major_in_use",
+      "character_device_name_in_use"
+    ],
+    "canary_ready": false,
+    "observed_at_utc": "2026-10-29T10:13:24.140900Z",
+    "status": "blocked"
+  },
+  "qualification": "static-build-and-config-closure",
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-hybrid-r595-uvm-isolation-manifest-v2",
+  "source_hal": {
+    "bytes": 22303836,
+    "path": ".cache/upstream/NVIDIA-kernel-module-source-580.196.07.tar.xz",
+    "release": "580.196.07",
+    "sha256": "21914a460f17190c43cffb75f0c35aef957e267bfefea267bc18638beae17084"
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "depmod",
+        "-b",
+        "/tmp/nvidia-hybrid-static-depmod-r595-linux68-v4/exact-bundle-v4",
+        "6.8.0-147-generic"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "modprobe",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "kmod version 34.2\n+ZSTD +XZ -ZLIB +OPENSSL\n"
+    },
+    {
+      "argv": [
+        "modprobe",
+        "-C",
+        "/dev/null",
+        "-d",
+        "/tmp/nvidia-hybrid-static-depmod-r595-linux68-v4/exact-bundle-v4",
+        "--set-version",
+        "6.8.0-147-generic",
+        "--show-depends",
+        "nvidia"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "insmod /tmp/nvidia-hybrid-static-depmod-r595-linux68-v4/exact-bundle-v4/lib/modules/6.8.0-147-generic/kernel/crypto/ecc.ko.zst \ninsmod /tmp/nvidia-hybrid-static-depmod-r595-linux68-v4/exact-bundle-v4/lib/modules/6.8.0-147-generic/kernel/crypto/ecc.ko.zst \ninsmod /tmp/nvidia-hybrid-static-depmod-r595-linux68-v4/exact-bundle-v4/lib/modules/6.8.0-147-generic/kernel/crypto/ecdh_generic.ko.zst \ninsmod /tmp/nvidia-hybrid-static-depmod-r595-linux68-v4/exact-bundle-v4/lib/modules/6.8.0-147-generic/kernel/crypto/ecc.ko.zst \ninsmod /tmp/nvidia-hybrid-static-depmod-r595-linux68-v4/exact-bundle-v4/lib/modules/6.8.0-147-generic/kernel/crypto/ecdsa_generic.ko.zst \ninsmod /tmp/nvidia-hybrid-static-depmod-r595-linux68-v4/exact-bundle-v4/lib/modules/6.8.0-147-generic/updates/extra/hybrid580_open.ko \ninsmod /tmp/nvidia-hybrid-static-depmod-r595-linux68-v4/exact-bundle-v4/lib/modules/6.8.0-147-generic/updates/extra/hybrid580_legacy.ko \ninsmod /tmp/nvidia-hybrid-static-depmod-r595-linux68-v4/exact-bundle-v4/lib/modules/6.8.0-147-generic/updates/extra/nvidia.ko \n"
+    },
+    {
+      "argv": [
+        "modprobe",
+        "-C",
+        "/dev/null",
+        "-d",
+        "/tmp/nvidia-hybrid-static-depmod-r595-linux68-v4/exact-bundle-v4",
+        "--set-version",
+        "6.8.0-147-generic",
+        "--show-depends",
+        "nvidia_uvm"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "insmod /tmp/nvidia-hybrid-static-depmod-r595-linux68-v4/exact-bundle-v4/lib/modules/6.8.0-147-generic/kernel/crypto/ecc.ko.zst \ninsmod /tmp/nvidia-hybrid-static-depmod-r595-linux68-v4/exact-bundle-v4/lib/modules/6.8.0-147-generic/kernel/crypto/ecc.ko.zst \ninsmod /tmp/nvidia-hybrid-static-depmod-r595-linux68-v4/exact-bundle-v4/lib/modules/6.8.0-147-generic/kernel/crypto/ecdh_generic.ko.zst \ninsmod /tmp/nvidia-hybrid-static-depmod-r595-linux68-v4/exact-bundle-v4/lib/modules/6.8.0-147-generic/kernel/crypto/ecc.ko.zst \ninsmod /tmp/nvidia-hybrid-static-depmod-r595-linux68-v4/exact-bundle-v4/lib/modules/6.8.0-147-generic/kernel/crypto/ecdsa_generic.ko.zst \ninsmod /tmp/nvidia-hybrid-static-depmod-r595-linux68-v4/exact-bundle-v4/lib/modules/6.8.0-147-generic/updates/extra/hybrid580_open.ko \ninsmod /tmp/nvidia-hybrid-static-depmod-r595-linux68-v4/exact-bundle-v4/lib/modules/6.8.0-147-generic/updates/extra/hybrid580_legacy.ko \ninsmod /tmp/nvidia-hybrid-static-depmod-r595-linux68-v4/exact-bundle-v4/lib/modules/6.8.0-147-generic/updates/extra/nvidia.ko \ninsmod /tmp/nvidia-hybrid-static-depmod-r595-linux68-v4/exact-bundle-v4/lib/modules/6.8.0-147-generic/updates/extra/nvidia-uvm.ko \n"
+    }
+  ],
+  "cuda_execution_tested": false,
+  "frontend_plan_first_occurrences": [
+    "ecc",
+    "ecdh_generic",
+    "ecdsa_generic",
+    "hybrid580_open",
+    "hybrid580_legacy",
+    "nvidia"
+  ],
+  "frontend_plan_raw_module_names": [
+    "ecc",
+    "ecc",
+    "ecdh_generic",
+    "ecc",
+    "ecdsa_generic",
+    "hybrid580_open",
+    "hybrid580_legacy",
+    "nvidia"
+  ],
+  "gpu_accessed": false,
+  "guest_hostname": "pc3-v100",
+  "hard_dependency_graph": {
+    "ecc": [],
+    "ecdh_generic": [
+      "ecc"
+    ],
+    "ecdsa_generic": [
+      "ecc"
+    ],
+    "hybrid580_legacy": [],
+    "hybrid580_open": [
+      "ecc"
+    ],
+    "nvidia": [
+      "ecc",
+      "hybrid580_legacy",
+      "hybrid580_open"
+    ],
+    "nvidia_uvm": [
+      "ecc",
+      "hybrid580_legacy",
+      "hybrid580_open",
+      "nvidia"
+    ]
+  },
+  "kernel_release": "6.8.0-147-generic",
+  "kernel_support_capture": {
+    "guest_mutation_performed": false,
+    "module_installed": false,
+    "module_loaded": false,
+    "path": "evidence/pc3-v100-kernel-dependencies-20261029T011956Z.json",
+    "read_only_exact_kernel_capture": true,
+    "sha256": "a7438efbf1c2556b1979e3eea66df1f6de8baba5effa7b457256300bf1157850"
+  },
+  "limitations": [
+    "depmod/modprobe planning is static and private; it does not load modules or validate kernel initialization, PCI binding, GPU execution, UVM, or CUDA.",
+    "staged contents live under /tmp and may be removed by system cleanup; evidence pins source files and command outputs."
+  ],
+  "module_installed": false,
+  "module_loaded": false,
+  "observed_at_utc": "2026-10-29T13:00:39.398456+00:00",
+  "qualification": "private-static-depmod-and-modprobe-plan",
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-r595-linux68-static-depmod-plan-v1",
+  "softdep_lines": [
+    "softdep hybrid580_open pre: ecdh_generic ecdsa_generic"
+  ],
+  "static_bundle_audit": {
+    "path": "evidence/r595-hybrid-bundle-static-audit-linux68-v2-20261029.json",
+    "sha256": "c12b5dbd102cbd0e5e6672f33187cf2ae4fb5b1be0593390099474e52d57419b"
+  },
+  "status": "passed",
+  "target": "pc3@pc3",
+  "temporary_stage_root": "/tmp/nvidia-hybrid-static-depmod-r595-linux68-v4/exact-bundle-v4",
+  "uvm_plan_first_occurrences": [
+    "ecc",
+    "ecdh_generic",
+    "ecdsa_generic",
+    "hybrid580_open",
+    "hybrid580_legacy",
+    "nvidia",
+    "nvidia_uvm"
+  ],
+  "uvm_plan_raw_module_names": [
+    "ecc",
+    "ecc",
+    "ecdh_generic",
+    "ecc",
+    "ecdsa_generic",
+    "hybrid580_open",
+    "hybrid580_legacy",
+    "nvidia",
+    "nvidia_uvm"
+  ],
+  "uvm_plan_repeated_dependencies": {
+    "ecc": 3
+  }
+}

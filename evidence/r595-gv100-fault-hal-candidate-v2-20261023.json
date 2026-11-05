@@ -1,0 +1,191 @@
+{
+  "architecture_table_has_gv100": false,
+  "build": {
+    "build_command_succeeded": true,
+    "build_diagnostics": [],
+    "build_exit_code": 0,
+    "build_log": "/tmp/nv-hybrid-r595-gv100-fault-hal-v2-20261023/uvm-port-build.log",
+    "build_log_sha256": "42d0b8d1f653cfa4148d0043037328364b0fa25693294c911473b8addc420b19",
+    "build_log_size_bytes": 1281393,
+    "command": [
+      "make",
+      "-C",
+      "/tmp/nv-hybrid-r595-gv100-fault-hal-v2-20261023",
+      "NV_KERNEL_MODULES=nvidia nvidia-uvm",
+      "modules",
+      "-j8"
+    ],
+    "compiled_port_objects": [
+      "nvidia-uvm/uvm_pascal_mmu.o",
+      "nvidia-uvm/uvm_volta.o",
+      "nvidia-uvm/uvm_volta_ce.o",
+      "nvidia-uvm/uvm_volta_fault_buffer.o",
+      "nvidia-uvm/uvm_volta_host.o",
+      "nvidia-uvm/uvm_volta_mmu.o"
+    ],
+    "compiled_volta_objects": [
+      "nvidia-uvm/uvm_volta.o",
+      "nvidia-uvm/uvm_volta_ce.o",
+      "nvidia-uvm/uvm_volta_fault_buffer.o",
+      "nvidia-uvm/uvm_volta_host.o",
+      "nvidia-uvm/uvm_volta_mmu.o"
+    ],
+    "errors": [],
+    "expected_volta_sources_compiled": [
+      "uvm_pascal_mmu.c",
+      "uvm_volta.c",
+      "uvm_volta_ce.c",
+      "uvm_volta_fault_buffer.c",
+      "uvm_volta_host.c",
+      "uvm_volta_mmu.c"
+    ],
+    "expected_volta_sources_compiled_this_run": true,
+    "linkage_trace_found": true,
+    "linkage_trace_lines": [
+      "LD [M]  nvidia-uvm.ko"
+    ],
+    "loaded_or_installed": false,
+    "module_changed_by_build": true,
+    "module_elf_valid": true,
+    "module_exists": true,
+    "module_linked": true,
+    "module_linked_this_run": true,
+    "module_sha256": "bf872edd6335968be1a85c5a68ffb373e53926aa57e87ccc5a5c119f98d002d5"
+  },
+  "build_log_copy": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/r595-gv100-fault-hal-candidate-v2-20261023.log",
+  "build_log_sha256": "42d0b8d1f653cfa4148d0043037328364b0fa25693294c911473b8addc420b19",
+  "candidate": {
+    "architecture_table_has_gv100": false,
+    "callback_count": 14,
+    "callback_implementation_sources": {
+      "uvm_hal_pascal_clear_replayable_faults": "uvm_pascal_fault_buffer.c",
+      "uvm_hal_pascal_disable_replayable_faults": "uvm_pascal_fault_buffer.c",
+      "uvm_hal_pascal_enable_replayable_faults": "uvm_pascal_fault_buffer.c",
+      "uvm_hal_pascal_fault_buffer_entry_clear_valid": "uvm_pascal_fault_buffer.c",
+      "uvm_hal_pascal_fault_buffer_entry_is_valid": "uvm_pascal_fault_buffer.c",
+      "uvm_hal_pascal_fault_buffer_entry_size": "uvm_pascal_fault_buffer.c",
+      "uvm_hal_volta_fault_buffer_get_fault_type": "uvm_volta_fault_buffer.c",
+      "uvm_hal_volta_fault_buffer_get_mmu_engine_type": "uvm_volta_fault_buffer.c",
+      "uvm_hal_volta_fault_buffer_get_ve_id": "uvm_volta_fault_buffer.c",
+      "uvm_hal_volta_fault_buffer_parse_non_replayable_entry": "uvm_volta_fault_buffer.c",
+      "uvm_hal_volta_fault_buffer_parse_replayable_entry": "uvm_volta_fault_buffer.c",
+      "uvm_hal_volta_fault_buffer_read_get": "uvm_volta_fault_buffer.c",
+      "uvm_hal_volta_fault_buffer_read_put": "uvm_volta_fault_buffer.c",
+      "uvm_hal_volta_fault_buffer_write_get": "uvm_volta_fault_buffer.c"
+    },
+    "callbacks": {
+      "clear_replayable_faults": "uvm_hal_pascal_clear_replayable_faults",
+      "disable_replayable_faults": "uvm_hal_pascal_disable_replayable_faults",
+      "enable_replayable_faults": "uvm_hal_pascal_enable_replayable_faults",
+      "entry_clear_valid": "uvm_hal_pascal_fault_buffer_entry_clear_valid",
+      "entry_is_valid": "uvm_hal_pascal_fault_buffer_entry_is_valid",
+      "entry_size": "uvm_hal_pascal_fault_buffer_entry_size",
+      "get_fault_type": "uvm_hal_volta_fault_buffer_get_fault_type",
+      "get_mmu_engine_type": "uvm_hal_volta_fault_buffer_get_mmu_engine_type",
+      "get_ve_id": "uvm_hal_volta_fault_buffer_get_ve_id",
+      "parse_non_replayable_entry": "uvm_hal_volta_fault_buffer_parse_non_replayable_entry",
+      "parse_replayable_entry": "uvm_hal_volta_fault_buffer_parse_replayable_entry",
+      "read_get": "uvm_hal_volta_fault_buffer_read_get",
+      "read_put": "uvm_hal_volta_fault_buffer_read_put",
+      "write_get": "uvm_hal_volta_fault_buffer_write_get"
+    },
+    "copied_source_hashes": {
+      "hwref/pascal/gp100/dev_fault.h": "5b0fd9e20e1850b620f24997c76b789f63292bbdba2b0ed1dd39733477eac9b0",
+      "uvm_pascal_compat_clb069.h": "12a6ba874dfe06a6982e1a479cb4416f1399dd664c1dc034dccd6588cb7c4ccb",
+      "uvm_pascal_fault_buffer.c": "251ddca0123db8cde7836b1820e8cabd25590a79706482de1eaa1330cfae92fb",
+      "uvm_pascal_fault_buffer.h": "9fab2cf9cf645ebca86c4ab68b7625d1273fa3c6cacb132f0dd56bd1ba1b0f09"
+    },
+    "hardware_validated": false,
+    "parent_id": null
+  },
+  "classification": "isolated-R595-UVM-compile-link-probe-only",
+  "created_utc": "2026-10-23T08:56:21.592076+00:00",
+  "error": null,
+  "expected_r580_archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+  "hardware_validated": false,
+  "limitations": [
+    "The candidate adds only a fault_buffer_table row; R595 arch_table still has no GV100 row, so this probe is not a selectable or usable GV100 UVM port.",
+    "A successful link proves only compile/type/symbol closure for the pinned source inputs; no callback was invoked and no GPU, RM, interrupt, fault packet, or module runtime was exercised.",
+    "The UVM port still has other Volta architecture, host, MMU, CE, channel, capability, and RM registration dependencies."
+  ],
+  "module_installed": false,
+  "module_linked_with_candidate_objects": true,
+  "module_loaded": false,
+  "preparation": {
+    "added_source_list_entries": [
+      "uvm_volta.c",
+      "uvm_volta_ce.c",
+      "uvm_volta_fault_buffer.c",
+      "uvm_volta_host.c",
+      "uvm_volta_mmu.c",
+      "uvm_pascal_mmu.c"
+    ],
+    "added_subchannel_mappings": [
+      "#define UVM_SUBCHANNEL_C36F UVM_SUBCHANNEL_HOST",
+      "#define UVM_SUBCHANNEL_C3B5 UVM_SUBCHANNEL_CE"
+    ],
+    "archive_sha256_matches_expected": true,
+    "compatibility_pruned_assignments": [
+      "parent_gpu->tlb_batch.va_invalidate_supported = true;",
+      "parent_gpu->tlb_batch.va_range_invalidate_supported = true;",
+      "parent_gpu->can_map_sysmem_with_large_pages = true;",
+      "parent_gpu->prefetch_fault_supported = true;",
+      "parent_gpu->gpfifo_in_vidmem_supported = true;",
+      "parent_gpu->replayable_faults_supported = true;",
+      "parent_gpu->non_replayable_faults_supported = true;",
+      "parent_gpu->fault_cancel_va_supported = true;",
+      "parent_gpu->scoped_atomics_supported = true;",
+      "parent_gpu->sparse_mappings_supported = true;",
+      "parent_gpu->plc_supported = false;"
+    ],
+    "compile_probe_adapter": true,
+    "compile_probe_only": true,
+    "compile_probe_signature_adaptations": [
+      "unmapped_pte_pascal(NvU64 page_size) -> unmapped_pte_pascal(void)",
+      "poisoned_pte_pascal(void) -> poisoned_pte_pascal(uvm_page_tree_t *tree)"
+    ],
+    "copied_files_sha256": {
+      "clc36f.h": "56cbabbaf8c63cb2e2c0200dec3c18371d46772b0fcf903ab230d0de3b36c70b",
+      "clc3b5.h": "c6321efb3a6581d384495ac735bb80e8c0b1472d73e9043fefc973e25f2d5744",
+      "hwref/pascal/gp100/dev_fault.h": "5b0fd9e20e1850b620f24997c76b789f63292bbdba2b0ed1dd39733477eac9b0",
+      "hwref/pascal/gp100/dev_fb.h": "a2951aeb2889f405b4f269dbe9028bed050e25b99eb45a6b573707c3e532be81",
+      "hwref/pascal/gp100/dev_mmu.h": "40ff19f4b3c95ec7ffe457fe30602770ac627345a4bec24beddb14229e09f7b2",
+      "hwref/volta/gv100/dev_fault.h": "acef4b2abb4feb8f1935b659f7cbf52e3d02e4786ce176cda4d76dd70f54bc13",
+      "hwref/volta/gv100/dev_fb.h": "0175a270fa5af9d3a62d7fda2c9e536b58551db6bb1e9c123b84ffeec9a32584",
+      "hwref/volta/gv100/dev_mmu.h": "6a2656ab46cc7cdfe92c6ab12c7c5246c5d2819651add7a34b2d47fd2e13c483",
+      "uvm_pascal_fault_buffer.h": "9fab2cf9cf645ebca86c4ab68b7625d1273fa3c6cacb132f0dd56bd1ba1b0f09",
+      "uvm_pascal_mmu.c": "7706c8d28244148a8d55248ddfb4ebc6007cfc617b54d559406180b6c403f932",
+      "uvm_volta.c": "ca662fc33698586ec524c939593b6a67fb196d1b03fc6eea19116e5a0553254e",
+      "uvm_volta_ce.c": "fd8758e28cf978335a97de557ee77e2f7c0797ff49f5363183fc99fbab657d3b",
+      "uvm_volta_fault_buffer.c": "d0b8cfcf715246b49741314e0009b78c798719b634269ee44a75ee12f9874e77",
+      "uvm_volta_fault_buffer.h": "3f9696a50f96a62f68d2402ff6e93f98f9c32a1a7c1add2c9ae555d9867f239e",
+      "uvm_volta_host.c": "582c18a24986db6de49ce0c36fa98430062324b0bffd7e2390b2451e5b45f3fb",
+      "uvm_volta_mmu.c": "a4ff6d7ea69fbef25cad7ef1e7b85c3c8fe85e6e9cd1f3be4306a274d3f8e709"
+    },
+    "copied_volta_source_count": 6,
+    "expected_r580_archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+    "license_text_detected": true,
+    "loaded_or_installed": false,
+    "r580_archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+    "r580_source_archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+    "r580_source_root": "NVIDIA-kernel-module-source-580.178.04",
+    "r595_source": "/usr/src/nvidia-595.99.02",
+    "runtime_semantics_validated": false,
+    "scratch": "/tmp/nv-hybrid-r595-gv100-fault-hal-v2-20261023"
+  },
+  "r580_archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+  "r580_archive_hash_matches": true,
+  "r580_archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+  "r595_hal_header_sha256": "0aec76923bfd3f769357b479ea7e92a1f7d2cc5a891f4c578d4e4f2d53dd6152",
+  "r595_hal_source_sha256": "d3815691e974e551b0fb51ac0d7c3101b31452a56f20f8ba4098e873f6673199",
+  "r595_source": "/usr/src/nvidia-595.99.02",
+  "required_objects_compiled": [
+    "nvidia-uvm/uvm_hal.o",
+    "nvidia-uvm/uvm_pascal_fault_buffer.o",
+    "nvidia-uvm/uvm_volta_fault_buffer.o"
+  ],
+  "schema": "r595-gv100-fault-hal-candidate-v1",
+  "scratch": "/tmp/nv-hybrid-r595-gv100-fault-hal-v2-20261023",
+  "status": "passed",
+  "uvm_fault_hal_candidate_is_runtime_selectable": false
+}

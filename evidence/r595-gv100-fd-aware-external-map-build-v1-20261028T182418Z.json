@@ -1,0 +1,114 @@
+{
+  "build": {
+    "build_log": {
+      "bytes": 12129,
+      "mode": "0o600",
+      "path": "evidence/logs/r595-gv100-fd-aware-external-map-v1-20261028T182418Z-build.log",
+      "sha256": "48dabc048414d042a52eea911f51b19db7a73132b1ef94e081f06b644ab4cb1a"
+    },
+    "command": [
+      "make",
+      "-B",
+      "NV_KERNEL_MODULES=nvidia-uvm",
+      "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-provider-query-frontend-v1/Module.symvers",
+      "NV_KERNEL_EXTRA_CONFTEST_KBUILD=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-fd-aware-external-map-v1-20261028T182418Z/nvidia-conftest-only.Kbuild",
+      "modules",
+      "-j4"
+    ],
+    "kernel_release": "7.0.0-38-generic"
+  },
+  "candidate_installed": false,
+  "candidate_loaded": false,
+  "candidate_module": {
+    "bytes": 61998136,
+    "depends": "nvidia",
+    "name": "nvidia_uvm",
+    "path": "build/experiments/r595-gv100-fd-aware-external-map-v1-20261028T182418Z/nvidia-uvm.ko",
+    "sha256": "c35d39ae400f32a2753f83b1a065dba4247a276ad21729a27be7a3cfcbf33b60",
+    "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+    "version": "595.99.02"
+  },
+  "external_map_contract": {
+    "cross_provider_duplication": "rejected by frontend ownership route before backend dispatch",
+    "evidence": "tests/test_r595_external_map_control_fd.py and patches/r595.99.02/0003-uvm-external-allocation-control-fd.patch",
+    "legacy_no_fd_api_behavior": "NV_ERR_NOT_SUPPORTED",
+    "patched_call": "nvUvmInterfaceDupMemoryWithControlFd",
+    "qualification": "source-and-CPU-contract-only",
+    "source_memory_owner_resolved_from_control_fd": true,
+    "stored_in": "uvm_rm_user_object_t.rm_control_fd",
+    "user_ioctl_field": "UVM_MAP_EXTERNAL_ALLOCATION_PARAMS.rmCtrlFd"
+  },
+  "frontend": {
+    "module": "build/experiments/r595-provider-query-frontend-v1/nvidia.ko",
+    "module_symvers": "build/experiments/r595-provider-query-frontend-v1/Module.symvers",
+    "module_symvers_sha256": "69b1b371c2108b21a56202cb8958c2ac3b48961a072e30ba9264485595476af7",
+    "sha256": "c0542d91a9a27f8ea296bf359ac52fdbe04e152a633b982f9db4980882ef527e"
+  },
+  "implementation_sha256": {
+    "tests/test_audit_r595_uvm_symbol_closure.py": "82a6d723a451d615cfb656bd5ff1ea74f13d5bfe3aac20109f8eefec984dde88",
+    "tests/test_r595_external_map_control_fd.py": "8062a6be3578d3bb0614005213614859c7eee4831cf7f044616e5feb52c0c80d",
+    "tools/audit_r595_uvm_symbol_closure.py": "372a8e3dcbf7b3323b8cf9b578b89bb8b7bb9162c05639b73b1a7b3c8722ca3d"
+  },
+  "limitations": [
+    "No module insertion or installation occurred.",
+    "No UVM ioctl, Resource Manager callback, CUDA context, memory allocation, or kernel ran on hardware through this candidate.",
+    "This does not prove UVM migration, external allocation mapping, cross-provider imports, P2P, stability, or performance."
+  ],
+  "observed_at_utc": "2026-10-28T18:28:29.248562+00:00",
+  "parent_provider_local_semaphore_report": {
+    "path": "evidence/r595-gv100-provider-local-semaphore-build-v1-20261028T181602Z.json",
+    "sha256": "c8e6097b2730cb281f57ac39e0b5d1886f3352e56f46a338365b80f31cbb7e53"
+  },
+  "patch_application": {
+    "applied_to_gv100_overlay_source": true,
+    "fuzz": 0,
+    "line_offset": 4,
+    "note": "Four preceding GV100 HAL guard lines shift the call-site hunk; no fuzz was applied. The patch contract also applies to the pinned base with zero offset.",
+    "patch": "patches/r595.99.02/0003-uvm-external-allocation-control-fd.patch",
+    "patch_sha256": "7f43c90b720162f0d1c4af584a97d4400f1768dd6b67986cb68c6e9d7489ee1d",
+    "pinned_base_source_sha256": "90de5bb57f41ce3f4c7d1316b8c8541e87dd3f23457aef81f9241273c86ad409"
+  },
+  "patch_sha256": {
+    "patches/r595.99.02/0001-uvm-rm-control-fd-address-space-dispatch.patch": "ea8b78632e55f80ab5ef717b9250131ad599bd427ffad7bdc6d4b3328a881c2d",
+    "patches/r595.99.02/0002-uvm-provider-local-system-semaphore-pools.patch": "6c37c2274ce940ab1c287b2dbf6300624087ed745321d504f8ce9c0971ef8bf3",
+    "patches/r595.99.02/0003-uvm-external-allocation-control-fd.patch": "7f43c90b720162f0d1c4af584a97d4400f1768dd6b67986cb68c6e9d7489ee1d"
+  },
+  "qualification": "isolated-build-and-static-abi-closure-only",
+  "runtime_or_hardware_validated": false,
+  "schema": "r595-uvm-fd-aware-external-map-build-v1",
+  "source_base": "NVIDIA Open GPU Kernel Modules R595.99.02 with pinned R580.178.04 GV100 UVM HAL overlay and provider-local semaphore patch",
+  "source_sha256": {
+    "build/experiments/r595-gv100-fd-aware-external-map-v1-20261028T182418Z/nvidia-uvm/hybrid580_uvm_memory_dispatch.h": "e10959e8cf25f902d165762aafcdbae8a26085638a30abd5a3c169e842173ccd",
+    "build/experiments/r595-gv100-fd-aware-external-map-v1-20261028T182418Z/nvidia-uvm/hybrid580_uvm_provider_dispatch.h": "b19f5fba4e5c877a8cb906c156595f313b7238638430a9b00385662ba088a378",
+    "build/experiments/r595-gv100-fd-aware-external-map-v1-20261028T182418Z/nvidia-uvm/uvm_gpu.c": "1cafe1ac49ed0a01c19e213dc8f79276bd477dd4587afb778b9b8d4cb7a715e3",
+    "build/experiments/r595-gv100-fd-aware-external-map-v1-20261028T182418Z/nvidia-uvm/uvm_gpu_semaphore.c": "19f0ce4f4a7dfaa329eb5eebb72418126a6be05887d28b40c1279736d9b72ee2",
+    "build/experiments/r595-gv100-fd-aware-external-map-v1-20261028T182418Z/nvidia-uvm/uvm_map_external.c": "9e396bb918e9d77eedfe8858c08334ede1e5eff1dbcb2e8afea57a3f987425bc"
+  },
+  "static_symbol_closure": {
+    "extension_checks": {
+      "nvUvmInterfaceAreGpuProvidersSame": {
+        "frontend_export_crc": "0x3b92280a",
+        "matches": true,
+        "uvm_import_crc": "0x3b92280a"
+      },
+      "nvUvmInterfaceDupAddressSpaceWithControlFd": {
+        "frontend_export_crc": "0xee6dd59d",
+        "matches": true,
+        "uvm_import_crc": "0xee6dd59d"
+      },
+      "nvUvmInterfaceDupMemoryWithControlFd": {
+        "frontend_export_crc": "0xa403f1c1",
+        "matches": true,
+        "uvm_import_crc": "0xa403f1c1"
+      }
+    },
+    "hybrid_extension_imports": 3,
+    "issues": 0,
+    "private_imports": 145,
+    "qualification": "static-r595-uvm-symbol-closure",
+    "r595_standard_imports": 78,
+    "report": "evidence/r595-uvm-fd-aware-external-map-static-closure-v2-20261028T182418Z.json",
+    "sha256": "5fbf46c1cd6dac10e91d80e39d7656e102ec315270009afb7fef4360130fb583"
+  },
+  "status": "passed"
+}

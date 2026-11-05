@@ -1,0 +1,92 @@
+{
+  "build": {
+    "build_log": "evidence/logs/r595-gv100-hal-rmfd-v1-20261028T180300Z-build.log",
+    "build_log_mode": "0o600",
+    "build_log_sha256": "d17aa4a2d38fe990c435f201c2bad9f57bc33decd9adc5d3a7349ff2ac05baf7",
+    "command": [
+      "make",
+      "-C",
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-rmfd-v1-20261028T180300Z",
+      "-B",
+      "NV_KERNEL_MODULES=nvidia-uvm",
+      "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/hybrid-r595-r580-client-share-policy-standard-name-v1/Module.symvers",
+      "NV_KERNEL_EXTRA_CONFTEST_KBUILD=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-hal-rmfd-v1-20261028T180300Z/nvidia-conftest-only.Kbuild",
+      "modules",
+      "-j4"
+    ],
+    "frontend_module_symvers_sha256": "501fc86e309c02cd624b9190126e838635d264b76b3dc4f452db7ea48c08ab47",
+    "frontend_symvers_unchanged": true,
+    "kernel_file_reference_imports": {
+      "fget": {
+        "export_crc": "0x71b536b8",
+        "import_crc": "0x71b536b8",
+        "matches": true
+      },
+      "fput": {
+        "export_crc": "0x88beff44",
+        "import_crc": "0x88beff44",
+        "matches": true
+      }
+    },
+    "kernel_release": "7.0.0-38-generic",
+    "known_build_warnings": [
+      "pahole version differs from the one used to build the kernel",
+      "BTF generation skipped because vmlinux is unavailable"
+    ],
+    "module": {
+      "bytes": 61987160,
+      "name": "nvidia_uvm",
+      "path": "build/experiments/r595-gv100-hal-rmfd-v1-20261028T180300Z/nvidia-uvm.ko",
+      "sha256": "38cdb74a213d6769848ebc7dda964d85ceccd986b95f0f86984ad64f48a70484",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "595.99.02"
+    },
+    "new_frontend_import": {
+      "nvUvmInterfaceDupAddressSpaceWithControlFd": {
+        "export_crc": "0xee6dd59d",
+        "import_crc": "0xee6dd59d",
+        "matches": true
+      }
+    },
+    "process_exit_code": 0
+  },
+  "limitations": [
+    "No candidate module was installed or loaded.",
+    "No RM, UVM runtime, CUDA, or GPU execution was performed with the candidate.",
+    "The patch routes only DupAddressSpace through the caller RM file. Other UVM DupMemory call sites remain on the fail-closed legacy entrypoint, and cross-provider DupAllocation remains unsupported.",
+    "No same-process V100 plus Blackwell kernel result is established."
+  ],
+  "module_installed": false,
+  "module_loaded": false,
+  "observed_at_utc": "2026-10-28T18:07:09.149200+00:00",
+  "patch": {
+    "applied_with_fuzz": 0,
+    "applied_with_offset": 0,
+    "path": "patches/r595.99.02/0001-uvm-rm-control-fd-address-space-dispatch.patch",
+    "private_extension_header_sha256": "be38989dd0e334aef92d6ccf55680aeb2355f570b3dbfe0cc7097495a86a2ff4",
+    "resulting_uvm_va_space_sha256": "f3396e769c7fd229ffede4af0345714f9f6001833c1c884c2fc78bda997e6be4",
+    "sha256": "ea8b78632e55f80ab5ef717b9250131ad599bd427ffad7bdc6d4b3328a881c2d"
+  },
+  "qualification": "isolated-build-and-software-contracts-only",
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-hybrid-r595-gv100-control-fd-dispatch-build-v1",
+  "source_base": {
+    "baseline_sha256_expected": "f332076b5d141b23cbe7acaccb48b2b07a0f8fe2e44832fd93551a4a8c345468",
+    "baseline_uvm_va_space_sha256": "f332076b5d141b23cbe7acaccb48b2b07a0f8fe2e44832fd93551a4a8c345468",
+    "r580_archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+    "r595_build_report": "evidence/r595-gv100-hal-rmfd-v1-20261028T180300Z-stage.json",
+    "report_sha256": "59617053725466149377cddba639e76790271d4a0d34d4f106af4c9873e5800f"
+  },
+  "status": "passed",
+  "tests": {
+    "focused_contract_source": "tests/test_r595_uvm_control_fd_dispatch.py",
+    "focused_test_source_sha256": "abcedbdea300c6bb11eec854ac003095e4b9e7845af74f41463c5048de90c619",
+    "focused_tests_passed": 2,
+    "full_suite_log_sha256": "83a54f2626825e86c3f619569bd38be3db753545ebccc0f12fe96a8b67a2c7f3",
+    "full_suite_report": "evidence/software-verification-r595-uvm-rmfd-v1-20261028T180400Z.json",
+    "full_suite_report_sha256": "1029f12f4a5ea67251aa1a91b0dda6fe77258a91a0de77f109466eaac1665c29",
+    "full_suite_reported_seconds": 114.044,
+    "full_suite_status": "pass",
+    "full_suite_tests_passed": 1747
+  }
+}

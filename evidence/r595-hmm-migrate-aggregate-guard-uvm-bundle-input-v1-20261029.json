@@ -1,0 +1,32 @@
+{
+  "schema": "r595-uvm-bundle-input-adapter-v1",
+  "observed_at_utc": "2026-10-29T04:21:02.525155+00:00",
+  "qualification": "derived-bundle-input-only; source build and static symbol closure reports are authoritative",
+  "runtime_or_hardware_validated": false,
+  "module_installed": false,
+  "module_loaded": false,
+  "source_build_report": "evidence/r595-hmm-migrate-aggregate-guard-v1-20261029-build.json",
+  "source_build_report_sha256": "95480b483cae0f09332e0cc12899f9a6063bcae51801cb1e83de9cf2e75b65b3",
+  "static_symbol_closure_report": "evidence/r595-hmm-migrate-aggregate-guard-v1-20261029-symbol-closure.json",
+  "static_symbol_closure_report_sha256": "e5416dc62876ccd32d04f46bb59593cde72362cc55d4a47fcca3f890ebee6bc8",
+  "candidate_module": {
+    "path": "build/experiments/r595-hmm-migrate-aggregate-guard-v1-20261029/candidate/nvidia-uvm.ko",
+    "sha256": "e0e6a992335c14252806ff036c4a439413909672ad90048527db9570b151fc57",
+    "name": "nvidia_uvm",
+    "linked_this_run": true
+  },
+  "build": {
+    "build_command_succeeded": true,
+    "exit_code": 0,
+    "kernel_release": "7.0.0-38-generic",
+    "frontend_module_symvers": {
+      "path": "build/experiments/r595-provider-identity-frontend-v1-20261028T2032Z/Module.symvers",
+      "expected_sha256": "dbcf0cc653a970395534635d7ef533c3626112a41b12f8b5cbaf6504bb903e08",
+      "unchanged": true,
+      "sha256_before": "dbcf0cc653a970395534635d7ef533c3626112a41b12f8b5cbaf6504bb903e08",
+      "sha256_after": "dbcf0cc653a970395534635d7ef533c3626112a41b12f8b5cbaf6504bb903e08"
+    }
+  },
+  "parent_adapter": "evidence/r595-hmm-isolated-cpu-fallback-uvm-bundle-input-v1-20261029.json",
+  "parent_adapter_sha256": "9bb0c0b8d371aec9551bc2fe924b768c85f34ef4b0eb42446b18b6ca24126516"
+}

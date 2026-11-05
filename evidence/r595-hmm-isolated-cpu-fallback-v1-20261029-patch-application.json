@@ -1,0 +1,26 @@
+{
+  "schema": "r595-hmm-isolation-patch-application-v1",
+  "experiment": "r595-hmm-isolated-cpu-fallback-v1-20261029",
+  "parent_candidate": "build/experiments/r595-provider-id-validation-v1-20261029/candidate",
+  "parent_build_report": "evidence/r595-provider-id-validation-v1-20261029.json",
+  "patch": "patches/r595.99.02/0009-r595-hmm-isolated-mode-cpu-fallback.patch",
+  "patch_sha256": "4669ccbdda43742e253b802a96ab452abfa489465b97bd07b1fe26de71062739",
+  "patch_command": [
+    "patch",
+    "--batch",
+    "--forward",
+    "--fuzz=0",
+    "-p1",
+    "-i",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r595.99.02/0009-r595-hmm-isolated-mode-cpu-fallback.patch"
+  ],
+  "patch_exit_code": 0,
+  "offset_or_fuzz": false,
+  "patched_uvm_hmm_sha256": "20b2eaf97b23d63ab04b28780006ea6fada14f3eb439a9859222d2332e0eea2d",
+  "patch_log": "evidence/logs/r595-hmm-isolated-cpu-fallback-v1-20261029-patch-apply.log",
+  "patch_log_sha256": "7ba02fe0b06dd87a20ccba8e7922730f24edb4cd7ee5f4c625f1e886b0475bba",
+  "qualification": "exact-patch-applied-source-only",
+  "module_installed": false,
+  "module_loaded": false,
+  "runtime_or_hardware_validated": false
+}
