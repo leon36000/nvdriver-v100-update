@@ -1,0 +1,109 @@
+{
+  "apt_index_hashes_match_download": true,
+  "apt_or_dpkg_install_invoked": false,
+  "dpkg_deb_identity": {
+    "Architecture": "amd64",
+    "Package": "linux-modules-nvidia-595-open-7.0.0-34-generic",
+    "Version": "7.0.0-34.34+1"
+  },
+  "module_loaded_or_installed": false,
+  "module_members": [
+    {
+      "file_sha256": "c4e0e9709d495ae9c0f59877d799ade51c2e7b9c3f05dd10e62745205ed20c05",
+      "name": "nvidia_drm",
+      "package_member": "lib/modules/7.0.0-34-generic/kernel/nvidia-595-open/nvidia-drm.ko",
+      "sig_hashalgo": "sha512",
+      "sig_id": "PKCS#7",
+      "sig_key": "E9:DF:13:0F:92:92:A9:B7",
+      "signer": "Canonical Ltd. Kernel Module Signing",
+      "vermagic": "7.0.0-34-generic SMP preempt mod_unload modversions",
+      "version": "595.91.07"
+    },
+    {
+      "file_sha256": "d0aa471829bcf106a3b67662a780035fd4826b03294f6798a981473b3557ebbe",
+      "name": "nvidia_modeset",
+      "package_member": "lib/modules/7.0.0-34-generic/kernel/nvidia-595-open/nvidia-modeset.ko",
+      "sig_hashalgo": "sha512",
+      "sig_id": "PKCS#7",
+      "sig_key": "E9:DF:13:0F:92:92:A9:B7",
+      "signer": "Canonical Ltd. Kernel Module Signing",
+      "vermagic": "7.0.0-34-generic SMP preempt mod_unload modversions",
+      "version": "595.91.07"
+    },
+    {
+      "file_sha256": "f9c99a8990f072bc0ad262d26df304945f2b80fef2f0a93de9628533d2b327ed",
+      "name": "nvidia_peermem",
+      "package_member": "lib/modules/7.0.0-34-generic/kernel/nvidia-595-open/nvidia-peermem.ko",
+      "sig_hashalgo": "sha512",
+      "sig_id": "PKCS#7",
+      "sig_key": "E9:DF:13:0F:92:92:A9:B7",
+      "signer": "Canonical Ltd. Kernel Module Signing",
+      "vermagic": "7.0.0-34-generic SMP preempt mod_unload modversions",
+      "version": "595.91.07"
+    },
+    {
+      "file_sha256": "72e45572a024f6929a4b3c05ad2fc1832554886f386e9e69e4e038e18e60261e",
+      "name": "nvidia_uvm",
+      "package_member": "lib/modules/7.0.0-34-generic/kernel/nvidia-595-open/nvidia-uvm.ko",
+      "sig_hashalgo": "sha512",
+      "sig_id": "PKCS#7",
+      "sig_key": "E9:DF:13:0F:92:92:A9:B7",
+      "signer": "Canonical Ltd. Kernel Module Signing",
+      "vermagic": "7.0.0-34-generic SMP preempt mod_unload modversions",
+      "version": "595.91.07"
+    },
+    {
+      "file_sha256": "a2a6c2275a50e10bc21bfb77d21229f016ef287a92cd822896dd9aa79c71c524",
+      "name": "nvidia",
+      "package_member": "lib/modules/7.0.0-34-generic/kernel/nvidia-595-open/nvidia.ko",
+      "sig_hashalgo": "sha512",
+      "sig_id": "PKCS#7",
+      "sig_key": "E9:DF:13:0F:92:92:A9:B7",
+      "signer": "Canonical Ltd. Kernel Module Signing",
+      "vermagic": "7.0.0-34-generic SMP preempt mod_unload modversions",
+      "version": "595.91.07"
+    }
+  ],
+  "module_signer_label_matches_current_pc3_stock": true,
+  "observed_at_utc": "2026-10-28T00:16:46.033053+00:00",
+  "package_control_selected_fields": {
+    "Architecture": "amd64",
+    "Built-Using": "nvidia-dkms-595-open (= 595.91.07-0ubuntu0.26.04.1)",
+    "Depends": "linux-image-7.0.0-34-generic | linux-image-unsigned-7.0.0-34-generic, nvidia-kernel-common-595 (<= 595.91.07-1), nvidia-kernel-common-595 (>= 595.91.07)",
+    "Description": "Linux kernel nvidia modules for version 7.0.0-34",
+    "Package": "linux-modules-nvidia-595-open-7.0.0-34-generic",
+    "Version": "7.0.0-34.34+1"
+  },
+  "package_scripts_executed": false,
+  "pc3_apt_uri_hashes": {
+    "MD5sum": "a6fa5c85da0a4c9cfb8e02302af8804b",
+    "SHA512": "6d16e9a05e4b9866f912d6330c427c44c6997c9cee5620dbb09dcf45eca445a771535427fd7215b42e5fdc13b1558cef174d3d519720d37e5187c6b070728af5"
+  },
+  "qualification": "locally-staged-and-hash-verified-package; data-only-inspection; not-installed",
+  "schema": "pc3-r595-fallback-package-stage-v1",
+  "signature_crypto_validation": "not performed; modinfo reports embedded PKCS#7 signer fields, not certificate trust validation",
+  "source_apt_cache_report": "evidence/pc3-r595-fallback-package-cache-v2-20261028T001423Z.json",
+  "source_apt_cache_report_sha256": "ff4f6800dd99bc22ddb887c8eb7142a347b816fd2891b9cf290fd4578cc09ee3",
+  "source_pc3_apt_metadata": {
+    "Architecture": "amd64",
+    "Filename": "pool/restricted/l/linux-restricted-signatures/linux-modules-nvidia-595-open-7.0.0-34-generic_7.0.0-34.34+1_amd64.deb",
+    "Package": "linux-modules-nvidia-595-open-7.0.0-34-generic",
+    "SHA256": "fe52e59925bdf2386dcd8a28c8531c8eb19c3627f15000f4725e72a154b7de74",
+    "Size": "8058294",
+    "Version": "7.0.0-34.34+1"
+  },
+  "source_uri": {
+    "host": "ca.archive.ubuntu.com",
+    "path": "/ubuntu/pool/restricted/l/linux-restricted-signatures/linux-modules-nvidia-595-open-7.0.0-34-generic_7.0.0-34.34%2b1_amd64.deb",
+    "scheme": "http"
+  },
+  "staged_package": {
+    "already_present": false,
+    "bytes": 8058294,
+    "md5": "a6fa5c85da0a4c9cfb8e02302af8804b",
+    "mode": "0o600",
+    "path": ".cache/canary/pc3-r595-fallback-7.0.0-34/rollback/linux-modules-nvidia-595-open-7.0.0-34-generic_7.0.0-34.34+1_amd64.deb",
+    "sha256": "fe52e59925bdf2386dcd8a28c8531c8eb19c3627f15000f4725e72a154b7de74"
+  },
+  "system_or_pc3_changed": false
+}

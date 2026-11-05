@@ -1,0 +1,79 @@
+{
+  "conclusion": {
+    "available_old_driver_packages": "current 595.99.02-0ubuntu0.26.04.1 and base 595.58.03-0ubuntu2 only in the queried apt policy views",
+    "fallback_kernel_driver_stack_qualified": false,
+    "installed_driver_stack": "595.99.02-0ubuntu0.26.04.1",
+    "matching_595_91_07_userland_records_found": false,
+    "reason": "The only cached module package for kernel 7.0.0-34 contains modules 595.91.07 and has a matching nvidia-kernel-common dependency range; queried configured apt metadata has no exact 595.91.07 driver, kernel-common, or DKMS package record. The installed/current 595.99.02 stack does not match this module version.",
+    "scope_limit": "This is the configured PC3 apt-cache view only; older artifacts may exist outside these indexes. No package was installed or downgraded, and no kernel was booted."
+  },
+  "fallback_kernel": "7.0.0-34-generic",
+  "fallback_module_package": {
+    "depends": "nvidia-kernel-common-595 (<= 595.91.07-1), nvidia-kernel-common-595 (>= 595.91.07)",
+    "module_driver_version": "595.91.07",
+    "module_vermagic": "7.0.0-34-generic SMP preempt mod_unload modversions",
+    "package": "linux-modules-nvidia-595-open-7.0.0-34-generic",
+    "package_version": "7.0.0-34.34+1",
+    "signature_metadata": "all 5 modules report Canonical Ltd. Kernel Module Signing, PKCS#7, SHA-512, sig_key E9:DF:13:0F:92:92:A9:B7"
+  },
+  "host_transport": {
+    "host_key_alias": "pc3",
+    "ssh_host_key_checking": "strict",
+    "target": "pc3@pc3"
+  },
+  "kernel_booted": false,
+  "observed_at_utc": "2026-10-28T00:17:31.863037+00:00",
+  "package_transaction_invoked": false,
+  "pc3_configured_apt_views": [
+    {
+      "available_versions": [
+        "595.99.02-0ubuntu0.26.04.1",
+        "595.58.03-0ubuntu2"
+      ],
+      "candidate": "595.99.02-0ubuntu0.26.04.1",
+      "exact_record_fields": null,
+      "exact_record_found": false,
+      "exact_show_exit_code": 0,
+      "installed": "595.99.02-0ubuntu0.26.04.1",
+      "package": "nvidia-driver-595-open",
+      "policy_exit_code": 0,
+      "requested_version": "595.91.07-0ubuntu0.26.04.1"
+    },
+    {
+      "available_versions": [
+        "595.99.02-0ubuntu0.26.04.1",
+        "595.58.03-0ubuntu2"
+      ],
+      "candidate": "595.99.02-0ubuntu0.26.04.1",
+      "exact_record_fields": null,
+      "exact_record_found": false,
+      "exact_show_exit_code": 0,
+      "installed": "595.99.02-0ubuntu0.26.04.1",
+      "package": "nvidia-kernel-common-595",
+      "policy_exit_code": 0,
+      "requested_version": "595.91.07-0ubuntu0.26.04.1"
+    },
+    {
+      "available_versions": [
+        "595.99.02-0ubuntu0.26.04.1",
+        "595.58.03-0ubuntu2"
+      ],
+      "candidate": "595.99.02-0ubuntu0.26.04.1",
+      "exact_record_fields": null,
+      "exact_record_found": false,
+      "exact_show_exit_code": 0,
+      "installed": "(none)",
+      "package": "nvidia-dkms-595-open",
+      "policy_exit_code": 0,
+      "requested_version": "595.91.07-0ubuntu0.26.04.1"
+    }
+  ],
+  "qualification": "read-only-apt-policy-and-staged-package-compatibility-analysis",
+  "remote_query_script_sha256": "e64bef49b6fde75b6c9b5c317c05d9816e2d29c6a8970ea508176e31ddb16b16",
+  "schema": "pc3-r595-fallback-stack-compatibility-v1",
+  "source_cache_report": "evidence/pc3-r595-fallback-package-cache-v2-20261028T001423Z.json",
+  "source_cache_report_sha256": "ff4f6800dd99bc22ddb887c8eb7142a347b816fd2891b9cf290fd4578cc09ee3",
+  "source_staged_package_report": "evidence/pc3-r595-fallback-package-stage-v1-20261028T001646Z.json",
+  "source_staged_package_report_sha256": "a5ae5fb1dd6448d17560c799b556e0d82ac99c2fc47705f10ecbfeaca58afeeb",
+  "system_changed": false
+}

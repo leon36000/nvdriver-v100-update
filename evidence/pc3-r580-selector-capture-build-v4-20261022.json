@@ -1,0 +1,31 @@
+{
+  "active_mode_requested": false,
+  "build_only_mode_requested": true,
+  "credential_file": "/home/pc6/Desktop/ACCES-BANC-GPU.env",
+  "credential_host": "gx10-e526",
+  "failure_stage": "pc3_remote_or_guest_transport",
+  "finished_utc": "2026-10-22T19:11:57+00:00",
+  "guest_ssh_timeout_seconds": 360,
+  "host_key_alias": "pc3",
+  "module": "pc3_r580_kprobe_observer",
+  "operation_scope": "build and modpost in private guest /tmp only; no module load",
+  "pc3_ssh_returncode": 255,
+  "pc3_ssh_timeout_seconds": 420,
+  "remote_stderr_sha256": "aff64e5b5a21ca6494c3fe984af2c937eb91cd410e6faf15d94ac91451489bcf",
+  "remote_stdout_bytes": 0,
+  "remote_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scalar_capture_requested": false,
+  "schema": "nvidia-hybrid-pc3-r580-direct-kprobe-canary-transport-v1",
+  "selector_path_observation_requested": false,
+  "selector_scalar_capture_requested": false,
+  "source_hashes": {
+    "Kbuild": "e83163e205f0e27dcef701e0a807bc5daae029c210df176c0eb3cecd78588576",
+    "pc3_r580_kprobe_observer.c": "6878cb1502aba47055519e24c492477040adc46e9c48ea951d2c7c37df1f0b48"
+  },
+  "started_utc": "2026-10-22T19:11:56+00:00",
+  "status": "failed",
+  "target_host": "pc3-v100",
+  "target_symbol": "nvidia:rm_init_adapter",
+  "transport_helper_sha256": "cc721874f86406260575d425ea292847dcb2af10b19aec8b6ce4127dea251901",
+  "transport_wrapper_sha256": "321169d8a5ced0836fa55637a45b6a6c8db8a106c85e2370e0bfd1a0e68a41cc"
+}

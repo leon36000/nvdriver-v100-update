@@ -1,0 +1,56 @@
+{
+  "actions": {
+    "package_downloaded": false,
+    "package_installed": false,
+    "system_changed": false
+  },
+  "active_kernel": "7.0.0-38-generic",
+  "fallback_kernel": "7.0.0-34-generic",
+  "observed_at_utc": "2026-10-28T00:14:07.208002Z",
+  "provenance": {
+    "apt_cache_only": true,
+    "host_key_alias": "pc3",
+    "remote_script_sha256": "faf2427830e2f462af7b5ad97618d86397a8262ffd056274301bd7297df15201",
+    "repository_uris_persisted": false,
+    "target": "pc3@pc3"
+  },
+  "qualification": "read-only-local-apt-cache-metadata",
+  "results": [
+    {
+      "candidate_record": {
+        "Architecture": "amd64",
+        "Filename": "pool/restricted/l/linux-restricted-signatures/linux-modules-nvidia-595-open-7.0.0-34-generic_7.0.0-34.34+1_amd64.deb",
+        "Package": "linux-modules-nvidia-595-open-7.0.0-34-generic",
+        "SHA256": "fe52e59925bdf2386dcd8a28c8531c8eb19c3627f15000f4725e72a154b7de74",
+        "Size": "8058294",
+        "Version": "7.0.0-34.34+1"
+      },
+      "candidate_version": "7.0.0-34.34+1",
+      "installed_version": "(none)",
+      "package": "linux-modules-nvidia-595-open-7.0.0-34-generic",
+      "policy_exit_code": 0,
+      "show_exit_code": 0
+    },
+    {
+      "candidate_record": {
+        "Architecture": "amd64",
+        "Filename": "pool/restricted/l/linux-restricted-modules/linux-modules-nvidia-595-7.0.0-34-generic_7.0.0-34.34+1_amd64.deb",
+        "Package": "linux-modules-nvidia-595-7.0.0-34-generic",
+        "SHA256": "b4dc523b795565472db6ab5f49458d4262c186f2fd5b87ba8b4da947dc1c7349",
+        "Size": "11726",
+        "Version": "7.0.0-34.34+1"
+      },
+      "candidate_version": "7.0.0-34.34+1",
+      "installed_version": "(none)",
+      "package": "linux-modules-nvidia-595-7.0.0-34-generic",
+      "policy_exit_code": 0,
+      "show_exit_code": 0
+    }
+  ],
+  "schema": "pc3-r595-fallback-package-cache-v2",
+  "supersedes": {
+    "path": "evidence/pc3-r595-fallback-package-cache-v1-20261028T001354Z.json",
+    "reason": "valid JSON newline serialization; remote apt-cache observations are preserved unchanged",
+    "sha256": "8a54126176a3f6f241c20fa1a15aab343a1d6b2a28f800d646513fcbfbd04bc3"
+  }
+}

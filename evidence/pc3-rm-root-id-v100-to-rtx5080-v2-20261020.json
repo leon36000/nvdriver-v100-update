@@ -1,0 +1,98 @@
+{
+  "observed_at_utc": "2026-10-20T22:53:06.969216+00:00",
+  "qualification": "V100-observed-ID-accepted-and-freed-by-installed-PC3-RTX5080-R595",
+  "remote": {
+    "device": {
+      "control_is_character_device": true,
+      "control_path": "/dev/nvidiactl",
+      "control_rw_access": true,
+      "driver_version": "595.99.02",
+      "name": "NVIDIA GeForce RTX 5080",
+      "pci": "0000:02:00.0",
+      "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77"
+    },
+    "error": "",
+    "helper_after": {
+      "bytes": 16512,
+      "sha256": "5862033cdb01b1d4fa9ec9abd64565a9565114f5ca05bf0cc0053a403f426f4b"
+    },
+    "helper_before": {
+      "bytes": 16512,
+      "sha256": "5862033cdb01b1d4fa9ec9abd64565a9565114f5ca05bf0cc0053a403f426f4b"
+    },
+    "helper_removed": true,
+    "helper_result": {
+      "exit_code": 0,
+      "report": {
+        "action": "mirror-root-id",
+        "allocated_id": 3251650101,
+        "allocation": {
+          "attempted": true,
+          "embedded_status": 0,
+          "errno": 0,
+          "hClass": 65,
+          "hObject": 3251650101,
+          "hObjectParent": 0,
+          "hRoot": 3251650101,
+          "passed": true,
+          "syscall_return": 0
+        },
+        "cleanup_passed": true,
+        "control_close_errno": 0,
+        "control_close_succeeded": true,
+        "control_opened": true,
+        "free": {
+          "attempted": true,
+          "embedded_status": 0,
+          "errno": 0,
+          "hClass": 0,
+          "hObject": 3251650101,
+          "hObjectParent": 3251650101,
+          "hRoot": 3251650101,
+          "passed": true,
+          "syscall_return": 0
+        },
+        "gpu_context_opened": false,
+        "qualification": "root-allocation-and-free-passed",
+        "request": {
+          "hClass": 65,
+          "hRoot": 3251650101,
+          "layout": "NVOS64"
+        },
+        "requested_id": 3251650101,
+        "returned_requested_id": true,
+        "schema": "nvidia-hybrid-rm-root-id-probe-v1",
+        "success": true
+      },
+      "stderr": ""
+    },
+    "host": "pc3",
+    "kernel_release": "7.0.0-38-generic",
+    "qualification": "installed-R595-root-ID-mirror-request-and-free-passed",
+    "schema": "nvidia-hybrid-pc3-rm-root-id-probe-v1"
+  },
+  "schema": "nvidia-hybrid-pc3-rm-root-id-host-run-v1",
+  "ssh_exit_code": 0,
+  "ssh_stderr": "",
+  "ssh_stdout": "{\"device\": {\"control_is_character_device\": true, \"control_path\": \"/dev/nvidiactl\", \"control_rw_access\": true, \"driver_version\": \"595.99.02\", \"name\": \"NVIDIA GeForce RTX 5080\", \"pci\": \"0000:02:00.0\", \"uuid\": \"GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77\"}, \"error\": \"\", \"helper_after\": {\"bytes\": 16512, \"sha256\": \"5862033cdb01b1d4fa9ec9abd64565a9565114f5ca05bf0cc0053a403f426f4b\"}, \"helper_before\": {\"bytes\": 16512, \"sha256\": \"5862033cdb01b1d4fa9ec9abd64565a9565114f5ca05bf0cc0053a403f426f4b\"}, \"helper_removed\": true, \"helper_result\": {\"exit_code\": 0, \"report\": {\"action\": \"mirror-root-id\", \"allocated_id\": 3251650101, \"allocation\": {\"attempted\": true, \"embedded_status\": 0, \"errno\": 0, \"hClass\": 65, \"hObject\": 3251650101, \"hObjectParent\": 0, \"hRoot\": 3251650101, \"passed\": true, \"syscall_return\": 0}, \"cleanup_passed\": true, \"control_close_errno\": 0, \"control_close_succeeded\": true, \"control_opened\": true, \"free\": {\"attempted\": true, \"embedded_status\": 0, \"errno\": 0, \"hClass\": 0, \"hObject\": 3251650101, \"hObjectParent\": 3251650101, \"hRoot\": 3251650101, \"passed\": true, \"syscall_return\": 0}, \"gpu_context_opened\": false, \"qualification\": \"root-allocation-and-free-passed\", \"request\": {\"hClass\": 65, \"hRoot\": 3251650101, \"layout\": \"NVOS64\"}, \"requested_id\": 3251650101, \"returned_requested_id\": true, \"schema\": \"nvidia-hybrid-rm-root-id-probe-v1\", \"success\": true}, \"stderr\": \"\"}, \"host\": \"pc3\", \"kernel_release\": \"7.0.0-38-generic\", \"qualification\": \"installed-R595-root-ID-mirror-request-and-free-passed\", \"schema\": \"nvidia-hybrid-pc3-rm-root-id-probe-v1\"}\n",
+  "target": "pc3@pc3",
+  "v100_source": {
+    "guest": {
+      "driver_version": "580.178.04",
+      "hostname": "pc3-v100",
+      "kernel_release": "6.8.0-147-generic",
+      "memory_total_mib": "16384",
+      "memory_used_mib_before": "0",
+      "name": "Tesla V100-SXM2-16GB",
+      "pci": "0000:00:05.0",
+      "temperature_c_before": "51",
+      "utilization_percent_before": "0",
+      "uuid": "GPU-42d06a85-027a-75ea-7857-a8de27ad465e"
+    },
+    "observed_at_utc": "2026-10-20T22:33:38+00:00",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-v100-rm-ioctl-reference-v1-20261020.json",
+    "record_index": 0,
+    "root_id": 3251650101,
+    "sha256": "ce8625081edbb98a8da676b2567053e11d6a4f04b8f24ec97b9dcb9cc1887d1e"
+  }
+}

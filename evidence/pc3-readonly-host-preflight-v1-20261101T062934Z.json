@@ -1,0 +1,30 @@
+{
+  "actions": [
+    "hostname",
+    "kernel",
+    "nvidia-smi GPU identity",
+    "compute-process count"
+  ],
+  "host_key_alias": "pc3",
+  "host_observation": {
+    "compute_process_count": 0,
+    "compute_query_exit": 0,
+    "gpu_query_exit": 0,
+    "gpu_rows": [
+      "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77, NVIDIA GeForce RTX 5080, 00000000:02:00.0, 595.99.02, 16303 MiB"
+    ],
+    "hostname": "pc3",
+    "kernel": "7.0.0-38-generic"
+  },
+  "observed_at_utc": "2026-11-01T06:30:03.743817+00:00",
+  "other_hosts_contacted": false,
+  "qualification": {
+    "candidate_module_loaded": false,
+    "driver_or_vm_changed": false,
+    "gpu_kernel_tested": false
+  },
+  "schema": "pc3-readonly-host-preflight-v1",
+  "status": "pc3-readonly-preflight-passed",
+  "target": "pc3@pc3",
+  "transport": "pinned-PC3-key-only-SSH"
+}

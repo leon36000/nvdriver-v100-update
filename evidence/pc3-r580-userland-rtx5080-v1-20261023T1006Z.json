@@ -1,0 +1,85 @@
+{
+  "driver_or_pci_modified": false,
+  "error": "R580 user-library probe did not complete: R580 libcuda could not initialize/enumerate RTX 5080",
+  "exit_code": 2,
+  "fatbin": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_probe.sm70-sm120.fatbin",
+    "sha256": "fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305"
+  },
+  "hardware_test_requested": true,
+  "host_key_alias": "pc3",
+  "module_load_or_unload_attempted": false,
+  "observed_at_utc": "2026-10-23T10:05:27.302988+00:00",
+  "package": {
+    "bytes": 54671338,
+    "filename": "libnvidia-compute-580_580.196.07-1ubuntu1_amd64.deb",
+    "package": "libnvidia-compute-580",
+    "sha256": "b6a5b9a94267d1995a2bd54e7a9876961f3efb6928edbbcce675d09ea9cb2c8d",
+    "version": "580.196.07-1ubuntu1"
+  },
+  "package_install_attempted": false,
+  "probe": {
+    "contract": {
+      "contract_version": 2,
+      "probe_report_schema": "nvidia-hybrid-probe-v2",
+      "probe_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+      "schema": "nvidia-hybrid-probe-contract-v1"
+    },
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808"
+  },
+  "remote": {
+    "cleanup": {
+      "attempted": true,
+      "passed": true
+    },
+    "cuda_probe": null,
+    "driver_or_pci_modified": false,
+    "error": "R580 libcuda could not initialize/enumerate RTX 5080",
+    "gpu_before": {
+      "compute_processes": [],
+      "kernel_driver": "595.99.02",
+      "name": "NVIDIA GeForce RTX 5080",
+      "pci": "00000000:02:00.0",
+      "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77"
+    },
+    "gpu_reset_requested": false,
+    "host": "pc3",
+    "inventory_probe": {
+      "exit_code": 2,
+      "stderr": "fatal: cuInit failed with CUresult=803 (CUDA_ERROR_SYSTEM_DRIVER_MISMATCH): system has unsupported display driver / cuda driver combination\n",
+      "stdout": "",
+      "timed_out": false
+    },
+    "kernel": "7.0.0-38-generic",
+    "module_load_or_unload_attempted": false,
+    "package": {
+      "bytes": 54671338,
+      "identity_verified": true,
+      "package_scripts_run": false,
+      "path": "/var/tmp/codex-r580-canary-20261023T095544Z-ab7b7b33/target/libnvidia-compute-580_580.196.07-1ubuntu1_amd64.deb",
+      "sha256": "b6a5b9a94267d1995a2bd54e7a9876961f3efb6928edbbcce675d09ea9cb2c8d"
+    },
+    "package_install_attempted": false,
+    "package_scripts_run": false,
+    "remote_script_sha256": "e700e64034f8363709977deeae7868edc4bfe7f6dc2948f0a952c80fcb8ed434",
+    "schema": "pc3-r580-userland-rtx5080-probe-v1",
+    "status": "probe-failed",
+    "user_library": {
+      "bytes": 96300904,
+      "isolated_loader_path": "/tmp/pc3-r580-userland-49w5uobr/r580/usr/lib/x86_64-linux-gnu",
+      "package_sha256": "b6a5b9a94267d1995a2bd54e7a9876961f3efb6928edbbcce675d09ea9cb2c8d",
+      "path": "/tmp/pc3-r580-userland-49w5uobr/r580/usr/lib/x86_64-linux-gnu/libcuda.so.580.196.07",
+      "sha256": "a5c77bf2de83c0ec06ecd368d224c3e0d653d658d6f99319921e976f21867b14"
+    },
+    "v100_guest_accessed": false
+  },
+  "remote_script_sha256": "e700e64034f8363709977deeae7868edc4bfe7f6dc2948f0a952c80fcb8ed434",
+  "remote_stage_dir": "/var/tmp/codex-r580-canary-20261023T095544Z-ab7b7b33",
+  "schema": "pc3-r580-userland-rtx5080-report-v1",
+  "ssh_exit_code": 0,
+  "ssh_stderr": "",
+  "ssh_stdout_sha256": "d2f8f2343a06cbb8deab59137d812a29f6f8c50a1a0156322ee640d4731a11c1",
+  "target": "pc3@pc3",
+  "v100_guest_accessed": false
+}

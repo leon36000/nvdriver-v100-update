@@ -1,0 +1,249 @@
+{
+  "apt_or_dpkg_install_invoked": false,
+  "apt_policy": [
+    {
+      "available_versions": [
+        "595.58.03-0ubuntu2",
+        "595.99.02-0ubuntu0.26.04.1",
+        "Candidate:",
+        "Installed:"
+      ],
+      "candidate": "595.99.02-0ubuntu0.26.04.1",
+      "exact_record": null,
+      "exact_record_found": false,
+      "installed": "595.99.02-0ubuntu0.26.04.1",
+      "package": "nvidia-driver-595-open",
+      "policy_exit_code": 0,
+      "requested_version": "595.91.07-0ubuntu0.26.04.1",
+      "show_exit_code": 0
+    },
+    {
+      "available_versions": [
+        "595.58.03-0ubuntu2",
+        "595.99.02-0ubuntu0.26.04.1",
+        "Candidate:",
+        "Installed:"
+      ],
+      "candidate": "595.99.02-0ubuntu0.26.04.1",
+      "exact_record": null,
+      "exact_record_found": false,
+      "installed": "595.99.02-0ubuntu0.26.04.1",
+      "package": "nvidia-kernel-common-595",
+      "policy_exit_code": 0,
+      "requested_version": "595.91.07-0ubuntu0.26.04.1",
+      "show_exit_code": 0
+    },
+    {
+      "available_versions": [
+        "595.58.03-0ubuntu2",
+        "595.99.02-0ubuntu0.26.04.1",
+        "Candidate:"
+      ],
+      "candidate": "595.99.02-0ubuntu0.26.04.1",
+      "exact_record": null,
+      "exact_record_found": false,
+      "installed": "(none)",
+      "package": "nvidia-dkms-595-open",
+      "policy_exit_code": 0,
+      "requested_version": "595.91.07-0ubuntu0.26.04.1",
+      "show_exit_code": 0
+    }
+  ],
+  "conclusion": {
+    "fallback_kernel_driver_stack_qualified": false,
+    "matching_595_91_07_deb_in_pc3_apt_archive_cache": false,
+    "matching_595_91_07_userland_in_configured_apt_views": false,
+    "reason": "The 7.0.0-34 module package contains driver 595.91.07 and requires nvidia-kernel-common in the 595.91.07 dependency range. PC3 configured apt views expose 595.99.02 and 595.58.03 but no exact 595.91.07 driver/common/DKMS record; the filtered PC3 apt archive cache contains no .91.07 deb. Current stock kernel modules and staged fallback modules share signer label/key identifier, but that alone does not qualify a matched driver stack or boot recovery."
+  },
+  "current_stock_module_metadata": [
+    {
+      "filename": "/lib/modules/7.0.0-38-generic/kernel/nvidia-595-open/nvidia.ko",
+      "name": "nvidia",
+      "sig_hashalgo": "sha512",
+      "sig_id": "PKCS#7",
+      "sig_key": "E9:DF:13:0F:92:92:A9:B7",
+      "signer": "Canonical Ltd. Kernel Module Signing",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "595.99.02"
+    },
+    {
+      "filename": "/lib/modules/7.0.0-38-generic/kernel/nvidia-595-open/nvidia-modeset.ko",
+      "name": "nvidia-modeset",
+      "sig_hashalgo": "sha512",
+      "sig_id": "PKCS#7",
+      "sig_key": "E9:DF:13:0F:92:92:A9:B7",
+      "signer": "Canonical Ltd. Kernel Module Signing",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "595.99.02"
+    },
+    {
+      "filename": "/lib/modules/7.0.0-38-generic/kernel/nvidia-595-open/nvidia-uvm.ko",
+      "name": "nvidia-uvm",
+      "sig_hashalgo": "sha512",
+      "sig_id": "PKCS#7",
+      "sig_key": "E9:DF:13:0F:92:92:A9:B7",
+      "signer": "Canonical Ltd. Kernel Module Signing",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "595.99.02"
+    },
+    {
+      "filename": "/lib/modules/7.0.0-38-generic/kernel/nvidia-595-open/nvidia-drm.ko",
+      "name": "nvidia-drm",
+      "sig_hashalgo": "sha512",
+      "sig_id": "PKCS#7",
+      "sig_key": "E9:DF:13:0F:92:92:A9:B7",
+      "signer": "Canonical Ltd. Kernel Module Signing",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "595.99.02"
+    }
+  ],
+  "fallback_kernel": "7.0.0-34-generic",
+  "fallback_module": {
+    "sig_hashalgo": "sha512",
+    "sig_id": "PKCS#7",
+    "sig_key": "E9:DF:13:0F:92:92:A9:B7",
+    "signer": "Canonical Ltd. Kernel Module Signing",
+    "vermagic": "7.0.0-34-generic SMP preempt mod_unload modversions",
+    "version": "595.91.07"
+  },
+  "host_transport": {
+    "host_key_alias": "pc3",
+    "ssh_host_key_checking": "strict",
+    "target": "pc3@pc3"
+  },
+  "kernel_booted": false,
+  "module_signing_key_identifier_matches_current_stock": true,
+  "observed_at_utc": "2026-10-28T00:18:29.781972+00:00",
+  "package_scripts_executed": false,
+  "pc3_apt_archive_filtered_debs": [
+    {
+      "bytes": 157868,
+      "name": "libnvidia-cfg1-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "c9b58e84e474dfb07c9cd4b677553a1a27a93f1a316f2312fcb2fc9d94f6ff91"
+    },
+    {
+      "bytes": 18570,
+      "name": "libnvidia-common-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "942a151eb4af7e3266458c80e9e948cd5e521ff489bd7c76bc23e7c9eb202a25"
+    },
+    {
+      "bytes": 85770234,
+      "name": "libnvidia-compute-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "a8f3ed02c0a89502b24a4fdf6a8dd88ffd646c254896cb3e12e8f74bebb06136"
+    },
+    {
+      "bytes": 3059774,
+      "name": "libnvidia-decode-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "76a50d7ada4f294e872288f8d453aace435204b3d622bc72a15fa670537b65b5"
+    },
+    {
+      "bytes": 118548,
+      "name": "libnvidia-encode-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "9b3a048077c21eb9f9118da0ef52a2e9ace710fc6fc6c4b3de2a4f392fb73467"
+    },
+    {
+      "bytes": 77406,
+      "name": "libnvidia-extra-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "8d3ecc17a894b8fb73b569b0ccfd14f00a4ef1086d232c77ec6f4ee3ba6efe25"
+    },
+    {
+      "bytes": 93852,
+      "name": "libnvidia-fbc1-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "7f742ec0a3addfd6ec319d58e22acc7321231535ace164cdefd9b35edecea074"
+    },
+    {
+      "bytes": 138928876,
+      "name": "libnvidia-gl-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "3c7e157b41892aa9d589f966fece636b808bb4e649a71cc2c9cbf7337007f6f7"
+    },
+    {
+      "bytes": 11740,
+      "name": "linux-modules-nvidia-580-7.0.0-38-generic_7.0.0-38.38+2_amd64.deb",
+      "sha256": "9901930e6ed8dc1ea3a09a87e2f141f0e5744897aef0100061d6a19ce2820445"
+    },
+    {
+      "bytes": 10044,
+      "name": "linux-modules-nvidia-580-generic_7.0.0-38.38+2_amd64.deb",
+      "sha256": "3195760f35824c635d1c303949330600de03bdfc313fb48d9d7e97d5c61c0fcc"
+    },
+    {
+      "bytes": 11740,
+      "name": "linux-modules-nvidia-595-7.0.0-38-generic_7.0.0-38.38+2_amd64.deb",
+      "sha256": "4fc9b5e93dd43b5fea534c1569825cb41017202c4d228024c3798cd895aa556a"
+    },
+    {
+      "bytes": 8052172,
+      "name": "linux-modules-nvidia-595-open-7.0.0-38-generic_7.0.0-38.38+2_amd64.deb",
+      "sha256": "f98818bce400ae37b3266d4be58880a07cbd2fb71d68b6021164943c3c1a366c"
+    },
+    {
+      "bytes": 10048,
+      "name": "linux-modules-nvidia-595-open-generic_7.0.0-38.38+2_amd64.deb",
+      "sha256": "147e68eb6b638ddad32b508d0029f6e18052f8000603786148390d462ab39219"
+    },
+    {
+      "bytes": 97936726,
+      "name": "linux-objects-nvidia-580-7.0.0-38-generic_7.0.0-38.38+2_amd64.deb",
+      "sha256": "3774870ca80aa60c933656a01fd16bc434b495e0d317e8a0760c0dc1ef148372"
+    },
+    {
+      "bytes": 92791376,
+      "name": "linux-objects-nvidia-595-7.0.0-38-generic_7.0.0-38.38+2_amd64.deb",
+      "sha256": "8014f428293af4351f54e1ba4befbaee06976f4a0edb8abaf6285a9082017f77"
+    },
+    {
+      "bytes": 17642,
+      "name": "linux-signatures-nvidia-7.0.0-38-generic_7.0.0-38.38+2_amd64.deb",
+      "sha256": "d8f8c40180083e301d70e8235305d1eed9112a713e016044f7a65a32a1830176"
+    },
+    {
+      "bytes": 134856,
+      "name": "nvidia-compute-utils-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "6d6885920c4e627f3a033b9e637f11b2a56a5a3f77dea6ab61be45636ae0ac6b"
+    },
+    {
+      "bytes": 39392,
+      "name": "nvidia-dkms-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "3ebdab0d07a965977c7515fb5cee888b0d7c7ced933b97b83e1915e6750865e5"
+    },
+    {
+      "bytes": 14158,
+      "name": "nvidia-driver-595-open_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "b2115b9f6d2485307db0e3df391122ac2612677f666bb59913a3e2269b9d4160"
+    },
+    {
+      "bytes": 508152,
+      "name": "nvidia-driver-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "9dc74576535725b987d0b1fc081ca1339f8e80d671fcaad9e1c64058d862c66a"
+    },
+    {
+      "bytes": 822334,
+      "name": "nvidia-kernel-common-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "20d9ed271ee10e509b672cb2899ccaeaf9facb922cb05fc7e3a485cfff04d551"
+    },
+    {
+      "bytes": 8324952,
+      "name": "nvidia-kernel-source-595-open_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "5434b4b228a07a82968618da1f88776fdb867ee67266d41f4dabc10825712bcd"
+    },
+    {
+      "bytes": 79557226,
+      "name": "nvidia-kernel-source-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "f7c80b563870cbc36010a136b8049351f0061915c7fa8488931c3c781145fbee"
+    }
+  ],
+  "qualification": "read-only-apt-policy-cache-and-module-metadata-analysis",
+  "remote_query_script_sha256": "298d47ed7af2bd377f9bf8d35562acaaabcfe0a2b39fe197d464743e5f6ffac2",
+  "schema": "pc3-r595-fallback-stack-compatibility-v2",
+  "source_host_snapshot": "evidence/pc3-canary-host-state-v37-20261028T001026Z.json",
+  "source_host_snapshot_sha256": "17d0e7360630ec3bda00467600c05ac65a835a9720369e2fd8adecd8041d3550",
+  "source_staged_package_report": "evidence/pc3-r595-fallback-package-stage-v1-20261028T001646Z.json",
+  "source_staged_package_report_sha256": "a5ae5fb1dd6448d17560c799b556e0d82ac99c2fc47705f10ecbfeaca58afeeb",
+  "supersedes": {
+    "path": "evidence/pc3-r595-fallback-stack-compatibility-v1-20261028T001731Z.json",
+    "reason": "adds PC3 apt archive inventory and stock-module signature key identifiers",
+    "sha256": "c6f62a564b15db1e34fcac2f29418def2d2464d8dbf82cb372b4bc716a675d61"
+  },
+  "system_changed": false,
+  "trust_scope": "same signer label and sig_key identifier observed on staged fallback modules and current stock modules; this does not cryptographically validate each staged signature or prove the runtime kernel would load the package"
+}

@@ -1,0 +1,752 @@
+{
+  "apt_simulation_reference": {
+    "apt_simulation_only": true,
+    "installed_nvidia_packages_removed": 18,
+    "report": "evidence/pc3-r595-fallback-stack-compatibility-v3-20261028T002248Z.json",
+    "server_open_packages_added": 18
+  },
+  "findings": [
+    {
+      "finding": "The DKMS package preinst can invoke /usr/bin/nvidia-uninstall -s when present, and the DKMS package postinst/prerm/postrm invoke DKMS and initramfs actions.",
+      "implication": "A package swap may remove an external .run installation, rebuild/remove NVIDIA DKMS modules, and update initramfs; those hooks were not executed."
+    },
+    {
+      "finding": "The kernel-common package postinst/postrm update initramfs and modify hybrid-graphics module configuration; its service hooks update NVIDIA suspend/resume/hibernate units.",
+      "implication": "Package configuration/removal changes boot and systemd state and requires a prepared, host-specific recovery plan."
+    },
+    {
+      "finding": "The compute-utils package preinst/prerm can stop nvidia-persistenced; the kernel-module package hooks run depmod.",
+      "implication": "Even a matched stack replacement can disrupt live driver services; no such operation is authorized or performed."
+    }
+  ],
+  "maintainer_scripts_invoked": false,
+  "observed_at_utc": "2026-10-28T00:26:02.297861+00:00",
+  "package_artifacts_modified": false,
+  "package_count": 18,
+  "packages": [
+    {
+      "control_scripts": [],
+      "deb_sha256": "9ba366cc999e027ca055998d56b8ba099f85f8b23032361aeec6c5441fc397c0",
+      "filename": "nvidia-firmware-595-server-595.91.07_595.91.07-0ubuntu0.26.04.2_amd64.deb",
+      "package": "nvidia-firmware-595-server-595.91.07",
+      "version": "595.91.07-0ubuntu0.26.04.2"
+    },
+    {
+      "control_scripts": [
+        {
+          "name": "postinst",
+          "safety_relevant_line_matches": [
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "initramfs"
+              ],
+              "line": 92,
+              "text": "        if [ -x /usr/sbin/update-initramfs ]; then"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "initramfs"
+              ],
+              "line": 93,
+              "text": "            /usr/sbin/update-initramfs -u"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "initramfs"
+              ],
+              "line": 97,
+              "text": "                /usr/sbin/update-initramfs -u -k $CURRENT_KERNEL"
+            }
+          ],
+          "sha256": "eed923e7b890699fe8bd7e49dd4c496d12b76da9b7a6d2514020e97f30c2cac8",
+          "size_bytes": 5707
+        },
+        {
+          "name": "postrm",
+          "safety_relevant_line_matches": [
+            {
+              "active_line_not_comment": false,
+              "categories": [
+                "module_configuration"
+              ],
+              "line": 25,
+              "text": "        # Remove the blacklist file for hybrid graphics"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "module_configuration"
+              ],
+              "line": 26,
+              "text": "        rm -f /etc/modprobe.d/nvidia-595-server_hybrid.conf"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "initramfs"
+              ],
+              "line": 29,
+              "text": "        if [ -x /usr/sbin/update-initramfs ]; then"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "initramfs"
+              ],
+              "line": 30,
+              "text": "            /usr/sbin/update-initramfs -u"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "service_control"
+              ],
+              "line": 49,
+              "text": "\tsystemctl --system daemon-reload >/dev/null || true"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "service_control"
+              ],
+              "line": 61,
+              "text": "\tsystemctl --system daemon-reload >/dev/null || true"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "service_control"
+              ],
+              "line": 73,
+              "text": "\tsystemctl --system daemon-reload >/dev/null || true"
+            }
+          ],
+          "sha256": "6b946dc9b83d4d3d91091e040597c90f53c8bafda017dfd47af9d04dcc417e7b",
+          "size_bytes": 2580
+        },
+        {
+          "name": "prerm",
+          "safety_relevant_line_matches": [
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "service_control"
+              ],
+              "line": 5,
+              "text": "\tdeb-systemd-invoke stop 'nvidia-suspend.service' >/dev/null || true"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "service_control"
+              ],
+              "line": 10,
+              "text": "\tdeb-systemd-invoke stop 'nvidia-resume.service' >/dev/null || true"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "service_control"
+              ],
+              "line": 15,
+              "text": "\tdeb-systemd-invoke stop 'nvidia-hibernate.service' >/dev/null || true"
+            }
+          ],
+          "sha256": "84548267a69ca3a510842db608050dee8f0d4114d7f4c68a910261aefefce78f",
+          "size_bytes": 747
+        },
+        {
+          "name": "triggers",
+          "safety_relevant_line_matches": [
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "initramfs"
+              ],
+              "line": 2,
+              "text": "activate-noawait update-initramfs"
+            }
+          ],
+          "sha256": "3e5578760988356fed4d8d453dba9b639e4a9247257dcacde471dbab785109ce",
+          "size_bytes": 87
+        }
+      ],
+      "deb_sha256": "33a67749b6c98c70f960617929f253038d5f3fc05efa6f499f304e63f7ba8edf",
+      "filename": "nvidia-kernel-common-595-server_595.91.07-0ubuntu0.26.04.2_amd64.deb",
+      "package": "nvidia-kernel-common-595-server",
+      "version": "595.91.07-0ubuntu0.26.04.2"
+    },
+    {
+      "control_scripts": [
+        {
+          "name": "triggers",
+          "safety_relevant_line_matches": [],
+          "sha256": "ce389f23d049c29114d6f767d233337326c3b061ee5cde9485f98acf2a9f4536",
+          "size_bytes": 73
+        }
+      ],
+      "deb_sha256": "37325a03d50bfd303525012792d44c4388aaae57022b4df2bc2dd92c17e6d2d2",
+      "filename": "libnvidia-cfg1-595-server_595.91.07-0ubuntu0.26.04.2_amd64.deb",
+      "package": "libnvidia-cfg1-595-server",
+      "version": "595.91.07-0ubuntu0.26.04.2"
+    },
+    {
+      "control_scripts": [],
+      "deb_sha256": "16fdbf37ce9a102c2c70ca0c62e4f39dfd8c663a6ff073b3af34a7b93200ffb8",
+      "filename": "libnvidia-common-595-server_595.91.07-0ubuntu0.26.04.2_amd64.deb",
+      "package": "libnvidia-common-595-server",
+      "version": "595.91.07-0ubuntu0.26.04.2"
+    },
+    {
+      "control_scripts": [
+        {
+          "name": "triggers",
+          "safety_relevant_line_matches": [],
+          "sha256": "ce389f23d049c29114d6f767d233337326c3b061ee5cde9485f98acf2a9f4536",
+          "size_bytes": 73
+        }
+      ],
+      "deb_sha256": "e40cc6c7454c66014145fc6c5cc7cd3c8fcf4e1ed27ee736ccd73653a9106d8c",
+      "filename": "libnvidia-compute-595-server_595.91.07-0ubuntu0.26.04.2_amd64.deb",
+      "package": "libnvidia-compute-595-server",
+      "version": "595.91.07-0ubuntu0.26.04.2"
+    },
+    {
+      "control_scripts": [
+        {
+          "name": "triggers",
+          "safety_relevant_line_matches": [],
+          "sha256": "ce389f23d049c29114d6f767d233337326c3b061ee5cde9485f98acf2a9f4536",
+          "size_bytes": 73
+        }
+      ],
+      "deb_sha256": "0167a9a0debdf600dee1e52c6d41a4aa2295a6166e34d220a7f95030fc3d35f1",
+      "filename": "libnvidia-decode-595-server_595.91.07-0ubuntu0.26.04.2_amd64.deb",
+      "package": "libnvidia-decode-595-server",
+      "version": "595.91.07-0ubuntu0.26.04.2"
+    },
+    {
+      "control_scripts": [
+        {
+          "name": "triggers",
+          "safety_relevant_line_matches": [],
+          "sha256": "ce389f23d049c29114d6f767d233337326c3b061ee5cde9485f98acf2a9f4536",
+          "size_bytes": 73
+        }
+      ],
+      "deb_sha256": "288df6f9c510c517c0696e826685df4d323cdecfb717534284a11bdc95643c97",
+      "filename": "libnvidia-encode-595-server_595.91.07-0ubuntu0.26.04.2_amd64.deb",
+      "package": "libnvidia-encode-595-server",
+      "version": "595.91.07-0ubuntu0.26.04.2"
+    },
+    {
+      "control_scripts": [
+        {
+          "name": "triggers",
+          "safety_relevant_line_matches": [],
+          "sha256": "ce389f23d049c29114d6f767d233337326c3b061ee5cde9485f98acf2a9f4536",
+          "size_bytes": 73
+        }
+      ],
+      "deb_sha256": "317fceaf1c35baa0310988b362fbc8398c1d80d8dc1fa4a1958befc4a84ce470",
+      "filename": "libnvidia-extra-595-server_595.91.07-0ubuntu0.26.04.2_amd64.deb",
+      "package": "libnvidia-extra-595-server",
+      "version": "595.91.07-0ubuntu0.26.04.2"
+    },
+    {
+      "control_scripts": [
+        {
+          "name": "triggers",
+          "safety_relevant_line_matches": [],
+          "sha256": "ce389f23d049c29114d6f767d233337326c3b061ee5cde9485f98acf2a9f4536",
+          "size_bytes": 73
+        }
+      ],
+      "deb_sha256": "76dbaab11ae7ea3b1e058be9e6a5a4e57f3be2bed6dc600fdcb0edb5099ef0cd",
+      "filename": "libnvidia-fbc1-595-server_595.91.07-0ubuntu0.26.04.2_amd64.deb",
+      "package": "libnvidia-fbc1-595-server",
+      "version": "595.91.07-0ubuntu0.26.04.2"
+    },
+    {
+      "control_scripts": [
+        {
+          "name": "triggers",
+          "safety_relevant_line_matches": [],
+          "sha256": "ce389f23d049c29114d6f767d233337326c3b061ee5cde9485f98acf2a9f4536",
+          "size_bytes": 73
+        }
+      ],
+      "deb_sha256": "77d7524e0e750d2f1bc0c0e622b8b53de3a4047a7c34b9a1234ea5d78cb0cc60",
+      "filename": "libnvidia-gl-595-server_595.91.07-0ubuntu0.26.04.2_amd64.deb",
+      "package": "libnvidia-gl-595-server",
+      "version": "595.91.07-0ubuntu0.26.04.2"
+    },
+    {
+      "control_scripts": [
+        {
+          "name": "postinst",
+          "safety_relevant_line_matches": [
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "depmod"
+              ],
+              "line": 11,
+              "text": "depmod -a -F /boot/System.map-$version $version || true"
+            }
+          ],
+          "sha256": "861da940e2703e72f2461b068446f796191ea57a8cdb036033fa0dd2656def40",
+          "size_bytes": 449
+        },
+        {
+          "name": "postrm",
+          "safety_relevant_line_matches": [
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "depmod"
+              ],
+              "line": 11,
+              "text": "depmod -a -F /boot/System.map-$version $version 2>/dev/null || true"
+            }
+          ],
+          "sha256": "d48354532a6dae9af7ecc069cb4138886bc057ca0e80e3933ec72ba6d1f4c049",
+          "size_bytes": 736
+        }
+      ],
+      "deb_sha256": "1d7990b04af3db2c8db770f9a2164ac8245e1b184c876c545ab3856550fed337",
+      "filename": "linux-modules-nvidia-595-server-open-7.0.0-34-generic_7.0.0-34.34+1_amd64.deb",
+      "package": "linux-modules-nvidia-595-server-open-7.0.0-34-generic",
+      "version": "7.0.0-34.34+1"
+    },
+    {
+      "control_scripts": [
+        {
+          "name": "postinst",
+          "safety_relevant_line_matches": [
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "depmod"
+              ],
+              "line": 11,
+              "text": "depmod -a -F /boot/System.map-$version $version || true"
+            }
+          ],
+          "sha256": "df452cf168563852f80a1afc3443f3f90c650a63a11e746924e30e9b173532fd",
+          "size_bytes": 449
+        },
+        {
+          "name": "postrm",
+          "safety_relevant_line_matches": [
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "depmod"
+              ],
+              "line": 11,
+              "text": "depmod -a -F /boot/System.map-$version $version 2>/dev/null || true"
+            }
+          ],
+          "sha256": "47b25d8357ec9c71e85d7c4f468e482d937cc1421ef213aaa8b8656b982ed8ca",
+          "size_bytes": 736
+        }
+      ],
+      "deb_sha256": "2965a6ae8795dddd581697446d11b6ee54c0072acdfe2b9dcdff49aec08d3d7f",
+      "filename": "linux-modules-nvidia-595-server-open-7.0.0-38-generic_7.0.0-38.38+2_amd64.deb",
+      "package": "linux-modules-nvidia-595-server-open-7.0.0-38-generic",
+      "version": "7.0.0-38.38+2"
+    },
+    {
+      "control_scripts": [
+        {
+          "name": "postinst",
+          "safety_relevant_line_matches": [
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "account_management"
+              ],
+              "line": 17,
+              "text": "            adduser --system --no-create-home --home /nonexistent \\"
+            }
+          ],
+          "sha256": "54a3fe969e1d93d859c9a2a4bbef7c3fe606b1daaa826f54d82960f6c7d4cd3b",
+          "size_bytes": 675
+        },
+        {
+          "name": "postrm",
+          "safety_relevant_line_matches": [
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "account_management"
+              ],
+              "line": 28,
+              "text": "            userdel \"$NVPD_USER\" || true"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "service_control"
+              ],
+              "line": 47,
+              "text": "\tsystemctl --system daemon-reload >/dev/null || true"
+            }
+          ],
+          "sha256": "381af21444e2a382db3ef3f74df29221391e18e11f14c52038adb6e35383514a",
+          "size_bytes": 1342
+        },
+        {
+          "name": "preinst",
+          "safety_relevant_line_matches": [
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "service_control"
+              ],
+              "line": 29,
+              "text": "    if [ -e /usr/bin/stop-nvidia-persistenced ] && [ -x /usr/bin/stop-nvidia-persistenced ]; then"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "service_control"
+              ],
+              "line": 31,
+              "text": "        /usr/bin/stop-nvidia-persistenced || true"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "service_control"
+              ],
+              "line": 34,
+              "text": "        if [ -x /bin/systemctl ]; then"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "service_control"
+              ],
+              "line": 35,
+              "text": "            /bin/systemctl stop --no-block nvidia-persistenced || true"
+            }
+          ],
+          "sha256": "74e663d9fa47b6d39013d1088a0d23979ef67e6fe913c5e2eaad1defc4e65c59",
+          "size_bytes": 1624
+        },
+        {
+          "name": "prerm",
+          "safety_relevant_line_matches": [
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "service_control"
+              ],
+              "line": 9,
+              "text": "    if [ -e /usr/bin/stop-nvidia-persistenced ] && [ -x /usr/bin/stop-nvidia-persistenced ]; then"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "service_control"
+              ],
+              "line": 11,
+              "text": "        /usr/bin/stop-nvidia-persistenced || true"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "service_control"
+              ],
+              "line": 14,
+              "text": "        if [ -x /bin/systemctl ]; then"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "service_control"
+              ],
+              "line": 15,
+              "text": "            /bin/systemctl stop --no-block nvidia-persistenced || true"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "service_control"
+              ],
+              "line": 28,
+              "text": "\tdeb-systemd-invoke stop 'nvidia-persistenced.service' >/dev/null || true"
+            }
+          ],
+          "sha256": "98e86a9bc0d7870d9327fc28e03125a662c7d005d64c79e57c7cfab497b90316",
+          "size_bytes": 904
+        }
+      ],
+      "deb_sha256": "e39e891ec34aaac10a09228bf8c4229f60b2be2e9f3e5269ff09e0c8c6ee82d8",
+      "filename": "nvidia-compute-utils-595-server_595.91.07-0ubuntu0.26.04.2_amd64.deb",
+      "package": "nvidia-compute-utils-595-server",
+      "version": "595.91.07-0ubuntu0.26.04.2"
+    },
+    {
+      "control_scripts": [],
+      "deb_sha256": "b0002631fdaeb0e6aa2b3eefb6f65d74ea968d209e987acfc41a12f448ff1a41",
+      "filename": "nvidia-kernel-source-595-server-open_595.91.07-0ubuntu0.26.04.2_amd64.deb",
+      "package": "nvidia-kernel-source-595-server-open",
+      "version": "595.91.07-0ubuntu0.26.04.2"
+    },
+    {
+      "control_scripts": [
+        {
+          "name": "postinst",
+          "safety_relevant_line_matches": [
+            {
+              "active_line_not_comment": false,
+              "categories": [
+                "dkms"
+              ],
+              "line": 2,
+              "text": "# postinst script for nvidia-dkms-595-server-open"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "alternatives"
+              ],
+              "line": 112,
+              "text": "        if [ -n \"$(update-alternatives --list gl_conf 2>/dev/null)\" ]; then"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "alternatives"
+              ],
+              "line": 113,
+              "text": "            set -a $(update-alternatives --list gl_conf 2>/dev/null)"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "alternatives"
+              ],
+              "line": 116,
+              "text": "                update-alternatives --remove gl_conf $ALTERNATIVE"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "initramfs"
+              ],
+              "line": 125,
+              "text": "        if [ -x /usr/sbin/update-initramfs ]; then"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "initramfs"
+              ],
+              "line": 126,
+              "text": "            /usr/sbin/update-initramfs -u"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "initramfs"
+              ],
+              "line": 130,
+              "text": "                /usr/sbin/update-initramfs -u -k $CURRENT_KERNEL"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "dkms"
+              ],
+              "line": 140,
+              "text": "        /usr/lib/dkms/common.postinst $PACKAGE_NAME $CVERSION /usr/share/$PACKAGE_NAME $ARCH $2"
+            }
+          ],
+          "sha256": "7ccf56e05ebb3ab198a4067e766b6bb27efe991661a79e4449a81f659ec1a464",
+          "size_bytes": 4120
+        },
+        {
+          "name": "postrm",
+          "safety_relevant_line_matches": [
+            {
+              "active_line_not_comment": false,
+              "categories": [
+                "dkms"
+              ],
+              "line": 2,
+              "text": "# postrm script for nvidia-dkms-595-server-open"
+            },
+            {
+              "active_line_not_comment": false,
+              "categories": [
+                "module_configuration"
+              ],
+              "line": 30,
+              "text": "        # Remove the blacklist file for hybrid graphics"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "module_configuration"
+              ],
+              "line": 31,
+              "text": "        rm -f /etc/modprobe.d/nvidia-595-server_hybrid.conf"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "initramfs"
+              ],
+              "line": 34,
+              "text": "        if [ -x /usr/sbin/update-initramfs ]; then"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "initramfs"
+              ],
+              "line": 35,
+              "text": "            /usr/sbin/update-initramfs -u"
+            }
+          ],
+          "sha256": "d2396c62cb27e44d5f60aebf83ebc0c9108169642341652693dd1f375030ec53",
+          "size_bytes": 1422
+        },
+        {
+          "name": "preinst",
+          "safety_relevant_line_matches": [
+            {
+              "active_line_not_comment": false,
+              "categories": [
+                "dkms"
+              ],
+              "line": 2,
+              "text": "# preinst script for nvidia-dkms-595-server-open"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "installer_uninstall"
+              ],
+              "line": 24,
+              "text": "    if [ -x /usr/bin/nvidia-uninstall ]; then"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "installer_uninstall"
+              ],
+              "line": 25,
+              "text": "        /usr/bin/nvidia-uninstall -s || :"
+            },
+            {
+              "active_line_not_comment": false,
+              "categories": [
+                "service_control"
+              ],
+              "line": 34,
+              "text": "    #if [ -e /usr/bin/stop-nvidia-persistenced ] && [ -x /usr/bin/stop-nvidia-persistenced ]; then"
+            },
+            {
+              "active_line_not_comment": false,
+              "categories": [
+                "service_control"
+              ],
+              "line": 36,
+              "text": "    #    /usr/bin/stop-nvidia-persistenced || true"
+            },
+            {
+              "active_line_not_comment": false,
+              "categories": [
+                "service_control"
+              ],
+              "line": 39,
+              "text": "    #    if [ -x /bin/systemctl ]; then"
+            },
+            {
+              "active_line_not_comment": false,
+              "categories": [
+                "service_control"
+              ],
+              "line": 40,
+              "text": "    #        /bin/systemctl stop --no-block nvidia-persistenced || true"
+            }
+          ],
+          "sha256": "c851301e583ca4625a0b41e68549f010c6c7345603bd432a3e90b681b319a363",
+          "size_bytes": 1819
+        },
+        {
+          "name": "prerm",
+          "safety_relevant_line_matches": [
+            {
+              "active_line_not_comment": false,
+              "categories": [
+                "dkms"
+              ],
+              "line": 2,
+              "text": "# prerm script for nvidia-dkms-595-server-open"
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "dkms"
+              ],
+              "line": 14,
+              "text": "    echo \"Removing all DKMS Modules\""
+            },
+            {
+              "active_line_not_comment": true,
+              "categories": [
+                "dkms"
+              ],
+              "line": 15,
+              "text": "    dkms remove -m $PACKAGE_NAME -v $CVERSION --all > /dev/null"
+            }
+          ],
+          "sha256": "9d6fefcfaebacf6f14a731e6a4a18fd90571e5f53f87cef9c6a18b7cd512b539",
+          "size_bytes": 634
+        }
+      ],
+      "deb_sha256": "34bddc5e4bf08564f906b03574610e4177ba0a618d672e575626392ccf1a6e8b",
+      "filename": "nvidia-dkms-595-server-open_595.91.07-0ubuntu0.26.04.2_amd64.deb",
+      "package": "nvidia-dkms-595-server-open",
+      "version": "595.91.07-0ubuntu0.26.04.2"
+    },
+    {
+      "control_scripts": [],
+      "deb_sha256": "0cf456e68960bb8985d356db7d2c280f5292b59a4e7c574965002aa510037697",
+      "filename": "nvidia-utils-595-server_595.91.07-0ubuntu0.26.04.2_amd64.deb",
+      "package": "nvidia-utils-595-server",
+      "version": "595.91.07-0ubuntu0.26.04.2"
+    },
+    {
+      "control_scripts": [],
+      "deb_sha256": "dac0af4fe9bfc64545b93118d84fdf3620f6f6a15aca64d55968b703a3f99481",
+      "filename": "xserver-xorg-video-nvidia-595-server_595.91.07-0ubuntu0.26.04.2_amd64.deb",
+      "package": "xserver-xorg-video-nvidia-595-server",
+      "version": "595.91.07-0ubuntu0.26.04.2"
+    },
+    {
+      "control_scripts": [],
+      "deb_sha256": "6494a0f13b107fa189240991d4ba423d860ed4451bc19e26aeaab2246bc4a750",
+      "filename": "nvidia-driver-595-server-open_595.91.07-0ubuntu0.26.04.2_amd64.deb",
+      "package": "nvidia-driver-595-server-open",
+      "version": "595.91.07-0ubuntu0.26.04.2"
+    }
+  ],
+  "packages_with_control_files": 12,
+  "pc3_or_system_changed": false,
+  "qualification": "control scripts extracted with dpkg-deb -e into temporary directory and read only; no script, apt/dpkg install transaction, package hook, module load, service operation, or system change executed",
+  "scanner_note": "Keyword hits are source excerpts with comment status; they are review aids, not a complete shell semantic analysis or safety guarantee.",
+  "schema": "pc3-r595-server-fallback-control-script-audit-v1",
+  "source_stage_report": "evidence/pc3-r595-server-fallback-package-stage-v1-20261028T002315Z.json",
+  "source_stage_report_sha256": "26150304e2b10dcd050ed01bc61758a4691894937d67702463c692dafcbe46a0",
+  "status": "static-maintainer-script-review-complete"
+}

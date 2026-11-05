@@ -1,0 +1,203 @@
+{
+  "active_module_count": 191,
+  "active_module_inventory_scope": "all",
+  "active_nvidia_modules": [
+    "nvidia",
+    "nvidia_drm",
+    "nvidia_modeset",
+    "nvidia_uvm"
+  ],
+  "blockers": [
+    {
+      "code": "loaded_module_name_conflict",
+      "detail": "candidate frontend module name nvidia is already loaded on the target host"
+    },
+    {
+      "code": "loaded_module_name_conflict",
+      "detail": "candidate uvm module name nvidia_uvm is already loaded on the target host"
+    },
+    {
+      "code": "unsigned_modules_rejected_by_policy",
+      "detail": "kernel policy requires signatures; unsigned roles: open, legacy, frontend, uvm"
+    },
+    {
+      "code": "signature_trust_unverified",
+      "detail": "signature policy is active, but trust for the exact candidate signatures has not been verified against the target kernel keyrings"
+    },
+    {
+      "code": "standard_device_numbers_in_use",
+      "detail": "candidate reserves major 195 minors 0-247 and 255; active nodes overlap: 195:0, 195:255"
+    },
+    {
+      "code": "standard_device_major_in_use",
+      "detail": "candidate reserves character-device major 195; /proc/devices assigns it to: nvidia, nvidia-modeset, nvidiactl"
+    },
+    {
+      "code": "character_device_name_in_use",
+      "detail": "candidate UVM registration label nvidia-uvm is already present in the target /proc/devices inventory; its major would be ambiguous to name-based userspace discovery"
+    }
+  ],
+  "canary_ready": false,
+  "candidate_bundle_validation": {
+    "audit_report": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/r58019607-static-bundle-audit-v8-20261029.json",
+      "sha256": "59aed6b600eb8ef7fb0c5f5781e05c06eff570ea56d2258eac4ac15760176b7e"
+    },
+    "dependency_order": {
+      "nvidia": [
+        "hybrid580_open.ko",
+        "hybrid580_legacy.ko",
+        "nvidia.ko"
+      ],
+      "nvidia_uvm": [
+        "hybrid580_open.ko",
+        "hybrid580_legacy.ko",
+        "nvidia.ko",
+        "nvidia_uvm.ko"
+      ]
+    },
+    "depmod_report": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/r58019607-static-bundle-depmod-v6-20261029.json",
+      "sha256": "d6e341348075340dab473b5091eb9e10820422c84ca72b71ddf4829b8d31f679"
+    },
+    "loaded_or_installed": false,
+    "module_count": 4,
+    "qualification": "static-bundle-and-kmod-order-validated",
+    "runtime_or_hardware_validated": false,
+    "versions": {
+      "frontend": "",
+      "legacy": "580.196.07",
+      "open": "580.196.07",
+      "uvm": "580.196.07"
+    }
+  },
+  "candidate_chardev_name_conflicts": [
+    {
+      "major": 511,
+      "name": "nvidia-uvm"
+    }
+  ],
+  "candidate_module_name_conflicts": [
+    {
+      "name": "nvidia",
+      "role": "frontend"
+    },
+    {
+      "name": "nvidia_uvm",
+      "role": "uvm"
+    }
+  ],
+  "candidate_modules": {
+    "frontend": {
+      "bytes": 3097912,
+      "depends": "hybrid580_open,hybrid580_legacy",
+      "name": "nvidia",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r58019607-hybrid-frontend-v16-20261029/nvidia.ko",
+      "role": "frontend",
+      "sha256": "69ffa87d0c04e6ac5108954e0819e65af04f904947e12be453b77d59f16e6d0f",
+      "sig_key": "",
+      "signer": "",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": ""
+    },
+    "legacy": {
+      "bytes": 136933968,
+      "depends": "",
+      "name": "hybrid580_legacy",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r58019607-proprietary-module-build-v7-20261029/source/hybrid580_legacy.ko",
+      "role": "legacy",
+      "sha256": "76c1f47b5d2edf8fceb4f59109b1c07dd54b77a4bd61b19cfcb5c08be150d5ed",
+      "sig_key": "",
+      "signer": "",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.196.07"
+    },
+    "open": {
+      "bytes": 38242192,
+      "depends": "",
+      "name": "hybrid580_open",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-open-client-share-policy-v1/private/NVIDIA-kernel-module-source-580.196.07/kernel-open/hybrid580_open.ko",
+      "role": "open",
+      "sha256": "b7a3ae3761d3ea8b609165ba16ac83cb7640eb3a8e4bb9a5f3cbb2a2f3adf5e3",
+      "sig_key": "",
+      "signer": "",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.196.07"
+    },
+    "uvm": {
+      "bytes": 62595280,
+      "depends": "nvidia",
+      "name": "nvidia_uvm",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r58019607-uvm-consumer-v14-20261029/NVIDIA-kernel-module-source-580.196.07/kernel-open/nvidia-uvm.ko",
+      "role": "uvm",
+      "sha256": "5c5434d0b1bda02a12095e84618d46d8f9f60d2613359c25e80247d25f28a1a9",
+      "sig_key": "",
+      "signer": "",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.196.07"
+    }
+  },
+  "candidate_versions": {
+    "legacy": "580.196.07",
+    "open": "580.196.07",
+    "uvm": "580.196.07"
+  },
+  "evidence_refs": [],
+  "expected_frontend_module_name": "nvidia",
+  "expected_module_names": {
+    "frontend": "nvidia",
+    "legacy": "hybrid580_legacy",
+    "open": "hybrid580_open",
+    "uvm": "nvidia_uvm"
+  },
+  "expected_uvm_chardev_name": "nvidia-uvm",
+  "host": "pc3",
+  "kernel_release": "7.0.0-38-generic",
+  "observed_at_utc": "2026-10-29T09:38:55.658225Z",
+  "preflight_inputs": {
+    "candidate_bundle_audit": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/r58019607-static-bundle-audit-v8-20261029.json",
+      "sha256": "59aed6b600eb8ef7fb0c5f5781e05c06eff570ea56d2258eac4ac15760176b7e"
+    },
+    "candidate_depmod_report": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/r58019607-static-bundle-depmod-v6-20261029.json",
+      "sha256": "d6e341348075340dab473b5091eb9e10820422c84ca72b71ddf4829b8d31f679"
+    },
+    "expected_frontend_module_name": "nvidia",
+    "expected_uvm_chardev_name": "nvidia-uvm",
+    "expected_uvm_module_name": "nvidia_uvm",
+    "frontend_source": {
+      "bytes": 8278,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/hybrid580-standard-node-devices.c",
+      "sha256": "a5c24f593aa81cb3f49e07210901b8eb076ae3939224f1b67d87be82cedf2f5a"
+    },
+    "host_state": {
+      "bytes": 28052,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-canary-host-state-r580196-preflight-v1-20261029T0940Z.json",
+      "sha256": "fd85a751144ebdcfdb3b0b3481475e9ef8fc943f49a63e0589f496deaa507d03"
+    },
+    "node_header": {
+      "bytes": 1804,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-open-client-share-policy-v1/private/NVIDIA-kernel-module-source-580.196.07/src/nvidia/arch/nvalloc/unix/include/nv-chardev-numbers.h",
+      "sha256": "405047bb836229f55f39955d2565e2aad2e470bd796bdf6b6f7a8795fe12ea64"
+    },
+    "tool": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/audit_pc3_canary_preflight.py",
+      "sha256": "1fdb81510bdcde8048cd6f32159e25fc89580100903f46e216ab05cafe450221"
+    }
+  },
+  "qualification": "static-preflight-only",
+  "runtime_validated": false,
+  "schema": "nvidia-hybrid-canary-preflight-v5",
+  "signature_policy_requires_signature": true,
+  "signature_trust_verified": false,
+  "standard_node_layout": {
+    "control_minor": 255,
+    "gpu_minor_first": 0,
+    "gpu_minor_last": 247,
+    "major": 195
+  },
+  "status": "blocked",
+  "tool_installed_modules": false,
+  "tool_loaded_modules": false
+}

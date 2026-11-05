@@ -1,0 +1,30 @@
+{
+  "error": "PC3 returned no valid JSON result",
+  "observed_at_utc": "2026-10-20T22:52:57.000418+00:00",
+  "qualification": "failed",
+  "remote": null,
+  "schema": "nvidia-hybrid-pc3-rm-root-id-host-run-v1",
+  "ssh_exit_code": 2,
+  "ssh_stderr": "  File \"<string>\", line 1\n    import\n          ^\nSyntaxError: Expected one or more names after 'import'\nbash: line 2: from: command not found\nbash: -c: line 4: syntax error near unexpected token `('\nbash: -c: line 4: `def fail(message): raise ValueError(message)'\n",
+  "ssh_stdout": "",
+  "target": "pc3@pc3",
+  "v100_source": {
+    "guest": {
+      "driver_version": "580.178.04",
+      "hostname": "pc3-v100",
+      "kernel_release": "6.8.0-147-generic",
+      "memory_total_mib": "16384",
+      "memory_used_mib_before": "0",
+      "name": "Tesla V100-SXM2-16GB",
+      "pci": "0000:00:05.0",
+      "temperature_c_before": "51",
+      "utilization_percent_before": "0",
+      "uuid": "GPU-42d06a85-027a-75ea-7857-a8de27ad465e"
+    },
+    "observed_at_utc": "2026-10-20T22:33:38+00:00",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-v100-rm-ioctl-reference-v1-20261020.json",
+    "record_index": 0,
+    "root_id": 3251650101,
+    "sha256": "ce8625081edbb98a8da676b2567053e11d6a4f04b8f24ec97b9dcb9cc1887d1e"
+  }
+}

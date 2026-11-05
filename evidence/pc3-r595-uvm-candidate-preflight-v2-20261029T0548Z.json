@@ -1,0 +1,72 @@
+{
+  "blockers": [
+    {
+      "code": "active-uvm-device-conflict",
+      "detail": "active UVM device nodes are owned by the loaded production module"
+    },
+    {
+      "code": "active-uvm-module-conflict",
+      "detail": "nvidia_uvm is loaded; replacing it requires a controlled module handoff"
+    },
+    {
+      "code": "gpu-process-state-not-captured",
+      "detail": "the host snapshot does not contain a process-level GPU-use inventory"
+    },
+    {
+      "code": "host-gpu-owned-by-nvidia",
+      "detail": "a host GPU is bound to NVIDIA; replacing UVM can interrupt CUDA on that GPU"
+    },
+    {
+      "code": "mok-certificate-not-enrolled",
+      "detail": "the local module-signing certificate is not enrolled in MOK"
+    },
+    {
+      "code": "operational-recovery-unproven",
+      "detail": "verified package archives do not prove module, boot, or service restoration"
+    },
+    {
+      "code": "signature-trust-unverified",
+      "detail": "the captured host inventory does not prove this module signature is trusted by the running kernel"
+    },
+    {
+      "code": "unsigned-under-enforced-signature-policy",
+      "detail": "candidate has no module signature while signature enforcement is active"
+    }
+  ],
+  "canary_ready": false,
+  "candidate_module": {
+    "depends": "nvidia",
+    "name": "nvidia_uvm",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-tracker-reserve-oom-injection-v1-20261029/candidate/nvidia-uvm.ko",
+    "sha256": "a13a1a4e8a9ac6e4e5cf6a841e54f20c7bf7eb6682f28b3fb839e2f4040272cf",
+    "sig_hashalgo": "",
+    "sig_key": "",
+    "signer": "",
+    "size_bytes": 62116984,
+    "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+    "version": "595.99.02"
+  },
+  "host": "pc3",
+  "host_snapshot": {
+    "observed_at_utc": "2026-10-29T05:37:43.799983Z",
+    "sha256": "0ea7fe19dae9c8a3b45638df118b48eb4cff22f5bc2669fc3079d89139ed7e4d"
+  },
+  "kernel_release": "7.0.0-38-generic",
+  "loaded_nvidia_module_version": "595.99.02",
+  "observed_at_utc": "2026-10-29T05:47:44.841851+00:00",
+  "qualification": "offline-exact-candidate-static-preflight",
+  "recovery_audit": {
+    "archive_count": 20,
+    "operational_recovery_proven": false,
+    "sha256": "5d8ec68c12a5e903883114b3e51f9153a41fffbca846e7bd76547d8feda111d7"
+  },
+  "runtime_validated": false,
+  "schema": "pc3-r595-uvm-candidate-preflight-v1",
+  "state_changes": {
+    "module_installed": false,
+    "module_loaded": false,
+    "module_signed": false,
+    "pc3_contacted": false
+  },
+  "status": "blocked"
+}

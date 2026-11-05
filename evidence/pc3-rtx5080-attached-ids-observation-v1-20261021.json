@@ -1,0 +1,270 @@
+{
+  "attached_ids_capture_requested": true,
+  "exit_code": 2,
+  "gpu_id_info_capture_requested": true,
+  "host_key_alias": "pc3",
+  "local_artifacts": {
+    "module": {
+      "bytes": 15608,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-selected-v1/hybrid_probe.sm70-sm120.fatbin",
+      "sha256": "fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305"
+    },
+    "observer": {
+      "bytes": 84024,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/rm-ioctl-observer-attached-ids-v1-20261021/rm_ioctl_observer",
+      "sha256": "e9f24e31e6b00035eb9515420e3e6d0f4ab77bbcd64e627dabcfe87e760e2157"
+    },
+    "probe": {
+      "bytes": 83112,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-selected-v1/hybrid_cuda_probe",
+      "sha256": "9fcdf39fab21a879b24cc75fbe412478c99f4213c6b11e9273be33182408f923"
+    },
+    "runner": {
+      "bytes": 21132,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests/run_hybrid_acceptance.py",
+      "sha256": "cbb5dabf495739dc5b976568722aeb11612a1480a64aec37e75d18d3f6e308fd"
+    }
+  },
+  "local_artifacts_after": {
+    "module": {
+      "bytes": 15608,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-selected-v1/hybrid_probe.sm70-sm120.fatbin",
+      "sha256": "fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305"
+    },
+    "observer": {
+      "bytes": 84024,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/rm-ioctl-observer-attached-ids-v1-20261021/rm_ioctl_observer",
+      "sha256": "e9f24e31e6b00035eb9515420e3e6d0f4ab77bbcd64e627dabcfe87e760e2157"
+    },
+    "probe": {
+      "bytes": 83112,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-selected-v1/hybrid_cuda_probe",
+      "sha256": "9fcdf39fab21a879b24cc75fbe412478c99f4213c6b11e9273be33182408f923"
+    },
+    "runner": {
+      "bytes": 21132,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests/run_hybrid_acceptance.py",
+      "sha256": "cbb5dabf495739dc5b976568722aeb11612a1480a64aec37e75d18d3f6e308fd"
+    }
+  },
+  "managed_prefetch_requested": false,
+  "memory_mode": "device",
+  "observed_at_utc": "2026-10-21T05:37:13.658879+00:00",
+  "remote": {
+    "artifacts_after": {
+      "module": {
+        "bytes": 15608,
+        "path": "/tmp/hybrid-rtx5080-phnje_5e/module",
+        "sha256": "fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305"
+      },
+      "observer": {
+        "bytes": 84024,
+        "path": "/tmp/hybrid-rtx5080-phnje_5e/observer",
+        "sha256": "e9f24e31e6b00035eb9515420e3e6d0f4ab77bbcd64e627dabcfe87e760e2157"
+      },
+      "probe": {
+        "bytes": 83112,
+        "path": "/tmp/hybrid-rtx5080-phnje_5e/probe",
+        "sha256": "9fcdf39fab21a879b24cc75fbe412478c99f4213c6b11e9273be33182408f923"
+      },
+      "runner": {
+        "bytes": 21132,
+        "path": "/tmp/hybrid-rtx5080-phnje_5e/runner",
+        "sha256": "cbb5dabf495739dc5b976568722aeb11612a1480a64aec37e75d18d3f6e308fd"
+      }
+    },
+    "artifacts_before": {
+      "module": {
+        "bytes": 15608,
+        "path": "/tmp/hybrid-rtx5080-phnje_5e/module",
+        "sha256": "fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305"
+      },
+      "observer": {
+        "bytes": 84024,
+        "path": "/tmp/hybrid-rtx5080-phnje_5e/observer",
+        "sha256": "e9f24e31e6b00035eb9515420e3e6d0f4ab77bbcd64e627dabcfe87e760e2157"
+      },
+      "probe": {
+        "bytes": 83112,
+        "path": "/tmp/hybrid-rtx5080-phnje_5e/probe",
+        "sha256": "9fcdf39fab21a879b24cc75fbe412478c99f4213c6b11e9273be33182408f923"
+      },
+      "runner": {
+        "bytes": 21132,
+        "path": "/tmp/hybrid-rtx5080-phnje_5e/runner",
+        "sha256": "cbb5dabf495739dc5b976568722aeb11612a1480a64aec37e75d18d3f6e308fd"
+      }
+    },
+    "attached_ids_capture_requested": true,
+    "child_environment_policy": {
+      "CUDA_VISIBLE_DEVICES": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77",
+      "PATH": "/usr/bin:/bin",
+      "removed_prefixes": [
+        "LD_",
+        "CUDA_",
+        "NVIDIA_",
+        "PYTHON"
+      ]
+    },
+    "commands": [
+      {
+        "argv": [
+          "nvidia-smi",
+          "-i",
+          "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77",
+          "--query-gpu=name,uuid,pci.bus_id,driver_version",
+          "--format=csv,noheader,nounits"
+        ],
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "NVIDIA GeForce RTX 5080, GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77, 00000000:02:00.0, 595.99.02\n"
+      },
+      {
+        "argv": [
+          "/tmp/hybrid-rtx5080-phnje_5e/probe",
+          "--list",
+          "--expected-pci",
+          "0000:02:00.0"
+        ],
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "{\"schema\":\"nvidia-hybrid-probe-v2\",\"status\":\"inventory\",\"hybrid_validated\":false,\"required_set_passed\":false,\"context_coexistence_passed\":false,\"execution_mode\":\"resident-contexts-sequential-kernels\",\"concurrent_kernel_execution_validated\":false,\"driver_library_path\":\"/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02\",\"driver_api\":13020,\"required_sm\":[70,120],\"missing_sm\":[],\"devices\":[{\"ordinal\":0,\"name\":\"NVIDIA GeForce RTX 5080\",\"pci_bus_id\":\"0000:02:00.0\",\"compute_capability\":\"12.0\",\"sm\":120,\"targeted\":false,\"tested\":false,\"architecture_kernel_passed\":false,\"synchronous_passed\":false,\"synchronous_sizes\":[],\"asynchronous_passed\":false,\"asynchronous_sizes\":[],\"cleanup_passed\":true,\"cleanup_errors\":[],\"error\":\"\"}]}\n"
+      },
+      {
+        "argv": [
+          "/usr/bin/python3",
+          "/tmp/hybrid-rtx5080-phnje_5e/runner",
+          "--probe",
+          "/tmp/hybrid-rtx5080-phnje_5e/probe",
+          "--module",
+          "/tmp/hybrid-rtx5080-phnje_5e/module",
+          "--evidence-dir",
+          "/tmp/hybrid-rtx5080-phnje_5e/evidence",
+          "--expected-pci",
+          "0000:02:00.0",
+          "--timeout",
+          "70",
+          "--ioctl-observer",
+          "/tmp/hybrid-rtx5080-phnje_5e/observer",
+          "--gpu-id-info",
+          "--attached-ids"
+        ],
+        "exit_code": 2,
+        "stderr": "usage: runner [-h] [--strict] [--allow-incomplete] [--timeout TIMEOUT]\n              [--probe PROBE] [--module MODULE] [--evidence-dir EVIDENCE_DIR]\n              [--expected-pci EXPECTED_PCI] [--managed-memory]\n              [--managed-prefetch] [--ioctl-observer IOCTL_OBSERVER]\n              [--gpu-id-info] [--ioctl-trace]\n              [--ioctl-trace-output IOCTL_TRACE_OUTPUT]\n              [--strace-binary STRACE_BINARY] [--trace-helper TRACE_HELPER]\nrunner: error: unrecognized arguments: --attached-ids\n",
+        "stdout": ""
+      }
+    ],
+    "device_selection": {
+      "pci": "0000:02:00.0",
+      "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77"
+    },
+    "error": "Expecting value: line 1 column 1 (char 0)",
+    "execution_scope": {
+      "basis": "script actions and recorded command scope; not independent attestation",
+      "experimental_driver_change_requested": false,
+      "official_module_autoload_observed": null,
+      "v100_test_requested": false,
+      "vm_management_commands_issued": false
+    },
+    "exit_code": 2,
+    "gpu_id_info_capture_requested": true,
+    "hardware_acceptance": null,
+    "host": "pc3",
+    "kernel_release": "7.0.0-38-generic",
+    "managed_memory_validated": false,
+    "managed_prefetch_requested": false,
+    "managed_prefetch_validated": false,
+    "memory_mode": "device",
+    "preflight": {
+      "concurrent_kernel_execution_validated": false,
+      "context_coexistence_passed": false,
+      "devices": [
+        {
+          "architecture_kernel_passed": false,
+          "asynchronous_passed": false,
+          "asynchronous_sizes": [],
+          "cleanup_errors": [],
+          "cleanup_passed": true,
+          "compute_capability": "12.0",
+          "error": "",
+          "name": "NVIDIA GeForce RTX 5080",
+          "ordinal": 0,
+          "pci_bus_id": "0000:02:00.0",
+          "sm": 120,
+          "synchronous_passed": false,
+          "synchronous_sizes": [],
+          "targeted": false,
+          "tested": false
+        }
+      ],
+      "driver_api": 13020,
+      "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+      "execution_mode": "resident-contexts-sequential-kernels",
+      "hybrid_validated": false,
+      "missing_sm": [],
+      "required_set_passed": false,
+      "required_sm": [
+        70,
+        120
+      ],
+      "schema": "nvidia-hybrid-probe-v2",
+      "status": "inventory"
+    },
+    "qualification": "failed",
+    "remote_script_sha256": "57ff5a846b6e9ea130b2441696e10fd289eeb1b6ca320fbb9b89eda4b41099e0",
+    "remote_work_directory": "/tmp/hybrid-rtx5080-phnje_5e",
+    "schema": "nvidia-hybrid-remote-selected-gpu-v1",
+    "selected_nvidia_smi": {
+      "driver": "595.99.02",
+      "name": "NVIDIA GeForce RTX 5080",
+      "pci": "00000000:02:00.0",
+      "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77"
+    },
+    "selected_proc_information": {
+      "binding": "nvidia",
+      "fields": {
+        "Bus Location": "0000:02:00.0",
+        "Bus Type": "PCIe",
+        "DMA Mask": "0xfffffffffffff",
+        "DMA Size": "52 bits",
+        "Device Minor": "0",
+        "GPU Excluded": "No",
+        "GPU Firmware": "595.99.02",
+        "GPU UUID": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77",
+        "IRQ": "16",
+        "Model": "NVIDIA GeForce RTX 5080",
+        "Video BIOS": "98.03.3b.c0.3e"
+      },
+      "path": "/proc/driver/nvidia/gpus/0000:02:00.0/information"
+    }
+  },
+  "remote_script_sha256": "57ff5a846b6e9ea130b2441696e10fd289eeb1b6ca320fbb9b89eda4b41099e0",
+  "schema": "nvidia-hybrid-remote-selected-gpu-transport-v1",
+  "ssh_argv": [
+    "ssh",
+    "-F",
+    "/dev/null",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "ConnectTimeout=10",
+    "-o",
+    "ConnectionAttempts=1",
+    "-o",
+    "HostKeyAlias=pc3",
+    "--",
+    "pc3@pc3",
+    "python3 -c '\nimport base64, gzip, hashlib, json, os, socket, subprocess, sys, tempfile\nfrom pathlib import Path\n\ndef canonical_pci(value):\n    import re\n    match = re.fullmatch(r\"([0-9a-fA-F]{4}|[0-9a-fA-F]{8}):([0-9a-fA-F]{2}):([0-9a-fA-F]{2})\\.([0-7])\", value)\n    if not match:\n        raise ValueError(\"invalid PCI identity\")\n    domain, bus, slot, function = [int(part, 16) for part in match.groups()]\n    if domain > 65535 or slot > 31:\n        raise ValueError(\"PCI identity out of supported range\")\n    return f\"{domain:04x}:{bus:02x}:{slot:02x}.{function:x}\"\n\ndef selected_device(report, pci):\n    devices = report.get(\"devices\", [])\n    if len(devices) != 1:\n        raise ValueError(\"expected exactly one visible GPU\")\n    device = devices[0]\n    if canonical_pci(device.get(\"pci_bus_id\", \"\")) != canonical_pci(pci):\n        raise ValueError(\"visible PCI identity mismatch\")\n    if device.get(\"sm\") != 120 or \"RTX 5080\" not in device.get(\"name\", \"\"):\n        raise ValueError(\"visible device is not RTX 5080 SM120\")\n    return device\n\ndef clean_environment(source, uuid):\n    env = {key: value for key, value in source.items()\n           if not key.startswith((\"LD_\", \"CUDA_\", \"NVIDIA_\", \"PYTHON\"))}\n    env[\"CUDA_VISIBLE_DEVICES\"] = uuid\n    env[\"PATH\"] = \"/usr/bin:/bin\"\n    env[\"LC_ALL\"] = \"C\"\n    return env\n\ndef run(payload, proc_root=Path('\"'\"'/proc'\"'\"'), sys_root=Path('\"'\"'/sys'\"'\"'), invoke=subprocess.run):\n    managed_requested = payload.get('\"'\"'managed_memory'\"'\"', False)\n    if type(managed_requested) is not bool:\n        raise ValueError('\"'\"'managed-memory selection must be boolean'\"'\"')\n    prefetch_requested = payload.get('\"'\"'managed_prefetch'\"'\"', False)\n    if type(prefetch_requested) is not bool:\n        raise ValueError('\"'\"'managed-prefetch selection must be boolean'\"'\"')\n    if prefetch_requested and not managed_requested:\n        raise ValueError('\"'\"'managed-prefetch requires managed-memory mode'\"'\"')\n    report = {\"schema\": \"nvidia-hybrid-remote-selected-gpu-v1\", \"host\": socket.gethostname(),\n              \"kernel_release\": os.uname().release, \"commands\": [], \"hardware_acceptance\": None,\n              \"memory_mode\": \"managed\" if managed_requested else \"device\",\n              \"managed_memory_validated\": False,\n              \"managed_prefetch_requested\": prefetch_requested,\n              \"managed_prefetch_validated\": False,\n              \"device_selection\": {\"uuid\": payload[\"uuid\"], \"pci\": payload[\"pci\"]},\n              \"gpu_id_info_capture_requested\": payload.get(\"gpu_id_info_capture\", False),\n              \"attached_ids_capture_requested\": payload.get(\"attached_ids_capture\", False),\n              \"remote_script_sha256\": payload[\"remote_script_sha256\"],\n              \"execution_scope\": {\"vm_management_commands_issued\": False,\n                                  \"v100_test_requested\": False,\n                                  \"experimental_driver_change_requested\": False,\n                                  \"official_module_autoload_observed\": None,\n                                  \"basis\": \"script actions and recorded command scope; not independent attestation\"}}\n    try:\n        pci = canonical_pci(payload['\"'\"'pci'\"'\"'])\n        uuid = payload['\"'\"'uuid'\"'\"']\n        work = Path(tempfile.mkdtemp(prefix='\"'\"'hybrid-rtx5080-'\"'\"'))\n        report['\"'\"'remote_work_directory'\"'\"'] = str(work)\n        before = {}\n        names = ['\"'\"'probe'\"'\"', '\"'\"'module'\"'\"', '\"'\"'runner'\"'\"'] + (['\"'\"'observer'\"'\"'] if '\"'\"'observer'\"'\"' in payload['\"'\"'artifacts'\"'\"'] else [])\n        if payload.get('\"'\"'ioctl_trace'\"'\"'):\n            names.append('\"'\"'trace-helper'\"'\"')\n        for name in names:\n            item = payload['\"'\"'artifacts'\"'\"'][name]\n            data = base64.b64decode(item['\"'\"'base64'\"'\"'], validate=True)\n            digest = hashlib.sha256(data).hexdigest()\n            if digest != item['\"'\"'sha256'\"'\"']:\n                raise ValueError('\"'\"'uploaded artifact hash mismatch: '\"'\"' + name)\n            path = work / name\n            with path.open('\"'\"'xb'\"'\"') as stream:\n                stream.write(data)\n            path.chmod(0o700 if name in ('\"'\"'probe'\"'\"', '\"'\"'observer'\"'\"') else 0o600)\n            before[name] = {\"path\": str(path), \"sha256\": digest, \"bytes\": len(data)}\n        report['\"'\"'artifacts_before'\"'\"'] = before\n        # Only read the selected function'\"'\"'s metadata before starting NVML/CUDA.\n        alternatives = [pci, '\"'\"'0000'\"'\"' + pci]\n        infos = [proc_root / '\"'\"'driver/nvidia/gpus'\"'\"' / candidate / '\"'\"'information'\"'\"' for candidate in alternatives]\n        infos = [path for path in infos if path.is_file()]\n        if len(infos) != 1:\n            raise ValueError('\"'\"'selected GPU /proc identity unavailable or ambiguous'\"'\"')\n        info = infos[0].read_text()\n        fields = dict(line.split('\"'\"':'\"'\"', 1) for line in info.splitlines() if '\"'\"':'\"'\"' in line)\n        fields = {key.strip(): value.strip() for key, value in fields.items()}\n        driver_path = sys_root / '\"'\"'bus/pci/devices'\"'\"' / pci / '\"'\"'driver'\"'\"'\n        binding = driver_path.resolve(strict=True).name\n        report['\"'\"'selected_proc_information'\"'\"'] = {\"path\": str(infos[0]), \"fields\": fields, \"binding\": binding}\n        if fields.get('\"'\"'GPU UUID'\"'\"') != uuid or '\"'\"'RTX 5080'\"'\"' not in fields.get('\"'\"'Model'\"'\"', '\"'\"''\"'\"') or binding != '\"'\"'nvidia'\"'\"':\n            raise ValueError('\"'\"'selected GPU UUID/model/driver binding mismatch'\"'\"')\n        env = clean_environment(os.environ, uuid)\n        report['\"'\"'child_environment_policy'\"'\"'] = {\"CUDA_VISIBLE_DEVICES\": uuid, \"PATH\": env['\"'\"'PATH'\"'\"'],\n                                              \"removed_prefixes\": ['\"'\"'LD_'\"'\"', '\"'\"'CUDA_'\"'\"', '\"'\"'NVIDIA_'\"'\"', '\"'\"'PYTHON'\"'\"']}\n        def command(argv, timeout):\n            try:\n                result = invoke(argv, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,\n                                env=env, timeout=timeout, check=False)\n            except subprocess.TimeoutExpired:\n                report['\"'\"'commands'\"'\"'].append({\"argv\": argv, \"exit_code\": 124, \"timeout\": True})\n                raise ValueError('\"'\"'remote child timed out'\"'\"')\n            report['\"'\"'commands'\"'\"'].append({\"argv\": argv, \"exit_code\": result.returncode,\n                                       \"stdout\": result.stdout, \"stderr\": result.stderr})\n            return result\n        smi = command(['\"'\"'nvidia-smi'\"'\"', '\"'\"'-i'\"'\"', uuid, '\"'\"'--query-gpu=name,uuid,pci.bus_id,driver_version'\"'\"',\n                       '\"'\"'--format=csv,noheader,nounits'\"'\"'], 15)\n        if smi.returncode:\n            raise ValueError('\"'\"'targeted nvidia-smi failed'\"'\"')\n        rows = [row.strip().split('\"'\"','\"'\"') for row in smi.stdout.splitlines() if row.strip()]\n        if len(rows) != 1 or len(rows[0]) != 4:\n            raise ValueError('\"'\"'unexpected targeted nvidia-smi inventory'\"'\"')\n        name, observed_uuid, observed_pci, driver = [part.strip() for part in rows[0]]\n        if observed_uuid != uuid or canonical_pci(observed_pci) != pci or '\"'\"'RTX 5080'\"'\"' not in name:\n            raise ValueError('\"'\"'targeted nvidia-smi identity mismatch'\"'\"')\n        report['\"'\"'selected_nvidia_smi'\"'\"'] = {\"name\": name, \"uuid\": observed_uuid, \"pci\": observed_pci, \"driver\": driver}\n        preflight = command([str(work / '\"'\"'probe'\"'\"'), '\"'\"'--list'\"'\"', '\"'\"'--expected-pci'\"'\"', pci], 30)\n        if preflight.returncode:\n            raise ValueError('\"'\"'CUDA inventory preflight failed'\"'\"')\n        report['\"'\"'preflight'\"'\"'] = json.loads(preflight.stdout)\n        if report['\"'\"'preflight'\"'\"'].get('\"'\"'schema'\"'\"') != '\"'\"'nvidia-hybrid-probe-v2'\"'\"' or report['\"'\"'preflight'\"'\"'].get('\"'\"'status'\"'\"') != '\"'\"'inventory'\"'\"':\n            raise ValueError('\"'\"'unexpected CUDA preflight report contract'\"'\"')\n        selected_device(report['\"'\"'preflight'\"'\"'], pci)\n        argv = [sys.executable, str(work / '\"'\"'runner'\"'\"'), '\"'\"'--probe'\"'\"', str(work / '\"'\"'probe'\"'\"'),\n                '\"'\"'--module'\"'\"', str(work / '\"'\"'module'\"'\"'), '\"'\"'--evidence-dir'\"'\"', str(work / '\"'\"'evidence'\"'\"'),\n                '\"'\"'--expected-pci'\"'\"', pci,\n                '\"'\"'--timeout'\"'\"', ('\"'\"'90'\"'\"' if payload.get('\"'\"'ioctl_trace'\"'\"') else\n                              ('\"'\"'80'\"'\"' if managed_requested else ('\"'\"'70'\"'\"' if '\"'\"'observer'\"'\"' in names else '\"'\"'60'\"'\"')))]\n        if managed_requested:\n            argv.append('\"'\"'--managed-memory'\"'\"')\n        if prefetch_requested:\n            argv.append('\"'\"'--managed-prefetch'\"'\"')\n        if '\"'\"'observer'\"'\"' in names:\n            argv += ['\"'\"'--ioctl-observer'\"'\"', str(work / '\"'\"'observer'\"'\"')]\n            if payload.get('\"'\"'gpu_id_info_capture'\"'\"'):\n                argv.append('\"'\"'--gpu-id-info'\"'\"')\n            if payload.get('\"'\"'attached_ids_capture'\"'\"'):\n                argv.append('\"'\"'--attached-ids'\"'\"')\n        if payload.get('\"'\"'ioctl_trace'\"'\"'):\n            argv += ['\"'\"'--ioctl-trace'\"'\"', '\"'\"'--trace-helper'\"'\"', str(work / '\"'\"'trace-helper'\"'\"'),\n                     '\"'\"'--strace-binary'\"'\"', '\"'\"'/usr/bin/strace'\"'\"', '\"'\"'--ioctl-trace-output'\"'\"',\n                     str(work / '\"'\"'cuda-ioctl.strace'\"'\"')]\n        result = command(argv, 105 if payload.get('\"'\"'ioctl_trace'\"'\"') else\n                         (95 if managed_requested else (85 if '\"'\"'observer'\"'\"' in names else 75)))\n        acceptance = json.loads(result.stdout)\n        report['\"'\"'hardware_acceptance'\"'\"'] = acceptance\n        if payload.get('\"'\"'ioctl_trace'\"'\"'):\n            trace = acceptance.get('\"'\"'ioctl_trace'\"'\"')\n            if not isinstance(trace, dict) or not isinstance(trace.get('\"'\"'trace'\"'\"'), dict):\n                raise ValueError('\"'\"'requested CUDA ioctl trace is missing'\"'\"')\n            trace_path = Path(trace['\"'\"'trace'\"'\"'].get('\"'\"'path'\"'\"', '\"'\"''\"'\"'))\n            expected_trace_path = work / '\"'\"'cuda-ioctl.strace'\"'\"'\n            if trace_path != expected_trace_path or not trace_path.is_file():\n                raise ValueError('\"'\"'CUDA ioctl trace path is outside the private remote workspace'\"'\"')\n            raw = trace_path.read_bytes()\n            if len(raw) > 8 * 1024 * 1024:\n                raise ValueError('\"'\"'CUDA ioctl trace exceeds the raw transport limit'\"'\"')\n            compressed = gzip.compress(raw, mtime=0)\n            if len(compressed) > 1024 * 1024:\n                raise ValueError('\"'\"'compressed CUDA ioctl trace exceeds the transport limit'\"'\"')\n            report['\"'\"'ioctl_trace_transport'\"'\"'] = {\n                '\"'\"'gzip_base64'\"'\"': base64.b64encode(compressed).decode('\"'\"'ascii'\"'\"'),\n                '\"'\"'gzip_bytes'\"'\"': len(compressed),\n                '\"'\"'gzip_sha256'\"'\"': hashlib.sha256(compressed).hexdigest(),\n                '\"'\"'raw_bytes'\"'\"': len(raw),\n                '\"'\"'raw_sha256'\"'\"': hashlib.sha256(raw).hexdigest(),\n            }\n        if '\"'\"'observer'\"'\"' in names:\n            observed = (acceptance.get('\"'\"'ioctl_observation'\"'\"') or {}).get('\"'\"'report'\"'\"') or {}\n            id_capture = bool(payload.get('\"'\"'gpu_id_info_capture'\"'\"'))\n            attached_capture = bool(payload.get('\"'\"'attached_ids_capture'\"'\"'))\n            expected_schema = ('\"'\"'nvidia-hybrid-rm-ioctl-observer-v4'\"'\"' if attached_capture else\n                               '\"'\"'nvidia-hybrid-rm-ioctl-observer-v3'\"'\"' if id_capture else\n                               '\"'\"'nvidia-hybrid-rm-ioctl-observer-v1'\"'\"')\n            scope = ('\"'\"'exact NV0000_CTRL_CMD_GPU_GET_ID_INFO_V2 and NV0000_CTRL_CMD_GPU_GET_ATTACHED_IDS payloads only; addresses omitted'\"'\"'\n                     if id_capture and attached_capture else\n                     '\"'\"'exact NV0000_CTRL_CMD_GPU_GET_ATTACHED_IDS payload only; addresses omitted'\"'\"'\n                     if attached_capture else\n                     '\"'\"'exact NV0000_CTRL_CMD_GPU_GET_ID_INFO_V2 payload only; addresses omitted'\"'\"'\n                     if id_capture else None)\n            scope_ok = observed.get('\"'\"'nested_pointer_scope'\"'\"') == scope\n            nested_requested = id_capture or attached_capture\n            if (observed.get('\"'\"'schema'\"'\"') != expected_schema or\n                observed.get('\"'\"'trace_complete'\"'\"') is not True or observed.get('\"'\"'errors'\"'\"') != [] or\n                observed.get('\"'\"'child_exit_code'\"'\"') != result.returncode or\n                observed.get('\"'\"'control_path'\"'\"') != '\"'\"'/dev/nvidiactl'\"'\"' or\n                observed.get('\"'\"'nested_pointers_read'\"'\"') is not nested_requested or\n                (nested_requested and not scope_ok) or\n                not isinstance(observed.get('\"'\"'records'\"'\"'), list)):\n                raise ValueError('\"'\"'missing or incomplete ioctl observation'\"'\"')\n        acceptance_probe = acceptance.get('\"'\"'probe'\"'\"') or {}\n        targeted = selected_device(acceptance_probe, pci)\n        expected_memory_mode = '\"'\"'managed'\"'\"' if managed_requested else '\"'\"'device'\"'\"'\n        if (acceptance_probe.get('\"'\"'memory_mode'\"'\"') != expected_memory_mode or\n            targeted.get('\"'\"'managed_memory_passed'\"'\"') is not managed_requested):\n            raise ValueError('\"'\"'managed-memory result differs from the requested mode'\"'\"')\n        report['\"'\"'managed_memory_validated'\"'\"'] = managed_requested\n        if (acceptance_probe.get('\"'\"'managed_prefetch_requested'\"'\"') is not prefetch_requested or\n            targeted.get('\"'\"'managed_prefetch_passed'\"'\"') is not prefetch_requested):\n            raise ValueError('\"'\"'managed-prefetch result differs from the requested mode'\"'\"')\n        report['\"'\"'managed_prefetch_validated'\"'\"'] = prefetch_requested\n        probe = acceptance['\"'\"'probe'\"'\"']\n        if (result.returncode != 77 or acceptance.get('\"'\"'exit_code'\"'\"') != 77 or\n            acceptance.get('\"'\"'qualification'\"'\"') != '\"'\"'incomplete-hardware-missing'\"'\"' or\n            acceptance.get('\"'\"'validation_errors'\"'\"') != [] or\n            probe.get('\"'\"'hybrid_validated'\"'\"') is not False or probe.get('\"'\"'missing_sm'\"'\"') != [70] or\n            probe.get('\"'\"'required_sm'\"'\"') != [70, 120]):\n            raise ValueError('\"'\"'RTX-only result is not a truthful incomplete hybrid acceptance'\"'\"')\n        report['\"'\"'qualification'\"'\"'] = '\"'\"'rtx5080-reference-validated-hybrid-incomplete'\"'\"'\n        code = 77\n    except Exception as error:\n        report['\"'\"'qualification'\"'\"'] = '\"'\"'failed'\"'\"'\n        report['\"'\"'error'\"'\"'] = str(error)\n        code = 2\n    # Even a failing run retains all transferred files and evidence for inspection.\n    if '\"'\"'artifacts_before'\"'\"' in report:\n        report['\"'\"'artifacts_after'\"'\"'] = {}\n        for name, item in report['\"'\"'artifacts_before'\"'\"'].items():\n            try:\n                data = Path(item['\"'\"'path'\"'\"']).read_bytes()\n                report['\"'\"'artifacts_after'\"'\"'][name] = {\"path\": item['\"'\"'path'\"'\"'], \"sha256\": hashlib.sha256(data).hexdigest(), \"bytes\": len(data)}\n            except OSError as error:\n                report['\"'\"'artifacts_after'\"'\"'][name] = {\"error\": str(error)}\n        if report['\"'\"'artifacts_after'\"'\"'] != report['\"'\"'artifacts_before'\"'\"']:\n            report['\"'\"'qualification'\"'\"'], report['\"'\"'error'\"'\"'], code = '\"'\"'failed'\"'\"', '\"'\"'artifacts changed during execution'\"'\"', 2\n    report['\"'\"'exit_code'\"'\"'] = code\n    return report, code\n\nif __name__ == '\"'\"'__main__'\"'\"':\n    report, code = run(json.load(sys.stdin))\n    print(json.dumps(report, sort_keys=True))\n    raise SystemExit(code)\n'"
+  ],
+  "ssh_exit_code": 2,
+  "ssh_stderr": "",
+  "ssh_stdout": "{\"artifacts_after\": {\"module\": {\"bytes\": 15608, \"path\": \"/tmp/hybrid-rtx5080-phnje_5e/module\", \"sha256\": \"fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305\"}, \"observer\": {\"bytes\": 84024, \"path\": \"/tmp/hybrid-rtx5080-phnje_5e/observer\", \"sha256\": \"e9f24e31e6b00035eb9515420e3e6d0f4ab77bbcd64e627dabcfe87e760e2157\"}, \"probe\": {\"bytes\": 83112, \"path\": \"/tmp/hybrid-rtx5080-phnje_5e/probe\", \"sha256\": \"9fcdf39fab21a879b24cc75fbe412478c99f4213c6b11e9273be33182408f923\"}, \"runner\": {\"bytes\": 21132, \"path\": \"/tmp/hybrid-rtx5080-phnje_5e/runner\", \"sha256\": \"cbb5dabf495739dc5b976568722aeb11612a1480a64aec37e75d18d3f6e308fd\"}}, \"artifacts_before\": {\"module\": {\"bytes\": 15608, \"path\": \"/tmp/hybrid-rtx5080-phnje_5e/module\", \"sha256\": \"fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305\"}, \"observer\": {\"bytes\": 84024, \"path\": \"/tmp/hybrid-rtx5080-phnje_5e/observer\", \"sha256\": \"e9f24e31e6b00035eb9515420e3e6d0f4ab77bbcd64e627dabcfe87e760e2157\"}, \"probe\": {\"bytes\": 83112, \"path\": \"/tmp/hybrid-rtx5080-phnje_5e/probe\", \"sha256\": \"9fcdf39fab21a879b24cc75fbe412478c99f4213c6b11e9273be33182408f923\"}, \"runner\": {\"bytes\": 21132, \"path\": \"/tmp/hybrid-rtx5080-phnje_5e/runner\", \"sha256\": \"cbb5dabf495739dc5b976568722aeb11612a1480a64aec37e75d18d3f6e308fd\"}}, \"attached_ids_capture_requested\": true, \"child_environment_policy\": {\"CUDA_VISIBLE_DEVICES\": \"GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77\", \"PATH\": \"/usr/bin:/bin\", \"removed_prefixes\": [\"LD_\", \"CUDA_\", \"NVIDIA_\", \"PYTHON\"]}, \"commands\": [{\"argv\": [\"nvidia-smi\", \"-i\", \"GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77\", \"--query-gpu=name,uuid,pci.bus_id,driver_version\", \"--format=csv,noheader,nounits\"], \"exit_code\": 0, \"stderr\": \"\", \"stdout\": \"NVIDIA GeForce RTX 5080, GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77, 00000000:02:00.0, 595.99.02\\n\"}, {\"argv\": [\"/tmp/hybrid-rtx5080-phnje_5e/probe\", \"--list\", \"--expected-pci\", \"0000:02:00.0\"], \"exit_code\": 0, \"stderr\": \"\", \"stdout\": \"{\\\"schema\\\":\\\"nvidia-hybrid-probe-v2\\\",\\\"status\\\":\\\"inventory\\\",\\\"hybrid_validated\\\":false,\\\"required_set_passed\\\":false,\\\"context_coexistence_passed\\\":false,\\\"execution_mode\\\":\\\"resident-contexts-sequential-kernels\\\",\\\"concurrent_kernel_execution_validated\\\":false,\\\"driver_library_path\\\":\\\"/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02\\\",\\\"driver_api\\\":13020,\\\"required_sm\\\":[70,120],\\\"missing_sm\\\":[],\\\"devices\\\":[{\\\"ordinal\\\":0,\\\"name\\\":\\\"NVIDIA GeForce RTX 5080\\\",\\\"pci_bus_id\\\":\\\"0000:02:00.0\\\",\\\"compute_capability\\\":\\\"12.0\\\",\\\"sm\\\":120,\\\"targeted\\\":false,\\\"tested\\\":false,\\\"architecture_kernel_passed\\\":false,\\\"synchronous_passed\\\":false,\\\"synchronous_sizes\\\":[],\\\"asynchronous_passed\\\":false,\\\"asynchronous_sizes\\\":[],\\\"cleanup_passed\\\":true,\\\"cleanup_errors\\\":[],\\\"error\\\":\\\"\\\"}]}\\n\"}, {\"argv\": [\"/usr/bin/python3\", \"/tmp/hybrid-rtx5080-phnje_5e/runner\", \"--probe\", \"/tmp/hybrid-rtx5080-phnje_5e/probe\", \"--module\", \"/tmp/hybrid-rtx5080-phnje_5e/module\", \"--evidence-dir\", \"/tmp/hybrid-rtx5080-phnje_5e/evidence\", \"--expected-pci\", \"0000:02:00.0\", \"--timeout\", \"70\", \"--ioctl-observer\", \"/tmp/hybrid-rtx5080-phnje_5e/observer\", \"--gpu-id-info\", \"--attached-ids\"], \"exit_code\": 2, \"stderr\": \"usage: runner [-h] [--strict] [--allow-incomplete] [--timeout TIMEOUT]\\n              [--probe PROBE] [--module MODULE] [--evidence-dir EVIDENCE_DIR]\\n              [--expected-pci EXPECTED_PCI] [--managed-memory]\\n              [--managed-prefetch] [--ioctl-observer IOCTL_OBSERVER]\\n              [--gpu-id-info] [--ioctl-trace]\\n              [--ioctl-trace-output IOCTL_TRACE_OUTPUT]\\n              [--strace-binary STRACE_BINARY] [--trace-helper TRACE_HELPER]\\nrunner: error: unrecognized arguments: --attached-ids\\n\", \"stdout\": \"\"}], \"device_selection\": {\"pci\": \"0000:02:00.0\", \"uuid\": \"GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77\"}, \"error\": \"Expecting value: line 1 column 1 (char 0)\", \"execution_scope\": {\"basis\": \"script actions and recorded command scope; not independent attestation\", \"experimental_driver_change_requested\": false, \"official_module_autoload_observed\": null, \"v100_test_requested\": false, \"vm_management_commands_issued\": false}, \"exit_code\": 2, \"gpu_id_info_capture_requested\": true, \"hardware_acceptance\": null, \"host\": \"pc3\", \"kernel_release\": \"7.0.0-38-generic\", \"managed_memory_validated\": false, \"managed_prefetch_requested\": false, \"managed_prefetch_validated\": false, \"memory_mode\": \"device\", \"preflight\": {\"concurrent_kernel_execution_validated\": false, \"context_coexistence_passed\": false, \"devices\": [{\"architecture_kernel_passed\": false, \"asynchronous_passed\": false, \"asynchronous_sizes\": [], \"cleanup_errors\": [], \"cleanup_passed\": true, \"compute_capability\": \"12.0\", \"error\": \"\", \"name\": \"NVIDIA GeForce RTX 5080\", \"ordinal\": 0, \"pci_bus_id\": \"0000:02:00.0\", \"sm\": 120, \"synchronous_passed\": false, \"synchronous_sizes\": [], \"targeted\": false, \"tested\": false}], \"driver_api\": 13020, \"driver_library_path\": \"/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02\", \"execution_mode\": \"resident-contexts-sequential-kernels\", \"hybrid_validated\": false, \"missing_sm\": [], \"required_set_passed\": false, \"required_sm\": [70, 120], \"schema\": \"nvidia-hybrid-probe-v2\", \"status\": \"inventory\"}, \"qualification\": \"failed\", \"remote_script_sha256\": \"57ff5a846b6e9ea130b2441696e10fd289eeb1b6ca320fbb9b89eda4b41099e0\", \"remote_work_directory\": \"/tmp/hybrid-rtx5080-phnje_5e\", \"schema\": \"nvidia-hybrid-remote-selected-gpu-v1\", \"selected_nvidia_smi\": {\"driver\": \"595.99.02\", \"name\": \"NVIDIA GeForce RTX 5080\", \"pci\": \"00000000:02:00.0\", \"uuid\": \"GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77\"}, \"selected_proc_information\": {\"binding\": \"nvidia\", \"fields\": {\"Bus Location\": \"0000:02:00.0\", \"Bus Type\": \"PCIe\", \"DMA Mask\": \"0xfffffffffffff\", \"DMA Size\": \"52 bits\", \"Device Minor\": \"0\", \"GPU Excluded\": \"No\", \"GPU Firmware\": \"595.99.02\", \"GPU UUID\": \"GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77\", \"IRQ\": \"16\", \"Model\": \"NVIDIA GeForce RTX 5080\", \"Video BIOS\": \"98.03.3b.c0.3e\"}, \"path\": \"/proc/driver/nvidia/gpus/0000:02:00.0/information\"}}\n",
+  "target": "pc3@pc3",
+  "tool": {
+    "bytes": 23245,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/run_remote_selected_gpu.py",
+    "sha256": "d1df98f8ecdbf4f8697e80f435f1e393b9f131f637ce6c9bb9659dfd09217739"
+  }
+}

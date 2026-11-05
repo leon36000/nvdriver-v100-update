@@ -1,0 +1,58 @@
+{
+  "credential_host": "gx10-e526",
+  "credential_value_logged": false,
+  "credential_value_persisted": false,
+  "error": "PC3 did not confirm the bounded V100 RM request and cleanup",
+  "guest_script_sha256": "b16bd5f7279df5424548c50c935b25a6e02008c5c6e7bfc9f06a3bb07c5f6304",
+  "observed_at_utc": "2026-10-20T22:59:42.668038+00:00",
+  "payload_cleanup_passed": true,
+  "payload_staging": {
+    "bytes": 22140,
+    "path": "/tmp/codex-v100-payload-c3c414dc62f046a796333b15428eefb4.json",
+    "sha256": "06dfcc6501c6478f020405dd4279004ca91f759b60e2c2d8d23cd45a4b1205ae",
+    "uploaded": true
+  },
+  "pc3_ssh_exit_code": 0,
+  "pc3_stderr": "\n",
+  "probe": {
+    "bytes": 16512,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/rm-root-id-probe-v1/rm_root_id_probe",
+    "sha256": "5862033cdb01b1d4fa9ec9abd64565a9565114f5ca05bf0cc0053a403f426f4b"
+  },
+  "qualification": "failed",
+  "remote": {
+    "error": "name 'tempfile' is not defined",
+    "execution_scope": {
+      "guest_driver_changed": false,
+      "module_loaded": false,
+      "pci_binding_changed": false,
+      "vm_management_issued": false
+    },
+    "failure_stage": "input",
+    "guest": null,
+    "host": "pc3",
+    "host_kernel_release": "7.0.0-38-generic",
+    "payload_file_cleanup_passed": true,
+    "probe": null,
+    "qualification": "failed",
+    "schema": "nvidia-hybrid-pc3-v100-rm-root-id-transport-v1"
+  },
+  "root_remote_sha256": "9275810b4c268ee6ac4ca44a9caf46068fa109cb54fa9196ebac571a4a8feb63",
+  "rtx_source": {
+    "device": {
+      "driver": "595.99.02",
+      "name": "NVIDIA GeForce RTX 5080",
+      "pci": "00000000:02:00.0",
+      "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77"
+    },
+    "observed_at_utc": "2026-10-20T03:11:01.951205+00:00",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-rtx5080-postcanary-reference-v1-20261020.json",
+    "record_index": 0,
+    "root_id": 3251634254,
+    "sha256": "8c53f63f6ba621d14e48c3f3514c76d09b121a7014c513491d6aa5dbc2831395"
+  },
+  "runner_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/run_pc3_v100_rm_root_id_probe.py",
+  "runner_sha256": "a7487e7aad99bf94daf543d4a80bb6350883cb4a6ce55cf96c6cc15623e15d35",
+  "schema": "nvidia-hybrid-pc3-v100-rm-root-id-host-run-v1",
+  "target": "pc3@pc3"
+}
