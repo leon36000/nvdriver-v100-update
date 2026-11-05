@@ -1,0 +1,41 @@
+{
+  "observed_at_utc": "2026-10-28T19:30:56.799237+00:00",
+  "qualification": {
+    "level": "analyzed-statically",
+    "module_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "result": {
+    "checks": {
+      "copy_push_acquires_the_va_block_tracker": true,
+      "isolated_push_refuses_pending_foreign_gpu_tracker": true,
+      "no_tracker_wait_boundary_after_mapping_invalidation": true,
+      "post_migration_gpu_map_acquires_the_va_block_tracker": true,
+      "service_copy_flows_into_finish_without_tracker_wait": true,
+      "service_finish_runs_revoke_then_map_then_accessed_by": true,
+      "two_unmap_batches_precede_destination_population_and_copy": true,
+      "unmap_mask_batches_async_gpu_pushes_into_local_tracker": true
+    },
+    "failed_checks": [],
+    "finding": "The isolated push guard rejects a push with NV_ERR_NOT_SUPPORTED when its tracker contains pending work owned by another GPU. The resident-copy path submits two mapping-invalidation batches, then populates/copies; service then proceeds into revoke and map phases. These source paths have no tracker-wait/retry boundary between those phases. Therefore an owner transition can be refused while foreign-GPU work is still pending. This is conditional on runtime tracker completion and does not prove that every direct migration fails.",
+    "next_design_constraint": "Any enabling change must preserve VA-block state across lock drops, resume only idempotent phases, and avoid waiting while holding the block lock. A retry that replays source-to-CPU staging is not acceptable.",
+    "source_files": {
+      "uvm_push.c": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-early-preflight-v3-20261028T1921Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_push.c",
+        "sha256": "9ace70a23fb4316d7169446d8002a5ec1f293cf067bec24a7b6399c8a8b97e41"
+      },
+      "uvm_tracker.c": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-early-preflight-v3-20261028T1921Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_tracker.c",
+        "sha256": "af78f7843aefe9682ddc3bf5a44a0fcaec0d59043e50d9fb1a0da51d058ed608"
+      },
+      "uvm_va_block.c": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-early-preflight-v3-20261028T1921Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_block.c",
+        "sha256": "a07749889e648b2487934d4d867a96855fcfe25eca704d792387d7f5965f4758"
+      }
+    },
+    "status": "conditional-risk"
+  },
+  "schema": "nvidia-r580-uvm-isolated-service-phases-v1",
+  "source_release": "580.178.04",
+  "status": "risk"
+}

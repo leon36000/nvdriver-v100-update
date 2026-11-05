@@ -1,0 +1,38 @@
+{
+  "inputs": {
+    "patches": [
+      {
+        "path": "patches/r580.178.04/uvm/0010-reject-unsupported-isolated-staged-migrations.patch",
+        "sha256": "24977b5437402c2661d5fb6770b8d04dd22dd1aa413b1e1d90053cf4d87c183c"
+      },
+      {
+        "path": "patches/r580.178.04/uvm/0011-preflight-unsupported-staging-before-unmap.patch",
+        "sha256": "b79bfcf61fbb564956f939ea486fa4a2a0e50e19cc780408d89d9bcd8442ca27"
+      }
+    ],
+    "source_release": "580.178.04"
+  },
+  "observed_at_utc": "2026-10-28T19:14:04.032477+00:00",
+  "qualification": {
+    "level": "analyzed-statically",
+    "module_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "result": {
+    "checks": {
+      "early_reject_precedes_mapping_invalidation_and_population": true,
+      "isolated_gpu_destination_is_gated": true,
+      "only_requested_region_pages_trigger_rejection": true,
+      "reject_precedes_all_copy_dispatch": true,
+      "unsupported_source_requires_missing_copy_access": true
+    },
+    "failed_checks": [],
+    "interpretation": "The isolated UVM path checks requested, non-discarded pages against the destination GPU's copy-access mask before mapping invalidation/population and again immediately before migration-copy dispatch. Unsupported sources return NV_ERR_NOT_SUPPORTED before those side effects. This remains a fail-closed boundary; it does not implement cross-GPU managed-memory migration.",
+    "source": {
+      "path": "build/experiments/r580-uvm-early-preflight-v1-20261028T2015Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_block.c",
+      "sha256": "026195057c8774428451fb61a986330ad3548afe9f78dab646529f6e128e8e71"
+    }
+  },
+  "schema": "nvidia-r580-uvm-staged-preflight-v2",
+  "status": "pass"
+}

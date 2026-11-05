@@ -1,0 +1,65 @@
+{
+  "build": {
+    "command": [
+      "make",
+      "-C",
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-isolated-gpu-execution-v4-20261023T2116Z/NVIDIA-kernel-module-source-580.178.04",
+      "KERNEL_UNAME=7.0.0-38-generic",
+      "NV_KERNEL_MODULES=nvidia nvidia-uvm",
+      "NV_VERBOSE=1",
+      "modules",
+      "-j",
+      "8"
+    ],
+    "elapsed_seconds": 28.104,
+    "exit_code": 0,
+    "kernel_release": "7.0.0-38-generic",
+    "log": "evidence/logs/r580-uvm-isolated-gpu-execution-build-v4-20261023T2116Z.log",
+    "log_sha256": "59733e7ca93c6dabe8953cfb772a554096f48a2c0a280d13f31415ec7b010d75",
+    "module_symvers": {
+      "bytes": 5932,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-isolated-gpu-execution-v4-20261023T2116Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/Module.symvers",
+      "sha256": "2eee16b4570e1bf0032f0265479841c048e76a3d746fb85322058d526f18167d"
+    },
+    "modules": {
+      "nvidia-uvm.ko": {
+        "bytes": 62562120,
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-isolated-gpu-execution-v4-20261023T2116Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm.ko",
+        "sha256": "67b9416d645efc6c0ef8f98d3f73a6728480d52a70ac6ccebce1ae526a63ad66"
+      },
+      "nvidia.ko": {
+        "bytes": 36578392,
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-isolated-gpu-execution-v4-20261023T2116Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia.ko",
+        "sha256": "62d4103f204c3af4b4934413a38fe8f66ef1d87e06b53ebca31ae3dadb3b34f7"
+      }
+    },
+    "scratch_package": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-isolated-gpu-execution-v4-20261023T2116Z/NVIDIA-kernel-module-source-580.178.04"
+  },
+  "completed_at_utc": "2026-10-23T21:16:43.860159+00:00",
+  "inputs": {
+    "patch": {
+      "path": "patches/r580.178.04/uvm/0002-hybrid-isolated-gpu-execution.patch",
+      "sha256": "23145778c944ae2cf222a6df192d97a1b3260c564772f4b353d48f0cf0cb26f0"
+    },
+    "source_archive": {
+      "path": ".cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+      "sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8"
+    },
+    "source_files": {
+      "nvidia-uvm/uvm_channel_test.c": "f846b5e2925258bb1643e389bee4016743a73a6f396571e0621aac109bb94e87",
+      "nvidia-uvm/uvm_gpu.c": "b43bb94bbc465bbb4fb243e6f722cb450d6402f3071971843d61f1f7678bf700",
+      "nvidia-uvm/uvm_gpu_semaphore.c": "1472d3bdcd91b35095fb7ae6aa1f66a075ea495c08d106ed7da497176a3d629f",
+      "nvidia-uvm/uvm_migrate_pageable.c": "e7178513d684596aadbe24c1f699eb9e7b13b7f39c19805fe213bbef090898da",
+      "nvidia-uvm/uvm_push.c": "9628ada0b4007eff5af16525d0d71788045832e5ca268699e2ae82a5dc14b85e"
+    },
+    "source_package": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-isolated-gpu-execution-v4-20261023T2116Z/NVIDIA-kernel-module-source-580.178.04"
+  },
+  "qualification": {
+    "level": "compiled",
+    "module_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "schema": "r580-uvm-isolated-gpu-execution-build-v2",
+  "scope": "clean pinned R580 nvidia+nvidia-uvm build; no install, module insertion, GPU access, VM change, or reboot",
+  "started_at_utc": "2026-10-23T21:16:15.714289+00:00"
+}

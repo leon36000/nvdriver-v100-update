@@ -1,0 +1,136 @@
+{
+  "schema": "nvidia-hybrid-r580-p2p-necessity-audit-v1",
+  "created_at_utc": "2026-10-30T01:01Z",
+  "status": "static-and-historical-capture-audit-complete",
+  "question": "Does the observed V100 NV50_THIRD_PARTY_P2P allocation/control route appear in an ordinary CUDA probe, and is its necessity established?",
+  "conclusion": {
+    "purpose_from_source": "third-party P2P mapping and page export",
+    "ordinary_cuda_cooccurrence_observed": true,
+    "necessity_for_cuda_initialization": "unknown; no deny/bypass counterfactual",
+    "actual_peer_transfer_observed": false
+  },
+  "historical_hardware_captures": [
+    {
+      "path": "evidence/pc3-v100-guest-p2p-alloc-v1-20261021.json",
+      "sha256": "3d67733d4b8e7fa6813fce4f429ab1d1aecc70aa29d37a8a1e7b7a5135aca5c6",
+      "probe_binary_sha256": "f2cdbdc1646d0a7732ee4ff9c0801f8b5ef0da32440db68133f818f416a5d6e3",
+      "target": {
+        "gpu": "Tesla V100-SXM2-16GB",
+        "pci_bdf": "0000:00:05.0",
+        "driver": "580.178.04",
+        "kernel": "6.8.0-147-generic",
+        "execution_scope": "V100 guest; separate Linux kernel from the RTX5080 host capture"
+      },
+      "allocation": {
+        "request": "0xc030462b",
+        "packet_bytes": 48,
+        "class": "NV50_THIRD_PARTY_P2P (0x503c)",
+        "outer_params_size": 0,
+        "nested_payload_bytes": 4,
+        "nested_payload_entry_exit": {
+          "flags": 1,
+          "type": 1,
+          "typeName": "bar1",
+          "unknownFlagBits": 0
+        },
+        "syscall_return": 0,
+        "RM_status": 0
+      },
+      "same_probe_cuda_result": {
+        "probe_exit": 0,
+        "compute_capability": "7.0",
+        "synchronous_numeric_kernel": true,
+        "synchronous_sizes": [1, 31, 256, 4096, 65537],
+        "asynchronous_numeric_kernel": true,
+        "asynchronous_sizes": [1, 31, 256, 4096, 65537],
+        "cleanup": true
+      }
+    },
+    {
+      "path": "evidence/pc3-v100-p2p-control-v2-20261021.json",
+      "sha256": "bff6d5c57e267180b254773aba69e74337d919659cd170fbfa122347414f1e5d",
+      "probe_binary_sha256": "f2cdbdc1646d0a7732ee4ff9c0801f8b5ef0da32440db68133f818f416a5d6e3",
+      "target": "same stock V100 guest identity, driver, and kernel as the allocation capture",
+      "observed_successful_controls": [
+        {"command": "0x503c0102", "meaning": "register VA space", "payload_bytes": 16},
+        {"command": "0x503c0104", "meaning": "register video memory", "payload_bytes": 32},
+        {"command": "0x503c0105", "meaning": "unregister video memory", "payload_bytes": 4}
+      ],
+      "each_syscall_and_RM_status": 0,
+      "VA_space_unregister_0x503c0103_observed": false,
+      "PID_registration_0x503c0106_observed": false,
+      "same_probe_cuda_result": {
+        "probe_exit": 0,
+        "synchronous_numeric_kernel": true,
+        "asynchronous_numeric_kernel": true,
+        "cleanup": true
+      }
+    }
+  ],
+  "source_comparison": {
+    "releases": [
+      {
+        "version": "580.178.04",
+        "source_tree": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04",
+        "version_mk_sha256": "cbc6488ed2c35ea814120bc80749dd2d11f486c3e98046b3be240d462ee86e7c"
+      },
+      {
+        "version": "580.196.07",
+        "source_tree": "build/experiments/r58019607-uvm-consumer-v10-20261029/NVIDIA-kernel-module-source-580.196.07",
+        "version_mk_sha256": "46a77a635775c0b25009ffe4bb09c71dd7008931a7c011de08ccc44931b6780e"
+      }
+    ],
+    "files_identical_across_these_source_trees": {
+      "src/common/sdk/nvidia/inc/class/cl503c.h": "58db3118f0cd03b42c927043354e6471be75b6e4a2bba3c28927941d1b1c3428",
+      "src/common/sdk/nvidia/inc/ctrl/ctrl503c.h": "78ac9e168e017203611f5a1b5e43d0a46c5e57f5033c58c62b7d3eec5257017b",
+      "src/common/sdk/nvidia/inc/ctrl/ctrl503c/ctrl503cbase.h": "9f1f6d56632bcd1447cfcf5ce61724900c5f32bb8f9735ad8d3cfbc4e1c189fe",
+      "src/nvidia/src/kernel/rmapi/resource_list.h": "19f365cf1c4492483a02172c1298f7ba54ae0571b156ac4b58c0c7522ba729b8",
+      "src/nvidia/src/kernel/gpu/bus/third_party_p2p.c": "0f3738d34a2454e3e27203188c6f6fbe67d0b345181aa54372796b3c49271fec",
+      "src/nvidia/src/kernel/gpu/bus/third_party_p2p_ctrl.c": "a250985c8e5d7145ae8ffceb5e62b03a9e32a4bfffabcea59c15fe851584f519",
+      "src/nvidia/src/kernel/gpu/bus/p2p.c": "bf5199c651731d383b71e0b8886a60ca850310e9ddacab11884c7f24bd7e6a73"
+    },
+    "source_interpretation": "The class is an optional-parameter Subdevice child with a typed flags word: proprietary=0, BAR1=1, NVLINK=2. Source maintains per-object VA-space and video-memory registrations; vidmem registration checks same-device FBMEM, nonzero size, alignment, overflow, and allocation bounds. The P2P path consumes the registered token and range to obtain pages."
+  },
+  "hybrid_experiment": {
+    "project_paths": {
+      "frontend": "src/hybrid_frontend.c",
+      "uvm_callback_bridge": "src/hybrid580_uvm_callback_bridge.c",
+      "p2p_object_route_header": "src/hybrid580_uvm_p2p_object_route.h",
+      "device_pair_route_header": "src/hybrid580_uvm_device_route.h"
+    },
+    "frontend_source_sha256": "585a6ddfccd9ac2c1b430beacbf7ce022f2c279f8b3137597d3df08b3f09dd27",
+    "uvm_callback_bridge_source_sha256": "d98803c63d2d8b50a858cc9a9b08207f61f991244bd2ce468d98f1adc5e8a9fe",
+    "p2p_object_route_header_sha256": "4c2e499d64194ad2225084691359abdf575a64535fcb5cba5eb6834fb98e85dc",
+    "device_pair_route_header_sha256": "9fdc82daae209150cfed26040b4cfc313ba9f40144adda78b4a43ffba5785645",
+    "status": "typed BAR1-only legacy route; source/CPU-model/build evidence; not executed through experimental Linux VFS/RM or hardware",
+    "cross_provider_uvm_peer_link": "UVM_LINK_TYPE_NONE",
+    "cross_provider_p2p_object_creation": "rejected",
+    "cross_provider_p2p_transfer_validated": false
+  },
+  "next_discriminating_experiment": {
+    "target": "stock V100, fresh process, after read-only ownership/driver refresh",
+    "steps": [
+      "run baseline CUDA probe",
+      "deny only class 0x503c allocation and check cuInit, context, device allocation, numeric kernel, and cleanup",
+      "if that passes, allow allocation and deny each observed control 0x503c0102, 0x503c0104, and 0x503c0105 in separate fresh processes",
+      "test actual peer transfer separately on a verified same-system topology"
+    ]
+  },
+  "qualification_limits": {
+    "captured_system_had_v100_and_rtx5080_in_one_linux_kernel": false,
+    "experimental_module_loaded": false,
+    "P2P_DMA_or_peer_transfer_tested": false,
+    "necessity_counterfactual_run": false,
+    "current_pc3_access": {
+      "tailscale_checked_at_utc": "2026-10-30T00:57:39Z",
+      "tailscale_online": false,
+      "last_seen": "2026-10-29T10:55:57.1Z",
+      "naos_checked_at_utc": "2026-10-30T01:01Z",
+      "naos_first_page_sessions": 10,
+      "naos_has_more_pages": true,
+      "naos_first_page_guardians_reachable": 0,
+      "naos_observation_incomplete": false,
+      "naos_first_page_states": ["LAUNCH_UNKNOWN", "INTERRUPTED", "EXITED"]
+    }
+  }
+}

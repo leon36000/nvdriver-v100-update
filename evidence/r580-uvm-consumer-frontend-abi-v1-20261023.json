@@ -1,0 +1,43 @@
+{
+  "build_log": {
+    "error_lines": [],
+    "modpost_count": 1,
+    "nvidia_uvm_linked": true,
+    "path": "build/experiments/r580-uvm-consumer-frontend-abi-v1-20261023T180126Z/build-final-v2.log",
+    "sha256": "0e6fd00c9a29d78831a56d44cc44c9c97702a9841a9ec57fd17614bd68d71986",
+    "warning_line_count": 2
+  },
+  "frontend_symvers": {
+    "path": "build/experiments/hybrid-frontend-r580-r580-v3-20261023T175612Z/Module.symvers",
+    "provider": "hybrid580_frontend",
+    "sha256": "2c7ae6eefac009391e2c96c23a6c751f1d2528767f05430c39c09c626d043f39"
+  },
+  "kernel_release": "7.0.0-38-generic",
+  "loaded_or_installed": false,
+  "module": {
+    "bytes": 62650480,
+    "depends": "hybrid580_frontend",
+    "path": "build/experiments/r580-uvm-consumer-frontend-abi-v1-20261023T180126Z/obj-final-v2/nvidia-uvm.ko",
+    "sha256": "a1631b9b74d28255cb5d455df6b5f4b4481f3ccd4774a184557360f50dc64a31",
+    "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+    "version": "580.178.04"
+  },
+  "notes": [
+    "Kbuild MODPOST and the actual .ko modversion table agree with the frontend Module.symvers.",
+    "This does not validate callback payload semantics, module coexistence at runtime, RM initialization, CUDA, or GPU behavior."
+  ],
+  "observed_at_utc": "2026-10-23T18:14:18.546845+00:00",
+  "qualification": "compiled-and-consumer-modversion-crcs-validated",
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-r580-uvm-consumer-frontend-abi-v1",
+  "source_version": "580.178.04",
+  "uvm_interface": {
+    "all_crcs_match": true,
+    "consumer_import_count": 76,
+    "crc_mismatches": [],
+    "exact_symbol_set_match": true,
+    "missing_provider_symbols": [],
+    "provider_export_count": 76,
+    "provider_only_symbols": []
+  }
+}

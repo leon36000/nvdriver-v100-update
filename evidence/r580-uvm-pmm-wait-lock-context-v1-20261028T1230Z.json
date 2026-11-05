@@ -1,0 +1,50 @@
+{
+  "inputs": {
+    "isolation_patch": {
+      "path": "patches/r580.178.04/uvm/0007-reject-cross-gpu-tracker-dependencies.patch",
+      "sha256": "d031ccce7b522167369bce79c6b75b9f586bb4aa936f4d2de59d26aa0fe45a2f"
+    },
+    "source_archive": {
+      "path": ".cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+      "sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8"
+    },
+    "source_files": {
+      "uvm_pmm_gpu.c": {
+        "bytes": 148762,
+        "path": "build/experiments/r580-uvm-isolated-fail-closed-consumer-v1-20261028T121758Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_pmm_gpu.c",
+        "sha256": "35248129b757c9a405bed7adf7022ea108ebbd9bbb0b091a008935f1247dea9b"
+      },
+      "uvm_tracker.c": {
+        "bytes": 13580,
+        "path": "build/experiments/r580-uvm-isolated-fail-closed-consumer-v1-20261028T121758Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_tracker.c",
+        "sha256": "af78f7843aefe9682ddc3bf5a44a0fcaec0d59043e50d9fb1a0da51d058ed608"
+      },
+      "uvm_va_block.c": {
+        "bytes": 624366,
+        "path": "build/experiments/r580-uvm-isolated-fail-closed-consumer-v1-20261028T121758Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_block.c",
+        "sha256": "dd2821620e83cfaeb03fd765d64dcb75d82da83a38107afa4b0c2882570a7b03"
+      }
+    }
+  },
+  "observed_at_utc": "2026-10-28T12:24:40.413646+00:00",
+  "qualification": {
+    "level": "analyzed-statically",
+    "module_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "result": {
+    "checks": {
+      "block_population_asserts_va_block_lock": true,
+      "eviction_retry_releases_lock_before_pmm_alloc": true,
+      "no_evict_chunk_alloc_calls_pmm_under_lock": true,
+      "pmm_alloc_waits_for_foreign_gpu_tracker": true,
+      "pmm_wait_follows_root_tracker_collection": true,
+      "wait_uses_cpu_spin_entry_helper": true
+    },
+    "failed_checks": [],
+    "interpretation": "The pinned R580 PMM path gathers each allocated root chunk tracker, then waits on entries owned by GPUs other than the PMM GPU. The ordinary no-eviction allocation is reached from block population after its VA-block lock assertion; the eviction retry explicitly unlocks that lock before calling the PMM allocator. This proves a conditional lock-held CPU-wait path in source, but does not prove a deadlock. Reachability remains unresolved for the isolated mixed-provider design: no runtime trace establishes that a pending foreign-GPU tracker can reach this PMM path. A simple early error is not justified because the allocator's error path deinitializes the collected tracker and frees chunks; safety with pending GPU work has not been proved.",
+    "status": "risk"
+  },
+  "schema": "nvidia-r580-uvm-pmm-wait-lock-context-v1",
+  "source_release": "580.178.04"
+}

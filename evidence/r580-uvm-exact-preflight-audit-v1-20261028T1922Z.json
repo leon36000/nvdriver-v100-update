@@ -1,0 +1,43 @@
+{
+  "inputs": {
+    "patches": [
+      {
+        "path": "patches/r580.178.04/uvm/0010-reject-unsupported-isolated-staged-migrations.patch",
+        "sha256": "24977b5437402c2661d5fb6770b8d04dd22dd1aa413b1e1d90053cf4d87c183c"
+      },
+      {
+        "path": "patches/r580.178.04/uvm/0011-preflight-unsupported-staging-before-unmap.patch",
+        "sha256": "b79bfcf61fbb564956f939ea486fa4a2a0e50e19cc780408d89d9bcd8442ca27"
+      },
+      {
+        "path": "patches/r580.178.04/uvm/0012-exact-isolated-staged-page-mask.patch",
+        "sha256": "d974ecd32d54df399ddd3a68304cc2e05bd2a2e1b536908c5e7ec20aef2a80a0"
+      }
+    ],
+    "source_release": "580.178.04"
+  },
+  "observed_at_utc": "2026-10-28T19:22:09.412762+00:00",
+  "qualification": {
+    "level": "analyzed-statically",
+    "module_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "result": {
+    "checks": {
+      "accessible_duplicate_suppresses_unneeded_staging": true,
+      "early_reject_precedes_mapping_invalidation_and_population": true,
+      "isolated_gpu_destination_is_gated": true,
+      "late_reject_precedes_all_copy_dispatch": true,
+      "only_requested_region_pages_trigger_rejection": true,
+      "unsupported_sources_are_intersected_with_copy_access": true
+    },
+    "failed_checks": [],
+    "interpretation": "The isolated UVM path computes the exact subset requiring CPU staging by subtracting pages available from any directly accessible resident processor. It checks requested, non-discarded pages before mapping invalidation/population and repeats the check immediately before migration-copy dispatch. Unsupported staging returns NV_ERR_NOT_SUPPORTED; managed-memory migration remains disabled.",
+    "source": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-early-preflight-v3-20261028T1921Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_block.c",
+      "sha256": "a07749889e648b2487934d4d867a96855fcfe25eca704d792387d7f5965f4758"
+    }
+  },
+  "schema": "nvidia-r580-uvm-staged-preflight-v3",
+  "status": "pass"
+}

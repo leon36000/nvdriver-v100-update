@@ -1,0 +1,64 @@
+{
+  "inputs": {
+    "build_report": {
+      "path": "evidence/r580-uvm-isolated-fail-closed-pair-v2-20261028T1227Z.json",
+      "sha256": "0753d6ef796c63e96758372787fc500492c50f508f56b6e056b59321633638d6"
+    },
+    "isolation_patch": {
+      "path": "patches/r580.178.04/uvm/0007-reject-cross-gpu-tracker-dependencies.patch",
+      "sha256": "b8ce083d3f380e63e5d1028a1c14c8481983b8a2365f1451320101cbed16424d"
+    },
+    "source_archive": {
+      "path": ".cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+      "sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8"
+    },
+    "source_files": {
+      "uvm_migrate.c": {
+        "bytes": 54011,
+        "path": "build/experiments/r580-uvm-isolated-fail-closed-pair-v2-20261028T1227Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_migrate.c",
+        "sha256": "e8fb855d0fc4150107118752b6a5e897b2c5f7d770243278f631a49ca4b36e36"
+      },
+      "uvm_pmm_gpu.c": {
+        "bytes": 148762,
+        "path": "build/experiments/r580-uvm-isolated-fail-closed-pair-v2-20261028T1227Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_pmm_gpu.c",
+        "sha256": "35248129b757c9a405bed7adf7022ea108ebbd9bbb0b091a008935f1247dea9b"
+      },
+      "uvm_tracker.c": {
+        "bytes": 13580,
+        "path": "build/experiments/r580-uvm-isolated-fail-closed-pair-v2-20261028T1227Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_tracker.c",
+        "sha256": "af78f7843aefe9682ddc3bf5a44a0fcaec0d59043e50d9fb1a0da51d058ed608"
+      },
+      "uvm_va_block.c": {
+        "bytes": 624366,
+        "path": "build/experiments/r580-uvm-isolated-fail-closed-pair-v2-20261028T1227Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_block.c",
+        "sha256": "dd2821620e83cfaeb03fd765d64dcb75d82da83a38107afa4b0c2882570a7b03"
+      }
+    }
+  },
+  "observed_at_utc": "2026-10-28T12:32:59.614898+00:00",
+  "qualification": {
+    "level": "analyzed-statically",
+    "module_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "result": {
+    "checks": {
+      "block_population_asserts_va_block_lock": true,
+      "eviction_retry_releases_lock_before_pmm_alloc": true,
+      "gpu_map_acquires_global_tracker_but_appends_to_output": true,
+      "migration_merges_local_tracker_into_va_block_tracker": true,
+      "migration_selects_accessed_by_processors": true,
+      "multiple_gpu_maps_accumulate_in_local_output_tracker": true,
+      "no_evict_chunk_alloc_calls_pmm_under_lock": true,
+      "pmm_alloc_waits_for_foreign_gpu_tracker": true,
+      "pmm_free_imports_va_block_tracker": true,
+      "pmm_wait_follows_root_tracker_collection": true,
+      "wait_uses_cpu_spin_entry_helper": true
+    },
+    "failed_checks": [],
+    "interpretation": "The pinned R580 source gives a conditional route for a foreign tracker into the PMM wait. After migration, UVM selects policy/accessed-by processors and loops over their mappings into one local output tracker. Each GPU mapping acquires against the shared VA-block tracker but appends its push to that local tracker; the migration caller later merges the local tracker into the VA-block tracker. VA-block chunk cleanup can pass that shared tracker into the PMM root tracker, and the next ordinary no-eviction allocation calls the foreign-GPU CPU wait while the VA-block lock is held. This is conditionally reachable when multiple GPU IDs are registered and accessible in one VA space, even though direct cross-GPU push dependencies are rejected. The current hybrid frontend still blocks second-provider UVM registration, so this exact V100+Blackwell route has not run on hardware. The source path is not proof of a deadlock: completion dependence on UVM progress is unmeasured. A simple early error is unsafe to assume because the PMM error path deinitializes the collected tracker and frees chunks, and pending GPU use has not been ruled out.",
+    "status": "risk"
+  },
+  "schema": "nvidia-r580-uvm-pmm-wait-lock-context-v1",
+  "source_release": "580.178.04"
+}

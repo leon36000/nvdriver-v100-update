@@ -1,0 +1,83 @@
+{
+  "function_sha256": {
+    "channel": {
+      "channel_create": "8995c592235c852a0775802dbf6d06c9032000b81438844980726b63bb94e628",
+      "channel_manager_create_ce_pools": "afd18adb2d66032ed9481fe9a6a3e681d1e3ae91898922786a4d06c553c877a8",
+      "channel_manager_create_pools": "d290974a18cef300d36d23539a2e42bf3c4ffe58014e058d454abbcf20cd6761",
+      "channel_pool_add": "7f57b39a0bd7b098fe762d3540a1adc812180048da23363f866521389fa86884",
+      "uvm_channel_manager_create": "d18f751c6c24f52fa59751de28a531cc140d841775634775793a51314b93efd3"
+    },
+    "gpu": {
+      "init_gpu": "27fe69f6aab03d3e0e53a1c0258e6c0c0695e0cdce3a80d40247d95c944e5910",
+      "init_semaphore_pools": "5b7a92589d771c32e79e09bae23a0b11907faa976303af4ac0f8a1c251545931"
+    },
+    "rm_memory": {
+      "uvm_rm_mem_map_gpu": "c5909eb779280856a8be3352da5ffb37e755ce80dd020a5bb803912d7eddb964"
+    },
+    "route": {
+      "hybrid580_uvm_address_space_route_dup_allocation": "b9f8b1c763f7ab9ba962fcba2d59260ecfe772640f13bfbb8bf46a2df2d30cba",
+      "nvUvmInterfaceDupAllocation": "daa266d36eb16f7a08413743ce575a33b80dd113fcccfd1e8b0625a35c79357a"
+    },
+    "semaphore": {
+      "pool_alloc_page": "7c0d0f3daf279397ff504dc000edcb31897df7ab60d67504b6700e1093dbcaf7",
+      "uvm_gpu_semaphore_alloc": "60205cb4bb42d79ecf471125c696fa601c6ea729d41fce58ba38e03e958b647a",
+      "uvm_gpu_semaphore_pool_map_gpu": "49fa236ea3761bd41ee8effa8b7fcbd7436150cb3617b888ff417badd0944e11",
+      "uvm_gpu_tracking_semaphore_alloc": "a177fb49a049413ac3e4cc5fe26675c9a658d747808562c972a3eaca2043eeb1"
+    }
+  },
+  "interpretation": "For the pinned source and current bridge, a second GPU owned by the other RM provider cannot complete UVM GPU initialization in this mode. This is a static control-flow result; it does not establish a runtime failure or prove that a cross-provider mapping implementation is impossible.",
+  "observed_at_utc": "2026-10-23T20:37:27.341857+00:00",
+  "qualification": {
+    "hardware_validated": false,
+    "level": "analyzed-statically",
+    "module_loaded_or_installed": false,
+    "runtime_validated": false
+  },
+  "result": {
+    "blocker": "cross_provider_dup_allocation",
+    "condition": "non-Confidential-Computing UVM mode, with a previously initialized GPU whose channel manager has created at least one system-memory semaphore page",
+    "cross_provider_admission": "blocked",
+    "existing_gpu_pool_page_precedes_second_gpu": true,
+    "initialization_failure_propagates": true,
+    "path": "cross_provider_rejected_before_backend_call",
+    "required_missing_contract": "map the same system-memory semaphore allocation from one RM provider's VA space into the other provider's VA space with coherent cross-GPU use"
+  },
+  "schema": "nvidia-r580-uvm-cross-provider-static-audit-v1",
+  "source_archive": {
+    "path": ".cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+    "sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8"
+  },
+  "source_files": {
+    "hybrid580_uvm_address_space_route.h": {
+      "bytes": 21182,
+      "path": "src/hybrid580_uvm_address_space_route.h",
+      "sha256": "741ef4746d8a9b3d80e7d7eaf1fcc0c801728b001849b90d9ecab36ce2552882"
+    },
+    "hybrid580_uvm_callback_bridge.c": {
+      "bytes": 205110,
+      "path": "src/hybrid580_uvm_callback_bridge.c",
+      "sha256": "6646bdb5605a1f1472df8e82ca8a2683949b074d81b3f9fd45282a9797051c9b"
+    },
+    "uvm_channel.c": {
+      "bytes": 166151,
+      "path": "build/experiments/private-open580-native-v4-softdep-v1-20261023/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_channel.c",
+      "sha256": "64fcdb55ecba388c8ed6c656ca72b60f2b6f4b8bc0ebaffd794ed1e78068a248"
+    },
+    "uvm_gpu.c": {
+      "bytes": 151186,
+      "path": "build/experiments/private-open580-native-v4-softdep-v1-20261023/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_gpu.c",
+      "sha256": "b43bb94bbc465bbb4fb243e6f722cb450d6402f3071971843d61f1f7678bf700"
+    },
+    "uvm_gpu_semaphore.c": {
+      "bytes": 31820,
+      "path": "build/experiments/private-open580-native-v4-softdep-v1-20261023/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_gpu_semaphore.c",
+      "sha256": "1472d3bdcd91b35095fb7ae6aa1f66a075ea495c08d106ed7da497176a3d629f"
+    },
+    "uvm_rm_mem.c": {
+      "bytes": 14675,
+      "path": "build/experiments/private-open580-native-v4-softdep-v1-20261023/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_rm_mem.c",
+      "sha256": "fdf517f711ce9ae3421e4af2e7fe128f0db4182000eeed32504eacc82d1a43d7"
+    }
+  },
+  "source_release": "580.178.04"
+}

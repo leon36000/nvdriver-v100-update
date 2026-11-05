@@ -1,0 +1,66 @@
+{
+  "inputs": {
+    "build_report": {
+      "path": "evidence/r580-uvm-pmm-retry-pair-v4-20261028T1337Z.json",
+      "sha256": "a09dc0d0915ce42115cbaa93bbbbc85586cc912cd081f97260cec2de642a6d9d"
+    },
+    "patches": {
+      "0007-reject-cross-gpu-tracker-dependencies.patch": "b8ce083d3f380e63e5d1028a1c14c8481983b8a2365f1451320101cbed16424d",
+      "0008-pmm-allocation-outside-va-block-lock.patch": "b532998cbca0a7ca566690a448f6984dff50f22219c60ccd9fa08578c7c40baa",
+      "0009-reject-hmm-gpu-migration-in-isolated-mode.patch": "e5970b1c9d5ef68d3b5dc1c4a7a64bd2f256204d694b5c9f4518dc4c1b17f273"
+    },
+    "source_archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+    "source_files": {
+      "uvm_channel.c": {
+        "bytes": 166151,
+        "path": "build/experiments/r580-uvm-pmm-retry-pair-v4-20261028T1337Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_channel.c",
+        "sha256": "64fcdb55ecba388c8ed6c656ca72b60f2b6f4b8bc0ebaffd794ed1e78068a248"
+      },
+      "uvm_gpu.c": {
+        "bytes": 151540,
+        "path": "build/experiments/r580-uvm-pmm-retry-pair-v4-20261028T1337Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_gpu.c",
+        "sha256": "c3d7426bfb106813e92ed0211824e7082908ae92d627b73bb9e06567557dc922"
+      },
+      "uvm_gpu_semaphore.c": {
+        "bytes": 32197,
+        "path": "build/experiments/r580-uvm-pmm-retry-pair-v4-20261028T1337Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_gpu_semaphore.c",
+        "sha256": "1392d885810a0e045174bc5531b879eb6047aab05e196b5d25392ff79dd38292"
+      },
+      "uvm_push.c": {
+        "bytes": 18148,
+        "path": "build/experiments/r580-uvm-pmm-retry-pair-v4-20261028T1337Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_push.c",
+        "sha256": "9ace70a23fb4316d7169446d8002a5ec1f293cf067bec24a7b6399c8a8b97e41"
+      },
+      "uvm_rm_mem.c": {
+        "bytes": 14675,
+        "path": "build/experiments/r580-uvm-pmm-retry-pair-v4-20261028T1337Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_rm_mem.c",
+        "sha256": "fdf517f711ce9ae3421e4af2e7fe128f0db4182000eeed32504eacc82d1a43d7"
+      }
+    }
+  },
+  "observed_at_utc": "2026-10-28T13:48:17.188997+00:00",
+  "qualification": {
+    "level": "analyzed-statically",
+    "module_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "result": {
+    "checks": {
+      "failed_gpu_init_enters_remove_before_publication": true,
+      "init_gpu_propagates_semaphore_failure_before_channel_creation": true,
+      "isolated_mode_disables_foreign_gpu_dependencies": true,
+      "isolated_registration_returns_before_foreign_semaphore_mapping": true,
+      "isolated_semaphore_pages_use_owner_local_cpu_mapping": true,
+      "partial_init_channel_manager_cleanup_is_null_safe": true,
+      "partial_init_rollback_keeps_rm_space_until_semaphore_unmap": true,
+      "remove_gpu_deinitializes_before_freeing_gpu": true,
+      "semaphore_pool_destroy_accepts_absent_local_pool": true,
+      "semaphore_rollback_unmaps_existing_pool_pages_before_local_destroy": true
+    },
+    "failed_checks": [],
+    "interpretation": "The compiled isolated-mode source disables cross-GPU tracker dependencies and returns from semaphore-pool initialization before mapping another provider's existing semaphore pages. New semaphore backing is CPU-mapped and remains local to its owner GPU. If GPU initialization fails before publication, add_gpu routes through remove_gpu/deinit_gpu; null channel-manager and semaphore-pool cleanup is guarded, while any partially installed foreign pool mappings are removed before the RM address space is destroyed. This proves static source ordering only. It does not prove that the second GPU initializes at runtime, that all other RM operations are provider-compatible, or that cross-GPU UVM/P2P works.",
+    "status": "source_contracts_passed"
+  },
+  "schema": "nvidia-r580-uvm-isolated-init-cleanup-v1",
+  "source_release": "580.178.04"
+}

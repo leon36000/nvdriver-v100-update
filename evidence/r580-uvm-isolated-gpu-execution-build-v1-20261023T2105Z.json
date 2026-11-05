@@ -1,0 +1,51 @@
+{
+  "build": {
+    "command": [
+      "make",
+      "-C",
+      "build/experiments/r580-uvm-isolated-gpu-execution-v1-20261023T2105Z/NVIDIA-kernel-module-source-580.178.04/kernel-open",
+      "KERNEL_UNAME=7.0.0-38-generic",
+      "NV_KERNEL_MODULES=nvidia-uvm",
+      "NV_VERBOSE=1",
+      "modules",
+      "-j",
+      "6"
+    ],
+    "elapsed_seconds": 0.001,
+    "exit_code": 2,
+    "kernel_release": "7.0.0-38-generic",
+    "log": "evidence/logs/r580-uvm-isolated-gpu-execution-build-v1-20261023T2105Z.log",
+    "log_sha256": "7c6338fb643a708727a9cb0ffc8d62f04868d7f5b78e9de7fae6e0e88f1590a3",
+    "module": null,
+    "scratch_package": "build/experiments/r580-uvm-isolated-gpu-execution-v1-20261023T2105Z/NVIDIA-kernel-module-source-580.178.04"
+  },
+  "completed_at_utc": "2026-10-23T21:05:26.797153+00:00",
+  "inputs": {
+    "module_symvers": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open580-native-v4-softdep-v1-20261023/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/Module.symvers",
+      "sha256": "0882836036155a5a4433c72ddc18651a4cb367805c26525232cd109a521b27db"
+    },
+    "patch": {
+      "path": "patches/r580.178.04/uvm/0002-hybrid-isolated-gpu-execution.patch",
+      "sha256": "efb51be36462733bd3bc6e34ee7c7632ab9b12bc830d9188bb0fffe91dce9ceb"
+    },
+    "source_archive": {
+      "path": ".cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+      "sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8"
+    },
+    "source_files": {
+      "nvidia-uvm/uvm_gpu.c": "b43bb94bbc465bbb4fb243e6f722cb450d6402f3071971843d61f1f7678bf700",
+      "nvidia-uvm/uvm_gpu_semaphore.c": "1472d3bdcd91b35095fb7ae6aa1f66a075ea495c08d106ed7da497176a3d629f",
+      "nvidia-uvm/uvm_push.c": "9628ada0b4007eff5af16525d0d71788045832e5ca268699e2ae82a5dc14b85e"
+    },
+    "source_package": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open580-native-v4-softdep-v1-20261023/private/NVIDIA-kernel-module-source-580.178.04"
+  },
+  "qualification": {
+    "level": "build-failed",
+    "module_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "schema": "r580-uvm-isolated-gpu-execution-build-v1",
+  "scope": "one opt-in R580 UVM build; no install, module insertion, GPU access, VM change, or reboot",
+  "started_at_utc": "2026-10-23T21:05:26.796483+00:00"
+}

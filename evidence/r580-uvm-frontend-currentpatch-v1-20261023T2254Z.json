@@ -1,0 +1,127 @@
+{
+  "build": {
+    "command": [
+      "make",
+      "-C",
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-frontend-currentpatch-v1-20261023T2254Z/NVIDIA-kernel-module-source-580.178.04",
+      "KERNEL_UNAME=7.0.0-38-generic",
+      "NV_KERNEL_MODULES=nvidia-uvm",
+      "NV_VERBOSE=1",
+      "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/hybrid-frontend-r580-controlfd-owner-v1-20261023T2238Z/Module.symvers",
+      "modules",
+      "-j",
+      "8"
+    ],
+    "elapsed_seconds": 26.328,
+    "exit_code": 0,
+    "frontend_consumer_binding": {
+      "frontend_is_only_provider_dependency": true,
+      "matching_frontend_crc_count": 77,
+      "mismatched_symbols": {},
+      "module_dependencies": [
+        "hybrid580_frontend"
+      ],
+      "passed": true,
+      "symvers_unchanged_after_build": true,
+      "uvm_interface_import_count": 77
+    },
+    "frontend_symvers_unchanged_after_build": true,
+    "kernel_release": "7.0.0-38-generic",
+    "log": "evidence/logs/r580-uvm-frontend-currentpatch-v1-20261023T2254Z.log",
+    "log_sha256": "22f21056f0530d8cf36c1fd6ea8df8b57775e1a3515b3eb0039a6f899a5a513d",
+    "module_symvers": {
+      "bytes": 0,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-frontend-currentpatch-v1-20261023T2254Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/Module.symvers",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "modules": {
+      "nvidia-uvm.ko": {
+        "bytes": 62562128,
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-frontend-currentpatch-v1-20261023T2254Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm.ko",
+        "sha256": "6774640660bfb7376e0bb572ef470df10cb4d938ce3686996393ff54a8e8c8dd"
+      }
+    },
+    "nvidia_kernel_module_built": false,
+    "scratch_package": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-frontend-currentpatch-v1-20261023T2254Z/NVIDIA-kernel-module-source-580.178.04"
+  },
+  "completed_at_utc": "2026-10-23T22:53:42.872569+00:00",
+  "inputs": {
+    "expected_frontend_module_symvers_sha256": "0ddc251b9d78318ffaeda67463ec49a39b8b2625f0487c27802288d284e81d28",
+    "frontend_module_symvers": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/hybrid-frontend-r580-controlfd-owner-v1-20261023T2238Z/Module.symvers",
+      "sha256": "0ddc251b9d78318ffaeda67463ec49a39b8b2625f0487c27802288d284e81d28"
+    },
+    "implementation_sha256": {
+      "tools/probe_r580_uvm_isolated_execution.py": "216e3639cfe2d84fa2e8527d4fa667c457fad7e93b23a4237a20f458a68761d9"
+    },
+    "patches": [
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0002-hybrid-isolated-gpu-execution.patch"
+        ],
+        "apply_output": "patching file kernel-open/nvidia-uvm/uvm_gpu.c\npatching file kernel-open/nvidia-uvm/uvm_gpu_semaphore.c\npatching file kernel-open/nvidia-uvm/uvm_push.c\npatching file kernel-open/nvidia-uvm/uvm_migrate_pageable.c\n",
+        "path": "patches/r580.178.04/uvm/0002-hybrid-isolated-gpu-execution.patch",
+        "sha256": "23145778c944ae2cf222a6df192d97a1b3260c564772f4b353d48f0cf0cb26f0"
+      },
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0003-pass-control-fd-to-dup-memory.patch"
+        ],
+        "apply_output": "patching file kernel-open/nvidia/nv_uvm_interface.c\npatching file kernel-open/nvidia-uvm/uvm_map_external.c\npatching file kernel-open/common/inc/hybrid580_uvm_control_fd_dispatch.h\n",
+        "path": "patches/r580.178.04/uvm/0003-pass-control-fd-to-dup-memory.patch",
+        "sha256": "1ea8a83f9af76d1d8189aa04647591d92e02ce7ad3a55db8c55cb13e280c1be6"
+      },
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0004-share-linux-conftests-with-uvm-consumer.patch"
+        ],
+        "apply_output": "patching file kernel-open/nvidia/nvidia.Kbuild\npatching file kernel-open/nvidia-uvm/nvidia-uvm.Kbuild\npatching file kernel-open/common/nvidia-kernel-interface-conftests.Kbuild\n",
+        "path": "patches/r580.178.04/uvm/0004-share-linux-conftests-with-uvm-consumer.patch",
+        "sha256": "53358544aa10f7ede4827bbce1ee909da2bbea61a7ab03242d0b258aac10517a"
+      }
+    ],
+    "source_archive": {
+      "path": ".cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+      "sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8"
+    },
+    "source_files": {
+      "common/inc/nv_uvm_interface.h": "68b6cae62ad0bdf6940d48a34084d789cd1f87a06b84310195cd2adc4b9e50f8",
+      "nvidia-uvm/nvidia-uvm.Kbuild": "0e8d3d96e00d6ca8b6b564e4668dd70447d8b6bca9200845180ce7c66902328b",
+      "nvidia-uvm/uvm_channel_test.c": "f846b5e2925258bb1643e389bee4016743a73a6f396571e0621aac109bb94e87",
+      "nvidia-uvm/uvm_gpu.c": "b43bb94bbc465bbb4fb243e6f722cb450d6402f3071971843d61f1f7678bf700",
+      "nvidia-uvm/uvm_gpu_semaphore.c": "1472d3bdcd91b35095fb7ae6aa1f66a075ea495c08d106ed7da497176a3d629f",
+      "nvidia-uvm/uvm_map_external.c": "4115e9f2de1fc9ad460a61168e78e68ede19c57ac6216740dc57475b29d07511",
+      "nvidia-uvm/uvm_migrate_pageable.c": "e7178513d684596aadbe24c1f699eb9e7b13b7f39c19805fe213bbef090898da",
+      "nvidia-uvm/uvm_push.c": "9628ada0b4007eff5af16525d0d71788045832e5ca268699e2ae82a5dc14b85e",
+      "nvidia/nv_uvm_interface.c": "b41c704d29363dd52dd0ea669ee253a37185f5826c7db56a07dec21c3d24eddc",
+      "nvidia/nvidia.Kbuild": "adee2cdb65f387611e2816d91beb4c3ce3a45f648831d8b1e79a2564b160f406"
+    },
+    "source_package": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-frontend-currentpatch-v1-20261023T2254Z/NVIDIA-kernel-module-source-580.178.04"
+  },
+  "qualification": {
+    "level": "compiled-frontend-bound-uvm",
+    "module_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "schema": "r580-uvm-isolated-gpu-execution-build-v4",
+  "scope": "clean pinned R580 UVM-only consumer build against the supplied hybrid frontend; no install, module insertion, GPU access, VM change, or reboot",
+  "started_at_utc": "2026-10-23T22:53:16.514382+00:00"
+}

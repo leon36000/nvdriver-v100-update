@@ -1,0 +1,168 @@
+{
+  "abi_closure": {
+    "dependency_load_order": [
+      "ecdsa_generic",
+      "hybrid580_open",
+      "hybrid580_legacy",
+      "nvidia",
+      "nvidia_uvm"
+    ],
+    "frontend_backend_imports": "verified",
+    "frontend_module_symvers": {
+      "path": "build/experiments/hybrid-frontend-r580-standard-identity-v1-20261028T1414Z-run2/Module.symvers",
+      "sha256": "1c16d4fa5bb0c39115fbe830d606d348b4e5a2f5c8e026fb218b677b683333b1"
+    },
+    "unused_provider_exports": [
+      "nvUvmInterfaceDupAddressSpace"
+    ],
+    "uvm_import_count": 77,
+    "uvm_import_crcs_match": true
+  },
+  "activation_authorized": false,
+  "candidate": {
+    "architecture_strategy": "one R580 frontend with isolated Open and proprietary backends",
+    "driver_branch": "R580",
+    "frontend_module_name": "nvidia",
+    "kernel_release": "7.0.0-38-generic",
+    "source_version": "580.178.04",
+    "uvm_module_name": "nvidia_uvm"
+  },
+  "created_at_utc": "2026-10-28T14:25:09.727207+00:00",
+  "evidence": {
+    "backend_pair": {
+      "bytes": 4112,
+      "path": "evidence/r580-backend-pair-canary-v1-20261028T1403Z.json",
+      "qualification": "static-only-no-load",
+      "schema": "nvidia-hybrid-r580-backend-pair-audit-v2",
+      "sha256": "6fbf4ad6f0f744e8c3099c0b1011e65c13d7cc64a6f62a9f4c037895d01d5fcf"
+    },
+    "dependency_graph": {
+      "bytes": 7312,
+      "path": "evidence/r580-module-dependency-graph-standard-stack-v1-20261028T1420Z.json",
+      "qualification": "isolated-depmod-and-modprobe-resolution",
+      "schema": "nvidia-r580-hybrid-module-dependency-graph-v5",
+      "sha256": "803009a3f2ecb874c61e6fdc618f6bdd8c5fe7331c403a7514a16671c3262749"
+    },
+    "frontend_build": {
+      "bytes": 421220,
+      "path": "evidence/hybrid-frontend-r580-standard-identity-v1-20261028T1414Z-run2.json",
+      "qualification": "compiled-bdf-selected-gpu-file-frontend-kernel-module",
+      "schema": "nvidia-hybrid-gpu-file-frontend-v1",
+      "sha256": "9538522351e7e8d52d6449357ff0d1982573c516a3e0edd2b08bdc5dfa6ab484"
+    },
+    "pc3_preflight": {
+      "bytes": 6386,
+      "path": "evidence/pc3-canary-preflight-r580-standard-stack-v1-20261028T1420Z.json",
+      "qualification": "static-preflight-only",
+      "schema": "nvidia-hybrid-canary-preflight-v4",
+      "sha256": "3304ea0b70c7b27a0b279ecb6d17fc723114dcfd905f94e67684b03351be245b"
+    },
+    "software_suite": {
+      "bytes": 25682,
+      "path": "evidence/software-verification-standard-module-identities-v1-20261028T1420Z.json",
+      "qualification": "software-suite-only",
+      "schema": "software-verification-openrm-hal-matrix-v1",
+      "sha256": "8bb9915e92aac516e0d5e32fffaf2f889206d23bd0cfa85f08207b323b1a1141"
+    },
+    "uvm_abi": {
+      "bytes": 1937,
+      "path": "evidence/r580-uvm-standard-stack-consumer-abi-v1-20261028T1420Z.json",
+      "qualification": "compiled-and-consumer-modversion-crcs-validated",
+      "schema": "nvidia-r580-uvm-consumer-frontend-abi-v2",
+      "sha256": "4e36dc97c24b1bb27265c7218e09fda0b3a241d38b7949331c37e09a40bbf27d"
+    },
+    "uvm_build": {
+      "bytes": 11255,
+      "path": "evidence/r580-uvm-standard-stack-consumer-v2-20261028T1420Z.json",
+      "qualification": {
+        "level": "compiled-frontend-bound-uvm",
+        "module_loaded_or_installed": false,
+        "runtime_or_hardware_validated": false
+      },
+      "schema": "r580-uvm-isolated-gpu-execution-build-v5",
+      "sha256": "2277575e8672b0fae4dc47f272b60d632c12cc9d5a2fb298bcbc7102d1b7af27"
+    }
+  },
+  "module_loaded_or_installed": false,
+  "modules": {
+    "frontend": {
+      "build_path": "build/experiments/hybrid-frontend-r580-standard-identity-v1-20261028T1414Z-run2/nvidia.ko",
+      "bytes": 3066384,
+      "depends": [
+        "hybrid580_legacy",
+        "hybrid580_open"
+      ],
+      "filename": "nvidia.ko",
+      "module_name": "nvidia",
+      "path": "build/experiments/r580-module-dependency-graph-standard-stack-v1-20261028T1420Z/lib/modules/7.0.0-38-generic/updates/nvidia.ko",
+      "sha256": "44ba91db35c9789b42828667b16d914ba7a22a61eb5d07f5f6a1924a9248fae1",
+      "sig_key": "",
+      "signature_status": "unsigned",
+      "signer": "",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": ""
+    },
+    "legacy": {
+      "build_path": "build/experiments/private-proprietary-gpu-name-string-v3-20261028/nvidia-580.178.04/hybrid580_legacy.ko",
+      "bytes": 136885088,
+      "depends": [],
+      "filename": "hybrid580_legacy.ko",
+      "module_name": "hybrid580_legacy",
+      "path": "build/experiments/r580-module-dependency-graph-standard-stack-v1-20261028T1420Z/lib/modules/7.0.0-38-generic/updates/hybrid580_legacy.ko",
+      "sha256": "67d9f00b4fee9cf1a3d1873eb4721bae20419a8b5bbec1dce6d1612e30c9f971",
+      "sig_key": "",
+      "signature_status": "unsigned",
+      "signer": "",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.178.04"
+    },
+    "open": {
+      "build_path": "build/experiments/private-open580-gpu-name-string-v2-20261028/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/hybrid580_open.ko",
+      "bytes": 37254536,
+      "depends": [],
+      "filename": "hybrid580_open.ko",
+      "module_name": "hybrid580_open",
+      "path": "build/experiments/r580-module-dependency-graph-standard-stack-v1-20261028T1420Z/lib/modules/7.0.0-38-generic/updates/hybrid580_open.ko",
+      "sha256": "576d76b97dc2ba1434fccb9244e696be0fb4e19a22f3e38987c12f66664545b1",
+      "sig_key": "",
+      "signature_status": "unsigned",
+      "signer": "",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.178.04"
+    },
+    "uvm": {
+      "build_path": "build/experiments/r580-uvm-standard-stack-consumer-v2-20261028T1420Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm.ko",
+      "bytes": 62572760,
+      "depends": [
+        "nvidia"
+      ],
+      "filename": "nvidia-uvm.ko",
+      "module_name": "nvidia_uvm",
+      "path": "build/experiments/r580-module-dependency-graph-standard-stack-v1-20261028T1420Z/lib/modules/7.0.0-38-generic/updates/nvidia-uvm.ko",
+      "sha256": "8206a4fb0d8ac59db7b528f09bc351988df746b1e10e8e9e70e03c37f5f13e23",
+      "sig_key": "",
+      "signature_status": "unsigned",
+      "signer": "",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.178.04"
+    }
+  },
+  "pc3_preflight": {
+    "blocker_codes": [
+      "loaded_module_name_conflict",
+      "loaded_module_name_conflict",
+      "unsigned_modules_rejected_by_policy",
+      "signature_trust_unverified",
+      "standard_device_numbers_in_use",
+      "standard_device_major_in_use",
+      "character_device_name_in_use"
+    ],
+    "canary_ready": false,
+    "host_state_observed_at_utc": "2026-10-28T14:19:47.095053Z",
+    "status": "blocked"
+  },
+  "qualification": "compiled-abi-closed-and-isolated-dependency-resolved",
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-r580-hybrid-candidate-module-manifest-v1",
+  "scope": "Artifact, module-version CRC, and isolated depmod/modprobe-resolution evidence only. This is an exclusive standard-name R580 candidate; it is blocked against PC3's active R595 stack. No signature enrollment, installation, module insertion, GPU initialization, CUDA, UVM runtime, or performance was validated."
+}

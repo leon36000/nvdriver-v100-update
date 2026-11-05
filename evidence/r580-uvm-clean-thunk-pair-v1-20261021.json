@@ -1,0 +1,463 @@
+{
+  "build_log": {
+    "path": "evidence/logs/r580-uvm-clean-thunk-build-v1-20261021.log",
+    "sha256": "036e7304f8db51ba67f290635ce0f93f02c36c8912a6969b2ae974b00523a766",
+    "summary": {
+      "error_lines": [],
+      "has_both_module_link_steps": true,
+      "modpost_count": 1,
+      "module_link_steps": [
+        "nvidia-uvm.ko",
+        "nvidia.ko"
+      ],
+      "objtool_naked_return_warning_count": 0,
+      "pahole_missing": true,
+      "warning_line_count": 30
+    }
+  },
+  "interpretation": "R580 nvidia and nvidia-uvm compile as a same-version module pair for the target headers and their static nvUvmInterface import/export names match exactly. This establishes no module-load, initialization, UVM workload, or GPU behavior.",
+  "modules": {
+    "nvidia": {
+      "bytes": 37472032,
+      "elf": {
+        "machine": "Advanced Micro Devices X86-64",
+        "type": "REL (Relocatable file)"
+      },
+      "modinfo": {
+        "depends": "",
+        "license": "Dual MIT/GPL",
+        "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+        "version": "580.178.04"
+      },
+      "path": "build/experiments/r580-uvm-clean-v3-20261021/source/kernel-open/nvidia.ko",
+      "sha256": "46e81c91316bee30bfe4593afc9c01f3d74b17a6c03e2a4fd8bd3f04b950e7ec"
+    },
+    "nvidia_uvm": {
+      "bytes": 62543504,
+      "elf": {
+        "machine": "Advanced Micro Devices X86-64",
+        "type": "REL (Relocatable file)"
+      },
+      "modinfo": {
+        "depends": "nvidia",
+        "license": "Dual MIT/GPL",
+        "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+        "version": "580.178.04"
+      },
+      "path": "build/experiments/r580-uvm-clean-v3-20261021/source/kernel-open/nvidia-uvm.ko",
+      "sha256": "270a9ec4a0647cb8fd23a52296e955fe83a307fe729419a1e9c71758c67143a6"
+    }
+  },
+  "observed_at_utc": "2026-10-21T17:17:32.134752+00:00",
+  "qualification": "compiled-and-static-import-export-closure",
+  "schema": "nvidia-r580-uvm-module-pair-audit-v1",
+  "scope": {
+    "hardware_execution": false,
+    "install_attempted": false,
+    "license_metadata_changed": false,
+    "load_attempted": false,
+    "same_process_dual_gpu_cuda": false,
+    "uvm_runtime_validation": false
+  },
+  "source": {
+    "archive": ".cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+    "archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+    "build_tree": "build/experiments/r580-uvm-clean-v3-20261021/source/kernel-open",
+    "rm_core_object": "build/experiments/openrm580-return-thunk-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/_out/Linux_x86_64/nv-kernel.o",
+    "rm_core_sha256": "c5f7a58442286f02f9caebf3279320dd8a846883d7514c183981efa754d11248",
+    "tag": "580.178.04"
+  },
+  "target_kernel_release": "7.0.0-38-generic",
+  "uvm_interface": {
+    "all_imports_resolved": true,
+    "exact_interface_match": true,
+    "export_count": 76,
+    "import_count": 76,
+    "provider_export_records": {
+      "nvUvmInterfaceAddressSpaceCreate": {
+        "crc": "0x8efe81a0",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceAddressSpaceDestroy": {
+        "crc": "0x57fca1dd",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceBindChannelResources": {
+        "crc": "0xe1a64ab8",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceChannelAllocate": {
+        "crc": "0x87633598",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceChannelDestroy": {
+        "crc": "0x698b461e",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceCslDecrypt": {
+        "crc": "0x6051d316",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceCslEncrypt": {
+        "crc": "0x35e4cd88",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceCslIncrementIv": {
+        "crc": "0x2dfd8972",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceCslInitContext": {
+        "crc": "0x46ff3668",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceCslLogEncryption": {
+        "crc": "0xfdac98a0",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceCslQueryMessagePool": {
+        "crc": "0xb25329e7",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceCslRotateIv": {
+        "crc": "0xf2553962",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceCslRotateKey": {
+        "crc": "0xea6454fd",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceCslSign": {
+        "crc": "0xb8460a23",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceDeRegisterUvmOps": {
+        "crc": "0xd272d446",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceDeinitCslContext": {
+        "crc": "0x15755a50",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceDestroyAccessCntrInfo": {
+        "crc": "0x06ad5d13",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceDestroyFaultInfo": {
+        "crc": "0x35554a88",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceDeviceCreate": {
+        "crc": "0x113209c8",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceDeviceDestroy": {
+        "crc": "0x305af259",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceDisableAccessCntr": {
+        "crc": "0x06ad5d13",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceDupAddressSpace": {
+        "crc": "0x0a7f116d",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceDupAllocation": {
+        "crc": "0x54cb3609",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceDupMemory": {
+        "crc": "0xfe845a93",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceEnableAccessCntr": {
+        "crc": "0x0fb107b2",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceFlushReplayableFaultBuffer": {
+        "crc": "0x70d0ac8c",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceFreeDupedHandle": {
+        "crc": "0x4c3264fc",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceGetChannelResourcePtes": {
+        "crc": "0x548644f0",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceGetEccInfo": {
+        "crc": "0xbc035ca3",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceGetExternalAllocPhysAddrs": {
+        "crc": "0xf9908638",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceGetExternalAllocPtes": {
+        "crc": "0xa9a87df1",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceGetFbInfo": {
+        "crc": "0x789d66d5",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceGetGpuInfo": {
+        "crc": "0x817bd737",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceGetNonReplayableFaults": {
+        "crc": "0xd6a9fb08",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceGetNvlinkInfo": {
+        "crc": "0xf3ef35ae",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceGetP2PCaps": {
+        "crc": "0x5b4a1818",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceGetPmaObject": {
+        "crc": "0x15162233",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceHasPendingNonReplayableFaults": {
+        "crc": "0x39a9da59",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceInitAccessCntrInfo": {
+        "crc": "0x2d494197",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceInitFaultInfo": {
+        "crc": "0x35554a88",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceMemoryAllocFB": {
+        "crc": "0x69f88660",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceMemoryAllocSys": {
+        "crc": "0x69f88660",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceMemoryCpuMap": {
+        "crc": "0x2f6f071f",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceMemoryCpuUnMap": {
+        "crc": "0x0d2253e0",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceMemoryFree": {
+        "crc": "0xfa1d704a",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceOwnPageFaultIntr": {
+        "crc": "0x8301f233",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceP2pObjectCreate": {
+        "crc": "0x1d4ed7e9",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceP2pObjectDestroy": {
+        "crc": "0x3dcb257a",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfacePagingChannelAllocate": {
+        "crc": "0xc95875d3",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfacePagingChannelDestroy": {
+        "crc": "0x20f54d19",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfacePagingChannelPushStream": {
+        "crc": "0x0002db12",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfacePagingChannelsMap": {
+        "crc": "0xae28b0bd",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfacePagingChannelsUnmap": {
+        "crc": "0x55f27944",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfacePmaAllocPages": {
+        "crc": "0x83267c04",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfacePmaFreePages": {
+        "crc": "0x3de98227",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfacePmaPinPages": {
+        "crc": "0x73bae3a6",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfacePmaRegisterEvictionCallbacks": {
+        "crc": "0xe637b5db",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfacePmaUnregisterEvictionCallbacks": {
+        "crc": "0xc10acc07",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceQueryCaps": {
+        "crc": "0xb791dbaa",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceQueryCopyEnginesCaps": {
+        "crc": "0x8d0e41fc",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceRegisterGpu": {
+        "crc": "0xef01d664",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceRegisterUvmCallbacks": {
+        "crc": "0x4b0ab481",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceReleaseChannel": {
+        "crc": "0xf7d257d0",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceReportFatalError": {
+        "crc": "0xf185b0ec",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceReportNonReplayableFault": {
+        "crc": "0xe04e19d4",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceRetainChannel": {
+        "crc": "0x509c8472",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceServiceDeviceInterruptsRM": {
+        "crc": "0x919202dc",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceSessionCreate": {
+        "crc": "0x89f79360",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceSessionDestroy": {
+        "crc": "0x672248f6",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceSetPageDirectory": {
+        "crc": "0x4839db16",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceStopChannel": {
+        "crc": "0x83d21ee9",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceTogglePrefetchFaults": {
+        "crc": "0x1bcae417",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceTsgAllocate": {
+        "crc": "0xaab2a399",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceTsgDestroy": {
+        "crc": "0x380997f7",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceUnregisterGpu": {
+        "crc": "0xdf16a226",
+        "export": "EXPORT_SYMBOL"
+      },
+      "nvUvmInterfaceUnsetPageDirectory": {
+        "crc": "0xa26ed179",
+        "export": "EXPORT_SYMBOL"
+      }
+    },
+    "provider_only_exports": [],
+    "symbols": [
+      "nvUvmInterfaceAddressSpaceCreate",
+      "nvUvmInterfaceAddressSpaceDestroy",
+      "nvUvmInterfaceBindChannelResources",
+      "nvUvmInterfaceChannelAllocate",
+      "nvUvmInterfaceChannelDestroy",
+      "nvUvmInterfaceCslDecrypt",
+      "nvUvmInterfaceCslEncrypt",
+      "nvUvmInterfaceCslIncrementIv",
+      "nvUvmInterfaceCslInitContext",
+      "nvUvmInterfaceCslLogEncryption",
+      "nvUvmInterfaceCslQueryMessagePool",
+      "nvUvmInterfaceCslRotateIv",
+      "nvUvmInterfaceCslRotateKey",
+      "nvUvmInterfaceCslSign",
+      "nvUvmInterfaceDeRegisterUvmOps",
+      "nvUvmInterfaceDeinitCslContext",
+      "nvUvmInterfaceDestroyAccessCntrInfo",
+      "nvUvmInterfaceDestroyFaultInfo",
+      "nvUvmInterfaceDeviceCreate",
+      "nvUvmInterfaceDeviceDestroy",
+      "nvUvmInterfaceDisableAccessCntr",
+      "nvUvmInterfaceDupAddressSpace",
+      "nvUvmInterfaceDupAllocation",
+      "nvUvmInterfaceDupMemory",
+      "nvUvmInterfaceEnableAccessCntr",
+      "nvUvmInterfaceFlushReplayableFaultBuffer",
+      "nvUvmInterfaceFreeDupedHandle",
+      "nvUvmInterfaceGetChannelResourcePtes",
+      "nvUvmInterfaceGetEccInfo",
+      "nvUvmInterfaceGetExternalAllocPhysAddrs",
+      "nvUvmInterfaceGetExternalAllocPtes",
+      "nvUvmInterfaceGetFbInfo",
+      "nvUvmInterfaceGetGpuInfo",
+      "nvUvmInterfaceGetNonReplayableFaults",
+      "nvUvmInterfaceGetNvlinkInfo",
+      "nvUvmInterfaceGetP2PCaps",
+      "nvUvmInterfaceGetPmaObject",
+      "nvUvmInterfaceHasPendingNonReplayableFaults",
+      "nvUvmInterfaceInitAccessCntrInfo",
+      "nvUvmInterfaceInitFaultInfo",
+      "nvUvmInterfaceMemoryAllocFB",
+      "nvUvmInterfaceMemoryAllocSys",
+      "nvUvmInterfaceMemoryCpuMap",
+      "nvUvmInterfaceMemoryCpuUnMap",
+      "nvUvmInterfaceMemoryFree",
+      "nvUvmInterfaceOwnPageFaultIntr",
+      "nvUvmInterfaceP2pObjectCreate",
+      "nvUvmInterfaceP2pObjectDestroy",
+      "nvUvmInterfacePagingChannelAllocate",
+      "nvUvmInterfacePagingChannelDestroy",
+      "nvUvmInterfacePagingChannelPushStream",
+      "nvUvmInterfacePagingChannelsMap",
+      "nvUvmInterfacePagingChannelsUnmap",
+      "nvUvmInterfacePmaAllocPages",
+      "nvUvmInterfacePmaFreePages",
+      "nvUvmInterfacePmaPinPages",
+      "nvUvmInterfacePmaRegisterEvictionCallbacks",
+      "nvUvmInterfacePmaUnregisterEvictionCallbacks",
+      "nvUvmInterfaceQueryCaps",
+      "nvUvmInterfaceQueryCopyEnginesCaps",
+      "nvUvmInterfaceRegisterGpu",
+      "nvUvmInterfaceRegisterUvmCallbacks",
+      "nvUvmInterfaceReleaseChannel",
+      "nvUvmInterfaceReportFatalError",
+      "nvUvmInterfaceReportNonReplayableFault",
+      "nvUvmInterfaceRetainChannel",
+      "nvUvmInterfaceServiceDeviceInterruptsRM",
+      "nvUvmInterfaceSessionCreate",
+      "nvUvmInterfaceSessionDestroy",
+      "nvUvmInterfaceSetPageDirectory",
+      "nvUvmInterfaceStopChannel",
+      "nvUvmInterfaceTogglePrefetchFaults",
+      "nvUvmInterfaceTsgAllocate",
+      "nvUvmInterfaceTsgDestroy",
+      "nvUvmInterfaceUnregisterGpu",
+      "nvUvmInterfaceUnsetPageDirectory"
+    ],
+    "unmatched_imports": []
+  }
+}

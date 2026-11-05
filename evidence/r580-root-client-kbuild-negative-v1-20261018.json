@@ -1,0 +1,26 @@
+{
+  "schema": "nvidia-hybrid-root-client-kbuild-negative-v1",
+  "qualification": "compile-failed-retained",
+  "scope": "object-compilation-only",
+  "build_exit_code": 2,
+  "command": [
+    "make",
+    "-C",
+    "/lib/modules/7.0.0-38-generic/build",
+    "M=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/root-client-kbuild-v1",
+    "rm_root_client.o",
+    "rm_root_client_bindings.o"
+  ],
+  "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/root-client-kbuild-v1/build.log",
+  "log_sha256": "c1619e8f8aca6cdbc1be749ce5f347e13b80b35b952cbaa92ef28686c5df98b1",
+  "copied_source_sha256": {
+    "rm_root_client.c": "9d24b6b6d01161bb1bbbd09ee812f697c7846e757185d622f87904149509ec5f",
+    "rm_root_client_bindings.c": "0a1b7cfca6e826c8d29c4607fc7d3f782aa415ec7682ab9cfc13cc7600ac2bbd"
+  },
+  "copied_header_sha256": "9a9d51fcd132fb3772ef14600d56fe11e99981328f5d5071d4fc0a514fa110ae",
+  "failure": "nv.h selected standard stddef.h under Kbuild because NV_LINUX was not established before including nv.h",
+  "correction": "Include real nvtypes.h before nv.h; cpuopsys.h establishes OS macros",
+  "followup_report": "evidence/r580-root-client-kbuild-v2-20261018.json",
+  "loaded_or_installed": false,
+  "real_rm_executed": false
+}

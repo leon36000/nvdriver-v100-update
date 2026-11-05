@@ -1,0 +1,82 @@
+{
+  "schema": "nvidia-hybrid-root-client-kbuild-v1",
+  "observed_at_utc": "2026-10-19T03:45:57.015933+00:00",
+  "qualification": "compiled-kbuild-objects-only",
+  "kernel_release": "7.0.0-38-generic",
+  "input_sha256": {
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/rm_root_client.c": "b2cf0780faaa5209d6f30f63d9d974f1d2bd0768dbc800e359cd0b0858d5f8ae",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/rm_root_client.h": "b0e630634af5d479fb2fb04d4a854f7477d807ab1ec97389eaf12e4bb79b3331",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/rm_root_client_bindings.c": "0a1b7cfca6e826c8d29c4607fc7d3f782aa415ec7682ab9cfc13cc7600ac2bbd",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/rm_session_endpoint.h": "6a447c37f738eb09098b419e42203b4b4d16c85c108510acba483f37c6e700c7",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/build_rm_root_client_kbuild.py": "2a82d786f7721e088a69e1df8ddb5518e4f5b3d725c5c2134b92d519b0a1a5f0",
+    "/usr/src/linux-headers-7.0.0-38-generic/.config": "6cb18717c6914d4947489eedf8cb69ac23db3faa8ef9b9f563ff02c346dcd32d",
+    "/usr/src/linux-headers-7.0.0-38-generic/Module.symvers": "ea539a464a3beb960dc84288afaf41c1e2d6a4506902af14affe80111d1bf97e",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-wrapper-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/conftest/functions.h": "94dfd134bdd9d4e1491040c1b624cc9454c4579a22925c51c10f762d935d0908",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-wrapper-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/conftest/generic.h": "b784ff37b705eb28a8302ffa935d1826f918164ce12fbe08ecba8a479d5acfef",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-wrapper-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/conftest/headers.h": "efaa05c5ec03f58118cc6c022865ff96935512ee721ad8e7e8eae0d4d833c1a3",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-wrapper-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/conftest/macros.h": "cd6bad9cfad77d1fd27da92c73395593b9ee5dd008356dccdbe35c0c310ca9b1",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-wrapper-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/conftest/patches.h": "fae73f9f0d9ab8a42139f0e8874b721637565e785b35b14735434bc6d4ed405e",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-wrapper-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/conftest/symbols.h": "f6df382282df7c0cec93f3d028f96feaf699bbcd76e4c06f1b69438e9168ee4a",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/open580-wrapper-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/conftest/types.h": "fdd8b7fd1f333b0ee50f8dfead503b7e0cee8b0c77dfbae9013d1bbcf6b1c7b4"
+  },
+  "steps": [
+    {
+      "argv": [
+        "make",
+        "-C",
+        "/usr/src/linux-headers-7.0.0-38-generic",
+        "M=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/root-client-kbuild-v6",
+        "CC=/usr/bin/x86_64-linux-gnu-gcc",
+        "rm_root_client.o",
+        "rm_root_client_bindings.o"
+      ],
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/root-client-kbuild-v6/build.log",
+      "log_sha256": "ea6697e632a969509667f9aea7ebbb14256a6ba272babbeee0317f83c023bb9a"
+    }
+  ],
+  "loaded_or_installed": false,
+  "module_produced": false,
+  "rm_objects_linked": false,
+  "real_rm_executed": false,
+  "binary_rm_abi_validated": false,
+  "wrapper_sources_modified": false,
+  "generated_kbuild_sha256": "cc859dad7184543f9d7a674fdb6745deec223703ce23de26391ca5524ef89365",
+  "outputs": [
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/root-client-kbuild-v6/rm_root_client.o",
+      "sha256": "4958c4ca39e0c5d8a60c289b1a86d0d6eb28528221c072c320ca68b9e3606821",
+      "bytes": 46352,
+      "elf-header": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/root-client-kbuild-v6/rm_root_client-elf-header.log",
+        "sha256": "88c25abea1b74b7e067291678af44fee8248ee52315da5b6a15bade925321474"
+      },
+      "symbols": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/root-client-kbuild-v6/rm_root_client-symbols.log",
+        "sha256": "12bf7435d4928c88a5acbc81cda0232f2d163a81ba917718008bec64a1255207"
+      },
+      "kbuild_command": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/root-client-kbuild-v6/.rm_root_client.o.cmd",
+        "sha256": "4b05ab92b9b920e3ff23c176193c7c6cb45b0792e85996d4115628bfc9b42437"
+      }
+    },
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/root-client-kbuild-v6/rm_root_client_bindings.o",
+      "sha256": "12a66dca3e51d0612ca2b4b874c10f6a14671a4a1ace011b7de8231fdd19479b",
+      "bytes": 15960,
+      "elf-header": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/root-client-kbuild-v6/rm_root_client_bindings-elf-header.log",
+        "sha256": "89c54de362ed46e618a24e81cee8f9d2b6d598e75e497c969d04c31105f5ce29"
+      },
+      "symbols": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/root-client-kbuild-v6/rm_root_client_bindings-symbols.log",
+        "sha256": "b60cc80cd7a56c826c4b100e190c0f94949332896d1a1645670f71257c1223e2"
+      },
+      "kbuild_command": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/root-client-kbuild-v6/.rm_root_client_bindings.o.cmd",
+        "sha256": "73e72690a8649a23f88004bf7a4c912e66f1e37caf4898d525a2fcd8525c7f06"
+      }
+    }
+  ],
+  "inputs_unchanged": true
+}

@@ -1,0 +1,117 @@
+{
+  "inputs": {
+    "build_report": {
+      "path": "evidence/r580-uvm-pmm-retry-pair-v3-20261028T1236Z.json",
+      "sha256": "348f54018d3a81cd77daea4c210c563df27c05dcfc92af8c763cdb2a6ccfac5e"
+    },
+    "isolation_patch": {
+      "path": "patches/r580.178.04/uvm/0007-reject-cross-gpu-tracker-dependencies.patch",
+      "sha256": "b8ce083d3f380e63e5d1028a1c14c8481983b8a2365f1451320101cbed16424d"
+    },
+    "pmm_retry_patch": {
+      "path": "patches/r580.178.04/uvm/0008-pmm-allocation-outside-va-block-lock.patch",
+      "sha256": "b532998cbca0a7ca566690a448f6984dff50f22219c60ccd9fa08578c7c40baa"
+    },
+    "source_archive": {
+      "path": ".cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+      "sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8"
+    },
+    "source_files": {
+      "uvm_channel.c": {
+        "bytes": 166151,
+        "path": "build/experiments/r580-uvm-pmm-retry-pair-v3-20261028T1236Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_channel.c",
+        "sha256": "64fcdb55ecba388c8ed6c656ca72b60f2b6f4b8bc0ebaffd794ed1e78068a248"
+      },
+      "uvm_channel.h": {
+        "bytes": 28873,
+        "path": "build/experiments/r580-uvm-pmm-retry-pair-v3-20261028T1236Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_channel.h",
+        "sha256": "c03569619e1295d2b646087228454f4f4c8a77cb911cfa308559daabfd497c0f"
+      },
+      "uvm_common.c": {
+        "bytes": 9084,
+        "path": "build/experiments/r580-uvm-pmm-retry-pair-v3-20261028T1236Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_common.c",
+        "sha256": "4703e2717dc3eb71bdbaa08f2759887e26ddf129a93918a4014ed19d7089bfa2"
+      },
+      "uvm_gpu.c": {
+        "bytes": 151540,
+        "path": "build/experiments/r580-uvm-pmm-retry-pair-v3-20261028T1236Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_gpu.c",
+        "sha256": "c3d7426bfb106813e92ed0211824e7082908ae92d627b73bb9e06567557dc922"
+      },
+      "uvm_gpu_semaphore.c": {
+        "bytes": 32197,
+        "path": "build/experiments/r580-uvm-pmm-retry-pair-v3-20261028T1236Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_gpu_semaphore.c",
+        "sha256": "1392d885810a0e045174bc5531b879eb6047aab05e196b5d25392ff79dd38292"
+      },
+      "uvm_migrate.c": {
+        "bytes": 54011,
+        "path": "build/experiments/r580-uvm-pmm-retry-pair-v3-20261028T1236Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_migrate.c",
+        "sha256": "e8fb855d0fc4150107118752b6a5e897b2c5f7d770243278f631a49ca4b36e36"
+      },
+      "uvm_pmm_gpu.c": {
+        "bytes": 148762,
+        "path": "build/experiments/r580-uvm-pmm-retry-pair-v3-20261028T1236Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_pmm_gpu.c",
+        "sha256": "35248129b757c9a405bed7adf7022ea108ebbd9bbb0b091a008935f1247dea9b"
+      },
+      "uvm_push.c": {
+        "bytes": 18148,
+        "path": "build/experiments/r580-uvm-pmm-retry-pair-v3-20261028T1236Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_push.c",
+        "sha256": "9ace70a23fb4316d7169446d8002a5ec1f293cf067bec24a7b6399c8a8b97e41"
+      },
+      "uvm_tracker.c": {
+        "bytes": 13580,
+        "path": "build/experiments/r580-uvm-pmm-retry-pair-v3-20261028T1236Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_tracker.c",
+        "sha256": "af78f7843aefe9682ddc3bf5a44a0fcaec0d59043e50d9fb1a0da51d058ed608"
+      },
+      "uvm_va_block.c": {
+        "bytes": 625301,
+        "path": "build/experiments/r580-uvm-pmm-retry-pair-v3-20261028T1236Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_block.c",
+        "sha256": "6e19e66f0dab6d25a18e67060df144c4fc9d7963ca926a1741f471466e27d73b"
+      },
+      "uvm_va_block.h": {
+        "bytes": 114239,
+        "path": "build/experiments/r580-uvm-pmm-retry-pair-v3-20261028T1236Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_block.h",
+        "sha256": "1ea676fd3280803241bfb3c88fe9b2f48030393fbe44e455a7701e15e9747020"
+      }
+    }
+  },
+  "observed_at_utc": "2026-10-28T12:55:35.448798+00:00",
+  "qualification": {
+    "level": "analyzed-statically",
+    "module_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "result": {
+    "checks": {
+      "block_population_asserts_va_block_lock": true,
+      "channel_completion_refreshes_from_cpu_mapped_payload": true,
+      "channel_tracking_semaphore_released_after_progress_and_rm_channel": true,
+      "default_no_evict_alloc_is_unchanged": true,
+      "eviction_retry_releases_lock_before_pmm_alloc": true,
+      "gpu_map_acquires_global_tracker_but_appends_to_output": true,
+      "gpu_teardown_removes_tracker_references_and_syncs_before_semaphore_pool_free": true,
+      "isolated_no_evict_alloc_releases_block_lock": true,
+      "isolated_owner_semaphore_page_is_cpu_mapped_and_cross_gpu_mapping_is_skipped": false,
+      "isolated_success_requeues_chunk_and_restarts": true,
+      "lock_retry_macro_repeats_more_processing": true,
+      "migration_make_resident_uses_lock_retry": true,
+      "migration_merges_local_tracker_into_va_block_tracker": true,
+      "migration_selects_accessed_by_processors": true,
+      "multiple_gpu_maps_accumulate_in_local_output_tracker": true,
+      "pmm_alloc_waits_for_foreign_gpu_tracker": true,
+      "pmm_free_imports_va_block_tracker": true,
+      "pmm_wait_follows_root_tracker_collection": true,
+      "spin_loop_schedules_for_rm_uvm_progress": true,
+      "tracker_wait_polls_channel_tracking_semaphore": true,
+      "tracker_wait_timeout_is_warning_only": true,
+      "tracking_semaphore_uses_channel_gpu_owned_pool": true,
+      "wait_uses_cpu_spin_entry_helper": true
+    },
+    "failed_checks": [
+      "isolated_owner_semaphore_page_is_cpu_mapped_and_cross_gpu_mapping_is_skipped"
+    ],
+    "interpretation": "The pinned R580 source gives a conditional route for a foreign tracker into the PMM wait. Migration can merge mapping pushes from multiple accessible GPU IDs into the VA-block tracker; block cleanup can then pass that tracker into the PMM root tracker. The opt-in patch now unlocks the VA block around ordinary no-eviction PMM allocation, retains a successful chunk on the retry list, reacquires the lock, and forces the caller to restart and revalidate. The stock/default allocation path remains unchanged. Thus the specific foreign-tracker wait is statically shown to be unlocked in isolated mode, while the conditional source route still exists. The wait polls a channel's GPU tracking semaphore through its CPU mapping and refreshes the cached value by reading the mapped payload. In sleepable context, the spin helper schedules after about 10 us; the source comment says this is required for RM interrupts and UVM fault service. The 30-second warning is diagnostic only, not a wait deadline. This is not proof of a deadlock or of safe cross-provider completion: source shows tracker entries resolve through their channel to a GPU-owned semaphore pool, and isolated mode skips peer GPU semaphore mappings while rejecting cross-GPU dependencies. Teardown removes tracker references, synchronizes PMM, destroys channels and then semaphore pools. These source-order checks do not prove runtime completion, CPU visibility/coherence, or absence of races. Provider-affine memory duplication still rejects cross-provider operations, and mixed-provider UVM address-space/runtime behavior remains unvalidated.",
+    "status": "unresolved"
+  },
+  "schema": "nvidia-r580-uvm-pmm-wait-lock-context-v3",
+  "source_release": "580.178.04"
+}

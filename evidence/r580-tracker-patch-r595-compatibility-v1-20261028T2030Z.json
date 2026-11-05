@@ -1,0 +1,40 @@
+{
+  "observed_at_utc": "2026-10-28T20:24:44.855763+00:00",
+  "patch": {
+    "application": "patch --batch --forward --fuzz=0 -p1",
+    "path": "patches/r580.178.04/uvm/0007-reject-cross-gpu-tracker-dependencies.patch",
+    "sha256": "b8ce083d3f380e63e5d1028a1c14c8481983b8a2365f1451320101cbed16424d"
+  },
+  "result": {
+    "exit_code": 1,
+    "expected_r580_to_r595_conflict_observed": true,
+    "output": "patching file kernel-open/nvidia-uvm/uvm_tracker.c\npatching file kernel-open/nvidia-uvm/uvm_tracker.h\npatching file kernel-open/nvidia-uvm/uvm_push.h\nHunk #1 succeeded at 505 (offset 11 lines).\npatching file kernel-open/nvidia-uvm/uvm_push.c\nHunk #1 FAILED at 45.\nHunk #2 succeeded at 54 (offset -6 lines).\nHunk #3 succeeded at 206 (offset -6 lines).\nHunk #4 succeeded at 273 (offset -6 lines).\nHunk #5 succeeded at 305 (offset -6 lines).\n1 out of 5 hunks FAILED -- saving rejects to file kernel-open/nvidia-uvm/uvm_push.c.rej\npatching file kernel-open/nvidia-uvm/uvm_migrate_pageable.c\npatching file kernel-open/nvidia-uvm/uvm_gpu.c\nHunk #1 FAILED at 1140.\n1 out of 1 hunk FAILED -- saving rejects to file kernel-open/nvidia-uvm/uvm_gpu.c.rej\npatching file kernel-open/nvidia-uvm/uvm_gpu_semaphore.c\nHunk #1 FAILED at 178.\n1 out of 1 hunk FAILED -- saving rejects to file kernel-open/nvidia-uvm/uvm_gpu_semaphore.c.rej\n",
+    "rejected_hunk_text": {
+      "kernel-open/nvidia-uvm/uvm_gpu.c": "--- kernel-open/nvidia-uvm/uvm_gpu.c\n+++ kernel-open/nvidia-uvm/uvm_gpu.c\n@@ -1140,8 +1140,8 @@\n     if (g_uvm_global.conf_computing_enabled)\n         return uvm_gpu_semaphore_secure_pool_create(gpu, &gpu->secure_semaphore_pool);\n \n-    // The opt-in isolated mode synchronizes cross-GPU tracker dependencies on\n-    // the CPU, so semaphore pages need not be mapped into other providers.\n+    // The opt-in isolated mode rejects cross-GPU tracker dependencies, so\n+    // semaphore pages need not be mapped into other providers.\n     if (!uvm_push_allow_dependencies_across_gpus())\n         return NV_OK;\n \n",
+      "kernel-open/nvidia-uvm/uvm_gpu_semaphore.c": "--- kernel-open/nvidia-uvm/uvm_gpu_semaphore.c\n+++ kernel-open/nvidia-uvm/uvm_gpu_semaphore.c\n@@ -178,8 +178,8 @@\n     size_t memory_size = UVM_SEMAPHORE_PAGE_SIZE;\n \n     if (!gpu_semaphore_pool_is_secure(pool)) {\n-        // In isolated mode, cross-GPU dependencies are waited on by the CPU.\n-        // Keep the page CPU-mapped and mapped to its owner GPU only.\n+        // In isolated mode, cross-GPU dependencies are rejected. Keep the\n+        // semaphore page CPU-mapped and local to its owner GPU.\n         if (!g_uvm_global.conf_computing_enabled &&\n             !uvm_push_allow_dependencies_across_gpus())\n             return uvm_rm_mem_alloc_and_map_cpu(gpu, memory_type, memory_size, 0, &page->memory);\n",
+      "kernel-open/nvidia-uvm/uvm_push.c": "--- kernel-open/nvidia-uvm/uvm_push.c\n+++ kernel-open/nvidia-uvm/uvm_push.c\n@@ -45,7 +45,7 @@\n static bool uvm_hybrid_isolated_gpu_execution = false;\n module_param(uvm_hybrid_isolated_gpu_execution, bool, 0444);\n MODULE_PARM_DESC(uvm_hybrid_isolated_gpu_execution,\n-                 \"Disable cross-GPU semaphore dependencies and use host waits\");\n+                 \"Reject cross-GPU dependencies and keep semaphore mappings local\");\n \n static uvm_push_acquire_info_t *push_acquire_info_from_push(uvm_push_t *push)\n {\n"
+    },
+    "rejected_hunks_by_file": {
+      "kernel-open/nvidia-uvm/uvm_gpu.c": 1,
+      "kernel-open/nvidia-uvm/uvm_gpu_semaphore.c": 1,
+      "kernel-open/nvidia-uvm/uvm_push.c": 1
+    },
+    "scope": "temporary source projection only; no build, module, device, or host changes"
+  },
+  "schema": "r580-tracker-patch-r595-compatibility-probe-v1",
+  "source": {
+    "file_count": 3810,
+    "files_used": {
+      "kernel-open/nvidia-uvm/uvm_gpu.c": "66881c4ae46461314d41342b2a27df9119d68d68f90d181e3a32670dcc19f590",
+      "kernel-open/nvidia-uvm/uvm_gpu_semaphore.c": "1472d3bdcd91b35095fb7ae6aa1f66a075ea495c08d106ed7da497176a3d629f",
+      "kernel-open/nvidia-uvm/uvm_migrate_pageable.c": "e7178513d684596aadbe24c1f699eb9e7b13b7f39c19805fe213bbef090898da",
+      "kernel-open/nvidia-uvm/uvm_push.c": "9628ada0b4007eff5af16525d0d71788045832e5ca268699e2ae82a5dc14b85e",
+      "kernel-open/nvidia-uvm/uvm_push.h": "ba2970bac58980f83f03ccf7f512c67fcce66451a59cd1367847520fbf72253f",
+      "kernel-open/nvidia-uvm/uvm_tracker.c": "756ce284db092691c5e346c9180299c98e050d4391242c53c19d14fcdff13e41",
+      "kernel-open/nvidia-uvm/uvm_tracker.h": "17db41fd3fbbaa9aec3047f7c226514085ae0d5479c572f99aa3dd36e9403058"
+    },
+    "root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/research/open-gpu-kernel-modules-595.99.02/source/open-gpu-kernel-modules-595.99.02",
+    "tree_sha256": "6d4ae86fb03f3afac63007c3c13422b114c93f5ab6a271ccb3dde5fb2440c066",
+    "version": "595.99.02"
+  }
+}
