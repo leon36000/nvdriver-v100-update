@@ -1,0 +1,713 @@
+{
+  "behavioral_risks": [
+    {
+      "condition": "The R615 RM rejects the requested compression mode for GV100 after UVM has removed an overlapping mapping.",
+      "conditional_impact": true,
+      "id": "plc-rejection-after-overlap-unmap",
+      "interpretation": "conditional failure-atomicity risk; proprietary RM behavior on GV100 remains unknown",
+      "potential_effect": "The requested new mapping may fail after the previous overlapping mapping has already been removed; source evidence does not establish RM rejection or the effect on a live GPU.",
+      "priority": "high",
+      "r580_guard_prevents_this_ordering": {
+        "function": "uvm_map_external_allocation_on_gpu",
+        "guard": {
+          "line": 861,
+          "logical_text": "if ((map_rm_params->compression_type == UvmGpuCompressionTypeEnabledNoPlc) && !mapping_gpu->parent->plc_supported)",
+          "path": "uvm_map_external.c",
+          "text": "if ((map_rm_params->compression_type == UvmGpuCompressionTypeEnabledNoPlc) && !mapping_gpu->parent->plc_supported)"
+        },
+        "guard_precedes_unmap": true,
+        "overlap_unmap": {
+          "line": 870,
+          "logical_text": "status = uvm_unmap_external_in_range(external_range, mapping_gpu, base, base + length - 1, NULL);",
+          "path": "uvm_map_external.c",
+          "text": "status = uvm_unmap_external_in_range(external_range, mapping_gpu, base, base + length - 1, NULL);"
+        }
+      },
+      "r615_rm_rejection_on_gv100": "unknown",
+      "r615_source_evidence": [
+        {
+          "evidence_kind": "raw-documentation-line",
+          "line": 1799,
+          "path": "uvm.h",
+          "semantic_limit": "documented API error contract; not proof of RM behavior on GV100",
+          "text": "//         - UvmGpuCompressionTypeEnabledNoPlc compression type was used on one"
+        },
+        {
+          "line": 879,
+          "logical_text": "status = uvm_unmap_external_in_range(external_range, mapping_gpu, base, base + length - 1, NULL);",
+          "path": "uvm_map_external.c",
+          "text": "status = uvm_unmap_external_in_range(external_range, mapping_gpu, base, base + length - 1, NULL);"
+        },
+        {
+          "line": 1044,
+          "logical_text": "map_rm_params.compression_type = params->perGpuAttributes[i].gpuCompressionType;",
+          "path": "uvm_map_external.c",
+          "text": "map_rm_params.compression_type = params->perGpuAttributes[i].gpuCompressionType;"
+        },
+        {
+          "line": 964,
+          "logical_text": "uvm_va_range_map_rm_allocation(&external_range->va_range,",
+          "path": "uvm_map_external.c",
+          "text": "status = uvm_va_range_map_rm_allocation(&external_range->va_range,"
+        },
+        {
+          "line": 110,
+          "logical_text": "pte_buffer->mapping_info.compressionType    = map_rm_params->compression_type;",
+          "path": "uvm_map_external.c",
+          "text": "pte_buffer->mapping_info.compressionType    = map_rm_params->compression_type;"
+        },
+        {
+          "line": 187,
+          "logical_text": "nvUvmInterfaceGetExternalAllocPtes(gpu_va_space->duped_gpu_va_space,",
+          "path": "uvm_map_external.c",
+          "text": "status = uvm_rm_locked_call(nvUvmInterfaceGetExternalAllocPtes(gpu_va_space->duped_gpu_va_space,"
+        },
+        {
+          "line": 977,
+          "logical_text": "uvm_ext_gpu_map_destroy(external_range, ext_gpu_map, NULL);",
+          "path": "uvm_map_external.c",
+          "text": "uvm_ext_gpu_map_destroy(external_range, ext_gpu_map, NULL);"
+        },
+        {
+          "line": 1175,
+          "logical_text": "uvm_ext_gpu_map_destroy(external_range, ext_gpu_map, NULL);",
+          "path": "uvm_map_external.c",
+          "text": "uvm_ext_gpu_map_destroy(external_range, ext_gpu_map, NULL);"
+        }
+      ],
+      "r615_static_path": [
+        "uvm_map_external_allocation stores the per-GPU compression type and calls uvm_map_external_allocation_on_gpu",
+        "uvm_map_external_allocation_on_gpu removes overlapping mappings before calling uvm_va_range_map_rm_allocation",
+        "the mapping info carries compressionType into nvUvmInterfaceGetExternalAllocPtes; a failure tears down the new map, with no source evidence that the old overlap is restored"
+      ]
+    }
+  ],
+  "capabilities": [
+    {
+      "field": "va_invalidate_supported",
+      "interpretation": "R615 directly dispatches targeted VA invalidation through the host HAL; the old capability branch is absent.",
+      "r580_assignment": {
+        "line": 31,
+        "logical_text": "parent_gpu->tlb_batch.va_invalidate_supported = true;",
+        "path": "uvm_volta.c",
+        "text": "parent_gpu->tlb_batch.va_invalidate_supported = true;"
+      },
+      "r580_consumer_evidence": [
+        {
+          "line": 91,
+          "logical_text": "if (!batch->tree->gpu->parent->tlb_batch.va_invalidate_supported)",
+          "path": "uvm_tlb_batch.c",
+          "text": "if (!batch->tree->gpu->parent->tlb_batch.va_invalidate_supported)"
+        }
+      ],
+      "r580_r615_shared_code_anchors": [
+        {
+          "marker": "tree->gpu->parent->host_hal->tlb_invalidate_va(push,",
+          "path": "uvm_tlb_batch.c",
+          "r580_occurrences": [
+            {
+              "line": 70,
+              "logical_text": "tree->gpu->parent->host_hal->tlb_invalidate_va(push,",
+              "path": "uvm_tlb_batch.c",
+              "text": "tree->gpu->parent->host_hal->tlb_invalidate_va(push,"
+            }
+          ],
+          "r615_occurrences": [
+            {
+              "line": 70,
+              "logical_text": "tree->gpu->parent->host_hal->tlb_invalidate_va(push,",
+              "path": "uvm_tlb_batch.c",
+              "text": "tree->gpu->parent->host_hal->tlb_invalidate_va(push,"
+            }
+          ],
+          "same_marker_in_both_releases": true,
+          "semantic_limit": "identical caller text does not establish identical HAL, RM, or hardware behavior"
+        }
+      ],
+      "r615_classification": "reworked-callback-no-GV100-proof",
+      "r615_legacy_identifier_absent_from_code": true,
+      "r615_legacy_identifier_code_occurrences": [],
+      "r615_legacy_identifier_occurrences": [],
+      "r615_source_evidence": [
+        {
+          "line": 70,
+          "logical_text": "tree->gpu->parent->host_hal->tlb_invalidate_va(push,",
+          "path": "uvm_tlb_batch.c",
+          "text": "tree->gpu->parent->host_hal->tlb_invalidate_va(push,"
+        }
+      ],
+      "required_validation": "Add and validate the GV100 host-HAL callback, including address, page-size, and memory-barrier semantics.",
+      "runtime_or_hardware_validated": false
+    },
+    {
+      "field": "va_range_invalidate_supported",
+      "interpretation": "R615 counts ranges and applies max_ranges without the old ranges-versus-pages capability selection.",
+      "r580_assignment": {
+        "line": 33,
+        "logical_text": "parent_gpu->tlb_batch.va_range_invalidate_supported = true;",
+        "path": "uvm_volta.c",
+        "text": "parent_gpu->tlb_batch.va_range_invalidate_supported = true;"
+      },
+      "r580_consumer_evidence": [
+        {
+          "line": 97,
+          "logical_text": "if (batch->tree->gpu->parent->tlb_batch.va_range_invalidate_supported)",
+          "path": "uvm_tlb_batch.c",
+          "text": "if (batch->tree->gpu->parent->tlb_batch.va_range_invalidate_supported)"
+        },
+        {
+          "line": 124,
+          "logical_text": "if (batch->tree->gpu->parent->tlb_batch.va_range_invalidate_supported)",
+          "path": "uvm_tlb_batch.c",
+          "text": "if (batch->tree->gpu->parent->tlb_batch.va_range_invalidate_supported)"
+        }
+      ],
+      "r580_r615_shared_code_anchors": [],
+      "r615_classification": "reworked-range-policy-no-GV100-proof",
+      "r615_legacy_identifier_absent_from_code": true,
+      "r615_legacy_identifier_code_occurrences": [],
+      "r615_legacy_identifier_occurrences": [],
+      "r615_source_evidence": [
+        {
+          "line": 94,
+          "logical_text": "batch->total_ranges > batch->tree->gpu->parent->tlb_batch.max_ranges",
+          "path": "uvm_tlb_batch.c",
+          "text": "return batch->total_ranges > batch->tree->gpu->parent->tlb_batch.max_ranges;"
+        }
+      ],
+      "required_validation": "Validate GV100 range invalidation thresholds and fallback behavior under fragmented workloads.",
+      "runtime_or_hardware_validated": false
+    },
+    {
+      "field": "can_map_sysmem_with_large_pages",
+      "interpretation": "R615 chooses from the page sizes exposed by its MMU page tree; page-size selection alone does not prove Volta sysmem PTE support.",
+      "r580_assignment": {
+        "line": 68,
+        "logical_text": "parent_gpu->can_map_sysmem_with_large_pages = true;",
+        "path": "uvm_volta.c",
+        "text": "parent_gpu->can_map_sysmem_with_large_pages = true;"
+      },
+      "r580_consumer_evidence": [
+        {
+          "line": 332,
+          "logical_text": "if (gpu->parent->can_map_sysmem_with_large_pages) {",
+          "path": "uvm_mem.c",
+          "text": "if (gpu->parent->can_map_sysmem_with_large_pages) {"
+        }
+      ],
+      "r580_r615_shared_code_anchors": [],
+      "r615_classification": "reworked-page-tree-selection-no-GV100-proof",
+      "r615_legacy_identifier_absent_from_code": true,
+      "r615_legacy_identifier_code_occurrences": [],
+      "r615_legacy_identifier_occurrences": [],
+      "r615_source_evidence": [
+        {
+          "line": 332,
+          "logical_text": "return uvm_mmu_biggest_page_size_up_to(gpu_page_tree, mem->chunk_size);",
+          "path": "uvm_mem.c",
+          "text": "return uvm_mmu_biggest_page_size_up_to(gpu_page_tree, mem->chunk_size);"
+        }
+      ],
+      "required_validation": "Validate GV100 page-size masks, CPU-page contiguity, PTE formats, and sysmem mappings on hardware.",
+      "runtime_or_hardware_validated": false
+    },
+    {
+      "field": "prefetch_fault_supported",
+      "interpretation": "R615 sets runtime prefetch-fault state and expects an architecture HAL implementation; the old capability field is absent.",
+      "r580_assignment": {
+        "line": 71,
+        "logical_text": "parent_gpu->prefetch_fault_supported = true;",
+        "path": "uvm_volta.c",
+        "text": "parent_gpu->prefetch_fault_supported = true;"
+      },
+      "r580_consumer_evidence": [
+        {
+          "line": 216,
+          "logical_text": "parent_gpu->fault_buffer.prefetch_faults_enabled = parent_gpu->prefetch_fault_supported;",
+          "path": "uvm_gpu_replayable_faults.c",
+          "text": "parent_gpu->fault_buffer.prefetch_faults_enabled = parent_gpu->prefetch_fault_supported;"
+        }
+      ],
+      "r580_r615_shared_code_anchors": [],
+      "r615_classification": "reworked-runtime-state-no-GV100-proof",
+      "r615_legacy_identifier_absent_from_code": true,
+      "r615_legacy_identifier_code_occurrences": [],
+      "r615_legacy_identifier_occurrences": [],
+      "r615_source_evidence": [
+        {
+          "line": 216,
+          "logical_text": "parent_gpu->fault_buffer.prefetch_faults_enabled = true;",
+          "path": "uvm_gpu_replayable_faults.c",
+          "text": "parent_gpu->fault_buffer.prefetch_faults_enabled = true;"
+        },
+        {
+          "line": 3028,
+          "logical_text": "parent_gpu->fault_buffer.prefetch_faults_enabled = true;",
+          "path": "uvm_gpu_replayable_faults.c",
+          "text": "parent_gpu->fault_buffer.prefetch_faults_enabled = true;"
+        }
+      ],
+      "required_validation": "Validate GV100 prefetch-fault control, RM fallback, and fault delivery with a real managed-memory workload.",
+      "runtime_or_hardware_validated": false
+    },
+    {
+      "field": "gpfifo_in_vidmem_supported",
+      "interpretation": "R615 selects a GPFIFO location from policy and memory/coherency state, then forwards it to RM; the open UVM code has no Volta capability gate.",
+      "r580_assignment": {
+        "line": 79,
+        "logical_text": "parent_gpu->gpfifo_in_vidmem_supported = true;",
+        "path": "uvm_volta.c",
+        "text": "parent_gpu->gpfifo_in_vidmem_supported = true;"
+      },
+      "r580_consumer_evidence": [
+        {
+          "line": 3341,
+          "logical_text": "if (!gpu->parent->gpfifo_in_vidmem_supported) {",
+          "path": "uvm_channel.c",
+          "text": "if (!gpu->parent->gpfifo_in_vidmem_supported) {"
+        }
+      ],
+      "r580_r615_shared_code_anchors": [],
+      "r615_classification": "allocation-policy-rm-request-no-feature-gate",
+      "r615_legacy_identifier_absent_from_code": true,
+      "r615_legacy_identifier_code_occurrences": [],
+      "r615_legacy_identifier_occurrences": [],
+      "r615_source_evidence": [
+        {
+          "line": 3393,
+          "logical_text": "manager->conf.gpfifo_loc = UVM_BUFFER_LOCATION_VID;",
+          "path": "uvm_channel.c",
+          "text": "manager->conf.gpfifo_loc = UVM_BUFFER_LOCATION_VID;"
+        },
+        {
+          "line": 2355,
+          "logical_text": "channel_alloc_params.gpFifoLoc = manager->conf.gpfifo_loc;",
+          "path": "uvm_channel.c",
+          "text": "channel_alloc_params.gpFifoLoc = manager->conf.gpfifo_loc;"
+        }
+      ],
+      "required_validation": "Validate RM acceptance, mapping, cache/coherency, and channel execution for a GV100 GPFIFO in video memory.",
+      "runtime_or_hardware_validated": false
+    },
+    {
+      "field": "replayable_faults_supported",
+      "interpretation": "R615 initializes replayable fault handling without the former capability check and relies on RM information and HAL methods.",
+      "r580_assignment": {
+        "line": 81,
+        "logical_text": "parent_gpu->replayable_faults_supported = true;",
+        "path": "uvm_volta.c",
+        "text": "parent_gpu->replayable_faults_supported = true;"
+      },
+      "r580_consumer_evidence": [
+        {
+          "line": 359,
+          "logical_text": "if (parent_gpu->replayable_faults_supported) {",
+          "path": "uvm_gpu_isr.c",
+          "text": "if (parent_gpu->replayable_faults_supported) {"
+        }
+      ],
+      "r580_r615_shared_code_anchors": [],
+      "r615_classification": "mandatory-init-path-no-feature-gate",
+      "r615_legacy_identifier_absent_from_code": true,
+      "r615_legacy_identifier_code_occurrences": [],
+      "r615_legacy_identifier_occurrences": [],
+      "r615_source_evidence": [
+        {
+          "line": 359,
+          "logical_text": "status = uvm_parent_gpu_fault_buffer_init(parent_gpu);",
+          "path": "uvm_gpu_isr.c",
+          "text": "status = uvm_parent_gpu_fault_buffer_init(parent_gpu);"
+        }
+      ],
+      "required_validation": "Restore a GV100 dispatch closure and validate buffer layout, interrupts, replay, cancellation, and recovery.",
+      "runtime_or_hardware_validated": false
+    },
+    {
+      "field": "non_replayable_faults_supported",
+      "interpretation": "R615 initializes non-replayable fault state through RM-provided buffer information and HAL entry sizing; the old gate is absent.",
+      "r580_assignment": {
+        "line": 83,
+        "logical_text": "parent_gpu->non_replayable_faults_supported = true;",
+        "path": "uvm_volta.c",
+        "text": "parent_gpu->non_replayable_faults_supported = true;"
+      },
+      "r580_consumer_evidence": [
+        {
+          "line": 394,
+          "logical_text": "if (parent_gpu->non_replayable_faults_supported) {",
+          "path": "uvm_gpu_isr.c",
+          "text": "if (parent_gpu->non_replayable_faults_supported) {"
+        },
+        {
+          "line": 552,
+          "logical_text": "if (parent_gpu->non_replayable_faults_supported) {",
+          "path": "uvm_gpu_isr.c",
+          "text": "if (parent_gpu->non_replayable_faults_supported) {"
+        }
+      ],
+      "r580_r615_shared_code_anchors": [
+        {
+          "marker": "uvm_parent_gpu_fault_buffer_init_non_replayable_faults(parent_gpu);",
+          "path": "uvm_gpu_replayable_faults.c",
+          "r580_occurrences": [
+            {
+              "line": 274,
+              "logical_text": "uvm_parent_gpu_fault_buffer_init_non_replayable_faults(parent_gpu);",
+              "path": "uvm_gpu_replayable_faults.c",
+              "text": "status = uvm_parent_gpu_fault_buffer_init_non_replayable_faults(parent_gpu);"
+            }
+          ],
+          "r615_occurrences": [
+            {
+              "line": 272,
+              "logical_text": "uvm_parent_gpu_fault_buffer_init_non_replayable_faults(parent_gpu);",
+              "path": "uvm_gpu_replayable_faults.c",
+              "text": "status = uvm_parent_gpu_fault_buffer_init_non_replayable_faults(parent_gpu);"
+            }
+          ],
+          "same_marker_in_both_releases": true,
+          "semantic_limit": "identical caller text does not establish identical HAL, RM, or hardware behavior"
+        }
+      ],
+      "r615_classification": "implicit-rm-hal-contract-no-GV100-proof",
+      "r615_legacy_identifier_absent_from_code": true,
+      "r615_legacy_identifier_code_occurrences": [],
+      "r615_legacy_identifier_occurrences": [
+        {
+          "line": 115,
+          "logical_text": "non_replayable_faults_supported",
+          "path": "uvm_user_channel.h",
+          "text": "// non_replayable_faults_supported && !has_clear_faulted_channel_method."
+        }
+      ],
+      "r615_source_evidence": [
+        {
+          "line": 272,
+          "logical_text": "status = uvm_parent_gpu_fault_buffer_init_non_replayable_faults(parent_gpu);",
+          "path": "uvm_gpu_replayable_faults.c",
+          "text": "status = uvm_parent_gpu_fault_buffer_init_non_replayable_faults(parent_gpu);"
+        }
+      ],
+      "required_validation": "Validate the GV100 fault-entry format, buffer sizes, ISR path, and error handling on hardware.",
+      "runtime_or_hardware_validated": false
+    },
+    {
+      "field": "fault_cancel_va_supported",
+      "interpretation": "R615 dispatches VA fault cancellation through a host-HAL callback without the historical capability fallback.",
+      "r580_assignment": {
+        "line": 89,
+        "logical_text": "parent_gpu->fault_cancel_va_supported = true;",
+        "path": "uvm_volta.c",
+        "text": "parent_gpu->fault_cancel_va_supported = true;"
+      },
+      "r580_consumer_evidence": [
+        {
+          "line": 2696,
+          "logical_text": "if (parent_gpu->fault_cancel_va_supported)",
+          "path": "uvm_gpu_replayable_faults.c",
+          "text": "if (parent_gpu->fault_cancel_va_supported)"
+        }
+      ],
+      "r580_r615_shared_code_anchors": [
+        {
+          "marker": "gpu->parent->host_hal->cancel_faults_va(&push, pdb, fault_entry, cancel_va_mode);",
+          "path": "uvm_gpu_replayable_faults.c",
+          "r580_occurrences": [
+            {
+              "line": 485,
+              "logical_text": "gpu->parent->host_hal->cancel_faults_va(&push, pdb, fault_entry, cancel_va_mode);",
+              "path": "uvm_gpu_replayable_faults.c",
+              "text": "gpu->parent->host_hal->cancel_faults_va(&push, pdb, fault_entry, cancel_va_mode);"
+            }
+          ],
+          "r615_occurrences": [
+            {
+              "line": 472,
+              "logical_text": "gpu->parent->host_hal->cancel_faults_va(&push, pdb, fault_entry, cancel_va_mode);",
+              "path": "uvm_gpu_replayable_faults.c",
+              "text": "gpu->parent->host_hal->cancel_faults_va(&push, pdb, fault_entry, cancel_va_mode);"
+            }
+          ],
+          "same_marker_in_both_releases": true,
+          "semantic_limit": "identical caller text does not establish identical HAL, RM, or hardware behavior"
+        }
+      ],
+      "r615_classification": "mandatory-hal-callback-no-GV100-proof",
+      "r615_legacy_identifier_absent_from_code": true,
+      "r615_legacy_identifier_code_occurrences": [],
+      "r615_legacy_identifier_occurrences": [],
+      "r615_source_evidence": [
+        {
+          "line": 472,
+          "logical_text": "gpu->parent->host_hal->cancel_faults_va(&push, pdb, fault_entry, cancel_va_mode);",
+          "path": "uvm_gpu_replayable_faults.c",
+          "text": "gpu->parent->host_hal->cancel_faults_va(&push, pdb, fault_entry, cancel_va_mode);"
+        }
+      ],
+      "required_validation": "Implement the GV100 callback and validate exact VA cancellation and fallback/error behavior.",
+      "runtime_or_hardware_validated": false
+    },
+    {
+      "field": "scoped_atomics_supported",
+      "interpretation": "R580 used this field to reject the legacy system-wide-atomics policy. No matching field or policy was found in the scanned R615 UVM C/H sources; this does not cover proprietary RM or user-mode ABI behavior.",
+      "r580_assignment": {
+        "line": 91,
+        "logical_text": "parent_gpu->scoped_atomics_supported = true;",
+        "path": "uvm_volta.c",
+        "text": "parent_gpu->scoped_atomics_supported = true;"
+      },
+      "r580_consumer_evidence": [
+        {
+          "line": 977,
+          "logical_text": "if (gpu->parent->scoped_atomics_supported) {",
+          "path": "uvm_policy.c",
+          "text": "if (gpu->parent->scoped_atomics_supported) {"
+        }
+      ],
+      "r580_r615_shared_code_anchors": [],
+      "r615_classification": "no-equivalent-found-in-open-uvm",
+      "r615_legacy_identifier_absent_from_code": true,
+      "r615_legacy_identifier_code_occurrences": [],
+      "r615_legacy_identifier_occurrences": [],
+      "r615_source_evidence": [],
+      "required_validation": "Compare exported UVM ABI and RM atomics semantics before deciding whether to restore, translate, or retire the legacy policy.",
+      "runtime_or_hardware_validated": false
+    },
+    {
+      "field": "sparse_mappings_supported",
+      "interpretation": "R615 writes sparse PTEs through an MMU HAL callback without the old capability guard; the available Turing implementation is not a Volta implementation.",
+      "r580_assignment": {
+        "line": 99,
+        "logical_text": "parent_gpu->sparse_mappings_supported = true;",
+        "path": "uvm_volta.c",
+        "text": "parent_gpu->sparse_mappings_supported = true;"
+      },
+      "r580_consumer_evidence": [
+        {
+          "line": 1196,
+          "logical_text": "if (!mapping_gpu->parent->sparse_mappings_supported) {",
+          "path": "uvm_map_external.c",
+          "text": "if (!mapping_gpu->parent->sparse_mappings_supported) {"
+        }
+      ],
+      "r580_r615_shared_code_anchors": [
+        {
+          "marker": "return range_vec->tree->hal->make_sparse_pte();",
+          "path": "uvm_map_external.c",
+          "r580_occurrences": [
+            {
+              "line": 1094,
+              "logical_text": "return range_vec->tree->hal->make_sparse_pte();",
+              "path": "uvm_map_external.c",
+              "text": "return range_vec->tree->hal->make_sparse_pte();"
+            }
+          ],
+          "r615_occurrences": [
+            {
+              "line": 1103,
+              "logical_text": "return range_vec->tree->hal->make_sparse_pte();",
+              "path": "uvm_map_external.c",
+              "text": "return range_vec->tree->hal->make_sparse_pte();"
+            }
+          ],
+          "same_marker_in_both_releases": true,
+          "semantic_limit": "identical caller text does not establish identical HAL, RM, or hardware behavior"
+        }
+      ],
+      "r615_classification": "hal-pte-callback-no-GV100-proof",
+      "r615_legacy_identifier_absent_from_code": true,
+      "r615_legacy_identifier_code_occurrences": [],
+      "r615_legacy_identifier_occurrences": [],
+      "r615_source_evidence": [
+        {
+          "line": 1103,
+          "logical_text": "return range_vec->tree->hal->make_sparse_pte();",
+          "path": "uvm_map_external.c",
+          "text": "return range_vec->tree->hal->make_sparse_pte();"
+        }
+      ],
+      "required_validation": "Implement GV100 sparse PTE encoding and validate invalid-PTE access/fault behavior on hardware.",
+      "runtime_or_hardware_validated": false
+    },
+    {
+      "field": "plc_supported",
+      "interpretation": "R615 validates the enum and forwards the compression type to RM without the R580 UVM-side Volta PLC guard. Its external-map path removes overlapping mappings before the compression mode reaches the RM PTE request. If RM rejects an unsupported GV100 mode, this ordering may leave the previous mapping removed; whether RM rejects that mode on GV100 is unknown.",
+      "r580_assignment": {
+        "line": 105,
+        "logical_text": "parent_gpu->plc_supported = false;",
+        "path": "uvm_volta.c",
+        "text": "parent_gpu->plc_supported = false;"
+      },
+      "r580_consumer_evidence": [
+        {
+          "line": 861,
+          "logical_text": "if ((map_rm_params->compression_type == UvmGpuCompressionTypeEnabledNoPlc) && !mapping_gpu->parent->plc_supported)",
+          "path": "uvm_map_external.c",
+          "text": "if ((map_rm_params->compression_type == UvmGpuCompressionTypeEnabledNoPlc) && !mapping_gpu->parent->plc_supported)"
+        }
+      ],
+      "r580_r615_shared_code_anchors": [],
+      "r615_classification": "rm-forwarding-no-uvm-volta-gate-overlap-unmap-risk",
+      "r615_legacy_identifier_absent_from_code": true,
+      "r615_legacy_identifier_code_occurrences": [],
+      "r615_legacy_identifier_occurrences": [],
+      "r615_source_evidence": [
+        {
+          "line": 549,
+          "logical_text": "if (compression_type >= UvmGpuCompressionTypeCount)",
+          "path": "uvm_map_external.c",
+          "text": "if (compression_type >= UvmGpuCompressionTypeCount)"
+        },
+        {
+          "line": 1044,
+          "logical_text": "map_rm_params.compression_type = params->perGpuAttributes[i].gpuCompressionType;",
+          "path": "uvm_map_external.c",
+          "text": "map_rm_params.compression_type = params->perGpuAttributes[i].gpuCompressionType;"
+        },
+        {
+          "line": 110,
+          "logical_text": "pte_buffer->mapping_info.compressionType    = map_rm_params->compression_type;",
+          "path": "uvm_map_external.c",
+          "text": "pte_buffer->mapping_info.compressionType    = map_rm_params->compression_type;"
+        },
+        {
+          "line": 187,
+          "logical_text": "nvUvmInterfaceGetExternalAllocPtes(gpu_va_space->duped_gpu_va_space,",
+          "path": "uvm_map_external.c",
+          "text": "status = uvm_rm_locked_call(nvUvmInterfaceGetExternalAllocPtes(gpu_va_space->duped_gpu_va_space,"
+        }
+      ],
+      "required_validation": "On a safe hardware canary, determine RM behavior for GV100 PLC modes and verify failure atomicity with an existing overlapping mapping before enabling this path.",
+      "runtime_or_hardware_validated": false
+    }
+  ],
+  "capability_count": 11,
+  "coverage": {
+    "line_numbering": "physical LF-delimited lines; Unicode separators are ordinary source characters",
+    "r580_consumer_evidence": "representative_not_exhaustive",
+    "scanner": "C comments, literals, LF/CRLF line splices, and GCC horizontal-whitespace line-splice extension are masked; identifiers/macros are not preprocessed or expanded"
+  },
+  "generated_utc": "2026-10-23T12:33:38+00:00",
+  "limitations": [
+    "Source anchors show code structure, not that a callback or policy works on GV100.",
+    "R615 proprietary Resource Manager behavior and closed user-mode components are outside this source audit.",
+    "The source scanner does not run the C preprocessor or resolve macros, token-pasting, generated code, or conditional compilation.",
+    "No module was installed or loaded and no GPU was exercised by this audit."
+  ],
+  "prerequisites": {
+    "r615_gv100_uvm_hal_dispatch": {
+      "interpretation": "A missing target row reaches the audited R615 selector failure before a GV100 HAL pointer is installed; this is a source-level prerequisite finding, not a runtime initialization trace.",
+      "r580_all_required_targets_present": true,
+      "r580_required_targets_present_by_table": {
+        "access_counter_buffer_table": true,
+        "arch_table": true,
+        "ce_table": true,
+        "fault_buffer_table": true,
+        "host_table": true,
+        "sec2_table": true
+      },
+      "r615_all_required_targets_present": false,
+      "r615_missing_class_status_by_table": {
+        "access_counter_buffer_table": "NV_ERR_INVALID_CLASS",
+        "arch_table": "NV_ERR_INVALID_CLASS",
+        "ce_table": "NV_ERR_INVALID_CLASS",
+        "fault_buffer_table": "NV_ERR_INVALID_CLASS",
+        "host_table": "NV_ERR_INVALID_CLASS",
+        "sec2_table": "NV_ERR_INVALID_CLASS"
+      },
+      "r615_missing_targets": [
+        "access_counter_buffer_table",
+        "arch_table",
+        "ce_table",
+        "fault_buffer_table",
+        "host_table",
+        "sec2_table"
+      ],
+      "r615_required_targets_present_by_table": {
+        "access_counter_buffer_table": false,
+        "arch_table": false,
+        "ce_table": false,
+        "fault_buffer_table": false,
+        "host_table": false,
+        "sec2_table": false
+      },
+      "selector_contract": {
+        "access_counter_buffer_table": {
+          "class_id_field": "gpu_info->gpuArch",
+          "installed_pointer": "parent_gpu->access_counter_buffer_hal -> u.access_counter_buffer_ops",
+          "installs_hal_pointer": true,
+          "missing_class_status": "NV_ERR_INVALID_CLASS",
+          "null_checked_before_install": true
+        },
+        "arch_table": {
+          "class_id_field": "gpu_info->gpuArch",
+          "installed_pointer": "parent_gpu->arch_hal -> u.arch_ops",
+          "installs_hal_pointer": true,
+          "missing_class_status": "NV_ERR_INVALID_CLASS",
+          "null_checked_before_install": true
+        },
+        "ce_table": {
+          "class_id_field": "gpu_info->ceClass",
+          "installed_pointer": "parent_gpu->ce_hal -> u.ce_ops",
+          "installs_hal_pointer": true,
+          "missing_class_status": "NV_ERR_INVALID_CLASS",
+          "null_checked_before_install": true
+        },
+        "fault_buffer_table": {
+          "class_id_field": "gpu_info->gpuArch",
+          "installed_pointer": "parent_gpu->fault_buffer_hal -> u.fault_buffer_ops",
+          "installs_hal_pointer": true,
+          "missing_class_status": "NV_ERR_INVALID_CLASS",
+          "null_checked_before_install": true
+        },
+        "host_table": {
+          "class_id_field": "gpu_info->hostClass",
+          "installed_pointer": "parent_gpu->host_hal -> u.host_ops",
+          "installs_hal_pointer": true,
+          "missing_class_status": "NV_ERR_INVALID_CLASS",
+          "null_checked_before_install": true
+        },
+        "sec2_table": {
+          "class_id_field": "gpu_info->gpuArch",
+          "installed_pointer": "parent_gpu->sec2_hal -> u.sec2_ops",
+          "installs_hal_pointer": true,
+          "missing_class_status": "NV_ERR_INVALID_CLASS",
+          "null_checked_before_install": true
+        }
+      },
+      "status": "missing_required_gv100_rows"
+    }
+  },
+  "runtime_or_hardware_validated": false,
+  "schema": "r580-r615-volta-uvm-capability-map-v2",
+  "sources": {
+    "audit_script_sha256": "ac7287467d88c82fc88be85746f2876ba45e95c07096635e8ea8b91404ddf6ef",
+    "r580": {
+      "archive_root": "NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm",
+      "archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+      "selected_uvm_file_count": 9,
+      "selected_uvm_files": [
+        "uvm_channel.c",
+        "uvm_gpu_isr.c",
+        "uvm_gpu_replayable_faults.c",
+        "uvm_hal.c",
+        "uvm_map_external.c",
+        "uvm_mem.c",
+        "uvm_policy.c",
+        "uvm_tlb_batch.c",
+        "uvm_volta.c"
+      ],
+      "selected_uvm_manifest_sha256": "c1ce4ffa26cf580a7c89462a80f131fe28549fc0ba5c0bb672bc92b0a1c085f8",
+      "version": "580.178.04"
+    },
+    "r615": {
+      "archive_sha256": "41e16cfbb3ba475c55b6ce5b2595e1a87a76948873a1a83f1b261f6b7ba0bf5b",
+      "c_header_file_count": 222,
+      "c_header_manifest_sha256": "994da262850e82910b5e9a9fa980f96a03fd33142b1ed6ad0fc44109347a2fbf",
+      "manifest_algorithm": "sorted relative path + NUL + SHA256(file bytes) + LF",
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/extracted-r615-71-10-package/kernel-open/nvidia-uvm",
+      "version": "615.71.10"
+    }
+  },
+  "status": "analyzed-statically"
+}

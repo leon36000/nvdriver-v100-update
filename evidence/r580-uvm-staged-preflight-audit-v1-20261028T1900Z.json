@@ -1,0 +1,31 @@
+{
+  "inputs": {
+    "patch": {
+      "path": "patches/r580.178.04/uvm/0010-reject-unsupported-isolated-staged-migrations.patch",
+      "sha256": "24977b5437402c2661d5fb6770b8d04dd22dd1aa413b1e1d90053cf4d87c183c"
+    },
+    "source_release": "580.178.04"
+  },
+  "observed_at_utc": "2026-10-28T18:57:11.216402+00:00",
+  "qualification": {
+    "level": "analyzed-statically",
+    "module_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "result": {
+    "checks": {
+      "isolated_gpu_destination_is_gated": true,
+      "only_requested_region_pages_trigger_rejection": true,
+      "reject_precedes_all_copy_dispatch": true,
+      "unsupported_source_requires_missing_copy_access": true
+    },
+    "failed_checks": [],
+    "interpretation": "The isolated UVM path checks requested pages against the destination GPU's copy-access mask before the first migration copy is queued. A requested page resident only on an inaccessible GPU returns NV_ERR_NOT_SUPPORTED. This avoids partial GPU-to-CPU staging and a retry loop that would repeat that source stage. It intentionally does not implement cross-GPU managed-memory migration.",
+    "source": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-staged-migration-preflight-v2-20261028T1900Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_block.c",
+      "sha256": "d56aa4381f0a416674cefeb912499290cb5e67b663ce982cca0155310d145384"
+    }
+  },
+  "schema": "nvidia-r580-uvm-staged-preflight-v1",
+  "status": "pass"
+}

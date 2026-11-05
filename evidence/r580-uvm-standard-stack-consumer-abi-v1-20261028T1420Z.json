@@ -1,0 +1,46 @@
+{
+  "build_log": {
+    "error_lines": [],
+    "modpost_count": 1,
+    "nvidia_uvm_linked": true,
+    "path": "evidence/logs/r580-uvm-standard-stack-consumer-v2-20261028T1420Z.log",
+    "sha256": "24f99607d0e87a0cc6b159f39a91171f0541eb4f4100b324d5ba59566d01e581",
+    "warning_line_count": 7
+  },
+  "frontend_symvers": {
+    "path": "build/experiments/hybrid-frontend-r580-standard-identity-v1-20261028T1414Z-run2/Module.symvers",
+    "provider": "nvidia",
+    "sha256": "1c16d4fa5bb0c39115fbe830d606d348b4e5a2f5c8e026fb218b677b683333b1"
+  },
+  "kernel_release": "7.0.0-38-generic",
+  "loaded_or_installed": false,
+  "module": {
+    "bytes": 62572760,
+    "depends": "nvidia",
+    "path": "build/experiments/r580-uvm-standard-stack-consumer-v2-20261028T1420Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm.ko",
+    "sha256": "8206a4fb0d8ac59db7b528f09bc351988df746b1e10e8e9e70e03c37f5f13e23",
+    "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+    "version": "580.178.04"
+  },
+  "notes": [
+    "Kbuild MODPOST and the actual .ko modversion table agree with the frontend Module.symvers.",
+    "Provider-only nvUvmInterface exports are reported but are valid; every consumer import must resolve with an exact CRC.",
+    "This does not validate callback payload semantics, module coexistence at runtime, RM initialization, CUDA, or GPU behavior."
+  ],
+  "observed_at_utc": "2026-10-28T14:18:14.183260+00:00",
+  "qualification": "compiled-and-consumer-modversion-crcs-validated",
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-r580-uvm-consumer-frontend-abi-v2",
+  "source_version": "580.178.04",
+  "uvm_interface": {
+    "all_crcs_match": true,
+    "consumer_import_count": 77,
+    "crc_mismatches": [],
+    "exact_symbol_set_match": false,
+    "missing_provider_symbols": [],
+    "provider_export_count": 78,
+    "provider_only_symbols": [
+      "nvUvmInterfaceDupAddressSpace"
+    ]
+  }
+}

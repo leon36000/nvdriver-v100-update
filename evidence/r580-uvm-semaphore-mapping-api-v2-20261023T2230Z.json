@@ -1,0 +1,84 @@
+{
+  "inputs": {
+    "patch": {
+      "path": "patches/r580.178.04/uvm/0002-hybrid-isolated-gpu-execution.patch",
+      "sha256": "23145778c944ae2cf222a6df192d97a1b3260c564772f4b353d48f0cf0cb26f0"
+    },
+    "source_archive": {
+      "path": ".cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+      "sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8"
+    },
+    "source_files": {
+      "common/inc/nv_uvm_interface.h": {
+        "bytes": 86123,
+        "path": "build/experiments/r580-uvm-isolated-gpu-execution-v5-20261023T2130Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nv_uvm_interface.h",
+        "sha256": "68b6cae62ad0bdf6940d48a34084d789cd1f87a06b84310195cd2adc4b9e50f8"
+      },
+      "nvidia-uvm/uvm_ioctl.h": {
+        "bytes": 41415,
+        "path": "build/experiments/r580-uvm-isolated-gpu-execution-v5-20261023T2130Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_ioctl.h",
+        "sha256": "937a3fe1c0b2f4d8cfc18443d41ad10ee85c4445f954cc5c67b460ded2dd4916"
+      },
+      "nvidia-uvm/uvm_map_external.c": {
+        "bytes": 55075,
+        "path": "build/experiments/r580-uvm-isolated-gpu-execution-v5-20261023T2130Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_map_external.c",
+        "sha256": "4115e9f2de1fc9ad460a61168e78e68ede19c57ac6216740dc57475b29d07511"
+      },
+      "nvidia-uvm/uvm_rm_mem.c": {
+        "bytes": 14675,
+        "path": "build/experiments/r580-uvm-isolated-gpu-execution-v5-20261023T2130Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_rm_mem.c",
+        "sha256": "fdf517f711ce9ae3421e4af2e7fe128f0db4182000eeed32504eacc82d1a43d7"
+      },
+      "nvidia-uvm/uvm_rm_mem.h": {
+        "bytes": 6406,
+        "path": "build/experiments/r580-uvm-isolated-gpu-execution-v5-20261023T2130Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_rm_mem.h",
+        "sha256": "ced992530152a8fc0e0c9b099cad16a857bcf09b0a1bc4407c0598c53d239c7e"
+      }
+    }
+  },
+  "interpretation": "The pinned public nvUvmInterface declarations allocate system memory in an RM VA space, map CPU access to that RM allocation, and duplicate it between RM VA spaces using an RM allocation address. The physical-memory duplicate API requires RM client and memory handles. No declared public interface prototype accepts Linux struct page, dma_addr_t, scatterlist, sg_table, or dma_buf descriptors. R580 also has a handle-based external allocation path: UVM accepts rmCtrlFd/hClient/hMemory, duplicates an RM object for a mapping GPU, and queries its PTEs. That path is a reuse candidate, but this source does not establish that one allocation handle can be imported across separate provider RM instances. The raw-descriptor result is only an API-surface gap; it does not prove that private RM internals or other handle-based paths cannot provide equivalent functionality, nor does it prove DMA visibility, ordering, coherence, or hardware behavior.",
+  "next_experiment": "Trace whether UVM_MAP_EXTERNAL_ALLOCATION's RM client/object handles can identify the same backing allocation in two distinct provider RM instances. If that fails, design a minimal provider-local OS-page pin/map/unmap bridge with explicit per-device DMA/IOMMU ownership, cache/order guarantees, unwind rules, and fault-progress tests before any module load.",
+  "observed_at_utc": "2026-10-23T22:00:30.115400+00:00",
+  "qualification": {
+    "level": "analyzed-statically",
+    "module_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "result": {
+    "checks": {
+      "cpu_mapping_uses_rm_allocation": true,
+      "cross_va_mapping_uses_rm_duplication": true,
+      "external_mapping_uses_rm_client_and_object_handles": true,
+      "physical_duplication_requires_rm_handles": true,
+      "public_interface_has_no_raw_os_page_import": true,
+      "system_memory_allocated_in_rm_va_space": true
+    },
+    "external_handle_path": {
+      "cross_provider_compatibility": "unresolved",
+      "handle_fields": [
+        "rmCtrlFd",
+        "hClient",
+        "hMemory"
+      ],
+      "ioctl": "UVM_MAP_EXTERNAL_ALLOCATION",
+      "mapping_path": [
+        "uvm_map_external_allocation",
+        "nvUvmInterfaceDupMemory",
+        "nvUvmInterfaceGetExternalAllocPtes"
+      ],
+      "status": "source-path-present-cross-provider-unresolved"
+    },
+    "failed_checks": [],
+    "public_api_prototype_count": 76,
+    "raw_descriptor_api_names": [],
+    "relevant_api_signatures": {
+      "DupAllocation": "nvUvmInterfaceDupAllocation(uvmGpuAddressSpaceHandle srcVaSpace, NvU64 srcAddress, uvmGpuAddressSpaceHandle dstVaSpace, NvU64 dstVaAlignment, NvU64 *dstAddress);",
+      "DupMemory": "nvUvmInterfaceDupMemory(uvmGpuDeviceHandle device, NvHandle hClient, NvHandle hPhysMemory, NvHandle *hDupMemory, UvmGpuMemoryInfo *pGpuMemoryInfo);",
+      "MemoryAllocSys": "nvUvmInterfaceMemoryAllocSys(uvmGpuAddressSpaceHandle vaSpace, NvLength length, UvmGpuPointer * gpuPointer, UvmGpuAllocInfo * allocInfo);",
+      "MemoryCpuMap": "nvUvmInterfaceMemoryCpuMap(uvmGpuAddressSpaceHandle vaSpace, UvmGpuPointer gpuPointer, NvLength length, void **cpuPtr, NvU64 pageSize);"
+    },
+    "status": "gap-supported"
+  },
+  "schema": "nvidia-r580-uvm-semaphore-mapping-api-v1",
+  "source_release": "580.178.04"
+}

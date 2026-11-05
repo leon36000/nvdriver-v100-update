@@ -1,0 +1,744 @@
+{
+  "build": {
+    "command": [
+      "make",
+      "-C",
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-standard-stack-consumer-v1-20261028T1414Z/NVIDIA-kernel-module-source-580.178.04",
+      "KERNEL_UNAME=7.0.0-38-generic",
+      "NV_KERNEL_MODULES=nvidia-uvm",
+      "NV_VERBOSE=1",
+      "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/hybrid-frontend-r580-standard-identity-v1-20261028T1414Z-run2/Module.symvers",
+      "modules",
+      "-j",
+      "8"
+    ],
+    "elapsed_seconds": 25.979,
+    "exit_code": 0,
+    "frontend_consumer_binding": {
+      "frontend_is_only_provider_dependency": false,
+      "matching_frontend_crc_count": 0,
+      "mismatched_symbols": {
+        "nvUvmInterfaceAddressSpaceCreate": {
+          "frontend_export": {
+            "crc": "0x8efe81a0",
+            "module": "nvidia"
+          },
+          "import_crc": "0x8efe81a0"
+        },
+        "nvUvmInterfaceAddressSpaceDestroy": {
+          "frontend_export": {
+            "crc": "0x57fca1dd",
+            "module": "nvidia"
+          },
+          "import_crc": "0x57fca1dd"
+        },
+        "nvUvmInterfaceBindChannelResources": {
+          "frontend_export": {
+            "crc": "0xe1a64ab8",
+            "module": "nvidia"
+          },
+          "import_crc": "0xe1a64ab8"
+        },
+        "nvUvmInterfaceChannelAllocate": {
+          "frontend_export": {
+            "crc": "0x87633598",
+            "module": "nvidia"
+          },
+          "import_crc": "0x87633598"
+        },
+        "nvUvmInterfaceChannelDestroy": {
+          "frontend_export": {
+            "crc": "0x698b461e",
+            "module": "nvidia"
+          },
+          "import_crc": "0x698b461e"
+        },
+        "nvUvmInterfaceCslDecrypt": {
+          "frontend_export": {
+            "crc": "0x6051d316",
+            "module": "nvidia"
+          },
+          "import_crc": "0x6051d316"
+        },
+        "nvUvmInterfaceCslEncrypt": {
+          "frontend_export": {
+            "crc": "0x35e4cd88",
+            "module": "nvidia"
+          },
+          "import_crc": "0x35e4cd88"
+        },
+        "nvUvmInterfaceCslIncrementIv": {
+          "frontend_export": {
+            "crc": "0x2dfd8972",
+            "module": "nvidia"
+          },
+          "import_crc": "0x2dfd8972"
+        },
+        "nvUvmInterfaceCslInitContext": {
+          "frontend_export": {
+            "crc": "0x46ff3668",
+            "module": "nvidia"
+          },
+          "import_crc": "0x46ff3668"
+        },
+        "nvUvmInterfaceCslLogEncryption": {
+          "frontend_export": {
+            "crc": "0xfdac98a0",
+            "module": "nvidia"
+          },
+          "import_crc": "0xfdac98a0"
+        },
+        "nvUvmInterfaceCslQueryMessagePool": {
+          "frontend_export": {
+            "crc": "0xb25329e7",
+            "module": "nvidia"
+          },
+          "import_crc": "0xb25329e7"
+        },
+        "nvUvmInterfaceCslRotateIv": {
+          "frontend_export": {
+            "crc": "0xf2553962",
+            "module": "nvidia"
+          },
+          "import_crc": "0xf2553962"
+        },
+        "nvUvmInterfaceCslRotateKey": {
+          "frontend_export": {
+            "crc": "0xea6454fd",
+            "module": "nvidia"
+          },
+          "import_crc": "0xea6454fd"
+        },
+        "nvUvmInterfaceCslSign": {
+          "frontend_export": {
+            "crc": "0xb8460a23",
+            "module": "nvidia"
+          },
+          "import_crc": "0xb8460a23"
+        },
+        "nvUvmInterfaceDeRegisterUvmOps": {
+          "frontend_export": {
+            "crc": "0xd272d446",
+            "module": "nvidia"
+          },
+          "import_crc": "0xd272d446"
+        },
+        "nvUvmInterfaceDeinitCslContext": {
+          "frontend_export": {
+            "crc": "0x15755a50",
+            "module": "nvidia"
+          },
+          "import_crc": "0x15755a50"
+        },
+        "nvUvmInterfaceDestroyAccessCntrInfo": {
+          "frontend_export": {
+            "crc": "0x06ad5d13",
+            "module": "nvidia"
+          },
+          "import_crc": "0x06ad5d13"
+        },
+        "nvUvmInterfaceDestroyFaultInfo": {
+          "frontend_export": {
+            "crc": "0x35554a88",
+            "module": "nvidia"
+          },
+          "import_crc": "0x35554a88"
+        },
+        "nvUvmInterfaceDeviceCreate": {
+          "frontend_export": {
+            "crc": "0x113209c8",
+            "module": "nvidia"
+          },
+          "import_crc": "0x113209c8"
+        },
+        "nvUvmInterfaceDeviceDestroy": {
+          "frontend_export": {
+            "crc": "0x305af259",
+            "module": "nvidia"
+          },
+          "import_crc": "0x305af259"
+        },
+        "nvUvmInterfaceDisableAccessCntr": {
+          "frontend_export": {
+            "crc": "0x06ad5d13",
+            "module": "nvidia"
+          },
+          "import_crc": "0x06ad5d13"
+        },
+        "nvUvmInterfaceDupAddressSpaceWithControlFd": {
+          "frontend_export": {
+            "crc": "0xee6dd59d",
+            "module": "nvidia"
+          },
+          "import_crc": "0xee6dd59d"
+        },
+        "nvUvmInterfaceDupAllocation": {
+          "frontend_export": {
+            "crc": "0x54cb3609",
+            "module": "nvidia"
+          },
+          "import_crc": "0x54cb3609"
+        },
+        "nvUvmInterfaceDupMemory": {
+          "frontend_export": {
+            "crc": "0xfe845a93",
+            "module": "nvidia"
+          },
+          "import_crc": "0xfe845a93"
+        },
+        "nvUvmInterfaceDupMemoryWithControlFd": {
+          "frontend_export": {
+            "crc": "0xa403f1c1",
+            "module": "nvidia"
+          },
+          "import_crc": "0xa403f1c1"
+        },
+        "nvUvmInterfaceEnableAccessCntr": {
+          "frontend_export": {
+            "crc": "0x0fb107b2",
+            "module": "nvidia"
+          },
+          "import_crc": "0x0fb107b2"
+        },
+        "nvUvmInterfaceFlushReplayableFaultBuffer": {
+          "frontend_export": {
+            "crc": "0x70d0ac8c",
+            "module": "nvidia"
+          },
+          "import_crc": "0x70d0ac8c"
+        },
+        "nvUvmInterfaceFreeDupedHandle": {
+          "frontend_export": {
+            "crc": "0x4c3264fc",
+            "module": "nvidia"
+          },
+          "import_crc": "0x4c3264fc"
+        },
+        "nvUvmInterfaceGetChannelResourcePtes": {
+          "frontend_export": {
+            "crc": "0x548644f0",
+            "module": "nvidia"
+          },
+          "import_crc": "0x548644f0"
+        },
+        "nvUvmInterfaceGetEccInfo": {
+          "frontend_export": {
+            "crc": "0xbc035ca3",
+            "module": "nvidia"
+          },
+          "import_crc": "0xbc035ca3"
+        },
+        "nvUvmInterfaceGetExternalAllocPhysAddrs": {
+          "frontend_export": {
+            "crc": "0xf9908638",
+            "module": "nvidia"
+          },
+          "import_crc": "0xf9908638"
+        },
+        "nvUvmInterfaceGetExternalAllocPtes": {
+          "frontend_export": {
+            "crc": "0xa9a87df1",
+            "module": "nvidia"
+          },
+          "import_crc": "0xa9a87df1"
+        },
+        "nvUvmInterfaceGetFbInfo": {
+          "frontend_export": {
+            "crc": "0x789d66d5",
+            "module": "nvidia"
+          },
+          "import_crc": "0x789d66d5"
+        },
+        "nvUvmInterfaceGetGpuInfo": {
+          "frontend_export": {
+            "crc": "0x817bd737",
+            "module": "nvidia"
+          },
+          "import_crc": "0x817bd737"
+        },
+        "nvUvmInterfaceGetNonReplayableFaults": {
+          "frontend_export": {
+            "crc": "0xd6a9fb08",
+            "module": "nvidia"
+          },
+          "import_crc": "0xd6a9fb08"
+        },
+        "nvUvmInterfaceGetNvlinkInfo": {
+          "frontend_export": {
+            "crc": "0xf3ef35ae",
+            "module": "nvidia"
+          },
+          "import_crc": "0xf3ef35ae"
+        },
+        "nvUvmInterfaceGetP2PCaps": {
+          "frontend_export": {
+            "crc": "0x5b4a1818",
+            "module": "nvidia"
+          },
+          "import_crc": "0x5b4a1818"
+        },
+        "nvUvmInterfaceGetPmaObject": {
+          "frontend_export": {
+            "crc": "0x15162233",
+            "module": "nvidia"
+          },
+          "import_crc": "0x15162233"
+        },
+        "nvUvmInterfaceHasPendingNonReplayableFaults": {
+          "frontend_export": {
+            "crc": "0x39a9da59",
+            "module": "nvidia"
+          },
+          "import_crc": "0x39a9da59"
+        },
+        "nvUvmInterfaceInitAccessCntrInfo": {
+          "frontend_export": {
+            "crc": "0x2d494197",
+            "module": "nvidia"
+          },
+          "import_crc": "0x2d494197"
+        },
+        "nvUvmInterfaceInitFaultInfo": {
+          "frontend_export": {
+            "crc": "0x35554a88",
+            "module": "nvidia"
+          },
+          "import_crc": "0x35554a88"
+        },
+        "nvUvmInterfaceMemoryAllocFB": {
+          "frontend_export": {
+            "crc": "0x69f88660",
+            "module": "nvidia"
+          },
+          "import_crc": "0x69f88660"
+        },
+        "nvUvmInterfaceMemoryAllocSys": {
+          "frontend_export": {
+            "crc": "0x69f88660",
+            "module": "nvidia"
+          },
+          "import_crc": "0x69f88660"
+        },
+        "nvUvmInterfaceMemoryCpuMap": {
+          "frontend_export": {
+            "crc": "0x2f6f071f",
+            "module": "nvidia"
+          },
+          "import_crc": "0x2f6f071f"
+        },
+        "nvUvmInterfaceMemoryCpuUnMap": {
+          "frontend_export": {
+            "crc": "0x0d2253e0",
+            "module": "nvidia"
+          },
+          "import_crc": "0x0d2253e0"
+        },
+        "nvUvmInterfaceMemoryFree": {
+          "frontend_export": {
+            "crc": "0xfa1d704a",
+            "module": "nvidia"
+          },
+          "import_crc": "0xfa1d704a"
+        },
+        "nvUvmInterfaceOwnPageFaultIntr": {
+          "frontend_export": {
+            "crc": "0x8301f233",
+            "module": "nvidia"
+          },
+          "import_crc": "0x8301f233"
+        },
+        "nvUvmInterfaceP2pObjectCreate": {
+          "frontend_export": {
+            "crc": "0x1d4ed7e9",
+            "module": "nvidia"
+          },
+          "import_crc": "0x1d4ed7e9"
+        },
+        "nvUvmInterfaceP2pObjectDestroy": {
+          "frontend_export": {
+            "crc": "0x3dcb257a",
+            "module": "nvidia"
+          },
+          "import_crc": "0x3dcb257a"
+        },
+        "nvUvmInterfacePagingChannelAllocate": {
+          "frontend_export": {
+            "crc": "0xc95875d3",
+            "module": "nvidia"
+          },
+          "import_crc": "0xc95875d3"
+        },
+        "nvUvmInterfacePagingChannelDestroy": {
+          "frontend_export": {
+            "crc": "0x20f54d19",
+            "module": "nvidia"
+          },
+          "import_crc": "0x20f54d19"
+        },
+        "nvUvmInterfacePagingChannelPushStream": {
+          "frontend_export": {
+            "crc": "0x0002db12",
+            "module": "nvidia"
+          },
+          "import_crc": "0x0002db12"
+        },
+        "nvUvmInterfacePagingChannelsMap": {
+          "frontend_export": {
+            "crc": "0xae28b0bd",
+            "module": "nvidia"
+          },
+          "import_crc": "0xae28b0bd"
+        },
+        "nvUvmInterfacePagingChannelsUnmap": {
+          "frontend_export": {
+            "crc": "0x55f27944",
+            "module": "nvidia"
+          },
+          "import_crc": "0x55f27944"
+        },
+        "nvUvmInterfacePmaAllocPages": {
+          "frontend_export": {
+            "crc": "0x83267c04",
+            "module": "nvidia"
+          },
+          "import_crc": "0x83267c04"
+        },
+        "nvUvmInterfacePmaFreePages": {
+          "frontend_export": {
+            "crc": "0x3de98227",
+            "module": "nvidia"
+          },
+          "import_crc": "0x3de98227"
+        },
+        "nvUvmInterfacePmaPinPages": {
+          "frontend_export": {
+            "crc": "0x73bae3a6",
+            "module": "nvidia"
+          },
+          "import_crc": "0x73bae3a6"
+        },
+        "nvUvmInterfacePmaRegisterEvictionCallbacks": {
+          "frontend_export": {
+            "crc": "0xe637b5db",
+            "module": "nvidia"
+          },
+          "import_crc": "0xe637b5db"
+        },
+        "nvUvmInterfacePmaUnregisterEvictionCallbacks": {
+          "frontend_export": {
+            "crc": "0xc10acc07",
+            "module": "nvidia"
+          },
+          "import_crc": "0xc10acc07"
+        },
+        "nvUvmInterfaceQueryCaps": {
+          "frontend_export": {
+            "crc": "0xb791dbaa",
+            "module": "nvidia"
+          },
+          "import_crc": "0xb791dbaa"
+        },
+        "nvUvmInterfaceQueryCopyEnginesCaps": {
+          "frontend_export": {
+            "crc": "0x8d0e41fc",
+            "module": "nvidia"
+          },
+          "import_crc": "0x8d0e41fc"
+        },
+        "nvUvmInterfaceRegisterGpu": {
+          "frontend_export": {
+            "crc": "0xef01d664",
+            "module": "nvidia"
+          },
+          "import_crc": "0xef01d664"
+        },
+        "nvUvmInterfaceRegisterUvmCallbacks": {
+          "frontend_export": {
+            "crc": "0x4b0ab481",
+            "module": "nvidia"
+          },
+          "import_crc": "0x4b0ab481"
+        },
+        "nvUvmInterfaceReleaseChannel": {
+          "frontend_export": {
+            "crc": "0xf7d257d0",
+            "module": "nvidia"
+          },
+          "import_crc": "0xf7d257d0"
+        },
+        "nvUvmInterfaceReportFatalError": {
+          "frontend_export": {
+            "crc": "0xf185b0ec",
+            "module": "nvidia"
+          },
+          "import_crc": "0xf185b0ec"
+        },
+        "nvUvmInterfaceReportNonReplayableFault": {
+          "frontend_export": {
+            "crc": "0xe04e19d4",
+            "module": "nvidia"
+          },
+          "import_crc": "0xe04e19d4"
+        },
+        "nvUvmInterfaceRetainChannel": {
+          "frontend_export": {
+            "crc": "0x509c8472",
+            "module": "nvidia"
+          },
+          "import_crc": "0x509c8472"
+        },
+        "nvUvmInterfaceServiceDeviceInterruptsRM": {
+          "frontend_export": {
+            "crc": "0x919202dc",
+            "module": "nvidia"
+          },
+          "import_crc": "0x919202dc"
+        },
+        "nvUvmInterfaceSessionCreate": {
+          "frontend_export": {
+            "crc": "0x89f79360",
+            "module": "nvidia"
+          },
+          "import_crc": "0x89f79360"
+        },
+        "nvUvmInterfaceSessionDestroy": {
+          "frontend_export": {
+            "crc": "0x672248f6",
+            "module": "nvidia"
+          },
+          "import_crc": "0x672248f6"
+        },
+        "nvUvmInterfaceSetPageDirectory": {
+          "frontend_export": {
+            "crc": "0x4839db16",
+            "module": "nvidia"
+          },
+          "import_crc": "0x4839db16"
+        },
+        "nvUvmInterfaceStopChannel": {
+          "frontend_export": {
+            "crc": "0x83d21ee9",
+            "module": "nvidia"
+          },
+          "import_crc": "0x83d21ee9"
+        },
+        "nvUvmInterfaceTogglePrefetchFaults": {
+          "frontend_export": {
+            "crc": "0x1bcae417",
+            "module": "nvidia"
+          },
+          "import_crc": "0x1bcae417"
+        },
+        "nvUvmInterfaceTsgAllocate": {
+          "frontend_export": {
+            "crc": "0xaab2a399",
+            "module": "nvidia"
+          },
+          "import_crc": "0xaab2a399"
+        },
+        "nvUvmInterfaceTsgDestroy": {
+          "frontend_export": {
+            "crc": "0x380997f7",
+            "module": "nvidia"
+          },
+          "import_crc": "0x380997f7"
+        },
+        "nvUvmInterfaceUnregisterGpu": {
+          "frontend_export": {
+            "crc": "0xdf16a226",
+            "module": "nvidia"
+          },
+          "import_crc": "0xdf16a226"
+        },
+        "nvUvmInterfaceUnsetPageDirectory": {
+          "frontend_export": {
+            "crc": "0xa26ed179",
+            "module": "nvidia"
+          },
+          "import_crc": "0xa26ed179"
+        }
+      },
+      "module_dependencies": [
+        "nvidia"
+      ],
+      "passed": false,
+      "symvers_unchanged_after_build": true,
+      "uvm_interface_import_count": 77
+    },
+    "frontend_symvers_unchanged_after_build": true,
+    "kernel_release": "7.0.0-38-generic",
+    "log": "evidence/logs/r580-uvm-standard-stack-consumer-v1-20261028T1414Z.log",
+    "log_sha256": "7588e6b2c326c91aacd3613e91373741113a60bb75a59fd39d6fa7b31a0fc9ec",
+    "module_identity": {
+      "actual_module_name": "nvidia_uvm",
+      "expected_module_name": "nvidia_uvm",
+      "modinfo_exit_code": 0,
+      "module_name_matches": true
+    },
+    "module_symvers": {
+      "bytes": 0,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-standard-stack-consumer-v1-20261028T1414Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/Module.symvers",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "modules": {
+      "nvidia-uvm.ko": {
+        "bytes": 62572760,
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-standard-stack-consumer-v1-20261028T1414Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm.ko",
+        "sha256": "84af7b947ab94003b85d75e992c5788382727ce13a4049fd622296a63994d4ca"
+      }
+    },
+    "nvidia_kernel_module_built": false,
+    "scratch_package": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-standard-stack-consumer-v1-20261028T1414Z/NVIDIA-kernel-module-source-580.178.04"
+  },
+  "completed_at_utc": "2026-10-28T14:15:06.272588+00:00",
+  "inputs": {
+    "expected_frontend_module_symvers_sha256": "1c16d4fa5bb0c39115fbe830d606d348b4e5a2f5c8e026fb218b677b683333b1",
+    "frontend_module_symvers": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/hybrid-frontend-r580-standard-identity-v1-20261028T1414Z-run2/Module.symvers",
+      "sha256": "1c16d4fa5bb0c39115fbe830d606d348b4e5a2f5c8e026fb218b677b683333b1"
+    },
+    "implementation_sha256": {
+      "tools/probe_r580_uvm_isolated_execution.py": "6275b48513b68e9597bf19532a1575c16501681a38fbc85f66fa2b96e84200fd"
+    },
+    "owner_namespace": null,
+    "patches": [
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0002-hybrid-isolated-gpu-execution.patch"
+        ],
+        "apply_output": "patching file kernel-open/nvidia-uvm/uvm_gpu.c\npatching file kernel-open/nvidia-uvm/uvm_gpu_semaphore.c\npatching file kernel-open/nvidia-uvm/uvm_push.c\npatching file kernel-open/nvidia-uvm/uvm_migrate_pageable.c\n",
+        "path": "patches/r580.178.04/uvm/0002-hybrid-isolated-gpu-execution.patch",
+        "sha256": "23145778c944ae2cf222a6df192d97a1b3260c564772f4b353d48f0cf0cb26f0"
+      },
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0003-pass-control-fd-to-dup-memory.patch"
+        ],
+        "apply_output": "patching file kernel-open/nvidia/nv_uvm_interface.c\npatching file kernel-open/nvidia-uvm/uvm_map_external.c\npatching file kernel-open/common/inc/hybrid580_uvm_control_fd_dispatch.h\n",
+        "path": "patches/r580.178.04/uvm/0003-pass-control-fd-to-dup-memory.patch",
+        "sha256": "1ea8a83f9af76d1d8189aa04647591d92e02ce7ad3a55db8c55cb13e280c1be6"
+      },
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0004-share-linux-conftests-with-uvm-consumer.patch"
+        ],
+        "apply_output": "patching file kernel-open/nvidia/nvidia.Kbuild\npatching file kernel-open/nvidia-uvm/nvidia-uvm.Kbuild\npatching file kernel-open/common/nvidia-kernel-interface-conftests.Kbuild\n",
+        "path": "patches/r580.178.04/uvm/0004-share-linux-conftests-with-uvm-consumer.patch",
+        "sha256": "53358544aa10f7ede4827bbce1ee909da2bbea61a7ab03242d0b258aac10517a"
+      },
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0005-pass-control-fd-to-dup-address-space.patch"
+        ],
+        "apply_output": "patching file kernel-open/common/inc/hybrid580_uvm_control_fd_dispatch.h\npatching file kernel-open/nvidia-uvm/uvm_va_space.c\n",
+        "path": "patches/r580.178.04/uvm/0005-pass-control-fd-to-dup-address-space.patch",
+        "sha256": "1dad3e5b60c5ca306c6f36f20e2147b9b8f9eb784e89b321cccd8e0d4dead61c"
+      },
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0006-pin-control-file-before-va-space-registration.patch"
+        ],
+        "apply_output": "patching file kernel-open/nvidia-uvm/uvm.c\npatching file kernel-open/nvidia-uvm/uvm_api.h\npatching file kernel-open/nvidia-uvm/uvm_common.h\npatching file kernel-open/nvidia-uvm/uvm_gpu.c\nHunk #1 succeeded at 3836 (offset 8 lines).\npatching file kernel-open/nvidia-uvm/uvm_va_space.c\npatching file kernel-open/common/inc/hybrid580_uvm_control_fd_dispatch.h\n",
+        "path": "patches/r580.178.04/uvm/0006-pin-control-file-before-va-space-registration.patch",
+        "sha256": "9427ad3354ba4188befc7126f515442054d35704e424909066acf4ae0cd1f241"
+      },
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0007-reject-cross-gpu-tracker-dependencies.patch"
+        ],
+        "apply_output": "patching file kernel-open/nvidia-uvm/uvm_tracker.c\npatching file kernel-open/nvidia-uvm/uvm_tracker.h\npatching file kernel-open/nvidia-uvm/uvm_push.h\npatching file kernel-open/nvidia-uvm/uvm_push.c\npatching file kernel-open/nvidia-uvm/uvm_migrate_pageable.c\npatching file kernel-open/nvidia-uvm/uvm_gpu.c\npatching file kernel-open/nvidia-uvm/uvm_gpu_semaphore.c\n",
+        "path": "patches/r580.178.04/uvm/0007-reject-cross-gpu-tracker-dependencies.patch",
+        "sha256": "b8ce083d3f380e63e5d1028a1c14c8481983b8a2365f1451320101cbed16424d"
+      },
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0008-pmm-allocation-outside-va-block-lock.patch"
+        ],
+        "apply_output": "patching file kernel-open/nvidia-uvm/uvm_va_block.c\nHunk #1 succeeded at 1996 (offset 1995 lines).\n",
+        "path": "patches/r580.178.04/uvm/0008-pmm-allocation-outside-va-block-lock.patch",
+        "sha256": "b532998cbca0a7ca566690a448f6984dff50f22219c60ccd9fa08578c7c40baa"
+      },
+      {
+        "apply_command": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "--forward",
+          "-p1",
+          "-i",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/uvm/0009-reject-hmm-gpu-migration-in-isolated-mode.patch"
+        ],
+        "apply_output": "patching file kernel-open/nvidia-uvm/uvm_hmm.c\n",
+        "path": "patches/r580.178.04/uvm/0009-reject-hmm-gpu-migration-in-isolated-mode.patch",
+        "sha256": "e5970b1c9d5ef68d3b5dc1c4a7a64bd2f256204d694b5c9f4518dc4c1b17f273"
+      }
+    ],
+    "source_archive": {
+      "path": ".cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+      "sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8"
+    },
+    "source_files": {
+      "common/inc/nv_uvm_interface.h": "68b6cae62ad0bdf6940d48a34084d789cd1f87a06b84310195cd2adc4b9e50f8",
+      "nvidia-uvm/nvidia-uvm.Kbuild": "0e8d3d96e00d6ca8b6b564e4668dd70447d8b6bca9200845180ce7c66902328b",
+      "nvidia-uvm/uvm_channel_test.c": "f846b5e2925258bb1643e389bee4016743a73a6f396571e0621aac109bb94e87",
+      "nvidia-uvm/uvm_gpu.c": "b43bb94bbc465bbb4fb243e6f722cb450d6402f3071971843d61f1f7678bf700",
+      "nvidia-uvm/uvm_gpu_semaphore.c": "1472d3bdcd91b35095fb7ae6aa1f66a075ea495c08d106ed7da497176a3d629f",
+      "nvidia-uvm/uvm_map_external.c": "4115e9f2de1fc9ad460a61168e78e68ede19c57ac6216740dc57475b29d07511",
+      "nvidia-uvm/uvm_migrate_pageable.c": "e7178513d684596aadbe24c1f699eb9e7b13b7f39c19805fe213bbef090898da",
+      "nvidia-uvm/uvm_push.c": "9628ada0b4007eff5af16525d0d71788045832e5ca268699e2ae82a5dc14b85e",
+      "nvidia/nv_uvm_interface.c": "b41c704d29363dd52dd0ea669ee253a37185f5826c7db56a07dec21c3d24eddc",
+      "nvidia/nvidia.Kbuild": "adee2cdb65f387611e2816d91beb4c3ce3a45f648831d8b1e79a2564b160f406"
+    },
+    "source_package": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-standard-stack-consumer-v1-20261028T1414Z/NVIDIA-kernel-module-source-580.178.04"
+  },
+  "qualification": {
+    "level": "compiled-but-frontend-binding-unproven",
+    "module_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "schema": "r580-uvm-isolated-gpu-execution-build-v5",
+  "scope": "clean pinned R580 UVM-only consumer build against the supplied hybrid frontend; stock module/device/procfs identity retained; no install, module insertion, GPU access, VM change, or reboot",
+  "started_at_utc": "2026-10-28T14:14:40.266148+00:00"
+}

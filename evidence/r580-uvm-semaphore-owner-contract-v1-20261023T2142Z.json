@@ -1,0 +1,60 @@
+{
+  "inputs": {
+    "patch": {
+      "path": "patches/r580.178.04/uvm/0002-hybrid-isolated-gpu-execution.patch",
+      "sha256": "23145778c944ae2cf222a6df192d97a1b3260c564772f4b353d48f0cf0cb26f0"
+    },
+    "source_archive": {
+      "path": ".cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+      "sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8"
+    },
+    "source_files": {
+      "uvm_channel.c": {
+        "bytes": 166151,
+        "path": "build/experiments/r580-uvm-isolated-gpu-execution-v5-20261023T2130Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_channel.c",
+        "sha256": "64fcdb55ecba388c8ed6c656ca72b60f2b6f4b8bc0ebaffd794ed1e78068a248"
+      },
+      "uvm_gpu.c": {
+        "bytes": 151556,
+        "path": "build/experiments/r580-uvm-isolated-gpu-execution-v5-20261023T2130Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_gpu.c",
+        "sha256": "23bb5a514a99b1c747e683ddd3612511647cc3e95745ccdc1b1e22db3d584197"
+      },
+      "uvm_gpu_semaphore.c": {
+        "bytes": 32205,
+        "path": "build/experiments/r580-uvm-isolated-gpu-execution-v5-20261023T2130Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_gpu_semaphore.c",
+        "sha256": "4224b4f808c9f86279cb97bfa9645e6b592ace4b2f4213e81848d1ebba4258a3"
+      },
+      "uvm_rm_mem.c": {
+        "bytes": 14675,
+        "path": "build/experiments/r580-uvm-isolated-gpu-execution-v5-20261023T2130Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_rm_mem.c",
+        "sha256": "fdf517f711ce9ae3421e4af2e7fe128f0db4182000eeed32504eacc82d1a43d7"
+      },
+      "uvm_tracker.c": {
+        "bytes": 13181,
+        "path": "build/experiments/r580-uvm-isolated-gpu-execution-v5-20261023T2130Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_tracker.c",
+        "sha256": "756ce284db092691c5e346c9180299c98e050d4391242c53c19d14fcdff13e41"
+      }
+    }
+  },
+  "interpretation": "The pinned R580 source allocates each normal semaphore page in system aperture, records the owner GPU mapping, maps the page for CPU observation, and in isolated mode skips cross-GPU mappings while tracker waits poll the owner semaphore. Source also frees the CPU and owner mappings. This does not prove PCIe visibility/cache coherence on a given topology or any runtime/hardware behavior.",
+  "observed_at_utc": "2026-10-23T21:42:20.909547+00:00",
+  "qualification": {
+    "level": "analyzed-statically",
+    "module_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "result": {
+    "checks": {
+      "cpu_wait_observes_owner_tracking_semaphore": true,
+      "cross_gpu_mapping_skipped_and_teardown_guarded": true,
+      "free_unmaps_cpu_and_owner_gpu": true,
+      "isolated_page_cpu_and_owner_mapping": true,
+      "owner_mapping_recorded_in_rm_state": true,
+      "system_aperture": true
+    },
+    "failed_checks": [],
+    "status": "pass"
+  },
+  "schema": "nvidia-r580-uvm-semaphore-owner-contract-v1",
+  "source_release": "580.178.04"
+}

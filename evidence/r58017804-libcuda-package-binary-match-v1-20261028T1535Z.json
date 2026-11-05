@@ -1,0 +1,68 @@
+{
+  "actions": {
+    "gpu_accessed": false,
+    "host_state_changed": false,
+    "maintainer_scripts_run": false,
+    "module_loaded": false,
+    "package_installed": false,
+    "pc3_contacted": false
+  },
+  "apt_package_record": {
+    "apt_filename": "pool/restricted/n/nvidia-graphics-drivers-580/libnvidia-compute-580_580.178.04-0ubuntu0.26.04.1_amd64.deb",
+    "architecture": "amd64",
+    "filename": "libnvidia-compute-580_580.178.04-0ubuntu0.26.04.1_amd64.deb",
+    "md5": "1d3a5984447960fb5a0a765274ba9bd0",
+    "package": "libnvidia-compute-580",
+    "sha256": "bad67da0389624dfa17cd33b8c6f419a4b962391f3fc7dffc5781bea274f1990",
+    "size": 59208394,
+    "version": "580.178.04-0ubuntu0.26.04.1"
+  },
+  "archive": {
+    "bytes": 59208394,
+    "dpkg_control": {
+      "Architecture": "amd64",
+      "Package": "libnvidia-compute-580",
+      "Version": "580.178.04-0ubuntu0.26.04.1"
+    },
+    "md5": "1d3a5984447960fb5a0a765274ba9bd0",
+    "path": ".cache/canary/pc3-r580-58017804/target/libnvidia-compute-580_580.178.04-0ubuntu0.26.04.1_amd64.deb",
+    "sha256": "bad67da0389624dfa17cd33b8c6f419a4b962391f3fc7dffc5781bea274f1990"
+  },
+  "auditor": {
+    "focused_test_path": "tests/test_audit_r58017804_libcuda_package.py",
+    "focused_test_sha256": "1a1a0c7d735d76fab0cce78efdeb5882666f60ca60f29e3886042583b3907dcf",
+    "path": "tools/audit_r58017804_libcuda_package.py",
+    "sha256": "27b319ea8652084c6a88db091a31dd55423dd8731aafa2e6976c236e0e29628f"
+  },
+  "binary_comparison": {
+    "extracted_library": {
+      "bytes": 96284520,
+      "sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9"
+    },
+    "extracted_path": "usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+    "same_sha256": true,
+    "same_size": true
+  },
+  "limitations": [
+    "This proves the origin and bytes of the libcuda binary captured on the separate stock V100 guest.",
+    "It does not verify the full user-space package closure or this library against the hybrid kernel modules.",
+    "No candidate module, CUDA process, same-Linux dual-GPU execution, UVM, or P2P path was tested."
+  ],
+  "observed_at_utc": "2026-10-28T15:35:09.469939+00:00",
+  "qualification": "package-and-binary-provenance-validated; no installation or runtime test",
+  "schema": "pc3-r58017804-libcuda-package-binary-match-v1",
+  "source_url": "http://ca.archive.ubuntu.com/ubuntu/pool/restricted/n/nvidia-graphics-drivers-580/libnvidia-compute-580_580.178.04-0ubuntu0.26.04.1_amd64.deb",
+  "status": "archive-library-matches-v100-guest-capture",
+  "v100_guest_observation": {
+    "driver_version": "580.178.04",
+    "guest": "pc3-v100",
+    "kernel_release": "6.8.0-147-generic",
+    "library": {
+      "bytes": 96284520,
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+      "sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9"
+    },
+    "path": "evidence/pc3-v100-libcuda-instruction-window-v45-20261028T120352Z.json",
+    "report_sha256": "ed22454ec41c298ca1f825531951331ef2a33a96377d2f84e51167d699c6084f"
+  }
+}

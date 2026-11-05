@@ -1,0 +1,249 @@
+{
+  "candidate_module": null,
+  "created_utc": "2026-10-23T17:27:17.561954+00:00",
+  "limitations": [
+    "Static source-table inspection does not establish which class IDs the RM returns.",
+    "Resolved callback names do not validate callback semantics or hardware compatibility.",
+    "No module was installed or loaded and no GPU was exercised."
+  ],
+  "modern_all_required_targets_present": false,
+  "modern_branch": "R595.99.02",
+  "modern_hal_sha256": "d3815691e974e551b0fb51ac0d7c3101b31452a56f20f8ba4098e873f6673199",
+  "modern_hal_source": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-r580-patch-replay-v39-20261023/source/kernel-open/nvidia-uvm/uvm_hal.c",
+  "modern_inheritance_closure_valid": false,
+  "modern_inheritance_errors": {
+    "access_counter_buffer_table": "target row is absent: NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "arch_table": "target row is absent: NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "ce_table": "target row is absent: VOLTA_DMA_COPY_A",
+    "fault_buffer_table": "target row is absent: NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "host_table": "target row is absent: VOLTA_CHANNEL_GPFIFO_A",
+    "sec2_table": "target row is absent: NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100"
+  },
+  "modern_initial_row_ids": {
+    "access_counter_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100",
+    "arch_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100",
+    "ce_table": "TURING_DMA_COPY_A",
+    "chip_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB100 | NV2080_CTRL_MC_ARCH_INFO_IMPLEMENTATION_GB10B",
+    "fault_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100",
+    "host_table": "TURING_CHANNEL_GPFIFO_A",
+    "sec2_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100"
+  },
+  "modern_missing_targets": {
+    "access_counter_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "arch_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "ce_table": "VOLTA_DMA_COPY_A",
+    "fault_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "host_table": "VOLTA_CHANNEL_GPFIFO_A",
+    "sec2_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100"
+  },
+  "modern_present_targets": {},
+  "modern_resolved_callback_counts": {},
+  "modern_selector_contract": {
+    "access_counter_buffer_table": {
+      "class_id_field": "gpu_info->gpuArch",
+      "installed_pointer": "parent_gpu->access_counter_buffer_hal -> u.access_counter_buffer_ops",
+      "installs_hal_pointer": true,
+      "missing_class_status": "NV_ERR_INVALID_CLASS",
+      "null_checked_before_install": true
+    },
+    "arch_table": {
+      "class_id_field": "gpu_info->gpuArch",
+      "installed_pointer": "parent_gpu->arch_hal -> u.arch_ops",
+      "installs_hal_pointer": true,
+      "missing_class_status": "NV_ERR_INVALID_CLASS",
+      "null_checked_before_install": true
+    },
+    "ce_table": {
+      "class_id_field": "gpu_info->ceClass",
+      "installed_pointer": "parent_gpu->ce_hal -> u.ce_ops",
+      "installs_hal_pointer": true,
+      "missing_class_status": "NV_ERR_INVALID_CLASS",
+      "null_checked_before_install": true
+    },
+    "fault_buffer_table": {
+      "class_id_field": "gpu_info->gpuArch",
+      "installed_pointer": "parent_gpu->fault_buffer_hal -> u.fault_buffer_ops",
+      "installs_hal_pointer": true,
+      "missing_class_status": "NV_ERR_INVALID_CLASS",
+      "null_checked_before_install": true
+    },
+    "host_table": {
+      "class_id_field": "gpu_info->hostClass",
+      "installed_pointer": "parent_gpu->host_hal -> u.host_ops",
+      "installs_hal_pointer": true,
+      "missing_class_status": "NV_ERR_INVALID_CLASS",
+      "null_checked_before_install": true
+    },
+    "sec2_table": {
+      "class_id_field": "gpu_info->gpuArch",
+      "installed_pointer": "parent_gpu->sec2_hal -> u.sec2_ops",
+      "installs_hal_pointer": true,
+      "missing_class_status": "NV_ERR_INVALID_CLASS",
+      "null_checked_before_install": true
+    }
+  },
+  "modern_source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-r580-patch-replay-v39-20261023/source/kernel-open",
+  "modern_static_dispatch_candidate": false,
+  "r580_all_required_targets_present": true,
+  "r580_archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+  "r580_archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+  "r580_hal_sha256": "9e1c8c1e0e70d26328809713fc7af7f79e49a57a545ea474b36d70a07d56325d",
+  "r580_present_targets": {
+    "access_counter_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "arch_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "ce_table": "VOLTA_DMA_COPY_A",
+    "fault_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "host_table": "VOLTA_CHANNEL_GPFIFO_A",
+    "sec2_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100"
+  },
+  "r580_resolved_callbacks": {
+    "access_counter_buffer_table": {
+      "clear_access_counter_notifications": "uvm_hal_maxwell_clear_access_counter_notifications_unsupported",
+      "disable_access_counter_notifications": "uvm_hal_maxwell_disable_access_counter_notifications_unsupported",
+      "enable_access_counter_notifications": "uvm_hal_maxwell_enable_access_counter_notifications_unsupported",
+      "entry_clear_valid": "uvm_hal_maxwell_access_counter_buffer_entry_clear_valid_unsupported",
+      "entry_is_valid": "uvm_hal_maxwell_access_counter_buffer_entry_is_valid_unsupported",
+      "entry_size": "uvm_hal_maxwell_access_counter_buffer_entry_size_unsupported",
+      "parse_entry": "uvm_hal_maxwell_access_counter_buffer_parse_entry_unsupported"
+    },
+    "arch_table": {
+      "disable_prefetch_faults": "uvm_hal_pascal_mmu_disable_prefetch_faults",
+      "enable_prefetch_faults": "uvm_hal_pascal_mmu_enable_prefetch_faults",
+      "init_properties": "uvm_hal_volta_arch_init_properties",
+      "mmu_client_id_to_utlb_id": "uvm_hal_volta_mmu_client_id_to_utlb_id",
+      "mmu_mode_hal": "uvm_hal_mmu_mode_volta"
+    },
+    "ce_table": {
+      "decrypt": "uvm_hal_maxwell_ce_decrypt_unsupported",
+      "encrypt": "uvm_hal_maxwell_ce_encrypt_unsupported",
+      "init": "uvm_hal_maxwell_ce_init",
+      "memcopy": "uvm_hal_volta_ce_memcopy",
+      "memcopy_copy_type": "uvm_hal_maxwell_ce_memcopy_copy_type",
+      "memcopy_is_valid": "uvm_hal_maxwell_ce_memcopy_is_valid",
+      "memcopy_patch_src": "uvm_hal_ce_memcopy_patch_src_stub",
+      "memcopy_v_to_v": "uvm_hal_maxwell_ce_memcopy_v_to_v",
+      "memset_1": "uvm_hal_volta_ce_memset_1",
+      "memset_4": "uvm_hal_volta_ce_memset_4",
+      "memset_8": "uvm_hal_volta_ce_memset_8",
+      "memset_is_valid": "uvm_hal_maxwell_ce_memset_is_valid",
+      "memset_v_4": "uvm_hal_maxwell_ce_memset_v_4",
+      "method_is_valid": "uvm_hal_method_is_valid_stub",
+      "offset_in_out": "uvm_hal_pascal_ce_offset_in_out",
+      "offset_out": "uvm_hal_pascal_ce_offset_out",
+      "phys_mode": "uvm_hal_maxwell_ce_phys_mode",
+      "plc_mode": "uvm_hal_maxwell_ce_plc_mode",
+      "semaphore_reduction_inc": "uvm_hal_volta_ce_semaphore_reduction_inc",
+      "semaphore_release": "uvm_hal_volta_ce_semaphore_release",
+      "semaphore_target_is_valid": "uvm_hal_maxwell_semaphore_target_is_valid",
+      "semaphore_timestamp": "uvm_hal_volta_ce_semaphore_timestamp"
+    },
+    "fault_buffer_table": {
+      "clear_replayable_faults": "uvm_hal_pascal_clear_replayable_faults",
+      "disable_replayable_faults": "uvm_hal_pascal_disable_replayable_faults",
+      "enable_replayable_faults": "uvm_hal_pascal_enable_replayable_faults",
+      "entry_clear_valid": "uvm_hal_pascal_fault_buffer_entry_clear_valid",
+      "entry_is_valid": "uvm_hal_pascal_fault_buffer_entry_is_valid",
+      "entry_size": "uvm_hal_pascal_fault_buffer_entry_size",
+      "get_fault_type": "uvm_hal_volta_fault_buffer_get_fault_type",
+      "get_mmu_engine_type": "uvm_hal_volta_fault_buffer_get_mmu_engine_type",
+      "get_ve_id": "uvm_hal_volta_fault_buffer_get_ve_id",
+      "parse_non_replayable_entry": "uvm_hal_volta_fault_buffer_parse_non_replayable_entry",
+      "parse_replayable_entry": "uvm_hal_volta_fault_buffer_parse_replayable_entry",
+      "read_get": "uvm_hal_volta_fault_buffer_read_get",
+      "read_put": "uvm_hal_volta_fault_buffer_read_put",
+      "write_get": "uvm_hal_volta_fault_buffer_write_get"
+    },
+    "host_table": {
+      "access_counter_clear_all": "uvm_hal_maxwell_access_counter_clear_all_unsupported",
+      "access_counter_clear_targeted": "uvm_hal_maxwell_access_counter_clear_targeted_unsupported",
+      "access_counter_query_clear_op": "uvm_hal_maxwell_access_counter_query_clear_op_unsupported",
+      "cancel_faults_global": "uvm_hal_pascal_cancel_faults_global",
+      "cancel_faults_targeted": "uvm_hal_pascal_cancel_faults_targeted",
+      "cancel_faults_va": "uvm_hal_volta_cancel_faults_va",
+      "clear_faulted_channel_method": "uvm_hal_volta_host_clear_faulted_channel_method",
+      "clear_faulted_channel_register": "uvm_hal_maxwell_host_clear_faulted_channel_register_unsupported",
+      "clear_faulted_channel_sw_method": "uvm_hal_maxwell_host_clear_faulted_channel_sw_method_unsupported",
+      "get_time": "uvm_hal_maxwell_get_time",
+      "init": "uvm_hal_pascal_host_init",
+      "interrupt": "uvm_hal_maxwell_host_interrupt",
+      "l2_invalidate": "uvm_hal_host_l2_invalidate_unsupported",
+      "membar_gpu": "uvm_hal_pascal_host_membar_gpu",
+      "membar_sys": "uvm_hal_pascal_host_membar_sys",
+      "method_is_valid": "uvm_hal_method_is_valid_stub",
+      "noop": "uvm_hal_maxwell_host_noop",
+      "replay_faults": "uvm_hal_volta_replay_faults",
+      "semaphore_acquire": "uvm_hal_maxwell_host_semaphore_acquire",
+      "semaphore_release": "uvm_hal_maxwell_host_semaphore_release",
+      "semaphore_target_is_valid": "uvm_hal_maxwell_semaphore_target_is_valid",
+      "semaphore_timestamp": "uvm_hal_volta_host_semaphore_timestamp",
+      "set_gpfifo_entry": "uvm_hal_maxwell_host_set_gpfifo_entry",
+      "set_gpfifo_noop": "uvm_hal_maxwell_host_set_gpfifo_noop",
+      "set_gpfifo_pushbuffer_segment_base": "uvm_hal_maxwell_host_set_gpfifo_pushbuffer_segment_base_unsupported",
+      "sw_method_is_valid": "uvm_hal_method_is_valid_stub",
+      "tlb_flush_prefetch": "uvm_hal_maxwell_host_tlb_flush_prefetch_unsupported",
+      "tlb_invalidate_all": "uvm_hal_pascal_host_tlb_invalidate_all",
+      "tlb_invalidate_phys": "uvm_hal_maxwell_host_tlb_invalidate_phys_unsupported",
+      "tlb_invalidate_test": "uvm_hal_pascal_host_tlb_invalidate_test",
+      "tlb_invalidate_va": "uvm_hal_volta_host_tlb_invalidate_va",
+      "wait_for_idle": "uvm_hal_maxwell_host_wait_for_idle",
+      "write_gpu_put": "uvm_hal_volta_host_write_gpu_put"
+    },
+    "sec2_table": {
+      "decrypt": "uvm_hal_maxwell_sec2_decrypt_unsupported",
+      "init": "uvm_hal_maxwell_sec2_init_noop",
+      "semaphore_release": "uvm_hal_maxwell_sec2_semaphore_release_unsupported",
+      "semaphore_target_is_valid": "uvm_hal_maxwell_semaphore_target_is_valid",
+      "semaphore_timestamp": "uvm_hal_maxwell_sec2_semaphore_timestamp_unsupported"
+    }
+  },
+  "r580_source_root": "NVIDIA-kernel-module-source-580.178.04",
+  "r580_target_lineage": {
+    "access_counter_buffer_table": [
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM000",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM200",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GP100",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100"
+    ],
+    "arch_table": [
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM000",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM200",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GP100",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100"
+    ],
+    "ce_table": [
+      "MAXWELL_DMA_COPY_A",
+      "PASCAL_DMA_COPY_A",
+      "PASCAL_DMA_COPY_B",
+      "VOLTA_DMA_COPY_A"
+    ],
+    "fault_buffer_table": [
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM000",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM200",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GP100",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100"
+    ],
+    "host_table": [
+      "KEPLER_CHANNEL_GPFIFO_B",
+      "MAXWELL_CHANNEL_GPFIFO_A",
+      "PASCAL_CHANNEL_GPFIFO_A",
+      "VOLTA_CHANNEL_GPFIFO_A"
+    ],
+    "sec2_table": [
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM000",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM200",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GP100",
+      "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100"
+    ]
+  },
+  "required_table_count": 6,
+  "required_targets": {
+    "access_counter_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "arch_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "ce_table": "VOLTA_DMA_COPY_A",
+    "fault_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "host_table": "VOLTA_CHANNEL_GPFIFO_A",
+    "sec2_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100"
+  },
+  "runtime_or_hardware_validated": false,
+  "schema": "volta-uvm-hal-dispatch-audit-v2"
+}

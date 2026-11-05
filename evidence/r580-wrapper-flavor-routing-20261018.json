@@ -1,0 +1,239 @@
+{
+  "schema": "r580-wrapper-flavor-routing-v1",
+  "observed_at_utc": "2026-10-19T00:49:35Z",
+  "scope": {
+    "question": "Do the Open580 and proprietary580 Linux wrappers provide a GPU/RM-domain selector and two distinct nv_file_private callbacks suitable for a same-process dual-RM broker?",
+    "method": "Read-only comparison of pinned R580.178.04 wrapper sources, callback ABI, RM initialization sources, Kbuild fragments, and the extracted proprietary RM object symbol table.",
+    "pc3_accessed": false,
+    "hardware_runtime_tested": false,
+    "driver_build_or_module_operation_performed": false,
+    "only_artifact_created": "evidence/r580-wrapper-flavor-routing-20261018.json",
+    "qualification": "ANALYZED_STATICALLY"
+  },
+  "source_pins": {
+    "open_kernel_source": {
+      "release": "580.178.04",
+      "archive": ".cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+      "archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+      "source_root": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04",
+      "version_file": "version.mk",
+      "version_file_sha256": "cbc6488ed2c35ea814120bc80749dd2d11f486c3e98046b3be240d462ee86e7c"
+    },
+    "proprietary_wrapper_and_core": {
+      "release": "580.178.04",
+      "extracted_tree": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04",
+      "package_archive_sha256": null,
+      "note": "No enclosing proprietary package archive hash was available in the inspected tree; every cited wrapper/config/object file is individually SHA-256 pinned in sources."
+    }
+  },
+  "sources": [
+    {
+      "id": "open_nv_c",
+      "path": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv.c",
+      "sha256": "4f251e44dfd400d7611b57a029d0b38b6e8a67a30f4971085aad56029753aa40",
+      "lines": "112, 1819-1881, 2380-2484, 2762-2765, 3066-3096, 4082-4145"
+    },
+    {
+      "id": "proprietary_nv_c",
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nv.c",
+      "sha256": "359a50f7dc840c0d7adc40388313391cfcaa55598982a4745622887e9423e005",
+      "lines": "112, 640-674, 2750-2753, 4070-4133"
+    },
+    {
+      "id": "open_nv_h",
+      "path": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nv.h",
+      "sha256": "bc5802ef5a0e47be045cac9b74e61a0092f0bb96fc1ede05e2361d164e3b7787",
+      "lines": "603-626, 982-983, 1114-1128"
+    },
+    {
+      "id": "proprietary_nv_h",
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc/nv.h",
+      "sha256": "bc5802ef5a0e47be045cac9b74e61a0092f0bb96fc1ede05e2361d164e3b7787",
+      "lines": "603-626, 982-983, 1114-1128"
+    },
+    {
+      "id": "open_module_kbuild",
+      "path": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/Kbuild",
+      "sha256": "de6fce64926a8b74e64eea9baeba659f85f71cf8e6c5d6fd7f949153c2a0b5ae",
+      "lines": "5-16, 74-82"
+    },
+    {
+      "id": "proprietary_module_kbuild",
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/Kbuild",
+      "sha256": "de6fce64926a8b74e64eea9baeba659f85f71cf8e6c5d6fd7f949153c2a0b5ae",
+      "lines": "5-16, 74-82"
+    },
+    {
+      "id": "open_nvidia_kbuild",
+      "path": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nvidia.Kbuild",
+      "sha256": "adee2cdb65f387611e2816d91beb4c3ce3a45f648831d8b1e79a2564b160f406",
+      "lines": "9-13, 19-48, 55-70"
+    },
+    {
+      "id": "proprietary_nvidia_kbuild",
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nvidia.Kbuild",
+      "sha256": "adee2cdb65f387611e2816d91beb4c3ce3a45f648831d8b1e79a2564b160f406",
+      "lines": "9-13, 19-48, 55-70"
+    },
+    {
+      "id": "open_source_build_makefile",
+      "path": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/Makefile",
+      "sha256": "0d1ee1b8c69dad2e0668fbb23c8dcf88dc59b0c9e1bfa4c26cec998dccc807b2",
+      "lines": "20-23, 128-132, 198-212"
+    },
+    {
+      "id": "open_nv_ioctl_numbers",
+      "path": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nv-ioctl-numbers.h",
+      "sha256": "7f449a019521f2f858a2d485eed1ee0fa4a8ffc82c9aecd484be5d3f6821f87d",
+      "lines": "32"
+    },
+    {
+      "id": "open_nv_usermap",
+      "path": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv-usermap.c",
+      "sha256": "e07af28edb2a64d97278fac6c75cafec6415b62aa3cf09fef88e6ea70916b84a",
+      "lines": "38-51"
+    },
+    {
+      "id": "open_rm_escape",
+      "path": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/src/escape.c",
+      "sha256": "dad7e4a427d6f045d2e11a60837e2f73567321426e24e399cf5b45d0bcf724a7",
+      "lines": "387-435, 850-931"
+    },
+    {
+      "id": "open_osapi",
+      "path": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/src/osapi.c",
+      "sha256": "bbb08710a4674408530e40146913b2ea328e2ba921c61f2a05bc31f8593416aa",
+      "lines": "2589-2603, 2803-2870"
+    },
+    {
+      "id": "open_system",
+      "path": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/src/kernel/core/system.c",
+      "sha256": "4af8e894735ef4a568e2c4898be186d144b4dfd2023111eb17ce6e174560f17b",
+      "lines": "211-236, 540-572, 596-601"
+    },
+    {
+      "id": "open_rmapi",
+      "path": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/src/kernel/rmapi/rmapi.c",
+      "sha256": "2d78fa2704e6745f493458794630665bf69e740429933c2272b66ceea6071136",
+      "lines": "55-58, 70-124, 217-224"
+    },
+    {
+      "id": "proprietary_rm_object",
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nv-kernel.o_binary",
+      "sha256": "5269a23ffba19a17fe16f076463e7ad4151254659441d1711bee6c6221ff6f4b",
+      "object_symbols": {
+        "defined": [
+          "rm_init_rm",
+          "rm_ioctl",
+          "rm_shutdown_rm"
+        ],
+        "undefined": [
+          "nv_get_file_private",
+          "nv_put_file_private"
+        ]
+      }
+    },
+    {
+      "id": "paired_root_namespace_evidence",
+      "path": "evidence/r580-client-domain-contract-20261018.json",
+      "sha256": "fa76bf3ff2bbe8254852a1960a2e7f16629939241e32cb79c31b1bcabc89e9f9",
+      "lines": "150-163, 220-272, 313-329, 378-410"
+    },
+    {
+      "id": "prior_cross_version_link_log",
+      "path": "evidence/logs/r580-proprietary-r595-open-direct-link-20261018.log",
+      "sha256": "09ab80314cdf8139471fcce6c2203d1b573220713c131c2d444b593daf06c357",
+      "lines": "306-318"
+    }
+  ],
+  "findings": {
+    "flavor_and_build_selection": {
+      "observation": "The literal NV_OPEN_KERNEL_MODULES has no textual occurrence in the pinned Open580 or extracted proprietary580 source/package trees searched (C/H, Kbuild, Makefile, and make fragments). The actual NV_KERNEL_MODULES variable is only a whitespace-separated list of module targets. Open and proprietary nvidia.Kbuild and nvidia-sources.Kbuild are byte-identical. Both nvidia.Kbuild files link nvidia/nv-kernel.o_binary into nvidia.ko; this is a build-time core-object choice, not a per-GPU runtime branch.",
+      "source_built_object_caveat": "The R580 archive also contains src/nvidia/Makefile, which builds source lists from srcs.mk to $(OUTPUTDIR)/nv-kernel.o. Therefore the suffix/name nv-kernel.o_binary alone does not prove proprietary provenance. In this archive the stock kernel-open Kbuild expects a sibling nv-kernel.o_binary path, which is absent from the extracted kernel-open/nvidia directory; the proprietary package supplies a 112,677,456-byte ELF relocatable object at its nvidia/nv-kernel.o_binary path. A custom source build may populate the expected core object, but no such build was performed here.",
+      "module_license_observation": "Open wrapper kernel-open/nvidia/nv.c line 112 declares MODULE_LICENSE(\"Dual MIT/GPL\"); proprietary wrapper nvidia/nv.c line 112 declares MODULE_LICENSE(\"NVIDIA\"). The wrapper source also differs in OS integration/features (for example DMA_BUF namespace imports and confidential-compute handling); these differences do not create a backend selector. MODULE_LICENSE is module metadata/licensing declaration, not RM routing logic.",
+      "interpretation": "Do not use an imagined NV_OPEN_KERNEL_MODULES switch or MODULE_LICENSE value as a runtime flavor selector. Select/link the intended RM core explicitly and ensure the final module's license metadata matches the actually linked core and redistribution terms.",
+      "evidence": [
+        "open_module_kbuild:5-16,74-82",
+        "open_nvidia_kbuild:19-48",
+        "open_source_build_makefile:20-23,198-212",
+        "proprietary_module_kbuild:5-16,74-82"
+      ]
+    },
+    "rm_initialization_and_global_state": {
+      "observation": "Open and proprietary nv.c wrappers call the same-signature rm_init_rm(stack) from the nvidia module-init path before nv_module_state_init. The shared nv.h declares rm_init_rm(nvidia_stack_t*) with no GPU/backend argument. Open RM's rm_init_rm calls RmInitRm(); RmInitRm calls coreInitializeRm(); coreInitializeRm creates the system object and calls rmapiInitialize. rmapi.c has one g_resServ plus static g_RmApiList, initialization guard, and lock globals; rmapiInitialize constructs that one global server.",
+      "proprietary_object_symbols": "The extracted proprietary 580.178.04 core object exports rm_init_rm, rm_ioctl, and rm_shutdown_rm and imports nv_get_file_private/nv_put_file_private. The open source tree defines matching RM entry points. This is direct symbol-table evidence of one core API contract, not a same-version dual-link test.",
+      "interpretation": "Calling rm_init_rm through two wrapper callbacks cannot create two RM namespaces when both calls reach one linked RM image: the normal initialization target is process/module-global RM state. Independent state-isolated RM images require separate global state and symbol/link isolation, or a substantive refactor; callbacks alone are insufficient.",
+      "evidence": [
+        "open_nv_c:704-711",
+        "proprietary_nv_c:667-674",
+        "open_nv_h:1114-1128",
+        "open_osapi:2589-2603",
+        "open_system:211-236,540-572,596-601",
+        "open_rmapi:55-58,70-124",
+        "proprietary_rm_object"
+      ]
+    },
+    "file_private_and_register_fd": {
+      "observation": "The Open580 and proprietary580 nv.h files are byte-identical. They declare nv_get_file_private(fd, ctl, os_private) with no RM-domain parameter. Their nv.c callback bodies are byte-for-byte identical: fget(fd), require this wrapper's NV_MAJOR_DEVICE_NUMBER, check the single control-device minor when ctl=true (or a regular-device minor in its table), then return &nvlfp->nvfp. Each open allocates one nv_linux_file_private_t/nvfp; different open file descriptions can therefore yield different nvfp pointers, but dup shares the same file description. The structure has no explicit RM-domain selector. NV_ESC_REGISTER_FD calls this callback for a control fd and stores a single ctl_nvfp/ctl_nvfp_priv link in the source nvfp; it rejects an existing link, self-link, and a control nvfp that is itself linked, and the association remains until close.",
+      "proprietary_binary_evidence": "The proprietary R580 RM object imports nv_get_file_private and nv_put_file_private. The proprietary RM source for REGISTER_FD is unavailable in the inspected tree; the Open580 source establishes the exact open implementation, while the binary imports establish callback ABI dependence, not its internal control flow.",
+      "implication": "A single wrapper can supply distinct per-open nvfp records, but its stock callback resolves by OS fd/file only. It cannot tell which RM core is calling it, and REGISTER_FD provides one lifetime-held control association rather than a backend/core selector. Multiple callbacks aimed at the same wrapper function do not solve this.",
+      "evidence": [
+        "open_nv_h:603-626,982-983",
+        "proprietary_nv_h:603-626,982-983",
+        "open_nv_c:1819-1857,4082-4145",
+        "proprietary_nv_c:4070-4133",
+        "open_rm_escape:850-931",
+        "open_nv_usermap:38-51",
+        "proprietary_rm_object"
+      ]
+    },
+    "gpu_selection_and_control_fd": {
+      "observation": "For a regular GPU node, nvidia_open resolves its minor through the module's device table and stores that nv_linux_state in this open's file-private. The control path instead calls nvidia_ctl_open, which stores the module-global nv_ctl_device. nvidia_ioctl derives pNv from that file-private and sends default RM ioctls through the single linked rm_ioctl(sp, nv, &nvlfp->nvfp, ...). Open RM's NV_ESC_RM_ALLOC forces root classes to NV01_ROOT_CLIENT and requires the control device.",
+      "inference": "The wrapper can identify the physical device for an ioctl associated with a regular GPU node, but root-client creation arrives on the singleton control node and has no GPU identity to select a second RM. Later hClient/handles are plain RM-domain scoped numbers; the prior namespace artifact establishes they need a separate backend tag outside the stock ABI.",
+      "evidence": [
+        "open_nv_c:1819-1881,2380-2484,2762-2765,3066-3096",
+        "open_rm_escape:387-435",
+        "paired_root_namespace_evidence:150-163,220-272,313-329"
+      ]
+    }
+  },
+  "architecture_verdict": {
+    "direct_answer": "An unmodified shared R580 wrapper cannot route one process's requests to two RM cores by GPU and cannot expose two backend-specific file-private domains merely by opening files twice. It can allocate multiple distinct nvfp instances, but stock ioctl dispatch invokes one linked rm_ioctl implementation and stock RM initialization creates one global g_resServ domain.",
+    "minimum_independent_adaptation_seams": [
+      "RM core isolation: independently instantiate or namespace the RM globals/entry points, including g_resServ, g_RmApiList and associated process-global managers/locks. Two callbacks entering the same stock globals remain one namespace.",
+      "Wrapper/file routing: carry an explicit backend/domain identity from a backend-specific control endpoint or broker handle into ioctl dispatch and into the OS callback/file-private lifetime. A GPU minor alone cannot select the root client because root allocation is control-device-only. REGISTER_FD must retain distinct per-domain control links and cleanup ownership."
+    ],
+    "reuse_candidates": [
+      "The Open580 and proprietary580 wrapper ABI headers and nvidia.Kbuild source lists are byte-identical; the per-open file-private allocator, fd validation, and file lifetime mechanisms are reusable foundations for one deliberately extended wrapper.",
+      "The open RM source exposes the callback and dispatch seam in osapi.c/escape.c and provides a source-built core Makefile; it can guide a clean broker interface without reverse engineering proprietary code.",
+      "A single RM core remains the normal coherent arrangement for all GPUs attached to it; per-GPU pNv selection does not by itself justify two RM instances."
+    ],
+    "not_proven": [
+      "No same-version Open580-source plus proprietary580-object dual-link experiment was run. The proprietary object exports the same rm_* symbols that Open580 source defines, so duplicate-symbol failure is a strong static prediction; the existing recorded link failure is OpenR595 source plus proprietary R580 object and is cross-version evidence only.",
+      "No public libcuda/CUDA user-library routing, handle translation, UVM, GPU enumeration merge, physical GPU behavior, or runtime cleanup was tested.",
+      "Whether two full RM images can be safely isolated in one kernel module remains unknown; duplicating g_resServ alone would not prove isolation of all core globals and callback lifetimes."
+    ]
+  },
+  "checks": [
+    {
+      "command": "rg -n --hidden --no-ignore -F NV_OPEN_KERNEL_MODULES <Open580 tree> <proprietary580 tree> (excluding object/binary/log files)",
+      "result": "No textual matches in the inspected source/package trees."
+    },
+    {
+      "command": "diff -q Open580/kernel-open/nvidia/nvidia.Kbuild proprietary580/nvidia/nvidia.Kbuild; diff -q nvidia-sources.Kbuild",
+      "result": "Both Kbuild fragments are identical byte-for-byte (SHA-256 adee2cdb... and a4fbda68...)."
+    },
+    {
+      "command": "Python source comparison of nv_get_file_private function bodies",
+      "result": "Bodies are identical, 63 lines each."
+    },
+    {
+      "command": "file proprietary580/nvidia/nv-kernel.o_binary; nm -A ... | rg 'rm_*|nv_get_file_private|nv_put_file_private'",
+      "result": "ELF64 x86-64 relocatable; defined rm_init_rm/rm_ioctl/rm_shutdown_rm and undefined nv_get_file_private/nv_put_file_private."
+    },
+    {
+      "command": "Read-only source/hash inspection",
+      "result": "All listed source paths exist and are pinned individually; no driver build, module load, install, hardware test, or PC3 access."
+    }
+  ]
+}

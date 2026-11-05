@@ -1,0 +1,110 @@
+{
+  "created_utc": "2026-10-23T11:02:35.480930+00:00",
+  "limitations": [
+    "Static source-table inspection does not establish which class IDs the RM returns.",
+    "Resolved callback names do not validate callback semantics or hardware compatibility.",
+    "No module was installed or loaded and no GPU was exercised."
+  ],
+  "modern_all_required_targets_present": false,
+  "modern_branch": "NVIDIA Open R615.71.10",
+  "modern_hal_sha256": "292a4e1b7058e64be4e679a150b6b11478726a28c527b053f9a0e36f55d8ad46",
+  "modern_hal_source": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/extracted-r615-71-10-package/kernel-open/nvidia-uvm/uvm_hal.c",
+  "modern_inheritance_closure_valid": false,
+  "modern_inheritance_errors": {
+    "access_counter_buffer_table": "target row is absent: NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "arch_table": "target row is absent: NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "ce_table": "target row is absent: VOLTA_DMA_COPY_A",
+    "fault_buffer_table": "target row is absent: NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "host_table": "target row is absent: VOLTA_CHANNEL_GPFIFO_A",
+    "sec2_table": "target row is absent: NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100"
+  },
+  "modern_initial_row_ids": {
+    "access_counter_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100",
+    "arch_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100",
+    "ce_table": "TURING_DMA_COPY_A",
+    "chip_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB100 | NV2080_CTRL_MC_ARCH_INFO_IMPLEMENTATION_GB10B",
+    "fault_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100",
+    "host_table": "TURING_CHANNEL_GPFIFO_A",
+    "sec2_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100"
+  },
+  "modern_missing_targets": {
+    "access_counter_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "arch_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "ce_table": "VOLTA_DMA_COPY_A",
+    "fault_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "host_table": "VOLTA_CHANNEL_GPFIFO_A",
+    "sec2_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100"
+  },
+  "modern_present_targets": {},
+  "modern_resolved_callback_counts": {},
+  "modern_selector_contract": {
+    "access_counter_buffer_table": {
+      "class_id_field": "gpu_info->gpuArch",
+      "installed_pointer": "parent_gpu->access_counter_buffer_hal -> u.access_counter_buffer_ops",
+      "installs_hal_pointer": true,
+      "missing_class_status": "NV_ERR_INVALID_CLASS",
+      "null_checked_before_install": true
+    },
+    "arch_table": {
+      "class_id_field": "gpu_info->gpuArch",
+      "installed_pointer": "parent_gpu->arch_hal -> u.arch_ops",
+      "installs_hal_pointer": true,
+      "missing_class_status": "NV_ERR_INVALID_CLASS",
+      "null_checked_before_install": true
+    },
+    "ce_table": {
+      "class_id_field": "gpu_info->ceClass",
+      "installed_pointer": "parent_gpu->ce_hal -> u.ce_ops",
+      "installs_hal_pointer": true,
+      "missing_class_status": "NV_ERR_INVALID_CLASS",
+      "null_checked_before_install": true
+    },
+    "fault_buffer_table": {
+      "class_id_field": "gpu_info->gpuArch",
+      "installed_pointer": "parent_gpu->fault_buffer_hal -> u.fault_buffer_ops",
+      "installs_hal_pointer": true,
+      "missing_class_status": "NV_ERR_INVALID_CLASS",
+      "null_checked_before_install": true
+    },
+    "host_table": {
+      "class_id_field": "gpu_info->hostClass",
+      "installed_pointer": "parent_gpu->host_hal -> u.host_ops",
+      "installs_hal_pointer": true,
+      "missing_class_status": "NV_ERR_INVALID_CLASS",
+      "null_checked_before_install": true
+    },
+    "sec2_table": {
+      "class_id_field": "gpu_info->gpuArch",
+      "installed_pointer": "parent_gpu->sec2_hal -> u.sec2_ops",
+      "installs_hal_pointer": true,
+      "missing_class_status": "NV_ERR_INVALID_CLASS",
+      "null_checked_before_install": true
+    }
+  },
+  "modern_source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/extracted-r615-71-10-package/kernel-open",
+  "modern_static_dispatch_candidate": false,
+  "r580_all_required_targets_present": true,
+  "r580_archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+  "r580_archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+  "r580_hal_sha256": "9e1c8c1e0e70d26328809713fc7af7f79e49a57a545ea474b36d70a07d56325d",
+  "r580_present_targets": {
+    "access_counter_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "arch_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "ce_table": "VOLTA_DMA_COPY_A",
+    "fault_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "host_table": "VOLTA_CHANNEL_GPFIFO_A",
+    "sec2_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100"
+  },
+  "r580_source_root": "NVIDIA-kernel-module-source-580.178.04",
+  "required_table_count": 6,
+  "required_targets": {
+    "access_counter_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "arch_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "ce_table": "VOLTA_DMA_COPY_A",
+    "fault_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+    "host_table": "VOLTA_CHANNEL_GPFIFO_A",
+    "sec2_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100"
+  },
+  "runtime_or_hardware_validated": false,
+  "schema": "volta-uvm-hal-dispatch-audit-v2"
+}

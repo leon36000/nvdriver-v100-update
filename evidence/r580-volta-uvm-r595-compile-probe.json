@@ -1,0 +1,58 @@
+{
+  "schema": "nvidia-hybrid-uvm-port-compile-probe-v1",
+  "observed_at_utc": "2026-10-18T22:59:01Z",
+  "source_baseline": {
+    "branch": "NVIDIA Open kernel-interface source 595.99.02",
+    "path": "/usr/src/nvidia-595.99.02",
+    "kernel": "7.0.0-38-generic"
+  },
+  "volta_source": {
+    "branch": "NVIDIA Open kernel-module source 580.178.04",
+    "archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+    "archive_md5_verified_from_official_sidecar": "98908bf75993d8cb938b5afe3683a43a",
+    "source_files_overlaid": [
+      "uvm_volta.c",
+      "uvm_volta_ce.c",
+      "uvm_volta_fault_buffer.c",
+      "uvm_volta_fault_buffer.h",
+      "uvm_volta_host.c",
+      "uvm_volta_mmu.c"
+    ],
+    "additional_r580_dependencies": [
+      "clc3b5.h",
+      "clc36f.h",
+      "hwref/volta/gv100/dev_fault.h",
+      "hwref/volta/gv100/dev_fb.h",
+      "hwref/volta/gv100/dev_mmu.h",
+      "UVM_SUBCHANNEL_C36F mapping",
+      "UVM_SUBCHANNEL_C3B5 mapping"
+    ]
+  },
+  "isolated_scratch": "/tmp/nv-hybrid-r595-uvm-port-probe",
+  "not_loaded_or_installed": true,
+  "attempts": [
+    {
+      "command": "make -C <scratch> NV_KERNEL_MODULES=nvidia-uvm modules -j4",
+      "exit_code": 2,
+      "interpretation": "Invalid narrow build setup for this source tree: shared conftest macros supplied by the nvidia Kbuild fragment were omitted. Its resulting API diagnostics are excluded from port conclusions."
+    },
+    {
+      "command": "make -C <scratch> NV_KERNEL_MODULES='nvidia nvidia-uvm' modules -j4",
+      "exit_code": 2,
+      "compiled_volta_objects": [
+        "uvm_volta_ce.o",
+        "uvm_volta_host.o",
+        "uvm_volta_fault_buffer.o"
+      ],
+      "failed_volta_objects": ["uvm_volta.o", "uvm_volta_mmu.o"],
+      "root_causes": [
+        "R595 uvm_parent_gpu_t lacks capability fields set by the R580 Volta initializer, including can_map_sysmem_with_large_pages, prefetch_fault_supported, gpfifo_in_vidmem_supported, replayable_faults_supported, non_replayable_faults_supported, fault_cancel_va_supported, scoped_atomics_supported, sparse_mappings_supported, and plc_supported.",
+        "R595 removed the tlb_batch.va_invalidate_supported and va_range_invalidate_supported flags used by the R580 initializer.",
+        "R580 uvm_hal_mmu_mode_volta calls uvm_hal_mmu_mode_pascal, which is absent from the R595 UVM HAL."
+      ],
+      "warnings": "Volta HAL function declarations are also absent from the R595 header; the final build stopped before module link/modpost."
+    }
+  ],
+  "result": "Source reuse is partial; the Volta UVM port is not drop-in and has no dispatch integration or runtime validation.",
+  "retained_full_log": false
+}

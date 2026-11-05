@@ -1,0 +1,64 @@
+{
+  "build_reference": {
+    "path": "evidence/r580-uvm-standard-stack-consumer-v2-20261028T1420Z.json",
+    "qualification": "compiled candidate source; not loaded or installed",
+    "sha256": "2277575e8672b0fae4dc47f272b60d632c12cc9d5a2fb298bcbc7102d1b7af27"
+  },
+  "inputs": {
+    "hybrid580_uvm_callback_bridge.c": {
+      "bytes": 210087,
+      "path": "src/hybrid580_uvm_callback_bridge.c",
+      "sha256": "fa44c394053ad60db183a03c51a301a3f147cde2aa6976f719fd439c4d41fcfa"
+    },
+    "uvm_gpu.c": {
+      "bytes": 151700,
+      "path": "build/experiments/r580-uvm-standard-stack-consumer-v1-20261028T1414Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_gpu.c",
+      "sha256": "973408d4ed952a8b9244623ebe9b557dd49222f8c3a8f59de94f42328be3c215"
+    },
+    "uvm_push.c": {
+      "bytes": 18148,
+      "path": "build/experiments/r580-uvm-standard-stack-consumer-v1-20261028T1414Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_push.c",
+      "sha256": "9ace70a23fb4316d7169446d8002a5ec1f293cf067bec24a7b6399c8a8b97e41"
+    },
+    "uvm_tracker.c": {
+      "bytes": 13580,
+      "path": "build/experiments/r580-uvm-standard-stack-consumer-v1-20261028T1414Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_tracker.c",
+      "sha256": "af78f7843aefe9682ddc3bf5a44a0fcaec0d59043e50d9fb1a0da51d058ed608"
+    },
+    "uvm_va_block.c": {
+      "bytes": 625301,
+      "path": "build/experiments/r580-uvm-standard-stack-consumer-v1-20261028T1414Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_block.c",
+      "sha256": "6e19e66f0dab6d25a18e67060df144c4fc9d7963ca926a1741f471466e27d73b"
+    },
+    "uvm_va_space.c": {
+      "bytes": 106277,
+      "path": "build/experiments/r580-uvm-standard-stack-consumer-v1-20261028T1414Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_space.c",
+      "sha256": "f3ff460e979af67874cbaa274edcea587e0f22178ca2323437a26bc1ae294555"
+    }
+  },
+  "observed_at_utc": "2026-10-28T18:47:09.652009+00:00",
+  "qualification": {
+    "level": "analyzed-statically",
+    "module_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "result": {
+    "checks": {
+      "completed_tracker_exempts_reject_path": true,
+      "cross_provider_p2p_caps_report_no_link": true,
+      "each_stage_acquires_the_va_block_tracker": true,
+      "isolated_mode_rejects_pending_other_gpu_tracker": true,
+      "source_stage_tracker_is_merged_before_destination_stage": true,
+      "unsupported_residency_is_selected_for_cpu_staging": true,
+      "uvm_static_peer_discovery_skips_no_link": true,
+      "va_space_direct_copy_pairs_are_only_added_by_peer_enable": true
+    },
+    "failed_checks": [],
+    "interpretation": "When a destination GPU cannot copy directly from a resident GPU, the pinned UVM path stages those pages through CPU memory, merges the first-stage tracker into the VA-block tracker, then queues the CPU-to-destination stage against that same tracker. The hybrid bridge reports no cross-provider P2P link, and isolated mode returns NV_ERR_NOT_SUPPORTED if the destination push sees an outstanding entry from another GPU. A completed source tracker is exempt, so the exact failure is conditional on work still being pending at the destination reservation. This is a static control-flow result; it is not a runtime failure, timing measurement, or proof that every migration attempt fails.",
+    "migration_behavior": "cross_provider_gpu_staging_can_be_rejected_when_source_tracker_is_pending",
+    "next_action": "Design a lock-safe two-phase staging protocol and validate it with delayed source copy completion plus concurrent same-block fault/unmap. Do not replace the reject with an unbounded CPU tracker wait while the VA-block lock is held.",
+    "status": "conditional_blocker"
+  },
+  "schema": "nvidia-r580-uvm-staged-migration-isolation-v1",
+  "source_release": "580.178.04"
+}

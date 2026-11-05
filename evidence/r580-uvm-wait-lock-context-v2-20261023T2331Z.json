@@ -1,0 +1,56 @@
+{
+  "inputs": {
+    "patch": {
+      "path": "patches/r580.178.04/uvm/0002-hybrid-isolated-gpu-execution.patch",
+      "sha256": "23145778c944ae2cf222a6df192d97a1b3260c564772f4b353d48f0cf0cb26f0"
+    },
+    "source_archive": {
+      "path": ".cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+      "sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8"
+    },
+    "source_files": {
+      "uvm_migrate_pageable.c": {
+        "bytes": 59141,
+        "path": "build/experiments/r580-uvm-isolated-gpu-execution-v5-20261023T2130Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_migrate_pageable.c",
+        "sha256": "0aea84a9260f3ae70847e366ef83eae5d7119e0a4865ff631491200e004306bb"
+      },
+      "uvm_push.c": {
+        "bytes": 17644,
+        "path": "build/experiments/r580-uvm-isolated-gpu-execution-v5-20261023T2130Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_push.c",
+        "sha256": "53b1cdd7abc6f5dcea062a314b5580b05329868ad36a61f6a3f0d567f3326227"
+      },
+      "uvm_tracker.c": {
+        "bytes": 13181,
+        "path": "build/experiments/r580-uvm-isolated-gpu-execution-v5-20261023T2130Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_tracker.c",
+        "sha256": "756ce284db092691c5e346c9180299c98e050d4391242c53c19d14fcdff13e41"
+      },
+      "uvm_va_block.c": {
+        "bytes": 624366,
+        "path": "build/experiments/r580-uvm-isolated-gpu-execution-v5-20261023T2130Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_block.c",
+        "sha256": "dd2821620e83cfaeb03fd765d64dcb75d82da83a38107afa4b0c2882570a7b03"
+      }
+    }
+  },
+  "interpretation": "The pinned path reaches the isolated-mode CPU tracker wait from a page-table unmap push while uvm_va_block_unmap asserts that va_block->lock is held. A GPU command whose completion requires UVM fault service on the same block could be unable to make progress until that lock is released. The patch also adds a distinct pageable-migration wait on zero_tracker before the copy push; the inspected pageable VMA path rejects NVIDIA UVM-owned VMAs, but this audit does not prove that all callers avoid holding other progress-critical locks. These are lock-context risks, not proof of a deadlock or runtime observations. Do not load-test this mode until each wait has a source-backed progress argument and a targeted fault/concurrency stress test.",
+  "observed_at_utc": "2026-10-23T23:31:17.466222+00:00",
+  "qualification": {
+    "level": "analyzed-statically",
+    "module_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "result": {
+    "checks": {
+      "generic_wrapper_waits_before_channel_reservation": true,
+      "locked_unmap_push_acquires_block_tracker": true,
+      "pageable_path_rejects_uvm_owned_vma": true,
+      "pageable_zero_tracker_tracks_only_zero_push": true,
+      "pageable_zero_tracker_wait_precedes_copy_push": true,
+      "va_block_unmap_requires_block_lock": true,
+      "wait_is_reached_by_cross_gpu_tracker": true
+    },
+    "failed_checks": [],
+    "status": "risk"
+  },
+  "schema": "nvidia-r580-uvm-wait-lock-context-v1",
+  "source_release": "580.178.04"
+}

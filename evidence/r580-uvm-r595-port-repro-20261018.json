@@ -1,0 +1,126 @@
+{
+  "added_source_list_entries": [
+    "uvm_volta.c",
+    "uvm_volta_ce.c",
+    "uvm_volta_fault_buffer.c",
+    "uvm_volta_host.c",
+    "uvm_volta_mmu.c"
+  ],
+  "added_subchannel_mappings": [
+    "#define UVM_SUBCHANNEL_C36F UVM_SUBCHANNEL_HOST",
+    "#define UVM_SUBCHANNEL_C3B5 UVM_SUBCHANNEL_CE"
+  ],
+  "build_exit_code": 2,
+  "build_log": "/tmp/nv-hybrid-r595-uvm-port-repro-20261018/uvm-port-build.log",
+  "command": [
+    "make",
+    "-C",
+    "/tmp/nv-hybrid-r595-uvm-port-repro-20261018",
+    "NV_KERNEL_MODULES=nvidia nvidia-uvm",
+    "modules",
+    "-j4"
+  ],
+  "compiled_volta_objects": [
+    "nvidia-uvm/uvm_volta_ce.o"
+  ],
+  "copied_files_sha256": {
+    "clc36f.h": "56cbabbaf8c63cb2e2c0200dec3c18371d46772b0fcf903ab230d0de3b36c70b",
+    "clc3b5.h": "c6321efb3a6581d384495ac735bb80e8c0b1472d73e9043fefc973e25f2d5744",
+    "hwref/volta/gv100/dev_fault.h": "acef4b2abb4feb8f1935b659f7cbf52e3d02e4786ce176cda4d76dd70f54bc13",
+    "hwref/volta/gv100/dev_fb.h": "0175a270fa5af9d3a62d7fda2c9e536b58551db6bb1e9c123b84ffeec9a32584",
+    "hwref/volta/gv100/dev_mmu.h": "6a2656ab46cc7cdfe92c6ab12c7c5246c5d2819651add7a34b2d47fd2e13c483",
+    "uvm_volta.c": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653",
+    "uvm_volta_ce.c": "fd8758e28cf978335a97de557ee77e2f7c0797ff49f5363183fc99fbab657d3b",
+    "uvm_volta_fault_buffer.c": "d0b8cfcf715246b49741314e0009b78c798719b634269ee44a75ee12f9874e77",
+    "uvm_volta_fault_buffer.h": "3f9696a50f96a62f68d2402ff6e93f98f9c32a1a7c1add2c9ae555d9867f239e",
+    "uvm_volta_host.c": "582c18a24986db6de49ce0c36fa98430062324b0bffd7e2390b2451e5b45f3fb",
+    "uvm_volta_mmu.c": "a4ff6d7ea69fbef25cad7ef1e7b85c3c8fe85e6e9cd1f3be4306a274d3f8e709"
+  },
+  "copied_volta_source_count": 6,
+  "errors": [
+    {
+      "column": "26",
+      "file": "nvidia-uvm/uvm_volta.c",
+      "line": "31",
+      "message": "\u2018struct <anonymous>\u2019 has no member named \u2018va_invalidate_supported\u2019",
+      "severity": "error"
+    },
+    {
+      "column": "26",
+      "file": "nvidia-uvm/uvm_volta.c",
+      "line": "33",
+      "message": "\u2018struct <anonymous>\u2019 has no member named \u2018va_range_invalidate_supported\u2019",
+      "severity": "error"
+    },
+    {
+      "column": "15",
+      "file": "nvidia-uvm/uvm_volta.c",
+      "line": "68",
+      "message": "\u2018uvm_parent_gpu_t\u2019 {aka \u2018struct uvm_parent_gpu_struct\u2019} has no member named \u2018can_map_sysmem_with_large_pages\u2019",
+      "severity": "error"
+    },
+    {
+      "column": "15",
+      "file": "nvidia-uvm/uvm_volta.c",
+      "line": "71",
+      "message": "\u2018uvm_parent_gpu_t\u2019 {aka \u2018struct uvm_parent_gpu_struct\u2019} has no member named \u2018prefetch_fault_supported\u2019",
+      "severity": "error"
+    },
+    {
+      "column": "15",
+      "file": "nvidia-uvm/uvm_volta.c",
+      "line": "79",
+      "message": "\u2018uvm_parent_gpu_t\u2019 {aka \u2018struct uvm_parent_gpu_struct\u2019} has no member named \u2018gpfifo_in_vidmem_supported\u2019",
+      "severity": "error"
+    },
+    {
+      "column": "15",
+      "file": "nvidia-uvm/uvm_volta.c",
+      "line": "81",
+      "message": "\u2018uvm_parent_gpu_t\u2019 {aka \u2018struct uvm_parent_gpu_struct\u2019} has no member named \u2018replayable_faults_supported\u2019",
+      "severity": "error"
+    },
+    {
+      "column": "15",
+      "file": "nvidia-uvm/uvm_volta.c",
+      "line": "83",
+      "message": "\u2018uvm_parent_gpu_t\u2019 {aka \u2018struct uvm_parent_gpu_struct\u2019} has no member named \u2018non_replayable_faults_supported\u2019",
+      "severity": "error"
+    },
+    {
+      "column": "15",
+      "file": "nvidia-uvm/uvm_volta.c",
+      "line": "89",
+      "message": "\u2018uvm_parent_gpu_t\u2019 {aka \u2018struct uvm_parent_gpu_struct\u2019} has no member named \u2018fault_cancel_va_supported\u2019",
+      "severity": "error"
+    },
+    {
+      "column": "15",
+      "file": "nvidia-uvm/uvm_volta.c",
+      "line": "91",
+      "message": "\u2018uvm_parent_gpu_t\u2019 {aka \u2018struct uvm_parent_gpu_struct\u2019} has no member named \u2018scoped_atomics_supported\u2019",
+      "severity": "error"
+    },
+    {
+      "column": "15",
+      "file": "nvidia-uvm/uvm_volta.c",
+      "line": "99",
+      "message": "\u2018uvm_parent_gpu_t\u2019 {aka \u2018struct uvm_parent_gpu_struct\u2019} has no member named \u2018sparse_mappings_supported\u2019",
+      "severity": "error"
+    },
+    {
+      "column": "17",
+      "file": "nvidia-uvm/uvm_volta.c",
+      "line": "105",
+      "message": "\u2018uvm_parent_gpu_t\u2019 {aka \u2018struct uvm_parent_gpu_struct\u2019} has no member named \u2018plc_supported\u2019; did you mean \u2018ats_supported\u2019?",
+      "severity": "error"
+    }
+  ],
+  "loaded_or_installed": false,
+  "mit_source_confirmed": true,
+  "r580_archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+  "r580_source_archive": "/tmp/nv-hybrid-kernel-source-580.178.04.tar.xz",
+  "r580_source_root": "NVIDIA-kernel-module-source-580.178.04",
+  "r595_source": "/usr/src/nvidia-595.99.02",
+  "scratch": "/tmp/nv-hybrid-r595-uvm-port-repro-20261018"
+}
