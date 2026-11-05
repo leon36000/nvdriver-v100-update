@@ -1,0 +1,38 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-v",
+    "-s",
+    "tests"
+  ],
+  "elapsed_seconds": 47.479,
+  "exit_code": 0,
+  "log": {
+    "mode": "0600",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/software-verification-system-pageable-memory-v1-20261023T160050Z.log",
+    "sha256": "a707205a00e39fdadeadd37ba0f36f5b14326b0505a4e19b4d8a8f8dc35cec7d"
+  },
+  "module_sha256": "fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305",
+  "observed_at_utc": "2026-10-23T16:01:01.278419+00:00",
+  "pinned_environment": {
+    "HYBRID_CUDA_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-system-pageable-memory-v1-20261023/hybrid_cuda_probe",
+    "HYBRID_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-system-pageable-memory-v1-20261023/hybrid_cuda_probe"
+  },
+  "probe_sha256": "6e4f93e20b970205de1516c1258bdea83bbd39a72ba3c4ef719f114569fd497b",
+  "schema": "nvidia-hybrid-software-verification-v1",
+  "source_sha256": {
+    "src/hybrid_cuda_probe.cpp": "1a6458f582523c48791f56080dc5f726fb39a8b84298df44bb961612a7b990d7",
+    "tests/fixtures/fake_cuda_driver.cpp": "c00c40f6fd94f302af7872e2b4d9a33cf21ea32f52f4f151797d76057e094711",
+    "tests/run_hybrid_acceptance.py": "21bf1b8080dd3346969e4931c64f4b619f2a0e6783ab3faa884ad096118ce33b",
+    "tests/test_acceptance_contract.py": "dd9774d4b7edd5dce5c54745669da3c01167ea48d08c2424ce31ae1cd5ffc0a7",
+    "tests/test_probe_fake_driver.py": "9a1da53a07ef6d3dacb61492bcbfd473fdc9e3b6f4bcd2b931fd4443e7ec03e6",
+    "tests/test_remote_selected_gpu.py": "9a6206fb3d3b1d29303b8aeb3d20cec23859ed83efceef85c8a3d2702feea153",
+    "tools/run_remote_selected_gpu.py": "ba2b4009d4297ac9fafa0ba6417e8e1be5755a28323698f3c114fa1bfb284e31"
+  },
+  "summary": "OK",
+  "tests_run": 1089
+}

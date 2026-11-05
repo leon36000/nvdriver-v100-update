@@ -1,0 +1,24 @@
+{
+  "schema": "hybrid-software-verification-v1",
+  "created_utc": "2026-10-23T07:50:53.690599+00:00",
+  "command": "python3 -B -m unittest discover -v -s tests",
+  "exit_code": 0,
+  "duration_seconds": 46.318,
+  "summary_line": "Ran 909 tests in 46.201s",
+  "tests_run": 909,
+  "status": "passed",
+  "scope": "full pinned software/source/CPU suite; not hybrid driver runtime qualification",
+  "probe_environment": {
+    "HYBRID_PROBE": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "HYBRID_CUDA_PROBE": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808"
+  },
+  "log": {
+    "path": "evidence/logs/software-verification-uvm-abi-v2-20261023.log",
+    "bytes": 208665,
+    "sha256": "1e9bb1ad632d3d2eab8eb82d7b658d0de7055920067a364604fd101948b9e58e"
+  },
+  "hardware_accessed": false,
+  "experimental_module_loaded_or_installed": false,
+  "cuda_hybrid_compatibility_established": false
+}

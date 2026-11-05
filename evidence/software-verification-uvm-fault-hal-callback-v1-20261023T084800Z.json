@@ -1,0 +1,27 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "created_utc": "2026-10-23T08:49:13.981098+00:00",
+  "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+  "environment": {
+    "HYBRID_CUDA_PROBE": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "HYBRID_PROBE": "build/probe-current-src-v1-20261022/hybrid_cuda_probe"
+  },
+  "log_path": "evidence/logs/software-verification-uvm-fault-hal-callback-v1-20261023T084800Z.log",
+  "log_sha256": "3d06311e3354b7dbcef4b2352ca824efc9a0037b531f679cbad64c09a6ff87ae",
+  "probe_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+  "reported_test_seconds": 44.681,
+  "returncode": 0,
+  "schema": "nvidia-hybrid-software-verification-v1",
+  "status": "passed",
+  "summary_line": "OK",
+  "tests_run": 919
+}

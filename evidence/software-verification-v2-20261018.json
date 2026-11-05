@@ -1,0 +1,70 @@
+{
+  "schema": "nvidia-hybrid-software-verification-v2",
+  "observed_at_utc": "2026-10-19T00:14:45.601363+00:00",
+  "scope": "software-contracts-and-artifact-integrity",
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-v",
+    "-s",
+    "tests"
+  ],
+  "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+  "exit_code": 0,
+  "duration_seconds": 1.313,
+  "tests_run": 35,
+  "tests_skipped": 0,
+  "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/software-verification-v2-20261018.log",
+  "log_sha256": "5614d4e866987d132e869e36bf918f1659b6b13b303bd257aa6e7139820e7f32",
+  "source_inputs_sha256": {
+    "kernels/hybrid_probe.cu": "6c474bdcd7c2c4098b7d2b920b3be0a870842049aece1f47b7c534a2710086f2",
+    "patches/r595.104.02/0001-gv100-monolithic-firmware-policy.patch": "ade06b9e023cd0998c25efc044b53e9a4ea1cbd52bc56170576a41502d18e4df",
+    "src/hybrid_cuda_probe.cpp": "5c9601962b6ee23b99bd25a0dac85ab6c12a57be27ea09b211765c60af151408",
+    "tests/fixtures/fake_cuda_driver.cpp": "ec384875b11962f7f2fc2205b846c8ea0ba205a3b5c7cf1d0887981e90abd14a",
+    "tests/run_hybrid_acceptance.py": "f2694f20fed49a9e5891a324df60f30636ef5b9b214be1b2d998476f8ec07a1c",
+    "tests/test_acceptance_contract.py": "73ccbcd3e3ae3e76964f978d3fc45d9fa26801cc134153d4db69f0a9c5d8d1aa",
+    "tests/test_elf_audit.py": "d3341e3b6109fa151259ef00943c0b2c15a6766949bb33bc63c5db22ad300ea1",
+    "tests/test_openrm_firmware_policy.py": "8792353596a3391e161046ac4aaf67aa7ed4e7f89f70f987d91260447fdcc2ec",
+    "tests/test_openrm_hal_selection.py": "00d17eb0e76509cd34d19f08b27d3ed9b3877414edcbb3c17691fcd733b27c2c",
+    "tests/test_openrm_legacy_hal_lookup.py": "672e15be43daaf6936f747bcf8991794fd6530cbbb83bc41d2cfc8b00ec09526",
+    "tests/test_openrm_physical_controls.py": "66101fc5f9403c70ed10feef51a862e8c9c21a6829ac657e01e972be564531d1",
+    "tests/test_probe_contract.py": "642aca0ef46f57b6ee5eb7cbd6f8a4491bc9b28c7c8058fec1651b47440ed971",
+    "tests/test_probe_fake_driver.py": "58ceb354dd6d0c6e7fe42847040025f427f8ea829c48a93901bff52b14421b04",
+    "tests/test_rm_namespace_link.py": "5f0c24c7887adde2b4cdf00e66fdfee8c27f192b381a65c719f5e7cc8169e74b",
+    "tests/test_uvm_port_overlay.py": "95cc26c880c00e94a9d81b3139f71af0914c360679d4488d78dd7cf2ad76d531",
+    "tools/build_kernel_stub.sh": "04392de23111ddb796726eeb8608714ef428d10545821e0c794778a05b16b046",
+    "tools/build_openrm_gv100_probe.py": "7979258f2afa1b716c51134402a0d86313ea6ef2f5309db31c0e210b1ae6a320",
+    "tools/build_probe.py": "b3d8188d160a7e8c83e05da8693f77754f8b02e6b2c66f3edce0d7e0da3eb951",
+    "tools/compare_openrm_gv100.py": "bc69cabffdb538e01d42b32254f8583493b3770a35b6fd368f7cf0ec900d0c79",
+    "tools/elf_audit.py": "241aa638fe519dc9c9fe7c57db9a6ea674304ac0ee506d9a1733af02e451bb9e",
+    "tools/probe_rm_namespace_link.py": "0814c12641b36a8b766be0f72cf3500de75c53c86513278578f023abea4bd279",
+    "tools/probe_volta_uvm_port.py": "68e9d82d128840c95f8eac2153da3070f380fe69901b266d82986ca25183778e"
+  },
+  "build_manifest_sha256": "3fff20c348dc33fe6bdbdc8f40dd30048dcdd77a90412e3c3789b6c3c9a7696f",
+  "namespace_artifacts_verified": [
+    {
+      "report": "evidence/same-branch-rm-link-v2-20261018.json",
+      "sha256": "d30b20f302951befe039b6326c0364d884d3e8c62fff0a175195f7e0fd9fced3",
+      "qualification": "linked-objects-only",
+      "renamed": 213,
+      "unresolved_unclassified": 411
+    },
+    {
+      "report": "evidence/cross-branch-rm-link-v2-20261018.json",
+      "sha256": "5ea58d986e772eebbe079aa82dd2cccfbd5e0e270e4d55820271ef316c0d179a",
+      "qualification": "linked-objects-only",
+      "renamed": 210,
+      "unresolved_unclassified": 416
+    }
+  ],
+  "all_evidence_json_parsed": true,
+  "existing_hardware_evidence": "evidence/hardware-probe-pc1-20261018T234246424065Z.json",
+  "existing_hardware_evidence_sha256": "6649ef3494390487d338580250bc441119261bc9a907f0e7ba0980a8314050d3",
+  "existing_hardware_contract_rechecked": "incomplete-hardware-missing",
+  "gpu_kernels_rerun_in_this_verification": false,
+  "qualification": "passed-software-contracts",
+  "hybrid_driver_hardware_validated": false
+}
