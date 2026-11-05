@@ -15,7 +15,7 @@ import sys
 from typing import Any
 
 
-SCHEMA = "nvidia-hybrid-ci-security-report-summary-v2"
+SCHEMA = "nvidia-hybrid-ci-security-report-summary-v3"
 _SEVERITIES = frozenset({
     "CRITICAL", "HIGH", "MEDIUM", "LOW", "INFO", "UNKNOWN",
     "ERROR", "WARNING", "NOTE", "BLOCKER", "EXPERIMENT", "INVENTORY",
@@ -102,8 +102,25 @@ def _semgrep(document: Any, limit: int, *, group_key: bytes) -> dict[str, Any]:
     errors = document.get("errors")
     if not isinstance(errors, list):
         raise ValueError("Semgrep report errors field must be an array")
-    if errors:
-        raise ValueError("Semgrep report contains scanner errors")
+    error_categories = Counter()
+    for error in errors:
+        category = "other"
+        if isinstance(error, dict):
+            kind = error.get("type") or error.get("code") or error.get("error_type")
+            if isinstance(kind, str):
+                normalized = kind.lower()
+                for marker, candidate in (
+                    ("timeout", "timeout"),
+                    ("parse", "parse"),
+                    ("config", "configuration"),
+                    ("rule", "rule"),
+                    ("permission", "permission"),
+                    ("internal", "internal"),
+                ):
+                    if marker in normalized:
+                        category = candidate
+                        break
+        error_categories[category] += 1
     paths = document.get("paths")
     if not isinstance(paths, dict) or not isinstance(paths.get("scanned"), list):
         raise ValueError("Semgrep report must contain scanned paths")
@@ -134,6 +151,8 @@ def _semgrep(document: Any, limit: int, *, group_key: bytes) -> dict[str, Any]:
         "finding_count": len(findings),
         "scanned_target_count": len(paths["scanned"]),
         "skipped_target_count": len(skipped),
+        "scanner_error_count": len(errors),
+        "scanner_error_categories": dict(sorted(error_categories.items())),
         "top_groups": _top_groups(
             findings, limit, scanner="semgrep", group_key=group_key),
     }
@@ -196,10 +215,21 @@ def summarize_reports(root: Path, *, max_groups: int = 20) -> dict[str, Any]:
         document, metadata = _read_report(path, name)
         metadata.update(summarize(document, max_groups, group_key=group_key))
         reports[name] = metadata
+    scanner_error_count = sum(
+        report.get("scanner_error_count", 0)
+        for report in reports.values()
+        if isinstance(report.get("scanner_error_count", 0), int)
+    )
+    status = (
+        "reports_partial" if missing
+        else "reports_with_scanner_errors" if scanner_error_count
+        else "reports_complete"
+    )
     return {
         "schema": SCHEMA,
-        "status": "reports_complete" if not missing else "reports_partial",
-        "status_scope": "artifact_presence_and_schema_only",
+        "status": status,
+        "status_scope": "artifact_presence_schema_and_scanner_error_count",
+        "scanner_error_count": scanner_error_count,
         "scanner_completion_verified": False,
         "missing_reports": missing,
         "reports": reports,

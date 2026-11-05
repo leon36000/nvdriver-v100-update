@@ -1,4 +1,16 @@
-# Current checkpoint — GitLab CI artifact isolation and diagnostics — 2026-11-05
+# Current checkpoint — GitLab CI scanner diagnostics — 2026-11-05 UTC
+
+Canonical source: `cuda13-volta-compat-20260927/driver-hybrid` on the Infrastructure mount. GitLab project `root/nvdriver-v100-update`; the verified branch head before this checkpoint's CI hardening batch was `bcb6459cdb54a259fa0e9dcfa57da29613ee5bf4`; MR !1 remains open, draft, and targets `main`.
+
+On `bcb6459c`, push pipeline [3001](https://pc4.tail0c55ff.ts.net/root/nvdriver-v100-update/-/pipelines/3001) passed CPU regression and transfer integrity; Semgrep and Trivy jobs succeeded; Gitleaks failed; the required summary failed because the Semgrep report's `errors` array was nonempty; Sonar failed in the scanner with an unresolved PC4 tailnet hostname. MR pipeline [3002](https://pc4.tail0c55ff.ts.net/root/nvdriver-v100-update/-/pipelines/3002) passed CPU and transfer checks; its overall success includes an allowed Sonar failure and is not a Sonar pass.
+
+From PC1, the authenticated TLS health request to PC4 SonarQube returned HTTP 200, `UP`, version `26.9.0.129388`. This proves the service is reachable from PC1; the scanner container still cannot resolve its hostname. Tailscale SSH to PC4 stopped at strict host-key verification before executing a remote command; no runner host configuration changed. GitLab exposes `SONAR_HOST_URL` and masked `SONAR_TOKEN` variable names, but no `GITGUARDIAN_API_KEY`; the conditional GitGuardian job is absent and no source was sent to GitGuardian. Gitleaks findings remain untriaged.
+
+The current hardening batch changes the privacy-safe summary to v3: it reports Semgrep scanner-error counts and fixed categories without retaining report-controlled messages, identifiers, or paths, and keeps the summary job failing when scanner errors exist. The focused summary tests pass **8/8**; all four portable CI modules pass **16/16** in **1.335 s**. The mode-0600 local log is `evidence/logs/portable-ci-suite-summary-v3-20261105.log`, SHA-256 `e41e89798485a5f593448af069e9bb1409d9bf616927ab25924b736dccd3cfa1`. The refreshed transfer manifest verifies **4,243 files**; the compressed-evidence manifest verifies **24 files / 29,062,588 original bytes**; the 11-document link audit finds zero excluded links. The CI YAML parses and its rule contract passes: CPU, transfer, and Sonar checks run in MR pipelines, are skipped in a push pipeline when the same branch has an open MR, and continue to run on ordinary branch pushes. Push-only security-policy scans and their report summary remain available.
+
+The batch refreshes the transfer manifest and is validated before publication. No driver, kernel module, GPU, VM, firmware, boot, or runner-host state was changed. Same-process Volta + Blackwell CUDA remains unvalidated. After publication, confirm the exact GitLab head and inspect the new push/MR pipelines; keep MR !1 in draft.
+
+## Previous CI checkpoint — GitLab artifact isolation and diagnostics — 2026-11-05
 
 Canonical source: Infrastructure-mounted `cuda13-volta-compat-20260927/driver-hybrid`. Private PC4 GitLab project: `root/nvdriver-v100-update`. Remote `transfer-preflight` is at `9ac16e9d295bcef93984605fde61dd17f56ef3e7`; draft MR !1 targets `main`, remains open, and has not been merged. The next local increment isolates jobs from unrelated scanner artifacts and adds safe schema diagnostics; it is not yet committed.
 

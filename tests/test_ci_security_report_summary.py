@@ -79,7 +79,11 @@ class CiSecurityReportSummaryTests(unittest.TestCase):
         self.assertFalse(result["scanner_identifiers_retained"])
         self.assertFalse(result["file_paths_retained"])
         self.assertFalse(result["scanner_completion_verified"])
-        self.assertEqual(result["status_scope"], "artifact_presence_and_schema_only")
+        self.assertEqual(
+            result["status_scope"],
+            "artifact_presence_schema_and_scanner_error_count",
+        )
+        self.assertEqual(result["scanner_error_count"], 0)
         for marker in (
             "SECRET_RULE_MARKER",
             "API_KEY_FILENAME_MARKER",
@@ -147,6 +151,52 @@ class CiSecurityReportSummaryTests(unittest.TestCase):
         self.assertEqual(exit_code, 2)
         self.assertIn('"status": "reports_partial"', output.getvalue())
 
+    def test_semgrep_errors_are_counted_safely_and_keep_cli_failing(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self._write_reports(root)
+            (root / "semgrep-report.json").write_text(json.dumps({
+                "results": [],
+                "errors": [
+                    {
+                        "type": "TimeoutError",
+                        "path": "/private/TIMEOUT_PATH_MARKER.py",
+                        "message": "TIMEOUT_SECRET_MARKER",
+                    },
+                    {
+                        "code": "UNTRUSTED_SCANNER_CODE_MARKER",
+                        "message": "SECOND_SCANNER_SECRET_MARKER",
+                    },
+                    "THIRD_SCANNER_SECRET_MARKER",
+                ],
+                "paths": {"scanned": [], "skipped": []},
+            }), encoding="utf-8")
+            output_path = root / "safe-summary.json"
+            stdout, stderr = io.StringIO(), io.StringIO()
+            with patch("sys.argv", [
+                    "summarize", "--root", str(root), "--output", str(output_path)
+            ]), redirect_stdout(stdout), redirect_stderr(stderr):
+                exit_code = main()
+            result = json.loads(output_path.read_text(encoding="utf-8"))
+            rendered = stdout.getvalue() + output_path.read_text(encoding="utf-8")
+
+        self.assertEqual(exit_code, 2)
+        self.assertEqual(stderr.getvalue(), "")
+        self.assertEqual(result["status"], "reports_with_scanner_errors")
+        self.assertEqual(result["scanner_error_count"], 3)
+        semgrep = result["reports"]["semgrep"]
+        self.assertEqual(semgrep["scanner_error_count"], 3)
+        self.assertEqual(semgrep["scanner_error_categories"], {"other": 2, "timeout": 1})
+        self.assertFalse(result["scanner_completion_verified"])
+        for marker in (
+            "TIMEOUT_PATH_MARKER",
+            "TIMEOUT_SECRET_MARKER",
+            "UNTRUSTED_SCANNER_CODE_MARKER",
+            "SECOND_SCANNER_SECRET_MARKER",
+            "THIRD_SCANNER_SECRET_MARKER",
+        ):
+            self.assertNotIn(marker, rendered)
+
     def test_invalid_or_incomplete_report_shapes_fail_closed(self):
         cases = (
             ("gitleaks-report.json", '{"findings": []}', "Gitleaks report"),
@@ -160,11 +210,6 @@ class CiSecurityReportSummaryTests(unittest.TestCase):
                 "semgrep-report.json",
                 '{"results": [], "errors": [], "paths": {"scanned": false}}',
                 "Semgrep report must contain scanned paths",
-            ),
-            (
-                "semgrep-report.json",
-                '{"results": [], "errors": [{"message": "PRIVATE_PATH_MARKER"}]}',
-                "Semgrep report contains scanner errors",
             ),
             (
                 "semgrep-report.json",

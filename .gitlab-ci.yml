@@ -23,6 +23,8 @@ cpu-focused-regression:
     - python3 -B tools/audit_transfer_document_links.py --root "$CI_PROJECT_DIR"
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_OPEN_MERGE_REQUESTS'
+      when: never
     - if: '$CI_PIPELINE_SOURCE == "push"'
 
 transfer-snapshot-integrity:
@@ -35,6 +37,8 @@ transfer-snapshot-integrity:
     - python3 -B tools/verify_transfer_manifest.py --root "$CI_PROJECT_DIR" --manifest evidence/gitlab-transfer-manifest-20261105.json.gz --verify-tree
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_OPEN_MERGE_REQUESTS'
+      when: never
     - if: '$CI_PIPELINE_SOURCE == "push"'
 
 gitguardian-secret-history:
@@ -72,6 +76,8 @@ sonarqube-analysis:
       -Dsonar.qualitygate.wait=true
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $SONAR_HOST_URL && $SONAR_TOKEN'
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_OPEN_MERGE_REQUESTS && $SONAR_HOST_URL && $SONAR_TOKEN'
+      when: never
     - if: '$CI_PIPELINE_SOURCE == "push" && $SONAR_HOST_URL && $SONAR_TOKEN'
   allow_failure: true
 
