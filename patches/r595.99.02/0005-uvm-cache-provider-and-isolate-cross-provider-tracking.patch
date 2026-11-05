@@ -1,0 +1,279 @@
+--- a/nvidia-uvm/hybrid580_uvm_provider_dispatch.h
++++ b/nvidia-uvm/hybrid580_uvm_provider_dispatch.h
+@@ -3,6 +3,14 @@
+ #define HYBRID580_UVM_PROVIDER_DISPATCH_H
+ 
+ #include "nv_uvm_interface.h"
++
++/* Stable frontend provider tags cached by UVM after UUID registration. */
++#define HYBRID580_UVM_PROVIDER_ID_OPEN   1U
++#define HYBRID580_UVM_PROVIDER_ID_LEGACY 2U
++
++NV_STATUS nvUvmInterfaceGetGpuProvider(
++    const NvProcessorUuid *gpuUuid,
++    NvU32 *providerId);
+ 
+ NV_STATUS nvUvmInterfaceAreGpuProvidersSame(
+     const NvProcessorUuid *gpuUuid1,
+
+--- a/nvidia-uvm/uvm_gpu.c
++++ b/nvidia-uvm/uvm_gpu.c
+@@ -1148,7 +1148,6 @@
+ {
+     NV_STATUS status;
+     uvm_gpu_t *other_gpu;
+-    NvBool same_provider;
+ 
+     status = uvm_gpu_semaphore_pool_create(gpu, &gpu->semaphore_pool);
+     if (status != NV_OK)
+@@ -1163,12 +1162,7 @@
+         if (other_gpu == gpu)
+             continue;
+ 
+-        status = nvUvmInterfaceAreGpuProvidersSame(&other_gpu->parent->uuid,
+-                                                   &gpu->parent->uuid,
+-                                                   &same_provider);
+-        if (status != NV_OK)
+-            return status;
+-        if (!same_provider)
++        if (other_gpu->hybrid_provider_id != gpu->hybrid_provider_id)
+             continue;
+ 
+         status = uvm_gpu_semaphore_pool_map_gpu(other_gpu->semaphore_pool, gpu);
+@@ -2917,6 +2911,12 @@
+         fill_parent_gpu_info(parent_gpu, gpu_info);
+ 
+     // After this point all error clean up should be handled by remove_gpu()
++
++    // Registration assigned an immutable provider to this UUID. Cache it
++    // before init_gpu() can map semaphore pools or publish provider-backed work.
++    status = nvUvmInterfaceGetGpuProvider(&parent_gpu->uuid, &gpu->hybrid_provider_id);
++    if (status != NV_OK)
++        goto error;
+ 
+     if (!gpu_supports_uvm(parent_gpu)) {
+         UVM_DBG_PRINT("Registration of non-UVM-capable GPU attempted: GPU %s\n", uvm_gpu_name(gpu));
+@@ -4211,4 +4211,3 @@
+         uvm_gpu_release(gpu);
+     return status;
+ }
+-
+
+--- a/nvidia-uvm/uvm_gpu.h
++++ b/nvidia-uvm/uvm_gpu.h
+@@ -663,6 +663,10 @@
+     // The gpu's GI uuid if SMC is enabled; otherwise, a copy of parent->uuid.
+     NvProcessorUuid uuid;
+ 
++    // Immutable hybrid RM provider identity, populated before GPU publication.
++    // Zero is invalid and causes isolated cross-provider checks to fail closed.
++    NvU32 hybrid_provider_id;
++
+     // Nice printable name in the format:
+     // ID: 999: GPU-<parent_uuid> GI-<gi_uuid>
+     // UVM_PARENT_GPU_UUID_STRING_LENGTH includes a NULL character but will be
+
+--- a/nvidia-uvm/uvm_gpu_semaphore.c
++++ b/nvidia-uvm/uvm_gpu_semaphore.c
+@@ -176,7 +176,6 @@
+     uvm_gpu_semaphore_pool_t *pool = page->pool;
+     uvm_gpu_t *gpu = pool->gpu;
+     uvm_gpu_t *other_gpu;
+-    NvBool same_provider;
+     uvm_rm_mem_type_t memory_type = (pool->aperture == UVM_APERTURE_SYS) ? UVM_RM_MEM_TYPE_SYS : UVM_RM_MEM_TYPE_GPU;
+     size_t memory_size = UVM_SEMAPHORE_PAGE_SIZE;
+ 
+@@ -191,12 +190,7 @@
+             if (other_gpu == gpu)
+                 continue;
+ 
+-            status = nvUvmInterfaceAreGpuProvidersSame(&gpu->parent->uuid,
+-                                                       &other_gpu->parent->uuid,
+-                                                       &same_provider);
+-            if (status != NV_OK)
+-                goto error;
+-            if (!same_provider)
++            if (other_gpu->hybrid_provider_id != gpu->hybrid_provider_id)
+                 continue;
+ 
+             status = uvm_rm_mem_map_gpu(page->memory, other_gpu, 0);
+
+--- a/nvidia-uvm/uvm_tracker.c
++++ b/nvidia-uvm/uvm_tracker.c
+@@ -385,6 +385,44 @@
+     return status;
+ }
+ 
++// Inspect only live entries. These helpers are safe in tracker-protected
++// regions: provider identity is immutable and requires no RM/bridge callback.
++bool uvm_tracker_has_other_gpus(uvm_tracker_t *tracker, uvm_gpu_t *gpu)
++{
++    uvm_tracker_entry_t *entry;
++
++    for_each_tracker_entry(entry, tracker) {
++        if (uvm_tracker_is_entry_completed(entry))
++            continue;
++        if (uvm_tracker_entry_gpu(entry) != gpu)
++            return true;
++    }
++
++    return false;
++}
++
++bool uvm_tracker_has_other_providers(uvm_tracker_t *tracker, uvm_gpu_t *gpu)
++{
++    uvm_tracker_entry_t *entry;
++
++    for_each_tracker_entry(entry, tracker) {
++        uvm_gpu_t *entry_gpu;
++
++        if (uvm_tracker_is_entry_completed(entry))
++            continue;
++
++        entry_gpu = uvm_tracker_entry_gpu(entry);
++        if (entry_gpu == gpu)
++            continue;
++
++        if (gpu->hybrid_provider_id == 0 || entry_gpu->hybrid_provider_id == 0 ||
++            gpu->hybrid_provider_id != entry_gpu->hybrid_provider_id)
++            return true;
++    }
++
++    return false;
++}
++
+ NV_STATUS uvm_tracker_check_errors(uvm_tracker_t *tracker)
+ {
+     uvm_tracker_entry_t *tracker_entry;
+@@ -444,4 +482,3 @@
+ {
+     return uvm_channel_get_gpu(entry->channel);
+ }
+-
+
+--- a/nvidia-uvm/uvm_tracker.h
++++ b/nvidia-uvm/uvm_tracker.h
+@@ -161,6 +161,10 @@
+ // This won't change the max size of the tracker.
+ NV_STATUS uvm_tracker_wait_for_other_gpus(uvm_tracker_t *tracker, uvm_gpu_t *gpu);
+ 
++// Check live dependencies without waiting or changing the tracker.
++bool uvm_tracker_has_other_gpus(uvm_tracker_t *tracker, uvm_gpu_t *gpu);
++bool uvm_tracker_has_other_providers(uvm_tracker_t *tracker, uvm_gpu_t *gpu);
++
+ // Helper to wait for a tracker, then deinit it.
+ static NV_STATUS uvm_tracker_wait_deinit(uvm_tracker_t *tracker)
+ {
+
+--- a/nvidia-uvm/uvm_push.c
++++ b/nvidia-uvm/uvm_push.c
+@@ -40,6 +40,16 @@
+ static unsigned uvm_debug_enable_push_acquire_info = 0;
+ module_param(uvm_debug_enable_push_acquire_info, uint, S_IRUGO|S_IWUSR);
+ MODULE_PARM_DESC(uvm_debug_enable_push_acquire_info, "Enable push acquire information tracking");
++
++static bool uvm_hybrid_isolated_gpu_execution = false;
++module_param(uvm_hybrid_isolated_gpu_execution, bool, 0444);
++MODULE_PARM_DESC(uvm_hybrid_isolated_gpu_execution,
++                 "Reject cross-provider UVM dependencies in hybrid mode");
++
++bool uvm_push_isolated_gpu_execution_enabled(void)
++{
++    return uvm_hybrid_isolated_gpu_execution;
++}
+ 
+ static uvm_push_acquire_info_t *push_acquire_info_from_push(uvm_push_t *push)
+ {
+@@ -206,6 +216,12 @@
+     if (tracker == NULL)
+         return NV_OK;
+ 
++    // Cross-provider RM semaphore and address-space handles are not shared.
++    // Fail before reserving a channel or acquiring a foreign tracker entry.
++    if (uvm_push_isolated_gpu_execution_enabled() &&
++        uvm_tracker_has_other_providers(tracker, gpu))
++        return NV_ERR_NOT_SUPPORTED;
++
+     if (uvm_push_allow_dependencies_across_gpus())
+         return NV_OK;
+ 
+
+--- a/nvidia-uvm/uvm_push.h
++++ b/nvidia-uvm/uvm_push.h
+@@ -506,4 +506,8 @@
+ // dependencies across GPUs are permitted.
+ bool uvm_push_allow_dependencies_across_gpus(void);
+ 
++// True when hybrid mode rejects cross-provider dependencies instead of
++// attempting to acquire a provider-private semaphore from another RM.
++bool uvm_push_isolated_gpu_execution_enabled(void);
++
+ #endif // __UVM_PUSH_H__
+
+--- a/nvidia-uvm/uvm_migrate_pageable.c
++++ b/nvidia-uvm/uvm_migrate_pageable.c
+@@ -736,6 +736,19 @@
+     UVM_ASSERT(!bitmap_empty(page_mask, state->num_pages));
+ 
+     copying_gpu = select_gpu_for_vma_copy_push(dst_id, src_id, &channel_type);
++
++    // Cross-provider pageable GPU-to-GPU copies cannot use the owner's RM
++    // semaphore/address-space namespace. Reject before allocating or queuing.
++    if (uvm_push_isolated_gpu_execution_enabled() &&
++        UVM_ID_IS_GPU(src_id) && UVM_ID_IS_GPU(dst_id)) {
++        uvm_gpu_t *src_gpu = uvm_gpu_get(src_id);
++        uvm_gpu_t *dst_gpu = uvm_gpu_get(dst_id);
++
++        if (!src_gpu || !dst_gpu || src_gpu->hybrid_provider_id == 0 ||
++            dst_gpu->hybrid_provider_id == 0 ||
++            src_gpu->hybrid_provider_id != dst_gpu->hybrid_provider_id)
++            return NV_ERR_NOT_SUPPORTED;
++    }
+ 
+     // Pre-allocate the dst pages and mark the ones that failed
+     for_each_set_bit(i, page_mask, state->num_pages) {
+
+--- a/nvidia-uvm/uvm_pmm_gpu.c
++++ b/nvidia-uvm/uvm_pmm_gpu.c
+@@ -166,6 +166,7 @@
+ #include "nv_uvm_interface.h"
+ #include "uvm_api.h"
+ #include "uvm_gpu.h"
++#include "uvm_push.h"
+ #include "uvm_pmm_gpu.h"
+ #include "uvm_mem.h"
+ #include "uvm_mmu.h"
+@@ -565,6 +566,17 @@
+ 
+         root_chunk_lock(pmm, root_chunk);
+         uvm_tracker_remove_completed(&root_chunk->tracker);
++
++        // The local copy would retain raw channel pointers after dropping the
++        // root lock. Keep this isolated-mode lifetime boundary fail-closed.
++        if (uvm_push_isolated_gpu_execution_enabled() &&
++            uvm_tracker_has_other_gpus(&root_chunk->tracker, gpu)) {
++            status = NV_ERR_NOT_SUPPORTED;
++            root_chunk_unlock(pmm, root_chunk);
++            i++;
++            goto error;
++        }
++
+         status = uvm_tracker_add_tracker_safe(&local_tracker, &root_chunk->tracker);
+         root_chunk_unlock(pmm, root_chunk);
+ 
+@@ -1170,7 +1182,13 @@
+ 
+     uvm_mutex_lock(&va_block->lock);
+ 
+-    status = uvm_va_block_evict_chunks(va_block, gpu, &root_chunk->chunk, &tracker);
++    // Eviction detaches the VA-block tracker before publishing it to PMM.
++    // Do not detach an outstanding foreign channel in isolated mode.
++    if (uvm_push_isolated_gpu_execution_enabled() &&
++        uvm_tracker_has_other_gpus(&va_block->tracker, gpu))
++        status = NV_ERR_NOT_SUPPORTED;
++    else
++        status = uvm_va_block_evict_chunks(va_block, gpu, &root_chunk->chunk, &tracker);
+ 
+     uvm_mutex_unlock(&va_block->lock);
+ 
+

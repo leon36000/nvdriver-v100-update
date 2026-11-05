@@ -1,0 +1,161 @@
+--- a/kernel-open/nvidia-uvm/uvm_tracker.c
++++ b/kernel-open/nvidia-uvm/uvm_tracker.c
+@@ -385,6 +385,22 @@
+     return status;
+ }
+ 
++bool uvm_tracker_has_other_gpus(uvm_tracker_t *tracker, uvm_gpu_t *gpu)
++{
++    uvm_tracker_entry_t *entry;
++
++    // Prune completed work so only outstanding cross-GPU dependencies reject.
++    if (uvm_tracker_is_completed(tracker))
++        return false;
++
++    for_each_tracker_entry(entry, tracker) {
++        if (uvm_tracker_entry_gpu(entry) != gpu)
++            return true;
++    }
++
++    return false;
++}
++
+ NV_STATUS uvm_tracker_check_errors(uvm_tracker_t *tracker)
+ {
+     uvm_tracker_entry_t *tracker_entry;
+--- a/kernel-open/nvidia-uvm/uvm_tracker.h
++++ b/kernel-open/nvidia-uvm/uvm_tracker.h
+@@ -160,6 +160,7 @@
+ //
+ // This won't change the max size of the tracker.
+ NV_STATUS uvm_tracker_wait_for_other_gpus(uvm_tracker_t *tracker, uvm_gpu_t *gpu);
++bool uvm_tracker_has_other_gpus(uvm_tracker_t *tracker, uvm_gpu_t *gpu);
+ 
+ // Helper to wait for a tracker, then deinit it.
+ static NV_STATUS uvm_tracker_wait_deinit(uvm_tracker_t *tracker)
+--- a/kernel-open/nvidia-uvm/uvm_push.h
++++ b/kernel-open/nvidia-uvm/uvm_push.h
+@@ -494,5 +494,6 @@
+ // Returns true if a push is allowed to depend on pushes on other GPUs: work
+ // dependencies across GPUs are permitted.
+ bool uvm_push_allow_dependencies_across_gpus(void);
++bool uvm_push_isolated_gpu_execution_enabled(void);
+ 
+ #endif // __UVM_PUSH_H__
+--- a/kernel-open/nvidia-uvm/uvm_push.c
++++ b/kernel-open/nvidia-uvm/uvm_push.c
+@@ -45,7 +45,7 @@
+ static bool uvm_hybrid_isolated_gpu_execution = false;
+ module_param(uvm_hybrid_isolated_gpu_execution, bool, 0444);
+ MODULE_PARM_DESC(uvm_hybrid_isolated_gpu_execution,
+-                 "Disable cross-GPU semaphore dependencies and use host waits");
++                 "Reject cross-GPU dependencies and keep semaphore mappings local");
+ 
+ static uvm_push_acquire_info_t *push_acquire_info_from_push(uvm_push_t *push)
+ {
+@@ -60,6 +60,11 @@
+         return NULL;
+ 
+     return &channel->push_acquire_infos[push->push_info_index];
++}
++
++bool uvm_push_isolated_gpu_execution_enabled(void)
++{
++    return uvm_hybrid_isolated_gpu_execution;
+ }
+ 
+ bool uvm_push_allow_dependencies_across_gpus(void)
+@@ -207,15 +212,25 @@
+         push_set_description(push, format, args);
+ }
+ 
+-static NV_STATUS wait_for_other_gpus_if_needed(uvm_tracker_t *tracker, uvm_gpu_t *gpu)
+-{
+-    if (tracker == NULL)
++static NV_STATUS reject_other_gpus_if_isolated(uvm_tracker_t *tracker, uvm_gpu_t *gpu)
++{
++    if (tracker == NULL)
+         return NV_OK;
+ 
+-    if (uvm_push_allow_dependencies_across_gpus())
+-        return NV_OK;
+-
+-    return uvm_tracker_wait_for_other_gpus(tracker, gpu);
++    if (uvm_push_isolated_gpu_execution_enabled()) {
++        // Blocking here can hold VA-block locks needed by fault service.
++        // Reject unsupported cross-GPU ordering before reserving a channel.
++        if (uvm_tracker_has_other_gpus(tracker, gpu))
++            return NV_ERR_NOT_SUPPORTED;
++
++        return NV_OK;
++    }
++
++    // Preserve the stock Confidential Computing CPU wait behavior.
++    if (!uvm_push_allow_dependencies_across_gpus())
++        return uvm_tracker_wait_for_other_gpus(tracker, gpu);
++
++    return NV_OK;
+ }
+ 
+ static NV_STATUS push_begin_acquire_with_info(uvm_channel_t *channel,
+@@ -264,7 +279,7 @@
+         UVM_ASSERT(dst_gpu != manager->gpu);
+     }
+ 
+-    status = wait_for_other_gpus_if_needed(tracker, manager->gpu);
++    status = reject_other_gpus_if_isolated(tracker, manager->gpu);
+     if (status != NV_OK)
+         return status;
+ 
+@@ -296,7 +311,7 @@
+     va_list args;
+     NV_STATUS status;
+ 
+-    status = wait_for_other_gpus_if_needed(tracker, uvm_channel_get_gpu(channel));
++    status = reject_other_gpus_if_isolated(tracker, uvm_channel_get_gpu(channel));
+     if (status != NV_OK)
+         return status;
+ 
+--- a/kernel-open/nvidia-uvm/uvm_migrate_pageable.c
++++ b/kernel-open/nvidia-uvm/uvm_migrate_pageable.c
+@@ -737,6 +737,14 @@
+ 
+     copying_gpu = select_gpu_for_vma_copy_push(dst_id, src_id, &channel_type);
+ 
++    // Isolated mode has no cross-GPU semaphore mappings. Reject P2P migration
++    // before allocating pages or enqueuing destination zeroing work.
++    if (uvm_push_isolated_gpu_execution_enabled() &&
++        UVM_ID_IS_GPU(src_id) &&
++        UVM_ID_IS_GPU(dst_id) &&
++        !uvm_id_equal(src_id, dst_id))
++        return NV_ERR_NOT_SUPPORTED;
++
+     // Pre-allocate the dst pages and mark the ones that failed
+     for_each_set_bit(i, page_mask, state->num_pages) {
+         struct page *dst_page = NULL;
+--- a/kernel-open/nvidia-uvm/uvm_gpu.c
++++ b/kernel-open/nvidia-uvm/uvm_gpu.c
+@@ -1140,8 +1140,8 @@
+     if (g_uvm_global.conf_computing_enabled)
+         return uvm_gpu_semaphore_secure_pool_create(gpu, &gpu->secure_semaphore_pool);
+ 
+-    // The opt-in isolated mode synchronizes cross-GPU tracker dependencies on
+-    // the CPU, so semaphore pages need not be mapped into other providers.
++    // The opt-in isolated mode rejects cross-GPU tracker dependencies, so
++    // semaphore pages need not be mapped into other providers.
+     if (!uvm_push_allow_dependencies_across_gpus())
+         return NV_OK;
+ 
+--- a/kernel-open/nvidia-uvm/uvm_gpu_semaphore.c
++++ b/kernel-open/nvidia-uvm/uvm_gpu_semaphore.c
+@@ -178,8 +178,8 @@
+     size_t memory_size = UVM_SEMAPHORE_PAGE_SIZE;
+ 
+     if (!gpu_semaphore_pool_is_secure(pool)) {
+-        // In isolated mode, cross-GPU dependencies are waited on by the CPU.
+-        // Keep the page CPU-mapped and mapped to its owner GPU only.
++        // In isolated mode, cross-GPU dependencies are rejected. Keep the
++        // semaphore page CPU-mapped and local to its owner GPU.
+         if (!g_uvm_global.conf_computing_enabled &&
+             !uvm_push_allow_dependencies_across_gpus())
+             return uvm_rm_mem_alloc_and_map_cpu(gpu, memory_type, memory_size, 0, &page->memory);

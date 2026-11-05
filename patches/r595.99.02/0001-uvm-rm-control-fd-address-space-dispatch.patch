@@ -1,0 +1,71 @@
+--- a/nvidia-uvm/uvm_va_space.c
++++ b/nvidia-uvm/uvm_va_space.c
+@@ -42,8 +42,10 @@
+ #include "uvm_test.h"
+ #include "uvm_common.h"
+ #include "nv_uvm_interface.h"
++#include "hybrid580_uvm_control_fd_dispatch.h"
+ #include "nv-kthread-q.h"
+ #include <linux/mmzone.h>
++#include <linux/file.h>
+ 
+ static bool processor_mask_array_test(const uvm_processor_mask_t *mask,
+                                       uvm_processor_id_t mask_id,
+@@ -1470,6 +1472,7 @@ static NV_STATUS create_gpu_va_space(uvm_gpu_t *gpu,
+     NV_STATUS status;
+     uvm_gpu_va_space_t *gpu_va_space;
+     UvmGpuAddressSpaceInfo gpu_address_space_info;
++    struct file *rm_control_file;
+ 
+     *out_gpu_va_space = NULL;
+ 
+@@ -1483,14 +1486,23 @@ static NV_STATUS create_gpu_va_space(uvm_gpu_t *gpu,
+     INIT_LIST_HEAD(&gpu_va_space->channel_va_ranges);
+     nv_kref_init(&gpu_va_space->kref);
+ 
+-    // TODO: Bug 1624521: This interface needs to use rm_control_fd to do
+-    //       validation.
+-    (void)user_rm_va_space->rm_control_fd;
+-    status = uvm_rm_locked_call(nvUvmInterfaceDupAddressSpace(uvm_gpu_device_handle(gpu),
+-                                                              user_rm_va_space->user_client,
+-                                                              user_rm_va_space->user_object,
+-                                                              &gpu_va_space->duped_gpu_va_space,
+-                                                              &gpu_address_space_info));
++    // Resolve the caller's RM control descriptor while this API is still
++    // executing in that process, then let the hybrid frontend validate the
++    // file identity and select the matching backend namespace.
++    if (user_rm_va_space->rm_control_fd < 0) {
++        status = NV_ERR_INVALID_ARGUMENT;
++        goto error;
++    }
++    rm_control_file = fget((unsigned int)user_rm_va_space->rm_control_fd);
++    if (rm_control_file == NULL) {
++        status = NV_ERR_INVALID_ARGUMENT;
++        goto error;
++    }
++    status = uvm_rm_locked_call(nvUvmInterfaceDupAddressSpaceWithControlFd(
++        rm_control_file, uvm_gpu_device_handle(gpu),
++        user_rm_va_space->user_client, user_rm_va_space->user_object,
++        &gpu_va_space->duped_gpu_va_space, &gpu_address_space_info));
++    fput(rm_control_file);
+     if (status != NV_OK) {
+         UVM_DBG_PRINT("failed to dup address space with error: %s, for GPU:%s \n",
+                 nvstatusToString(status), uvm_gpu_name(gpu));
+--- /dev/null
++++ b/nvidia-uvm/hybrid580_uvm_control_fd_dispatch.h
+@@ -0,0 +1,15 @@
++/* SPDX-License-Identifier: MIT */
++#ifndef HYBRID580_UVM_CONTROL_FD_DISPATCH_H
++#define HYBRID580_UVM_CONTROL_FD_DISPATCH_H
++
++/* Private extension exported by the hybrid frontend. */
++struct file;
++NV_STATUS nvUvmInterfaceDupAddressSpaceWithControlFd(
++    struct file *rmControlFile,
++    uvmGpuDeviceHandle device,
++    NvHandle hClient,
++    NvHandle hUserVASpace,
++    uvmGpuAddressSpaceHandle *vaSpace,
++    UvmGpuAddressSpaceInfo *vaSpaceInfo);
++
++#endif

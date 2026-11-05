@@ -1,0 +1,29 @@
+--- a/nvidia-uvm/uvm_pmm_gpu.c
++++ b/nvidia-uvm/uvm_pmm_gpu.c
+@@ -712,15 +712,24 @@
+ 
+         // Remove any completed entries from the root tracker to prevent it from
+         // growing too much over time.
+         uvm_tracker_remove_completed(&root_chunk->tracker);
+ 
+-        status = uvm_tracker_add_tracker_safe(&root_chunk->tracker, tracker);
++        // The safe fallback can wait for tracker completions after allocation
++        // failure. Do not hold the root-chunk bitlock across that wait: keep the
++        // fast merge serialized, then wait only after the root tracker has
++        // declined the new entries.
++        status = uvm_tracker_add_tracker(&root_chunk->tracker, tracker);
++        root_chunk_unlock(pmm, root_chunk);
++
++        if (status == NV_ERR_NO_MEMORY) {
++            UVM_DBG_PRINT_RL("Failed to add tracker to tracker, waiting\n");
++            status = uvm_tracker_wait(tracker);
++        }
++
+         if (status != NV_OK)
+             UVM_ASSERT(status == uvm_global_get_status());
+-
+-        root_chunk_unlock(pmm, root_chunk);
+     }
+ 
+     free_chunk(pmm, chunk);
+ }

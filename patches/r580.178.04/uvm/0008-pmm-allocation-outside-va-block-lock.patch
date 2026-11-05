@@ -1,0 +1,28 @@
+--- a/kernel-open/nvidia-uvm/uvm_va_block.c
++++ b/kernel-open/nvidia-uvm/uvm_va_block.c
+@@ -1,4 +1,23 @@
+         else {
+-            // Try allocating a new one without eviction
+-            status = uvm_pmm_gpu_alloc_user(&gpu->pmm, 1, size, UVM_PMM_ALLOC_FLAGS_NONE, &gpu_chunk, &retry->tracker);
++            // The PMM allocator may wait for work tracked by another GPU.
++            // In isolated mode, do not hold the VA block lock across that wait.
++            // Keep a successful allocation on the retry list and restart so
++            // the caller revalidates the block after reacquiring the lock.
++            if (uvm_push_isolated_gpu_execution_enabled()) {
++                uvm_mutex_unlock(&block->lock);
++
++                status = uvm_pmm_gpu_alloc_user(&gpu->pmm, 1, size, UVM_PMM_ALLOC_FLAGS_NONE, &gpu_chunk, &retry->tracker);
++                if (status == NV_OK) {
++                    block_retry_add_free_chunk(retry, gpu_chunk);
++                    status = NV_ERR_MORE_PROCESSING_REQUIRED;
++                }
++
++                uvm_mutex_lock(&block->lock);
++                if (status != NV_ERR_NO_MEMORY)
++                    return status;
++            }
++            else {
++                // Keep the stock allocation path unchanged outside isolated mode.
++                status = uvm_pmm_gpu_alloc_user(&gpu->pmm, 1, size, UVM_PMM_ALLOC_FLAGS_NONE, &gpu_chunk, &retry->tracker);
++            }
+         }

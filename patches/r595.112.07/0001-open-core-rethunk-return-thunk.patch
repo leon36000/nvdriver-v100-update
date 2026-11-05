@@ -1,0 +1,6 @@
+--- a/src/nvidia/Makefile
++++ b/src/nvidia/Makefile
+@@ -186,2 +186,3 @@
+     CONDITIONAL_CFLAGS += $(call TEST_CC_ARG, -mindirect-branch=thunk-extern)
++  CONDITIONAL_CFLAGS += $(call TEST_CC_ARG, -mfunction-return=thunk-extern)
+ endif

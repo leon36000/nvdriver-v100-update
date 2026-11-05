@@ -1,0 +1,121 @@
+--- a/nvidia/nv.c
++++ b/nvidia/nv.c
+@@ -6374,6 +6374,95 @@
+ }
+ EXPORT_SYMBOL(hybrid580_legacy_gpu_session_ioctl_v1);
+ 
++/* Kernel-owned equivalent of NV_ESC_REGISTER_FD. The hybrid frontend has
++ * already resolved the caller's fd to one pinned frontend control file; use
++ * that exact backend session instead of resolving user memory a second time.
++ * Keep the native ctl_nvfp_priv file reference until NVIDIA closes this GPU
++ * file, matching escape.c's REGISTER_FD ownership contract.
++ */
++int hybrid580_legacy_gpu_session_register_control_v1(
++    struct hybrid580_gpu_session *gpu,
++    struct hybrid580_control_session *control)
++{
++    nv_linux_file_private_t *gpu_nvlfp;
++    nv_linux_file_private_t *control_nvlfp;
++    struct file *control_file;
++    nvidia_stack_t *sp = NULL;
++    NV_STATUS status;
++    int rc;
++
++    if (gpu == NULL || gpu->file == NULL || control == NULL ||
++        control->file == NULL)
++        return -EINVAL;
++
++    control_file = get_file(control->file);
++    gpu_nvlfp = hybrid580_legacy_backend_file(gpu->file, 0);
++    control_nvlfp = hybrid580_legacy_backend_file(control_file, 1);
++    if (gpu_nvlfp == NULL || control_nvlfp == NULL ||
++        &gpu_nvlfp->nvfp == &control_nvlfp->nvfp)
++    {
++        rc = -EINVAL;
++        goto put_control_file;
++    }
++
++    rc = nv_down_read_interruptible(&nv_system_pm_lock);
++    if (rc != 0)
++        goto put_control_file;
++    if (nv_kmem_cache_alloc_stack(&sp) != 0)
++    {
++        rc = -ENOMEM;
++        goto put_pm_lock;
++    }
++
++    status = rm_acquire_api_lock(sp);
++    if (status != NV_OK)
++    {
++        rc = -EINVAL;
++        goto free_stack;
++    }
++
++    /* Match the native RM's already-registered, self-link and cycle checks. */
++    if (gpu_nvlfp->nvfp.ctl_nvfp != NULL ||
++        control_nvlfp->nvfp.ctl_nvfp != NULL)
++    {
++        rc = -EINVAL;
++        goto release_api_lock;
++    }
++    if (cmpxchg(&gpu_nvlfp->nvfp.register_or_refcount,
++                (NvU32)NVFP_TYPE_NONE,
++                (NvU32)NVFP_TYPE_REGISTERED) != (NvU32)NVFP_TYPE_NONE)
++    {
++        rc = -EINVAL;
++        goto release_api_lock;
++    }
++
++    /* Readers access ctl_nvfp outside the API lock; publish it atomically. */
++    if (cmpxchg(&gpu_nvlfp->nvfp.ctl_nvfp, NULL,
++                &control_nvlfp->nvfp) != NULL)
++    {
++        (void)cmpxchg(&gpu_nvlfp->nvfp.register_or_refcount,
++                      (NvU32)NVFP_TYPE_REGISTERED,
++                      (NvU32)NVFP_TYPE_NONE);
++        rc = -EINVAL;
++        goto release_api_lock;
++    }
++    gpu_nvlfp->nvfp.ctl_nvfp_priv = control_file;
++    control_file = NULL; /* The native GPU file now owns this reference. */
++    rc = 0;
++
++release_api_lock:
++    (void)rm_release_api_lock(sp);
++free_stack:
++    nv_kmem_cache_free_stack(sp);
++put_pm_lock:
++    up_read(&nv_system_pm_lock);
++put_control_file:
++    if (control_file != NULL)
++        fput(control_file);
++    return rc;
++}
++EXPORT_SYMBOL(hybrid580_legacy_gpu_session_register_control_v1);
++
+ int hybrid580_legacy_gpu_session_create_v1(
+     struct file *anchor, NvU32 minor, const char *expected_bdf,
+     struct hybrid580_gpu_session **out)
+--- a/nvidia/hybrid580-gpu-session.h
++++ b/nvidia/hybrid580-gpu-session.h
+@@ -7,6 +7,7 @@
+ #include "hybrid580-gpu-catalog.h"
+ 
+ struct hybrid580_gpu_session;
++struct hybrid580_control_session;
+ struct nv_ioctl_card_info;
+ 
+ /* Internal kernel API. The BDF must match the selected backend GPU. The
+@@ -26,6 +27,12 @@
+ long hybrid580_legacy_gpu_session_ioctl_v1(
+     struct hybrid580_gpu_session *session, unsigned int command,
+     unsigned long argument);
++/* Reproduce NV_ESC_REGISTER_FD using the exact pinned control session already
++ * validated by the hybrid frontend. The provider retains the native control
++ * file reference in the GPU file's RM private state until GPU close. */
++int hybrid580_legacy_gpu_session_register_control_v1(
++    struct hybrid580_gpu_session *gpu,
++    struct hybrid580_control_session *control);
+ int hybrid580_legacy_gpu_inventory_v1(
+     struct hybrid580_gpu_backend_record_v1 *records,
+     NvU32 capacity, NvU32 *count);

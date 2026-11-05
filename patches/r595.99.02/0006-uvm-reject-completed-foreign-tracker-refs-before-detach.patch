@@ -1,0 +1,38 @@
+--- a/nvidia-uvm/uvm_tracker.c
++++ b/nvidia-uvm/uvm_tracker.c
+@@ -385,16 +385,15 @@
+     return status;
+ }
+ 
+-// Inspect only live entries. These helpers are safe in tracker-protected
+-// regions: provider identity is immutable and requires no RM/bridge callback.
++// Inspect retained channel references without querying RM. A completed
++// entry still has a raw channel pointer until it is removed or waited.
++// Callers must hold the lock protecting the tracker and channel lifetime.
+ bool uvm_tracker_has_other_gpus(uvm_tracker_t *tracker, uvm_gpu_t *gpu)
+ {
+     uvm_tracker_entry_t *entry;
+ 
+     for_each_tracker_entry(entry, tracker) {
+-        if (uvm_tracker_is_entry_completed(entry))
+-            continue;
+-        if (uvm_tracker_entry_gpu(entry) != gpu)
++        if (entry->channel != NULL && uvm_tracker_entry_gpu(entry) != gpu)
+             return true;
+     }
+ 
+--- a/nvidia-uvm/uvm_tracker.h
++++ b/nvidia-uvm/uvm_tracker.h
+@@ -161,8 +161,11 @@
+ // This won't change the max size of the tracker.
+ NV_STATUS uvm_tracker_wait_for_other_gpus(uvm_tracker_t *tracker, uvm_gpu_t *gpu);
+ 
+-// Check live dependencies without waiting or changing the tracker.
++// Check channel references without waiting or changing the tracker. This
++// includes completed entries: their raw channel pointers remain retained.
++// Callers must hold the lock protecting tracker and channel lifetime.
+ bool uvm_tracker_has_other_gpus(uvm_tracker_t *tracker, uvm_gpu_t *gpu);
++// Check live execution dependencies without waiting or changing the tracker.
+ bool uvm_tracker_has_other_providers(uvm_tracker_t *tracker, uvm_gpu_t *gpu);
+ 
+ // Helper to wait for a tracker, then deinit it.

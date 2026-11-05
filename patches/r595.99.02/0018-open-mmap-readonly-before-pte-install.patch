@@ -1,0 +1,31 @@
+--- a/kernel-open/nvidia/nv-mmap.c
++++ b/kernel-open/nvidia/nv-mmap.c
+@@ -608,6 +608,14 @@
+ 
+     prot = mmap_context->prot;
+ 
++    // Page-table entries inherit vm_page_prot when they are installed.
++    if ((prot & NV_PROTECT_WRITEABLE) == 0)
++    {
++        vma->vm_page_prot = NV_PGPROT_READ_ONLY(vma->vm_page_prot);
++        nv_vm_flags_clear(vma, VM_WRITE);
++        nv_vm_flags_clear(vma, VM_MAYWRITE);
++    }
++
+     /*
+      * Nvidia device node(nvidia#) maps device's BAR memory,
+      * Nvidia control node(nvidiactrl) maps system memory.
+@@ -791,13 +799,6 @@
+         }
+     }
+ 
+-    if ((prot & NV_PROTECT_WRITEABLE) == 0)
+-    {
+-        vma->vm_page_prot = NV_PGPROT_READ_ONLY(vma->vm_page_prot);
+-        nv_vm_flags_clear(vma, VM_WRITE);
+-        nv_vm_flags_clear(vma, VM_MAYWRITE);
+-    }
+-
+     vma->vm_ops = &nv_vm_ops;
+     ret = 0;
+ done: 

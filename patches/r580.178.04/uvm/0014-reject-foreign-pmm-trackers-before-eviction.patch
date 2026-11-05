@@ -1,0 +1,15 @@
+--- a/kernel-open/nvidia-uvm/uvm_va_block.c
++++ b/kernel-open/nvidia-uvm/uvm_va_block.c
+@@ -13473,6 +13473,12 @@
+     gpu_state = uvm_va_block_gpu_state_get(va_block, gpu->id);
+     if (!gpu_state)
+         return NV_OK;
++
++    // Eviction detaches the block tracker before publishing it to the root
++    // chunk tracker. Do not detach a live foreign channel in isolated mode.
++    if (uvm_push_isolated_gpu_execution_enabled() &&
++        uvm_tracker_has_other_gpus(&va_block->tracker, gpu))
++        return NV_ERR_NOT_SUPPORTED;
+ 
+     if (va_block_test && va_block_test->inject_eviction_error) {
+         va_block_test->inject_eviction_error = false;

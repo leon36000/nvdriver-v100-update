@@ -1,0 +1,204 @@
+From: Codex <codex@localhost>
+Subject: [PATCH] UVM: flush non-replayable faults before deferred channel free
+
+R595 adds a per-parent drain of the RM-fed non-replayable shadow buffer
+before deferred channel destruction. Without it, a stale instance pointer
+can be reused by a new channel and a queued fault can be attributed to the
+wrong channel. Backport the scheduling/queue-flush ordering and per-parent
+deduplication while retaining the R580 replayable-flush API name.
+
+The flush helper must run without ISR or VA-space locks. It schedules under
+interrupts_lock, releases that lock, and only then waits for the bottom-half
+queue. This is a source-level candidate; runtime interrupt, channel-lifetime,
+and GPU fault behavior remain unvalidated.
+
+--- a/kernel-open/nvidia-uvm/uvm_gpu_non_replayable_faults.c
++++ b/kernel-open/nvidia-uvm/uvm_gpu_non_replayable_faults.c
+@@ -169,12 +169,41 @@
+     NvBool has_pending_faults;
+ 
+     UVM_ASSERT(parent_gpu->isr.non_replayable_faults.handling);
++    uvm_assert_spinlock_locked(&parent_gpu->isr.interrupts_lock);
+ 
+     status = nvUvmInterfaceHasPendingNonReplayableFaults(&parent_gpu->fault_buffer.rm_info,
+                                                          &has_pending_faults);
+     UVM_ASSERT(status == NV_OK);
+ 
+     return has_pending_faults == NV_TRUE;
++}
++
++void uvm_parent_gpu_non_replayable_buffer_flush(uvm_parent_gpu_t *parent_gpu)
++{
++// If faults are pending we need to schedule a bottom half invocation. It's
++    // not enough to wait for in-flight bottom halves because we might have
++    // checked after RM added the faults but before UVM's top half was invoked
++    // to schedule the bottom half.
++    // uvm_parent_gpu_schedule_non_replayable_faults_handler() does that check
++    // for us.
++    uvm_spin_lock_irqsave(&parent_gpu->isr.interrupts_lock);
++    uvm_parent_gpu_schedule_non_replayable_faults_handler(parent_gpu);
++    uvm_spin_unlock_irqrestore(&parent_gpu->isr.interrupts_lock);
++
++    // Wait for the non-replayable bottom half to finish servicing. This relies
++    // on the greedy nature of the non-replayable bottom half:
++    // fetch_non_replayable_fault_buffer_entries() always pulls all available
++    // faults in one go and services them in that instance. Those fetched faults
++    // are the ones we need to flush. Therefore we just need to be sure that
++    // bottom halves scheduled prior to this call are complete.
++    //
++    // We have to wait even if no pending fault was detected, because we might
++    // have caught the window after fetch but before service.
++    //
++    // This is overkill since it will wait for all bottom half types, not just
++    // the non-replayable one, but this is not expected to be on the critical
++    // path.
++    nv_kthread_q_flush(&parent_gpu->isr.bottom_half_q);
+ }
+ 
+ static NV_STATUS fetch_non_replayable_fault_buffer_entries(uvm_parent_gpu_t *parent_gpu, NvU32 *cached_faults)
+--- a/kernel-open/nvidia-uvm/uvm_gpu_non_replayable_faults.h
++++ b/kernel-open/nvidia-uvm/uvm_gpu_non_replayable_faults.h
+@@ -28,6 +28,22 @@
+ 
+ bool uvm_parent_gpu_non_replayable_faults_pending(uvm_parent_gpu_t *parent_gpu);
+ 
++// Flush the non-replayable shadow buffer (see the comment at the top of
++// uvm_gpu_non_replayable_faults.c for an explanation of the shadow buffer).
++// All faults in the shadow buffer when this function is called will have been
++// removed and serviced upon return.
++//
++// For faults that are flushed, it is not guaranteed that the HW channel faulted
++// state will have been cleared on return, nor that fatal faults have been
++// serviced by RM.
++//
++// Faults added to the shadow buffer during this call are not guaranteed to be
++// flushed.
++//
++// LOCKING: This waits for faults to be serviced, so it must not be called while
++// holding the ISR or VA space locks.
++void uvm_parent_gpu_non_replayable_buffer_flush(uvm_parent_gpu_t *parent_gpu);
++
+ void uvm_parent_gpu_service_non_replayable_fault_buffer(uvm_parent_gpu_t *parent_gpu);
+ 
+ NV_STATUS uvm_parent_gpu_fault_buffer_init_non_replayable_faults(uvm_parent_gpu_t *parent_gpu);
+--- a/kernel-open/nvidia-uvm/uvm_gpu_isr.c
++++ b/kernel-open/nvidia-uvm/uvm_gpu_isr.c
+@@ -118,7 +118,7 @@
+     return 1;
+ }
+ 
+-static unsigned schedule_non_replayable_faults_handler(uvm_parent_gpu_t *parent_gpu)
++unsigned uvm_parent_gpu_schedule_non_replayable_faults_handler(uvm_parent_gpu_t *parent_gpu)
+ {
+     bool scheduled;
+ 
+@@ -261,7 +261,7 @@
+     ++parent_gpu->isr.interrupt_count;
+ 
+     num_handlers_scheduled += schedule_replayable_faults_handler(parent_gpu);
+-    num_handlers_scheduled += schedule_non_replayable_faults_handler(parent_gpu);
++    num_handlers_scheduled += uvm_parent_gpu_schedule_non_replayable_faults_handler(parent_gpu);
+     for (i = 0; i < parent_gpu->rm_info.accessCntrBufferCount; i++)
+         num_handlers_scheduled += schedule_access_counters_handler(parent_gpu, i);
+ 
+--- a/kernel-open/nvidia-uvm/uvm_gpu_isr.h
++++ b/kernel-open/nvidia-uvm/uvm_gpu_isr.h
+@@ -198,4 +198,12 @@
+ // g_uvm_global.global_lock is held so that the returned pointer remains valid.
+ uvm_gpu_t *uvm_parent_gpu_find_first_valid_gpu(uvm_parent_gpu_t *parent_gpu);
+ 
++// Check if any non-replayable faults are pending, and if so schedule a bottom
++// half to service them.
++//
++// Returns 1 if a new bottom half instance was scheduled, 0 if not.
++//
++// parent_gpu->isr.interrupts_lock must be held to call this function.
++unsigned uvm_parent_gpu_schedule_non_replayable_faults_handler(uvm_parent_gpu_t *parent_gpu);
++
+ #endif // __UVM_GPU_ISR_H__
+--- a/kernel-open/nvidia-uvm/uvm_va_space.c
++++ b/kernel-open/nvidia-uvm/uvm_va_space.c
+@@ -35,6 +35,7 @@
+ #include "uvm_map_external.h"
+ #include "uvm_ats.h"
+ #include "uvm_gpu_access_counters.h"
++#include "uvm_gpu_non_replayable_faults.h"
+ #include "uvm_hmm.h"
+ #include "uvm_va_space_mm.h"
+ #include "uvm_test.h"
+@@ -1961,19 +1962,39 @@
+     return closest_id;
+ }
+ 
+-static void uvm_deferred_free_object_channel(uvm_deferred_free_object_t *object,
+-                                             uvm_parent_processor_mask_t *flushed_parent_gpus)
++// Avoid redundant buffer flushes in deferred free by tracking the parent GPUs
++// on which the flush already happened. These buffers are shared by all GPU
++// instances under the parent, so flushing a buffer on one GPU instance will
++// also flush it for all other instances on that parent GPU.
++typedef struct
++{
++    uvm_parent_processor_mask_t replayable;
++    uvm_parent_processor_mask_t non_replayable;
++    uvm_parent_processor_mask_t access_counters;
++} flushed_gpus_t;
++
++static void uvm_deferred_free_object_channel(uvm_deferred_free_object_t *object, flushed_gpus_t *flushed_gpus)
+ {
+     uvm_user_channel_t *channel = container_of(object, uvm_user_channel_t, deferred_free);
+     uvm_gpu_t *gpu = channel->gpu;
+ 
+-    // Flush out any faults with this instance pointer still in the buffer. This
+-    // prevents us from re-allocating the same instance pointer for a new
+-    // channel and mis-attributing old faults to it.
+-    if (gpu->parent->replayable_faults_supported &&
+-        !uvm_parent_processor_mask_test(flushed_parent_gpus, gpu->parent->id)) {
+-        uvm_gpu_fault_buffer_flush(gpu);
+-        uvm_parent_processor_mask_set(flushed_parent_gpus, gpu->parent->id);
++    // Flush this instance pointer out of the buffers. This prevents us from re-
++    // allocating the same instance pointer for a new channel and mis-
++    // attributing old notifications to it.
++
++    // All channels can generate non-replayable faults, so all must flush
++    if (!uvm_parent_processor_mask_test_and_set(&flushed_gpus->non_replayable, gpu->parent->id))
++        uvm_parent_gpu_non_replayable_buffer_flush(gpu->parent);
++
++    // Only the GR engine can generate replayable faults and access counter
++    // notifications
++    if (channel->engine_type == UVM_GPU_CHANNEL_ENGINE_TYPE_GR) {
++        if (!uvm_parent_processor_mask_test_and_set(&flushed_gpus->replayable, gpu->parent->id))
++            uvm_gpu_fault_buffer_flush(gpu);
++
++        if (gpu->parent->access_counters_supported &&
++            !uvm_parent_processor_mask_test_and_set(&flushed_gpus->access_counters, gpu->parent->id))
++            uvm_parent_gpu_access_counter_buffer_flush(gpu->parent);
+     }
+ 
+     uvm_user_channel_destroy_detached(channel);
+@@ -1982,20 +2003,18 @@
+ void uvm_deferred_free_object_list(struct list_head *deferred_free_list)
+ {
+     uvm_deferred_free_object_t *object, *next;
+-    uvm_parent_processor_mask_t flushed_parent_gpus;
+-
+-    // flushed_parent_gpus prevents redundant fault buffer flushes by tracking
+-    // the parent GPUs on which the flush already happened. Flushing the fault
+-    // buffer on one GPU instance will flush it for all other instances on that
+-    // parent GPU.
+-    uvm_parent_processor_mask_zero(&flushed_parent_gpus);
++    flushed_gpus_t flushed_gpus;
++
++    uvm_parent_processor_mask_zero(&flushed_gpus.replayable);
++    uvm_parent_processor_mask_zero(&flushed_gpus.non_replayable);
++    uvm_parent_processor_mask_zero(&flushed_gpus.access_counters);
+ 
+     list_for_each_entry_safe(object, next, deferred_free_list, list_node) {
+         list_del(&object->list_node);
+ 
+         switch (object->type) {
+             case UVM_DEFERRED_FREE_OBJECT_TYPE_CHANNEL:
+-                uvm_deferred_free_object_channel(object, &flushed_parent_gpus);
++                uvm_deferred_free_object_channel(object, &flushed_gpus);
+                 break;
+             case UVM_DEFERRED_FREE_OBJECT_GPU_VA_SPACE:
+                 destroy_gpu_va_space(container_of(object, uvm_gpu_va_space_t, deferred_free));

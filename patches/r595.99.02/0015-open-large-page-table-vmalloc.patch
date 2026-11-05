@@ -1,0 +1,70 @@
+--- a/kernel-open/common/inc/nv-linux.h
++++ b/kernel-open/common/inc/nv-linux.h
+@@ -355,12 +355,12 @@
+ /* keep track of memory usage */
+ #include "nv-memdbg.h"
+ 
+-static inline void *nv_vmalloc(unsigned long size)
++static inline void *nv_vmalloc(unsigned long size, gfp_t flags)
+ {
+ #if defined(NV_VMALLOC_HAS_PGPROT_T_ARG)
+-    void *ptr = __vmalloc(size, GFP_KERNEL, PAGE_KERNEL);
++    void *ptr = __vmalloc(size, flags, PAGE_KERNEL);
+ #else
+-    void *ptr = __vmalloc(size, GFP_KERNEL);
++    void *ptr = __vmalloc(size, flags);
+ #endif
+     NV_MEMDBG_ADD(ptr, size);
+     return ptr;
+ }
+
+--- a/kernel-open/nvidia/os-interface.c
++++ b/kernel-open/nvidia/os-interface.c
+@@ -644,7 +644,7 @@
+         }
+         if (*address == NULL)
+         {
+-            *address = nv_vmalloc(alloc_size);
++            *address = nv_vmalloc(alloc_size, GFP_KERNEL);
+             alloc_size |= VMALLOC_ALLOCATION_SIZE_FLAG;
+         }
+     }
+
+--- a/kernel-open/nvidia/nv.c
++++ b/kernel-open/nvidia/nv.c
+@@ -421,7 +421,12 @@
+         return NULL;
+     }
+ 
+-    at->page_table = kvzalloc(pt_size, NV_GFP_KERNEL);
++    /* kvzalloc() rejects sizes > INT_MAX; use vmalloc() for oversized tables. */
++    if (pt_size > (NvU64)INT_MAX)
++        at->page_table = nv_vmalloc(pt_size, NV_GFP_KERNEL | __GFP_ZERO);
++    else
++        at->page_table = kvzalloc(pt_size, NV_GFP_KERNEL);
++
+     if (at->page_table == NULL)
+     {
+         nv_printf(NV_DBG_ERRORS, "NVRM: failed to allocate page table\n");
+@@ -441,13 +446,20 @@
+     nv_alloc_t *at
+ )
+ {
++    NvU64 pt_size;
++
+     if (at == NULL)
+         return -1;
+ 
+     if (atomic64_read(&at->usage_count))
+         return 1;
+ 
+-    kvfree(at->page_table);
++    pt_size = (NvU64)at->num_pages * sizeof(nvidia_pte_t);
++
++    if (pt_size > (NvU64)INT_MAX)
++        nv_vfree(at->page_table, pt_size);
++    else
++        kvfree(at->page_table);
+ 
+     NV_KFREE(at, sizeof(nv_alloc_t));
+ 

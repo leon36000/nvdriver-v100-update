@@ -1,0 +1,25 @@
+--- a/nvidia-uvm/uvm_migrate.c
++++ b/nvidia-uvm/uvm_migrate.c
+@@ -37,6 +37,7 @@
+ #include "uvm_processors.h"
+ #include "uvm_push.h"
+ #include "uvm_hal.h"
++#include "uvm_hmm.h"
+ #include "uvm_tools.h"
+ #include "uvm_migrate.h"
+ #include "uvm_migrate_pageable.h"
+@@ -207,6 +208,14 @@
+ 
+     uvm_assert_mutex_locked(&va_block->lock);
+     UVM_ASSERT(uvm_hmm_check_context_vma_is_valid(va_block, va_block_context->hmm.vma, region));
++
++    // Isolated mode rejects HMM GPU residency before the inner refusal can be
++    // followed by the outer tracker merge under the VA-block lock.
++    if (uvm_va_block_is_hmm(va_block) &&
++        uvm_push_isolated_gpu_execution_enabled() &&
++        UVM_ID_IS_GPU(dest_id) &&
++        !uvm_hmm_must_use_sysmem(va_block, va_block_context->hmm.vma))
++        return NV_ERR_NOT_SUPPORTED;
+ 
+     uvm_processor_mask_zero(&va_block_context->make_resident.all_involved_processors);
+ 

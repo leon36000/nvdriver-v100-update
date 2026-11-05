@@ -1,0 +1,74 @@
+--- a/kernel-open/common/inc/nv-linux.h
++++ b/kernel-open/common/inc/nv-linux.h
+@@ -38,6 +38,9 @@
+ #include "nv-chardev-numbers.h"
+ #include "nv-platform.h"
+ 
++NV_STATUS nv_init_page_pools(void);
++void nv_destroy_page_pools(void);
++
+ #ifndef AUTOCONF_INCLUDED
+ #if defined(NV_GENERATED_AUTOCONF_H_PRESENT)
+ #include <generated/autoconf.h>
+--- a/kernel-open/nvidia/nv-vm.c
++++ b/kernel-open/nvidia/nv-vm.c
+@@ -407,6 +407,11 @@
+ #endif
+ } nv_page_pool_t;
+ 
++static unsigned int nv_mem_pool_alloc_pages(nv_page_pool_t *, nv_alloc_t *);
++static void nv_mem_pool_destroy(nv_page_pool_t *);
++static nv_page_pool_t *nv_mem_pool_init(int, unsigned int);
++static NV_STATUS nv_mem_pool_free_pages(nv_page_pool_t *, nv_alloc_t *);
++
+ nv_page_pool_t *sysmem_page_pools[MAX_NUMNODES][NV_MAX_PAGE_ORDER + 1];
+ 
+ #ifdef NV_SHRINKER_ALLOC_PRESENT
+@@ -597,7 +602,7 @@
+     }
+ }
+ 
+-unsigned int
++static unsigned int
+ nv_mem_pool_alloc_pages
+ (
+     nv_page_pool_t *mem_pool,
+@@ -705,7 +710,7 @@
+     }
+ }
+ 
+-void
++static void
+ nv_mem_pool_destroy(nv_page_pool_t *mem_pool)
+ {
+     NV_STATUS status;
+@@ -736,7 +741,7 @@
+     NV_KFREE(mem_pool, sizeof(*mem_pool));
+ }
+ 
+-nv_page_pool_t* nv_mem_pool_init(int node_id, unsigned int order)
++static nv_page_pool_t* nv_mem_pool_init(int node_id, unsigned int order)
+ {
+     struct shrinker *shrinker;
+     nv_page_pool_t *mem_pool;
+@@ -789,7 +794,7 @@
+     return NULL;
+ }
+ 
+-NV_STATUS
++static NV_STATUS
+ nv_mem_pool_free_pages
+ (
+     nv_page_pool_t *mem_pool,
+--- a/kernel-open/nvidia/nv.c
++++ b/kernel-open/nvidia/nv.c
+@@ -596,9 +596,6 @@
+     return rc;
+ }
+ 
+-int nv_init_page_pools(void);
+-void nv_destroy_page_pools(void);
+-
+ static void
+ nv_module_state_exit(nv_stack_t *sp)
+ {

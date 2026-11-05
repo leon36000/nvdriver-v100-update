@@ -1,0 +1,18 @@
+--- a/nvidia-uvm/uvm_gpu.c
++++ b/nvidia-uvm/uvm_gpu.c
+@@ -2918,6 +2918,15 @@
+     if (status != NV_OK)
+         goto error;
+ 
++    // The hybrid UVM contract currently supports exactly these two owners.
++    // Reject an unknown provider before init or publication can create state
++    // whose semaphore and tracker semantics this build does not understand.
++    if (gpu->hybrid_provider_id != HYBRID580_UVM_PROVIDER_ID_OPEN &&
++        gpu->hybrid_provider_id != HYBRID580_UVM_PROVIDER_ID_LEGACY) {
++        status = NV_ERR_NOT_SUPPORTED;
++        goto error;
++    }
++
+     if (!gpu_supports_uvm(parent_gpu)) {
+         UVM_DBG_PRINT("Registration of non-UVM-capable GPU attempted: GPU %s\n", uvm_gpu_name(gpu));
+         status = NV_ERR_NOT_SUPPORTED;

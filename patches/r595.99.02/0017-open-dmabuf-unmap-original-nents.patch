@@ -1,0 +1,12 @@
+--- a/kernel-open/nvidia/nv-dmabuf.c
++++ b/kernel-open/nvidia/nv-dmabuf.c
+@@ -726,7 +726,8 @@
+         return;
+     }
+ 
+-    dma_unmap_sg_attrs(dev, sgt->sgl, sgt->nents, DMA_BIDIRECTIONAL, DMA_ATTR_SKIP_CPU_SYNC);
++    dma_unmap_sg_attrs(dev, sgt->sgl, sgt->orig_nents,
++                       DMA_BIDIRECTIONAL, DMA_ATTR_SKIP_CPU_SYNC);
+ }
+ 
+ static void

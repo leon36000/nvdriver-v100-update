@@ -1,0 +1,70 @@
+From: Codex <codex@localhost>
+Subject: [PATCH] UVM: drain RM-owned non-replayable faults during suspend
+
+The R580 UVM suspend path explicitly leaves the RM-owned non-replayable
+fault buffer unflushed. After suspending the top half and flushing its worker
+queue, service that buffer synchronously under the same per-GPU service lock
+used by the ordinary bottom half. Then flush the kill-channel queue, which
+fault servicing may have populated, before returning to RM.
+
+This is a source-level candidate. Runtime PM/fault behavior still requires
+validation on a controlled system with the patched module.
+
+--- a/kernel-open/nvidia-uvm/uvm_global.c
++++ b/kernel-open/nvidia-uvm/uvm_global.c
+@@ -25,6 +25,7 @@
+ #include "uvm_ats.h"
+ #include "uvm_global.h"
+ #include "uvm_gpu_replayable_faults.h"
++#include "uvm_gpu_non_replayable_faults.h"
+ #include "uvm_mem.h"
+ #include "uvm_perf_events.h"
+ #include "uvm_processors.h"
+@@ -286,11 +287,13 @@
+     //     interrupts are handled
+     // Due to this, the sequence of suspend operations for each GPU is the
+     // following:
+-    //   * Flush the fault buffer to prevent fault interrupts when
++    //   * Flush the replayable fault buffer to prevent fault interrupts when
+     //     the top-half ISR is suspended
+     //   * Suspend access counter processing
+     //   * Suspend the top-half ISR
+-    //   * Flush relevant kthread queues (bottom half, etc.)
++    //   * Flush the bottom-half queue
++    //   * Service the RM-owned non-replayable fault buffer synchronously
++    //   * Flush the kill-channel queue, which fault servicing may populate
+ 
+     // Some locks acquired by this function, such as pm.lock, are released
+     // by uvm_resume(). This is contrary to the lock tracking code's
+@@ -317,8 +320,6 @@
+         if (gpu->parent->replayable_faults_supported)
+             uvm_gpu_fault_buffer_flush(gpu);
+ 
+-        // TODO: Bug 2535118: flush the non-replayable fault buffer
+-
+         // Stop access counter interrupt processing for the duration of this
+         // sleep cycle to defend against potential interrupt storms in
+         // the suspend path: if rate limiting is applied to access counter
+@@ -331,8 +332,21 @@
+ 
+         nv_kthread_q_flush(&gpu->parent->isr.bottom_half_q);
+ 
+-        if (gpu->parent->isr.non_replayable_faults.handling)
++        if (gpu->parent->isr.non_replayable_faults.handling) {
++            // RM owns the hardware buffer and transfers pending entries to
++            // UVM's shadow buffer on demand. With the top half suspended and
++            // all bottom halves flushed, drain it here so no fault remains
++            // outstanding across the power transition. Use the ISR service
++            // lock because fetch_non_replayable_fault_buffer_entries() and
++            // the normal bottom half require exclusive ownership of the
++            // service state.
++            uvm_parent_gpu_non_replayable_faults_isr_lock(gpu->parent);
++            uvm_parent_gpu_service_non_replayable_fault_buffer(gpu->parent);
++            uvm_parent_gpu_non_replayable_faults_isr_unlock(gpu->parent);
++
++            // Fault servicing can queue an RM channel-kill operation.
+             nv_kthread_q_flush(&gpu->parent->isr.kill_channel_q);
++        }
+     }
+ 
+     // Acquire each VA space's lock in write mode to lock out VMA open and

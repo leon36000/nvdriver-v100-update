@@ -1,0 +1,34 @@
+Subject: [EXPERIMENT ONLY] Route exact GV100 past the GSP image request
+SPDX-License-Identifier: MIT
+
+Base: NVIDIA open-gpu-kernel-modules 595.104.02
+Commit: ac24e02fc090c3e05c1fc03384b317ac2cc301b5
+
+Opt in with EXTRA_CFLAGS=-DNV_HYBRID_EXPERIMENTAL_GV100.
+This removes only the early GSP image barrier. It does not enable GV100 HAL
+registration, rebuild missing generated dispatch, or establish safe operation.
+Blackwell and all other architectures retain the upstream firmware policy.
+
+diff --git a/src/nvidia/arch/nvalloc/unix/src/osinit.c b/src/nvidia/arch/nvalloc/unix/src/osinit.c
+--- a/src/nvidia/arch/nvalloc/unix/src/osinit.c
++++ b/src/nvidia/arch/nvalloc/unix/src/osinit.c
+@@ -1971,6 +1971,19 @@
+     portMemSet(pGspFw, 0, sizeof(*pGspFw));
+ 
++#if defined(NV_HYBRID_EXPERIMENTAL_GV100)
++    // GV100 has no GSP firmware. This probe selects the monolithic RM variant;
++    // the generated GV100 HAL registration must still be restored separately.
++    if ((gpuArch == GPU_ARCHITECTURE_VOLTA) &&
++        (gpuImpl == GPU_IMPLEMENTATION_GV100))
++    {
++        *gspFwHandle = NULL;
++        *gspFwLogHandle = NULL;
++        nv->request_fw_client_rm = NV_FALSE;
++        return NV_OK;
++    }
++#endif
++
+     *gspFwHandle = nv_get_firmware(nv, NV_FIRMWARE_TYPE_GSP,
+                                    chipFamily,
+                                    &pGspFw->pBuf,
+                                    &pGspFw->size);

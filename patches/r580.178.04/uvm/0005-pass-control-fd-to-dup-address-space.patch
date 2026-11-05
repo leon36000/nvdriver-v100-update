@@ -1,0 +1,41 @@
+--- a/kernel-open/common/inc/hybrid580_uvm_control_fd_dispatch.h
++++ b/kernel-open/common/inc/hybrid580_uvm_control_fd_dispatch.h
+@@ -11,4 +11,13 @@ NV_STATUS nvUvmInterfaceDupMemoryWithControlFd(
+     NvHandle *hDupMemory,
+     UvmGpuMemoryInfo *pGpuMemoryInfo);
+ 
++/* Hybrid-only dispatcher for a user-created VA space. */
++NV_STATUS nvUvmInterfaceDupAddressSpaceWithControlFd(
++    int rmControlFd,
++    uvmGpuDeviceHandle device,
++    NvHandle hClient,
++    NvHandle hUserVASpace,
++    uvmGpuAddressSpaceHandle *vaSpace,
++    UvmGpuAddressSpaceInfo *vaSpaceInfo);
++
+ #endif
+--- a/kernel-open/nvidia-uvm/uvm_va_space.c
++++ b/kernel-open/nvidia-uvm/uvm_va_space.c
+@@ -40,6 +40,7 @@
+ #include "uvm_test.h"
+ #include "uvm_common.h"
+ #include "nv_uvm_interface.h"
++#include "hybrid580_uvm_control_fd_dispatch.h"
+ #include "nv-kthread-q.h"
+ #include <linux/mmzone.h>
+ 
+@@ -1525,10 +1526,9 @@
+     INIT_LIST_HEAD(&gpu_va_space->channel_va_ranges);
+     nv_kref_init(&gpu_va_space->kref);
+ 
+-    // TODO: Bug 1624521: This interface needs to use rm_control_fd to do
+-    //       validation.
+-    (void)user_rm_va_space->rm_control_fd;
+-    status = uvm_rm_locked_call(nvUvmInterfaceDupAddressSpace(uvm_gpu_device_handle(gpu),
++    status = uvm_rm_locked_call(nvUvmInterfaceDupAddressSpaceWithControlFd(
++                                                              user_rm_va_space->rm_control_fd,
++                                                              uvm_gpu_device_handle(gpu),
+                                                               user_rm_va_space->user_client,
+                                                               user_rm_va_space->user_object,
+                                                               &gpu_va_space->duped_gpu_va_space,
+                                                               &gpu_address_space_info));

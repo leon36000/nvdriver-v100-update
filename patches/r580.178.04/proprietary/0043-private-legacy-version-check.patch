@@ -1,0 +1,67 @@
+--- a/nvidia/nv.c
++++ b/nvidia/nv.c
+@@ -6173,6 +6173,64 @@
+ }
+ EXPORT_SYMBOL(hybrid580_legacy_control_session_rusd_alloc_v1);
+ 
++/* Run the fixed NV_ESC_CHECK_VERSION_STR payload through this provider's
++ * native RM while preserving the control-device-only ioctl contract. */
++NV_STATUS hybrid580_legacy_control_session_check_version_v1(
++    struct hybrid580_control_session *session,
++    nv_ioctl_rm_api_version_t *params, NvU32 size)
++{
++    nv_linux_file_private_t *nvlfp;
++    nv_linux_state_t *nvl;
++    nv_state_t *nv;
++    nvidia_stack_t *sp = NULL;
++    NV_STATUS status;
++    int rc;
++
++    if (session == NULL || params == NULL || size != sizeof(*params))
++        return NV_ERR_INVALID_ARGUMENT;
++
++    rc = mutex_lock_interruptible(&session->lock);
++    if (rc != 0)
++        return NV_ERR_OPERATING_SYSTEM;
++
++    nvlfp = hybrid580_legacy_backend_file(session->file, 1);
++    if (nvlfp == NULL || nvlfp->nvptr != &nv_ctl_device)
++    {
++        status = NV_ERR_INVALID_STATE;
++        goto done;
++    }
++    nvl = nvlfp->nvptr;
++    nv = NV_STATE_PTR(nvl);
++    if ((nv->flags & NV_FLAG_CONTROL) == 0)
++    {
++        status = NV_ERR_INVALID_STATE;
++        goto done;
++    }
++
++    rc = nv_down_read_interruptible(&nv_system_pm_lock);
++    if (rc < 0)
++    {
++        status = NV_ERR_OPERATING_SYSTEM;
++        goto done;
++    }
++    rc = nv_kmem_cache_alloc_stack(&sp);
++    if (rc != 0)
++    {
++        status = NV_ERR_NO_MEMORY;
++        goto done_pm;
++    }
++
++    status = rm_perform_version_check(sp, params, size);
++    nv_kmem_cache_free_stack(sp);
++done_pm:
++    up_read(&nv_system_pm_lock);
++done:
++    mutex_unlock(&session->lock);
++    return status;
++}
++EXPORT_SYMBOL(hybrid580_legacy_control_session_check_version_v1);
++
++
+ 
+ NV_STATUS hybrid580_legacy_control_session_engine_alloc_v1(
+     struct hybrid580_control_session *session, NvHandle h_root,

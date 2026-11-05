@@ -1,0 +1,122 @@
+--- a/kernel-open/nvidia-uvm/uvm_va_block.c
++++ b/kernel-open/nvidia-uvm/uvm_va_block.c
+@@ -4657,32 +4657,53 @@
+     }
+ }
+ 
+-// Return whether requested pages would require an unsupported GPU -> CPU
+-// staging copy in isolated mode. The caller supplies the already-filtered
+-// page mask and a scratch mask which this helper may overwrite.
+-static bool block_has_unsupported_isolated_staging(uvm_va_block_t *block,
+-                                                    uvm_va_block_context_t *block_context,
+-                                                    uvm_processor_id_t dst_id,
+-                                                    uvm_va_block_region_t region,
+-                                                    const uvm_page_mask_t *copy_page_mask)
++// Compute requested pages that would require a CPU staging copy because
++// none of their resident processors has direct copy access to dst_id. This
++// mirrors block_populate_pages() so an accessible read-duplicate is sufficient
++// to avoid rejecting a page that is also present on an inaccessible GPU.
++static NV_STATUS block_get_isolated_staged_pages(uvm_va_block_t *block,
++                                                  uvm_va_block_context_t *block_context,
++                                                  uvm_processor_id_t dst_id,
++                                                  uvm_va_block_region_t region,
++                                                  const uvm_page_mask_t *copy_page_mask,
++                                                  uvm_page_mask_t *staged_pages)
+ {
+     uvm_processor_id_t src_id;
+-    uvm_page_mask_t *source_pages_mask = &block_context->make_resident.copy_resident_pages_mask;
++    uvm_page_mask_t *source_pages_mask = &block_context->scratch_page_mask;
+     const uvm_processor_mask_t *can_copy_from = block_get_can_copy_from_mask(block, dst_id);
++    uvm_processor_mask_t *processors = uvm_processor_mask_cache_alloc();
+ 
+-    for_each_gpu_id_in_mask(src_id, &block->resident) {
+-        if (uvm_id_equal(src_id, dst_id) || uvm_processor_mask_test(can_copy_from, src_id))
++    if (!processors)
++        return NV_ERR_NO_MEMORY;
++
++    uvm_page_mask_zero(staged_pages);
++
++    // Union requested pages resident on processors the destination cannot
++    // access directly. Keep the ordinary UVM source set, including CPU.
++    uvm_processor_mask_andnot(processors, &block->resident, can_copy_from);
++    for_each_id_in_mask(src_id, processors) {
++        if (uvm_id_equal(src_id, dst_id))
+             continue;
+ 
+         uvm_page_mask_and(source_pages_mask,
+                           copy_page_mask,
+                           uvm_va_block_resident_mask_get(block, src_id, NUMA_NO_NODE));
+-        uvm_page_mask_region_clear_outside(source_pages_mask, region);
+-        if (!uvm_page_mask_empty(source_pages_mask))
+-            return true;
++        uvm_page_mask_or(staged_pages, staged_pages, source_pages_mask);
++    }
++
++    // An accessible read-duplicate means those pages do not need staging.
++    if (uvm_processor_mask_and(processors, can_copy_from, &block->resident)) {
++        for_each_id_in_mask(src_id, processors) {
++            uvm_page_mask_andnot(staged_pages,
++                                 staged_pages,
++                                 uvm_va_block_resident_mask_get(block, src_id, NUMA_NO_NODE));
++        }
+     }
+ 
+-    return false;
++    uvm_page_mask_region_clear_outside(staged_pages, region);
++    uvm_page_mask_andnot(staged_pages, staged_pages, &block->discarded_pages);
++    uvm_processor_mask_cache_free(processors);
++    return NV_OK;
+ }
+ 
+ // Copy resident pages from other processors to the destination.
+@@ -4762,14 +4783,20 @@
+     // transaction as one UVM migration. Reject before queuing any copy: a
+     // retry after the source stage could repeat that stage and livelock on
+     // the cross-GPU tracker guard.
+-    if (UVM_ID_IS_GPU(dst_id) && uvm_push_isolated_gpu_execution_enabled() &&
+-        block_has_unsupported_isolated_staging(block,
+-                                               block_context,
+-                                               dst_id,
+-                                               region,
+-                                               copy_page_mask)) {
+-        status = NV_ERR_NOT_SUPPORTED;
+-        goto out;
++    if (UVM_ID_IS_GPU(dst_id) && uvm_push_isolated_gpu_execution_enabled()) {
++        status = block_get_isolated_staged_pages(block,
++                                                 block_context,
++                                                 dst_id,
++                                                 region,
++                                                 copy_page_mask,
++                                                 &block_context->make_resident.copy_resident_pages_mask);
++        if (status != NV_OK)
++            goto out;
++
++        if (!uvm_page_mask_empty(&block_context->make_resident.copy_resident_pages_mask)) {
++            status = NV_ERR_NOT_SUPPORTED;
++            goto out;
++        }
+     }
+ 
+     if (UVM_ID_IS_GPU(dst_id)) {
+@@ -4989,11 +5016,16 @@
+         uvm_page_mask_region_clear_outside(preflight_pages, region);
+         uvm_page_mask_andnot(preflight_pages, preflight_pages, &va_block->discarded_pages);
+ 
+-        if (block_has_unsupported_isolated_staging(va_block,
+-                                                   va_block_context,
+-                                                   dest_id,
+-                                                   region,
+-                                                   preflight_pages)) {
++        status = block_get_isolated_staged_pages(va_block,
++                                                 va_block_context,
++                                                 dest_id,
++                                                 region,
++                                                 preflight_pages,
++                                                 &va_block_context->make_resident.copy_resident_pages_mask);
++        if (status != NV_OK)
++            goto out;
++
++        if (!uvm_page_mask_empty(&va_block_context->make_resident.copy_resident_pages_mask)) {
+             status = NV_ERR_NOT_SUPPORTED;
+             goto out;
+         }

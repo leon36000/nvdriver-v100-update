@@ -1,0 +1,22 @@
+--- a/nvidia/nv-procfs.c
++++ b/nvidia/nv-procfs.c
+@@ -571,7 +571,7 @@
+     loff_t *pos
+ )
+ {
+-    char kbuf[sizeof("modeset\n")];
++    char kbuf[sizeof("channels\n")];
+     unsigned i;
+ 
+     if (!NV_IS_SUSER())
+@@ -596,6 +596,10 @@
+     if (strcasecmp(kbuf, "uvm") == 0)
+     {
+         nv_pm_action_depth = NV_PM_ACTION_DEPTH_UVM;
++    }
++    else if (strcasecmp(kbuf, "channels") == 0)
++    {
++        nv_pm_action_depth = NV_PM_ACTION_DEPTH_CHANNELS;
+     }
+     else if (strcasecmp(kbuf, "modeset") == 0)
+     {

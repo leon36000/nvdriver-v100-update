@@ -1,0 +1,33 @@
+--- a/kernel-open/nvidia-uvm/uvm_va_block.c
++++ b/kernel-open/nvidia-uvm/uvm_va_block.c
+@@ -4729,6 +4729,30 @@
+     //       bottleneck on a single location.
+ 
+     uvm_processor_mask_zero(src_processor_mask);
++
++    // The isolated hybrid path cannot order a GPU -> CPU -> GPU staging
++    // transaction as one UVM migration. Reject before queuing any copy: a
++    // retry after the source stage could repeat that stage and livelock on
++    // the cross-GPU tracker guard.
++    if (UVM_ID_IS_GPU(dst_id) && uvm_push_isolated_gpu_execution_enabled()) {
++        uvm_processor_id_t src_id;
++        uvm_page_mask_t *source_pages_mask = &block_context->make_resident.copy_resident_pages_mask;
++        const uvm_processor_mask_t *can_copy_from = block_get_can_copy_from_mask(block, dst_id);
++
++        for_each_gpu_id_in_mask(src_id, &block->resident) {
++            if (uvm_id_equal(src_id, dst_id) || uvm_processor_mask_test(can_copy_from, src_id))
++                continue;
++
++            uvm_page_mask_and(source_pages_mask,
++                              copy_page_mask,
++                              uvm_va_block_resident_mask_get(block, src_id, NUMA_NO_NODE));
++            uvm_page_mask_region_clear_outside(source_pages_mask, region);
++            if (!uvm_page_mask_empty(source_pages_mask)) {
++                status = NV_ERR_NOT_SUPPORTED;
++                goto out;
++            }
++        }
++    }
+ 
+     if (UVM_ID_IS_GPU(dst_id)) {
+         // If the destination is a GPU, first copy everything from processors

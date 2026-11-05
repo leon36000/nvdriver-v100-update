@@ -1,0 +1,100 @@
+--- a/nvidia-uvm/uvm_gpu.c
++++ b/nvidia-uvm/uvm_gpu.c
+@@ -22,6 +22,7 @@
+ *******************************************************************************/
+ 
+ #include "nv_uvm_interface.h"
++#include "hybrid580_uvm_provider_dispatch.h"
+ #include "uvm_api.h"
+ #include "uvm_channel.h"
+ #include "uvm_global.h"
+@@ -1147,6 +1148,7 @@
+ {
+     NV_STATUS status;
+     uvm_gpu_t *other_gpu;
++    NvBool same_provider;
+ 
+     status = uvm_gpu_semaphore_pool_create(gpu, &gpu->semaphore_pool);
+     if (status != NV_OK)
+@@ -1160,6 +1162,15 @@
+     for_each_gpu(other_gpu) {
+         if (other_gpu == gpu)
+             continue;
++
++        status = nvUvmInterfaceAreGpuProvidersSame(&other_gpu->parent->uuid,
++                                                   &gpu->parent->uuid,
++                                                   &same_provider);
++        if (status != NV_OK)
++            return status;
++        if (!same_provider)
++            continue;
++
+         status = uvm_gpu_semaphore_pool_map_gpu(other_gpu->semaphore_pool, gpu);
+         if (status != NV_OK)
+             return status;
+--- a/nvidia-uvm/uvm_gpu_semaphore.c
++++ b/nvidia-uvm/uvm_gpu_semaphore.c
+@@ -22,6 +22,8 @@
+ *******************************************************************************/
+ 
+ #include "uvm_gpu_semaphore.h"
++#include "nv_uvm_interface.h"
++#include "hybrid580_uvm_provider_dispatch.h"
+ #include "uvm_lock.h"
+ #include "uvm_global.h"
+ #include "uvm_kvmalloc.h"
+@@ -173,11 +175,37 @@
+     NV_STATUS status;
+     uvm_gpu_semaphore_pool_t *pool = page->pool;
+     uvm_gpu_t *gpu = pool->gpu;
++    uvm_gpu_t *other_gpu;
++    NvBool same_provider;
+     uvm_rm_mem_type_t memory_type = (pool->aperture == UVM_APERTURE_SYS) ? UVM_RM_MEM_TYPE_SYS : UVM_RM_MEM_TYPE_GPU;
+     size_t memory_size = UVM_SEMAPHORE_PAGE_SIZE;
+ 
+-    if (!gpu_semaphore_pool_is_secure(pool))
+-        return uvm_rm_mem_alloc_and_map_all(gpu, memory_type, memory_size, 0, &page->memory);
++    if (!gpu_semaphore_pool_is_secure(pool)) {
++        status = uvm_rm_mem_alloc_and_map_cpu(gpu, memory_type, memory_size, 0, &page->memory);
++        if (status != NV_OK)
++            return status;
++
++        // RM VA-space handles are private to their provider. Map shared system
++        // semaphore pages only into GPUs owned by the allocating RM.
++        for_each_gpu(other_gpu) {
++            if (other_gpu == gpu)
++                continue;
++
++            status = nvUvmInterfaceAreGpuProvidersSame(&gpu->parent->uuid,
++                                                       &other_gpu->parent->uuid,
++                                                       &same_provider);
++            if (status != NV_OK)
++                goto error;
++            if (!same_provider)
++                continue;
++
++            status = uvm_rm_mem_map_gpu(page->memory, other_gpu, 0);
++            if (status != NV_OK)
++                goto error;
++        }
++
++        return NV_OK;
++    }
+ 
+     status = uvm_rm_mem_alloc(gpu, memory_type, memory_size, UVM_CONF_COMPUTING_BUF_ALIGNMENT, &page->memory);
+     if (status != NV_OK)
+--- /dev/null
++++ b/nvidia-uvm/hybrid580_uvm_provider_dispatch.h
+@@ -0,0 +1,12 @@
++/* SPDX-License-Identifier: MIT */
++#ifndef HYBRID580_UVM_PROVIDER_DISPATCH_H
++#define HYBRID580_UVM_PROVIDER_DISPATCH_H
++
++#include "nv_uvm_interface.h"
++
++NV_STATUS nvUvmInterfaceAreGpuProvidersSame(
++    const NvProcessorUuid *gpuUuid1,
++    const NvProcessorUuid *gpuUuid2,
++    NvBool *sameProvider);
++
++#endif

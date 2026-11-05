@@ -1,0 +1,73 @@
+--- a/nvidia/nv.c
++++ b/nvidia/nv.c
+@@ -39,6 +39,7 @@
+ #include "nv-chardev-numbers.h"
+ #include "hybrid580-file-projection.h"
+ #include "hybrid580-control-session.h"
++#include "hybrid580-pm-provider-recovery.h"
+ #include "nv-unix-nvos-params-wrappers.h"
+ #include "hybrid580-gpu-session.h"
+ #include <linux/kref.h>
+@@ -158,6 +159,10 @@
+  */
+ nv_linux_state_t *nv_linux_devices;
+ static nv_linux_state_t *nv_linux_minor_num_table[NV_MINOR_DEVICE_NUMBER_REGULAR_MAX + 1];
++static struct hybrid580_pm_provider_recovery_status
++    hybrid580_pm_recovery_status[NV_MINOR_DEVICE_NUMBER_REGULAR_MAX + 1];
++static unsigned long long hybrid580_pm_recovery_last_generation;
++static unsigned long long hybrid580_pm_recovery_active_generation;
+ 
+ // Global state for the control device
+ nv_linux_state_t nv_ctl_device = { { 0 } };
+@@ -7273,6 +7278,9 @@
+     return status;
+ }
+ 
++#define HYBRID580_PM_PROVIDER_PREFIX hybrid580_legacy_
++#include "hybrid580-pm-provider-kernel.h"
++
+ int nv_pmops_suspend(
+     struct device *dev
+ )
+@@ -7292,9 +7300,14 @@
+ )
+ {
+     NV_STATUS status;
++    int rc;
+ 
+     status = nvidia_resume(dev, NV_PM_ACTION_RESUME);
+-    return (status == NV_OK) ? 0 : -EIO;
++    rc = (status == NV_OK) ? 0 : -EIO;
++    if (hybrid580_pm_provider_record_dpm_callback(
++            dev, HYBRID580_PM_PROVIDER_CALLBACK_RESUME, rc) != 0 && rc == 0)
++        rc = -EIO;
++    return rc;
+ }
+ 
+ int nv_pmops_freeze(
+@@ -7315,7 +7328,8 @@
+     struct device *dev
+ )
+ {
+-    return 0;
++    return hybrid580_pm_provider_record_dpm_callback(
++        dev, HYBRID580_PM_PROVIDER_CALLBACK_THAW, 0) == 0 ? 0 : -EIO;
+ }
+ 
+ int nv_pmops_restore(
+@@ -7323,9 +7337,14 @@
+ )
+ {
+     NV_STATUS status;
++    int rc;
+ 
+     status = nvidia_resume(dev, NV_PM_ACTION_RESUME);
+-    return (status == NV_OK) ? 0 : -EIO;
++    rc = (status == NV_OK) ? 0 : -EIO;
++    if (hybrid580_pm_provider_record_dpm_callback(
++            dev, HYBRID580_PM_PROVIDER_CALLBACK_RESTORE, rc) != 0 && rc == 0)
++        rc = -EIO;
++    return rc;
+ }
+ 
+ int nv_pmops_poweroff(

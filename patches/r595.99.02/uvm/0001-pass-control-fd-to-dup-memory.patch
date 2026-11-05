@@ -1,0 +1,72 @@
+--- a/kernel-open/nvidia/nv_uvm_interface.c
++++ b/kernel-open/nvidia/nv_uvm_interface.c
+@@ -38,6 +38,7 @@
+ #if defined(NV_UVM_ENABLE)
+ 
+ #include "nv_uvm_interface.h"
++#include "hybrid580_uvm_control_fd_dispatch.h"
+ #include "nv_gpu_ops.h"
+ #include "rm-gpu-ops.h"
+ 
+@@ -777,6 +778,23 @@
+     return status;
+ }
+ EXPORT_SYMBOL(nvUvmInterfaceDupMemory);
++
++/* The ordinary single-RM implementation needs no cross-provider
++ * owner routing. A hybrid frontend replaces this public dispatcher
++ * and resolves the source handles through rmControlFd.
++ */
++NV_STATUS nvUvmInterfaceDupMemoryWithControlFd(int rmControlFd,
++                                               uvmGpuDeviceHandle device,
++                                               NvHandle hClient,
++                                               NvHandle hPhysMemory,
++                                               NvHandle *hDupMemory,
++                                               UvmGpuMemoryInfo *pGpuMemoryInfo)
++{
++    (void)rmControlFd;
++    return nvUvmInterfaceDupMemory(device, hClient, hPhysMemory,
++                                   hDupMemory, pGpuMemoryInfo);
++}
++EXPORT_SYMBOL(nvUvmInterfaceDupMemoryWithControlFd);
+ 
+ 
+ NV_STATUS nvUvmInterfaceFreeDupedHandle(uvmGpuDeviceHandle device,
+--- a/kernel-open/nvidia-uvm/uvm_map_external.c
++++ b/kernel-open/nvidia-uvm/uvm_map_external.c
+@@ -39,6 +39,7 @@
+ #include "uvm_pte_batch.h"
+ #include "uvm_tlb_batch.h"
+ #include "nv_uvm_interface.h"
++#include "hybrid580_uvm_control_fd_dispatch.h"
+ #include "nv_uvm_types.h"
+ #include "nv_uvm_user_types.h"
+ 
+@@ -903,7 +904,9 @@
+     // Dup the memory. This verifies the input handles, takes a ref count on the
+     // physical allocation so it can't go away under us, and returns us the
+     // allocation info.
+-    status = uvm_rm_locked_call(nvUvmInterfaceDupMemory(uvm_gpu_device_handle(mapping_gpu),
++    status = uvm_rm_locked_call(nvUvmInterfaceDupMemoryWithControlFd(
++                                                        user_rm_mem->rm_control_fd,
++                                                        uvm_gpu_device_handle(mapping_gpu),
+                                                         user_rm_mem->user_client,
+                                                         user_rm_mem->user_object,
+                                                         &ext_gpu_map->mem_handle->rm_handle,
+--- /dev/null
++++ b/kernel-open/common/inc/hybrid580_uvm_control_fd_dispatch.h
+@@ -0,0 +1,14 @@
++/* SPDX-License-Identifier: MIT */
++#ifndef HYBRID580_UVM_CONTROL_FD_DISPATCH_H
++#define HYBRID580_UVM_CONTROL_FD_DISPATCH_H
++
++/* Included after nv_uvm_interface.h, whose types and NV_STATUS are used. */
++NV_STATUS nvUvmInterfaceDupMemoryWithControlFd(
++    int rmControlFd,
++    uvmGpuDeviceHandle device,
++    NvHandle hClient,
++    NvHandle hPhysMemory,
++    NvHandle *hDupMemory,
++    UvmGpuMemoryInfo *pGpuMemoryInfo);
++
++#endif

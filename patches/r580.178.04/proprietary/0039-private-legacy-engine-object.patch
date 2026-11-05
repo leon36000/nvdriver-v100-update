@@ -1,0 +1,90 @@
+--- a/nvidia/nv.c
++++ b/nvidia/nv.c
+@@ -6118,6 +6118,87 @@
+ EXPORT_SYMBOL(hybrid580_legacy_control_session_rusd_alloc_v1);
+ 
+ 
++NV_STATUS hybrid580_legacy_control_session_engine_alloc_v1(
++    struct hybrid580_control_session *session, NvHandle h_root,
++    NvHandle h_channel, NvHandle h_engine, NvU32 class_id,
++    NvHandle *returned_engine, NvU32 *rm_status)
++{
++    nv_linux_file_private_t *nvlfp;
++    nv_state_t *nv;
++    NVOS64_PARAMETERS alloc;
++    nvidia_stack_t *sp = NULL;
++    NV_STATUS status;
++    int rc;
++
++    if (rm_status == NULL || returned_engine == NULL)
++        return NV_ERR_INVALID_ARGUMENT;
++    *rm_status = 0xffffffffU;
++    *returned_engine = 0;
++    if (class_id != VOLTA_DMA_COPY_A && class_id != VOLTA_COMPUTE_A)
++    {
++        *rm_status = NV_ERR_INVALID_CLASS;
++        return NV_ERR_INVALID_CLASS;
++    }
++    if (session == NULL || h_root == 0 || h_channel == 0 || h_engine == 0 ||
++        h_engine == h_root || h_engine == h_channel)
++    {
++        *rm_status = NV_ERR_INVALID_ARGUMENT;
++        return NV_ERR_INVALID_ARGUMENT;
++    }
++
++    alloc = (NVOS64_PARAMETERS) {
++        .hRoot = h_root,
++        .hObjectParent = h_channel,
++        .hObjectNew = h_engine,
++        .hClass = class_id,
++        .pAllocParms = NvP64_NULL,
++        .pRightsRequested = NvP64_NULL,
++        .paramsSize = 0,
++        .flags = NVOS64_FLAGS_NONE,
++        .status = 0xffffffffU,
++    };
++
++    if (mutex_lock_interruptible(&session->lock) != 0)
++        return NV_ERR_OPERATING_SYSTEM;
++    nvlfp = hybrid580_legacy_backend_file(session->file, 1);
++    if (nvlfp == NULL)
++    {
++        status = NV_ERR_INVALID_STATE;
++        goto done;
++    }
++    rc = nv_down_read_interruptible(&nv_system_pm_lock);
++    if (rc < 0)
++    {
++        status = NV_ERR_OPERATING_SYSTEM;
++        goto done;
++    }
++    if (nv_kmem_cache_alloc_stack(&sp) != 0)
++    {
++        status = NV_ERR_NO_MEMORY;
++        goto done_pm;
++    }
++    nv = NV_STATE_PTR(nvlfp->nvptr);
++    status = nv_check_gpu_state(nv);
++    if (status == NV_OK)
++    {
++        status = rm_ioctl(sp, nv, &nvlfp->nvfp, NV_ESC_RM_ALLOC,
++                          &alloc, sizeof(alloc));
++        if (status == NV_OK)
++        {
++            *rm_status = alloc.status;
++            *returned_engine = alloc.hObjectNew;
++        }
++    }
++    nv_kmem_cache_free_stack(sp);
++done_pm:
++    up_read(&nv_system_pm_lock);
++done:
++    mutex_unlock(&session->lock);
++    return status;
++}
++EXPORT_SYMBOL(hybrid580_legacy_control_session_engine_alloc_v1);
++
++
+ 
+ 
+ NV_STATUS hybrid580_legacy_control_session_usermode_alloc_v1(

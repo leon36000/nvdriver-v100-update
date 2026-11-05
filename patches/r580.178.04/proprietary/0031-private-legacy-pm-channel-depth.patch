@@ -1,0 +1,196 @@
+--- a/nvidia/nv.c
++++ b/nvidia/nv.c
+@@ -224,3 +224,4 @@
+ static int           nvidia_ctl_open        (struct inode *, struct file *);
+-static int           nvidia_ctl_close       (struct inode *, struct file *);
++static void          nvidia_ctl_close_callback(nv_linux_file_private_t *);
++static void          nvidia_ctl_close_deferred(void *);
+ 
+@@ -238,2 +239,17 @@
+ /* character device entry points*/
++static int nv_mmap_pm_guard(struct file *file, struct vm_area_struct *vma)
++{
++    int status;
++
++    if (!down_read_trylock(&nv_system_pm_lock))
++    {
++        return -EAGAIN;
++    }
++
++    status = nvidia_mmap(file, vma);
++    up_read(&nv_system_pm_lock);
++
++    return status;
++}
++
+ static struct file_operations nvidia_fops = {
+@@ -245,3 +261,3 @@
+ #endif
+-    .mmap      = nvidia_mmap,
++    .mmap      = nv_mmap_pm_guard,
+     .open      = nvidia_open,
+@@ -1828,6 +1844,21 @@
+     {
++        rc = nv_down_read_interruptible(&nv_system_pm_lock);
++        if (rc < 0)
++        {
++            NV_SET_FILE_PRIVATE(file, NULL);
++            nv_free_file_private(nvlfp);
++            nv_kmem_cache_free_stack(sp);
++            return rc;
++        }
++
+         rc = nvidia_ctl_open(inode, file);
++        up_read(&nv_system_pm_lock);
+         if (rc != 0)
+-            goto failed;
+-        return rc;
++        {
++            NV_SET_FILE_PRIVATE(file, NULL);
++            nv_free_file_private(nvlfp);
++            nv_kmem_cache_free_stack(sp);
++            return rc;
++        }
++        return 0;
+     }
+@@ -2204,3 +2235,20 @@
+     {
+-        return nvidia_ctl_close(inode, file);
++        NV_SET_FILE_PRIVATE(file, NULL);
++
++        rc = nv_down_read_interruptible(&nv_system_pm_lock);
++        if (rc == 0)
++        {
++            nvidia_ctl_close_callback(nvlfp);
++            up_read(&nv_system_pm_lock);
++        }
++        else
++        {
++            nv_kthread_q_item_init(&nvlfp->deferred_close_q_item,
++                                   nvidia_ctl_close_deferred,
++                                   nvlfp);
++            rc = nv_kthread_q_schedule_q_item(&nv_deferred_close_kthread_q,
++                                              &nvlfp->deferred_close_q_item);
++            WARN_ON(rc == 0);
++        }
++        return 0;
+     }
+@@ -3068,6 +3116,5 @@
+ */
+-static int
+-nvidia_ctl_close(
+-    struct inode *inode,
+-    struct file *file
++static void
++nvidia_ctl_close_callback(
++    nv_linux_file_private_t *nvlfp
+ )
+@@ -3075,5 +3122,4 @@
+     nv_alloc_t *at, *next;
+-    nv_linux_state_t *nvl = NV_GET_NVL_FROM_FILEP(file);
++    nv_linux_state_t *nvl = nvlfp->nvptr;
+     nv_state_t *nv = NV_STATE_PTR(nvl);
+-    nv_linux_file_private_t *nvlfp = NV_GET_LINUX_FILE_PRIVATE(file);
+     nvidia_stack_t *sp = nvlfp->sp;
+@@ -3128,7 +3174,13 @@
+     nv_free_file_private(nvlfp);
+-    NV_SET_FILE_PRIVATE(file, NULL);
+ 
+     nv_kmem_cache_free_stack(sp);
+-
+-    return 0;
++}
++
++static void nvidia_ctl_close_deferred(void *data)
++{
++    nv_linux_file_private_t *nvlfp = data;
++
++    down_read(&nv_system_pm_lock);
++    nvidia_ctl_close_callback(nvlfp);
++    up_read(&nv_system_pm_lock);
+ }
+@@ -6997,2 +7049,3 @@
+     NvBool resume_devices = NV_TRUE;
++    NvBool resume_uvm = NV_TRUE;
+     NV_STATUS status;
+@@ -7007,2 +7060,7 @@
+         resume_devices = NV_FALSE;
++    }
++    else if (pm_action_depth == NV_PM_ACTION_DEPTH_CHANNELS)
++    {
++        resume_devices = NV_FALSE;
++        resume_uvm = NV_FALSE;
+     }
+@@ -7022,4 +7080,7 @@
+ 
+-    status = nv_uvm_resume();
+-    WARN_ON(status != NV_OK);
++    if (resume_uvm)
++    {
++        status = nv_uvm_resume();
++        WARN_ON(status != NV_OK);
++    }
+ 
+@@ -7049,2 +7110,3 @@
+     NvBool resume_devices = NV_FALSE;
++    NvBool uvm_suspended = NV_FALSE;
+     NV_STATUS status = NV_OK;
+@@ -7068,3 +7130,3 @@
+ 
+-    if (status == NV_OK)
++    if (status == NV_OK && pm_action_depth != NV_PM_ACTION_DEPTH_CHANNELS)
+     {
+@@ -7072,2 +7134,3 @@
+         WARN_ON(status != NV_OK);
++        uvm_suspended = (status == NV_OK);
+     }
+@@ -7078,3 +7141,4 @@
+ 
+-    if (pm_action_depth == NV_PM_ACTION_DEPTH_UVM)
++    if (pm_action_depth == NV_PM_ACTION_DEPTH_UVM ||
++        pm_action_depth == NV_PM_ACTION_DEPTH_CHANNELS)
+     {
+@@ -7100,2 +7164,5 @@
+     {
++        NV_STATUS cleanup_status;
++        NV_STATUS rollback_status = NV_OK;
++
+         LOCK_NV_LINUX_DEVICES();
+@@ -7106,6 +7173,16 @@
+             {
+-                nvidia_resume(nvl->dev, NV_PM_ACTION_RESUME);
++                cleanup_status = nvidia_resume(nvl->dev, NV_PM_ACTION_RESUME);
++                WARN_ON(cleanup_status != NV_OK);
++                if (cleanup_status != NV_OK && rollback_status == NV_OK)
++                {
++                    rollback_status = cleanup_status;
++                }
+             }
+ 
+-            nv_restore_user_channels(NV_STATE_PTR(nvl));
++            cleanup_status = nv_restore_user_channels(NV_STATE_PTR(nvl));
++            WARN_ON(cleanup_status != NV_OK);
++            if (cleanup_status != NV_OK && rollback_status == NV_OK)
++            {
++                rollback_status = cleanup_status;
++            }
+         }
+@@ -7114,5 +7191,17 @@
+ 
+-        nv_uvm_resume();
++        if (uvm_suspended)
++        {
++            cleanup_status = nv_uvm_resume();
++            WARN_ON(cleanup_status != NV_OK);
++            if (cleanup_status != NV_OK && rollback_status == NV_OK)
++            {
++                rollback_status = cleanup_status;
++            }
++        }
+ 
+         nvidia_modeset_resume(0);
++        if (rollback_status != NV_OK)
++        {
++            status = NV_ERR_GENERIC;
++        }
+     }

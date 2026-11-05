@@ -1,0 +1,90 @@
+--- a/nvidia-uvm/uvm_va_range_device_p2p.c
++++ b/nvidia-uvm/uvm_va_range_device_p2p.c
+@@ -30,6 +30,7 @@
+ #include "uvm_va_range.h"
+ #include "uvm_kvmalloc.h"
+ #include "nv_uvm_interface.h"
++#include "hybrid580_uvm_memory_dispatch.h"
+ #include "nv_uvm_types.h"
+ 
+ static struct kmem_cache *g_uvm_va_range_device_p2p_cache __read_mostly;
+@@ -291,6 +292,7 @@
+ #endif
+ 
+ static NV_STATUS alloc_device_p2p_mem(uvm_gpu_t *gpu,
++                                      int rm_control_fd,
+                                       NvHandle client,
+                                       NvHandle memory,
+                                       uvm_device_p2p_mem_t **p2p_mem_out)
+@@ -306,7 +308,8 @@
+     if (!p2p_mem)
+         return NV_ERR_NO_MEMORY;
+ 
+-    status = uvm_rm_locked_call(nvUvmInterfaceDupMemory(uvm_gpu_device_handle(gpu),
++    status = uvm_rm_locked_call(nvUvmInterfaceDupMemoryWithControlFd(rm_control_fd,
++                                                        uvm_gpu_device_handle(gpu),
+                                                         client,
+                                                         memory,
+                                                         &dupped_memory,
+@@ -398,6 +401,7 @@
+ }
+ 
+ static NV_STATUS alloc_zone_device_p2p(uvm_gpu_t *gpu,
++                                       int rm_control_fd,
+                                        NvHandle client,
+                                        NvHandle memory,
+                                        uvm_device_p2p_mem_t **p2p_mem_out)
+@@ -408,7 +412,8 @@
+     UvmGpuMemoryInfo mem_info;
+     uvm_device_p2p_mem_t *p2p_mem;
+ 
+-    status = uvm_rm_locked_call(nvUvmInterfaceDupMemory(uvm_gpu_device_handle(gpu),
++    status = uvm_rm_locked_call(nvUvmInterfaceDupMemoryWithControlFd(rm_control_fd,
++                                                        uvm_gpu_device_handle(gpu),
+                                                         client,
+                                                         memory,
+                                                         &dupped_memory,
+@@ -434,7 +439,7 @@
+     if (!p2p_mem) {
+         // We have not previously allocated p2pdma pages for this RM handle so do
+         // so now.
+-        status = alloc_device_p2p_mem(gpu, client, memory, &p2p_mem);
++        status = alloc_device_p2p_mem(gpu, rm_control_fd, client, memory, &p2p_mem);
+         if (status != NV_OK) {
+             uvm_mutex_unlock(&gpu->device_p2p_lock);
+             goto out_release;
+@@ -459,6 +464,7 @@
+ }
+ 
+ static NV_STATUS alloc_coherent_device_p2p(uvm_gpu_t *gpu,
++                                           int rm_control_fd,
+                                            NvHandle client,
+                                            NvHandle memory,
+                                            uvm_device_p2p_mem_t **p2p_mem_out)
+@@ -473,7 +479,8 @@
+     if (!p2p_mem)
+         return NV_ERR_NO_MEMORY;
+ 
+-    status = uvm_rm_locked_call(nvUvmInterfaceDupMemory(uvm_gpu_device_handle(gpu),
++    status = uvm_rm_locked_call(nvUvmInterfaceDupMemoryWithControlFd(rm_control_fd,
++                                                        uvm_gpu_device_handle(gpu),
+                                                         client,
+                                                         memory,
+                                                         &dupped_memory,
+@@ -552,12 +559,14 @@
+     }
+ 
+     if (uvm_parent_gpu_is_coherent(gpu->parent) && !device_p2p_uses_zone_device(gpu->parent)) {
+-        status = alloc_coherent_device_p2p(gpu, params->hClient, params->hMemory, &p2p_mem);
++        status = alloc_coherent_device_p2p(gpu, params->rmCtrlFd, params->hClient,
++                                           params->hMemory, &p2p_mem);
+         if (status != NV_OK)
+             goto out_release;
+     }
+     else {
+-        status = alloc_zone_device_p2p(gpu, params->hClient, params->hMemory, &p2p_mem);
++        status = alloc_zone_device_p2p(gpu, params->rmCtrlFd, params->hClient,
++                                       params->hMemory, &p2p_mem);
+         if (status != NV_OK)
+             goto out_release;
+     }

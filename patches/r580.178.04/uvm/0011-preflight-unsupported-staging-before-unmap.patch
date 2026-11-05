@@ -1,0 +1,101 @@
+--- a/kernel-open/nvidia-uvm/uvm_va_block.c
++++ b/kernel-open/nvidia-uvm/uvm_va_block.c
+@@ -4657,6 +4657,34 @@
+     }
+ }
+ 
++// Return whether requested pages would require an unsupported GPU -> CPU
++// staging copy in isolated mode. The caller supplies the already-filtered
++// page mask and a scratch mask which this helper may overwrite.
++static bool block_has_unsupported_isolated_staging(uvm_va_block_t *block,
++                                                    uvm_va_block_context_t *block_context,
++                                                    uvm_processor_id_t dst_id,
++                                                    uvm_va_block_region_t region,
++                                                    const uvm_page_mask_t *copy_page_mask)
++{
++    uvm_processor_id_t src_id;
++    uvm_page_mask_t *source_pages_mask = &block_context->make_resident.copy_resident_pages_mask;
++    const uvm_processor_mask_t *can_copy_from = block_get_can_copy_from_mask(block, dst_id);
++
++    for_each_gpu_id_in_mask(src_id, &block->resident) {
++        if (uvm_id_equal(src_id, dst_id) || uvm_processor_mask_test(can_copy_from, src_id))
++            continue;
++
++        uvm_page_mask_and(source_pages_mask,
++                          copy_page_mask,
++                          uvm_va_block_resident_mask_get(block, src_id, NUMA_NO_NODE));
++        uvm_page_mask_region_clear_outside(source_pages_mask, region);
++        if (!uvm_page_mask_empty(source_pages_mask))
++            return true;
++    }
++
++    return false;
++}
++
+ // Copy resident pages from other processors to the destination.
+ // All the pages on the destination need to be populated by the caller first.
+ // Pages not resident anywhere else need to be zeroed out as well.
+@@ -4734,24 +4762,14 @@
+     // transaction as one UVM migration. Reject before queuing any copy: a
+     // retry after the source stage could repeat that stage and livelock on
+     // the cross-GPU tracker guard.
+-    if (UVM_ID_IS_GPU(dst_id) && uvm_push_isolated_gpu_execution_enabled()) {
+-        uvm_processor_id_t src_id;
+-        uvm_page_mask_t *source_pages_mask = &block_context->make_resident.copy_resident_pages_mask;
+-        const uvm_processor_mask_t *can_copy_from = block_get_can_copy_from_mask(block, dst_id);
+-
+-        for_each_gpu_id_in_mask(src_id, &block->resident) {
+-            if (uvm_id_equal(src_id, dst_id) || uvm_processor_mask_test(can_copy_from, src_id))
+-                continue;
+-
+-            uvm_page_mask_and(source_pages_mask,
+-                              copy_page_mask,
+-                              uvm_va_block_resident_mask_get(block, src_id, NUMA_NO_NODE));
+-            uvm_page_mask_region_clear_outside(source_pages_mask, region);
+-            if (!uvm_page_mask_empty(source_pages_mask)) {
+-                status = NV_ERR_NOT_SUPPORTED;
+-                goto out;
+-            }
+-        }
++    if (UVM_ID_IS_GPU(dst_id) && uvm_push_isolated_gpu_execution_enabled() &&
++        block_has_unsupported_isolated_staging(block,
++                                               block_context,
++                                               dst_id,
++                                               region,
++                                               copy_page_mask)) {
++        status = NV_ERR_NOT_SUPPORTED;
++        goto out;
+     }
+ 
+     if (UVM_ID_IS_GPU(dst_id)) {
+@@ -4957,6 +4975,30 @@
+         goto out;
+     }
+ 
++    // Fail closed before invalidating mappings or allocating destination GPU
++    // chunks. The copy routine repeats this check after population so state
++    // changes across an allocation retry are also covered.
++    if (UVM_ID_IS_GPU(dest_id) && uvm_push_isolated_gpu_execution_enabled()) {
++        uvm_page_mask_t *preflight_pages = &va_block_context->make_resident.page_mask;
++
++        if (page_mask)
++            uvm_page_mask_andnot(preflight_pages, page_mask, resident_mask);
++        else
++            uvm_page_mask_complement(preflight_pages, resident_mask);
++
++        uvm_page_mask_region_clear_outside(preflight_pages, region);
++        uvm_page_mask_andnot(preflight_pages, preflight_pages, &va_block->discarded_pages);
++
++        if (block_has_unsupported_isolated_staging(va_block,
++                                                   va_block_context,
++                                                   dest_id,
++                                                   region,
++                                                   preflight_pages)) {
++            status = NV_ERR_NOT_SUPPORTED;
++            goto out;
++        }
++    }
++
+     // Unmap all mapped processors except for UVM-Lite GPUs as their mappings
+     // are largely persistent.
+     uvm_processor_mask_andnot(unmap_processor_mask, &va_block->mapped, block_get_uvm_lite_gpus(va_block));

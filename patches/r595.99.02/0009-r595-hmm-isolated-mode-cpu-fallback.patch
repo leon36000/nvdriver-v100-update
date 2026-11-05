@@ -1,0 +1,54 @@
+--- a/nvidia-uvm/uvm_hmm.c
++++ b/nvidia-uvm/uvm_hmm.c
+@@ -1376,6 +1376,9 @@
+     uvm_mutex_lock(&va_block->lock);
+ 
+     uvm_for_each_va_policy_in(policy, va_block, va_block->start, va_block->end, node, region) {
++        if (status != NV_OK)
++            break;
++
+         for_each_id_in_mask(id, &policy->accessed_by) {
+             status = hmm_set_accessed_by_start_end_locked(va_block,
+                                                           block_context,
+@@ -1399,6 +1402,15 @@
+ 
+                 if (!gpu->parent->access_counters_supported)
+                     continue;
++
++                // Do not queue an HMM mapping that would snapshot a live
++                // foreign-provider tracker and potentially wait on it while
++                // va_block->lock is held.
++                if (uvm_push_isolated_gpu_execution_enabled() &&
++                    uvm_tracker_has_other_providers(&va_block->tracker, gpu)) {
++                    status = NV_ERR_NOT_SUPPORTED;
++                    break;
++                }
+ 
+                 gpu_state = uvm_va_block_gpu_state_get(va_block, id);
+                 UVM_ASSERT(gpu_state);
+@@ -3077,6 +3089,12 @@
+ 
+         return hmm_block_cpu_fault_locked(processor_id, va_block, va_block_retry, service_context);
+     }
++
++    // Isolated mode cannot prove a foreign-provider tracker wait will complete
++    // while the HMM migration lock remains held. Keep CPU faults available,
++    // but fail closed for HMM faults that would populate GPU memory.
++    if (uvm_push_isolated_gpu_execution_enabled())
++        return NV_ERR_NOT_SUPPORTED;
+ 
+     UVM_ASSERT(va_block_retry);
+ 
+@@ -3334,6 +3352,12 @@
+                                      NULL);
+     }
+ 
++    // Isolated mode cannot establish a cross-provider HMM migration fence while
++    // holding the HMM/VA-block lock hierarchy. Preserve the sysmem fallback
++    // above and reject only GPU destinations.
++    if (uvm_push_isolated_gpu_execution_enabled() && UVM_ID_IS_GPU(dest_id))
++        return NV_ERR_NOT_SUPPORTED;
++
+     // The overall process here is to migrate pages from the CPU or GPUs to the
+     // destination processor. Note that block_migrate_add_mappings() handles
+     // updating GPU mappings after the migration.

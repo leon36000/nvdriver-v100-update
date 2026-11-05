@@ -1,0 +1,141 @@
+--- a/nvidia/nv.c
++++ b/nvidia/nv.c
+@@ -39,6 +39,7 @@
+ #include "nv-chardev-numbers.h"
+ #include "hybrid580-file-projection.h"
+ #include "hybrid580-control-session.h"
++#include "nv-unix-nvos-params-wrappers.h"
+ #include "hybrid580-gpu-session.h"
+ #include <linux/kref.h>
+ #include <linux/mutex.h>
+@@ -4327,6 +4328,112 @@
+     return status;
+ }
+ 
++/* Execute the vendor NV_ESC_RM_MAP_MEMORY path with a kernel-owned fixed
++ * NVOS33 packet. RmIoctl derives security from the backend control file and
++ * calls the native map/context-install/unwind path; its embedded user fd is
++ * resolved in the caller's fd table through this backend's projection hook.
++ */
++NV_STATUS hybrid580_legacy_control_session_map_memory_v1(
++    struct hybrid580_control_session *session, NVOS33_PARAMETERS *params,
++    NvS32 fd)
++{
++    nv_linux_file_private_t *nvlfp;
++    nvidia_stack_t *sp = NULL;
++    nv_state_t *nv;
++    nv_ioctl_nvos33_parameters_with_fd api;
++    NV_STATUS status;
++
++    if (session == NULL || params == NULL || fd < 0)
++        return NV_ERR_INVALID_ARGUMENT;
++    params->status = 0xffffffffU;
++    if (mutex_lock_interruptible(&session->lock) != 0)
++        return NV_ERR_OPERATING_SYSTEM;
++    nvlfp = hybrid580_legacy_backend_file(session->file, 1);
++    if (nvlfp == NULL)
++    {
++        status = NV_ERR_INVALID_STATE;
++        goto done;
++    }
++    if (nv_down_read_interruptible(&nv_system_pm_lock) != 0)
++    {
++        status = NV_ERR_OPERATING_SYSTEM;
++        goto done;
++    }
++    if (nv_kmem_cache_alloc_stack(&sp) != 0)
++    {
++        status = NV_ERR_NO_MEMORY;
++        goto done_pm;
++    }
++
++    api.params = *params;
++    api.params.status = 0xffffffffU;
++    api.fd = fd;
++    nv = NV_STATE_PTR(nvlfp->nvptr);
++    status = nv_check_gpu_state(nv);
++    if (status == NV_OK)
++    {
++        status = rm_ioctl(sp, nv, &nvlfp->nvfp, NV_ESC_RM_MAP_MEMORY,
++                          &api, sizeof(api));
++        if (status == NV_OK)
++            *params = api.params;
++    }
++    nv_kmem_cache_free_stack(sp);
++done_pm:
++    up_read(&nv_system_pm_lock);
++done:
++    mutex_unlock(&session->lock);
++    return status;
++}
++EXPORT_SYMBOL(hybrid580_legacy_control_session_map_memory_v1);
++
++/* NVOS34 has no embedded descriptor; native RM uses the current process and
++ * address/handle tuple to retire the mapping. Keep its embedded status separate
++ * from transport and use the same backend control session as the owner handles.
++ */
++NV_STATUS hybrid580_legacy_control_session_unmap_memory_v1(
++    struct hybrid580_control_session *session, NVOS34_PARAMETERS *params)
++{
++    nv_linux_file_private_t *nvlfp;
++    nvidia_stack_t *sp = NULL;
++    nv_state_t *nv;
++    NV_STATUS status;
++
++    if (session == NULL || params == NULL)
++        return NV_ERR_INVALID_ARGUMENT;
++    params->status = 0xffffffffU;
++    if (mutex_lock_interruptible(&session->lock) != 0)
++        return NV_ERR_OPERATING_SYSTEM;
++    nvlfp = hybrid580_legacy_backend_file(session->file, 1);
++    if (nvlfp == NULL)
++    {
++        status = NV_ERR_INVALID_STATE;
++        goto done;
++    }
++    if (nv_down_read_interruptible(&nv_system_pm_lock) != 0)
++    {
++        status = NV_ERR_OPERATING_SYSTEM;
++        goto done;
++    }
++    if (nv_kmem_cache_alloc_stack(&sp) != 0)
++    {
++        status = NV_ERR_NO_MEMORY;
++        goto done_pm;
++    }
++
++    nv = NV_STATE_PTR(nvlfp->nvptr);
++    status = nv_check_gpu_state(nv);
++    if (status == NV_OK)
++        status = rm_ioctl(sp, nv, &nvlfp->nvfp, NV_ESC_RM_UNMAP_MEMORY,
++                          params, sizeof(*params));
++    nv_kmem_cache_free_stack(sp);
++done_pm:
++    up_read(&nv_system_pm_lock);
++done:
++    mutex_unlock(&session->lock);
++    return status;
++}
++EXPORT_SYMBOL(hybrid580_legacy_control_session_unmap_memory_v1);
++
+ static void hybrid580_control_session_release(struct kref *refs)
+ {
+     struct hybrid580_control_session *session =
+--- a/nvidia/hybrid580-control-session.h
++++ b/nvidia/hybrid580-control-session.h
+@@ -45,6 +45,15 @@
+ struct file *hybrid580_legacy_control_session_file_v1(struct hybrid580_control_session *);
+ int hybrid580_legacy_control_session_attach_v1(
+     struct hybrid580_control_session *, const NvU32 *gpu_ids, NvU32 count);
++/* Preserve the vendor NV_ESC_RM_MAP_MEMORY path, including its fd-based
++ * mmap-context installation and native RM security checks. The caller supplies
++ * a kernel-owned fixed packet; fd is the caller's live descriptor in current's
++ * fd table and must resolve through the registered file-projection hook.
++ * Transport status and NVOS33/NVOS34 embedded status remain distinct. */
++NV_STATUS hybrid580_legacy_control_session_map_memory_v1(
++    struct hybrid580_control_session *, NVOS33_PARAMETERS *params, NvS32 fd);
++NV_STATUS hybrid580_legacy_control_session_unmap_memory_v1(
++    struct hybrid580_control_session *, NVOS34_PARAMETERS *params);
+ /* One command-specific kernel-buffer bridge. The GPU ID is backend-local;
+  * caller must select the owning session and must never pass user pointers. */
+ NV_STATUS hybrid580_legacy_control_session_gpu_id_info_v1(

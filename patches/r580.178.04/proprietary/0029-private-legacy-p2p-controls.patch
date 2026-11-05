@@ -1,0 +1,145 @@
+--- a/nvidia/nv.c
++++ b/nvidia/nv.c
+@@ -4513,6 +4513,142 @@
+     return status;
+ }
+ EXPORT_SYMBOL(hybrid580_legacy_control_session_p2p_alloc_v1);
++
++
++static NV_STATUS hybrid580_legacy_control_session_p2p_control_v1(
++    struct hybrid580_control_session *session, NvHandle h_root,
++    NvHandle h_p2p, NvU32 command, void *params, NvU32 params_size,
++    NvU32 *control_status)
++{
++    nv_linux_file_private_t *nvlfp;
++    nv_state_t *nv;
++    NVOS54_PARAMETERS control;
++    nvidia_stack_t *sp = NULL;
++    nvidia_kernel_rmapi_ops_t ops;
++    NV_STATUS status;
++    int rc;
++
++    if (control_status == NULL)
++        return NV_ERR_INVALID_ARGUMENT;
++    *control_status = NV_ERR_INVALID_ARGUMENT;
++    if (session == NULL || params == NULL || h_root == 0 || h_p2p == 0 ||
++        h_p2p == h_root)
++        return NV_ERR_INVALID_ARGUMENT;
++
++    switch (command)
++    {
++        case NV503C_CTRL_CMD_REGISTER_VA_SPACE:
++            if (params_size != sizeof(NV503C_CTRL_REGISTER_VA_SPACE_PARAMS))
++                return NV_ERR_INVALID_ARGUMENT;
++            break;
++        case NV503C_CTRL_CMD_UNREGISTER_VA_SPACE:
++            if (params_size != sizeof(NV503C_CTRL_UNREGISTER_VA_SPACE_PARAMS))
++                return NV_ERR_INVALID_ARGUMENT;
++            break;
++        case NV503C_CTRL_CMD_REGISTER_VIDMEM:
++            if (params_size != sizeof(NV503C_CTRL_REGISTER_VIDMEM_PARAMS))
++                return NV_ERR_INVALID_ARGUMENT;
++            break;
++        case NV503C_CTRL_CMD_UNREGISTER_VIDMEM:
++            if (params_size != sizeof(NV503C_CTRL_UNREGISTER_VIDMEM_PARAMS))
++                return NV_ERR_INVALID_ARGUMENT;
++            break;
++        default:
++            return NV_ERR_INVALID_ARGUMENT;
++    }
++
++    control = (NVOS54_PARAMETERS) {
++        .hClient = h_root,
++        .hObject = h_p2p,
++        .cmd = command,
++        .flags = NVOS54_FLAGS_NONE,
++        .params = KERNEL_POINTER_TO_NvP64(params),
++        .paramsSize = params_size,
++        .status = 0xffffffffU,
++    };
++
++    if (mutex_lock_interruptible(&session->lock) != 0)
++        return NV_ERR_OPERATING_SYSTEM;
++    nvlfp = hybrid580_legacy_backend_file(session->file, 1);
++    if (nvlfp == NULL)
++    {
++        status = NV_ERR_INVALID_STATE;
++        goto done;
++    }
++    rc = nv_down_read_interruptible(&nv_system_pm_lock);
++    if (rc < 0)
++    {
++        status = NV_ERR_OPERATING_SYSTEM;
++        goto done;
++    }
++    if (nv_kmem_cache_alloc_stack(&sp) != 0)
++    {
++        status = NV_ERR_NO_MEMORY;
++        goto done_pm;
++    }
++    nv = NV_STATE_PTR(nvlfp->nvptr);
++    status = nv_check_gpu_state(nv);
++    if (status == NV_OK)
++    {
++        ops = (nvidia_kernel_rmapi_ops_t) {
++            .op = NV04_CONTROL,
++            .params.control = control,
++        };
++        rm_kernel_rmapi_op(sp, &ops);
++        control = ops.params.control;
++        *control_status = control.status;
++    }
++    nv_kmem_cache_free_stack(sp);
++done_pm:
++    up_read(&nv_system_pm_lock);
++done:
++    mutex_unlock(&session->lock);
++    return status;
++}
++
++NV_STATUS hybrid580_legacy_control_session_p2p_register_va_space_v1(
++    struct hybrid580_control_session *session, NvHandle h_root,
++    NvHandle h_p2p, NV503C_CTRL_REGISTER_VA_SPACE_PARAMS *params,
++    NvU32 *control_status)
++{
++    return hybrid580_legacy_control_session_p2p_control_v1(session, h_root,
++        h_p2p, NV503C_CTRL_CMD_REGISTER_VA_SPACE, params, sizeof(*params),
++        control_status);
++}
++EXPORT_SYMBOL(hybrid580_legacy_control_session_p2p_register_va_space_v1);
++
++NV_STATUS hybrid580_legacy_control_session_p2p_unregister_va_space_v1(
++    struct hybrid580_control_session *session, NvHandle h_root,
++    NvHandle h_p2p, NV503C_CTRL_UNREGISTER_VA_SPACE_PARAMS *params,
++    NvU32 *control_status)
++{
++    return hybrid580_legacy_control_session_p2p_control_v1(session, h_root,
++        h_p2p, NV503C_CTRL_CMD_UNREGISTER_VA_SPACE, params, sizeof(*params),
++        control_status);
++}
++EXPORT_SYMBOL(hybrid580_legacy_control_session_p2p_unregister_va_space_v1);
++
++NV_STATUS hybrid580_legacy_control_session_p2p_register_vidmem_v1(
++    struct hybrid580_control_session *session, NvHandle h_root,
++    NvHandle h_p2p, NV503C_CTRL_REGISTER_VIDMEM_PARAMS *params,
++    NvU32 *control_status)
++{
++    return hybrid580_legacy_control_session_p2p_control_v1(session, h_root,
++        h_p2p, NV503C_CTRL_CMD_REGISTER_VIDMEM, params, sizeof(*params),
++        control_status);
++}
++EXPORT_SYMBOL(hybrid580_legacy_control_session_p2p_register_vidmem_v1);
++
++NV_STATUS hybrid580_legacy_control_session_p2p_unregister_vidmem_v1(
++    struct hybrid580_control_session *session, NvHandle h_root,
++    NvHandle h_p2p, NV503C_CTRL_UNREGISTER_VIDMEM_PARAMS *params,
++    NvU32 *control_status)
++{
++    return hybrid580_legacy_control_session_p2p_control_v1(session, h_root,
++        h_p2p, NV503C_CTRL_CMD_UNREGISTER_VIDMEM, params, sizeof(*params),
++        control_status);
++}
++EXPORT_SYMBOL(hybrid580_legacy_control_session_p2p_unregister_vidmem_v1);
+ static void hybrid580_control_session_release(struct kref *refs)
+ {
+     struct hybrid580_control_session *session =

@@ -1,0 +1,41 @@
+--- a/nvidia-uvm/uvm_map_external.c
++++ b/nvidia-uvm/uvm_map_external.c
+@@ -40,5 +40,6 @@
+ #include "uvm_tlb_batch.h"
+ #include "nv_uvm_interface.h"
++#include "hybrid580_uvm_memory_dispatch.h"
+ #include "nv_uvm_types.h"
+ #include "nv_uvm_user_types.h"
+ 
+@@ -903,9 +903,10 @@
+     // Dup the memory. This verifies the input handles, takes a ref count on the
+     // physical allocation so it can't go away under us, and returns us the
+     // allocation info.
+-    status = uvm_rm_locked_call(nvUvmInterfaceDupMemory(uvm_gpu_device_handle(mapping_gpu),
++    status = uvm_rm_locked_call(nvUvmInterfaceDupMemoryWithControlFd(user_rm_mem->rm_control_fd,
++                                                        uvm_gpu_device_handle(mapping_gpu),
+                                                         user_rm_mem->user_client,
+                                                         user_rm_mem->user_object,
+                                                         &ext_gpu_map->mem_handle->rm_handle,
+                                                         &mem_info));
+     if (status != NV_OK) {
+--- /dev/null
++++ b/nvidia-uvm/hybrid580_uvm_memory_dispatch.h
+@@ -0,0 +1,17 @@
++/* SPDX-License-Identifier: MIT */
++#ifndef HYBRID580_UVM_MEMORY_DISPATCH_H
++#define HYBRID580_UVM_MEMORY_DISPATCH_H
++
++#include "nv_uvm_interface.h"
++
++/* Private hybrid frontend extension used to route the source allocation by
++ * the caller's RM control descriptor. */
++NV_STATUS nvUvmInterfaceDupMemoryWithControlFd(
++    int rmControlFd,
++    uvmGpuDeviceHandle device,
++    NvHandle hClient,
++    NvHandle hPhysMemory,
++    NvHandle *hDupMemory,
++    UvmGpuMemoryInfo *pGpuMemoryInfo);
++
++#endif

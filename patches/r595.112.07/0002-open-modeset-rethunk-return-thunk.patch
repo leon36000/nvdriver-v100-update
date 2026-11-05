@@ -1,0 +1,6 @@
+--- a/src/nvidia-modeset/Makefile
++++ b/src/nvidia-modeset/Makefile
+@@ -156,2 +156,3 @@
+   CONDITIONAL_CFLAGS += $(call TEST_CC_ARG, -mindirect-branch=thunk-extern)
++  CONDITIONAL_CFLAGS += $(call TEST_CC_ARG, -mfunction-return=thunk-extern)
+   CONDITIONAL_CFLAGS += $(call TEST_CC_ARG, -mindirect-branch-register)

@@ -1,0 +1,155 @@
+From: Codex
+Subject: [PATCH] Pin the exact RM control file before VA-space registration
+
+Resolve rmCtrlFd at the UVM ioctl boundary, hold it throughout registration, and pass the exact struct file into the hybrid owner resolver.
+
+--- a/kernel-open/nvidia-uvm/uvm.c
++++ b/kernel-open/nvidia-uvm/uvm.c
+@@ -20,6 +20,8 @@
+     DEALINGS IN THE SOFTWARE.
+ 
+ *******************************************************************************/
++
++#include <linux/file.h>
+ 
+ #include "uvm_api.h"
+ #include "uvm_global.h"
+@@ -993,6 +995,43 @@
+     return NV_OK;
+ }
+ 
++static long uvm_ioctl_register_gpu_va_space(struct file *filp, unsigned long arg)
++{
++    UVM_REGISTER_GPU_VASPACE_PARAMS params;
++    struct file *rm_control_file;
++
++    BUILD_BUG_ON(sizeof(params) > UVM_MAX_IOCTL_PARAM_STACK_SIZE);
++
++    if (copy_from_user(&params, (void __user *)arg, sizeof(params)))
++        return -EFAULT;
++
++    params.rmStatus = uvm_global_get_status();
++    if (params.rmStatus == NV_OK) {
++        if (!uvm_fd_va_space(filp))
++            params.rmStatus = NV_ERR_ILLEGAL_ACTION;
++
++        if (likely(params.rmStatus == NV_OK)) {
++            if (params.rmCtrlFd < 0) {
++                params.rmStatus = NV_ERR_INVALID_OBJECT_HANDLE;
++            } else {
++                rm_control_file = fget((unsigned int)params.rmCtrlFd);
++                if (rm_control_file == NULL) {
++                    params.rmStatus = NV_ERR_INVALID_OBJECT_HANDLE;
++                } else {
++                    params.rmStatus = uvm_api_register_gpu_va_space(
++                        &params, filp, rm_control_file);
++                    fput(rm_control_file);
++                }
++            }
++        }
++    }
++
++    if (copy_to_user((void __user *)arg, &params, sizeof(params)))
++        return -EFAULT;
++
++    return 0;
++}
++
+ static long uvm_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
+ {
+     switch (cmd)
+@@ -1023,7 +1062,8 @@
+         UVM_ROUTE_CMD_STACK_INIT_CHECK(UVM_UNSET_PREFERRED_LOCATION,       uvm_api_unset_preferred_location);
+         UVM_ROUTE_CMD_STACK_INIT_CHECK(UVM_SET_ACCESSED_BY,                uvm_api_set_accessed_by);
+         UVM_ROUTE_CMD_STACK_INIT_CHECK(UVM_UNSET_ACCESSED_BY,              uvm_api_unset_accessed_by);
+-        UVM_ROUTE_CMD_STACK_INIT_CHECK(UVM_REGISTER_GPU_VASPACE,           uvm_api_register_gpu_va_space);
++        case UVM_REGISTER_GPU_VASPACE:
++            return uvm_ioctl_register_gpu_va_space(filp, arg);
+         UVM_ROUTE_CMD_STACK_INIT_CHECK(UVM_UNREGISTER_GPU_VASPACE,         uvm_api_unregister_gpu_va_space);
+         UVM_ROUTE_CMD_STACK_INIT_CHECK(UVM_REGISTER_CHANNEL,               uvm_api_register_channel);
+         UVM_ROUTE_CMD_STACK_INIT_CHECK(UVM_UNREGISTER_CHANNEL,             uvm_api_unregister_channel);
+--- a/kernel-open/nvidia-uvm/uvm_api.h
++++ b/kernel-open/nvidia-uvm/uvm_api.h
+@@ -239,7 +239,9 @@
+ NV_STATUS uvm_api_unset_preferred_location(const UVM_UNSET_PREFERRED_LOCATION_PARAMS *params, struct file *filp);
+ NV_STATUS uvm_api_set_accessed_by(const UVM_SET_ACCESSED_BY_PARAMS *params, struct file *filp);
+ NV_STATUS uvm_api_unset_accessed_by(const UVM_UNSET_ACCESSED_BY_PARAMS *params, struct file *filp);
+-NV_STATUS uvm_api_register_gpu_va_space(UVM_REGISTER_GPU_VASPACE_PARAMS *params, struct file *filp);
++NV_STATUS uvm_api_register_gpu_va_space(UVM_REGISTER_GPU_VASPACE_PARAMS *params,
++                                        struct file *filp,
++                                        struct file *rm_control_file);
+ NV_STATUS uvm_api_unregister_gpu_va_space(UVM_UNREGISTER_GPU_VASPACE_PARAMS *params, struct file *filp);
+ NV_STATUS uvm_api_register_channel(UVM_REGISTER_CHANNEL_PARAMS *params, struct file *filp);
+ NV_STATUS uvm_api_unregister_channel(UVM_UNREGISTER_CHANNEL_PARAMS *params, struct file *filp);
+--- a/kernel-open/nvidia-uvm/uvm_common.h
++++ b/kernel-open/nvidia-uvm/uvm_common.h
+@@ -41,6 +41,8 @@
+ 
+ #include "uvm_types.h"
+ #include "uvm_linux.h"
++
++struct file;
+ 
+ enum {
+     NVIDIA_UVM_PRIMARY_MINOR_NUMBER = 0,
+@@ -323,6 +325,7 @@
+ typedef struct
+ {
+     int rm_control_fd;
++    struct file *rm_control_file;
+     NvHandle user_client;
+     NvHandle user_object;
+ } uvm_rm_user_object_t;
+--- a/kernel-open/nvidia-uvm/uvm_gpu.c
++++ b/kernel-open/nvidia-uvm/uvm_gpu.c
+@@ -3828,13 +3828,16 @@
+     return uvm_va_space_unregister_gpu(va_space, &params->gpu_uuid);
+ }
+ 
+-NV_STATUS uvm_api_register_gpu_va_space(UVM_REGISTER_GPU_VASPACE_PARAMS *params, struct file *filp)
++NV_STATUS uvm_api_register_gpu_va_space(UVM_REGISTER_GPU_VASPACE_PARAMS *params,
++                                        struct file *filp,
++                                        struct file *rm_control_file)
+ {
+     uvm_va_space_t *va_space = uvm_va_space_get(filp);
+     uvm_rm_user_object_t user_rm_va_space = {
+-        .rm_control_fd = params->rmCtrlFd,
+-        .user_client   = params->hClient,
+-        .user_object   = params->hVaSpace
++        .rm_control_fd   = params->rmCtrlFd,
++        .rm_control_file = rm_control_file,
++        .user_client     = params->hClient,
++        .user_object     = params->hVaSpace
+     };
+     return uvm_va_space_register_gpu_va_space(va_space, &user_rm_va_space, &params->gpuUuid);
+ }
+--- a/kernel-open/nvidia-uvm/uvm_va_space.c
++++ b/kernel-open/nvidia-uvm/uvm_va_space.c
+@@ -1527,7 +1527,7 @@
+     nv_kref_init(&gpu_va_space->kref);
+ 
+     status = uvm_rm_locked_call(nvUvmInterfaceDupAddressSpaceWithControlFd(
+-                                                              user_rm_va_space->rm_control_fd,
++                                                              user_rm_va_space->rm_control_file,
+                                                               uvm_gpu_device_handle(gpu),
+                                                               user_rm_va_space->user_client,
+                                                               user_rm_va_space->user_object,
+--- a/kernel-open/common/inc/hybrid580_uvm_control_fd_dispatch.h
++++ b/kernel-open/common/inc/hybrid580_uvm_control_fd_dispatch.h
+@@ -3,6 +3,7 @@
+ #define HYBRID580_UVM_CONTROL_FD_DISPATCH_H
+ 
+ /* Included after nv_uvm_interface.h, whose types and NV_STATUS are used. */
++struct file;
+ NV_STATUS nvUvmInterfaceDupMemoryWithControlFd(
+     int rmControlFd,
+     uvmGpuDeviceHandle device,
+@@ -13,7 +14,7 @@
+ 
+ /* Hybrid-only dispatcher for a user-created VA space. */
+ NV_STATUS nvUvmInterfaceDupAddressSpaceWithControlFd(
+-    int rmControlFd,
++    struct file *rmControlFile,
+     uvmGpuDeviceHandle device,
+     NvHandle hClient,
+     NvHandle hUserVASpace,

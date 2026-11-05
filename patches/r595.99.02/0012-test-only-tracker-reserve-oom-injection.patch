@@ -1,0 +1,651 @@
+--- a/nvidia-uvm/uvm_tracker.c
++++ b/nvidia-uvm/uvm_tracker.c
+@@ -30,6 +30,74 @@
+ #include "uvm_common.h"
+ #include "uvm_linux.h"
+ 
++#ifdef UVM_TEST_TRACKER_OOM_INJECTION
++// This hook is present only in an explicitly opted-in test candidate. Keep its
++// lock independent of PMM/root locks: the reserve path may be called with
++// those locks held, and no hook operation acquires a PMM/root lock.
++static DEFINE_SPINLOCK(g_tracker_test_oom_lock);
++static uvm_tracker_t *g_tracker_test_oom_target;
++static NvU32 g_tracker_test_oom_remaining;
++static NvU32 g_tracker_test_oom_consumed;
++
++NV_STATUS uvm_tracker_test_oom_inject_arm(uvm_tracker_t *tracker, NvU32 failures)
++{
++    unsigned long irq_flags;
++    NV_STATUS status = NV_OK;
++
++    if (tracker == NULL || failures == 0)
++        return NV_ERR_INVALID_ARGUMENT;
++
++    spin_lock_irqsave(&g_tracker_test_oom_lock, irq_flags);
++    if (g_tracker_test_oom_target != NULL) {
++        status = NV_ERR_IN_USE;
++    }
++    else {
++        g_tracker_test_oom_target = tracker;
++        g_tracker_test_oom_remaining = failures;
++        g_tracker_test_oom_consumed = 0;
++    }
++    spin_unlock_irqrestore(&g_tracker_test_oom_lock, irq_flags);
++
++    return status;
++}
++
++NvU32 uvm_tracker_test_oom_inject_disarm(uvm_tracker_t *tracker)
++{
++    unsigned long irq_flags;
++    NvU32 consumed = 0;
++
++    if (tracker == NULL)
++        return 0;
++
++    spin_lock_irqsave(&g_tracker_test_oom_lock, irq_flags);
++    if (g_tracker_test_oom_target == tracker) {
++        consumed = g_tracker_test_oom_consumed;
++        g_tracker_test_oom_target = NULL;
++        g_tracker_test_oom_remaining = 0;
++        g_tracker_test_oom_consumed = 0;
++    }
++    spin_unlock_irqrestore(&g_tracker_test_oom_lock, irq_flags);
++
++    return consumed;
++}
++
++static bool uvm_tracker_test_oom_inject_should_fail(uvm_tracker_t *tracker)
++{
++    unsigned long irq_flags;
++    bool should_fail = false;
++
++    spin_lock_irqsave(&g_tracker_test_oom_lock, irq_flags);
++    if (g_tracker_test_oom_target == tracker && g_tracker_test_oom_remaining > 0) {
++        --g_tracker_test_oom_remaining;
++        ++g_tracker_test_oom_consumed;
++        should_fail = true;
++    }
++    spin_unlock_irqrestore(&g_tracker_test_oom_lock, irq_flags);
++
++    return should_fail;
++}
++#endif
++
+ static bool tracker_is_using_static_entries(uvm_tracker_t *tracker)
+ {
+     return tracker->max_size == ARRAY_SIZE(tracker->static_entries);
+@@ -102,6 +170,10 @@
+ NV_STATUS uvm_tracker_reserve(uvm_tracker_t *tracker, NvU32 min_free_entries)
+ {
+     if (tracker->size + min_free_entries > tracker->max_size) {
++#ifdef UVM_TEST_TRACKER_OOM_INJECTION
++        if (uvm_tracker_test_oom_inject_should_fail(tracker))
++            return NV_ERR_NO_MEMORY;
++#endif
+         // Special case the first resize to jump from 1 all the way to 8.
+         // This is based on a guess that if a tracker needs more than 1
+         // entry it likely needs much more.
+--- a/nvidia-uvm/uvm_tracker.h
++++ b/nvidia-uvm/uvm_tracker.h
+@@ -104,6 +104,13 @@
+ // without requiring memory allocation.
+ NV_STATUS uvm_tracker_reserve(uvm_tracker_t *tracker, NvU32 min_free_entries);
+ 
++#ifdef UVM_TEST_TRACKER_OOM_INJECTION
++// Test-only, one-tracker allocator failure injection. The failure budget is
++// consumed only when reserve would grow its backing storage.
++NV_STATUS uvm_tracker_test_oom_inject_arm(uvm_tracker_t *tracker, NvU32 failures);
++NvU32 uvm_tracker_test_oom_inject_disarm(uvm_tracker_t *tracker);
++#endif
++
+ // Add a push to the tracker
+ // The push needs be finished, i.e. uvm_push_end*() has been called on it.
+ // This may require allocating memory to fit a new entry in the tracker
+--- a/nvidia-uvm/uvm_tracker_test.c
++++ b/nvidia-uvm/uvm_tracker_test.c
+@@ -350,6 +350,102 @@
+     return status;
+ }
+ 
++#ifdef UVM_TEST_TRACKER_OOM_INJECTION
++// Exercise the actual reserve retry in uvm_tracker_add_tracker() while its
++// source dependency is known to be pending behind a GPU semaphore.
++static NV_STATUS test_tracker_reserve_oom_injection(uvm_va_space_t *va_space)
++{
++    uvm_gpu_t *gpu = uvm_va_space_find_first_gpu(va_space);
++    uvm_channel_t *channel;
++    uvm_tracker_t src, dst;
++    uvm_gpu_semaphore_t sema;
++    uvm_push_t push;
++    NvU32 injected_failures;
++    NV_STATUS status = NV_OK;
++    NV_STATUS cleanup_status;
++    bool sema_allocated = false;
++    bool push_submitted = false;
++    bool hook_armed = false;
++
++    if (g_uvm_global.conf_computing_enabled)
++        return NV_OK;
++    if (gpu == NULL)
++        return NV_ERR_INVALID_STATE;
++
++    memset(&sema, 0, sizeof(sema));
++    uvm_tracker_init(&src);
++    uvm_tracker_init(&dst);
++
++    channel = uvm_channel_any(gpu->channel_manager);
++    if (channel == NULL) {
++        status = NV_ERR_INVALID_STATE;
++        goto done;
++    }
++
++    status = uvm_gpu_semaphore_alloc(gpu->semaphore_pool, &sema);
++    if (status != NV_OK)
++        goto done;
++    sema_allocated = true;
++
++    status = uvm_push_begin_on_channel(channel, &push, "Tracker reserve OOM test");
++    if (status != NV_OK)
++        goto done;
++
++    gpu->parent->host_hal->semaphore_acquire(
++            &push,
++            uvm_gpu_semaphore_get_gpu_va(&sema, gpu, uvm_channel_is_proxy(channel)),
++            1);
++    uvm_push_end(&push);
++    push_submitted = true;
++
++    status = uvm_tracker_add_push(&src, &push);
++    if (status != NV_OK)
++        goto done;
++    if (uvm_tracker_query(&src) != NV_WARN_MORE_PROCESSING_REQUIRED) {
++        status = NV_ERR_INVALID_STATE;
++        goto done;
++    }
++
++    status = uvm_tracker_test_oom_inject_arm(&dst, 2);
++    if (status != NV_OK)
++        goto done;
++    hook_armed = true;
++
++    status = uvm_tracker_add_tracker(&dst, &src);
++    injected_failures = uvm_tracker_test_oom_inject_disarm(&dst);
++    hook_armed = false;
++
++    if (status != NV_ERR_NO_MEMORY || injected_failures != 2 || src.size != 1 || dst.size != 0) {
++        UVM_TEST_PRINT("Tracker OOM injection mismatch: status=%s failures=%u src=%u dst=%u\n",
++                       nvstatusToString(status), injected_failures, src.size, dst.size);
++        status = NV_ERR_INVALID_STATE;
++        goto done;
++    }
++
++    status = NV_OK;
++
++done:
++    // Reset the global hook on every exit before releasing the pending push.
++    if (hook_armed) {
++        uvm_tracker_test_oom_inject_disarm(&dst);
++    }
++    if (push_submitted) {
++        uvm_gpu_semaphore_set_payload(&sema, 1);
++        cleanup_status = uvm_channel_wait(channel);
++        if (status == NV_OK && cleanup_status != NV_OK)
++            status = cleanup_status;
++        cleanup_status = uvm_tracker_wait(&src);
++        if (status == NV_OK && cleanup_status != NV_OK)
++            status = cleanup_status;
++    }
++    if (sema_allocated)
++        uvm_gpu_semaphore_free(&sema);
++    uvm_tracker_deinit(&dst);
++    uvm_tracker_deinit(&src);
++    return status;
++}
++#endif
++
+ static NV_STATUS test_tracker_add_tracker(uvm_va_space_t *va_space)
+ {
+     uvm_gpu_t *gpu;
+@@ -457,6 +553,12 @@
+     if (status != NV_OK)
+         goto done;
+ 
++#ifdef UVM_TEST_TRACKER_OOM_INJECTION
++    status = test_tracker_reserve_oom_injection(va_space);
++    if (status != NV_OK)
++        goto done;
++#endif
++
+ done:
+     uvm_va_space_up_read_rm(va_space);
+ 
+--- a/nvidia-uvm/uvm_pmm_gpu.c
++++ b/nvidia-uvm/uvm_pmm_gpu.c
+@@ -182,6 +182,15 @@
+ #include <linux/pci-p2pdma.h>
+ #endif
+ 
++#ifdef UVM_TEST_TRACKER_OOM_INJECTION
++static DEFINE_SPINLOCK(g_pmm_test_oom_wait_lock);
++static uvm_gpu_root_chunk_t *g_pmm_test_oom_wait_root;
++static uvm_tracker_t *g_pmm_test_oom_wait_source;
++static NvU32 *g_pmm_test_oom_wait_entered;
++static NvU32 g_pmm_test_oom_wait_failures;
++static NvU32 g_pmm_test_oom_injected_failures;
++#endif
++
+ static int uvm_global_oversubscription = 1;
+ module_param(uvm_global_oversubscription, int, S_IRUGO);
+ MODULE_PARM_DESC(uvm_global_oversubscription, "Enable (1) or disable (0) global oversubscription support.");
+@@ -694,6 +703,10 @@
+ void uvm_pmm_gpu_free(uvm_pmm_gpu_t *pmm, uvm_gpu_chunk_t *chunk, uvm_tracker_t *tracker)
+ {
+     NV_STATUS status;
++#ifdef UVM_TEST_TRACKER_OOM_INJECTION
++    bool test_oom_hook_armed = false;
++    NvU32 test_oom_injected_failures = 0;
++#endif
+ 
+     // Referenced chunks are freed by Linux when the reference is released.
+     if (!chunk || chunk->is_referenced)
+@@ -713,15 +726,48 @@
+         // Remove any completed entries from the root tracker to prevent it from
+         // growing too much over time.
+         uvm_tracker_remove_completed(&root_chunk->tracker);
++
++#ifdef UVM_TEST_TRACKER_OOM_INJECTION
++        {
++            unsigned long irq_flags;
++            bool inject_for_this_free;
++            NvU32 failures;
++
++            spin_lock_irqsave(&g_pmm_test_oom_wait_lock, irq_flags);
++            inject_for_this_free = g_pmm_test_oom_wait_root == root_chunk &&
++                                   g_pmm_test_oom_wait_source == tracker;
++            failures = g_pmm_test_oom_wait_failures;
++            spin_unlock_irqrestore(&g_pmm_test_oom_wait_lock, irq_flags);
++
++            if (inject_for_this_free)
++                test_oom_hook_armed =
++                        uvm_tracker_test_oom_inject_arm(&root_chunk->tracker, failures) == NV_OK;
++        }
++#endif
+ 
+         // The safe fallback can wait for tracker completions after allocation
+         // failure. Do not hold the root-chunk bitlock across that wait: keep the
+         // fast merge serialized, then wait only after the root tracker has
+         // declined the new entries.
+         status = uvm_tracker_add_tracker(&root_chunk->tracker, tracker);
++#ifdef UVM_TEST_TRACKER_OOM_INJECTION
++        if (test_oom_hook_armed)
++            test_oom_injected_failures = uvm_tracker_test_oom_inject_disarm(&root_chunk->tracker);
++#endif
+         root_chunk_unlock(pmm, root_chunk);
+ 
+         if (status == NV_ERR_NO_MEMORY) {
++#ifdef UVM_TEST_TRACKER_OOM_INJECTION
++            unsigned long irq_flags;
++
++            spin_lock_irqsave(&g_pmm_test_oom_wait_lock, irq_flags);
++            if (g_pmm_test_oom_wait_root == root_chunk && g_pmm_test_oom_wait_source == tracker &&
++                g_pmm_test_oom_wait_entered) {
++                WRITE_ONCE(*g_pmm_test_oom_wait_entered, 1);
++                g_pmm_test_oom_injected_failures = test_oom_injected_failures;
++            }
++            spin_unlock_irqrestore(&g_pmm_test_oom_wait_lock, irq_flags);
++#endif
+             UVM_DBG_PRINT_RL("Failed to add tracker to tracker, waiting\n");
+             status = uvm_tracker_wait(tracker);
+         }
+@@ -732,6 +778,83 @@
+ 
+     free_chunk(pmm, chunk);
+ }
++
++#ifdef UVM_TEST_TRACKER_OOM_INJECTION
++NV_STATUS uvm_pmm_gpu_test_oom_inject_arm_root(uvm_pmm_gpu_t *pmm,
++                                               uvm_gpu_chunk_t *chunk,
++                                               uvm_tracker_t *seed_tracker,
++                                               uvm_tracker_t *source_tracker,
++                                               NvU32 failures,
++                                               NvU32 *wait_entered)
++{
++    uvm_gpu_root_chunk_t *root_chunk;
++    unsigned long irq_flags;
++    NV_STATUS status;
++
++    if (!pmm || !chunk || !seed_tracker || seed_tracker->size != 1 || !source_tracker ||
++        source_tracker->size != 1 || failures == 0 || !wait_entered)
++        return NV_ERR_INVALID_ARGUMENT;
++
++    root_chunk = root_chunk_from_chunk(pmm, chunk);
++    root_chunk_lock(pmm, root_chunk);
++
++    // The test needs exactly one pending root dependency in the static slot
++    // so merging a distinct source channel forces real tracker growth.
++    uvm_tracker_remove_completed(&root_chunk->tracker);
++    if (root_chunk->tracker.size != 0) {
++        status = NV_ERR_IN_USE;
++        goto out_unlock;
++    }
++
++    if (root_chunk->tracker.max_size != ARRAY_SIZE(root_chunk->tracker.static_entries)) {
++        uvm_tracker_deinit(&root_chunk->tracker);
++        uvm_tracker_init(&root_chunk->tracker);
++    }
++
++    status = uvm_tracker_add_tracker(&root_chunk->tracker, seed_tracker);
++    if (status != NV_OK)
++        goto out_unlock;
++    if (root_chunk->tracker.size != 1) {
++        status = NV_ERR_INVALID_STATE;
++        goto out_unlock;
++    }
++
++    WRITE_ONCE(*wait_entered, 0);
++    spin_lock_irqsave(&g_pmm_test_oom_wait_lock, irq_flags);
++    if (g_pmm_test_oom_wait_root != NULL) {
++        spin_unlock_irqrestore(&g_pmm_test_oom_wait_lock, irq_flags);
++        status = NV_ERR_IN_USE;
++        goto out_unlock;
++    }
++    g_pmm_test_oom_wait_root = root_chunk;
++    g_pmm_test_oom_wait_source = source_tracker;
++    g_pmm_test_oom_wait_entered = wait_entered;
++    g_pmm_test_oom_wait_failures = failures;
++    g_pmm_test_oom_injected_failures = 0;
++    spin_unlock_irqrestore(&g_pmm_test_oom_wait_lock, irq_flags);
++
++out_unlock:
++    root_chunk_unlock(pmm, root_chunk);
++    return status;
++}
++
++NvU32 uvm_pmm_gpu_test_oom_inject_disarm(void)
++{
++    unsigned long irq_flags;
++    NvU32 injected_failures;
++
++    spin_lock_irqsave(&g_pmm_test_oom_wait_lock, irq_flags);
++    injected_failures = g_pmm_test_oom_injected_failures;
++    g_pmm_test_oom_wait_root = NULL;
++    g_pmm_test_oom_wait_source = NULL;
++    g_pmm_test_oom_wait_entered = NULL;
++    g_pmm_test_oom_wait_failures = 0;
++    g_pmm_test_oom_injected_failures = 0;
++    spin_unlock_irqrestore(&g_pmm_test_oom_wait_lock, irq_flags);
++
++    return injected_failures;
++}
++#endif
+ 
+ static NvU32 num_subchunks(uvm_gpu_chunk_t *parent)
+ {
+--- a/nvidia-uvm/uvm_pmm_gpu.h
++++ b/nvidia-uvm/uvm_pmm_gpu.h
+@@ -549,6 +549,16 @@
+ // before freeing or re-using the chunk.
+ void uvm_pmm_gpu_free(uvm_pmm_gpu_t *pmm, uvm_gpu_chunk_t *chunk, uvm_tracker_t *tracker);
+ 
++#ifdef UVM_TEST_TRACKER_OOM_INJECTION
++NV_STATUS uvm_pmm_gpu_test_oom_inject_arm_root(uvm_pmm_gpu_t *pmm,
++                                               uvm_gpu_chunk_t *chunk,
++                                               uvm_tracker_t *seed_tracker,
++                                               uvm_tracker_t *source_tracker,
++                                               NvU32 failures,
++                                               NvU32 *wait_entered);
++NvU32 uvm_pmm_gpu_test_oom_inject_disarm(void);
++#endif
++
+ // Splits the input chunk in-place into smaller chunks of subchunk_size. No data
+ // is moved, and the smaller chunks remain allocated.
+ //
+--- a/nvidia-uvm/uvm_pmm_test.c
++++ b/nvidia-uvm/uvm_pmm_test.c
+@@ -38,6 +38,11 @@
+ #include "uvm_test_ioctl.h"
+ #include "uvm_test_rng.h"
+ 
++#ifdef UVM_TEST_TRACKER_OOM_INJECTION
++#include <linux/delay.h>
++#include <linux/workqueue.h>
++#endif
++
+ #define CHUNKS_PER_BUCKET 128
+ 
+ typedef struct
+@@ -45,6 +50,40 @@
+     struct list_head entry;
+     uvm_gpu_chunk_t *chunks[CHUNKS_PER_BUCKET];
+ } pmm_leak_bucket_t;
++
++#ifdef UVM_TEST_TRACKER_OOM_INJECTION
++typedef struct
++{
++    struct delayed_work work;
++    uvm_pmm_gpu_t *pmm;
++    uvm_gpu_semaphore_t *semaphore;
++    size_t root_index;
++    NvU32 wait_entered;
++    bool root_lock_released;
++} pmm_tracker_oom_release_t;
++
++static void pmm_tracker_oom_release_work(struct work_struct *work)
++{
++    pmm_tracker_oom_release_t *release = container_of(to_delayed_work(work), pmm_tracker_oom_release_t, work);
++    NvU32 timeout_ms;
++
++    // Wait for the actual PMM fallback to signal immediately after dropping
++    // this root's bitlock. Release even on timeout so a broken test build can't
++    // leave uvm_pmm_gpu_free() blocked forever.
++    for (timeout_ms = 0; timeout_ms < 3000; timeout_ms += 10) {
++        if (READ_ONCE(release->wait_entered) &&
++            !test_bit(release->root_index, release->pmm->root_chunks.bitlocks.bits)) {
++            WRITE_ONCE(release->root_lock_released, true);
++            msleep(25);
++            break;
++        }
++
++        msleep(10);
++    }
++
++    uvm_gpu_semaphore_set_payload(release->semaphore, 1);
++}
++#endif
+ 
+ typedef struct
+ {
+@@ -844,6 +883,177 @@
+     return status;
+ }
+ 
++#ifdef UVM_TEST_TRACKER_OOM_INJECTION
++// Drive uvm_pmm_gpu_free()'s real OOM fallback with a pending source tracker.
++// A worker releases the GPU semaphore only after the fallback has been entered
++// and the same root-chunk bitlock is observed clear.
++static NV_STATUS test_pmm_tracker_reserve_oom_injection(uvm_gpu_t *gpu)
++{
++    uvm_pmm_gpu_t *pmm = &gpu->pmm;
++    uvm_gpu_chunk_t *chunk = NULL;
++    uvm_tracker_t seed_tracker, src_tracker;
++    uvm_gpu_semaphore_t semaphore;
++    uvm_push_t seed_push, src_push;
++    pmm_tracker_oom_release_t release;
++    NV_STATUS status = NV_OK;
++    NV_STATUS cleanup_status;
++    NvU32 injected_failures = 0;
++    bool trackers_initialized = false;
++    bool semaphore_allocated = false;
++    bool seed_push_submitted = false;
++    bool src_push_submitted = false;
++    bool hook_armed = false;
++    bool release_work_scheduled = false;
++
++    if (g_uvm_global.conf_computing_enabled)
++        return NV_OK;
++
++    memset(&semaphore, 0, sizeof(semaphore));
++    memset(&release, 0, sizeof(release));
++    uvm_tracker_init(&seed_tracker);
++    uvm_tracker_init(&src_tracker);
++    trackers_initialized = true;
++
++    status = uvm_pmm_gpu_alloc_kernel(pmm,
++                                      1,
++                                      UVM_CHUNK_SIZE_MAX,
++                                      UVM_PMM_ALLOC_FLAGS_DONT_BATCH,
++                                      &chunk,
++                                      NULL);
++    if (status != NV_OK)
++        goto done;
++
++    status = uvm_gpu_semaphore_alloc(gpu->semaphore_pool, &semaphore);
++    if (status != NV_OK)
++        goto done;
++    semaphore_allocated = true;
++
++    status = uvm_push_begin(gpu->channel_manager,
++                            UVM_CHANNEL_TYPE_GPU_INTERNAL,
++                            &seed_push,
++                            "PMM tracker OOM seed");
++    if (status != NV_OK)
++        goto done;
++    gpu->parent->host_hal->semaphore_acquire(
++            &seed_push,
++            uvm_gpu_semaphore_get_gpu_va(&semaphore, gpu, uvm_channel_is_proxy(seed_push.channel)),
++            1);
++    uvm_push_end(&seed_push);
++    seed_push_submitted = true;
++    status = uvm_tracker_add_push(&seed_tracker, &seed_push);
++    if (status != NV_OK)
++        goto done;
++
++    status = uvm_push_begin(gpu->channel_manager,
++                            UVM_CHANNEL_TYPE_MEMOPS,
++                            &src_push,
++                            "PMM tracker OOM source");
++    if (status != NV_OK)
++        goto done;
++    gpu->parent->host_hal->semaphore_acquire(
++            &src_push,
++            uvm_gpu_semaphore_get_gpu_va(&semaphore, gpu, uvm_channel_is_proxy(src_push.channel)),
++            1);
++    uvm_push_end(&src_push);
++    src_push_submitted = true;
++    status = uvm_tracker_add_push(&src_tracker, &src_push);
++    if (status != NV_OK)
++        goto done;
++
++    if (seed_push.channel == src_push.channel ||
++        uvm_tracker_query(&seed_tracker) != NV_WARN_MORE_PROCESSING_REQUIRED ||
++        uvm_tracker_query(&src_tracker) != NV_WARN_MORE_PROCESSING_REQUIRED) {
++        status = NV_ERR_INVALID_STATE;
++        goto done;
++    }
++
++    release.pmm = pmm;
++    release.semaphore = &semaphore;
++    release.root_index = chunk->address / UVM_CHUNK_SIZE_MAX;
++    INIT_DELAYED_WORK(&release.work, pmm_tracker_oom_release_work);
++
++    status = uvm_pmm_gpu_test_oom_inject_arm_root(pmm,
++                                                   chunk,
++                                                   &seed_tracker,
++                                                   &src_tracker,
++                                                   2,
++                                                   &release.wait_entered);
++    if (status != NV_OK)
++        goto done;
++    hook_armed = true;
++
++    release_work_scheduled = schedule_delayed_work(&release.work, 0);
++    if (!release_work_scheduled) {
++        status = NV_ERR_INVALID_STATE;
++        goto done;
++    }
++
++    // The root tracker already contains the pending GPU_INTERNAL dependency;
++    // this distinct MEMOPS dependency forces reserve growth and the OOM retry.
++    uvm_pmm_gpu_free(pmm, chunk, &src_tracker);
++    chunk = NULL;
++
++    flush_delayed_work(&release.work);
++    release_work_scheduled = false;
++    injected_failures = uvm_pmm_gpu_test_oom_inject_disarm();
++    hook_armed = false;
++
++    if (injected_failures != 2 || !READ_ONCE(release.wait_entered) ||
++        !READ_ONCE(release.root_lock_released) ||
++        uvm_tracker_query(&src_tracker) != NV_OK || uvm_tracker_query(&seed_tracker) != NV_OK) {
++        UVM_TEST_PRINT("PMM tracker OOM mismatch: failures=%u entered=%u unlocked=%u source=%u seed=%u\n",
++                       injected_failures,
++                       READ_ONCE(release.wait_entered),
++                       READ_ONCE(release.root_lock_released),
++                       src_tracker.size,
++                       seed_tracker.size);
++        status = NV_ERR_INVALID_STATE;
++        goto done;
++    }
++
++done:
++    if (hook_armed)
++        uvm_pmm_gpu_test_oom_inject_disarm();
++
++    if (semaphore_allocated)
++        uvm_gpu_semaphore_set_payload(&semaphore, 1);
++    if (release_work_scheduled) {
++        flush_delayed_work(&release.work);
++        release_work_scheduled = false;
++    }
++
++    if (seed_push_submitted) {
++        cleanup_status = uvm_channel_wait(seed_push.channel);
++        if (status == NV_OK && cleanup_status != NV_OK)
++            status = cleanup_status;
++    }
++    if (src_push_submitted) {
++        cleanup_status = uvm_channel_wait(src_push.channel);
++        if (status == NV_OK && cleanup_status != NV_OK)
++            status = cleanup_status;
++    }
++    if (trackers_initialized) {
++        cleanup_status = uvm_tracker_wait(&seed_tracker);
++        if (status == NV_OK && cleanup_status != NV_OK)
++            status = cleanup_status;
++        cleanup_status = uvm_tracker_wait(&src_tracker);
++        if (status == NV_OK && cleanup_status != NV_OK)
++            status = cleanup_status;
++    }
++
++    if (chunk)
++        uvm_pmm_gpu_free(pmm, chunk, NULL);
++    if (semaphore_allocated)
++        uvm_gpu_semaphore_free(&semaphore);
++    if (trackers_initialized) {
++        uvm_tracker_deinit(&seed_tracker);
++        uvm_tracker_deinit(&src_tracker);
++    }
++
++    return status;
++}
++#endif
++
+ NV_STATUS uvm_test_pmm_sanity(UVM_TEST_PMM_SANITY_PARAMS *params, struct file *filp)
+ {
+     NV_STATUS status = NV_OK;
+@@ -858,6 +1068,14 @@
+     uvm_va_space_down_read(va_space);
+ 
+     for_each_va_space_gpu(gpu, va_space) {
++#ifdef UVM_TEST_TRACKER_OOM_INJECTION
++        if (params->mode == UvmTestPmmSanityModeBasic) {
++            status = test_pmm_tracker_reserve_oom_injection(gpu);
++            if (status != NV_OK)
++                goto out;
++        }
++#endif
++
+         status = basic_test(va_space, gpu, params->mode);
+         if (status != NV_OK)
+             goto out;

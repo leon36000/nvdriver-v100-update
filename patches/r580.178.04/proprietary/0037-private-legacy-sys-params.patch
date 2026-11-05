@@ -1,0 +1,129 @@
+--- a/nvidia/nv.c
++++ b/nvidia/nv.c
+@@ -49,10 +49,36 @@
+ #include <nv_escape.h>
+ #include <nv-kernel-rmapi-ops.h>
+ #include <linux/spinlock.h>
+ #include <linux/slab.h>
+ 
++static DEFINE_MUTEX(hybrid580_sys_params_lock);
++
++/* The vendor ioctl and the private hybrid bridge share this set-once update.
++ * Its short critical section also prevents separate control sessions from
++ * racing the 64-bit field on 32-bit kernels. */
++static int hybrid580_set_sys_params(nv_linux_state_t *nvl, NvU64 memblock_size)
++{
++    int status = 0;
++
++    if (nvl == NULL)
++        return -EINVAL;
++
++    mutex_lock(&hybrid580_sys_params_lock);
++    if (nvl->numa_memblock_size == 0)
++    {
++        nvl->numa_memblock_size = memblock_size;
++    }
++    else if (nvl->numa_memblock_size != memblock_size)
++    {
++        status = -EBUSY;
++    }
++    mutex_unlock(&hybrid580_sys_params_lock);
++
++    return status;
++}
++
+ #if defined(NV_UVM_ENABLE)
+ #include "nv_uvm_interface.h"
+ #endif
+ 
+ #if defined(NV_VGPU_KVM_BUILD)
+@@ -2638,21 +2664,13 @@
+             {
+                 status = -EINVAL;
+                 goto done;
+             }
+ 
+-            /* numa_memblock_size should only be set once */
+-            if (nvl->numa_memblock_size == 0)
+-            {
+-                nvl->numa_memblock_size = api->memblock_size;
+-            }
+-            else
+-            {
+-                status = (nvl->numa_memblock_size == api->memblock_size) ?
+-                    0 : -EBUSY;
++            status = hybrid580_set_sys_params(nvl, api->memblock_size);
++            if (status != 0)
+                 goto done;
+-            }
+             break;
+         }
+ 
+         case NV_ESC_NUMA_INFO:
+         {
+@@ -4489,10 +4507,65 @@
+     mutex_unlock(&session->lock);
+     return status;
+ }
+ EXPORT_SYMBOL(hybrid580_legacy_control_session_unmap_memory_v1);
+ 
++/* Apply the exact NV_ESC_SYS_PARAMS control-device state transition without
++ * exposing an RM handle, user pointer, or the backend's public ioctl node. */
++int hybrid580_legacy_control_session_sys_params_v1(
++    struct hybrid580_control_session *session, NvU64 memblock_size)
++{
++    nv_linux_file_private_t *nvlfp;
++    nv_linux_state_t *nvl;
++    nv_state_t *nv;
++    nvidia_stack_t *sp = NULL;
++    NV_STATUS rm_status;
++    int status, rc;
++
++    if (session == NULL)
++        return -EINVAL;
++    rc = mutex_lock_interruptible(&session->lock);
++    if (rc != 0)
++        return rc;
++
++    nvlfp = hybrid580_legacy_backend_file(session->file, 1);
++    if (nvlfp == NULL || nvlfp->nvptr != &nv_ctl_device)
++    {
++        status = -EINVAL;
++        goto done;
++    }
++    nvl = nvlfp->nvptr;
++    nv = NV_STATE_PTR(nvl);
++    if ((nv->flags & NV_FLAG_CONTROL) == 0)
++    {
++        status = -EINVAL;
++        goto done;
++    }
++
++    status = nv_down_read_interruptible(&nv_system_pm_lock);
++    if (status < 0)
++        goto done;
++    status = nv_kmem_cache_alloc_stack(&sp);
++    if (status != 0)
++        goto done_pm;
++
++    rm_status = nv_check_gpu_state(nv);
++    if (rm_status == NV_ERR_GPU_IS_LOST)
++        status = -EINVAL;
++    else
++        status = hybrid580_set_sys_params(nvl, memblock_size);
++
++    nv_kmem_cache_free_stack(sp);
++done_pm:
++    up_read(&nv_system_pm_lock);
++done:
++    mutex_unlock(&session->lock);
++    return status;
++}
++EXPORT_SYMBOL(hybrid580_legacy_control_session_sys_params_v1);
++
++
+ NV_STATUS hybrid580_legacy_control_session_p2p_alloc_v1(
+     struct hybrid580_control_session *session, NvHandle h_root,
+     NvHandle h_subdevice, NvHandle h_p2p, NvU32 params_size,
+     const NV503C_ALLOC_PARAMETERS *params, NvHandle *returned_p2p,
+     NvU32 *rm_status)

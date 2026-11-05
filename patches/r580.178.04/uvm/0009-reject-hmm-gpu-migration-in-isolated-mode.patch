@@ -1,0 +1,28 @@
+--- a/kernel-open/nvidia-uvm/uvm_hmm.c
++++ b/kernel-open/nvidia-uvm/uvm_hmm.c
+@@ -3077,6 +3077,12 @@ NV_STATUS uvm_hmm_va_block_service_locked(uvm_processor_id_t processor_id,
+         return hmm_block_cpu_fault_locked(processor_id, va_block, va_block_retry, service_context);
+     }
+ 
++    // Isolated mode cannot prove a foreign-GPU tracker wait will complete
++    // while the HMM migration lock remains held. Keep CPU faults available,
++    // but fail closed for HMM faults that would populate GPU memory.
++    if (uvm_push_isolated_gpu_execution_enabled())
++        return NV_ERR_NOT_SUPPORTED;
++
+     UVM_ASSERT(va_block_retry);
+ 
+     // The overall process here is to migrate pages from the CPU or GPUs to the
+@@ -3333,6 +3333,12 @@ NV_STATUS uvm_hmm_va_block_migrate_locked(uvm_va_block_t *va_block,
+                                      NULL);
+     }
+ 
++    // The retrying PMM path can wait for another GPU's tracker while this
++    // operation holds va_block->hmm.migrate_lock. Defer HMM GPU migrations
++    // until that wait can be performed outside the HMM lock hierarchy.
++    if (uvm_push_isolated_gpu_execution_enabled() && UVM_ID_IS_GPU(dest_id))
++        return NV_ERR_NOT_SUPPORTED;
++
+     // The overall process here is to migrate pages from the CPU or GPUs to the
+     // destination processor. Note that block_migrate_add_mappings() handles
+     // updating GPU mappings after the migration.

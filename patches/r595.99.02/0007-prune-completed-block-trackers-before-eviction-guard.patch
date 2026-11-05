@@ -1,0 +1,28 @@
+--- a/nvidia-uvm/uvm_pmm_gpu.c
++++ b/nvidia-uvm/uvm_pmm_gpu.c
+@@ -1172,6 +1172,7 @@
+ {
+     uvm_gpu_t *gpu = uvm_pmm_to_gpu(pmm);
+     NV_STATUS status;
++    bool isolated_gpu_execution;
+     uvm_tracker_t tracker = UVM_TRACKER_INIT();
+ 
+     UVM_ASSERT(va_block);
+@@ -1182,10 +1183,15 @@
+ 
+     uvm_mutex_lock(&va_block->lock);
+ 
++    // Prune completed entries so they do not permanently block eviction.
++    // A completion after this point is still caught by the channel-ref scan.
++    isolated_gpu_execution = uvm_push_isolated_gpu_execution_enabled();
++    if (isolated_gpu_execution)
++        uvm_tracker_remove_completed(&va_block->tracker);
++
+     // Eviction detaches the VA-block tracker before publishing it to PMM.
+     // Do not detach an outstanding foreign channel in isolated mode.
+-    if (uvm_push_isolated_gpu_execution_enabled() &&
+-        uvm_tracker_has_other_gpus(&va_block->tracker, gpu))
++    if (isolated_gpu_execution && uvm_tracker_has_other_gpus(&va_block->tracker, gpu))
+         status = NV_ERR_NOT_SUPPORTED;
+     else
+         status = uvm_va_block_evict_chunks(va_block, gpu, &root_chunk->chunk, &tracker);
