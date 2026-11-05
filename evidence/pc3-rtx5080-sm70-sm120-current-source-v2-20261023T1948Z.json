@@ -1,0 +1,297 @@
+{
+  "build": {
+    "build_tool_sha256": "bb26816dfbf8d705aee20eaa078819acc4e0570d6dc345f846ec3b9ea331204d",
+    "fatbin_images": [
+      "sm_70",
+      "sm_120"
+    ],
+    "fatbin_sha256": "fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305",
+    "manifest": "build/probe-pc3-baseline-v1-20261023T1948Z/build-manifest.json",
+    "manifest_sha256": "5cbedeb74d8ae1c64888939eea85bf16693f099ba3fd767fabae841ea3154826",
+    "observed_at_utc": "2026-10-23T19:48:10.384080+00:00",
+    "probe_sha256": "6e4f93e20b970205de1516c1258bdea83bbd39a72ba3c4ef719f114569fd497b",
+    "schema": "nvidia-hybrid-probe-build-v2",
+    "source_inputs_sha256": {
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/kernels/hybrid_probe.cu": "6c474bdcd7c2c4098b7d2b920b3be0a870842049aece1f47b7c534a2710086f2",
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/hybrid_cuda_probe.cpp": "1a6458f582523c48791f56080dc5f726fb39a8b84298df44bb961612a7b990d7"
+    },
+    "tool_inputs_sha256": {
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/bin/volta13": "587688b00f2207d1804aecc702eabc3d1c7d4ef62495187a1ce374d22c3a2ee6",
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/tools/clang23-local/usr/lib/llvm-23/bin/clang++": "c300fb439c33a9b2cbde6112a09681ce8278a5bb08bdea3ba0cc91e32d07120d",
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/tools/cuda13.1-front/usr/local/cuda-13.1/bin/cuobjdump": "d76bde61348813d19643b18d7ae1b8287eabcdb2195cc4d6e6d860a9b1995900",
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/tools/cuda13.1-front/usr/local/cuda-13.1/bin/fatbinary": "54ad3cda647855ac018eb6829513d80d65dfdc320b526f6817ba8df606951c10",
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/tools/cuda13.1-front/usr/local/cuda-13.1/bin/ptxas": "85836303aeca1a2ac9387a6d364b276a3603907c95c3b06c9e3aadf46195b0d8",
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/tools/cuda13.1-front/usr/local/cuda-13.1/include/cuda.h": "756c5d0b68c4bf33d279419d5db479d63263abe80c1e476f8899f4b077215bf5",
+      "/usr/bin/x86_64-linux-gnu-g++-15": "e6718f7e0c7d057c3ff77b550c603da9bc4030e3ede3c053705acce1293dbe4d"
+    }
+  },
+  "classification": "RTX5080_SM120_hardware_reference_only",
+  "decision": "Use PC3 RTX5080 as a verified Blackwell CUDA Driver API baseline. The current topology does not expose the V100 to host libcuda, so this result cannot advance the same-process hybrid acceptance gate.",
+  "evidence": {
+    "host_inventory_log": "evidence/logs/pc3-host-inventory-readonly-20261023T1950Z.log",
+    "host_inventory_log_sha256": "4363906fafa87492674529ce9f584faf1cc8c9e74bcca2f95f321ebb3e41908a",
+    "privacy": "logs contain hardware and process summaries only; mode 0600",
+    "probe_log": "evidence/logs/pc3-rtx5080-sm70-sm120-current-source-v2-20261023T1948Z.log",
+    "probe_log_sha256": "fec0779643542200c3e402a586734eb6de4817931cbfd2564f260859041985d2",
+    "vfio_readonly_log": "evidence/logs/pc3-v100-vfio-attachment-readonly-20261023T1950Z.log",
+    "vfio_readonly_log_sha256": "36ef558caa16a8b9b8fa619776c43ee0f1f7283cd21e1870268f166b3d8b188d"
+  },
+  "host": {
+    "cuda_driver_api": 13020,
+    "host_nvidia_driver": "595.99.02",
+    "kernel": "7.0.0-38-generic",
+    "name": "pc3",
+    "os": "Ubuntu 26.04.1 LTS",
+    "rtx5080": {
+      "compute_capability": "12.0",
+      "kernel_driver": "nvidia",
+      "memory_total_mib": 16303,
+      "memory_used_mib_before_and_after": 2,
+      "name": "NVIDIA GeForce RTX 5080",
+      "pci_bdf": "0000:02:00.0",
+      "sm": 120,
+      "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77"
+    },
+    "secure_boot": "enabled",
+    "v100": {
+      "host_cuda_visible": false,
+      "host_kernel_driver": "vfio-pci",
+      "iommu_group": 23,
+      "name": "Tesla V100 SXM2 16GB",
+      "pci_bdf": "0000:81:00.0",
+      "pci_id": "10de:1db1",
+      "vm_attachment": "not independently verified by process-fd inspection in this capture"
+    },
+    "visible_cuda_devices": 1
+  },
+  "observed_at_utc": "2026-10-23T19:49:45.671715+00:00",
+  "qualification": {
+    "experimental_kernel_modules_loaded_or_installed": false,
+    "hybrid_validated": false,
+    "performance_benchmark": false,
+    "rtx5080_driver_api_probe": "validated_on_hardware_for_listed_subtests",
+    "same_process_v100_blackwell": false,
+    "whole_hybrid_requirement": "not_validated"
+  },
+  "schema": "nvidia-hybrid-hardware-reference-v1",
+  "test": {
+    "command": "./hybrid_cuda_probe --module ./hybrid_probe.sm70-sm120.fatbin --require-sm 70,120 --managed-memory --managed-prefetch --cuda-graphs",
+    "execution": "three sequential fresh process launches; environment unsets CUDA_VISIBLE_DEVICES and LD_LIBRARY_PATH",
+    "exit_interpretation": "incomplete because required SM70 is absent from host-visible CUDA devices",
+    "expected_overall_exit": 77,
+    "not_tested": [
+      "SM70 execution in this host process",
+      "V100 and RTX5080 contexts in the same process",
+      "concurrent kernel execution across devices",
+      "experimental/hybrid kernel-module insertion",
+      "peer-to-peer transfers",
+      "performance or inference throughput"
+    ],
+    "runs": [
+      {
+        "exit_code": 77,
+        "probe": {
+          "concurrent_kernel_execution_validated": false,
+          "context_coexistence_passed": false,
+          "cuda_graph_api": "cuGraphInstantiateWithFlags",
+          "cuda_graphs_requested": true,
+          "devices": [
+            {
+              "architecture_kernel_passed": true,
+              "asynchronous_passed": true,
+              "asynchronous_sizes": [
+                1,
+                31,
+                256,
+                4096,
+                65537
+              ],
+              "cleanup_errors": [],
+              "cleanup_passed": true,
+              "compute_capability": "12.0",
+              "concurrent_managed_access": true,
+              "cuda_graph_launches": 2,
+              "cuda_graphs_passed": true,
+              "error": "",
+              "managed_memory_passed": true,
+              "managed_prefetch_passed": true,
+              "name": "NVIDIA GeForce RTX 5080",
+              "ordinal": 0,
+              "pageable_memory_access": true,
+              "pageable_memory_access_uses_host_page_tables": false,
+              "pci_bus_id": "0000:02:00.0",
+              "sm": 120,
+              "synchronous_passed": true,
+              "synchronous_sizes": [
+                1,
+                31,
+                256,
+                4096,
+                65537
+              ],
+              "targeted": true,
+              "tested": true
+            }
+          ],
+          "driver_api": 13020,
+          "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+          "execution_mode": "resident-contexts-sequential-kernels",
+          "hybrid_validated": false,
+          "managed_prefetch_api": "cuMemPrefetchAsync_v2",
+          "managed_prefetch_requested": true,
+          "memory_mode": "managed",
+          "missing_sm": [
+            70
+          ],
+          "required_set_passed": false,
+          "required_sm": [
+            70,
+            120
+          ],
+          "schema": "nvidia-hybrid-probe-v2",
+          "status": "incomplete"
+        },
+        "run": 1
+      },
+      {
+        "exit_code": 77,
+        "probe": {
+          "concurrent_kernel_execution_validated": false,
+          "context_coexistence_passed": false,
+          "cuda_graph_api": "cuGraphInstantiateWithFlags",
+          "cuda_graphs_requested": true,
+          "devices": [
+            {
+              "architecture_kernel_passed": true,
+              "asynchronous_passed": true,
+              "asynchronous_sizes": [
+                1,
+                31,
+                256,
+                4096,
+                65537
+              ],
+              "cleanup_errors": [],
+              "cleanup_passed": true,
+              "compute_capability": "12.0",
+              "concurrent_managed_access": true,
+              "cuda_graph_launches": 2,
+              "cuda_graphs_passed": true,
+              "error": "",
+              "managed_memory_passed": true,
+              "managed_prefetch_passed": true,
+              "name": "NVIDIA GeForce RTX 5080",
+              "ordinal": 0,
+              "pageable_memory_access": true,
+              "pageable_memory_access_uses_host_page_tables": false,
+              "pci_bus_id": "0000:02:00.0",
+              "sm": 120,
+              "synchronous_passed": true,
+              "synchronous_sizes": [
+                1,
+                31,
+                256,
+                4096,
+                65537
+              ],
+              "targeted": true,
+              "tested": true
+            }
+          ],
+          "driver_api": 13020,
+          "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+          "execution_mode": "resident-contexts-sequential-kernels",
+          "hybrid_validated": false,
+          "managed_prefetch_api": "cuMemPrefetchAsync_v2",
+          "managed_prefetch_requested": true,
+          "memory_mode": "managed",
+          "missing_sm": [
+            70
+          ],
+          "required_set_passed": false,
+          "required_sm": [
+            70,
+            120
+          ],
+          "schema": "nvidia-hybrid-probe-v2",
+          "status": "incomplete"
+        },
+        "run": 2
+      },
+      {
+        "exit_code": 77,
+        "probe": {
+          "concurrent_kernel_execution_validated": false,
+          "context_coexistence_passed": false,
+          "cuda_graph_api": "cuGraphInstantiateWithFlags",
+          "cuda_graphs_requested": true,
+          "devices": [
+            {
+              "architecture_kernel_passed": true,
+              "asynchronous_passed": true,
+              "asynchronous_sizes": [
+                1,
+                31,
+                256,
+                4096,
+                65537
+              ],
+              "cleanup_errors": [],
+              "cleanup_passed": true,
+              "compute_capability": "12.0",
+              "concurrent_managed_access": true,
+              "cuda_graph_launches": 2,
+              "cuda_graphs_passed": true,
+              "error": "",
+              "managed_memory_passed": true,
+              "managed_prefetch_passed": true,
+              "name": "NVIDIA GeForce RTX 5080",
+              "ordinal": 0,
+              "pageable_memory_access": true,
+              "pageable_memory_access_uses_host_page_tables": false,
+              "pci_bus_id": "0000:02:00.0",
+              "sm": 120,
+              "synchronous_passed": true,
+              "synchronous_sizes": [
+                1,
+                31,
+                256,
+                4096,
+                65537
+              ],
+              "targeted": true,
+              "tested": true
+            }
+          ],
+          "driver_api": 13020,
+          "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+          "execution_mode": "resident-contexts-sequential-kernels",
+          "hybrid_validated": false,
+          "managed_prefetch_api": "cuMemPrefetchAsync_v2",
+          "managed_prefetch_requested": true,
+          "memory_mode": "managed",
+          "missing_sm": [
+            70
+          ],
+          "required_set_passed": false,
+          "required_sm": [
+            70,
+            120
+          ],
+          "schema": "nvidia-hybrid-probe-v2",
+          "status": "incomplete"
+        },
+        "run": 3
+      }
+    ],
+    "successful_subtests_per_run": [
+      "SM120 architecture kernel",
+      "synchronous vector-add sizes 1,31,256,4096,65537",
+      "asynchronous vector-add sizes 1,31,256,4096,65537",
+      "managed memory allocation and kernel access",
+      "managed-memory prefetch to GPU and CPU",
+      "two CUDA Graph replays",
+      "resource cleanup with no reported cleanup errors"
+    ]
+  }
+}

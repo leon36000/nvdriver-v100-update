@@ -1,0 +1,132 @@
+{
+  "host_hardware": {
+    "compute_capability": "12.0",
+    "cuda_driver_api": 13020,
+    "driver": "595.99.02",
+    "gpu": "NVIDIA GeForce RTX 5080",
+    "kernel": "7.0.0-38-generic",
+    "libcuda_sha256_stable": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d",
+    "pci_bus_id": "0000:02:00.0"
+  },
+  "hybrid_acceptance": {
+    "cuda_execution_independently_attested": false,
+    "missing_sm": [
+      70
+    ],
+    "remote_temporary_work_cleanup_passed": true,
+    "report_contract_validated": true,
+    "same_host_v100_blackwell_validated": false
+  },
+  "observed_at_utc": "2026-11-03T17:17:08.596694+00:00",
+  "qualification": "stock-rtx-benchmark-report-pass-hybrid-gate-incomplete",
+  "schema": "nvidia-hybrid-pc3-rtx-stock-benchmark-summary-v1",
+  "source_report_sha256": "e8bae85b5206d968d991890f800f6a171851ae51bb708360c482fba849cb1337",
+  "stock_rtx_benchmark": {
+    "cuda_graph_launch": {
+      "device_elapsed_us": {
+        "median": 1.93899997976,
+        "p95": 2.04774993472,
+        "samples": 9
+      },
+      "host_api_us": {
+        "median": 1.273625,
+        "p95": 1.32001171875,
+        "samples": 9
+      }
+    },
+    "kernel_launch": {
+      "device_elapsed_us": {
+        "median": 1.26812502276,
+        "p95": 1.2856250396,
+        "samples": 9
+      },
+      "host_api_us": {
+        "median": 1.26688671875,
+        "p95": 1.27141015625,
+        "samples": 9
+      }
+    },
+    "launches_per_sample": 256,
+    "pinned_transfers": [
+      {
+        "bytes": 4096,
+        "data_integrity_passed": true,
+        "directions": {
+          "d_to_h": {
+            "median_gb_s": 3.88816559724,
+            "p95_gb_s": 3.89370941828
+          },
+          "h_to_d": {
+            "median_gb_s": 3.07691579261,
+            "p95_gb_s": 3.08085747602
+          }
+        },
+        "samples_per_direction": 7
+      },
+      {
+        "bytes": 65536,
+        "data_integrity_passed": true,
+        "directions": {
+          "d_to_h": {
+            "median_gb_s": 35.5449489371,
+            "p95_gb_s": 35.670704241
+          },
+          "h_to_d": {
+            "median_gb_s": 27.0642171944,
+            "p95_gb_s": 27.2357404073
+          }
+        },
+        "samples_per_direction": 7
+      },
+      {
+        "bytes": 1048576,
+        "data_integrity_passed": true,
+        "directions": {
+          "d_to_h": {
+            "median_gb_s": 24.2523830589,
+            "p95_gb_s": 24.6121494543
+          },
+          "h_to_d": {
+            "median_gb_s": 47.4382902682,
+            "p95_gb_s": 47.5415299871
+          }
+        },
+        "samples_per_direction": 7
+      },
+      {
+        "bytes": 16777216,
+        "data_integrity_passed": true,
+        "directions": {
+          "d_to_h": {
+            "median_gb_s": 24.1774492826,
+            "p95_gb_s": 24.7026013415
+          },
+          "h_to_d": {
+            "median_gb_s": 50.3832423345,
+            "p95_gb_s": 50.5240431391
+          }
+        },
+        "samples_per_direction": 7
+      },
+      {
+        "bytes": 67108864,
+        "data_integrity_passed": true,
+        "directions": {
+          "d_to_h": {
+            "median_gb_s": 23.3294254144,
+            "p95_gb_s": 23.5985057515
+          },
+          "h_to_d": {
+            "median_gb_s": 51.1325879078,
+            "p95_gb_s": 51.3140016476
+          }
+        },
+        "samples_per_direction": 7
+      }
+    ],
+    "samples": 9,
+    "status": "completed_report_claim",
+    "transfer_samples_per_direction": 7,
+    "warmup_launches": 64
+  }
+}
