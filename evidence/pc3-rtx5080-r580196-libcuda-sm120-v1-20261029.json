@@ -1,0 +1,146 @@
+{
+  "error": "ValueError:PC3 host identity/status mismatch",
+  "exit_code": 2,
+  "expected_gpu_uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77",
+  "expected_kernel": "7.0.0-38-generic",
+  "expected_kernel_driver": "595.99.02",
+  "expected_pci": "0000:02:00.0",
+  "expected_user_libcuda": "580.196.07",
+  "host_key_alias": "pc3",
+  "local_artifacts": {
+    "fatbin": {
+      "bytes": 19016,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-managed-accessed-by-v2-20261029T0326Z/hybrid_probe.sm70-sm120.fatbin",
+      "sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741"
+    },
+    "libcuda": {
+      "bytes": 96300904,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r58019607-runfile-extract-v1-20261029/NVIDIA-Linux-x86_64-580.196.07/libcuda.so.580.196.07",
+      "sha256": "a5c77bf2de83c0ec06ecd368d224c3e0d653d658d6f99319921e976f21867b14"
+    },
+    "probe": {
+      "bytes": 182184,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-managed-accessed-by-v2-20261029T0326Z/hybrid_cuda_probe",
+      "sha256": "38cd229ecee597b1a1f62871298dae900b5ff039b9ecca1388a72768fe880f6e"
+    }
+  },
+  "local_artifacts_after": {
+    "fatbin": {
+      "bytes": 19016,
+      "sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741"
+    },
+    "libcuda": {
+      "bytes": 96300904,
+      "sha256": "a5c77bf2de83c0ec06ecd368d224c3e0d653d658d6f99319921e976f21867b14"
+    },
+    "probe": {
+      "bytes": 182184,
+      "sha256": "38cd229ecee597b1a1f62871298dae900b5ff039b9ecca1388a72768fe880f6e"
+    }
+  },
+  "observed_at_utc": "2026-10-29T09:29:08.996107+00:00",
+  "qualification": "failed",
+  "remote": {
+    "cleanup_passed": false,
+    "compute_pids_after": [],
+    "compute_pids_before": [],
+    "compute_pids_prelaunch": [],
+    "error": "RuntimeError:CUDA probe returned nonzero",
+    "execution_scope": {
+      "driver_or_module_changed": false,
+      "gpu_reset_requested": false,
+      "pci_binding_changed": false,
+      "vm_management_issued": false
+    },
+    "gpu_after": {
+      "binding": "nvidia",
+      "driver_version": "595.99.02",
+      "name": "NVIDIA GeForce RTX 5080",
+      "pci": "0000:02:00.0",
+      "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77"
+    },
+    "gpu_before": {
+      "binding": "nvidia",
+      "driver_version": "595.99.02",
+      "name": "NVIDIA GeForce RTX 5080",
+      "pci": "0000:02:00.0",
+      "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77"
+    },
+    "hostname": "pc3",
+    "kernel_release": "7.0.0-38-generic",
+    "module_after": {
+      "bytes": 19031070,
+      "loaded_version": "595.99.02",
+      "path": "/usr/lib/modules/7.0.0-38-generic/kernel/nvidia-595-open/nvidia.ko",
+      "sha256": "9f12e5806c2ff1f0569b783061ab9d57c71cbb909781ce0c12bd8feef3975adb"
+    },
+    "module_before": {
+      "bytes": 19031070,
+      "loaded_version": "595.99.02",
+      "path": "/usr/lib/modules/7.0.0-38-generic/kernel/nvidia-595-open/nvidia.ko",
+      "sha256": "9f12e5806c2ff1f0569b783061ab9d57c71cbb909781ce0c12bd8feef3975adb"
+    },
+    "phase": {
+      "cleanup_errors": [],
+      "cleanup_passed": true,
+      "completed_operations": [],
+      "driver_api": null,
+      "driver_library_path": "/tmp/codex-rtx5080-r580196-1jyuoujv/lib/libcuda.so.1",
+      "error": "cuInit failed with CUresult=803 (CUDA_ERROR_SYSTEM_DRIVER_MISMATCH): system has unsupported display driver / cuda driver combination",
+      "expected_pci": "00000000:02:00.0",
+      "expected_result": null,
+      "numeric_result_passed": false,
+      "phase": "kernel",
+      "result_value": null,
+      "schema": "nvidia-cuda-driver-phase-v1",
+      "selected_device": null,
+      "status": "phase-failed"
+    },
+    "probe_exit_code": 2,
+    "probe_stderr_bytes": 0,
+    "probe_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "probe_stdout_bytes": 518,
+    "probe_stdout_sha256": "b792b8611fb08982a906430e309c237505a185ca99e3284f8c5fc86294128a76",
+    "schema": "nvidia-hybrid-pc3-rtx5080-r58019607-crossminor-remote-v1",
+    "staged_artifacts": {
+      "fatbin": {
+        "bytes": 19016,
+        "sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741"
+      },
+      "libcuda": {
+        "bytes": 96300904,
+        "sha256": "a5c77bf2de83c0ec06ecd368d224c3e0d653d658d6f99319921e976f21867b14"
+      },
+      "probe": {
+        "bytes": 182184,
+        "sha256": "38cd229ecee597b1a1f62871298dae900b5ff039b9ecca1388a72768fe880f6e"
+      }
+    },
+    "staged_libcuda_path": "/tmp/codex-rtx5080-r580196-1jyuoujv/lib/libcuda.so.1",
+    "status": "failed",
+    "system_libcuda_after": {
+      "bytes": 91505672,
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+      "sha256": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d"
+    },
+    "system_libcuda_before": {
+      "bytes": 91505672,
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+      "sha256": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d"
+    },
+    "workspace_removed": true
+  },
+  "remote_script_sha256": "a801525601f268b415470c3aa94ee91c4e7390d6604754c58d8737aac3e915b0",
+  "schema": "nvidia-hybrid-pc3-rtx5080-r58019607-crossminor-v1",
+  "ssh_exit_code": 2,
+  "ssh_stderr_bytes": 0,
+  "ssh_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "ssh_stdout_bytes": 2884,
+  "ssh_stdout_sha256": "73a2c8765d8e04e48a1dfb1a9135fd66513c5e436e0ee54810c65263700ccc51",
+  "target": "pc3@pc3",
+  "user_libcuda_pin": {
+    "bytes": 96300904,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r58019607-runfile-extract-v1-20261029/NVIDIA-Linux-x86_64-580.196.07/libcuda.so.580.196.07",
+    "sha256": "a5c77bf2de83c0ec06ecd368d224c3e0d653d658d6f99319921e976f21867b14"
+  }
+}

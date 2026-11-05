@@ -1,0 +1,89 @@
+{
+  "schema": "nvidia-hybrid-rm-root-payload-summary-v1",
+  "root_allocations": 2,
+  "confirmed_root_allocations": 2,
+  "broker_compatible_root_inputs": 2,
+  "unsupported_root_inputs": [],
+  "confirmed_root_frees": 1,
+  "alloc_packet_sizes": [
+    {
+      "bytes": 48,
+      "count": 93
+    }
+  ],
+  "root_samples": [
+    {
+      "record_index": 0,
+      "packet_size": 48,
+      "entry": {
+        "flags": 0,
+        "hClass": 0,
+        "hObjectNew": 0,
+        "hObjectParent": 0,
+        "hRoot": 0,
+        "layout": "NVOS64",
+        "pAllocParms": 0,
+        "pRightsRequested": 0,
+        "paramsSize": 0,
+        "root_class": true,
+        "status": 0
+      },
+      "exit": {
+        "flags": 0,
+        "hClass": 65,
+        "hObjectNew": 3251634254,
+        "hObjectParent": 0,
+        "hRoot": 0,
+        "layout": "NVOS64",
+        "pAllocParms": 0,
+        "pRightsRequested": 0,
+        "paramsSize": 0,
+        "root_class": true,
+        "status": 0
+      },
+      "syscall_return": 0,
+      "broker_input_rejection_reasons": []
+    },
+    {
+      "record_index": 2,
+      "packet_size": 48,
+      "entry": {
+        "flags": 0,
+        "hClass": 0,
+        "hObjectNew": 0,
+        "hObjectParent": 0,
+        "hRoot": 0,
+        "layout": "NVOS64",
+        "pAllocParms": 0,
+        "pRightsRequested": 0,
+        "paramsSize": 0,
+        "root_class": true,
+        "status": 0
+      },
+      "exit": {
+        "flags": 0,
+        "hClass": 65,
+        "hObjectNew": 3251634255,
+        "hObjectParent": 0,
+        "hRoot": 0,
+        "layout": "NVOS64",
+        "pAllocParms": 0,
+        "pRightsRequested": 0,
+        "paramsSize": 0,
+        "root_class": true,
+        "status": 0
+      },
+      "syscall_return": 0,
+      "broker_input_rejection_reasons": []
+    }
+  ],
+  "nested_parameter_contents_observed": false,
+  "hybrid_runtime_validated": false,
+  "scope": "observed single-process packet inputs/statuses; not dual-backend execution",
+  "qualification": "observed-root-inputs-fit-current-broker-slice",
+  "trace": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-rtx5080-postcanary-reference-v1-20261020.json",
+    "sha256": "8c53f63f6ba621d14e48c3f3514c76d09b121a7014c513491d6aa5dbc2831395"
+  },
+  "tool_sha256": "67666a19edfc8b60cf1ce7008bf0b94cb4dbad35dfb5a642cb744c20e5d024f8"
+}

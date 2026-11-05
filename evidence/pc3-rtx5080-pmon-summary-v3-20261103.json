@@ -1,0 +1,276 @@
+{
+  "artifact_manifest": {
+    "cuda_probe_contract.py": {
+      "bytes": 28216,
+      "sha256": "9f65e31214f0b323198460879e015967baa3feec855df1177d371a5b8cf28506"
+    },
+    "module": {
+      "bytes": 18712,
+      "sha256": "8dc12fa61f5ed270c3122f5516c2afce43d9c39f5fa9a16f9a7e313fe34f6f70"
+    },
+    "probe": {
+      "bytes": 240792,
+      "sha256": "c2c0aa30d26fe2fb7e61a5ef732bc1f659faa39eb4626e1d46689f2aa85e1422"
+    },
+    "runner": {
+      "bytes": 171309,
+      "sha256": "0384723a7962042137d6380a1db484ae112168d8384dc6662a00c7258d159840"
+    }
+  },
+  "capture": {
+    "reason": "SM70 image absent on the RTX-only host",
+    "report_contract": "passed",
+    "reported_exit_code": 77,
+    "sha256": "416e4f66f17b3abfb9e16f9cc9fdd6a132de4fcb6df83934bc88daee5d90770a"
+  },
+  "cuda_execution_validated": true,
+  "cuda_result": {
+    "asynchronous_sizes": [
+      1,
+      31,
+      256,
+      4096,
+      65537
+    ],
+    "cleanup_passed": true,
+    "synchronous_sizes": [
+      1,
+      31,
+      256,
+      4096,
+      65537
+    ],
+    "targeted_numeric_kernels_passed": true
+  },
+  "device": {
+    "compute_capability": "12.0",
+    "cuda_driver_api_version": 13020,
+    "driver_version": "595.99.02",
+    "name": "NVIDIA GeForce RTX 5080",
+    "pci_bus_id": "0000:02:00.0",
+    "sm": 120
+  },
+  "external_observer": {
+    "gpu_pci_bus_id": "0000:02:00.0",
+    "gpu_uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77",
+    "kind": "nvidia-smi pmon process-utilization stream",
+    "nonzero_sm_samples_during_benchmark": 12,
+    "observed_process_name": "probe",
+    "peak_memory_utilization_percent": 7,
+    "peak_sm_utilization_percent": 99,
+    "probe_process_samples_during_benchmark": 12,
+    "sample_count": 20,
+    "sample_interval_seconds": 1,
+    "samples_during_benchmark": 12,
+    "transport": "separate strict-host-key SSH session to pc3",
+    "unique_probe_process_count": 1
+  },
+  "fatbin_sha256": "8dc12fa61f5ed270c3122f5516c2afce43d9c39f5fa9a16f9a7e313fe34f6f70",
+  "hardware_execution_validated": true,
+  "independent_hardware_attestation": false,
+  "limitations": [
+    "Stock RTX 5080/R595 only; no candidate hybrid module was loaded.",
+    "The V100 was not targeted and remains outside this proof.",
+    "SM70 is missing, so the whole probe exits 77 and hybrid acceptance is incomplete.",
+    "pmon independently observed the process and SM utilization, but this is not cryptographic remote attestation.",
+    "Performance values are probe-reported from one stock run; they remain unqualified and are not a hybrid comparison."
+  ],
+  "observed_at_utc": "2026-11-03T14:19:48.613632Z",
+  "performance_benchmark_validated": false,
+  "probe_reported_performance": {
+    "kernel_launch": {
+      "device_event_us": {
+        "median": 1.18562497664,
+        "p95": 1.20525003877
+      },
+      "host_api_us": {
+        "median": 1.18393359375,
+        "p95": 1.2039453125
+      },
+      "kernel": "hybrid_empty"
+    },
+    "qualification": "probe-reported-unqualified-single-run",
+    "samples": 1001,
+    "timing_sources": {
+      "device": "CUDA events (cuEventElapsedTime)",
+      "host": "std::chrono::steady_clock"
+    },
+    "transfers": [
+      {
+        "bytes": 4096,
+        "data_integrity_passed": true,
+        "device_to_host": {
+          "device_event_us_per_copy": {
+            "median": 1.05379684828,
+            "p95": 1.05978129432
+          },
+          "gb_per_second": {
+            "median": 3.88689718201,
+            "p95": 3.9049620694
+          },
+          "host_api_us_per_copy": {
+            "median": 1.05373974609,
+            "p95": 1.05969091797
+          }
+        },
+        "host_to_device": {
+          "device_event_us_per_copy": {
+            "median": 1.31726567633,
+            "p95": 1.32223439869
+          },
+          "gb_per_second": {
+            "median": 3.10947144041,
+            "p95": 3.14336409024
+          },
+          "host_api_us_per_copy": {
+            "median": 1.14335498047,
+            "p95": 1.15821386719
+          }
+        },
+        "iterations_per_sample": 2048,
+        "samples": 1001
+      },
+      {
+        "bytes": 65536,
+        "data_integrity_passed": true,
+        "device_to_host": {
+          "device_event_us_per_copy": {
+            "median": 1.86225003563,
+            "p95": 1.87675002962
+          },
+          "gb_per_second": {
+            "median": 35.1918371573,
+            "p95": 35.4057264779
+          },
+          "host_api_us_per_copy": {
+            "median": 1.1305859375,
+            "p95": 1.146546875
+          }
+        },
+        "host_to_device": {
+          "device_event_us_per_copy": {
+            "median": 2.45125009678,
+            "p95": 2.46224994771
+          },
+          "gb_per_second": {
+            "median": 26.7357460122,
+            "p95": 26.8507641806
+          },
+          "host_api_us_per_copy": {
+            "median": 1.08715625,
+            "p95": 1.107015625
+          }
+        },
+        "iterations_per_sample": 128,
+        "samples": 1001
+      },
+      {
+        "bytes": 1048576,
+        "data_integrity_passed": true,
+        "device_to_host": {
+          "device_event_us_per_copy": {
+            "median": 43.1879982352,
+            "p95": 44.0640002489
+          },
+          "gb_per_second": {
+            "median": 24.2793378449,
+            "p95": 24.6816682039
+          },
+          "host_api_us_per_copy": {
+            "median": 1.04675,
+            "p95": 1.079375
+          }
+        },
+        "host_to_device": {
+          "device_event_us_per_copy": {
+            "median": 22.1679992974,
+            "p95": 22.3600007594
+          },
+          "gb_per_second": {
+            "median": 47.3013367573,
+            "p95": 47.6106064736
+          },
+          "host_api_us_per_copy": {
+            "median": 1.059875,
+            "p95": 1.09
+          }
+        },
+        "iterations_per_sample": 8,
+        "samples": 1001
+      },
+      {
+        "bytes": 16777216,
+        "data_integrity_passed": true,
+        "device_to_host": {
+          "device_event_us_per_copy": {
+            "median": 703.77600193,
+            "p95": 742.208003998
+          },
+          "gb_per_second": {
+            "median": 23.838857753,
+            "p95": 24.4229745186
+          },
+          "host_api_us_per_copy": {
+            "median": 1.217,
+            "p95": 1.363
+          }
+        },
+        "host_to_device": {
+          "device_event_us_per_copy": {
+            "median": 332.767993212,
+            "p95": 334.751993418
+          },
+          "gb_per_second": {
+            "median": 50.4171565242,
+            "p95": 50.6803294335
+          },
+          "host_api_us_per_copy": {
+            "median": 1.216,
+            "p95": 1.341
+          }
+        },
+        "iterations_per_sample": 1,
+        "samples": 1001
+      },
+      {
+        "bytes": 67108864,
+        "data_integrity_passed": true,
+        "device_to_host": {
+          "device_event_us_per_copy": {
+            "median": 2884.79995728,
+            "p95": 3071.84004784
+          },
+          "gb_per_second": {
+            "median": 23.2629177045,
+            "p95": 23.7599918348
+          },
+          "host_api_us_per_copy": {
+            "median": 1.231,
+            "p95": 1.37
+          }
+        },
+        "host_to_device": {
+          "device_event_us_per_copy": {
+            "median": 1331.16805553,
+            "p95": 1339.16795254
+          },
+          "gb_per_second": {
+            "median": 50.4135174526,
+            "p95": 50.8893964299
+          },
+          "host_api_us_per_copy": {
+            "median": 1.229,
+            "p95": 1.385
+          }
+        },
+        "iterations_per_sample": 1,
+        "samples": 1001
+      }
+    ]
+  },
+  "probe_sha256": "c2c0aa30d26fe2fb7e61a5ef732bc1f659faa39eb4626e1d46689f2aa85e1422",
+  "qualification": "stock-rtx5080-cuda-kernel-observed-by-independent-nvml-pmon",
+  "raw_witness_sha256": "5a6da0f1d4fcf4ee89f402fdf76169c355248250aaee267ea115558297cb7a4d",
+  "schema": "nvidia-hybrid-pc3-rtx-pmon-runtime-summary-v1",
+  "stock_libcuda_sha256": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d"
+}

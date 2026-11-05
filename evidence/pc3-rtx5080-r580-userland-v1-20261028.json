@@ -1,0 +1,58 @@
+{
+  "driver_or_pci_modified": false,
+  "error": "R580 user-library probe did not complete: payload has missing or unexpected fields",
+  "exit_code": 2,
+  "fatbin": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-pc3-rtx5080-event-close-v2-20261028/hybrid_probe.sm70-sm120.fatbin",
+    "sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741"
+  },
+  "hardware_test_requested": true,
+  "host_key_alias": "pc3",
+  "module_load_or_unload_attempted": false,
+  "observed_at_utc": "2026-10-28T14:33:43.019176+00:00",
+  "package": {
+    "bytes": 54671338,
+    "filename": "libnvidia-compute-580_580.196.07-1ubuntu1_amd64.deb",
+    "package": "libnvidia-compute-580",
+    "sha256": "b6a5b9a94267d1995a2bd54e7a9876961f3efb6928edbbcce675d09ea9cb2c8d",
+    "version": "580.196.07-1ubuntu1"
+  },
+  "package_install_attempted": false,
+  "probe": {
+    "contract": {
+      "contract_version": 6,
+      "probe_report_schema": "nvidia-hybrid-probe-v2",
+      "probe_sha256": "df4ab2558a7315680eb55d91cfacd807926d0adf15d9835424e256a5eb43b71d",
+      "schema": "nvidia-hybrid-probe-contract-v1"
+    },
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-pc3-rtx5080-event-close-v2-20261028/hybrid_cuda_probe",
+    "sha256": "df4ab2558a7315680eb55d91cfacd807926d0adf15d9835424e256a5eb43b71d"
+  },
+  "remote": {
+    "cleanup": {
+      "attempted": false,
+      "passed": false
+    },
+    "cuda_probe": null,
+    "driver_or_pci_modified": false,
+    "error": "payload has missing or unexpected fields",
+    "gpu_reset_requested": false,
+    "host": "pc3",
+    "kernel": "7.0.0-38-generic",
+    "module_load_or_unload_attempted": false,
+    "package_install_attempted": false,
+    "package_scripts_run": false,
+    "remote_script_sha256": "79fcc94577b08f77d5feb2d4305a06e363dfb57391532a02309ab1474439d2a7",
+    "schema": "pc3-r580-userland-rtx5080-probe-v1",
+    "status": "probe-failed",
+    "v100_guest_accessed": false
+  },
+  "remote_script_sha256": "79fcc94577b08f77d5feb2d4305a06e363dfb57391532a02309ab1474439d2a7",
+  "remote_stage_dir": "/var/tmp/codex-r580-canary-20261023T095544Z-ab7b7b33",
+  "schema": "pc3-r580-userland-rtx5080-report-v1",
+  "ssh_exit_code": 0,
+  "ssh_stderr": "",
+  "ssh_stdout_sha256": "af117fbcbdb41378e4453753eb5bb0b06254b3793541ef6c9bd0372c308e1e4f",
+  "target": "pc3@pc3",
+  "v100_guest_accessed": false
+}
