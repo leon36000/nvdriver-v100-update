@@ -1,0 +1,79 @@
+{
+  "authority": "shipped-artifact-and-matching-open-source",
+  "confidence": "observed_with_source_correlation",
+  "coverage": "targeted_function_metadata_decompilation_and_source_cross_check",
+  "evidence_id": "ev_6b73603228b344167b077440f4624e3014f5e6d8aed48c7f02d06ed509055b03",
+  "input": {
+    "architecture": "x86_64",
+    "artifact": "project-built R595.112.07 nvidia-uvm.ko",
+    "format": "ELF64",
+    "sha256": "9f0275643bd38b588d56906cc7ca946f30bc77bd1b6a876f9b45645d7b55ad0c"
+  },
+  "limitations": [
+    "Ghidra pseudocode is a decompiler reconstruction, not NVIDIA source.",
+    "Value-flow output was truncated at 3000 operations and 4418 def-use edges; zero unresolved calls reported by one query does not prove complete semantic coverage.",
+    "The static source/binary correlation does not prove module insertion, UVM initialization, IOCTL execution, or CUDA behavior on any GPU.",
+    "No proprietary NVIDIA binary was analyzed for this result; the binary is the project-built open UVM module."
+  ],
+  "observations": {
+    "procedure": {
+      "name": "uvm_ioctl",
+      "entry": "0x108b30",
+      "body_end": "0x10a7da",
+      "body_bytes": 7339,
+      "basic_blocks": 341,
+      "direct_callees": 60,
+      "callers": 2,
+      "outgoing_references": 938,
+      "unresolved_calls_reported": 0,
+      "pseudocode_utf16_units": 48309,
+      "pseudocode_complete_pages_read": true,
+      "value_flow_operations": 3000,
+      "value_flow_def_use_edges": 4418,
+      "value_flow_truncated": true
+    },
+    "decompiler_dispatch_branches": [
+      {
+        "ioctl": "0x33",
+        "target": "uvm_api_migrate"
+      },
+      {
+        "ioctl": "0x25",
+        "target": "uvm_api_register_gpu"
+      },
+      {
+        "ioctl": "0x1c",
+        "target": "uvm_api_unregister_channel"
+      }
+    ],
+    "source_correlation": {
+      "release": "R595.112.07",
+      "uvm.c_sha256": "5e0f8e0c531ee33f2add193ca7ca9c391e2428b194c6b8e3570ea0a99d7c0812",
+      "uvm_ioctl.h_sha256": "9cc909360f2d19135852390fb66a12fe4d22ca39c19e2609b2ff5e925df4bdf4",
+      "verified_mappings": [
+        {
+          "ioctl": "0x33",
+          "source_constant": "UVM_MIGRATE = UVM_IOCTL_BASE(51)",
+          "source_dispatch": "uvm_api_migrate"
+        },
+        {
+          "ioctl": "0x25",
+          "source_constant": "UVM_REGISTER_GPU = UVM_IOCTL_BASE(37)",
+          "source_dispatch": "uvm_api_register_gpu"
+        }
+      ],
+      "wrapper_contract": "uvm_unlocked_ioctl try-locks the global power-management mutex, returns -EAGAIN on contention, dispatches the request while locked, unlocks, then asserts that no UVM locks remain held.",
+      "api_wrapper_contract": "Source macros perform UVM initialization-state checks and translate copy_from_user/copy_to_user and API status handling around selected ioctl handlers."
+    }
+  },
+  "provider": {
+    "name": "Ghidra",
+    "version": "12.1.4"
+  },
+  "tool": {
+    "name": "Reverse Engineering Anything",
+    "version": "6.8.0"
+  },
+  "classification": "analysed_statically",
+  "schema": "nvidia-hybrid-r595112-uvm-ioctl-dispatch-ghidra-sanitized-v1"
+}

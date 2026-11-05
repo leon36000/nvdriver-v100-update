@@ -49,6 +49,8 @@ IMPLEMENTATION_INPUTS = (
     "tools/verify_transfer_manifest.py",
     "tools/verify_compressed_evidence.py",
     "tools/summarize_ci_security_reports.py",
+    "tools/probe_sonar_runner_endpoint.py",
+    "tools/probe_sonar_token_access.py",
     "tools/audit_hybrid_candidate_bundle.py",
     "tools/summarize_hybrid_candidate_bundle.py",
     "tools/audit_nsys_concurrent_overlap.py",
