@@ -1,0 +1,36 @@
+{
+  "bundle_manifest_sha256": "1d075b689d4f74144a7a648cb3be95fc551104e8cd1efbe69a70d8e17d1838a1",
+  "complete": true,
+  "cooling_confirmation": true,
+  "driver_api_device_info": "CUDA_DEVICE_INFO name=Tesla V100-SXM2-16GB cc=7.0 driver_api=13000 pci_bus_id=0000:00:05.0",
+  "exit_code": 0,
+  "failed_steps": [],
+  "gpu": {
+    "driver_version": "580.178.04",
+    "name": "Tesla V100-SXM2-16GB",
+    "pci_bus_id": "00000000:00:05.0",
+    "uuid": "GPU-42d06a85-027a-75ea-7857-a8de27ad465e"
+  },
+  "guest": "pc3-v100",
+  "kernel_release": "6.8.0-147-generic",
+  "log_archive": {
+    "bytes": 320401,
+    "members": 227,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/pc3-v100-r580-acceptance-final-20261020.tar.gz",
+    "sha256": "d113c7c9032ea19122585cf771122250c16872e04a6954df9c135a8b720e1ffd"
+  },
+  "manifest_file_count": 6347,
+  "observed_at_utc": "2026-10-20T22:21:32+00:00",
+  "run_records_sha256": "653bce7ef1bc5ef212262023622530c2b3b6db42404b8a04f58a9324f1bb32da",
+  "schema": "pc3-v100-r580-acceptance-evidence-v1",
+  "status": "V100_HARDWARE_VALIDATION_PASS",
+  "step_count": 21,
+  "summary_sha256": "a3d28f45eeff079307c5bdb4b057c2bc110e3beb0100b035d2c1342a0388c411",
+  "thermal": {
+    "after": "2026/10/20 22:19:01.369, 52, 36.19, 300.00, [N/A]",
+    "before_after_samples": "/home/ubuntu/codex-v100-r580-edaea9b6745e419abad18d7de16312ae/build/v100-r580-acceptance/20261020T221752881801743/thermal-samples.jsonl",
+    "guard_policy": "abort each active acceptance step if the T.Limit or NVML GPU_MAX margin is at or below minimum; refuse if current temperature is unavailable or both margin sources are unavailable",
+    "minimum_thermal_margin_c": 5,
+    "monitor_csv": "/home/ubuntu/codex-v100-r580-edaea9b6745e419abad18d7de16312ae/build/v100-r580-acceptance/20261020T221752881801743/thermal-monitor.csv"
+  }
+}
