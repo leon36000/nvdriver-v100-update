@@ -1,0 +1,23 @@
+{
+  "failures_or_errors": 0,
+  "finished_utc": "2026-10-22T06:52:32+00:00",
+  "hardware_validation": false,
+  "log": "evidence/logs/software-verification-pc3-kprobe-observer-final-v1-20261022T065147Z.log",
+  "log_mode": "0600",
+  "log_sha256": "d04907a80224b6754f9af1bdc1ece07a7c06f4910647b6938bc5fda8dc6b2f37",
+  "probe_environment": {
+    "HYBRID_CUDA_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "HYBRID_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808"
+  },
+  "returncode": 0,
+  "schema": "nvidia-hybrid-software-verification-v1",
+  "scope": "CPU/static repository suite only; no experimental driver module was loaded.",
+  "skips": 0,
+  "started_utc": "2026-10-22T06:51:47+00:00",
+  "status": "passed",
+  "test_command": "python3 -m unittest discover -s tests -v",
+  "test_count": 782,
+  "unittest_elapsed_seconds": 44.631,
+  "wall_elapsed_seconds": 44.727
+}

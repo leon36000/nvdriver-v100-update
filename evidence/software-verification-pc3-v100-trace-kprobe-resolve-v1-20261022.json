@@ -1,0 +1,30 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "duration_seconds": 46.125,
+  "environment": {
+    "HYBRID_CUDA_PROBE": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "HYBRID_PROBE": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "probe_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808"
+  },
+  "finished_utc": "2026-10-22T05:53:39Z",
+  "log": {
+    "bytes": 174472,
+    "mode": "0600",
+    "path": "evidence/logs/software-verification-pc3-v100-trace-kprobe-resolve-v1-20261022.log",
+    "sha256": "b4d4189339cd12eed8c08f0b6157d5c09a6951f24792288632921e92637c7824"
+  },
+  "returncode": 0,
+  "schema": "software-verification-pc3-v100-trace-kprobe-resolve-v1",
+  "skipped_line": null,
+  "started_utc": "2026-10-22T05:52:52Z",
+  "status": "passed",
+  "summary_line": "Ran 732 tests in 46.041s"
+}
