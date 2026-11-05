@@ -1,0 +1,25 @@
+{
+  "command": "HYBRID_PROBE=build/probe-current-src-v1-20261022/hybrid_cuda_probe HYBRID_CUDA_PROBE=build/probe-current-src-v1-20261022/hybrid_cuda_probe python3 -B -m unittest discover -v -s tests",
+  "created_utc": "2026-10-23T09:27:47.262423+00:00",
+  "cuda_hybrid_compatibility_established": false,
+  "duration_seconds": 46.852,
+  "exit_code": 0,
+  "experimental_module_loaded_or_installed": false,
+  "hardware_accessed": false,
+  "log": {
+    "bytes": 215783,
+    "path": "evidence/logs/full-suite-r595-complete-hal-v5-20261023.log",
+    "sha256": "b9a701e2a8956b04b5fef57cf20273ab55acea68d3498f41e1afed2ae9809793"
+  },
+  "probe_environment": {
+    "HYBRID_CUDA_PROBE": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "HYBRID_PROBE": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808"
+  },
+  "schema": "hybrid-software-verification-v1",
+  "scope": "full pinned software/source/CPU suite; not hybrid driver runtime qualification",
+  "started_utc": "2026-10-23T09:27:00.409945+00:00",
+  "status": "passed",
+  "summary_line": "Ran 946 tests in 46.726s; OK",
+  "tests_run": 946
+}

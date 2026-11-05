@@ -1,0 +1,30 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-v",
+    "-s",
+    "tests"
+  ],
+  "cuda_probe_sha256": "7e79bc174dfce62bc996de6f3047469ad4a802d99893c648df7186e030918ca6",
+  "duration_seconds": 46.156,
+  "exit_code": 0,
+  "finished_utc": "2026-10-22T20:35:14.336630+00:00",
+  "hybrid_probe_sha256": "7e79bc174dfce62bc996de6f3047469ad4a802d99893c648df7186e030918ca6",
+  "log_path": "evidence/logs/software-verification-r580-return-site-v1-20261022T203428Z.log",
+  "log_sha256": "d92049c7e8954f37c9af4b1f2b25bc7025ce48ca4a7a0d182fd2f88bddb318cc",
+  "probe_path": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+  "probe_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+  "schema": "nvidia-hybrid-software-verification-v1",
+  "scope": "CPU, source, static and build checks; not hybrid-driver hardware qualification",
+  "skipped": 0,
+  "started_utc": "2026-10-22T20:34:28.179396+00:00",
+  "status": "passed",
+  "summary": "OK",
+  "summary_details": "",
+  "tests_run": 850,
+  "unittest_duration_seconds": 46.045
+}

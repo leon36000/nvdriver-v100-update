@@ -1,0 +1,28 @@
+{
+  "observed_at_utc": "2026-11-02T23:32:30.600715+00:00",
+  "pinned_cuda_probe_sha256": "c2c0aa30d26fe2fb7e61a5ef732bc1f659faa39eb4626e1d46689f2aa85e1422",
+  "pinned_probe_manifest_sha256": "86e5527b24983dafccc034e2d68385b23cd302b57bd439d6d278e7e0e6366514",
+  "qualification": {
+    "driver_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false,
+    "scope": "CPU/software suite only"
+  },
+  "raw_evidence": {
+    "log_bytes": 641816,
+    "log_path": "evidence/logs/software-verification-r595-host-staged-p2p-v3-20261102.log",
+    "log_sha256": "9c01092a121b2b2f15b0b8f29b76f79bed6a90e5509b7c703c39fec52e143b6b",
+    "report_path": "evidence/software-verification-r595-host-staged-p2p-v3-20261102.json",
+    "report_sha256": "87ca188d9045cf8044033e2819872e753a82a0452adf88dbd49ba1daee52802f"
+  },
+  "schema": "nvidia-hybrid.software-verification-summary.v1",
+  "status": "PASS",
+  "suite": {
+    "command": "python -B -m unittest discover -v -s tests",
+    "focused_pmon_and_artifact_pin_tests": 18,
+    "implementation_input_count": 98,
+    "inputs_unchanged_during_run": true,
+    "reported_seconds": 178.207,
+    "test_input_count": 393,
+    "tests_run": 2629
+  }
+}

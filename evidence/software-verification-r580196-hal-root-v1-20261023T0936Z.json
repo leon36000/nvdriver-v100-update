@@ -1,0 +1,29 @@
+{
+  "command": "HYBRID_PROBE=build/probe-current-src-v1-20261022/hybrid_cuda_probe HYBRID_CUDA_PROBE=build/probe-current-src-v1-20261022/hybrid_cuda_probe python3 -B -m unittest discover -v -s tests",
+  "created_utc": "2026-10-23T09:37:25.249053+00:00",
+  "cuda_hybrid_compatibility_established": false,
+  "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+  "environment": {
+    "HYBRID_CUDA_PROBE": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "HYBRID_PROBE": "build/probe-current-src-v1-20261022/hybrid_cuda_probe"
+  },
+  "experimental_module_loaded_or_installed": false,
+  "hardware_accessed": false,
+  "log_bytes": 216273,
+  "log_path": "evidence/logs/software-verification-r580196-hal-root-v1-20261023T0936Z.log",
+  "log_sha256": "72b586e0320ea48dae29874ac1d791a9c35c963aeb9b22d74e4edf28a7d178dc",
+  "probe_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+  "reported_test_seconds": 45.546,
+  "returncode": 0,
+  "schema": "nvidia-hybrid-software-verification-v1",
+  "scope": "Full pinned software, static-source and CPU-contract suite; not NVIDIA driver or hybrid CUDA runtime qualification.",
+  "source_inputs": {
+    "evidence/r580-58019607-vs-r595-uvm-hal-v1-20261023.json": "a3661a89a4dfddd3759e0ab3e8c7627e1def6f9406c4e7c6b5d7945740ceef18",
+    "tests/test_r580_archive_root_version.py": "68b136828f19234d32c1fcc6ec36c51b771c49b829aefb3e861adb69335757ea",
+    "tests/test_r595_uvm_hal_table_closure.py": "bdb4e543f3795d10b817d0d895d43278f6f431e1e84639a3bf8526a6add92a8f",
+    "tools/audit_r595_uvm_hal_table_closure.py": "0142a00fcdb18b84fb32e08ff67178b8fa2ea950cd9ef5c5052628a60d7192ca"
+  },
+  "status": "passed",
+  "summary_line": "Ran 949 tests in 45.546s; OK",
+  "tests_run": 949
+}

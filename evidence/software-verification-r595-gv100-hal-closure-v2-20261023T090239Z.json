@@ -1,0 +1,33 @@
+{
+  "classification": "software-unit-suite-no-hardware-validation",
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-v",
+    "-s",
+    "tests"
+  ],
+  "created_utc": "2026-10-23T09:03:24.137214+00:00",
+  "elapsed_seconds": 44.803,
+  "environment": {
+    "HYBRID_CUDA_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "HYBRID_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe"
+  },
+  "exit_code": 0,
+  "hardware_validated": false,
+  "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/software-verification-r595-gv100-hal-closure-v2-20261023T090239Z.log",
+  "log_sha256": "44e156b18ce1ebd93a19bc8297d7823d0816cbdd6369d5cf2be55f8a165dc8d6",
+  "log_size_bytes": 212875,
+  "probe": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+  "probe_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+  "schema": "driver-hybrid-software-verification-v1",
+  "skipped": 0,
+  "status": "passed",
+  "suite_reported_seconds": 44.68,
+  "suite_summary": "Ran 931 tests in 44.680s",
+  "tests_run": 931,
+  "working_directory": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid"
+}
