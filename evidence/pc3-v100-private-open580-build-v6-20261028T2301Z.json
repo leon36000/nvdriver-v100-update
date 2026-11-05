@@ -1,0 +1,2566 @@
+{
+  "builder_exit_code": 1,
+  "builder_qualification": "failed",
+  "builder_report": {
+    "compile_adapter": {
+      "declarations_unchanged": true,
+      "path": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/rs_access.h",
+      "reason": "duplicate pragma-once SDK/kernel RS_ACCESS",
+      "sha256": "eb36ba23f5a5c78d30ef0e7d67527cfa1e8b3187df4cd974991c3e9ba7704ce9"
+    },
+    "device_registered": false,
+    "error": "FileNotFoundError: [Errno 2] No such file or directory: 'modinfo'",
+    "gpu_accessed": false,
+    "inputs_sha256": {
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/.cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/_out/Linux_x86_64/nv-kernel.o": "5e9219a4a263315d20757159852b35be61dfd2ce75dcd2ca90b1cd1764d6bb8a",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/evidence/private-proprietary-gpu-name-string-v3-20261028.json": "6b2bb8ed12edd2b70110babe40e3450d5001b0be61d6fe5ab6b0f78b3c63bd41",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0001-private-open-pm-channel-depth-enum.patch": "22332052f169c252df9062ce3215484bf4eeb51cac2bcf3f6fb3f094d575025f",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0002-private-open-module.patch": "e6b1df9db7ec57df058e229f0a264ad83d24d29326ce083b68d580ade365b908",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0003-private-open-pci-guard.patch": "f21a8ef376dc24bade7a8b1fd4fac9ad5737ab79e75b7110b4e3adb87c293075",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0004-private-open-chardev.patch": "0609f51b7b18ce40ddc3b45b4d7bf4ebe7c2428776094ed86870a7686eea25e3",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0005-private-open-procfs-path.patch": "35a37c43c58716f2ca4bbc0fa68037a5eb80bf3ab439ad7f9a38dbb2a0d9f8ee",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0006-private-open-resource-names.patch": "79c5279b096abeff6cc6171014fa34a28a9bd0e80acb13ade54ef662bf34cae7",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0007-private-open-pci-only-lifecycle.patch": "e3c5cb0a2c235cccbd108425f09a9b0899b272bb77880dd93196b0fae2859ffb",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0008-private-open-file-projection.patch": "ecbb193d77c30bcb414230dca7859e6edbac76504940c9c5e9031dd8b903e20a",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0009-private-open-control-session.patch": "e1f275f35d6bef1f57afedb1feee387be68d9147a895e59a733af82bb609be17",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0010-private-open-gpu-session.patch": "0de8fa84c9b1bbb64c1e7d7061485f8db3893be01dadadb47e8862cd301257c9",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0011-private-open-gpu-session-bdf-lookup.patch": "0946fd95fe2d7600921e2de98ce5870314a05d71d5b065adcf5e89d680baed14",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0012-private-open-gpu-inventory.patch": "9207b434af31ee40a2a2f971d276fcd3c6f18b55cc243e101a7a028b75a6c039",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0014-private-control-attach-after-gpu.patch": "35189628de0771b5868aee7132c0611ab08e6a3f55218929ff349f92a81b1436",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0015-private-open-card-info.patch": "7e8b611872cbb91a07d731e705275e713bdcd18b0eb944bc48eb9304562c4d8c",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0016-private-open-gpu-id-info.patch": "1e0078e15b6990e3b29ce105bf51764b7831137230256907ee80a93eefc32e29",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0017-private-open-attached-ids.patch": "b96e7044d9c743de4fb098e38d8677cce89186998e28e4a4efe1910e9b55b995",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0018-private-open-probed-ids.patch": "e087f2a229ef77b9c35c12a5346a10ee5eab2ede725ea921c5b87076243fb3e6",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0019-private-open-device-ids.patch": "e6dda353f6bcb5d48f908e7fec58a57c7c865fa8a137dab26cb8f63a98ba8381",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0020-private-open-device-object.patch": "d88bdd0eab8ae3303cea5ee39691fd0a762392146a641528deb9c97c3533e906",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0021-private-open-memory-object.patch": "3cf64ed9e6d6180425de05e85e280b487da63cf4569972aa59750f910f13b9cf",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0022-private-open-vaspace-object.patch": "8091eea216078af61470f0facca38f5ec8733b141d3e9ecd327360ef0320fc17",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0023-private-open-channel-group-object.patch": "ccf0b4e8ff918b18f7a0ff651114b769dcef843ed48bfc020bce8ee7b37662a3",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0024-private-open-context-share-object.patch": "3e288294dee1a205211cf726db474319d7c7649fd0778476b19bd52aca4ff245",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0025-private-open-channel-object.patch": "46043501b8e7517770ae67c760652ed0d2e45f19babf8fdfdd52b3139304ee36",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0026-private-open-subdevice-and-tpc-mask.patch": "bb5ccdb642d3ffd8b4b1942b6b42068c9487b743a6aabad8b1a86fd4ebb6f0f9",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0027-private-open-binapi-object.patch": "0205e5dd0dcd912c047149e3eed14fec51c573fcd6227a8bd8fb16a3f8365c40",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0028-private-open-usermode-object.patch": "377279e1a601f2037866df9b7f714b91cc4512fb0dade1fe88074c9d9a3fd967",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0029-private-open-map-memory.patch": "416d32b7f7e3fece77bdfa020dca1db54d4719525ec9f60645c979e198e384c0",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0030-private-open-rusd-object.patch": "28772a04bd595d1c0886514c728ddb37b2b1a86070d937937092edccf7409c9e",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0031-private-open-pm-channel-depth.patch": "4ea8d9ae674eb857e3fbd68397ecca1da2d7bd9aaa8c8a0fa99f2c7a08b5e927",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0033-private-open-pm-vma-access-guard.patch": "ccecd235b533d79b6ed9c8f8ea30abe72324deb302f78f8cf0315c5d0d4a6623",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0034-private-open-vma-free-list-lock.patch": "4b0fc52e7143a9c9b88b48d7ee3a3e2be53ce70e44c15ac3a481569759c403dd",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0035-private-open-pm-recovery-provider.patch": "060f6ff65802ff691ec59d9ea39b88b5a65b28498b825efd57fa46d09835091f",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0036-private-open-pm-channel-dpm-modeset.patch": "57e7ec3011dad754315a69b72e02099e89b578343a89623a99b1f8844caf5144",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0037-private-open-sys-params.patch": "a7d736f4bb2de563adc969ff6818e355a665f3fb5029559727c47d169cefdb28",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0038-private-open-build-version-v1.patch": "3b2cecf017a2a333bbabd233c092d40853585e149a47f9b8d2e27c716460676a",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0039-private-open-gpu-register-control.patch": "1640505f1cc528318b33c1017a325de3acec459956f7d0278ef05399f47d52d3",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0040-private-open-engine-object.patch": "85c273f70f4a95c1c3425f72dc6ae5c430eede88722340d26052c075b9b5977b",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0041-private-open-update-device-mapping-info.patch": "0900468947b2ff2c45f35ff72da8cfb6d3107af1414128743f15788c1d22528f",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0042-private-open-kmod-softdep-separators.patch": "6384b2ec99b5768a751cc71edda3bdda4c326fe9f60f80a7b76dd8afc4bfaeaf",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0043-private-open-version-check.patch": "7b0fde9fafc6f458efdfaddab5f9a3ff8e97fe27904d9830eb9f733beaf87455",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0044-private-open-system-features.patch": "a93bdad757ce362828a379b3991ac839423b993cf220574db7b3584671eda11c",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0045-private-open-fabric-status.patch": "a4e4ed32f160eb3bfb7189dd86012eae336e4ea1c8adb41c16b0c7ac915c55e0",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0046-private-open-gpu-name-string.patch": "3bbcdb47dc7cd7655cafaab11a2cba7ae0bc54d2df1e6638f13fa296f56d3465",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/0047-private-open-client-share-policy.patch": "c7924c1ed1de0dddd7f5f44ade8f647d2cededb4ad6245a1bfb5504492d9d403",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/patches/r580.178.04/uvm/0003-pass-control-fd-to-dup-memory.patch": "1ea8a83f9af76d1d8189aa04647591d92e02ce7ad3a55db8c55cb13e280c1be6",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/src/hybrid580-control-session.h": "7c63550def573e81eb2c4816648c721456d4542359cdfa735c6d156ea4bff44c",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/src/hybrid580-gpu-catalog.h": "9003739e9b3476c7beb08c0918c0309629b2762d45f366cb6c1becd1c9e7dfd0",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/src/hybrid580-open-build-version.h": "670879dc242ae1e028dc79dce0d58cb667495cc8d4d14031027e63aacad0c5be",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/src/hybrid580_pm_provider_kernel.h": "a7a79984b3f9d53383299b5c4a928f6f6aac3a5624bbabc8dff6d6299d2a6bb4",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/src/hybrid580_pm_provider_recovery.h": "f2b2322302d7c71fae17b31840dc341fa560d5219720ab3c2bf4481b0c108172",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/src/hybrid580_pm_shared_uvm.h": "b702f15f08fc85a55d8fc70af15af7dd6c092914a4961ed1b5430037a6fbfe31",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/src/rm_session_endpoint.h": "6a447c37f738eb09098b419e42203b4b4d16c85c108510acba483f37c6e700c7",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/tests/test_private_open580_wrapper.py": "8c08771c14368fbadf820868859b82165e87313a98b8541c8576fb2c9218684b",
+      "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/tools/build_private_open580_wrapper.py": "1aa3531d865d867db2041cde45ac3c2f3af113722156f88ace7814eb62be838e"
+    },
+    "inputs_unchanged": true,
+    "kernel_release": "6.8.0-147-generic",
+    "loaded_or_installed": false,
+    "native_patches": [
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0002-private-open-module.patch",
+        "sha256": "e6b1df9db7ec57df058e229f0a264ad83d24d29326ce083b68d580ade365b908"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0003-private-open-pci-guard.patch",
+        "sha256": "f21a8ef376dc24bade7a8b1fd4fac9ad5737ab79e75b7110b4e3adb87c293075"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0004-private-open-chardev.patch",
+        "sha256": "0609f51b7b18ce40ddc3b45b4d7bf4ebe7c2428776094ed86870a7686eea25e3"
+      },
+      {
+        "context_occurrence_counts": [
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0005-private-open-procfs-path.patch",
+        "sha256": "35a37c43c58716f2ca4bbc0fa68037a5eb80bf3ab439ad7f9a38dbb2a0d9f8ee"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0006-private-open-resource-names.patch",
+        "sha256": "79c5279b096abeff6cc6171014fa34a28a9bd0e80acb13ade54ef662bf34cae7"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0007-private-open-pci-only-lifecycle.patch",
+        "sha256": "e3c5cb0a2c235cccbd108425f09a9b0899b272bb77880dd93196b0fae2859ffb"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0008-private-open-file-projection.patch",
+        "sha256": "ecbb193d77c30bcb414230dca7859e6edbac76504940c9c5e9031dd8b903e20a"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0009-private-open-control-session.patch",
+        "sha256": "e1f275f35d6bef1f57afedb1feee387be68d9147a895e59a733af82bb609be17"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0010-private-open-gpu-session.patch",
+        "sha256": "0de8fa84c9b1bbb64c1e7d7061485f8db3893be01dadadb47e8862cd301257c9"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0011-private-open-gpu-session-bdf-lookup.patch",
+        "sha256": "0946fd95fe2d7600921e2de98ce5870314a05d71d5b065adcf5e89d680baed14"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0012-private-open-gpu-inventory.patch",
+        "sha256": "9207b434af31ee40a2a2f971d276fcd3c6f18b55cc243e101a7a028b75a6c039"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0014-private-control-attach-after-gpu.patch",
+        "sha256": "35189628de0771b5868aee7132c0611ab08e6a3f55218929ff349f92a81b1436"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0015-private-open-card-info.patch",
+        "sha256": "7e8b611872cbb91a07d731e705275e713bdcd18b0eb944bc48eb9304562c4d8c"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0016-private-open-gpu-id-info.patch",
+        "sha256": "1e0078e15b6990e3b29ce105bf51764b7831137230256907ee80a93eefc32e29"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0017-private-open-attached-ids.patch",
+        "sha256": "b96e7044d9c743de4fb098e38d8677cce89186998e28e4a4efe1910e9b55b995"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0018-private-open-probed-ids.patch",
+        "sha256": "e087f2a229ef77b9c35c12a5346a10ee5eab2ede725ea921c5b87076243fb3e6"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0019-private-open-device-ids.patch",
+        "sha256": "e6dda353f6bcb5d48f908e7fec58a57c7c865fa8a137dab26cb8f63a98ba8381"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0020-private-open-device-object.patch",
+        "sha256": "d88bdd0eab8ae3303cea5ee39691fd0a762392146a641528deb9c97c3533e906"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0021-private-open-memory-object.patch",
+        "sha256": "3cf64ed9e6d6180425de05e85e280b487da63cf4569972aa59750f910f13b9cf"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0022-private-open-vaspace-object.patch",
+        "sha256": "8091eea216078af61470f0facca38f5ec8733b141d3e9ecd327360ef0320fc17"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0023-private-open-channel-group-object.patch",
+        "sha256": "ccf0b4e8ff918b18f7a0ff651114b769dcef843ed48bfc020bce8ee7b37662a3"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0024-private-open-context-share-object.patch",
+        "sha256": "3e288294dee1a205211cf726db474319d7c7649fd0778476b19bd52aca4ff245"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0025-private-open-channel-object.patch",
+        "sha256": "46043501b8e7517770ae67c760652ed0d2e45f19babf8fdfdd52b3139304ee36"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0026-private-open-subdevice-and-tpc-mask.patch",
+        "sha256": "bb5ccdb642d3ffd8b4b1942b6b42068c9487b743a6aabad8b1a86fd4ebb6f0f9"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0027-private-open-binapi-object.patch",
+        "sha256": "0205e5dd0dcd912c047149e3eed14fec51c573fcd6227a8bd8fb16a3f8365c40"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0028-private-open-usermode-object.patch",
+        "sha256": "377279e1a601f2037866df9b7f714b91cc4512fb0dade1fe88074c9d9a3fd967"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0029-private-open-map-memory.patch",
+        "sha256": "416d32b7f7e3fece77bdfa020dca1db54d4719525ec9f60645c979e198e384c0"
+      },
+      {
+        "context_occurrence_counts": [
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0030-private-open-rusd-object.patch",
+        "sha256": "28772a04bd595d1c0886514c728ddb37b2b1a86070d937937092edccf7409c9e"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0039-private-open-gpu-register-control.patch",
+        "sha256": "1640505f1cc528318b33c1017a325de3acec459956f7d0278ef05399f47d52d3"
+      },
+      {
+        "context_occurrence_counts": [
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0040-private-open-engine-object.patch",
+        "sha256": "85c273f70f4a95c1c3425f72dc6ae5c430eede88722340d26052c075b9b5977b"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [
+          "Hunk #2 succeeded at 2624 (offset -48 lines).",
+          "Hunk #3 succeeded at 4463 (offset -52 lines)."
+        ],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0037-private-open-sys-params.patch",
+        "sha256": "a7d736f4bb2de563adc969ff6818e355a665f3fb5029559727c47d169cefdb28"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [
+          "Hunk #2 succeeded at 4520 (offset -52 lines)."
+        ],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0038-private-open-build-version-v1.patch",
+        "sha256": "3b2cecf017a2a333bbabd233c092d40853585e149a47f9b8d2e27c716460676a"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": {
+          "added_C_lines_unchanged": true,
+          "only_context_changed": true,
+          "original_path": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0041-private-open-update-device-mapping-info.patch",
+          "original_sha256": "0900468947b2ff2c45f35ff72da8cfb6d3107af1414128743f15788c1d22528f",
+          "overlay_path": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04/.hybrid-local-overlays/0041-private-open-update-device-mapping-info.patch",
+          "overlay_sha256": "02afe4c8bac576a2c09ef7662ba70273510435bccc7dd7ea8c38d6a38417f25c",
+          "placement": "after0037SYS_PARAMS+0038build_version,beforecontrol_session_release"
+        },
+        "offset_messages": [
+          "Hunk #1 succeeded at 4616 (offset 168 lines)."
+        ],
+        "overlay_unique_context_verified": true,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04/.hybrid-local-overlays/0041-private-open-update-device-mapping-info.patch",
+        "sha256": "02afe4c8bac576a2c09ef7662ba70273510435bccc7dd7ea8c38d6a38417f25c"
+      },
+      {
+        "context_occurrence_counts": [
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0042-private-open-kmod-softdep-separators.patch",
+        "sha256": "6384b2ec99b5768a751cc71edda3bdda4c326fe9f60f80a7b76dd8afc4bfaeaf"
+      },
+      {
+        "context_occurrence_counts": [
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0001-private-open-pm-channel-depth-enum.patch",
+        "sha256": "22332052f169c252df9062ce3215484bf4eeb51cac2bcf3f6fb3f094d575025f"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          22,
+          4,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [
+          "Hunk #1 succeeded at 261 (offset 39 lines).",
+          "Hunk #2 succeeded at 276 (offset 40 lines).",
+          "Hunk #3 succeeded at 298 (offset 40 lines).",
+          "Hunk #4 succeeded at 1884 (offset 15 lines).",
+          "Hunk #5 succeeded at 2275 (offset 19 lines).",
+          "Hunk #6 succeeded at 3148 (offset -2 lines).",
+          "Hunk #7 succeeded at 3154 (offset -2 lines).",
+          "Hunk #8 succeeded at 3206 (offset -2 lines).",
+          "Hunk #9 succeeded at 7308 (offset 2583 lines).",
+          "Hunk #10 succeeded at 7319 (offset 2583 lines).",
+          "Hunk #11 succeeded at 7339 (offset 2583 lines).",
+          "Hunk #12 succeeded at 7369 (offset 2583 lines).",
+          "Hunk #13 succeeded at 7412 (offset 2583 lines).",
+          "Hunk #14 succeeded at 7416 (offset 2583 lines).",
+          "Hunk #15 succeeded at 7423 (offset 2583 lines).",
+          "Hunk #16 succeeded at 7446 (offset 2583 lines).",
+          "Hunk #17 succeeded at 7455 (offset 2583 lines).",
+          "Hunk #18 succeeded at 7473 (offset 2583 lines)."
+        ],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0031-private-open-pm-channel-depth.patch",
+        "sha256": "4ea8d9ae674eb857e3fbd68397ecca1da2d7bd9aaa8c8a0fa99f2c7a08b5e927"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0033-private-open-pm-vma-access-guard.patch",
+        "sha256": "ccecd235b533d79b6ed9c8f8ea30abe72324deb302f78f8cf0315c5d0d4a6623"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0034-private-open-vma-free-list-lock.patch",
+        "sha256": "4b0fc52e7143a9c9b88b48d7ee3a3e2be53ce70e44c15ac3a481569759c403dd"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [
+          "Hunk #1 succeeded at 7555 (offset 449 lines).",
+          "Hunk #2 succeeded at 7580 (offset 449 lines).",
+          "Hunk #3 succeeded at 7608 (offset 449 lines).",
+          "Hunk #4 succeeded at 7617 (offset 449 lines)."
+        ],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0035-private-open-pm-recovery-provider.patch",
+        "sha256": "060f6ff65802ff691ec59d9ea39b88b5a65b28498b825efd57fa46d09835091f"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [
+          "Hunk #1 succeeded at 7355 (offset 397 lines).",
+          "Hunk #2 succeeded at 7398 (offset 397 lines).",
+          "Hunk #3 succeeded at 7492 (offset 397 lines)."
+        ],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0036-private-open-pm-channel-dpm-modeset.patch",
+        "sha256": "57e7ec3011dad754315a69b72e02099e89b578343a89623a99b1f8844caf5144"
+      },
+      {
+        "context_occurrence_counts": [
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0043-private-open-version-check.patch",
+        "sha256": "7b0fde9fafc6f458efdfaddab5f9a3ff8e97fe27904d9830eb9f733beaf87455"
+      },
+      {
+        "context_occurrence_counts": [
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0044-private-open-system-features.patch",
+        "sha256": "a93bdad757ce362828a379b3991ac839423b993cf220574db7b3584671eda11c"
+      },
+      {
+        "context_occurrence_counts": [
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0045-private-open-fabric-status.patch",
+        "sha256": "a4e4ed32f160eb3bfb7189dd86012eae336e4ea1c8adb41c16b0c7ac915c55e0"
+      },
+      {
+        "context_occurrence_counts": [
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0046-private-open-gpu-name-string.patch",
+        "sha256": "3bbcdb47dc7cd7655cafaab11a2cba7ae0bc54d2df1e6638f13fa296f56d3465"
+      },
+      {
+        "context_occurrence_counts": [
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0047-private-open-client-share-policy.patch",
+        "sha256": "c7924c1ed1de0dddd7f5f44ade8f647d2cededb4ad6245a1bfb5504492d9d403"
+      },
+      {
+        "context_occurrence_counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "fuzz_used": false,
+        "literal_context_verified": true,
+        "local_context_overlay": null,
+        "offset_messages": [],
+        "overlay_unique_context_verified": false,
+        "patch": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0003-pass-control-fd-to-dup-memory.patch",
+        "sha256": "1ea8a83f9af76d1d8189aa04647591d92e02ce7ad3a55db8c55cb13e280c1be6"
+      }
+    ],
+    "observed_at_utc": "2026-10-28T22:59:32.706733+00:00",
+    "provider_version_comparison": {
+      "legacy_proprietary_provider_source_version": "580.178.04",
+      "open_rm_core_version": "580.178.04",
+      "open_source_version": "580.178.04",
+      "same_release_provider_pair": true
+    },
+    "qualification": "failed",
+    "real_rm_executed": false,
+    "remaining_boundaries": [
+      "module initialization/coexistence and VFS/RM lifetime unexecuted",
+      "stock Open580 GV100 physical HAL absent; Volta remains proprietary backend",
+      "common frontend/libcuda/UVM integration untested on hardware",
+      "objtool mitigation warnings remain unqualified"
+    ],
+    "rm_core_object": {
+      "bytes": 17512968,
+      "mode": "pinned-prebuilt",
+      "path": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/_out/Linux_x86_64/nv-kernel.o",
+      "sha256": "5e9219a4a263315d20757159852b35be61dfd2ce75dcd2ca90b1cd1764d6bb8a",
+      "source_version": "580.178.04"
+    },
+    "runtime_or_binary_abi_validated": false,
+    "schema": "private-open580-native-wrapper-v2",
+    "scope": "exact-source-version Open580 RM and baseline/private module compile/link only; legacy provider remains pinned to 580.178.04",
+    "shared_header_comparison": {
+      "hybrid580-control-session.h": {
+        "match_after_prefix_substitution": true,
+        "sha256": "7c63550def573e81eb2c4816648c721456d4542359cdfa735c6d156ea4bff44c"
+      },
+      "hybrid580-file-projection.h": {
+        "match_after_prefix_substitution": true,
+        "sha256": "2847fab2fc3f26d27a7baba5da812f7f955fe5faa6bd4ffe75a283d314aaf3d8"
+      },
+      "hybrid580-gpu-session.h": {
+        "match_after_prefix_substitution": true,
+        "sha256": "b2d84c220d00741d89c415ca2d97e9573da4c4539be9eaf4e5e6b324bc11f3bf"
+      }
+    },
+    "signed": false,
+    "source_changes": {
+      "diff": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/prepared-source-changes.patch",
+      "diff_sha256": "1356e83ca5190ce32b2c2693b97446a945a0fb93d4e791d6f3ad2d63363a26d4",
+      "files": [
+        {
+          "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "path": "kernel-open/common/inc/hybrid580_uvm_control_fd_dispatch.h",
+          "prepared_sha256": "429c96cb659501ee18f63f711c2d1145678af1a8ddd62d6cced9b5b501052a8d"
+        },
+        {
+          "original_sha256": "f42689de8a2608926ec792325d8f383b9e87c567be0e640860156b68456fd253",
+          "path": "kernel-open/common/inc/nv-linux.h",
+          "prepared_sha256": "c3f6f9e31d8fa83224cdd9ffb903451b0e1265c5401867cf7227727e72e88a01"
+        },
+        {
+          "original_sha256": "bc5802ef5a0e47be045cac9b74e61a0092f0bb96fc1ede05e2361d164e3b7787",
+          "path": "kernel-open/common/inc/nv.h",
+          "prepared_sha256": "b03c0eaf77c9b4751af6d79830e327e20d13d03c37bdddd4017bd76ea046177b"
+        },
+        {
+          "original_sha256": "80ee868397b8d0cbbdd7758472e74ba8d97f0504e012872d7d49e4e0406f7ab6",
+          "path": "kernel-open/nvidia/export_nvswitch.h",
+          "prepared_sha256": "6f1c115050d09173a993d6f60b2321921243b9cec834a4039dbb572456e38944"
+        },
+        {
+          "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "path": "kernel-open/nvidia/hybrid580-control-session.h",
+          "prepared_sha256": "7c63550def573e81eb2c4816648c721456d4542359cdfa735c6d156ea4bff44c"
+        },
+        {
+          "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "path": "kernel-open/nvidia/hybrid580-file-projection.h",
+          "prepared_sha256": "2847fab2fc3f26d27a7baba5da812f7f955fe5faa6bd4ffe75a283d314aaf3d8"
+        },
+        {
+          "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "path": "kernel-open/nvidia/hybrid580-gpu-catalog.h",
+          "prepared_sha256": "9003739e9b3476c7beb08c0918c0309629b2762d45f366cb6c1becd1c9e7dfd0"
+        },
+        {
+          "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "path": "kernel-open/nvidia/hybrid580-gpu-session.h",
+          "prepared_sha256": "b2d84c220d00741d89c415ca2d97e9573da4c4539be9eaf4e5e6b324bc11f3bf"
+        },
+        {
+          "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "path": "kernel-open/nvidia/hybrid580-open-build-version.h",
+          "prepared_sha256": "670879dc242ae1e028dc79dce0d58cb667495cc8d4d14031027e63aacad0c5be"
+        },
+        {
+          "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "path": "kernel-open/nvidia/hybrid580-open-exports.h",
+          "prepared_sha256": "3f63e3d294778e75c2ae7f8aa15cef530ac7f9a067e7c3870670cd765f50ae80"
+        },
+        {
+          "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "path": "kernel-open/nvidia/hybrid580-pm-provider-kernel.h",
+          "prepared_sha256": "a7a79984b3f9d53383299b5c4a928f6f6aac3a5624bbabc8dff6d6299d2a6bb4"
+        },
+        {
+          "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "path": "kernel-open/nvidia/hybrid580-pm-provider-recovery.h",
+          "prepared_sha256": "f2b2322302d7c71fae17b31840dc341fa560d5219720ab3c2bf4481b0c108172"
+        },
+        {
+          "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "path": "kernel-open/nvidia/hybrid580-pm-shared-uvm.h",
+          "prepared_sha256": "b702f15f08fc85a55d8fc70af15af7dd6c092914a4961ed1b5430037a6fbfe31"
+        },
+        {
+          "original_sha256": "9dc820124a9f568d38d35c324bac8e845ddbc7158959ac94ed0000248749fb61",
+          "path": "kernel-open/nvidia/libspdm_ecc.c",
+          "prepared_sha256": "ffb79501c6725ade872304e5b826973011097002f122fed11f7f201c47f965ac"
+        },
+        {
+          "original_sha256": "760ef99f2d4c683b38de345523b678910604129803008f3687727b1bea290297",
+          "path": "kernel-open/nvidia/nv-caps-imex.c",
+          "prepared_sha256": "0d9479ead9451e7e66a40f085aa0623995224fdcb36b8e1137146215d970f764"
+        },
+        {
+          "original_sha256": "47d7a6721331a041b794b3b1e38b5fdbf64055a212c83902478a4a144ae514f9",
+          "path": "kernel-open/nvidia/nv-caps.c",
+          "prepared_sha256": "a712a41b2e206e73e743b5f824c565e30b1ab132440fcb89aa10e11e77bb5079"
+        },
+        {
+          "original_sha256": "35617fd599b76bf405874e11545eaab89bc941c0fa2e3ae0aa2f226a9a774d5e",
+          "path": "kernel-open/nvidia/nv-mmap.c",
+          "prepared_sha256": "048caa37de6e23142c07aeace1feee2b71f1e23ef621f1e63ceda1f84bf7e3c3"
+        },
+        {
+          "original_sha256": "bcb34b1ccec6310a428fc7019a842d03d4c8f19577f57a30535489f029a19cd3",
+          "path": "kernel-open/nvidia/nv-pci-table.c",
+          "prepared_sha256": "16d62987c944cf7d0efa8ea1f7e034eece980edeaa4b28a62eb846bce79805b2"
+        },
+        {
+          "original_sha256": "c6de3c7a78902ceb934fe485cf43893c3a2dc613edf05dd3e92119f09d002a53",
+          "path": "kernel-open/nvidia/nv-pci.c",
+          "prepared_sha256": "877386d02f00f8ff61f81cb0bd3e4675ff6b376df59459d0d14824d32b47e9d2"
+        },
+        {
+          "original_sha256": "9fcce137af66b1ca7e304fc18a62b5654c7bf4fc4814ba10dcc541b1db5d6c96",
+          "path": "kernel-open/nvidia/nv-platform.c",
+          "prepared_sha256": "db869854b2628d477833a56b3fc91f10750a546d40ca4ce3281734e684398979"
+        },
+        {
+          "original_sha256": "8cfcde5e57cd10d709c573dca2db10ddad8049c222a5a73437738252886620c8",
+          "path": "kernel-open/nvidia/nv-procfs.c",
+          "prepared_sha256": "eaddecce117d5d130b1752a9ea30ea4099646981daf39031f410cc3ef818cd19"
+        },
+        {
+          "original_sha256": "4f251e44dfd400d7611b57a029d0b38b6e8a67a30f4971085aad56029753aa40",
+          "path": "kernel-open/nvidia/nv.c",
+          "prepared_sha256": "d7e0dbf671defc4dd35b104a1cf09a8001d3fb88aaeae8564e26775f426ab4fa"
+        },
+        {
+          "original_sha256": "b41c704d29363dd52dd0ea669ee253a37185f5826c7db56a07dec21c3d24eddc",
+          "path": "kernel-open/nvidia/nv_uvm_interface.c",
+          "prepared_sha256": "4f337eb2b855a78e4621cec3d4a5057d31a2cacda9298b6adb57040eef064ed1"
+        },
+        {
+          "original_sha256": "adee2cdb65f387611e2816d91beb4c3ce3a45f648831d8b1e79a2564b160f406",
+          "path": "kernel-open/nvidia/nvidia.Kbuild",
+          "prepared_sha256": "7bd6056ef2ea54c627c872352735cbde88ca81c95c8151ebd0d6ba7e70dc70a1"
+        },
+        {
+          "original_sha256": "512da8863974dbada02318d606714c9e090baf88793ef3c5993e94815bb5e987",
+          "path": "kernel-open/nvidia/nvlink_linux.c",
+          "prepared_sha256": "1d8e2c74fdf2c7f5a3c5b5be6e03c0f54bd780141f2dd615cead747b67f5a6ca"
+        },
+        {
+          "original_sha256": "15d3ca3135368f189c530147a6cdb0c277e6df23cf180419bc54fa82a2a382a9",
+          "path": "kernel-open/nvidia/nvlink_linux.h",
+          "prepared_sha256": "8b31704e47376569ab7efb2a46297c14212eda17945a467cc0314ce140614175"
+        },
+        {
+          "original_sha256": "cec6cc90f0227fc23839ab81bbd7edf3b032d6414d661d71c5bfd7b6b41c3433",
+          "path": "kernel-open/nvidia/procfs_nvswitch.c",
+          "prepared_sha256": "394da3b2d69c009dff97b0c72a7f4e82d72418de91ab49443969d6fef27debf9"
+        },
+        {
+          "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "path": "kernel-open/nvidia/rm_session_endpoint.h",
+          "prepared_sha256": "6a447c37f738eb09098b419e42203b4b4d16c85c108510acba483f37c6e700c7"
+        },
+        {
+          "original_sha256": "4115e9f2de1fc9ad460a61168e78e68ede19c57ac6216740dc57475b29d07511",
+          "path": "kernel-open/nvidia-uvm/uvm_map_external.c",
+          "prepared_sha256": "1e72573e3ebc2c3117768ab0517e4b7e9acdb62af2368513a37500d6f13c11dd"
+        },
+        {
+          "original_sha256": "ee3174aa565a08594f66c325b06d24bd8e798d933bf74ff12c803cf3614bb117",
+          "path": "src/common/sdk/nvidia/inc/rs_access.h",
+          "prepared_sha256": "eb36ba23f5a5c78d30ef0e7d67527cfa1e8b3187df4cd974991c3e9ba7704ce9"
+        }
+      ]
+    },
+    "source_isolation_contract": {
+      "client_share_policy_single_definition": true,
+      "control_fd_dispatch_private": true,
+      "deny_by_default_pci": true,
+      "dynamic_major": true,
+      "fabric_status_single_definition": true,
+      "gpu_name_string_single_definition": true,
+      "kmod_softdep_space_delimiters": true,
+      "mapping_update_single_definition": true,
+      "module_identity_private": true,
+      "module_license_intact": true,
+      "private_baseline_export_macros": [
+        "nvUvmInterfaceAddressSpaceCreate",
+        "nvUvmInterfaceAddressSpaceDestroy",
+        "nvUvmInterfaceBindChannelResources",
+        "nvUvmInterfaceChannelAllocate",
+        "nvUvmInterfaceChannelDestroy",
+        "nvUvmInterfaceCslDecrypt",
+        "nvUvmInterfaceCslEncrypt",
+        "nvUvmInterfaceCslIncrementIv",
+        "nvUvmInterfaceCslInitContext",
+        "nvUvmInterfaceCslLogEncryption",
+        "nvUvmInterfaceCslQueryMessagePool",
+        "nvUvmInterfaceCslRotateIv",
+        "nvUvmInterfaceCslRotateKey",
+        "nvUvmInterfaceCslSign",
+        "nvUvmInterfaceDeRegisterUvmOps",
+        "nvUvmInterfaceDeinitCslContext",
+        "nvUvmInterfaceDestroyAccessCntrInfo",
+        "nvUvmInterfaceDestroyFaultInfo",
+        "nvUvmInterfaceDeviceCreate",
+        "nvUvmInterfaceDeviceDestroy",
+        "nvUvmInterfaceDisableAccessCntr",
+        "nvUvmInterfaceDupAddressSpace",
+        "nvUvmInterfaceDupAllocation",
+        "nvUvmInterfaceDupMemory",
+        "nvUvmInterfaceDupMemoryWithControlFd",
+        "nvUvmInterfaceEnableAccessCntr",
+        "nvUvmInterfaceFlushReplayableFaultBuffer",
+        "nvUvmInterfaceFreeDupedHandle",
+        "nvUvmInterfaceGetChannelResourcePtes",
+        "nvUvmInterfaceGetEccInfo",
+        "nvUvmInterfaceGetExternalAllocPhysAddrs",
+        "nvUvmInterfaceGetExternalAllocPtes",
+        "nvUvmInterfaceGetFbInfo",
+        "nvUvmInterfaceGetGpuInfo",
+        "nvUvmInterfaceGetNonReplayableFaults",
+        "nvUvmInterfaceGetNvlinkInfo",
+        "nvUvmInterfaceGetP2PCaps",
+        "nvUvmInterfaceGetPmaObject",
+        "nvUvmInterfaceHasPendingNonReplayableFaults",
+        "nvUvmInterfaceInitAccessCntrInfo",
+        "nvUvmInterfaceInitFaultInfo",
+        "nvUvmInterfaceMemoryAllocFB",
+        "nvUvmInterfaceMemoryAllocSys",
+        "nvUvmInterfaceMemoryCpuMap",
+        "nvUvmInterfaceMemoryCpuUnMap",
+        "nvUvmInterfaceMemoryFree",
+        "nvUvmInterfaceOwnPageFaultIntr",
+        "nvUvmInterfaceP2pObjectCreate",
+        "nvUvmInterfaceP2pObjectDestroy",
+        "nvUvmInterfacePagingChannelAllocate",
+        "nvUvmInterfacePagingChannelDestroy",
+        "nvUvmInterfacePagingChannelPushStream",
+        "nvUvmInterfacePagingChannelsMap",
+        "nvUvmInterfacePagingChannelsUnmap",
+        "nvUvmInterfacePmaAllocPages",
+        "nvUvmInterfacePmaFreePages",
+        "nvUvmInterfacePmaPinPages",
+        "nvUvmInterfacePmaRegisterEvictionCallbacks",
+        "nvUvmInterfacePmaUnregisterEvictionCallbacks",
+        "nvUvmInterfaceQueryCaps",
+        "nvUvmInterfaceQueryCopyEnginesCaps",
+        "nvUvmInterfaceRegisterGpu",
+        "nvUvmInterfaceRegisterUvmCallbacks",
+        "nvUvmInterfaceReleaseChannel",
+        "nvUvmInterfaceReportFatalError",
+        "nvUvmInterfaceReportNonReplayableFault",
+        "nvUvmInterfaceRetainChannel",
+        "nvUvmInterfaceServiceDeviceInterruptsRM",
+        "nvUvmInterfaceSessionCreate",
+        "nvUvmInterfaceSessionDestroy",
+        "nvUvmInterfaceSetPageDirectory",
+        "nvUvmInterfaceStopChannel",
+        "nvUvmInterfaceTogglePrefetchFaults",
+        "nvUvmInterfaceTsgAllocate",
+        "nvUvmInterfaceTsgDestroy",
+        "nvUvmInterfaceUnregisterGpu",
+        "nvUvmInterfaceUnsetPageDirectory",
+        "nvidia_get_rm_ops",
+        "nvidia_p2p_destroy_mapping",
+        "nvidia_p2p_dma_map_pages",
+        "nvidia_p2p_dma_unmap_pages",
+        "nvidia_p2p_free_dma_mapping",
+        "nvidia_p2p_free_page_table",
+        "nvidia_p2p_get_pages",
+        "nvidia_p2p_get_pages_persistent",
+        "nvidia_p2p_get_rsync_registers",
+        "nvidia_p2p_init_mapping",
+        "nvidia_p2p_put_pages",
+        "nvidia_p2p_put_pages_persistent",
+        "nvidia_p2p_put_rsync_registers",
+        "nvidia_p2p_register_rsync_driver",
+        "nvidia_p2p_unregister_rsync_driver",
+        "nvidia_register_error_cb",
+        "nvidia_unregister_error_cb"
+      ],
+      "public_hardware_aliases_removed": true,
+      "resource_names_private": true,
+      "sys_params_single_definition": true,
+      "system_features_single_definition": true,
+      "version_check_single_definition": true
+    },
+    "source_version": "580.178.04",
+    "steps": [
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0002-private-open-module.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.008,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0002-private-open-module.log",
+        "log_sha256": "24e7570fe02aeb4af86b55e2604434f5a5b1acbd222525b10dbc1cd508c65507",
+        "name": "0002-private-open-module"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0003-private-open-pci-guard.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.004,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0003-private-open-pci-guard.log",
+        "log_sha256": "849dc9171b2a326af1cc1f1c02939e8a688f8a760467f0a6049e97e33a484e1a",
+        "name": "0003-private-open-pci-guard"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0004-private-open-chardev.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.003,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0004-private-open-chardev.log",
+        "log_sha256": "6d7ad4cc76d4697bcce6f5d07a2d8672bb8f408a7d6d41ce000e3eb48cddce69",
+        "name": "0004-private-open-chardev"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0005-private-open-procfs-path.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0005-private-open-procfs-path.log",
+        "log_sha256": "7314dc0b735b3ecf759054a5dd875b5333fee759749345d6e6b9aa8566b38d58",
+        "name": "0005-private-open-procfs-path"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0006-private-open-resource-names.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.004,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0006-private-open-resource-names.log",
+        "log_sha256": "85e22436006446bae77b5a0f28d448662b3d8cf32407959ca8c4155cdb919feb",
+        "name": "0006-private-open-resource-names"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0007-private-open-pci-only-lifecycle.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.003,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0007-private-open-pci-only-lifecycle.log",
+        "log_sha256": "1bba22e4fca6c8c7399e5d4f9f15ff259f8a3fcb3112b6f3e0e8b90fe56483b8",
+        "name": "0007-private-open-pci-only-lifecycle"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0008-private-open-file-projection.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.003,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0008-private-open-file-projection.log",
+        "log_sha256": "c9ddf819b24922258afc310e75477b230a5cf782616b112e05c5a62707e59d20",
+        "name": "0008-private-open-file-projection"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0009-private-open-control-session.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0009-private-open-control-session.log",
+        "log_sha256": "a6c928056ab1d7c06abc03c16b8f662c586869d16ad1cd9070775059e627ad24",
+        "name": "0009-private-open-control-session"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0010-private-open-gpu-session.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0010-private-open-gpu-session.log",
+        "log_sha256": "851ae7462bb1949cb5a84b60ea41a3c671f7312d2cb2fb2368e35833de61c963",
+        "name": "0010-private-open-gpu-session"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0011-private-open-gpu-session-bdf-lookup.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0011-private-open-gpu-session-bdf-lookup.log",
+        "log_sha256": "fad6cc19bf71861df87730d9f49c0ee71b12ffa20ea2c56fbe59c2f0678d46e7",
+        "name": "0011-private-open-gpu-session-bdf-lookup"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0012-private-open-gpu-inventory.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.002,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0012-private-open-gpu-inventory.log",
+        "log_sha256": "cab16d82612ceedba6afa531bc9c74a1354695def3e84e83e174375f86b1e48e",
+        "name": "0012-private-open-gpu-inventory"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0014-private-control-attach-after-gpu.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0014-private-control-attach-after-gpu.log",
+        "log_sha256": "7c234ced1b5c2f68c5f4f735b0cd307587d1338304021c08a4ea71c8b909b4c9",
+        "name": "0014-private-control-attach-after-gpu"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0015-private-open-card-info.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.003,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0015-private-open-card-info.log",
+        "log_sha256": "f34dfbb0d73564425febd5ff8261b25a98950eb53cf59725bd289d5cb02035b7",
+        "name": "0015-private-open-card-info"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0016-private-open-gpu-id-info.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.003,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0016-private-open-gpu-id-info.log",
+        "log_sha256": "bd2063cc176eb1d01f364898580e4db6ed5a948d23d0d02bcdce491415ab9b5c",
+        "name": "0016-private-open-gpu-id-info"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0017-private-open-attached-ids.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0017-private-open-attached-ids.log",
+        "log_sha256": "9ab7a1080c218983ba9f8e545810d8d2e35a2c4f4762598b77bd04564a258968",
+        "name": "0017-private-open-attached-ids"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0018-private-open-probed-ids.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0018-private-open-probed-ids.log",
+        "log_sha256": "424e7b861a6c4372b7df65fb3a3bfd9d3223acadfa5505bfeb86517adea5a4ea",
+        "name": "0018-private-open-probed-ids"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0019-private-open-device-ids.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0019-private-open-device-ids.log",
+        "log_sha256": "3582f0339987380e2301bd31a72b13115f339cfad24b9128313760a926662907",
+        "name": "0019-private-open-device-ids"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0020-private-open-device-object.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.004,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0020-private-open-device-object.log",
+        "log_sha256": "6817e800c3633bbda504979f5a381f6e826a7d6eba24f65f64a216d36aeabb8d",
+        "name": "0020-private-open-device-object"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0021-private-open-memory-object.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0021-private-open-memory-object.log",
+        "log_sha256": "e57fbd6f87e1c90db768d8c9024bd055944b42a429ddc1d90d209aea976ff28b",
+        "name": "0021-private-open-memory-object"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0022-private-open-vaspace-object.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0022-private-open-vaspace-object.log",
+        "log_sha256": "dc1bc97014bc39c073282e6717d1cb727d32b3a4f35107e884afdb5ec12685d8",
+        "name": "0022-private-open-vaspace-object"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0023-private-open-channel-group-object.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0023-private-open-channel-group-object.log",
+        "log_sha256": "179c888a1a26a9673cba7134ef4020775a055e2135263d69d659460dff6e0db9",
+        "name": "0023-private-open-channel-group-object"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0024-private-open-context-share-object.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.003,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0024-private-open-context-share-object.log",
+        "log_sha256": "b1078b0a02ec1b567c376039dff3337fb85302cc0dfe54d8533624fcbbe3de43",
+        "name": "0024-private-open-context-share-object"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0025-private-open-channel-object.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0025-private-open-channel-object.log",
+        "log_sha256": "40c706fdb412a5d2f9cd5e3cec752f74ece3fe61a3b0a1a4b1b37c92469cf740",
+        "name": "0025-private-open-channel-object"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0026-private-open-subdevice-and-tpc-mask.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.003,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0026-private-open-subdevice-and-tpc-mask.log",
+        "log_sha256": "5c19f61263307f810a556a96df330a00dc10e2cbb75d60a0707f157a93946dda",
+        "name": "0026-private-open-subdevice-and-tpc-mask"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0027-private-open-binapi-object.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0027-private-open-binapi-object.log",
+        "log_sha256": "5f3dc6a90c89c4df83deda8e2e41b1deb844b8cee49254de398ddef34f023a56",
+        "name": "0027-private-open-binapi-object"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0028-private-open-usermode-object.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0028-private-open-usermode-object.log",
+        "log_sha256": "d8b2e44e25140ca56a97c77528d6b3a5a4c136cd3d5dd53623d0ca70dc993b47",
+        "name": "0028-private-open-usermode-object"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0029-private-open-map-memory.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0029-private-open-map-memory.log",
+        "log_sha256": "27699082c0e4f9ff0dfd1bdb569ee8b2ae7e59de99405cce5020a38da4f79ef4",
+        "name": "0029-private-open-map-memory"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0030-private-open-rusd-object.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.003,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0030-private-open-rusd-object.log",
+        "log_sha256": "b5e684a297db2d255fe035a6a17eaf3b7b2f3d50cfab086c25f08c9c2e965d21",
+        "name": "0030-private-open-rusd-object"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0039-private-open-gpu-register-control.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.003,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0039-private-open-gpu-register-control.log",
+        "log_sha256": "9a759ae1e381483da9100f2093b7c478a5b8d509b68f2d4624bd5c676c8415bc",
+        "name": "0039-private-open-gpu-register-control"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0040-private-open-engine-object.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0040-private-open-engine-object.log",
+        "log_sha256": "709d1b7e4b101fabb181ecbd4362e00454a80066a581431c482f87185aba8d62",
+        "name": "0040-private-open-engine-object"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0037-private-open-sys-params.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.003,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0037-private-open-sys-params.log",
+        "log_sha256": "dd7208cca9c08f061e8ab6cc843244f6f72c6bb4b50708730fc8d5f4f5839325",
+        "name": "0037-private-open-sys-params"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0038-private-open-build-version-v1.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0038-private-open-build-version-v1.log",
+        "log_sha256": "93d459c62dc09394f3bddef050f644521968d89abf5ba1df6e6c5915080e47ee",
+        "name": "0038-private-open-build-version-v1"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04/.hybrid-local-overlays/0041-private-open-update-device-mapping-info.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.003,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0041-private-open-update-device-mapping-info.log",
+        "log_sha256": "f0f96c37a69e8f9ebfa81afe5e7876e8c6bc47649a6f7e6f63fc1c8bc95bcce8",
+        "name": "0041-private-open-update-device-mapping-info"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0042-private-open-kmod-softdep-separators.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0042-private-open-kmod-softdep-separators.log",
+        "log_sha256": "0b0b4239fa0def4403f2dd4debf194c2d98490f6cf2dda30fd73b1d9f508842e",
+        "name": "0042-private-open-kmod-softdep-separators"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0001-private-open-pm-channel-depth-enum.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0001-private-open-pm-channel-depth-enum.log",
+        "log_sha256": "a0d9027b2f4d212b9b085699a0a50a2d802c9473050c3faba8198aa35c94329a",
+        "name": "0001-private-open-pm-channel-depth-enum"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0031-private-open-pm-channel-depth.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.003,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0031-private-open-pm-channel-depth.log",
+        "log_sha256": "ab286598e119a8c2d5e6f5e273f73885107d7e19cbaf2c182c97e812df64ae13",
+        "name": "0031-private-open-pm-channel-depth"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0033-private-open-pm-vma-access-guard.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0033-private-open-pm-vma-access-guard.log",
+        "log_sha256": "f29d282eb12bd2744589199c27f32b5535a8a9b9e9b55045573aa341bb8588fe",
+        "name": "0033-private-open-pm-vma-access-guard"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0034-private-open-vma-free-list-lock.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0034-private-open-vma-free-list-lock.log",
+        "log_sha256": "efed44525e0a9192a3b1c0801e9ca0202d13808ecc611738aa7e4935c5e3f8b1",
+        "name": "0034-private-open-vma-free-list-lock"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0035-private-open-pm-recovery-provider.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0035-private-open-pm-recovery-provider.log",
+        "log_sha256": "aa4939e5cb67ec1a19bc1a164b675067e59e696938601ffd4da85db21b5b1774",
+        "name": "0035-private-open-pm-recovery-provider"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0036-private-open-pm-channel-dpm-modeset.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0036-private-open-pm-channel-dpm-modeset.log",
+        "log_sha256": "8305f36498092ffcd9d178179e09b12f8c824b8fa783f9e5605e5ebe9b8e4416",
+        "name": "0036-private-open-pm-channel-dpm-modeset"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0043-private-open-version-check.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0043-private-open-version-check.log",
+        "log_sha256": "b3c42f08d789fd974242b260087a390a6773434318c1d9ac40de198316296740",
+        "name": "0043-private-open-version-check"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0044-private-open-system-features.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0044-private-open-system-features.log",
+        "log_sha256": "0b7ced7b3076c4e4a3d1bdc8aa2c8cc57b33b633b6b02a0139615542e5cd29ed",
+        "name": "0044-private-open-system-features"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0045-private-open-fabric-status.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.003,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0045-private-open-fabric-status.log",
+        "log_sha256": "b91761111dddca784d401b122640582190eb59e6e95d65388cad40b71eec4abe",
+        "name": "0045-private-open-fabric-status"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0046-private-open-gpu-name-string.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.001,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0046-private-open-gpu-name-string.log",
+        "log_sha256": "f06f4f1e71184c3107f804f6642acaa62aa25c7f655f02d1052732bcd80cd98e",
+        "name": "0046-private-open-gpu-name-string"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0047-private-open-client-share-policy.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.003,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0047-private-open-client-share-policy.log",
+        "log_sha256": "bc184345886fc039d0f68fb8bbcf88153eebd37b52ba995af2c4001718c76cb0",
+        "name": "0047-private-open-client-share-policy"
+      },
+      {
+        "argv": [
+          "patch",
+          "--batch",
+          "--fuzz=0",
+          "-p1",
+          "-i",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/inputs/0003-pass-control-fd-to-dup-memory.patch"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/private/NVIDIA-kernel-module-source-580.178.04",
+        "duration_seconds": 0.003,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0003-pass-control-fd-to-dup-memory.log",
+        "log_sha256": "a01d9037c80b187e3e508d651249408ab54d783ac8b6781cada0bfd3f91fe0b9",
+        "name": "0003-pass-control-fd-to-dup-memory"
+      },
+      {
+        "argv": [
+          "make",
+          "-C",
+          "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/baseline/NVIDIA-kernel-module-source-580.178.04/kernel-open",
+          "KERNEL_UNAME=6.8.0-147-generic",
+          "NV_KERNEL_MODULES=nvidia",
+          "-j4",
+          "modules"
+        ],
+        "cwd": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb",
+        "duration_seconds": 11.244,
+        "exit_code": 0,
+        "log": "/tmp/codex-open580-e8f13a045b77412e9c6fd7011dce55eb/build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/baseline-build.log",
+        "log_sha256": "f52fb95e5ce672df52c0843eba647efb408a1506cdfd8b9dcd7abf4343349a60",
+        "name": "baseline-build"
+      }
+    ],
+    "target_kernel_inputs_after": {
+      "files": {
+        "Makefile": {
+          "bytes": 68551,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/Makefile",
+          "sha256": "5e672a6361467a06c163120d7b56eaafd1d0daae9cbbe779849d5078c30ec256"
+        },
+        "Module.symvers": {
+          "bytes": 2214587,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/Module.symvers",
+          "sha256": "8e7eb5798789b9610c324b3d9b13373d88c30ae17bb9e41e622efd05e0277a87"
+        },
+        "include/config/auto.conf": {
+          "bytes": 233305,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/include/config/auto.conf",
+          "sha256": "d9de805a473f5e989435ad240679c20dd1d3f54ba994073d9a113401ef74d3ab"
+        },
+        "include/generated/autoconf.h": {
+          "bytes": 353867,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/include/generated/autoconf.h",
+          "sha256": "6a2862fe4585aa4412748326074eae144871514f18d231d434068b36af9c7fa1"
+        },
+        "include/generated/utsrelease.h": {
+          "bytes": 75,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/include/generated/utsrelease.h",
+          "sha256": "a1f2b79ea6579bf9ac5e61d12a975570ec47058ef51813e7d4e61243211d78a9"
+        },
+        "scripts/Makefile.build": {
+          "bytes": 17650,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147/scripts/Makefile.build",
+          "sha256": "b76046d854848d866d2aa2ffd9a549261e1414e7e55f3271b4fb689c59e87361"
+        },
+        "scripts/Makefile.modpost": {
+          "bytes": 4800,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147/scripts/Makefile.modpost",
+          "sha256": "7da18133253def95f80ae82b56d90907fc1cee94342a81af3480f5f35bcb89e4"
+        },
+        "scripts/basic/fixdep": {
+          "bytes": 17024,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/scripts/basic/fixdep",
+          "sha256": "a436c777091d52571cb041a0b7a4de12d7b6c5de1de850006be3a133151c9715"
+        },
+        "scripts/mod/modpost": {
+          "bytes": 84816,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/scripts/mod/modpost",
+          "sha256": "338cf9657234aa9147070b312f6a60be64df8b58cb00c437d0c2270f16d1b4c3"
+        }
+      },
+      "kernel_release": "6.8.0-147-generic",
+      "resolved_build_path": "/usr/src/linux-headers-6.8.0-147-generic"
+    },
+    "target_kernel_inputs_before": {
+      "files": {
+        "Makefile": {
+          "bytes": 68551,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/Makefile",
+          "sha256": "5e672a6361467a06c163120d7b56eaafd1d0daae9cbbe779849d5078c30ec256"
+        },
+        "Module.symvers": {
+          "bytes": 2214587,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/Module.symvers",
+          "sha256": "8e7eb5798789b9610c324b3d9b13373d88c30ae17bb9e41e622efd05e0277a87"
+        },
+        "include/config/auto.conf": {
+          "bytes": 233305,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/include/config/auto.conf",
+          "sha256": "d9de805a473f5e989435ad240679c20dd1d3f54ba994073d9a113401ef74d3ab"
+        },
+        "include/generated/autoconf.h": {
+          "bytes": 353867,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/include/generated/autoconf.h",
+          "sha256": "6a2862fe4585aa4412748326074eae144871514f18d231d434068b36af9c7fa1"
+        },
+        "include/generated/utsrelease.h": {
+          "bytes": 75,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/include/generated/utsrelease.h",
+          "sha256": "a1f2b79ea6579bf9ac5e61d12a975570ec47058ef51813e7d4e61243211d78a9"
+        },
+        "scripts/Makefile.build": {
+          "bytes": 17650,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147/scripts/Makefile.build",
+          "sha256": "b76046d854848d866d2aa2ffd9a549261e1414e7e55f3271b4fb689c59e87361"
+        },
+        "scripts/Makefile.modpost": {
+          "bytes": 4800,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147/scripts/Makefile.modpost",
+          "sha256": "7da18133253def95f80ae82b56d90907fc1cee94342a81af3480f5f35bcb89e4"
+        },
+        "scripts/basic/fixdep": {
+          "bytes": 17024,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/scripts/basic/fixdep",
+          "sha256": "a436c777091d52571cb041a0b7a4de12d7b6c5de1de850006be3a133151c9715"
+        },
+        "scripts/mod/modpost": {
+          "bytes": 84816,
+          "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/scripts/mod/modpost",
+          "sha256": "338cf9657234aa9147070b312f6a60be64df8b58cb00c437d0c2270f16d1b4c3"
+        }
+      },
+      "kernel_release": "6.8.0-147-generic",
+      "resolved_build_path": "/usr/src/linux-headers-6.8.0-147-generic"
+    },
+    "target_kernel_inputs_unchanged_after_build": true,
+    "target_kernel_symvers": {
+      "bytes": 2214587,
+      "path": "/usr/src/linux-headers-6.8.0-147-generic/Module.symvers",
+      "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/Module.symvers",
+      "sha256": "8e7eb5798789b9610c324b3d9b13373d88c30ae17bb9e41e622efd05e0277a87",
+      "unchanged_after_build": true
+    },
+    "target_kernel_symvers_after": {
+      "bytes": 2214587,
+      "path": "/usr/src/linux-headers-6.8.0-147-generic/Module.symvers",
+      "resolved_path": "/usr/src/linux-headers-6.8.0-147-generic/Module.symvers",
+      "sha256": "8e7eb5798789b9610c324b3d9b13373d88c30ae17bb9e41e622efd05e0277a87"
+    }
+  },
+  "builder_report_sha256": "bab2399e815adbb906660abc9831c1b0d4183400f826747ec9a03fa3a5e64d78",
+  "bundle": {
+    "bytes": 177305600,
+    "guest_script_sha256": "53e6d960cf053d414f0d208e01a73edd2c840932234618b1bcf8ec496f78aaaf",
+    "inputs": [
+      {
+        "bytes": 38962,
+        "path": "tools/run_pc3_v100_private_open580_build.py",
+        "sha256": "bc96e7359e03d16368a810d2986dea83b5b082810e5d1e62a65355474da46daf"
+      },
+      {
+        "bytes": 38630,
+        "path": "tools/build_private_open580_wrapper.py",
+        "sha256": "1aa3531d865d867db2041cde45ac3c2f3af113722156f88ace7814eb62be838e"
+      },
+      {
+        "bytes": 16041,
+        "path": "tests/test_private_open580_wrapper.py",
+        "sha256": "8c08771c14368fbadf820868859b82165e87313a98b8541c8576fb2c9218684b"
+      },
+      {
+        "bytes": 22267204,
+        "path": ".cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+        "sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8"
+      },
+      {
+        "bytes": 17512968,
+        "path": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/_out/Linux_x86_64/nv-kernel.o",
+        "sha256": "5e9219a4a263315d20757159852b35be61dfd2ce75dcd2ca90b1cd1764d6bb8a"
+      },
+      {
+        "bytes": 169120,
+        "path": "evidence/private-proprietary-gpu-name-string-v3-20261028.json",
+        "sha256": "6b2bb8ed12edd2b70110babe40e3450d5001b0be61d6fe5ab6b0f78b3c63bd41"
+      },
+      {
+        "bytes": 136885088,
+        "path": "build/experiments/private-proprietary-gpu-name-string-v3-20261028/nvidia-580.178.04/hybrid580_legacy.ko",
+        "sha256": "67d9f00b4fee9cf1a3d1873eb4721bae20419a8b5bbec1dce6d1612e30c9f971"
+      },
+      {
+        "bytes": 12932,
+        "path": "build/experiments/private-proprietary-gpu-name-string-v3-20261028/nvidia-580.178.04/Module.symvers",
+        "sha256": "9911d939c43d0c47c61075b4c28799c638f7a02edd2b4fb751116a87bcd2fdb3"
+      },
+      {
+        "bytes": 12558,
+        "path": "build/experiments/private-proprietary-gpu-name-string-v3-20261028/nvidia-580.178.04/nvidia/hybrid580-control-session.h",
+        "sha256": "a0c22956b0f03a939b1fdcbb6eb3b024c537e0f4a03598dd64dba5fbf0c4e989"
+      },
+      {
+        "bytes": 1796,
+        "path": "build/experiments/private-proprietary-gpu-name-string-v3-20261028/nvidia-580.178.04/nvidia/hybrid580-gpu-session.h",
+        "sha256": "d0c65b54c957d926aedb3bf735ac6284e4ad88727ac2f5400001fd2ca124277a"
+      },
+      {
+        "bytes": 1818,
+        "path": "build/experiments/private-proprietary-gpu-name-string-v3-20261028/nvidia-580.178.04/nvidia/hybrid580-file-projection.h",
+        "sha256": "d8750038a289126ba2ecbd0772e2ac20c2d9c0fe1ae1dc57411c6e6270133e3c"
+      },
+      {
+        "bytes": 9340,
+        "path": "patches/r580.178.04/0002-private-open-module.patch",
+        "sha256": "e6b1df9db7ec57df058e229f0a264ad83d24d29326ce083b68d580ade365b908"
+      },
+      {
+        "bytes": 2856,
+        "path": "patches/r580.178.04/0003-private-open-pci-guard.patch",
+        "sha256": "f21a8ef376dc24bade7a8b1fd4fac9ad5737ab79e75b7110b4e3adb87c293075"
+      },
+      {
+        "bytes": 4153,
+        "path": "patches/r580.178.04/0004-private-open-chardev.patch",
+        "sha256": "0609f51b7b18ce40ddc3b45b4d7bf4ebe7c2428776094ed86870a7686eea25e3"
+      },
+      {
+        "bytes": 342,
+        "path": "patches/r580.178.04/0005-private-open-procfs-path.patch",
+        "sha256": "35a37c43c58716f2ca4bbc0fa68037a5eb80bf3ab439ad7f9a38dbb2a0d9f8ee"
+      },
+      {
+        "bytes": 10486,
+        "path": "patches/r580.178.04/0006-private-open-resource-names.patch",
+        "sha256": "79c5279b096abeff6cc6171014fa34a28a9bd0e80acb13ade54ef662bf34cae7"
+      },
+      {
+        "bytes": 2406,
+        "path": "patches/r580.178.04/0007-private-open-pci-only-lifecycle.patch",
+        "sha256": "e3c5cb0a2c235cccbd108425f09a9b0899b272bb77880dd93196b0fae2859ffb"
+      },
+      {
+        "bytes": 9897,
+        "path": "patches/r580.178.04/0008-private-open-file-projection.patch",
+        "sha256": "ecbb193d77c30bcb414230dca7859e6edbac76504940c9c5e9031dd8b903e20a"
+      },
+      {
+        "bytes": 10349,
+        "path": "patches/r580.178.04/0009-private-open-control-session.patch",
+        "sha256": "e1f275f35d6bef1f57afedb1feee387be68d9147a895e59a733af82bb609be17"
+      },
+      {
+        "bytes": 7610,
+        "path": "patches/r580.178.04/0010-private-open-gpu-session.patch",
+        "sha256": "0de8fa84c9b1bbb64c1e7d7061485f8db3893be01dadadb47e8862cd301257c9"
+      },
+      {
+        "bytes": 1952,
+        "path": "patches/r580.178.04/0011-private-open-gpu-session-bdf-lookup.patch",
+        "sha256": "0946fd95fe2d7600921e2de98ce5870314a05d71d5b065adcf5e89d680baed14"
+      },
+      {
+        "bytes": 3395,
+        "path": "patches/r580.178.04/0012-private-open-gpu-inventory.patch",
+        "sha256": "9207b434af31ee40a2a2f971d276fcd3c6f18b55cc243e101a7a028b75a6c039"
+      },
+      {
+        "bytes": 6791,
+        "path": "patches/r580.178.04/0014-private-control-attach-after-gpu.patch",
+        "sha256": "35189628de0771b5868aee7132c0611ab08e6a3f55218929ff349f92a81b1436"
+      },
+      {
+        "bytes": 2039,
+        "path": "patches/r580.178.04/0015-private-open-card-info.patch",
+        "sha256": "7e8b611872cbb91a07d731e705275e713bdcd18b0eb944bc48eb9304562c4d8c"
+      },
+      {
+        "bytes": 4407,
+        "path": "patches/r580.178.04/0016-private-open-gpu-id-info.patch",
+        "sha256": "1e0078e15b6990e3b29ce105bf51764b7831137230256907ee80a93eefc32e29"
+      },
+      {
+        "bytes": 3364,
+        "path": "patches/r580.178.04/0017-private-open-attached-ids.patch",
+        "sha256": "b96e7044d9c743de4fb098e38d8677cce89186998e28e4a4efe1910e9b55b995"
+      },
+      {
+        "bytes": 3276,
+        "path": "patches/r580.178.04/0018-private-open-probed-ids.patch",
+        "sha256": "e087f2a229ef77b9c35c12a5346a10ee5eab2ede725ea921c5b87076243fb3e6"
+      },
+      {
+        "bytes": 3392,
+        "path": "patches/r580.178.04/0019-private-open-device-ids.patch",
+        "sha256": "e6dda353f6bcb5d48f908e7fec58a57c7c865fa8a137dab26cb8f63a98ba8381"
+      },
+      {
+        "bytes": 5789,
+        "path": "patches/r580.178.04/0020-private-open-device-object.patch",
+        "sha256": "d88bdd0eab8ae3303cea5ee39691fd0a762392146a641528deb9c97c3533e906"
+      },
+      {
+        "bytes": 6033,
+        "path": "patches/r580.178.04/0021-private-open-memory-object.patch",
+        "sha256": "3cf64ed9e6d6180425de05e85e280b487da63cf4569972aa59750f910f13b9cf"
+      },
+      {
+        "bytes": 4492,
+        "path": "patches/r580.178.04/0022-private-open-vaspace-object.patch",
+        "sha256": "8091eea216078af61470f0facca38f5ec8733b141d3e9ecd327360ef0320fc17"
+      },
+      {
+        "bytes": 3733,
+        "path": "patches/r580.178.04/0023-private-open-channel-group-object.patch",
+        "sha256": "ccf0b4e8ff918b18f7a0ff651114b769dcef843ed48bfc020bce8ee7b37662a3"
+      },
+      {
+        "bytes": 3956,
+        "path": "patches/r580.178.04/0024-private-open-context-share-object.patch",
+        "sha256": "3e288294dee1a205211cf726db474319d7c7649fd0778476b19bd52aca4ff245"
+      },
+      {
+        "bytes": 4219,
+        "path": "patches/r580.178.04/0025-private-open-channel-object.patch",
+        "sha256": "46043501b8e7517770ae67c760652ed0d2e45f19babf8fdfdd52b3139304ee36"
+      },
+      {
+        "bytes": 6422,
+        "path": "patches/r580.178.04/0026-private-open-subdevice-and-tpc-mask.patch",
+        "sha256": "bb5ccdb642d3ffd8b4b1942b6b42068c9487b743a6aabad8b1a86fd4ebb6f0f9"
+      },
+      {
+        "bytes": 3556,
+        "path": "patches/r580.178.04/0027-private-open-binapi-object.patch",
+        "sha256": "0205e5dd0dcd912c047149e3eed14fec51c573fcd6227a8bd8fb16a3f8365c40"
+      },
+      {
+        "bytes": 4531,
+        "path": "patches/r580.178.04/0028-private-open-usermode-object.patch",
+        "sha256": "377279e1a601f2037866df9b7f714b91cc4512fb0dade1fe88074c9d9a3fd967"
+      },
+      {
+        "bytes": 5122,
+        "path": "patches/r580.178.04/0029-private-open-map-memory.patch",
+        "sha256": "416d32b7f7e3fece77bdfa020dca1db54d4719525ec9f60645c979e198e384c0"
+      },
+      {
+        "bytes": 2756,
+        "path": "patches/r580.178.04/0030-private-open-rusd-object.patch",
+        "sha256": "28772a04bd595d1c0886514c728ddb37b2b1a86070d937937092edccf7409c9e"
+      },
+      {
+        "bytes": 4150,
+        "path": "patches/r580.178.04/0039-private-open-gpu-register-control.patch",
+        "sha256": "1640505f1cc528318b33c1017a325de3acec459956f7d0278ef05399f47d52d3"
+      },
+      {
+        "bytes": 2810,
+        "path": "patches/r580.178.04/0040-private-open-engine-object.patch",
+        "sha256": "85c273f70f4a95c1c3425f72dc6ae5c430eede88722340d26052c075b9b5977b"
+      },
+      {
+        "bytes": 3541,
+        "path": "patches/r580.178.04/0037-private-open-sys-params.patch",
+        "sha256": "a7d736f4bb2de563adc969ff6818e355a665f3fb5029559727c47d169cefdb28"
+      },
+      {
+        "bytes": 3293,
+        "path": "patches/r580.178.04/0038-private-open-build-version-v1.patch",
+        "sha256": "3b2cecf017a2a333bbabd233c092d40853585e149a47f9b8d2e27c716460676a"
+      },
+      {
+        "bytes": 2904,
+        "path": "patches/r580.178.04/0041-private-open-update-device-mapping-info.patch",
+        "sha256": "0900468947b2ff2c45f35ff72da8cfb6d3107af1414128743f15788c1d22528f"
+      },
+      {
+        "bytes": 302,
+        "path": "patches/r580.178.04/0042-private-open-kmod-softdep-separators.patch",
+        "sha256": "6384b2ec99b5768a751cc71edda3bdda4c326fe9f60f80a7b76dd8afc4bfaeaf"
+      },
+      {
+        "bytes": 306,
+        "path": "patches/r580.178.04/0001-private-open-pm-channel-depth-enum.patch",
+        "sha256": "22332052f169c252df9062ce3215484bf4eeb51cac2bcf3f6fb3f094d575025f"
+      },
+      {
+        "bytes": 5991,
+        "path": "patches/r580.178.04/0031-private-open-pm-channel-depth.patch",
+        "sha256": "4ea8d9ae674eb857e3fbd68397ecca1da2d7bd9aaa8c8a0fa99f2c7a08b5e927"
+      },
+      {
+        "bytes": 714,
+        "path": "patches/r580.178.04/0033-private-open-pm-vma-access-guard.patch",
+        "sha256": "ccecd235b533d79b6ed9c8f8ea30abe72324deb302f78f8cf0315c5d0d4a6623"
+      },
+      {
+        "bytes": 639,
+        "path": "patches/r580.178.04/0034-private-open-vma-free-list-lock.patch",
+        "sha256": "4b0fc52e7143a9c9b88b48d7ee3a3e2be53ce70e44c15ac3a481569759c403dd"
+      },
+      {
+        "bytes": 2763,
+        "path": "patches/r580.178.04/0035-private-open-pm-recovery-provider.patch",
+        "sha256": "060f6ff65802ff691ec59d9ea39b88b5a65b28498b825efd57fa46d09835091f"
+      },
+      {
+        "bytes": 819,
+        "path": "patches/r580.178.04/0036-private-open-pm-channel-dpm-modeset.patch",
+        "sha256": "57e7ec3011dad754315a69b72e02099e89b578343a89623a99b1f8844caf5144"
+      },
+      {
+        "bytes": 1896,
+        "path": "patches/r580.178.04/0043-private-open-version-check.patch",
+        "sha256": "7b0fde9fafc6f458efdfaddab5f9a3ff8e97fe27904d9830eb9f733beaf87455"
+      },
+      {
+        "bytes": 3042,
+        "path": "patches/r580.178.04/0044-private-open-system-features.patch",
+        "sha256": "a93bdad757ce362828a379b3991ac839423b993cf220574db7b3584671eda11c"
+      },
+      {
+        "bytes": 3025,
+        "path": "patches/r580.178.04/0045-private-open-fabric-status.patch",
+        "sha256": "a4e4ed32f160eb3bfb7189dd86012eae336e4ea1c8adb41c16b0c7ac915c55e0"
+      },
+      {
+        "bytes": 3073,
+        "path": "patches/r580.178.04/0046-private-open-gpu-name-string.patch",
+        "sha256": "3bbcdb47dc7cd7655cafaab11a2cba7ae0bc54d2df1e6638f13fa296f56d3465"
+      },
+      {
+        "bytes": 3088,
+        "path": "patches/r580.178.04/0047-private-open-client-share-policy.patch",
+        "sha256": "c7924c1ed1de0dddd7f5f44ade8f647d2cededb4ad6245a1bfb5504492d9d403"
+      },
+      {
+        "bytes": 2914,
+        "path": "patches/r580.178.04/uvm/0003-pass-control-fd-to-dup-memory.patch",
+        "sha256": "1ea8a83f9af76d1d8189aa04647591d92e02ce7ad3a55db8c55cb13e280c1be6"
+      },
+      {
+        "bytes": 803,
+        "path": "src/rm_session_endpoint.h",
+        "sha256": "6a447c37f738eb09098b419e42203b4b4d16c85c108510acba483f37c6e700c7"
+      },
+      {
+        "bytes": 5548,
+        "path": "src/hybrid580-gpu-catalog.h",
+        "sha256": "9003739e9b3476c7beb08c0918c0309629b2762d45f366cb6c1becd1c9e7dfd0"
+      },
+      {
+        "bytes": 12492,
+        "path": "src/hybrid580-control-session.h",
+        "sha256": "7c63550def573e81eb2c4816648c721456d4542359cdfa735c6d156ea4bff44c"
+      },
+      {
+        "bytes": 1284,
+        "path": "src/hybrid580-open-build-version.h",
+        "sha256": "670879dc242ae1e028dc79dce0d58cb667495cc8d4d14031027e63aacad0c5be"
+      },
+      {
+        "bytes": 15790,
+        "path": "src/hybrid580_pm_provider_kernel.h",
+        "sha256": "a7a79984b3f9d53383299b5c4a928f6f6aac3a5624bbabc8dff6d6299d2a6bb4"
+      },
+      {
+        "bytes": 5532,
+        "path": "src/hybrid580_pm_provider_recovery.h",
+        "sha256": "f2b2322302d7c71fae17b31840dc341fa560d5219720ab3c2bf4481b0c108172"
+      },
+      {
+        "bytes": 1783,
+        "path": "src/hybrid580_pm_shared_uvm.h",
+        "sha256": "b702f15f08fc85a55d8fc70af15af7dd6c092914a4961ed1b5430037a6fbfe31"
+      }
+    ],
+    "pc3_root_script_sha256": "5a0f186ecd3552f6adbbeacc4767304dc47dd6d5d144269431d3e6acf817c80a",
+    "pc3_upload_script_sha256": "6a42aaeac31b3bbf117a5265e8f63583f357e64eb9bd1cf8212a263528b18337",
+    "sha256": "21b0e7145d41fe4dd147a77cb4368aaa4d8ada67626a920a7596104ef97abc31"
+  },
+  "cuda_execution_tested": false,
+  "gpu_accessed": false,
+  "guest_error": null,
+  "guest_hostkey_fingerprint": "SHA256:wqpBfvwVW7iYhOk7LWB8y438NOQHSgfcUgnOGaRK6ts",
+  "guest_hostname": "pc3-v100",
+  "guest_kernel_release": "6.8.0-147-generic",
+  "guest_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "module_installed": false,
+  "module_loaded": false,
+  "observed_at_utc": "2026-10-28T22:59:46+00:00",
+  "pc3_stage_bundle_removed": true,
+  "pc3_stage_cleanup_retried": false,
+  "remote_bundle_removed": true,
+  "remote_scratch_removed": true,
+  "retrieved_artifacts": [
+    {
+      "bytes": 100495,
+      "path": "evidence/private-open580-guestkernel-e8f13a045b77412e9c6fd7011dce55eb.json",
+      "sha256": "bab2399e815adbb906660abc9831c1b0d4183400f826747ec9a03fa3a5e64d78"
+    },
+    {
+      "bytes": 207063,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/prepared-source-changes.patch",
+      "sha256": "1356e83ca5190ce32b2c2693b97446a945a0fb93d4e791d6f3ad2d63363a26d4"
+    },
+    {
+      "bytes": 23416,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/baseline/NVIDIA-kernel-module-source-580.178.04/kernel-open/Module.symvers",
+      "sha256": "b3fd844673f5b81d04dea6d95c04b27c6b030f40355bfe56f6030c67fbaef2b5"
+    },
+    {
+      "bytes": 531,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0002-private-open-module.log",
+      "sha256": "24e7570fe02aeb4af86b55e2604434f5a5b1acbd222525b10dbc1cd508c65507"
+    },
+    {
+      "bytes": 423,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0003-private-open-pci-guard.log",
+      "sha256": "849dc9171b2a326af1cc1f1c02939e8a688f8a760467f0a6049e97e33a484e1a"
+    },
+    {
+      "bytes": 417,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0004-private-open-chardev.log",
+      "sha256": "6d7ad4cc76d4697bcce6f5d07a2d8672bb8f408a7d6d41ce000e3eb48cddce69"
+    },
+    {
+      "bytes": 428,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0005-private-open-procfs-path.log",
+      "sha256": "7314dc0b735b3ecf759054a5dd875b5333fee759749345d6e6b9aa8566b38d58"
+    },
+    {
+      "bytes": 675,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0006-private-open-resource-names.log",
+      "sha256": "85e22436006446bae77b5a0f28d448662b3d8cf32407959ca8c4155cdb919feb"
+    },
+    {
+      "bytes": 523,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0007-private-open-pci-only-lifecycle.log",
+      "sha256": "1bba22e4fca6c8c7399e5d4f9f15ff259f8a3fcb3112b6f3e0e8b90fe56483b8"
+    },
+    {
+      "bytes": 486,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0008-private-open-file-projection.log",
+      "sha256": "c9ddf819b24922258afc310e75477b230a5cf782616b112e05c5a62707e59d20"
+    },
+    {
+      "bytes": 533,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0009-private-open-control-session.log",
+      "sha256": "a6c928056ab1d7c06abc03c16b8f662c586869d16ad1cd9070775059e627ad24"
+    },
+    {
+      "bytes": 478,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0010-private-open-gpu-session.log",
+      "sha256": "851ae7462bb1949cb5a84b60ea41a3c671f7312d2cb2fb2368e35833de61c963"
+    },
+    {
+      "bytes": 489,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0011-private-open-gpu-session-bdf-lookup.log",
+      "sha256": "fad6cc19bf71861df87730d9f49c0ee71b12ffa20ea2c56fbe59c2f0678d46e7"
+    },
+    {
+      "bytes": 480,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0012-private-open-gpu-inventory.log",
+      "sha256": "cab16d82612ceedba6afa531bc9c74a1354695def3e84e83e174375f86b1e48e"
+    },
+    {
+      "bytes": 490,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0014-private-control-attach-after-gpu.log",
+      "sha256": "7c234ced1b5c2f68c5f4f735b0cd307587d1338304021c08a4ea71c8b909b4c9"
+    },
+    {
+      "bytes": 476,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0015-private-open-card-info.log",
+      "sha256": "f34dfbb0d73564425febd5ff8261b25a98950eb53cf59725bd289d5cb02035b7"
+    },
+    {
+      "bytes": 482,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0016-private-open-gpu-id-info.log",
+      "sha256": "bd2063cc176eb1d01f364898580e4db6ed5a948d23d0d02bcdce491415ab9b5c"
+    },
+    {
+      "bytes": 483,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0017-private-open-attached-ids.log",
+      "sha256": "9ab7a1080c218983ba9f8e545810d8d2e35a2c4f4762598b77bd04564a258968"
+    },
+    {
+      "bytes": 481,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0018-private-open-probed-ids.log",
+      "sha256": "424e7b861a6c4372b7df65fb3a3bfd9d3223acadfa5505bfeb86517adea5a4ea"
+    },
+    {
+      "bytes": 481,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0019-private-open-device-ids.log",
+      "sha256": "3582f0339987380e2301bd31a72b13115f339cfad24b9128313760a926662907"
+    },
+    {
+      "bytes": 484,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0020-private-open-device-object.log",
+      "sha256": "6817e800c3633bbda504979f5a381f6e826a7d6eba24f65f64a216d36aeabb8d"
+    },
+    {
+      "bytes": 484,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0021-private-open-memory-object.log",
+      "sha256": "e57fbd6f87e1c90db768d8c9024bd055944b42a429ddc1d90d209aea976ff28b"
+    },
+    {
+      "bytes": 485,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0022-private-open-vaspace-object.log",
+      "sha256": "dc1bc97014bc39c073282e6717d1cb727d32b3a4f35107e884afdb5ec12685d8"
+    },
+    {
+      "bytes": 491,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0023-private-open-channel-group-object.log",
+      "sha256": "179c888a1a26a9673cba7134ef4020775a055e2135263d69d659460dff6e0db9"
+    },
+    {
+      "bytes": 491,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0024-private-open-context-share-object.log",
+      "sha256": "b1078b0a02ec1b567c376039dff3337fb85302cc0dfe54d8533624fcbbe3de43"
+    },
+    {
+      "bytes": 485,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0025-private-open-channel-object.log",
+      "sha256": "40c706fdb412a5d2f9cd5e3cec752f74ece3fe61a3b0a1a4b1b37c92469cf740"
+    },
+    {
+      "bytes": 493,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0026-private-open-subdevice-and-tpc-mask.log",
+      "sha256": "5c19f61263307f810a556a96df330a00dc10e2cbb75d60a0707f157a93946dda"
+    },
+    {
+      "bytes": 484,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0027-private-open-binapi-object.log",
+      "sha256": "5f3dc6a90c89c4df83deda8e2e41b1deb844b8cee49254de398ddef34f023a56"
+    },
+    {
+      "bytes": 486,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0028-private-open-usermode-object.log",
+      "sha256": "d8b2e44e25140ca56a97c77528d6b3a5a4c136cd3d5dd53623d0ca70dc993b47"
+    },
+    {
+      "bytes": 481,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0029-private-open-map-memory.log",
+      "sha256": "27699082c0e4f9ff0dfd1bdb569ee8b2ae7e59de99405cce5020a38da4f79ef4"
+    },
+    {
+      "bytes": 421,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0030-private-open-rusd-object.log",
+      "sha256": "b5e684a297db2d255fe035a6a17eaf3b7b2f3d50cfab086c25f08c9c2e965d21"
+    },
+    {
+      "bytes": 487,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0039-private-open-gpu-register-control.log",
+      "sha256": "9a759ae1e381483da9100f2093b7c478a5b8d509b68f2d4624bd5c676c8415bc"
+    },
+    {
+      "bytes": 423,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0040-private-open-engine-object.log",
+      "sha256": "709d1b7e4b101fabb181ecbd4362e00454a80066a581431c482f87185aba8d62"
+    },
+    {
+      "bytes": 512,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0037-private-open-sys-params.log",
+      "sha256": "dd7208cca9c08f061e8ab6cc843244f6f72c6bb4b50708730fc8d5f4f5839325"
+    },
+    {
+      "bytes": 472,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0038-private-open-build-version-v1.log",
+      "sha256": "93d459c62dc09394f3bddef050f644521968d89abf5ba1df6e6c5915080e47ee"
+    },
+    {
+      "bytes": 606,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0041-private-open-update-device-mapping-info.log",
+      "sha256": "f0f96c37a69e8f9ebfa81afe5e7876e8c6bc47649a6f7e6f63fc1c8bc95bcce8"
+    },
+    {
+      "bytes": 442,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0042-private-open-kmod-softdep-separators.log",
+      "sha256": "0b0b4239fa0def4403f2dd4debf194c2d98490f6cf2dda30fd73b1d9f508842e"
+    },
+    {
+      "bytes": 435,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0001-private-open-pm-channel-depth-enum.log",
+      "sha256": "a0d9027b2f4d212b9b085699a0a50a2d802c9473050c3faba8198aa35c94329a"
+    },
+    {
+      "bytes": 1307,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0031-private-open-pm-channel-depth.log",
+      "sha256": "ab286598e119a8c2d5e6f5e273f73885107d7e19cbaf2c182c97e812df64ae13"
+    },
+    {
+      "bytes": 434,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0033-private-open-pm-vma-access-guard.log",
+      "sha256": "f29d282eb12bd2744589199c27f32b5535a8a9b9e9b55045573aa341bb8588fe"
+    },
+    {
+      "bytes": 438,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0034-private-open-vma-free-list-lock.log",
+      "sha256": "efed44525e0a9192a3b1c0801e9ca0202d13808ecc611738aa7e4935c5e3f8b1"
+    },
+    {
+      "bytes": 666,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0035-private-open-pm-recovery-provider.log",
+      "sha256": "aa4939e5cb67ec1a19bc1a164b675067e59e696938601ffd4da85db21b5b1774"
+    },
+    {
+      "bytes": 570,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0036-private-open-pm-channel-dpm-modeset.log",
+      "sha256": "8305f36498092ffcd9d178179e09b12f8c824b8fa783f9e5605e5ebe9b8e4416"
+    },
+    {
+      "bytes": 423,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0043-private-open-version-check.log",
+      "sha256": "b3c42f08d789fd974242b260087a390a6773434318c1d9ac40de198316296740"
+    },
+    {
+      "bytes": 425,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0044-private-open-system-features.log",
+      "sha256": "0b7ced7b3076c4e4a3d1bdc8aa2c8cc57b33b633b6b02a0139615542e5cd29ed"
+    },
+    {
+      "bytes": 423,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0045-private-open-fabric-status.log",
+      "sha256": "b91761111dddca784d401b122640582190eb59e6e95d65388cad40b71eec4abe"
+    },
+    {
+      "bytes": 425,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0046-private-open-gpu-name-string.log",
+      "sha256": "f06f4f1e71184c3107f804f6642acaa62aa25c7f655f02d1052732bcd80cd98e"
+    },
+    {
+      "bytes": 429,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0047-private-open-client-share-policy.log",
+      "sha256": "bc184345886fc039d0f68fb8bbcf88153eebd37b52ba995af2c4001718c76cb0"
+    },
+    {
+      "bytes": 569,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/0003-pass-control-fd-to-dup-memory.log",
+      "sha256": "a01d9037c80b187e3e508d651249408ab54d783ac8b6781cada0bfd3f91fe0b9"
+    },
+    {
+      "bytes": 42394,
+      "path": "build/experiments/pc3-v100-private-open580-e8f13a045b77412e9c6fd7011dce55eb/logs/baseline-build.log",
+      "sha256": "f52fb95e5ce672df52c0843eba647efb408a1506cdfd8b9dcd7abf4343349a60"
+    }
+  ],
+  "run_id": "e8f13a045b77412e9c6fd7011dce55eb",
+  "schema": "nvidia-hybrid-pc3-v100-private-open580-build-capture-v1",
+  "status": "collected",
+  "target": "pc3@pc3"
+}

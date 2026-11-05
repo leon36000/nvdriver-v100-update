@@ -1,0 +1,915 @@
+{
+  "collection_scope": "installed NVIDIA/CUDA package versions and package-owned NVIDIA driver shared-library hashes",
+  "driver_or_gpu_execution_tested": false,
+  "guest_hostkey_fingerprint": "SHA256:wqpBfvwVW7iYhOk7LWB8y438NOQHSgfcUgnOGaRK6ts",
+  "guest_inventory": {
+    "hostname": "pc3-v100",
+    "kernel_release": "6.8.0-147-generic",
+    "libraries": [
+      {
+        "bytes": 96284520,
+        "is_symlink": true,
+        "package": "libnvidia-compute-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libcuda.so",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+        "sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9"
+      },
+      {
+        "bytes": 96284520,
+        "is_symlink": true,
+        "package": "libnvidia-compute-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.1",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+        "sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9"
+      },
+      {
+        "bytes": 96284520,
+        "is_symlink": false,
+        "package": "libnvidia-compute-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+        "sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9"
+      },
+      {
+        "bytes": 20749912,
+        "is_symlink": true,
+        "package": "libnvidia-decode-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvcuvid.so",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvcuvid.so.580.178.04",
+        "sha256": "4ddcdc7e5eb6cbfda61bcdd86e86e9c3cbbca2409593356fa918db6d4b080238"
+      },
+      {
+        "bytes": 20749912,
+        "is_symlink": true,
+        "package": "libnvidia-decode-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvcuvid.so.1",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvcuvid.so.580.178.04",
+        "sha256": "4ddcdc7e5eb6cbfda61bcdd86e86e9c3cbbca2409593356fa918db6d4b080238"
+      },
+      {
+        "bytes": 20749912,
+        "is_symlink": false,
+        "package": "libnvidia-decode-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvcuvid.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvcuvid.so.580.178.04",
+        "sha256": "4ddcdc7e5eb6cbfda61bcdd86e86e9c3cbbca2409593356fa918db6d4b080238"
+      },
+      {
+        "bytes": 169064,
+        "is_symlink": true,
+        "package": "libnvidia-extra-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-allocator.so",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-allocator.so.580.178.04",
+        "sha256": "c222e2bfc91d0ae496b35aca28533a964b2131334bd72c55dbb17a71cf9595dd"
+      },
+      {
+        "bytes": 169064,
+        "is_symlink": true,
+        "package": "libnvidia-extra-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-allocator.so.1",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-allocator.so.580.178.04",
+        "sha256": "c222e2bfc91d0ae496b35aca28533a964b2131334bd72c55dbb17a71cf9595dd"
+      },
+      {
+        "bytes": 169064,
+        "is_symlink": false,
+        "package": "libnvidia-extra-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-allocator.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-allocator.so.580.178.04",
+        "sha256": "c222e2bfc91d0ae496b35aca28533a964b2131334bd72c55dbb17a71cf9595dd"
+      },
+      {
+        "bytes": 720104,
+        "is_symlink": false,
+        "package": "libnvidia-gl-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-api.so.1",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-api.so.1",
+        "sha256": "972da3de33fdfb1ff9e2763ebd87bf0bc0c78975519f0f6e78c3d0fba34435e6"
+      },
+      {
+        "bytes": 395384,
+        "is_symlink": true,
+        "package": "libnvidia-cfg1-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-cfg.so",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-cfg.so.580.178.04",
+        "sha256": "ae753f41465b5ab259e70a3690fd3b5647aa195e00fb6da81b1e8eb4748c0f93"
+      },
+      {
+        "bytes": 395384,
+        "is_symlink": true,
+        "package": "libnvidia-cfg1-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-cfg.so.1",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-cfg.so.580.178.04",
+        "sha256": "ae753f41465b5ab259e70a3690fd3b5647aa195e00fb6da81b1e8eb4748c0f93"
+      },
+      {
+        "bytes": 395384,
+        "is_symlink": false,
+        "package": "libnvidia-cfg1-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-cfg.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-cfg.so.580.178.04",
+        "sha256": "ae753f41465b5ab259e70a3690fd3b5647aa195e00fb6da81b1e8eb4748c0f93"
+      },
+      {
+        "bytes": 26936,
+        "is_symlink": false,
+        "package": "libnvidia-gl-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-egl-gbm.so.1.1.3",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-egl-gbm.so.1.1.3",
+        "sha256": "364bac2a4f5f08c65de94f3a6a0abf225ca09801cd4f2f282bc2031312ef0f34"
+      },
+      {
+        "bytes": 73272,
+        "is_symlink": true,
+        "package": "libnvidia-egl-wayland1:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-egl-wayland.so.1",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-egl-wayland.so.1.1.13",
+        "sha256": "c9ee7e0a7cd9a91f59fc88270ccf7c21f43b62312aff88d4b1121616242fc885"
+      },
+      {
+        "bytes": 73272,
+        "is_symlink": false,
+        "package": "libnvidia-egl-wayland1:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-egl-wayland.so.1.1.13",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-egl-wayland.so.1.1.13",
+        "sha256": "c9ee7e0a7cd9a91f59fc88270ccf7c21f43b62312aff88d4b1121616242fc885"
+      },
+      {
+        "bytes": 76688,
+        "is_symlink": false,
+        "package": "libnvidia-gl-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-egl-xcb.so.1.0.5",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-egl-xcb.so.1.0.5",
+        "sha256": "b4384c881dd0d513620a127ae392274fbdf638ac87fbf75c405716eb8268fb5a"
+      },
+      {
+        "bytes": 76736,
+        "is_symlink": false,
+        "package": "libnvidia-gl-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-egl-xlib.so.1.0.5",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-egl-xlib.so.1.0.5",
+        "sha256": "fbfc81bef65589ca53c09aa57a340f5efea95f7069f96a7ef2791f7600bb9006"
+      },
+      {
+        "bytes": 35076592,
+        "is_symlink": false,
+        "package": "libnvidia-gl-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-eglcore.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-eglcore.so.580.178.04",
+        "sha256": "835d19ba22d4fccc79ccaa947c9f55f0807c68e503a92b0fcb86faf3a8708d0f"
+      },
+      {
+        "bytes": 285464,
+        "is_symlink": true,
+        "package": "libnvidia-encode-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-encode.so",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-encode.so.580.178.04",
+        "sha256": "2a860b7fda50bb9eef572c5ea1495c5040d0741c1113e833f7881103d3c32bb3"
+      },
+      {
+        "bytes": 285464,
+        "is_symlink": true,
+        "package": "libnvidia-encode-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-encode.so.1",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-encode.so.580.178.04",
+        "sha256": "2a860b7fda50bb9eef572c5ea1495c5040d0741c1113e833f7881103d3c32bb3"
+      },
+      {
+        "bytes": 285464,
+        "is_symlink": false,
+        "package": "libnvidia-encode-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-encode.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-encode.so.580.178.04",
+        "sha256": "2a860b7fda50bb9eef572c5ea1495c5040d0741c1113e833f7881103d3c32bb3"
+      },
+      {
+        "bytes": 245728,
+        "is_symlink": true,
+        "package": "libnvidia-fbc1-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-fbc.so",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-fbc.so.580.178.04",
+        "sha256": "eee5f5acbd403c64e4e88a45c1113021069df4d88e04d2d30175795ced3a15b5"
+      },
+      {
+        "bytes": 245728,
+        "is_symlink": true,
+        "package": "libnvidia-fbc1-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-fbc.so.1",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-fbc.so.580.178.04",
+        "sha256": "eee5f5acbd403c64e4e88a45c1113021069df4d88e04d2d30175795ced3a15b5"
+      },
+      {
+        "bytes": 245728,
+        "is_symlink": false,
+        "package": "libnvidia-fbc1-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-fbc.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-fbc.so.580.178.04",
+        "sha256": "eee5f5acbd403c64e4e88a45c1113021069df4d88e04d2d30175795ced3a15b5"
+      },
+      {
+        "bytes": 37062312,
+        "is_symlink": false,
+        "package": "libnvidia-gl-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.580.178.04",
+        "sha256": "6fbbe7ec91424179b061670e003ba8f86b599d1a533e8245efbbfbaba2433e82"
+      },
+      {
+        "bytes": 603384,
+        "is_symlink": false,
+        "package": "libnvidia-gl-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-glsi.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-glsi.so.580.178.04",
+        "sha256": "678488be96f92bff620570da44ee53ee93c7c667a8c7cbe1044f88ab4f0f638d"
+      },
+      {
+        "bytes": 9553072,
+        "is_symlink": false,
+        "package": "libnvidia-gl-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-glvkspirv.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-glvkspirv.so.580.178.04",
+        "sha256": "0292f69505f267a7ac839e88852b32a607ba4834c25a40f6574c88fa2c52df65"
+      },
+      {
+        "bytes": 72265336,
+        "is_symlink": false,
+        "package": "libnvidia-gl-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-gpucomp.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-gpucomp.so.580.178.04",
+        "sha256": "0334f98aef57fb9f0fc16a404f01a09f4f1a644daa0a769cc4b2162372b9d12a"
+      },
+      {
+        "bytes": 2291896,
+        "is_symlink": true,
+        "package": "libnvidia-compute-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-ml.so",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-ml.so.580.178.04",
+        "sha256": "451ad740fe549ed7023570fda15ba2762f6fb29ea50afe468b0eb5e74246a4c1"
+      },
+      {
+        "bytes": 2291896,
+        "is_symlink": true,
+        "package": "libnvidia-compute-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-ml.so.1",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-ml.so.580.178.04",
+        "sha256": "451ad740fe549ed7023570fda15ba2762f6fb29ea50afe468b0eb5e74246a4c1"
+      },
+      {
+        "bytes": 2291896,
+        "is_symlink": false,
+        "package": "libnvidia-compute-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-ml.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-ml.so.580.178.04",
+        "sha256": "451ad740fe549ed7023570fda15ba2762f6fb29ea50afe468b0eb5e74246a4c1"
+      },
+      {
+        "bytes": 5476608,
+        "is_symlink": false,
+        "package": "libnvidia-gl-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-ngx.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-ngx.so.580.178.04",
+        "sha256": "99b80c5f63e5bf15b22c30678cf4497172d9441e4a3fcce94226b066bf0027b4"
+      },
+      {
+        "bytes": 78111720,
+        "is_symlink": true,
+        "package": "libnvidia-compute-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-nvvm.so",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-nvvm.so.580.178.04",
+        "sha256": "88a30b0e7ab360f7a6ba6845cfc9666fa2f7e0f50191c5efa62a4a90aa683a81"
+      },
+      {
+        "bytes": 78111720,
+        "is_symlink": true,
+        "package": "libnvidia-compute-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-nvvm.so.4",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-nvvm.so.580.178.04",
+        "sha256": "88a30b0e7ab360f7a6ba6845cfc9666fa2f7e0f50191c5efa62a4a90aa683a81"
+      },
+      {
+        "bytes": 78111720,
+        "is_symlink": false,
+        "package": "libnvidia-compute-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-nvvm.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-nvvm.so.580.178.04",
+        "sha256": "88a30b0e7ab360f7a6ba6845cfc9666fa2f7e0f50191c5efa62a4a90aa683a81"
+      },
+      {
+        "bytes": 24829456,
+        "is_symlink": true,
+        "package": "libnvidia-compute-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-nvvm70.so",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-nvvm70.so.4",
+        "sha256": "64e62bd2f763c575418bb7d660e8715c57d49ef66640a2385896324238896acd"
+      },
+      {
+        "bytes": 24829456,
+        "is_symlink": false,
+        "package": "libnvidia-compute-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-nvvm70.so.4",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-nvvm70.so.4",
+        "sha256": "64e62bd2f763c575418bb7d660e8715c57d49ef66640a2385896324238896acd"
+      },
+      {
+        "bytes": 89862512,
+        "is_symlink": true,
+        "package": "libnvidia-compute-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-opencl.so.1",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-opencl.so.580.178.04",
+        "sha256": "5903293b9b29770f37ba8b1a95459e09bd1469634bec5e0dded190e78d1faee8"
+      },
+      {
+        "bytes": 89862512,
+        "is_symlink": false,
+        "package": "libnvidia-compute-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-opencl.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-opencl.so.580.178.04",
+        "sha256": "5903293b9b29770f37ba8b1a95459e09bd1469634bec5e0dded190e78d1faee8"
+      },
+      {
+        "bytes": 71872,
+        "is_symlink": true,
+        "package": "libnvidia-decode-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-opticalflow.so",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-opticalflow.so.580.178.04",
+        "sha256": "43f37b96acb8ff4e57007763bfd4ded92a58b75bfdcc11f9c8a585931de3ee11"
+      },
+      {
+        "bytes": 71872,
+        "is_symlink": true,
+        "package": "libnvidia-decode-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-opticalflow.so.1",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-opticalflow.so.580.178.04",
+        "sha256": "43f37b96acb8ff4e57007763bfd4ded92a58b75bfdcc11f9c8a585931de3ee11"
+      },
+      {
+        "bytes": 71872,
+        "is_symlink": false,
+        "package": "libnvidia-decode-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-opticalflow.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-opticalflow.so.580.178.04",
+        "sha256": "43f37b96acb8ff4e57007763bfd4ded92a58b75bfdcc11f9c8a585931de3ee11"
+      },
+      {
+        "bytes": 14336,
+        "is_symlink": false,
+        "package": "libnvidia-compute-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-pkcs11-openssl3.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-pkcs11-openssl3.so.580.178.04",
+        "sha256": "4da03b7d3c0ab3c6dafd9818dce15741f8fe6a2bdd7bf9ed25e9036aca602f47"
+      },
+      {
+        "bytes": 14328,
+        "is_symlink": false,
+        "package": "libnvidia-compute-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-pkcs11.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-pkcs11.so.580.178.04",
+        "sha256": "1cdef1154698b10f2ccf9eb2ddb47bcd4e129c6668ac6ca885eeec6e27e95c26"
+      },
+      {
+        "bytes": 66486112,
+        "is_symlink": false,
+        "package": "libnvidia-gl-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-present.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-present.so.580.178.04",
+        "sha256": "b0f5d249685905619607d4f9b7674cf40acaa5b0c8f90035c50abda5989624f2"
+      },
+      {
+        "bytes": 39422584,
+        "is_symlink": true,
+        "package": "libnvidia-compute-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so.580.178.04",
+        "sha256": "9184b44172455ae00b603fd5318258f99c0a5cbdccd4fe1eeb1654a1bad9c9f1"
+      },
+      {
+        "bytes": 39422584,
+        "is_symlink": true,
+        "package": "libnvidia-compute-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so.1",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so.580.178.04",
+        "sha256": "9184b44172455ae00b603fd5318258f99c0a5cbdccd4fe1eeb1654a1bad9c9f1"
+      },
+      {
+        "bytes": 39422584,
+        "is_symlink": false,
+        "package": "libnvidia-compute-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so.580.178.04",
+        "sha256": "9184b44172455ae00b603fd5318258f99c0a5cbdccd4fe1eeb1654a1bad9c9f1"
+      },
+      {
+        "bytes": 105530464,
+        "is_symlink": false,
+        "package": "libnvidia-gl-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-rtcore.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-rtcore.so.580.178.04",
+        "sha256": "69d49b203e9d2e5aa742fbcd079102f2ff400a7acf91e1fcc09063c7faf600b1"
+      },
+      {
+        "bytes": 18632,
+        "is_symlink": false,
+        "package": "libnvidia-gl-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-tls.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-tls.so.580.178.04",
+        "sha256": "d89154e37ac9108fd718683c1a287a2adac333633dc6d0a917833146408ecea9"
+      },
+      {
+        "bytes": 11772632,
+        "is_symlink": false,
+        "package": "libnvidia-gl-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvidia-vksc-core.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-vksc-core.so.580.178.04",
+        "sha256": "4e5060ce40d3a5ea1ebdf6fd0a4bdff9d624b1907bcee5c5d1a8a94730212c3a"
+      },
+      {
+        "bytes": 105757200,
+        "is_symlink": true,
+        "package": "libnvidia-gl-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvoptix.so.1",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvoptix.so.580.178.04",
+        "sha256": "8575ce51c615be4540eaf85a9091d8bd55ab31be2b3ad515d08ff4bccf69917e"
+      },
+      {
+        "bytes": 105757200,
+        "is_symlink": false,
+        "package": "libnvidia-gl-580-server:amd64",
+        "path": "/usr/lib/x86_64-linux-gnu/libnvoptix.so.580.178.04",
+        "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvoptix.so.580.178.04",
+        "sha256": "8575ce51c615be4540eaf85a9091d8bd55ab31be2b3ad515d08ff4bccf69917e"
+      }
+    ],
+    "observed_at_utc": "2026-10-28T15:53:48+00:00",
+    "packages": [
+      {
+        "architecture": "amd64",
+        "name": "cuda-cccl-12-8",
+        "status": "install ok installed",
+        "version": "12.8.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-command-line-tools-12-8",
+        "status": "install ok installed",
+        "version": "12.8.2-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-compiler-12-8",
+        "status": "install ok installed",
+        "version": "12.8.2-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-crt-12-8",
+        "status": "install ok installed",
+        "version": "12.8.93-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-cudart-12-8",
+        "status": "install ok installed",
+        "version": "12.8.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-cudart-dev-12-8",
+        "status": "install ok installed",
+        "version": "12.8.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-cuobjdump-12-8",
+        "status": "install ok installed",
+        "version": "12.8.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-cupti-12-8",
+        "status": "install ok installed",
+        "version": "12.8.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-cupti-dev-12-8",
+        "status": "install ok installed",
+        "version": "12.8.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-cuxxfilt-12-8",
+        "status": "install ok installed",
+        "version": "12.8.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-documentation-12-8",
+        "status": "install ok installed",
+        "version": "12.8.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-driver-dev-12-8",
+        "status": "install ok installed",
+        "version": "12.8.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-gdb-12-8",
+        "status": "install ok installed",
+        "version": "12.8.90-1"
+      },
+      {
+        "architecture": "all",
+        "name": "cuda-keyring",
+        "status": "install ok installed",
+        "version": "1.1-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-libraries-12-8",
+        "status": "install ok installed",
+        "version": "12.8.2-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-libraries-dev-12-8",
+        "status": "install ok installed",
+        "version": "12.8.2-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-nsight-12-8",
+        "status": "install ok installed",
+        "version": "12.8.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-nsight-compute-12-8",
+        "status": "install ok installed",
+        "version": "12.8.2-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-nsight-systems-12-8",
+        "status": "install ok installed",
+        "version": "12.8.2-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-nvcc-12-8",
+        "status": "install ok installed",
+        "version": "12.8.93-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-nvdisasm-12-8",
+        "status": "install ok installed",
+        "version": "12.8.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-nvml-dev-12-8",
+        "status": "install ok installed",
+        "version": "12.8.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-nvprof-12-8",
+        "status": "install ok installed",
+        "version": "12.8.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-nvprune-12-8",
+        "status": "install ok installed",
+        "version": "12.8.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-nvrtc-12-8",
+        "status": "install ok installed",
+        "version": "12.8.93-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-nvrtc-dev-12-8",
+        "status": "install ok installed",
+        "version": "12.8.93-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-nvtx-12-8",
+        "status": "install ok installed",
+        "version": "12.8.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-nvvm-12-8",
+        "status": "install ok installed",
+        "version": "12.8.93-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-nvvp-12-8",
+        "status": "install ok installed",
+        "version": "12.8.93-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-opencl-12-8",
+        "status": "install ok installed",
+        "version": "12.8.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-opencl-dev-12-8",
+        "status": "install ok installed",
+        "version": "12.8.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-profiler-api-12-8",
+        "status": "install ok installed",
+        "version": "12.8.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-sanitizer-12-8",
+        "status": "install ok installed",
+        "version": "12.8.93-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-toolkit-12-8",
+        "status": "install ok installed",
+        "version": "12.8.2-1"
+      },
+      {
+        "architecture": "all",
+        "name": "cuda-toolkit-12-8-config-common",
+        "status": "install ok installed",
+        "version": "12.8.90-1"
+      },
+      {
+        "architecture": "all",
+        "name": "cuda-toolkit-12-config-common",
+        "status": "install ok installed",
+        "version": "12.9.79-1"
+      },
+      {
+        "architecture": "all",
+        "name": "cuda-toolkit-config-common",
+        "status": "install ok installed",
+        "version": "13.4.92-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-tools-12-8",
+        "status": "install ok installed",
+        "version": "12.8.2-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "cuda-visual-tools-12-8",
+        "status": "install ok installed",
+        "version": "12.8.2-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libcublas-12-8",
+        "status": "install ok installed",
+        "version": "12.8.5.5-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libcublas-dev-12-8",
+        "status": "install ok installed",
+        "version": "12.8.5.5-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libcufft-12-8",
+        "status": "install ok installed",
+        "version": "11.3.3.83-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libcufft-dev-12-8",
+        "status": "install ok installed",
+        "version": "11.3.3.83-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libcufile-12-8",
+        "status": "install ok installed",
+        "version": "1.13.1.3-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libcufile-dev-12-8",
+        "status": "install ok installed",
+        "version": "1.13.1.3-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libcurand-12-8",
+        "status": "install ok installed",
+        "version": "10.3.9.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libcurand-dev-12-8",
+        "status": "install ok installed",
+        "version": "10.3.9.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libcusolver-12-8",
+        "status": "install ok installed",
+        "version": "11.7.3.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libcusolver-dev-12-8",
+        "status": "install ok installed",
+        "version": "11.7.3.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libcusparse-12-8",
+        "status": "install ok installed",
+        "version": "12.5.8.93-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libcusparse-dev-12-8",
+        "status": "install ok installed",
+        "version": "12.5.8.93-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libnpp-12-8",
+        "status": "install ok installed",
+        "version": "12.3.3.100-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libnpp-dev-12-8",
+        "status": "install ok installed",
+        "version": "12.3.3.100-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libnvfatbin-12-8",
+        "status": "install ok installed",
+        "version": "12.8.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libnvfatbin-dev-12-8",
+        "status": "install ok installed",
+        "version": "12.8.90-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libnvidia-cfg1-580-server:amd64",
+        "status": "install ok installed",
+        "version": "580.178.04-0ubuntu0.24.04.1"
+      },
+      {
+        "architecture": "all",
+        "name": "libnvidia-common-580-server",
+        "status": "install ok installed",
+        "version": "580.178.04-0ubuntu0.24.04.1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libnvidia-compute-580-server:amd64",
+        "status": "install ok installed",
+        "version": "580.178.04-0ubuntu0.24.04.1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libnvidia-decode-580-server:amd64",
+        "status": "install ok installed",
+        "version": "580.178.04-0ubuntu0.24.04.1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libnvidia-egl-wayland1:amd64",
+        "status": "install ok installed",
+        "version": "1:1.1.13-1ubuntu0.1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libnvidia-encode-580-server:amd64",
+        "status": "install ok installed",
+        "version": "580.178.04-0ubuntu0.24.04.1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libnvidia-extra-580-server:amd64",
+        "status": "install ok installed",
+        "version": "580.178.04-0ubuntu0.24.04.1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libnvidia-fbc1-580-server:amd64",
+        "status": "install ok installed",
+        "version": "580.178.04-0ubuntu0.24.04.1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libnvidia-gl-580-server:amd64",
+        "status": "install ok installed",
+        "version": "580.178.04-0ubuntu0.24.04.1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libnvjitlink-12-8",
+        "status": "install ok installed",
+        "version": "12.8.93-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libnvjitlink-dev-12-8",
+        "status": "install ok installed",
+        "version": "12.8.93-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libnvjpeg-12-8",
+        "status": "install ok installed",
+        "version": "12.3.5.92-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "libnvjpeg-dev-12-8",
+        "status": "install ok installed",
+        "version": "12.3.5.92-1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "nvidia-compute-utils-580-server",
+        "status": "install ok installed",
+        "version": "580.178.04-0ubuntu0.24.04.1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "nvidia-dkms-580-server",
+        "status": "install ok installed",
+        "version": "580.178.04-0ubuntu0.24.04.1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "nvidia-driver-580-server",
+        "status": "install ok installed",
+        "version": "580.178.04-0ubuntu0.24.04.1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "nvidia-firmware-580-server-580.178.04",
+        "status": "install ok installed",
+        "version": "580.178.04-0ubuntu0.24.04.1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "nvidia-kernel-common-580-server",
+        "status": "install ok installed",
+        "version": "580.178.04-0ubuntu0.24.04.1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "nvidia-kernel-source-580-server",
+        "status": "install ok installed",
+        "version": "580.178.04-0ubuntu0.24.04.1"
+      },
+      {
+        "architecture": "amd64",
+        "name": "nvidia-utils-580-server",
+        "status": "install ok installed",
+        "version": "580.178.04-0ubuntu0.24.04.1"
+      }
+    ],
+    "pinned_libcuda_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+    "schema": "nvidia-hybrid-pc3-v100-package-inventory-v1"
+  },
+  "guest_script_sha256": "effb7f31533561da6b5c7a00e40b57149092e253da4b73ec28568ade3d84bb99",
+  "guest_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "host_or_guest_mutation_performed": false,
+  "observed_at_utc": "2026-10-28T15:53:48+00:00",
+  "pinned_libcuda_comparison": {
+    "captured_bytes": 96284520,
+    "captured_sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9",
+    "matches_prior_capture": true,
+    "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+    "prior_capture_bytes": 96284520,
+    "prior_capture_sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9"
+  },
+  "read_only_guest_query": true,
+  "schema": "nvidia-hybrid-pc3-v100-package-inventory-capture-v1",
+  "status": "collected",
+  "target": "pc3@pc3",
+  "transport_script_sha256": "2ec5db5766f38c18a6da58b8cd022b2fef5e5b33962901744b1311973ab46790"
+}

@@ -1,0 +1,69 @@
+{
+  "aggregate": "3/3 fresh launches passed SM70 kernel, sync/async vector sizes 1,31,256,4096,65537, managed allocation, prefetch to GPU/CPU, two CUDA Graph replays, and cleanup.",
+  "build": {
+    "fatbin_images": [
+      "sm_70",
+      "sm_120"
+    ],
+    "fatbin_sha256": "fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305",
+    "manifest": "build/probe-pc3-baseline-v1-20261023T1948Z/build-manifest.json",
+    "manifest_sha256": "5cbedeb74d8ae1c64888939eea85bf16693f099ba3fd767fabae841ea3154826",
+    "probe_sha256": "6e4f93e20b970205de1516c1258bdea83bbd39a72ba3c4ef719f114569fd497b",
+    "source_inputs_sha256": {
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/kernels/hybrid_probe.cu": "6c474bdcd7c2c4098b7d2b920b3be0a870842049aece1f47b7c534a2710086f2",
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/hybrid_cuda_probe.cpp": "1a6458f582523c48791f56080dc5f726fb39a8b84298df44bb961612a7b990d7"
+    }
+  },
+  "classification": "V100_R580_guest_reference_only",
+  "guest": "pc3-v100",
+  "guest_driver": "580.178.04",
+  "guest_kernel": "6.8.0-147-generic",
+  "host": "pc3",
+  "host_kernel": "7.0.0-38-generic",
+  "host_os": "Ubuntu 26.04.1 LTS",
+  "hybrid_validated": false,
+  "observed_at_utc": "2026-10-23T19:52:37.642637+00:00",
+  "performance_benchmark": false,
+  "qualification": "validated_on_hardware_for_listed_single_device_checks",
+  "runs": [
+    {
+      "all_cuda_checks_passed": true,
+      "driver_api": 13000,
+      "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+      "guest_temp_cleanup_passed": true,
+      "host_payload_cleanup_passed": true,
+      "pci_bus_id": "0000:00:05.0",
+      "probe_exit_code": 0,
+      "report": "evidence/pc3-v100-guest-managed-prefetch-graphs-current-source-v2-20261023T1950Z.json",
+      "report_sha256": "5329c75e853832010e5c0802598f70a19e3a1839de6579a5d7504fa0a6e9ba68",
+      "v100_name": "Tesla V100-SXM2-16GB"
+    },
+    {
+      "all_cuda_checks_passed": true,
+      "driver_api": 13000,
+      "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+      "guest_temp_cleanup_passed": true,
+      "host_payload_cleanup_passed": true,
+      "pci_bus_id": "0000:00:05.0",
+      "probe_exit_code": 0,
+      "report": "evidence/pc3-v100-guest-managed-prefetch-graphs-current-source-v2-run2-20261023T1951Z.json",
+      "report_sha256": "6952e6486315a2af7b0e22817beef5ebcc55e031ae569bcd1c12583ac53d6ca9",
+      "v100_name": "Tesla V100-SXM2-16GB"
+    },
+    {
+      "all_cuda_checks_passed": true,
+      "driver_api": 13000,
+      "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+      "guest_temp_cleanup_passed": true,
+      "host_payload_cleanup_passed": true,
+      "pci_bus_id": "0000:00:05.0",
+      "probe_exit_code": 0,
+      "report": "evidence/pc3-v100-guest-managed-prefetch-graphs-current-source-v2-run3-20261023T1951Z.json",
+      "report_sha256": "9b3c60636f9c61362810a067f0686f3cf4d9724e1c463f11e08aff197da75996",
+      "v100_name": "Tesla V100-SXM2-16GB"
+    }
+  ],
+  "same_process_v100_blackwell": false,
+  "schema": "nvidia-hybrid-v100-reference-repeat-v1",
+  "scope_limit": "V100 is isolated in its VM under the stock R580 driver; RTX5080 is separately tested on the PC3 host under R595.99.02. These are separate kernels and libcuda instances; no shared process/context, co-load, P2P, or performance conclusion follows."
+}
