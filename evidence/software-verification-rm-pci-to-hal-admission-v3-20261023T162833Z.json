@@ -1,0 +1,36 @@
+{
+  "schema": "software-verification-report-v1",
+  "started_at_utc": "2026-10-23T16:27:44.852381+00:00",
+  "finished_at_utc": "2026-10-23T16:28:33.315861+00:00",
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-v",
+    "-s",
+    "tests"
+  ],
+  "working_directory": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+  "environment": {
+    "HYBRID_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-system-pageable-memory-v1-20261023/hybrid_cuda_probe",
+    "HYBRID_PROBE_SHA256": "6e4f93e20b970205de1516c1258bdea83bbd39a72ba3c4ef719f114569fd497b",
+    "HYBRID_CUDA_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-system-pageable-memory-v1-20261023/hybrid_cuda_probe",
+    "HYBRID_CUDA_PROBE_SHA256": "6e4f93e20b970205de1516c1258bdea83bbd39a72ba3c4ef719f114569fd497b",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "exit_code": 0,
+  "unittest_summary": {
+    "test_count": 1102,
+    "duration_seconds": 48.269,
+    "ok": false
+  },
+  "supersedes_incorrectly_pinned_attempts": [
+    "evidence/software-verification-rm-pci-to-hal-admission-v1-20261023T162554Z.json",
+    "evidence/software-verification-rm-pci-to-hal-admission-v2-20261023T162702Z.json"
+  ],
+  "log": "evidence/logs/rm-pci-to-hal-admission-v3-20261023T162833Z.log",
+  "log_sha256": "a37670bd06fcce498d0da851b5c3fb3d61117b59cbfb4d9db618fa519d7c872f",
+  "hybrid_hardware_qualification": false
+}

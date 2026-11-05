@@ -1,0 +1,29 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-v",
+    "-s",
+    "tests"
+  ],
+  "created_utc": "2026-10-23T11:06:28.644478+00:00",
+  "duration_seconds": 47.649,
+  "errors": 0,
+  "exit_code": 0,
+  "failures": 0,
+  "hybrid_probe_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+  "log": "evidence/logs/software-verification-r615-uvm-dispatch-v1-20261023.log",
+  "log_sha256": "e4ded0ad535a035c6688e82b92d4ed7348a4d2c63cea2e22a574da5cbc0a9f3a",
+  "probe_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-managed-prefetch-v2/hybrid_cuda_probe",
+  "probe_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+  "report_correction": "The v1 parser incorrectly required unittest OK to be the final stdout line; repository tests print non-test probe summaries afterward. The log contains the 980-test OK summary and exit code 0.",
+  "result_line": "OK",
+  "schema": "software-verification-v2",
+  "scope": "software/source/build checks only; no experimental module or GPU operation",
+  "skipped": 0,
+  "supersedes": "evidence/software-verification-r615-uvm-dispatch-v1-20261023.json",
+  "tests_run": 980
+}

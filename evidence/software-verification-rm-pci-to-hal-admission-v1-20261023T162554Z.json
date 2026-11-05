@@ -1,0 +1,30 @@
+{
+  "schema": "software-verification-report-v1",
+  "started_at_utc": "2026-10-23T16:25:07.133202+00:00",
+  "finished_at_utc": "2026-10-23T16:25:54.284447+00:00",
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-v",
+    "-s",
+    "tests"
+  ],
+  "working_directory": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+  "environment": {
+    "HYBRID_CUDA_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "HYBRID_CUDA_PROBE_SHA256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+    "HYBRID_CUDA_PROBE_REFERENCE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe"
+  },
+  "exit_code": 1,
+  "unittest_summary": {
+    "test_count": 1100,
+    "duration_seconds": 46.938,
+    "ok": false
+  },
+  "log": "evidence/logs/rm-pci-to-hal-admission-v1-20261023T162554Z.log",
+  "log_sha256": "2dca79704ed5fc813c05ab99228d39e8335ac1efa0becad2b97060916f2167a4",
+  "hybrid_hardware_qualification": false
+}

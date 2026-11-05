@@ -1,0 +1,46 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-v",
+    "-s",
+    "tests"
+  ],
+  "elapsed_seconds": 45.131,
+  "exit_code": 0,
+  "hybrid_hardware_qualification": false,
+  "log": {
+    "mode": "0600",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/rm-pci-to-hal-admission-v4-20261023T163406Z.log",
+    "sha256": "0f879b1346a0004b3a57622d6f53179fb8ee836b3d485a7133c1dba775b83970"
+  },
+  "observed_at_utc": "2026-10-23T16:34:51.788422+00:00",
+  "pinned_environment": {
+    "HYBRID_CUDA_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-system-pageable-memory-v1-20261023/hybrid_cuda_probe",
+    "HYBRID_CUDA_PROBE_SHA256": "6e4f93e20b970205de1516c1258bdea83bbd39a72ba3c4ef719f114569fd497b",
+    "HYBRID_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-system-pageable-memory-v1-20261023/hybrid_cuda_probe",
+    "HYBRID_PROBE_SHA256": "6e4f93e20b970205de1516c1258bdea83bbd39a72ba3c4ef719f114569fd497b",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "schema": "nvidia-hybrid-software-verification-v1",
+  "source_sha256": {
+    "tests/test_audit_rm_gpu_probe_admission.py": "5c93c153ba957c8cdd798cfd4f5b8e14afbcc7990f10ba3f59e7dbb96d7d60bc",
+    "tests/test_compare_openrm_gv100.py": "99121ab158a5136c1e3c668859c3c9390c4712d4890dcd46b061388ab7faf6d8",
+    "tools/audit_rm_gpu_probe_admission.py": "f00c060e697d0c2cb8a1522be6d7be1ea5188149ff23058c6fefe0108e21c097",
+    "tools/compare_openrm_gv100.py": "629b66f889b430fa30eee8d35d0832c79e12da2df6c61ef724fa96e35d44770a"
+  },
+  "started_at_utc": "2026-10-23T16:34:06.657272+00:00",
+  "summary": "OK",
+  "supersedes_inaccurate_collector_report": {
+    "path": "evidence/software-verification-rm-pci-to-hal-admission-v3-20261023T162833Z.json",
+    "reason": "the v3 hashed log ended with Ran 1102 tests and OK while its collector field said ok=false; this fresh run parses the raw summary and pins the corrected source set",
+    "sha256": "893bdc22620c5d8652957bfa65a17fa256e46e85513e42e7cb6dc979ec8a3d97"
+  },
+  "tests_ok": true,
+  "tests_run": 1106,
+  "unittest_elapsed_seconds": 44.963,
+  "working_directory": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid"
+}

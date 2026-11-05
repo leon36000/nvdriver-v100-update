@@ -1,0 +1,45 @@
+{
+  "schema": "hybrid-software-verification-v1",
+  "observed_at_utc": "2026-10-22T22:12:32Z",
+  "qualification": "cpu-source-build-only",
+  "suite": {
+    "command": "HYBRID_PROBE and HYBRID_CUDA_PROBE pinned to build/probe-current-src-v1-20261022/hybrid_cuda_probe; python3 -B -m unittest discover -v -s tests",
+    "tests": 862,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "duration_seconds": 44.0,
+    "probe_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+    "log_path": "evidence/logs/software-verification-register-fd-xfer-final-v1-20261022T221119Z.log",
+    "log_sha256": "0f83eb625e1b56932bd4d2c14a38d8894ade169d53f2156dcc7e1941e5348004"
+  },
+  "frontend_build": {
+    "report_path": "evidence/frontend-register-fd-xfer-v1-20261022.json",
+    "report_sha256": "770b1dbf59de7079401edb839dfa63eb4d7e7eb9d36131cb743427e6a2c063bc",
+    "module_path": "build/experiments/frontend-register-fd-xfer-v1-20261022/hybrid580_frontend.ko",
+    "module_sha256": "9ed6863b18015521554a309ec8c2c301308f35f982411ecb54c6e1d007bbd72b",
+    "module_bytes": 2852456,
+    "kernel_release": "7.0.0-38-generic",
+    "imports": 287,
+    "unresolved_imports": 0,
+    "duplicate_providers": 0,
+    "objtool_active": true,
+    "objtool_return_warnings": 0,
+    "build_warnings": [
+      "pahole version differs from the one used to build the kernel"
+    ],
+    "inputs_unchanged": true
+  },
+  "source_sha256": {
+    "src/hybrid_frontend.c": "2fd69ac5c4ed233fcb5b747fd67dfbf6b76a186a6657ce4edd16a2ff17d5e587",
+    "tests/test_hybrid_frontend.py": "ce1511054d59aacd5388575afad23ea4dbfe80f539e84041d8b1639528cf5436",
+    "tests/test_hybrid_frontend_gpu.py": "44ad52d8da753dc760a94a3735ecb3534da4014d99cd13deb6d04d089a94ff4b"
+  },
+  "runtime_limits": {
+    "loaded_or_installed": false,
+    "device_registered": false,
+    "real_rm_executed": false,
+    "gpu_accessed": false,
+    "cuda_compatibility_established": false
+  }
+}

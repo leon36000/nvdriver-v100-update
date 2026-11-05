@@ -1,0 +1,46 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-v",
+    "-s",
+    "tests"
+  ],
+  "elapsed_seconds": 47.6,
+  "exit_code": 0,
+  "hybrid_hardware_qualification": false,
+  "log": {
+    "mode": "0600",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/rm-pci-to-hal-admission-v5-20261023T163545Z.log",
+    "sha256": "6aad197a740839b756310fbf154d877a1e082c4558e91f4d9a2da4f2b1c66542"
+  },
+  "observed_at_utc": "2026-10-23T16:36:33.554258+00:00",
+  "pinned_environment": {
+    "HYBRID_CUDA_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-system-pageable-memory-v1-20261023/hybrid_cuda_probe",
+    "HYBRID_CUDA_PROBE_SHA256": "6e4f93e20b970205de1516c1258bdea83bbd39a72ba3c4ef719f114569fd497b",
+    "HYBRID_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-system-pageable-memory-v1-20261023/hybrid_cuda_probe",
+    "HYBRID_PROBE_SHA256": "6e4f93e20b970205de1516c1258bdea83bbd39a72ba3c4ef719f114569fd497b",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "schema": "nvidia-hybrid-software-verification-v1",
+  "source_sha256": {
+    "tests/test_audit_rm_gpu_probe_admission.py": "a2685d5fb846ab34557eed0e966d7077f407fcc2883cb337f4539034be42ddbe",
+    "tests/test_compare_openrm_gv100.py": "99121ab158a5136c1e3c668859c3c9390c4712d4890dcd46b061388ab7faf6d8",
+    "tools/audit_rm_gpu_probe_admission.py": "cfdeb99f333d07b91c385f3f5d64eb46467444f5334de75b0ad6d1ba7290e670",
+    "tools/compare_openrm_gv100.py": "629b66f889b430fa30eee8d35d0832c79e12da2df6c61ef724fa96e35d44770a"
+  },
+  "started_at_utc": "2026-10-23T16:35:45.953957+00:00",
+  "summary": "OK",
+  "supersedes_inaccurate_collector_report": {
+    "path": "evidence/software-verification-rm-pci-to-hal-admission-v3-20261023T162833Z.json",
+    "reason": "the v3 log ends with OK while its collector said ok=false; this fresh run covers the final audit parser and regression tests",
+    "sha256": "893bdc22620c5d8652957bfa65a17fa256e46e85513e42e7cb6dc979ec8a3d97"
+  },
+  "tests_ok": true,
+  "tests_run": 1107,
+  "unittest_elapsed_seconds": 47.398,
+  "working_directory": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid"
+}

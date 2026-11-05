@@ -1,0 +1,30 @@
+{
+  "command": "python3 -B -m unittest discover -v -s tests",
+  "environment": {
+    "HYBRID_CUDA_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "HYBRID_CUDA_PROBE_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+    "HYBRID_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "HYBRID_PROBE_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808"
+  },
+  "hardware_or_kernel_runtime_exercised": false,
+  "inputs": {
+    "r615_dispatch_probe_sha256": "3d9289ac758995bd8fa5a5bbbcb8891222078950a0a46e0ea0462b7fa9e954b5",
+    "r615_dispatch_probe_tests_sha256": "fdfb02a92d7f0c6958bf972df5facc6a21b4e550ea7b058fb96de2f67415ff78"
+  },
+  "log": {
+    "mode": "0600",
+    "path": "evidence/logs/software-verification-r615-dispatch-hardening-v1-20261023.log",
+    "sha256": "207b80d39c7ed2e5f08a0ce893b4efcce67e9206da93a40ffeb0163806bf81ba"
+  },
+  "observed_at_utc": "2026-10-23",
+  "result": {
+    "elapsed_seconds": 45.726,
+    "errors": 0,
+    "exit_code": 0,
+    "failures": 0,
+    "skips": 0,
+    "summary": "OK",
+    "tests_run": 1027
+  },
+  "schema": "software-verification-v1"
+}

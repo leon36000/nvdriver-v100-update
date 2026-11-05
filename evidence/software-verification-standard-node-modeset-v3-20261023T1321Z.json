@@ -1,0 +1,48 @@
+{
+  "command": "python3 -B -m unittest discover -v -s tests",
+  "environment": {
+    "HYBRID_CUDA_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "HYBRID_CUDA_PROBE_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+    "HYBRID_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "HYBRID_PROBE_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+    "kernel_release": "7.0.0-38-generic",
+    "python": "3.14.4"
+  },
+  "frontend_build": {
+    "build_qualification": "compiled-bdf-selected-gpu-file-frontend-kernel-module",
+    "gpu_accessed": false,
+    "loaded_or_installed": false,
+    "module_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/frontend-standard-node-modeset-v4-20261023/hybrid580_frontend.ko",
+    "module_sha256": "0b90a65940a9354cbda47568a80eeaf5fbe269dae70d60e50305783408aeab42",
+    "real_rm_executed": false,
+    "report_path": "evidence/frontend-standard-node-modeset-v4-20261023.json",
+    "report_sha256": "804e5e0253912a47088e281bca062cb26d30c1980745f6b5a790d9ab2f971c48",
+    "source_matches_build_report": true,
+    "source_sha256_in_build_report": "58026dbeca9e5da8f77817370a83795abb81245aa69dfd1500a30c0f346c6b1e"
+  },
+  "hardware_or_kernel_runtime_exercised": false,
+  "inputs": {
+    "cuda_probe_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+    "frontend_builder_sha256": "ae62863e6db66831904be9573514d494421b0a02fdd15f70c8a07162d639f2c9",
+    "frontend_gpu_source_contract_test_sha256": "2d0595fe6754698bc2d13779ed2439058213ae45c9f5fc6f8da0cb5e220cc09c",
+    "standard_node_devices_fixture_sha256": "606798ad3a42f51ab50deae2f393771b40f87ab6185f4def3c3a7c46d9b3b82b",
+    "standard_node_devices_source_sha256": "58026dbeca9e5da8f77817370a83795abb81245aa69dfd1500a30c0f346c6b1e",
+    "standard_node_devices_test_sha256": "29100887848893e8e0fc1b97b350f5172aa7f7636bbb6101d2831fb9f3fff815"
+  },
+  "log": {
+    "mode": "0600",
+    "path": "evidence/logs/software-verification-standard-node-modeset-v3-20261023T1321Z.log",
+    "sha256": "fcfb14b13ef52f76b48d437a59a9fbb039917a8c618975a9fd55dd039b6fc6d8"
+  },
+  "observed_at_utc": "2026-10-23T13:23:14Z",
+  "result": {
+    "elapsed_seconds": 47.071,
+    "errors": 0,
+    "exit_code": 0,
+    "failures": 0,
+    "skips": 0,
+    "summary": "OK",
+    "tests_run": 1042
+  },
+  "schema": "software-verification-v1"
+}

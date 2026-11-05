@@ -1,0 +1,29 @@
+{
+  "observed_at_utc": "2026-11-02T23:50:32.879195+00:00",
+  "pinned_cuda_probe_sha256": "c2c0aa30d26fe2fb7e61a5ef732bc1f659faa39eb4626e1d46689f2aa85e1422",
+  "pinned_probe_manifest_sha256": "86e5527b24983dafccc034e2d68385b23cd302b57bd439d6d278e7e0e6366514",
+  "qualification": {
+    "driver_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false,
+    "scope": "CPU/software suite only"
+  },
+  "raw_evidence": {
+    "log_bytes": 642033,
+    "log_path": "evidence/logs/software-verification-r595-pc3-transport-pin-repair-v1-20261102.log",
+    "log_sha256": "f4e5335e0049f50d3a48d4a8443deddeef7f0fa24e39d043634059c220471193",
+    "report_bytes": 118972,
+    "report_path": "evidence/logs/software-verification-r595-pc3-transport-pin-repair-v1-20261102.json",
+    "report_sha256": "6dc8a258ae873c71a6dffff39427d29b0718df7ad33af9ec11a144e1b89e7161"
+  },
+  "schema": "nvidia-hybrid.software-verification-summary.v1",
+  "status": "PASS",
+  "suite": {
+    "command": "python -B -m unittest discover -v -s tests",
+    "focused_transport_pin_loader_tests": 2,
+    "implementation_input_count": 98,
+    "inputs_unchanged_during_run": true,
+    "reported_seconds": 177.108,
+    "test_input_count": 393,
+    "tests_run": 2630
+  }
+}

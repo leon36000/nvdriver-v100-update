@@ -1,0 +1,18 @@
+{
+  "classification": "invalidated-by-source-change-during-run",
+  "implementation_source_changes": [
+    "tools/audit_hybrid_candidate_bundle.py"
+  ],
+  "implementation_sources_unchanged": false,
+  "raw_log_sha256": "c803eba9abad28bb07355a68477d7fc634203d69cc14c174d926cd30befc27d0",
+  "raw_report_sha256": "090f7f40ae0f1fedc4a3193f42fc7813d45fa4aaaac627b3c8047c5855980a31",
+  "reason": "The test command exited 0, but the evidence runner rejected the result because tools/audit_hybrid_candidate_bundle.py changed while the suite was running. The test sources did not change. A stable rerun is recorded separately.",
+  "reported_seconds": 185.228,
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-hybrid.software-suite-provenance-invalidated-sanitized-v1",
+  "suite_status": "not_accepted",
+  "test_process_exit_code": 0,
+  "test_source_changes": [],
+  "test_sources_unchanged": true,
+  "tests_run": 2661
+}

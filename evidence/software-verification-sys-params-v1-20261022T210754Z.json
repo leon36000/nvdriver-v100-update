@@ -1,0 +1,49 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-v",
+    "-s",
+    "tests"
+  ],
+  "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-22T21:08:40.079892+00:00",
+  "hardware_tested": false,
+  "inputs_after_sha256": {
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/proprietary/0037-private-legacy-sys-params.patch": "263cc7ae57cd6927261098bbcb8e14600392d0d901c5f9f5485fc44a5edd157d",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/hybrid_frontend.c": "e21bdd1dcd81187161af3401d2303a7c91f24813959505c3295b5ce150f366bd",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests/test_private_proprietary580.py": "54ff2e051ed0429aec4138e380667609220b2ac35e35d30f8348a974ebb50e9e",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/build_private_proprietary580.py": "b19e496879c99840ca64ded2a787ffb20c3a9d497157d1ff891d9af12672a90c"
+  },
+  "inputs_before_sha256": {
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r580.178.04/proprietary/0037-private-legacy-sys-params.patch": "263cc7ae57cd6927261098bbcb8e14600392d0d901c5f9f5485fc44a5edd157d",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/hybrid_frontend.c": "e21bdd1dcd81187161af3401d2303a7c91f24813959505c3295b5ce150f366bd",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests/test_private_proprietary580.py": "54ff2e051ed0429aec4138e380667609220b2ac35e35d30f8348a974ebb50e9e",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/build_private_proprietary580.py": "b19e496879c99840ca64ded2a787ffb20c3a9d497157d1ff891d9af12672a90c"
+  },
+  "inputs_unchanged": true,
+  "label": "software-verification-sys-params-v1-20261022T210754Z",
+  "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/software-verification-sys-params-v1-20261022T210754Z.log",
+  "log_sha256": "c184a48e93d154d0b5cbe39cbf8cc80908d6fd44f77a56834a41f3e72c63a82d",
+  "probe_env": {
+    "HYBRID_CUDA_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "HYBRID_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe"
+  },
+  "probe_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+  "qualification": "passed-cpu-source-tests",
+  "reported_duration_seconds": 45.133,
+  "schema": "software-verification-v1",
+  "started_at_utc": "2026-10-22T21:07:54.822987+00:00",
+  "summary_lines": [
+    "Ran 854 tests in 45.133s",
+    "OK"
+  ],
+  "test_count": 854,
+  "wall_seconds": 45.256
+}
