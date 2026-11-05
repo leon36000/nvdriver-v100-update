@@ -1,0 +1,96 @@
+{
+  "audit_report": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/r595-syncboost-nvidia-gv100-hal-bundle-audit-v4-uvm-isolation-20261029T1003Z.json",
+  "audit_report_sha256": "255dc82aec11ad0fdf739ec4f48b7b45bd1d88a7f12204eab6da24557b8f4edb",
+  "audit_report_status": "passed",
+  "depmod": {
+    "command": [
+      "depmod",
+      "-b",
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-isolated-196hal-v4-20261029T095341Z/depmod-stage-audit-v4/hybrid-bundle-depmod-8707eo11",
+      "7.0.0-38-generic"
+    ],
+    "exit_code": 0,
+    "modules_dep": "updates/extra/hybrid580_open.ko:\nupdates/extra/hybrid580_legacy.ko:\nupdates/extra/nvidia.ko: updates/extra/hybrid580_legacy.ko updates/extra/hybrid580_open.ko\nupdates/extra/nvidia_uvm.ko: updates/extra/nvidia.ko updates/extra/hybrid580_legacy.ko updates/extra/hybrid580_open.ko\n",
+    "modules_dep_sha256": "74ec32f5968bc4d5a7ca827d42707e48c2ae951f992361c368337fb6e85513b5",
+    "stderr": "",
+    "stdout": ""
+  },
+  "kernel_release": "7.0.0-38-generic",
+  "loaded_or_installed": false,
+  "modules": {
+    "frontend": {
+      "name": "nvidia",
+      "sha256": "db10af8da6b8abcca7b9f9ff39314cf27b998f9d1f46367f12db720109082294",
+      "size_bytes": 3116072,
+      "staged_name": "nvidia.ko"
+    },
+    "legacy": {
+      "name": "hybrid580_legacy",
+      "sha256": "cab25d3156cd20fbe262e4bdd0f41df6a8af6a188655240b58b1b543820dec33",
+      "size_bytes": 136948176,
+      "staged_name": "hybrid580_legacy.ko"
+    },
+    "open": {
+      "name": "hybrid580_open",
+      "sha256": "1d9909b3857ad4c00b3afdc9c92da8bdcfa03afae8e7269ea95cd6cc06dd38b1",
+      "size_bytes": 37229824,
+      "staged_name": "hybrid580_open.ko"
+    },
+    "uvm": {
+      "name": "nvidia_uvm",
+      "sha256": "6a7828ca9c9008b20028fdbe9e55b56f153d25465f045331e81f8cbe47c1068e",
+      "size_bytes": 62024368,
+      "staged_name": "nvidia_uvm.ko"
+    }
+  },
+  "observed_at_utc": "2026-10-29T10:03:10.977718+00:00",
+  "qualification": "isolated-dependency-map-only",
+  "resolution": {
+    "nvidia": {
+      "command": [
+        "modprobe",
+        "-C",
+        "/dev/null",
+        "-d",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-isolated-196hal-v4-20261029T095341Z/depmod-stage-audit-v4/hybrid-bundle-depmod-8707eo11",
+        "--set-version",
+        "7.0.0-38-generic",
+        "--show-depends",
+        "nvidia"
+      ],
+      "ordered_modules": [
+        "hybrid580_open.ko",
+        "hybrid580_legacy.ko",
+        "nvidia.ko"
+      ],
+      "stderr": "",
+      "stdout": "insmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-isolated-196hal-v4-20261029T095341Z/depmod-stage-audit-v4/hybrid-bundle-depmod-8707eo11/lib/modules/7.0.0-38-generic/updates/extra/hybrid580_open.ko \ninsmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-isolated-196hal-v4-20261029T095341Z/depmod-stage-audit-v4/hybrid-bundle-depmod-8707eo11/lib/modules/7.0.0-38-generic/updates/extra/hybrid580_legacy.ko \ninsmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-isolated-196hal-v4-20261029T095341Z/depmod-stage-audit-v4/hybrid-bundle-depmod-8707eo11/lib/modules/7.0.0-38-generic/updates/extra/nvidia.ko \n"
+    },
+    "nvidia_uvm": {
+      "command": [
+        "modprobe",
+        "-C",
+        "/dev/null",
+        "-d",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-isolated-196hal-v4-20261029T095341Z/depmod-stage-audit-v4/hybrid-bundle-depmod-8707eo11",
+        "--set-version",
+        "7.0.0-38-generic",
+        "--show-depends",
+        "nvidia_uvm"
+      ],
+      "ordered_modules": [
+        "hybrid580_open.ko",
+        "hybrid580_legacy.ko",
+        "nvidia.ko",
+        "nvidia_uvm.ko"
+      ],
+      "stderr": "",
+      "stdout": "insmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-isolated-196hal-v4-20261029T095341Z/depmod-stage-audit-v4/hybrid-bundle-depmod-8707eo11/lib/modules/7.0.0-38-generic/updates/extra/hybrid580_open.ko \ninsmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-isolated-196hal-v4-20261029T095341Z/depmod-stage-audit-v4/hybrid-bundle-depmod-8707eo11/lib/modules/7.0.0-38-generic/updates/extra/hybrid580_legacy.ko \ninsmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-isolated-196hal-v4-20261029T095341Z/depmod-stage-audit-v4/hybrid-bundle-depmod-8707eo11/lib/modules/7.0.0-38-generic/updates/extra/nvidia.ko \ninsmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-isolated-196hal-v4-20261029T095341Z/depmod-stage-audit-v4/hybrid-bundle-depmod-8707eo11/lib/modules/7.0.0-38-generic/updates/extra/nvidia_uvm.ko \n"
+    }
+  },
+  "runtime_or_hardware_validated": false,
+  "schema": "hybrid-module-bundle-depmod-static-v1",
+  "stage_parent": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-isolated-196hal-v4-20261029T095341Z/depmod-stage-audit-v4",
+  "stage_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-gv100-isolated-196hal-v4-20261029T095341Z/depmod-stage-audit-v4/hybrid-bundle-depmod-8707eo11",
+  "status": "passed"
+}

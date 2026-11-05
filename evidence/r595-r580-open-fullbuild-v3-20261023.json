@@ -1,0 +1,92 @@
+{
+  "baseline_symvers_sha256": "1afbdc5d864d0d8f7ae7c57b6def32b82a0d99da73772fafc85f5da07baaa918",
+  "build_log": {
+    "exit_code": 0,
+    "mode": "0o600",
+    "path": "evidence/logs/r595-r580-open-fullbuild-v3-20261023.log",
+    "sha256": "db903de72f85823b58868d4658fc93b0abb6caa3ef60bffb6f20eb24d27f093d"
+  },
+  "command": [
+    "make",
+    "-C",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-r580-open-fullbuild-v3-20261023/source/kernel-open",
+    "KERNEL_UNAME=7.0.0-38-generic",
+    "NV_KERNEL_MODULES=nvidia",
+    "-j4",
+    "modules"
+  ],
+  "core_binary": "/usr/src/nvidia-595.99.02/nvidia/nv-kernel.o_binary",
+  "core_binary_sha256": "c19870e43606b4358d9274c4d3dec2adb1822d65ce1203520a8184cf043cafe8",
+  "export_audit": {
+    "actual_export_count": 141,
+    "additional_exports": 45,
+    "all_additional_exports_private_prefixed": true,
+    "baseline_export_count": 96,
+    "expected_prefixed_exports": 96,
+    "missing_or_wrong_flavor": {},
+    "unprefixed_baseline_exports": []
+  },
+  "gpu_runtime_accessed_by_build": false,
+  "hardware_validated": false,
+  "kernel_release": "7.0.0-38-generic",
+  "limitations": [
+    "Compile and module metadata only; no module insertion, installation, GPU initialization, CUDA execution, P2P, UVM runtime, or endurance test.",
+    "The same 11,141 normalized objtool naked-return warnings and all non-objtool warning variants are present in the pinned official R595 baseline; BTF was skipped because vmlinux is unavailable."
+  ],
+  "module": {
+    "bytes": 37167608,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-r580-open-fullbuild-v3-20261023/source/kernel-open/hybrid580_open.ko",
+    "sha256": "9115482630363442bd907b2f8413455636b0e7c8059577217dd313e6b6738466"
+  },
+  "module_loaded_or_installed": false,
+  "module_metadata": {
+    "firmware": [
+      "nvidia/595.99.02/gsp_tu10x.bin",
+      "nvidia/595.99.02/gsp_ga10x.bin"
+    ],
+    "license": [
+      "Dual MIT/GPL"
+    ],
+    "name": [
+      "hybrid580_open"
+    ],
+    "vermagic": [
+      "7.0.0-38-generic SMP preempt mod_unload modversions"
+    ],
+    "version": [
+      "595.99.02"
+    ]
+  },
+  "module_symvers": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-r580-open-fullbuild-v3-20261023/source/kernel-open/Module.symvers",
+    "sha256": "54041696f836e587e1cb78641f3420073e088a3beda73d951bd68fdefde13628"
+  },
+  "observed_at_utc": "2026-10-23T07:13:17.141412+00:00",
+  "pinned_source_manifest_sha256": "6d4ae86fb03f3afac63007c3c13422b114c93f5ab6a271ccb3dde5fb2440c066",
+  "qualification": "compiled-private-r595-open-replayed-source",
+  "replay_inputs_unchanged": true,
+  "replay_qualification": "all-r580-open-patches-apply-to-r595-source",
+  "replay_report": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/r595-r580-patch-port-v37-20261023.json",
+  "replay_report_sha256": "63f14ba540fb1af4c7fb3ac02c99ae3868d0b01983df262b0a7de5a4aab518f7",
+  "replayed_patch_count": 38,
+  "schema": "r595-r580-replayed-open-fullbuild-v1",
+  "software_suite": {
+    "command": "HYBRID_PROBE=build/probe-current-src-v1-20261022/hybrid_cuda_probe HYBRID_CUDA_PROBE=build/probe-current-src-v1-20261022/hybrid_cuda_probe python3 -m unittest discover -s tests",
+    "duration": "46.457s",
+    "log": "evidence/logs/software-verification-r595-open-replay-v2-20261023.log",
+    "log_sha256": "341590a7e4c35b7954c5e24048a51bf2c8c4ec715f469c0b63b1a8d9c46e8e0b",
+    "result": "OK",
+    "tests_run": 901
+  },
+  "source_tree": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-r580-open-fullbuild-v3-20261023/source",
+  "source_version": "595.99.02",
+  "warning_comparison_to_official_r595_baseline": {
+    "btf_skipped_without_vmlinux": true,
+    "new_non_objtool_warning_variants": [],
+    "non_objtool_warning_variant_count_baseline": 14,
+    "non_objtool_warning_variant_count_private": 14,
+    "normalized_objtool_sequence_matches_baseline": true,
+    "objtool_naked_return_warning_count_baseline": 11141,
+    "objtool_naked_return_warning_count_private": 11141
+  }
+}

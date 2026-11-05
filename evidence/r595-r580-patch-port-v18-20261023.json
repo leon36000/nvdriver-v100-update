@@ -1,0 +1,476 @@
+{
+  "adapted_bootstrap_files": [
+    {
+      "path": "kernel-open/nvidia/nvidia.Kbuild",
+      "sha256": "7c5840d3cea083b9b2a56b8940654d9eefaaf474904a2edb3d5f57fa75cc2607"
+    },
+    {
+      "path": "kernel-open/common/inc/nv-linux.h",
+      "sha256": "ec2e63182e6b042ef271333801f6f83298a0b389ae8c429152496b1c71950179"
+    },
+    {
+      "path": "kernel-open/nvidia/nv-pci.c",
+      "sha256": "d35c7bb14db6236de2b47ade8421f4b6d8314e3e237aad08172cfa16b17ff848"
+    },
+    {
+      "path": "kernel-open/nvidia/nv.c",
+      "sha256": "5ad07ad1fc46636b37bf50377ccb9c08de2016173b94837bae7316cb33a4bd89"
+    },
+    {
+      "path": "kernel-open/nvidia/nv-procfs.c",
+      "sha256": "450f6a68298ec61d2c8e3ee2c20b8460caf1a82bdc51811bdaa64b46685b6ae7"
+    },
+    {
+      "path": "kernel-open/nvidia/hybrid580-open-exports.h",
+      "sha256": "33f75501c77892c5697e368be3ab72846c123ef0006b27323d838405f988333d"
+    }
+  ],
+  "baseline_symvers": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-private-open-wrapper-v1-20261023/baseline/source/kernel-open/Module.symvers",
+  "baseline_symvers_sha256": "1afbdc5d864d0d8f7ae7c57b6def32b82a0d99da73772fafc85f5da07baaa918",
+  "baseline_symvers_unchanged": true,
+  "bootstrap": "R595-specific exact-anchor adaptation of R580 module-namespace patch",
+  "first_failure": {
+    "duration_seconds": 0.001,
+    "exit_code": 1,
+    "index": 22,
+    "offset_or_fuzz": true,
+    "output": "patching file kernel-open/nvidia/nv.c\nHunk #1 FAILED at 5206.\n1 out of 1 hunk FAILED -- saving rejects to file kernel-open/nvidia/nv.c.rej\npatching file kernel-open/nvidia/hybrid580-control-session.h\nHunk #1 FAILED at 9.\nHunk #2 succeeded at 94 (offset 6 lines).\n1 out of 2 hunks FAILED -- saving rejects to file kernel-open/nvidia/hybrid580-control-session.h.rej",
+    "patch": "0024-private-open-context-share-object.patch",
+    "sha256": "3e288294dee1a205211cf726db474319d7c7649fd0778476b19bd52aca4ff245"
+  },
+  "hardware_tested": false,
+  "inputs_unchanged": true,
+  "log": {
+    "mode": "0600",
+    "path": "evidence/logs/r595-r580-patch-port-v1-20261023T063938Z.log",
+    "sha256": "807123eea773a424dd925c29f567698049d8687c238bd78186a133e368e15463"
+  },
+  "module_compiled": false,
+  "module_loaded": false,
+  "observed_at_utc": "2026-10-23T06:39:38.430956+00:00",
+  "patch_count": 38,
+  "patch_input_hashes": {
+    "0001-private-open-pm-channel-depth-enum.patch": "22332052f169c252df9062ce3215484bf4eeb51cac2bcf3f6fb3f094d575025f",
+    "0002-private-open-module.patch": "5f48255dee4c2bcf1379873b6ab39c8183245446750956497dc5c731c5516224",
+    "0003-private-open-pci-guard.patch": "f21a8ef376dc24bade7a8b1fd4fac9ad5737ab79e75b7110b4e3adb87c293075",
+    "0004-private-open-chardev.patch": "0609f51b7b18ce40ddc3b45b4d7bf4ebe7c2428776094ed86870a7686eea25e3",
+    "0005-private-open-procfs-path.patch": "35a37c43c58716f2ca4bbc0fa68037a5eb80bf3ab439ad7f9a38dbb2a0d9f8ee",
+    "0006-private-open-resource-names.patch": "79c5279b096abeff6cc6171014fa34a28a9bd0e80acb13ade54ef662bf34cae7",
+    "0007-private-open-pci-only-lifecycle.patch": "e3c5cb0a2c235cccbd108425f09a9b0899b272bb77880dd93196b0fae2859ffb",
+    "0008-private-open-file-projection.patch": "ecbb193d77c30bcb414230dca7859e6edbac76504940c9c5e9031dd8b903e20a",
+    "0009-private-open-control-session.patch": "e1f275f35d6bef1f57afedb1feee387be68d9147a895e59a733af82bb609be17",
+    "0010-private-open-gpu-session.patch": "0de8fa84c9b1bbb64c1e7d7061485f8db3893be01dadadb47e8862cd301257c9",
+    "0011-private-open-gpu-session-bdf-lookup.patch": "0946fd95fe2d7600921e2de98ce5870314a05d71d5b065adcf5e89d680baed14",
+    "0012-private-open-gpu-inventory.patch": "9207b434af31ee40a2a2f971d276fcd3c6f18b55cc243e101a7a028b75a6c039",
+    "0014-private-control-attach-after-gpu.patch": "35189628de0771b5868aee7132c0611ab08e6a3f55218929ff349f92a81b1436",
+    "0015-private-open-card-info.patch": "7e8b611872cbb91a07d731e705275e713bdcd18b0eb944bc48eb9304562c4d8c",
+    "0016-private-open-gpu-id-info.patch": "1e0078e15b6990e3b29ce105bf51764b7831137230256907ee80a93eefc32e29",
+    "0017-private-open-attached-ids.patch": "b96e7044d9c743de4fb098e38d8677cce89186998e28e4a4efe1910e9b55b995",
+    "0018-private-open-probed-ids.patch": "e087f2a229ef77b9c35c12a5346a10ee5eab2ede725ea921c5b87076243fb3e6",
+    "0019-private-open-device-ids.patch": "e6dda353f6bcb5d48f908e7fec58a57c7c865fa8a137dab26cb8f63a98ba8381",
+    "0020-private-open-device-object.patch": "d88bdd0eab8ae3303cea5ee39691fd0a762392146a641528deb9c97c3533e906",
+    "0021-private-open-memory-object.patch": "3cf64ed9e6d6180425de05e85e280b487da63cf4569972aa59750f910f13b9cf",
+    "0022-private-open-vaspace-object.patch": "8091eea216078af61470f0facca38f5ec8733b141d3e9ecd327360ef0320fc17",
+    "0023-private-open-channel-group-object.patch": "ccf0b4e8ff918b18f7a0ff651114b769dcef843ed48bfc020bce8ee7b37662a3",
+    "0024-private-open-context-share-object.patch": "3e288294dee1a205211cf726db474319d7c7649fd0778476b19bd52aca4ff245",
+    "0025-private-open-channel-object.patch": "46043501b8e7517770ae67c760652ed0d2e45f19babf8fdfdd52b3139304ee36",
+    "0026-private-open-subdevice-and-tpc-mask.patch": "bb5ccdb642d3ffd8b4b1942b6b42068c9487b743a6aabad8b1a86fd4ebb6f0f9",
+    "0027-private-open-binapi-object.patch": "0205e5dd0dcd912c047149e3eed14fec51c573fcd6227a8bd8fb16a3f8365c40",
+    "0028-private-open-usermode-object.patch": "377279e1a601f2037866df9b7f714b91cc4512fb0dade1fe88074c9d9a3fd967",
+    "0029-private-open-map-memory.patch": "416d32b7f7e3fece77bdfa020dca1db54d4719525ec9f60645c979e198e384c0",
+    "0030-private-open-rusd-object.patch": "28772a04bd595d1c0886514c728ddb37b2b1a86070d937937092edccf7409c9e",
+    "0031-private-open-pm-channel-depth.patch": "4ea8d9ae674eb857e3fbd68397ecca1da2d7bd9aaa8c8a0fa99f2c7a08b5e927",
+    "0033-private-open-pm-vma-access-guard.patch": "ccecd235b533d79b6ed9c8f8ea30abe72324deb302f78f8cf0315c5d0d4a6623",
+    "0034-private-open-vma-free-list-lock.patch": "4b0fc52e7143a9c9b88b48d7ee3a3e2be53ce70e44c15ac3a481569759c403dd",
+    "0035-private-open-pm-recovery-provider.patch": "060f6ff65802ff691ec59d9ea39b88b5a65b28498b825efd57fa46d09835091f",
+    "0036-private-open-pm-channel-dpm-modeset.patch": "57e7ec3011dad754315a69b72e02099e89b578343a89623a99b1f8844caf5144",
+    "0037-private-open-sys-params.patch": "a7d736f4bb2de563adc969ff6818e355a665f3fb5029559727c47d169cefdb28",
+    "0038-private-open-build-version-v1.patch": "c005ecad8fc1c4c098702941136e137447f36eda648c760e4eba44f336f2c9cb",
+    "0039-private-open-gpu-register-control.patch": "1640505f1cc528318b33c1017a325de3acec459956f7d0278ef05399f47d52d3",
+    "0040-private-open-engine-object.patch": "85c273f70f4a95c1c3425f72dc6ae5c430eede88722340d26052c075b9b5977b"
+  },
+  "patch_inputs_unchanged": true,
+  "patch_records": [
+    {
+      "adaptation": "exact R595 Kbuild and MODULE_NAME anchors",
+      "exit_code": 0,
+      "index": 1,
+      "offset_or_fuzz": false,
+      "patch": "0002-private-open-module.patch",
+      "sha256": "5f48255dee4c2bcf1379873b6ab39c8183245446750956497dc5c731c5516224"
+    },
+    {
+      "adaptation": "exact R595 PCI selector, probe and enumeration anchors",
+      "exit_code": 0,
+      "index": 2,
+      "offset_or_fuzz": false,
+      "patch": "0003-private-open-pci-guard.patch",
+      "sha256": "f21a8ef376dc24bade7a8b1fd4fac9ad5737ab79e75b7110b4e3adb87c293075"
+    },
+    {
+      "adaptation": "exact R595 dynamic character-device lifecycle anchors",
+      "exit_code": 0,
+      "index": 3,
+      "offset_or_fuzz": false,
+      "patch": "0004-private-open-chardev.patch",
+      "sha256": "0609f51b7b18ce40ddc3b45b4d7bf4ebe7c2428776094ed86870a7686eea25e3"
+    },
+    {
+      "adaptation": "exact R595 private procfs name buffer anchor",
+      "exit_code": 0,
+      "index": 4,
+      "offset_or_fuzz": false,
+      "patch": "0005-private-open-procfs-path.patch",
+      "sha256": "35a37c43c58716f2ca4bbc0fa68037a5eb80bf3ab439ad7f9a38dbb2a0d9f8ee"
+    },
+    {
+      "duration_seconds": 0.001,
+      "exit_code": 0,
+      "index": 5,
+      "offset_or_fuzz": false,
+      "output": "patching file kernel-open/nvidia/nv-caps.c\npatching file kernel-open/nvidia/nvlink_linux.c\npatching file kernel-open/nvidia/nvlink_linux.h\npatching file kernel-open/nvidia/procfs_nvswitch.c\npatching file kernel-open/nvidia/export_nvswitch.h\npatching file kernel-open/nvidia/nv-caps-imex.c",
+      "patch": "0006-private-open-resource-names.patch",
+      "sha256": "79c5279b096abeff6cc6171014fa34a28a9bd0e80acb13ade54ef662bf34cae7"
+    },
+    {
+      "adaptation": "exact R595 NVSwitch, platform and autoload anchors",
+      "exit_code": 0,
+      "index": 6,
+      "offset_or_fuzz": false,
+      "patch": "0007-private-open-pci-only-lifecycle.patch",
+      "sha256": "e3c5cb0a2c235cccbd108425f09a9b0899b272bb77880dd93196b0fae2859ffb"
+    },
+    {
+      "adaptation": "R595 bitmap, control-state and hot-remove semantics",
+      "adapted_artifacts": [
+        {
+          "path": "kernel-open/nvidia/nv.c",
+          "sha256": "16b3a9de16ca6051ed21869d58940b95e829174baf1c986dedfac0d0431e044e"
+        },
+        {
+          "path": "kernel-open/nvidia/hybrid580-file-projection.h",
+          "sha256": "2847fab2fc3f26d27a7baba5da812f7f955fe5faa6bd4ffe75a283d314aaf3d8"
+        }
+      ],
+      "duration_seconds": 0.0,
+      "exit_code": 0,
+      "index": 7,
+      "offset_or_fuzz": false,
+      "output": "R595 semantic adaptation: bitmap occupancy plus per-file minor/state identity; removed-device rejection; sleep-free iterate_fd matcher; shared projection ABI header extracted from the pinned R580 patch.",
+      "patch": "0008-private-open-file-projection.patch",
+      "sha256": "ecbb193d77c30bcb414230dca7859e6edbac76504940c9c5e9031dd8b903e20a"
+    },
+    {
+      "adaptation": "R595 control-session source layout and exported API",
+      "adapted_artifacts": [
+        {
+          "path": "kernel-open/nvidia/nv.c",
+          "sha256": "4f6b3e20752f0e67f33a533be8fe969865b257c958ac486b9f882c5ea8cb2046"
+        },
+        {
+          "path": "kernel-open/nvidia/nvidia.Kbuild",
+          "sha256": "0e45e9b73029238121e1b8c406f7be9503a683fef5f2df8a2554bfef2c223f40"
+        },
+        {
+          "path": "kernel-open/nvidia/hybrid580-control-session.h",
+          "sha256": "924e2f8dfcb3e3b01bb8c622f4d63794a39d1c1b70257f619566a8201ddf6b50"
+        },
+        {
+          "path": "kernel-open/nvidia/rm_session_endpoint.h",
+          "sha256": "6a447c37f738eb09098b419e42203b4b4d16c85c108510acba483f37c6e700c7"
+        }
+      ],
+      "duration_seconds": 0.0,
+      "exit_code": 0,
+      "index": 8,
+      "offset_or_fuzz": false,
+      "output": "R595 exact-anchor adaptation: control-session implementation, pseudo-file close guard, SDK include paths and shared endpoint ABI.",
+      "patch": "0009-private-open-control-session.patch",
+      "sha256": "e1f275f35d6bef1f57afedb1feee387be68d9147a895e59a733af82bb609be17"
+    },
+    {
+      "adaptation": "R595 GPU-session function anchor and shared API header",
+      "adapted_artifacts": [
+        {
+          "path": "kernel-open/nvidia/nv.c",
+          "sha256": "97a0282af7dccef7acc5892d53b0a07c2c0e2d3a2164f9acfb19b01c916fee26"
+        },
+        {
+          "path": "kernel-open/nvidia/hybrid580-gpu-session.h",
+          "sha256": "b25bbaea3f299986aaf428d44e52a1c2a7a46beb34bea6c1304e890a716eff68"
+        }
+      ],
+      "duration_seconds": 0.0,
+      "exit_code": 0,
+      "index": 9,
+      "offset_or_fuzz": false,
+      "output": "R595 exact-anchor adaptation: GPU-session implementation inserted before nv_get_file_private; ABI header extracted from pinned R580.",
+      "patch": "0010-private-open-gpu-session.patch",
+      "sha256": "0de8fa84c9b1bbb64c1e7d7061485f8db3893be01dadadb47e8862cd301257c9"
+    },
+    {
+      "adaptation": "R595 GPU-session BDF lookup and header anchors",
+      "adapted_artifacts": [
+        {
+          "path": "kernel-open/nvidia/nv.c",
+          "sha256": "a1fbb23bd470b24a665bcaf106d6da999ce678d7422d05c0ae010c9035dd665f"
+        },
+        {
+          "path": "kernel-open/nvidia/hybrid580-gpu-session.h",
+          "sha256": "3acac5f0f53b8235785212c8fa2520eb93b308e930bc9823448dc4a8e45e69a3"
+        }
+      ],
+      "duration_seconds": 0.0,
+      "exit_code": 0,
+      "index": 10,
+      "offset_or_fuzz": false,
+      "output": "R595 exact-anchor adaptation: BDF lookup inserted after the GPU session factory and declared in its shared API header.",
+      "patch": "0011-private-open-gpu-session-bdf-lookup.patch",
+      "sha256": "0946fd95fe2d7600921e2de98ce5870314a05d71d5b065adcf5e89d680baed14"
+    },
+    {
+      "adaptation": "R595 GPU inventory source anchor and shared catalog header",
+      "adapted_artifacts": [
+        {
+          "path": "kernel-open/nvidia/nv.c",
+          "sha256": "24c20ec46e566634a39bf9fbde5bad0e5a0537b93140a6b7192f46b260047686"
+        },
+        {
+          "path": "kernel-open/nvidia/hybrid580-gpu-session.h",
+          "sha256": "93622b7306a1439e94926851a28735b79220baea99042bc75f54f609da3b802a"
+        },
+        {
+          "path": "kernel-open/nvidia/hybrid580-gpu-catalog.h",
+          "sha256": "9003739e9b3476c7beb08c0918c0309629b2762d45f366cb6c1becd1c9e7dfd0"
+        }
+      ],
+      "duration_seconds": 0.0,
+      "exit_code": 0,
+      "index": 11,
+      "offset_or_fuzz": false,
+      "output": "R595 exact-anchor adaptation: GPU inventory uses the locked device list and the pinned shared catalog record ABI.",
+      "patch": "0012-private-open-gpu-inventory.patch",
+      "sha256": "9207b434af31ee40a2a2f971d276fcd3c6f18b55cc243e101a7a028b75a6c039"
+    },
+    {
+      "adaptation": "R595 reset-aware attach API and control-session header",
+      "adapted_artifacts": [
+        {
+          "path": "kernel-open/nvidia/nv.c",
+          "sha256": "de2cdc6aa5b47f43a432194b0a9222e541a036b9cba2134b5ac684feb6a43773"
+        },
+        {
+          "path": "kernel-open/nvidia/hybrid580-control-session.h",
+          "sha256": "44214fb0f50029c7c4fd8e1c6582b8c4b10f28a9ff2f817f6e8ea75367cab1f5"
+        }
+      ],
+      "duration_seconds": 0.0,
+      "exit_code": 0,
+      "index": 12,
+      "offset_or_fuzz": false,
+      "output": "R595 exact-anchor adaptation: attach ioctl uses a shared helper, and GPU reference pin/rollback preserves reset_aware=false.",
+      "patch": "0014-private-control-attach-after-gpu.patch",
+      "sha256": "35189628de0771b5868aee7132c0611ab08e6a3f55218929ff349f92a81b1436"
+    },
+    {
+      "adaptation": "R595 card-info source and GPU-session ABI anchors",
+      "adapted_artifacts": [
+        {
+          "path": "kernel-open/nvidia/nv.c",
+          "sha256": "1d4b61a6849924ecfe5b8431f600ec0b4368d337a23cb26080591dc8bce4d76a"
+        },
+        {
+          "path": "kernel-open/nvidia/hybrid580-gpu-session.h",
+          "sha256": "a5d1490225d34a658062c9fc1e09f026a425fb2ef36e6c998b58343992bfed8d"
+        }
+      ],
+      "duration_seconds": 0.0,
+      "exit_code": 0,
+      "index": 13,
+      "offset_or_fuzz": false,
+      "output": "R595 exact-anchor adaptation: card-info export follows the pinned nvidia_read_card_info() implementation and shared header.",
+      "patch": "0015-private-open-card-info.patch",
+      "sha256": "7e8b611872cbb91a07d731e705275e713bdcd18b0eb944bc48eb9304562c4d8c"
+    },
+    {
+      "adaptation": "R595 kernel RMAPI bridge and control-session API header",
+      "adapted_artifacts": [
+        {
+          "path": "kernel-open/nvidia/nv.c",
+          "sha256": "cd0e9530b2bccd014ce6a7d6f8a3dbec3bccd4fa52a53e5f46db8e0e2e952014"
+        },
+        {
+          "path": "kernel-open/nvidia/hybrid580-control-session.h",
+          "sha256": "39b0fcae0473fe6f00b4525d0994ee469044006d431c5622e607df4d08323c82"
+        }
+      ],
+      "duration_seconds": 0.0,
+      "exit_code": 0,
+      "index": 14,
+      "offset_or_fuzz": false,
+      "output": "R595 exact-anchor adaptation: GPU-ID control bridge uses the pinned kernel RMAPI operation interface and command header.",
+      "patch": "0016-private-open-gpu-id-info.patch",
+      "sha256": "1e0078e15b6990e3b29ce105bf51764b7831137230256907ee80a93eefc32e29"
+    },
+    {
+      "adaptation": "R595 fixed-size control-query insertion and API header",
+      "adapted_artifacts": [
+        {
+          "path": "kernel-open/nvidia/nv.c",
+          "sha256": "0dd495fff0d56296936d0621a666fd5c46795c26840a3a9522346b0d49a1bd4b"
+        },
+        {
+          "path": "kernel-open/nvidia/hybrid580-control-session.h",
+          "sha256": "0492b5d3743f1c07d661ae136b665486f885937ae8781d52d8ac7ba1660d89be"
+        }
+      ],
+      "duration_seconds": 0.0,
+      "exit_code": 0,
+      "index": 15,
+      "offset_or_fuzz": false,
+      "output": "R595 exact-anchor adaptation: fixed-size hybrid580_open_control_session_attached_ids_v1 bridge uses the kernel RMAPI path; only source offsets differ.",
+      "patch": "0017-private-open-attached-ids.patch",
+      "sha256": "b96e7044d9c743de4fb098e38d8677cce89186998e28e4a4efe1910e9b55b995"
+    },
+    {
+      "adaptation": "R595 fixed-size control-query insertion and API header",
+      "adapted_artifacts": [
+        {
+          "path": "kernel-open/nvidia/nv.c",
+          "sha256": "46683dba59ee0fe9c1f20fbcdf526b895dd36c3fa6e5e013edb53445251ec2e2"
+        },
+        {
+          "path": "kernel-open/nvidia/hybrid580-control-session.h",
+          "sha256": "902b4907c453c605101b7d7ecdc7208adbae69b562cb51c899a3c83b2dce5212"
+        }
+      ],
+      "duration_seconds": 0.0,
+      "exit_code": 0,
+      "index": 16,
+      "offset_or_fuzz": false,
+      "output": "R595 exact-anchor adaptation: fixed-size hybrid580_open_control_session_probed_ids_v1 bridge uses the kernel RMAPI path; only source offsets differ.",
+      "patch": "0018-private-open-probed-ids.patch",
+      "sha256": "e087f2a229ef77b9c35c12a5346a10ee5eab2ede725ea921c5b87076243fb3e6"
+    },
+    {
+      "adaptation": "R595 fixed-size control-query insertion and API header",
+      "adapted_artifacts": [
+        {
+          "path": "kernel-open/nvidia/nv.c",
+          "sha256": "08ddb16f18ebebc079b1bd72f2de2958f71e4049126fb46e5aa7af08b8635ddd"
+        },
+        {
+          "path": "kernel-open/nvidia/hybrid580-control-session.h",
+          "sha256": "88cca9dda9a0384047e3ca0fca4d0a069058f125754502368ac351541077d532"
+        }
+      ],
+      "duration_seconds": 0.0,
+      "exit_code": 0,
+      "index": 17,
+      "offset_or_fuzz": false,
+      "output": "R595 exact-anchor adaptation: fixed-size hybrid580_open_control_session_device_ids_v1 bridge uses the kernel RMAPI path; only source offsets differ.",
+      "patch": "0019-private-open-device-ids.patch",
+      "sha256": "e6dda353f6bcb5d48f908e7fec58a57c7c865fa8a137dab26cb8f63a98ba8381"
+    },
+    {
+      "adaptation": "R595 device-object lifecycle bridge and typed header",
+      "adapted_artifacts": [
+        {
+          "path": "kernel-open/nvidia/nv.c",
+          "sha256": "c548c4abdd9673e96d04ece52c837cdc1bdbd6a49028ebfe48f1094810f777fe"
+        },
+        {
+          "path": "kernel-open/nvidia/hybrid580-control-session.h",
+          "sha256": "73606e606fdd2335603cb771459ee9103e9a37e6102e31b381b15d58bc7e9422"
+        }
+      ],
+      "duration_seconds": 0.0,
+      "exit_code": 0,
+      "index": 18,
+      "offset_or_fuzz": false,
+      "output": "R595 exact-anchor adaptation: typed NV01_DEVICE_0 allocate/free operations use the pinned kernel RMAPI ABI.",
+      "patch": "0020-private-open-device-object.patch",
+      "sha256": "d88bdd0eab8ae3303cea5ee39691fd0a762392146a641528deb9c97c3533e906"
+    },
+    {
+      "adaptation": "R595 typed RM allocation methods and shared header",
+      "adapted_artifacts": [
+        {
+          "path": "kernel-open/nvidia/nv.c",
+          "sha256": "c3de243bd243947ef6baf7ccaef41c4b24120e81d933786921110a8f5dbe95ef"
+        },
+        {
+          "path": "kernel-open/nvidia/hybrid580-control-session.h",
+          "sha256": "cbd9f6a3f7615e9b8bcff3116ef36267c501d33799505814a80d27f5a98d3f91"
+        }
+      ],
+      "duration_seconds": 0.0,
+      "exit_code": 0,
+      "index": 19,
+      "offset_or_fuzz": false,
+      "output": "R595 exact-anchor adaptation: typed RM allocation methods hybrid580_open_control_session_memory_alloc_v1, hybrid580_open_control_session_object_free_v1 use the kernel RMAPI ABI.",
+      "patch": "0021-private-open-memory-object.patch",
+      "sha256": "3cf64ed9e6d6180425de05e85e280b487da63cf4569972aa59750f910f13b9cf"
+    },
+    {
+      "adaptation": "R595 typed RM allocation methods and shared header",
+      "adapted_artifacts": [
+        {
+          "path": "kernel-open/nvidia/nv.c",
+          "sha256": "0145f3ce5ade8a76f4c1f1c59cb9dafc8635f9a95684f90b73d43cd38377026e"
+        },
+        {
+          "path": "kernel-open/nvidia/hybrid580-control-session.h",
+          "sha256": "54317a95369387ec9052c6e64aff4e2739f43aaa7e70bfb6df3b1bc83520e760"
+        }
+      ],
+      "duration_seconds": 0.0,
+      "exit_code": 0,
+      "index": 20,
+      "offset_or_fuzz": false,
+      "output": "R595 exact-anchor adaptation: typed RM allocation methods hybrid580_open_control_session_vaspace_alloc_v1 use the kernel RMAPI ABI.",
+      "patch": "0022-private-open-vaspace-object.patch",
+      "sha256": "8091eea216078af61470f0facca38f5ec8733b141d3e9ecd327360ef0320fc17"
+    },
+    {
+      "adaptation": "R595 typed RM allocation methods and shared header",
+      "adapted_artifacts": [
+        {
+          "path": "kernel-open/nvidia/nv.c",
+          "sha256": "ac0a3100ede6b64d63b91ea9897f748f3f6f87dbac62e99d1dce98d6dc7a50fa"
+        },
+        {
+          "path": "kernel-open/nvidia/hybrid580-control-session.h",
+          "sha256": "728a72879c28eb771a122a9e85681da5dfc9d7f34578b15f99f0487e577917e2"
+        }
+      ],
+      "duration_seconds": 0.0,
+      "exit_code": 0,
+      "index": 21,
+      "offset_or_fuzz": false,
+      "output": "R595 exact-anchor adaptation: typed RM allocation methods hybrid580_open_control_session_channel_group_alloc_v1 use the kernel RMAPI ABI.",
+      "patch": "0023-private-open-channel-group-object.patch",
+      "sha256": "ccf0b4e8ff918b18f7a0ff651114b769dcef843ed48bfc020bce8ee7b37662a3"
+    },
+    {
+      "duration_seconds": 0.001,
+      "exit_code": 1,
+      "index": 22,
+      "offset_or_fuzz": true,
+      "output": "patching file kernel-open/nvidia/nv.c\nHunk #1 FAILED at 5206.\n1 out of 1 hunk FAILED -- saving rejects to file kernel-open/nvidia/nv.c.rej\npatching file kernel-open/nvidia/hybrid580-control-session.h\nHunk #1 FAILED at 9.\nHunk #2 succeeded at 94 (offset 6 lines).\n1 out of 2 hunks FAILED -- saving rejects to file kernel-open/nvidia/hybrid580-control-session.h.rej",
+      "patch": "0024-private-open-context-share-object.patch",
+      "sha256": "3e288294dee1a205211cf726db474319d7c7649fd0778476b19bd52aca4ff245"
+    }
+  ],
+  "patches_attempted": 22,
+  "qualification": "replay-stopped",
+  "r595_source_modified": false,
+  "schema": "r595-r580-private-open-patch-port-v1",
+  "source": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/research/open-gpu-kernel-modules-595.99.02/source/open-gpu-kernel-modules-595.99.02",
+  "source_file_count": 3810,
+  "source_manifest_expected_sha256": "6d4ae86fb03f3afac63007c3c13422b114c93f5ab6a271ccb3dde5fb2440c066",
+  "source_manifest_sha256": "6d4ae86fb03f3afac63007c3c13422b114c93f5ab6a271ccb3dde5fb2440c066",
+  "source_tree_unchanged": true,
+  "source_version": "595.99.02",
+  "work_dir": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-r580-patch-port-v18-20261023"
+}

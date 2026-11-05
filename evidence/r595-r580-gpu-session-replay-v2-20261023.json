@@ -1,0 +1,64 @@
+{
+  "schema": "nvidia-hybrid-r595-r580-patch-replay-v1",
+  "qualification": "static-patch-replay-only",
+  "observed_at_utc": "2026-10-23T05:59:02.554740+00:00",
+  "status": "replay-stopped",
+  "r595_source": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/research/open-gpu-kernel-modules-595.99.02/source/open-gpu-kernel-modules-595.99.02",
+  "r595_git_commit": null,
+  "patch_count": 38,
+  "patches_attempted": 1,
+  "first_failure": {
+    "index": 1,
+    "patch": "patches/r580.178.04/0002-private-open-module.patch",
+    "sha256": "5f48255dee4c2bcf1379873b6ab39c8183245446750956497dc5c731c5516224",
+    "exit_code": 1,
+    "offset_or_fuzz": false,
+    "output": "patching file kernel-open/nvidia/nvidia.Kbuild\nHunk #3 FAILED at 53.\n1 out of 3 hunks FAILED -- saving rejects to file kernel-open/nvidia/nvidia.Kbuild.rej\npatching file kernel-open/common/inc/nv-linux.h\nHunk #1 FAILED at 1710.\n1 out of 1 hunk FAILED -- saving rejects to file kernel-open/common/inc/nv-linux.h.rej\npatching file kernel-open/nvidia/hybrid580-open-exports.h"
+  },
+  "patch_records": [
+    {
+      "index": 1,
+      "patch": "patches/r580.178.04/0002-private-open-module.patch",
+      "sha256": "5f48255dee4c2bcf1379873b6ab39c8183245446750956497dc5c731c5516224",
+      "exit_code": 1,
+      "offset_or_fuzz": false,
+      "output": "patching file kernel-open/nvidia/nvidia.Kbuild\nHunk #3 FAILED at 53.\n1 out of 3 hunks FAILED -- saving rejects to file kernel-open/nvidia/nvidia.Kbuild.rej\npatching file kernel-open/common/inc/nv-linux.h\nHunk #1 FAILED at 1710.\n1 out of 1 hunk FAILED -- saving rejects to file kernel-open/common/inc/nv-linux.h.rej\npatching file kernel-open/nvidia/hybrid580-open-exports.h"
+    }
+  ],
+  "target_files_copied": 16,
+  "missing_before_patch": [
+    "kernel-open/nvidia/hybrid580-control-session.h",
+    "kernel-open/nvidia/hybrid580-file-projection.h",
+    "kernel-open/nvidia/hybrid580-gpu-session.h",
+    "kernel-open/nvidia/hybrid580-open-exports.h"
+  ],
+  "input_target_hashes": {
+    "kernel-open/common/inc/nv-linux.h": "812a54aa0234c91410b64b9a70c4bb666f7f0d7d367d7eecba80c7b5d990be0e",
+    "kernel-open/common/inc/nv.h": "bbbb5270c5dc60d0d5606fc5d4832a0132ec96427db3b03d60071c7b942700b1",
+    "kernel-open/nvidia/export_nvswitch.h": "80ee868397b8d0cbbdd7758472e74ba8d97f0504e012872d7d49e4e0406f7ab6",
+    "kernel-open/nvidia/nv-caps-imex.c": "760ef99f2d4c683b38de345523b678910604129803008f3687727b1bea290297",
+    "kernel-open/nvidia/nv-caps.c": "47d7a6721331a041b794b3b1e38b5fdbf64055a212c83902478a4a144ae514f9",
+    "kernel-open/nvidia/nv-mmap.c": "4fc973982f64a4a9b8a9f0f72544c334bfd91e3c7d67ea7c96ba7423d8216ff4",
+    "kernel-open/nvidia/nv-pci-table.c": "bcb34b1ccec6310a428fc7019a842d03d4c8f19577f57a30535489f029a19cd3",
+    "kernel-open/nvidia/nv-pci.c": "bd6533c26090fbe775a079e5413fcc34f7cd99ce087684456cc63206d95757ab",
+    "kernel-open/nvidia/nv-platform.c": "890b10510d905b2722105ed6bece72db06bd481b44e6bf2c22709bc9ec333971",
+    "kernel-open/nvidia/nv-procfs.c": "34d5b1b80feee8158b18cf000325b2ef958b830a3583a9162efc9b5073682bd1",
+    "kernel-open/nvidia/nv.c": "5d31dc828b62e74366e41884d27cdddc01fb44219ecdb3900cab7a3f1758757e",
+    "kernel-open/nvidia/nv_uvm_interface.c": "ca600c4265bc549bfac7a1225b98fe691e1825660ed510665c95f146af775179",
+    "kernel-open/nvidia/nvidia.Kbuild": "57fd23d83831c57fda7003fe986cec3cea6a6713baa66f8b32e4ccbd3096157a",
+    "kernel-open/nvidia/nvlink_linux.c": "512da8863974dbada02318d606714c9e090baf88793ef3c5993e94815bb5e987",
+    "kernel-open/nvidia/nvlink_linux.h": "15d3ca3135368f189c530147a6cdb0c277e6df23cf180419bc54fa82a2a382a9",
+    "kernel-open/nvidia/procfs_nvswitch.c": "cec6cc90f0227fc23839ab81bbd7edf3b032d6414d661d71c5bfd7b6b41c3433"
+  },
+  "experiment_tree": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-r580-gpu-session-replay-v2-20261023",
+  "r595_source_modified": false,
+  "input_target_hashes_unchanged": true,
+  "module_compiled": false,
+  "module_loaded": false,
+  "hardware_tested": false,
+  "log": {
+    "path": "evidence/logs/r595-r580-gpu-session-replay-v2-20261023.log",
+    "sha256": "e12739e98e425a4c287929287b11801eff7dd92a89fc4c8d6e6ae2fa5bc7f9e5",
+    "mode": "0600"
+  }
+}

@@ -1,0 +1,902 @@
+{
+  "added_dispatch_routes": [
+    "UVM_IMPORT_DMA_BUF",
+    "UVM_IS_DMA_BUF_IMPORT_SUPPORTED",
+    "UVM_MAP_DMA_BUF",
+    "UVM_QUERY_RESIDENCY",
+    "UVM_UNMAP_DMA_BUF"
+  ],
+  "added_ioctl_definitions": [
+    "UVM_IMPORT_DMA_BUF",
+    "UVM_IS_DMA_BUF_IMPORT_SUPPORTED",
+    "UVM_MAP_DMA_BUF",
+    "UVM_QUERY_RESIDENCY",
+    "UVM_UNMAP_DMA_BUF"
+  ],
+  "baseline": {
+    "ioctl_definition_count": 68,
+    "ioctl_definitions": {
+      "UVM_ADD_SESSION": "10",
+      "UVM_ALLOC_DEVICE_P2P": "78",
+      "UVM_ALLOC_SEMAPHORE_POOL": "68",
+      "UVM_ALLOW_MIGRATION_RANGE_GROUPS": "41",
+      "UVM_CLEAN_UP_ZOMBIE_RESOURCES": "69",
+      "UVM_CLEAR_ALL_ACCESS_COUNTERS": "79",
+      "UVM_CREATE_EVENT_QUEUE": "14",
+      "UVM_CREATE_EXTERNAL_RANGE": "73",
+      "UVM_CREATE_RANGE_GROUP": "23",
+      "UVM_DESTROY_RANGE_GROUP": "24",
+      "UVM_DISABLE_PEER_ACCESS": "30",
+      "UVM_DISABLE_READ_DUPLICATION": "45",
+      "UVM_DISCARD": "80",
+      "UVM_ENABLE_COUNTERS": "12",
+      "UVM_ENABLE_PEER_ACCESS": "29",
+      "UVM_ENABLE_READ_DUPLICATION": "44",
+      "UVM_EVENT_CTRL": "17",
+      "UVM_FREE": "34",
+      "UVM_GET_GPU_UUID_TABLE": "20",
+      "UVM_IS_8_SUPPORTED": "2047",
+      "UVM_MAP_COUNTER": "13",
+      "UVM_MAP_DYNAMIC_PARALLELISM_REGION": "65",
+      "UVM_MAP_EVENT_QUEUE": "16",
+      "UVM_MAP_EXTERNAL_ALLOCATION": "33",
+      "UVM_MAP_EXTERNAL_SPARSE": "74",
+      "UVM_MEM_MAP": "35",
+      "UVM_MIGRATE": "51",
+      "UVM_MIGRATE_RANGE_GROUP": "53",
+      "UVM_MM_INITIALIZE": "75",
+      "UVM_PAGEABLE_MEM_ACCESS": "39",
+      "UVM_PAGEABLE_MEM_ACCESS_ON_GPU": "70",
+      "UVM_POPULATE_PAGEABLE": "71",
+      "UVM_PREVENT_MIGRATION_RANGE_GROUPS": "40",
+      "UVM_REGION_COMMIT": "3",
+      "UVM_REGION_DECOMMIT": "4",
+      "UVM_REGION_SET_BACKING": "21",
+      "UVM_REGION_SET_STREAM": "5",
+      "UVM_REGION_UNSET_BACKING": "22",
+      "UVM_REGISTER_CHANNEL": "27",
+      "UVM_REGISTER_GPU": "37",
+      "UVM_REGISTER_GPU_VASPACE": "25",
+      "UVM_RELEASE_VA": "2",
+      "UVM_REMOVE_EVENT_QUEUE": "15",
+      "UVM_RESERVE_VA": "1",
+      "UVM_SET_ACCESSED_BY": "46",
+      "UVM_SET_PREFERRED_LOCATION": "42",
+      "UVM_SET_RANGE_GROUP": "31",
+      "UVM_SET_STREAM_RUNNING": "6",
+      "UVM_SET_STREAM_STOPPED": "7",
+      "UVM_TOOLS_DISABLE_COUNTERS": "61",
+      "UVM_TOOLS_ENABLE_COUNTERS": "60",
+      "UVM_TOOLS_EVENT_QUEUE_DISABLE_EVENTS": "59",
+      "UVM_TOOLS_EVENT_QUEUE_ENABLE_EVENTS": "58",
+      "UVM_TOOLS_FLUSH_EVENTS": "67",
+      "UVM_TOOLS_GET_PROCESSOR_UUID_TABLE": "64",
+      "UVM_TOOLS_GET_PROCESSOR_UUID_TABLE_V2": "77",
+      "UVM_TOOLS_INIT_EVENT_TRACKER": "56",
+      "UVM_TOOLS_INIT_EVENT_TRACKER_V2": "76",
+      "UVM_TOOLS_READ_PROCESS_MEMORY": "62",
+      "UVM_TOOLS_SET_NOTIFICATION_THRESHOLD": "57",
+      "UVM_TOOLS_WRITE_PROCESS_MEMORY": "63",
+      "UVM_UNMAP_EXTERNAL": "66",
+      "UVM_UNREGISTER_CHANNEL": "28",
+      "UVM_UNREGISTER_GPU": "38",
+      "UVM_UNREGISTER_GPU_VASPACE": "26",
+      "UVM_UNSET_ACCESSED_BY": "47",
+      "UVM_UNSET_PREFERRED_LOCATION": "43",
+      "UVM_VALIDATE_VA_RANGE": "72"
+    },
+    "label": "R595.99.02",
+    "route_count": 39,
+    "route_definition_closure": "closed",
+    "routes": {
+      "UVM_ALLOC_DEVICE_P2P": "uvm_api_alloc_device_p2p",
+      "UVM_ALLOW_MIGRATION_RANGE_GROUPS": "uvm_api_allow_migration_range_groups",
+      "UVM_CLEAN_UP_ZOMBIE_RESOURCES": "uvm_api_clean_up_zombie_resources",
+      "UVM_CLEAR_ALL_ACCESS_COUNTERS": "uvm_api_clear_all_access_counters",
+      "UVM_CREATE_EXTERNAL_RANGE": "uvm_api_create_external_range",
+      "UVM_CREATE_RANGE_GROUP": "uvm_api_create_range_group",
+      "UVM_DESTROY_RANGE_GROUP": "uvm_api_destroy_range_group",
+      "UVM_DISABLE_PEER_ACCESS": "uvm_api_disable_peer_access",
+      "UVM_DISABLE_READ_DUPLICATION": "uvm_api_disable_read_duplication",
+      "UVM_DISCARD": "uvm_api_discard",
+      "UVM_ENABLE_PEER_ACCESS": "uvm_api_enable_peer_access",
+      "UVM_ENABLE_READ_DUPLICATION": "uvm_api_enable_read_duplication",
+      "UVM_FREE": "uvm_api_free",
+      "UVM_MAP_DYNAMIC_PARALLELISM_REGION": "uvm_api_map_dynamic_parallelism_region",
+      "UVM_MAP_EXTERNAL_SPARSE": "uvm_api_map_external_sparse",
+      "UVM_MIGRATE": "uvm_api_migrate",
+      "UVM_MIGRATE_RANGE_GROUP": "uvm_api_migrate_range_group",
+      "UVM_PAGEABLE_MEM_ACCESS": "uvm_api_pageable_mem_access",
+      "UVM_PAGEABLE_MEM_ACCESS_ON_GPU": "uvm_api_pageable_mem_access_on_gpu",
+      "UVM_POPULATE_PAGEABLE": "uvm_api_populate_pageable",
+      "UVM_PREVENT_MIGRATION_RANGE_GROUPS": "uvm_api_prevent_migration_range_groups",
+      "UVM_REGISTER_CHANNEL": "uvm_api_register_channel",
+      "UVM_REGISTER_GPU": "uvm_api_register_gpu",
+      "UVM_REGISTER_GPU_VASPACE": "uvm_api_register_gpu_va_space",
+      "UVM_SET_ACCESSED_BY": "uvm_api_set_accessed_by",
+      "UVM_SET_PREFERRED_LOCATION": "uvm_api_set_preferred_location",
+      "UVM_SET_RANGE_GROUP": "uvm_api_set_range_group",
+      "UVM_TOOLS_FLUSH_EVENTS": "uvm_api_tools_flush_events",
+      "UVM_TOOLS_GET_PROCESSOR_UUID_TABLE": "uvm_api_tools_get_processor_uuid_table",
+      "UVM_TOOLS_GET_PROCESSOR_UUID_TABLE_V2": "uvm_api_tools_get_processor_uuid_table_v2",
+      "UVM_TOOLS_READ_PROCESS_MEMORY": "uvm_api_tools_read_process_memory",
+      "UVM_TOOLS_WRITE_PROCESS_MEMORY": "uvm_api_tools_write_process_memory",
+      "UVM_UNMAP_EXTERNAL": "uvm_api_unmap_external",
+      "UVM_UNREGISTER_CHANNEL": "uvm_api_unregister_channel",
+      "UVM_UNREGISTER_GPU": "uvm_api_unregister_gpu",
+      "UVM_UNREGISTER_GPU_VASPACE": "uvm_api_unregister_gpu_va_space",
+      "UVM_UNSET_ACCESSED_BY": "uvm_api_unset_accessed_by",
+      "UVM_UNSET_PREFERRED_LOCATION": "uvm_api_unset_preferred_location",
+      "UVM_VALIDATE_VA_RANGE": "uvm_api_validate_va_range"
+    },
+    "source": {
+      "uvm.c": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/research/open-gpu-kernel-modules-595.99.02/source/open-gpu-kernel-modules-595.99.02/kernel-open/nvidia-uvm/uvm.c",
+        "sha256": "5e0f8e0c531ee33f2add193ca7ca9c391e2428b194c6b8e3570ea0a99d7c0812"
+      },
+      "uvm_ioctl.h": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/research/open-gpu-kernel-modules-595.99.02/source/open-gpu-kernel-modules-595.99.02/kernel-open/nvidia-uvm/uvm_ioctl.h",
+        "sha256": "9cc909360f2d19135852390fb66a12fe4d22ca39c19e2609b2ff5e925df4bdf4"
+      }
+    },
+    "unrouted_ioctl_definitions": [
+      "UVM_ADD_SESSION",
+      "UVM_ALLOC_SEMAPHORE_POOL",
+      "UVM_CREATE_EVENT_QUEUE",
+      "UVM_ENABLE_COUNTERS",
+      "UVM_EVENT_CTRL",
+      "UVM_GET_GPU_UUID_TABLE",
+      "UVM_IS_8_SUPPORTED",
+      "UVM_MAP_COUNTER",
+      "UVM_MAP_EVENT_QUEUE",
+      "UVM_MAP_EXTERNAL_ALLOCATION",
+      "UVM_MEM_MAP",
+      "UVM_MM_INITIALIZE",
+      "UVM_REGION_COMMIT",
+      "UVM_REGION_DECOMMIT",
+      "UVM_REGION_SET_BACKING",
+      "UVM_REGION_SET_STREAM",
+      "UVM_REGION_UNSET_BACKING",
+      "UVM_RELEASE_VA",
+      "UVM_REMOVE_EVENT_QUEUE",
+      "UVM_RESERVE_VA",
+      "UVM_SET_STREAM_RUNNING",
+      "UVM_SET_STREAM_STOPPED",
+      "UVM_TOOLS_DISABLE_COUNTERS",
+      "UVM_TOOLS_ENABLE_COUNTERS",
+      "UVM_TOOLS_EVENT_QUEUE_DISABLE_EVENTS",
+      "UVM_TOOLS_EVENT_QUEUE_ENABLE_EVENTS",
+      "UVM_TOOLS_INIT_EVENT_TRACKER",
+      "UVM_TOOLS_INIT_EVENT_TRACKER_V2",
+      "UVM_TOOLS_SET_NOTIFICATION_THRESHOLD"
+    ]
+  },
+  "candidate": {
+    "ioctl_definition_count": 67,
+    "ioctl_definitions": {
+      "UVM_ADD_SESSION": "10",
+      "UVM_ALLOC_DEVICE_P2P": "78",
+      "UVM_ALLOC_SEMAPHORE_POOL": "68",
+      "UVM_CLEAN_UP_ZOMBIE_RESOURCES": "69",
+      "UVM_CLEAR_ALL_ACCESS_COUNTERS": "79",
+      "UVM_CREATE_EVENT_QUEUE": "14",
+      "UVM_CREATE_EXTERNAL_RANGE": "73",
+      "UVM_DISABLE_PEER_ACCESS": "30",
+      "UVM_DISABLE_READ_DUPLICATION": "45",
+      "UVM_DISCARD": "80",
+      "UVM_ENABLE_COUNTERS": "12",
+      "UVM_ENABLE_PEER_ACCESS": "29",
+      "UVM_ENABLE_READ_DUPLICATION": "44",
+      "UVM_EVENT_CTRL": "17",
+      "UVM_FREE": "34",
+      "UVM_GET_GPU_UUID_TABLE": "20",
+      "UVM_IMPORT_DMA_BUF": "83",
+      "UVM_IS_8_SUPPORTED": "2047",
+      "UVM_IS_DMA_BUF_IMPORT_SUPPORTED": "82",
+      "UVM_MAP_COUNTER": "13",
+      "UVM_MAP_DMA_BUF": "84",
+      "UVM_MAP_DYNAMIC_PARALLELISM_REGION": "65",
+      "UVM_MAP_EVENT_QUEUE": "16",
+      "UVM_MAP_EXTERNAL_ALLOCATION": "33",
+      "UVM_MAP_EXTERNAL_SPARSE": "74",
+      "UVM_MEM_MAP": "35",
+      "UVM_MIGRATE": "51",
+      "UVM_MM_INITIALIZE": "75",
+      "UVM_PAGEABLE_MEM_ACCESS": "39",
+      "UVM_PAGEABLE_MEM_ACCESS_ON_GPU": "70",
+      "UVM_POPULATE_PAGEABLE": "71",
+      "UVM_QUERY_RESIDENCY": "81",
+      "UVM_REGION_COMMIT": "3",
+      "UVM_REGION_DECOMMIT": "4",
+      "UVM_REGION_SET_BACKING": "21",
+      "UVM_REGION_SET_STREAM": "5",
+      "UVM_REGION_UNSET_BACKING": "22",
+      "UVM_REGISTER_CHANNEL": "27",
+      "UVM_REGISTER_GPU": "37",
+      "UVM_REGISTER_GPU_VASPACE": "25",
+      "UVM_RELEASE_VA": "2",
+      "UVM_REMOVE_EVENT_QUEUE": "15",
+      "UVM_RESERVE_VA": "1",
+      "UVM_SET_ACCESSED_BY": "46",
+      "UVM_SET_PREFERRED_LOCATION": "42",
+      "UVM_SET_STREAM_RUNNING": "6",
+      "UVM_SET_STREAM_STOPPED": "7",
+      "UVM_TOOLS_DISABLE_COUNTERS": "61",
+      "UVM_TOOLS_ENABLE_COUNTERS": "60",
+      "UVM_TOOLS_EVENT_QUEUE_DISABLE_EVENTS": "59",
+      "UVM_TOOLS_EVENT_QUEUE_ENABLE_EVENTS": "58",
+      "UVM_TOOLS_FLUSH_EVENTS": "67",
+      "UVM_TOOLS_GET_PROCESSOR_UUID_TABLE": "64",
+      "UVM_TOOLS_GET_PROCESSOR_UUID_TABLE_V2": "77",
+      "UVM_TOOLS_INIT_EVENT_TRACKER": "56",
+      "UVM_TOOLS_INIT_EVENT_TRACKER_V2": "76",
+      "UVM_TOOLS_READ_PROCESS_MEMORY": "62",
+      "UVM_TOOLS_SET_NOTIFICATION_THRESHOLD": "57",
+      "UVM_TOOLS_WRITE_PROCESS_MEMORY": "63",
+      "UVM_UNMAP_DMA_BUF": "85",
+      "UVM_UNMAP_EXTERNAL": "66",
+      "UVM_UNREGISTER_CHANNEL": "28",
+      "UVM_UNREGISTER_GPU": "38",
+      "UVM_UNREGISTER_GPU_VASPACE": "26",
+      "UVM_UNSET_ACCESSED_BY": "47",
+      "UVM_UNSET_PREFERRED_LOCATION": "43",
+      "UVM_VALIDATE_VA_RANGE": "72"
+    },
+    "label": "R615.78.08",
+    "route_count": 38,
+    "route_definition_closure": "closed",
+    "routes": {
+      "UVM_ALLOC_DEVICE_P2P": "uvm_api_alloc_device_p2p",
+      "UVM_CLEAN_UP_ZOMBIE_RESOURCES": "uvm_api_clean_up_zombie_resources",
+      "UVM_CLEAR_ALL_ACCESS_COUNTERS": "uvm_api_clear_all_access_counters",
+      "UVM_CREATE_EXTERNAL_RANGE": "uvm_api_create_external_range",
+      "UVM_DISABLE_PEER_ACCESS": "uvm_api_disable_peer_access",
+      "UVM_DISABLE_READ_DUPLICATION": "uvm_api_disable_read_duplication",
+      "UVM_DISCARD": "uvm_api_discard",
+      "UVM_ENABLE_PEER_ACCESS": "uvm_api_enable_peer_access",
+      "UVM_ENABLE_READ_DUPLICATION": "uvm_api_enable_read_duplication",
+      "UVM_FREE": "uvm_api_free",
+      "UVM_IMPORT_DMA_BUF": "uvm_api_import_dma_buf",
+      "UVM_IS_DMA_BUF_IMPORT_SUPPORTED": "uvm_api_is_dma_buf_import_supported",
+      "UVM_MAP_DMA_BUF": "uvm_api_map_dma_buf",
+      "UVM_MAP_DYNAMIC_PARALLELISM_REGION": "uvm_api_map_dynamic_parallelism_region",
+      "UVM_MAP_EXTERNAL_SPARSE": "uvm_api_map_external_sparse",
+      "UVM_MIGRATE": "uvm_api_migrate",
+      "UVM_PAGEABLE_MEM_ACCESS": "uvm_api_pageable_mem_access",
+      "UVM_PAGEABLE_MEM_ACCESS_ON_GPU": "uvm_api_pageable_mem_access_on_gpu",
+      "UVM_POPULATE_PAGEABLE": "uvm_api_populate_pageable",
+      "UVM_QUERY_RESIDENCY": "uvm_api_query_residency",
+      "UVM_REGISTER_CHANNEL": "uvm_api_register_channel",
+      "UVM_REGISTER_GPU": "uvm_api_register_gpu",
+      "UVM_REGISTER_GPU_VASPACE": "uvm_api_register_gpu_va_space",
+      "UVM_SET_ACCESSED_BY": "uvm_api_set_accessed_by",
+      "UVM_SET_PREFERRED_LOCATION": "uvm_api_set_preferred_location",
+      "UVM_TOOLS_FLUSH_EVENTS": "uvm_api_tools_flush_events",
+      "UVM_TOOLS_GET_PROCESSOR_UUID_TABLE": "uvm_api_tools_get_processor_uuid_table",
+      "UVM_TOOLS_GET_PROCESSOR_UUID_TABLE_V2": "uvm_api_tools_get_processor_uuid_table_v2",
+      "UVM_TOOLS_READ_PROCESS_MEMORY": "uvm_api_tools_read_process_memory",
+      "UVM_TOOLS_WRITE_PROCESS_MEMORY": "uvm_api_tools_write_process_memory",
+      "UVM_UNMAP_DMA_BUF": "uvm_api_unmap_dma_buf",
+      "UVM_UNMAP_EXTERNAL": "uvm_api_unmap_external",
+      "UVM_UNREGISTER_CHANNEL": "uvm_api_unregister_channel",
+      "UVM_UNREGISTER_GPU": "uvm_api_unregister_gpu",
+      "UVM_UNREGISTER_GPU_VASPACE": "uvm_api_unregister_gpu_va_space",
+      "UVM_UNSET_ACCESSED_BY": "uvm_api_unset_accessed_by",
+      "UVM_UNSET_PREFERRED_LOCATION": "uvm_api_unset_preferred_location",
+      "UVM_VALIDATE_VA_RANGE": "uvm_api_validate_va_range"
+    },
+    "source": {
+      "uvm.c": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/research/open-gpu-kernel-modules-615.78.08/partial/kernel-open/nvidia-uvm/uvm.c",
+        "sha256": "81870dad066249991b39e2f1e70ddf0a48e4803eb48f487d0de7708c835a621a"
+      },
+      "uvm_ioctl.h": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/research/open-gpu-kernel-modules-615.78.08/partial/kernel-open/nvidia-uvm/uvm_ioctl.h",
+        "sha256": "df747fb83872daa5b4a3373f0a9a5ee77afbe6eb6045f71770043b6efdbe3836"
+      }
+    },
+    "unrouted_ioctl_definitions": [
+      "UVM_ADD_SESSION",
+      "UVM_ALLOC_SEMAPHORE_POOL",
+      "UVM_CREATE_EVENT_QUEUE",
+      "UVM_ENABLE_COUNTERS",
+      "UVM_EVENT_CTRL",
+      "UVM_GET_GPU_UUID_TABLE",
+      "UVM_IS_8_SUPPORTED",
+      "UVM_MAP_COUNTER",
+      "UVM_MAP_EVENT_QUEUE",
+      "UVM_MAP_EXTERNAL_ALLOCATION",
+      "UVM_MEM_MAP",
+      "UVM_MM_INITIALIZE",
+      "UVM_REGION_COMMIT",
+      "UVM_REGION_DECOMMIT",
+      "UVM_REGION_SET_BACKING",
+      "UVM_REGION_SET_STREAM",
+      "UVM_REGION_UNSET_BACKING",
+      "UVM_RELEASE_VA",
+      "UVM_REMOVE_EVENT_QUEUE",
+      "UVM_RESERVE_VA",
+      "UVM_SET_STREAM_RUNNING",
+      "UVM_SET_STREAM_STOPPED",
+      "UVM_TOOLS_DISABLE_COUNTERS",
+      "UVM_TOOLS_ENABLE_COUNTERS",
+      "UVM_TOOLS_EVENT_QUEUE_DISABLE_EVENTS",
+      "UVM_TOOLS_EVENT_QUEUE_ENABLE_EVENTS",
+      "UVM_TOOLS_INIT_EVENT_TRACKER",
+      "UVM_TOOLS_INIT_EVENT_TRACKER_V2",
+      "UVM_TOOLS_SET_NOTIFICATION_THRESHOLD"
+    ]
+  },
+  "common_dispatch_routes": [
+    "UVM_ALLOC_DEVICE_P2P",
+    "UVM_CLEAN_UP_ZOMBIE_RESOURCES",
+    "UVM_CLEAR_ALL_ACCESS_COUNTERS",
+    "UVM_CREATE_EXTERNAL_RANGE",
+    "UVM_DISABLE_PEER_ACCESS",
+    "UVM_DISABLE_READ_DUPLICATION",
+    "UVM_DISCARD",
+    "UVM_ENABLE_PEER_ACCESS",
+    "UVM_ENABLE_READ_DUPLICATION",
+    "UVM_FREE",
+    "UVM_MAP_DYNAMIC_PARALLELISM_REGION",
+    "UVM_MAP_EXTERNAL_SPARSE",
+    "UVM_MIGRATE",
+    "UVM_PAGEABLE_MEM_ACCESS",
+    "UVM_PAGEABLE_MEM_ACCESS_ON_GPU",
+    "UVM_POPULATE_PAGEABLE",
+    "UVM_REGISTER_CHANNEL",
+    "UVM_REGISTER_GPU",
+    "UVM_REGISTER_GPU_VASPACE",
+    "UVM_SET_ACCESSED_BY",
+    "UVM_SET_PREFERRED_LOCATION",
+    "UVM_TOOLS_FLUSH_EVENTS",
+    "UVM_TOOLS_GET_PROCESSOR_UUID_TABLE",
+    "UVM_TOOLS_GET_PROCESSOR_UUID_TABLE_V2",
+    "UVM_TOOLS_READ_PROCESS_MEMORY",
+    "UVM_TOOLS_WRITE_PROCESS_MEMORY",
+    "UVM_UNMAP_EXTERNAL",
+    "UVM_UNREGISTER_CHANNEL",
+    "UVM_UNREGISTER_GPU",
+    "UVM_UNREGISTER_GPU_VASPACE",
+    "UVM_UNSET_ACCESSED_BY",
+    "UVM_UNSET_PREFERRED_LOCATION",
+    "UVM_VALIDATE_VA_RANGE"
+  ],
+  "common_ioctl_definitions": [
+    "UVM_ADD_SESSION",
+    "UVM_ALLOC_DEVICE_P2P",
+    "UVM_ALLOC_SEMAPHORE_POOL",
+    "UVM_CLEAN_UP_ZOMBIE_RESOURCES",
+    "UVM_CLEAR_ALL_ACCESS_COUNTERS",
+    "UVM_CREATE_EVENT_QUEUE",
+    "UVM_CREATE_EXTERNAL_RANGE",
+    "UVM_DISABLE_PEER_ACCESS",
+    "UVM_DISABLE_READ_DUPLICATION",
+    "UVM_DISCARD",
+    "UVM_ENABLE_COUNTERS",
+    "UVM_ENABLE_PEER_ACCESS",
+    "UVM_ENABLE_READ_DUPLICATION",
+    "UVM_EVENT_CTRL",
+    "UVM_FREE",
+    "UVM_GET_GPU_UUID_TABLE",
+    "UVM_IS_8_SUPPORTED",
+    "UVM_MAP_COUNTER",
+    "UVM_MAP_DYNAMIC_PARALLELISM_REGION",
+    "UVM_MAP_EVENT_QUEUE",
+    "UVM_MAP_EXTERNAL_ALLOCATION",
+    "UVM_MAP_EXTERNAL_SPARSE",
+    "UVM_MEM_MAP",
+    "UVM_MIGRATE",
+    "UVM_MM_INITIALIZE",
+    "UVM_PAGEABLE_MEM_ACCESS",
+    "UVM_PAGEABLE_MEM_ACCESS_ON_GPU",
+    "UVM_POPULATE_PAGEABLE",
+    "UVM_REGION_COMMIT",
+    "UVM_REGION_DECOMMIT",
+    "UVM_REGION_SET_BACKING",
+    "UVM_REGION_SET_STREAM",
+    "UVM_REGION_UNSET_BACKING",
+    "UVM_REGISTER_CHANNEL",
+    "UVM_REGISTER_GPU",
+    "UVM_REGISTER_GPU_VASPACE",
+    "UVM_RELEASE_VA",
+    "UVM_REMOVE_EVENT_QUEUE",
+    "UVM_RESERVE_VA",
+    "UVM_SET_ACCESSED_BY",
+    "UVM_SET_PREFERRED_LOCATION",
+    "UVM_SET_STREAM_RUNNING",
+    "UVM_SET_STREAM_STOPPED",
+    "UVM_TOOLS_DISABLE_COUNTERS",
+    "UVM_TOOLS_ENABLE_COUNTERS",
+    "UVM_TOOLS_EVENT_QUEUE_DISABLE_EVENTS",
+    "UVM_TOOLS_EVENT_QUEUE_ENABLE_EVENTS",
+    "UVM_TOOLS_FLUSH_EVENTS",
+    "UVM_TOOLS_GET_PROCESSOR_UUID_TABLE",
+    "UVM_TOOLS_GET_PROCESSOR_UUID_TABLE_V2",
+    "UVM_TOOLS_INIT_EVENT_TRACKER",
+    "UVM_TOOLS_INIT_EVENT_TRACKER_V2",
+    "UVM_TOOLS_READ_PROCESS_MEMORY",
+    "UVM_TOOLS_SET_NOTIFICATION_THRESHOLD",
+    "UVM_TOOLS_WRITE_PROCESS_MEMORY",
+    "UVM_UNMAP_EXTERNAL",
+    "UVM_UNREGISTER_CHANNEL",
+    "UVM_UNREGISTER_GPU",
+    "UVM_UNREGISTER_GPU_VASPACE",
+    "UVM_UNSET_ACCESSED_BY",
+    "UVM_UNSET_PREFERRED_LOCATION",
+    "UVM_VALIDATE_VA_RANGE"
+  ],
+  "hardware_tested": false,
+  "observed_at_utc": "2026-10-29T13:48:14.247854+00:00",
+  "observed_trace_compatibility": {
+    "capture_count": 2,
+    "captures": [
+      {
+        "capture": "pc3-v100-context-ioctl-sequence-v1-20261028.json",
+        "capture_sha256": "8c7c9c2cb9369afcb7f0139ae03f82054103b35de485324022ddd566d1427588",
+        "driver_version": "580.178.04",
+        "guest_name": "Tesla V100-SXM2-16GB",
+        "kernel_release": "6.8.0-147-generic",
+        "requests": [
+          {
+            "baseline": {
+              "handler": null,
+              "status": "outside_compared_dispatch_inventory"
+            },
+            "candidate": {
+              "handler": null,
+              "status": "outside_compared_dispatch_inventory"
+            },
+            "count": 1,
+            "name": "UVM_INITIALIZE",
+            "request": "0x30000001"
+          },
+          {
+            "baseline": {
+              "handler": null,
+              "status": "outside_compared_dispatch_inventory"
+            },
+            "candidate": {
+              "handler": null,
+              "status": "outside_compared_dispatch_inventory"
+            },
+            "count": 1,
+            "name": "UVM_MM_INITIALIZE",
+            "request": "0x4b"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_pageable_mem_access",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": "uvm_api_pageable_mem_access",
+              "status": "routed"
+            },
+            "count": 1,
+            "name": "UVM_PAGEABLE_MEM_ACCESS",
+            "request": "0x27"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_register_gpu",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": "uvm_api_register_gpu",
+              "status": "routed"
+            },
+            "count": 1,
+            "name": "UVM_REGISTER_GPU",
+            "request": "0x25"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_create_range_group",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": null,
+              "status": "missing_dispatch"
+            },
+            "count": 8,
+            "name": "UVM_CREATE_RANGE_GROUP",
+            "request": "0x17"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_register_gpu_va_space",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": "uvm_api_register_gpu_va_space",
+              "status": "routed"
+            },
+            "count": 1,
+            "name": "UVM_REGISTER_GPU_VASPACE",
+            "request": "0x19"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_create_external_range",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": "uvm_api_create_external_range",
+              "status": "routed"
+            },
+            "count": 26,
+            "name": "UVM_CREATE_EXTERNAL_RANGE",
+            "request": "0x49"
+          },
+          {
+            "baseline": {
+              "handler": null,
+              "status": "outside_compared_dispatch_inventory"
+            },
+            "candidate": {
+              "handler": null,
+              "status": "outside_compared_dispatch_inventory"
+            },
+            "count": 26,
+            "name": "UVM_MAP_EXTERNAL_ALLOCATION",
+            "request": "0x21"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_register_channel",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": "uvm_api_register_channel",
+              "status": "routed"
+            },
+            "count": 16,
+            "name": "UVM_REGISTER_CHANNEL",
+            "request": "0x1b"
+          },
+          {
+            "baseline": {
+              "handler": null,
+              "status": "outside_compared_dispatch_inventory"
+            },
+            "candidate": {
+              "handler": null,
+              "status": "outside_compared_dispatch_inventory"
+            },
+            "count": 1,
+            "name": "UVM_ALLOC_SEMAPHORE_POOL",
+            "request": "0x44"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_validate_va_range",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": "uvm_api_validate_va_range",
+              "status": "routed"
+            },
+            "count": 1,
+            "name": "UVM_VALIDATE_VA_RANGE",
+            "request": "0x48"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_map_dynamic_parallelism_region",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": "uvm_api_map_dynamic_parallelism_region",
+              "status": "routed"
+            },
+            "count": 1,
+            "name": "UVM_MAP_DYNAMIC_PARALLELISM_REGION",
+            "request": "0x41"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_free",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": "uvm_api_free",
+              "status": "routed"
+            },
+            "count": 28,
+            "name": "UVM_FREE",
+            "request": "0x22"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_destroy_range_group",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": null,
+              "status": "missing_dispatch"
+            },
+            "count": 7,
+            "name": "UVM_DESTROY_RANGE_GROUP",
+            "request": "0x18"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_unregister_channel",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": "uvm_api_unregister_channel",
+              "status": "routed"
+            },
+            "count": 16,
+            "name": "UVM_UNREGISTER_CHANNEL",
+            "request": "0x1c"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_unregister_gpu_va_space",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": "uvm_api_unregister_gpu_va_space",
+              "status": "routed"
+            },
+            "count": 1,
+            "name": "UVM_UNREGISTER_GPU_VASPACE",
+            "request": "0x1a"
+          }
+        ]
+      },
+      {
+        "capture": "pc3-v100-context-ioctl-sequence-v2-20261028.json",
+        "capture_sha256": "b7857cabab5f2b121c79a7134a76f856462af7355f29a5b1ac60673a3694244a",
+        "driver_version": "580.178.04",
+        "guest_name": "Tesla V100-SXM2-16GB",
+        "kernel_release": "6.8.0-147-generic",
+        "requests": [
+          {
+            "baseline": {
+              "handler": null,
+              "status": "outside_compared_dispatch_inventory"
+            },
+            "candidate": {
+              "handler": null,
+              "status": "outside_compared_dispatch_inventory"
+            },
+            "count": 1,
+            "name": "UVM_INITIALIZE",
+            "request": "0x30000001"
+          },
+          {
+            "baseline": {
+              "handler": null,
+              "status": "outside_compared_dispatch_inventory"
+            },
+            "candidate": {
+              "handler": null,
+              "status": "outside_compared_dispatch_inventory"
+            },
+            "count": 1,
+            "name": "UVM_MM_INITIALIZE",
+            "request": "0x4b"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_pageable_mem_access",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": "uvm_api_pageable_mem_access",
+              "status": "routed"
+            },
+            "count": 1,
+            "name": "UVM_PAGEABLE_MEM_ACCESS",
+            "request": "0x27"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_register_gpu",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": "uvm_api_register_gpu",
+              "status": "routed"
+            },
+            "count": 1,
+            "name": "UVM_REGISTER_GPU",
+            "request": "0x25"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_create_range_group",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": null,
+              "status": "missing_dispatch"
+            },
+            "count": 8,
+            "name": "UVM_CREATE_RANGE_GROUP",
+            "request": "0x17"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_register_gpu_va_space",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": "uvm_api_register_gpu_va_space",
+              "status": "routed"
+            },
+            "count": 1,
+            "name": "UVM_REGISTER_GPU_VASPACE",
+            "request": "0x19"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_create_external_range",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": "uvm_api_create_external_range",
+              "status": "routed"
+            },
+            "count": 26,
+            "name": "UVM_CREATE_EXTERNAL_RANGE",
+            "request": "0x49"
+          },
+          {
+            "baseline": {
+              "handler": null,
+              "status": "outside_compared_dispatch_inventory"
+            },
+            "candidate": {
+              "handler": null,
+              "status": "outside_compared_dispatch_inventory"
+            },
+            "count": 26,
+            "name": "UVM_MAP_EXTERNAL_ALLOCATION",
+            "request": "0x21"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_register_channel",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": "uvm_api_register_channel",
+              "status": "routed"
+            },
+            "count": 16,
+            "name": "UVM_REGISTER_CHANNEL",
+            "request": "0x1b"
+          },
+          {
+            "baseline": {
+              "handler": null,
+              "status": "outside_compared_dispatch_inventory"
+            },
+            "candidate": {
+              "handler": null,
+              "status": "outside_compared_dispatch_inventory"
+            },
+            "count": 1,
+            "name": "UVM_ALLOC_SEMAPHORE_POOL",
+            "request": "0x44"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_validate_va_range",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": "uvm_api_validate_va_range",
+              "status": "routed"
+            },
+            "count": 1,
+            "name": "UVM_VALIDATE_VA_RANGE",
+            "request": "0x48"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_map_dynamic_parallelism_region",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": "uvm_api_map_dynamic_parallelism_region",
+              "status": "routed"
+            },
+            "count": 1,
+            "name": "UVM_MAP_DYNAMIC_PARALLELISM_REGION",
+            "request": "0x41"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_free",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": "uvm_api_free",
+              "status": "routed"
+            },
+            "count": 28,
+            "name": "UVM_FREE",
+            "request": "0x22"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_destroy_range_group",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": null,
+              "status": "missing_dispatch"
+            },
+            "count": 7,
+            "name": "UVM_DESTROY_RANGE_GROUP",
+            "request": "0x18"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_unregister_channel",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": "uvm_api_unregister_channel",
+              "status": "routed"
+            },
+            "count": 16,
+            "name": "UVM_UNREGISTER_CHANNEL",
+            "request": "0x1c"
+          },
+          {
+            "baseline": {
+              "handler": "uvm_api_unregister_gpu_va_space",
+              "status": "routed"
+            },
+            "candidate": {
+              "handler": "uvm_api_unregister_gpu_va_space",
+              "status": "routed"
+            },
+            "count": 1,
+            "name": "UVM_UNREGISTER_GPU_VASPACE",
+            "request": "0x1a"
+          }
+        ]
+      }
+    ],
+    "hardware_tested_with_candidate": false,
+    "observed_summary": {
+      "path": "evidence/pc3-v100-context-uvm-sequence-v1-20261028.json",
+      "pinned_r580_uapi_headers": {
+        "uvm_ioctl_h_sha256": "937a3fe1c0b2f4d8cfc18443d41ad10ee85c4445f954cc5c67b460ded2dd4916",
+        "uvm_linux_ioctl_h_sha256": "0ffb5cf3679fb5e150745e54b72fab861e319823e419f36376468a60862c2748"
+      },
+      "sha256": "475fa6e4275328de55626161998e641dfe8de68ff246da6cf6e8ecc6dfc0c1bb"
+    },
+    "qualification": "static-route-coverage-of-repeated-stock-V100-traces",
+    "runtime_compatibility_proven": false,
+    "schema": "nvidia-hybrid-observed-uvm-route-coverage-v1",
+    "uvm_payloads_observed": false
+  },
+  "qualification": "analyzed-statically",
+  "removed_dispatch_routes": [
+    "UVM_ALLOW_MIGRATION_RANGE_GROUPS",
+    "UVM_CREATE_RANGE_GROUP",
+    "UVM_DESTROY_RANGE_GROUP",
+    "UVM_MIGRATE_RANGE_GROUP",
+    "UVM_PREVENT_MIGRATION_RANGE_GROUPS",
+    "UVM_SET_RANGE_GROUP"
+  ],
+  "removed_ioctl_definitions": [
+    "UVM_ALLOW_MIGRATION_RANGE_GROUPS",
+    "UVM_CREATE_RANGE_GROUP",
+    "UVM_DESTROY_RANGE_GROUP",
+    "UVM_MIGRATE_RANGE_GROUP",
+    "UVM_PREVENT_MIGRATION_RANGE_GROUPS",
+    "UVM_SET_RANGE_GROUP"
+  ],
+  "runtime_compatibility_proven": false,
+  "schema": "nvidia-uvm-ioctl-route-compare-v2"
+}
