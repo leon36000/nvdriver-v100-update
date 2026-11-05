@@ -1,0 +1,38 @@
+{
+  "command": [
+    "python3",
+    "tools/build_probe.py",
+    "--output-dir",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-hybrid-current-v1-20261101T043749Z"
+  ],
+  "created_utc": "20261101T043749Z",
+  "exit_code": 0,
+  "fatbin": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-hybrid-current-v1-20261101T043749Z/hybrid_probe.sm70-sm120.fatbin",
+    "sha256": "9b6c772590c0e7ce6a95e36fb637b769eceef69856979761d739028d8b45675f"
+  },
+  "images": [
+    "sm_70",
+    "sm_120"
+  ],
+  "log": "evidence/logs/probe-hybrid-current-v1-20261101T043749Z.log",
+  "log_sha256": "adb2d146dbe5b5175836e570b549e4e6feb324fde6b8a5deb924e0157b939f95",
+  "manifest": "build/probe-hybrid-current-v1-20261101T043749Z/build-manifest.json",
+  "manifest_sha256": "d0782f9b2990e5c341f335f6b22f7b5f65e3c4c8673274a5e43054d331845b23",
+  "output_dir": "build/probe-hybrid-current-v1-20261101T043749Z",
+  "qualification": "static build only; no GPU execution, module operation, or remote host access",
+  "schema": "hybrid-current-source-dual-image-build-v1",
+  "sm120_cubin": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-hybrid-current-v1-20261101T043749Z/hybrid_probe.sm120.cubin",
+    "sha256": "983ffee5ae4f8e6c1f312ef7aaca5887bea352d9bc98060b3099fcaa71a38ea9"
+  },
+  "sm70_cubin": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-hybrid-current-v1-20261101T043749Z/hybrid_probe.sm70.cubin",
+    "sha256": "db3399bb49d6daa1d1abbfa1487515f8e4e46206743f7046a3ff9b906898fe4b"
+  },
+  "source_inputs_sha256": {
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/kernels/hybrid_probe.cu": "eb08482739ac2f601bb1954ac8a88035e7752b91e8188aaba6730b952c48c22a",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/hybrid_cuda_probe.cpp": "59b6b057e7b122b4e3d9882c4304e9818660ec4dd2f8a13d268958fb97a26384"
+  },
+  "status": "built-static-images"
+}

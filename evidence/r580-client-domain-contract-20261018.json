@@ -1,0 +1,411 @@
+{
+  "schema": "r580-client-domain-contract-v1",
+  "observed_at_utc": "2026-10-19T00:41:14Z",
+  "scope": {
+    "question": "R580 same-version dual-RM client/handle ownership for NV_ESC_RM_ALLOC, CONTROL, FREE and same-process GPU enumeration.",
+    "method": "Read-only static inspection of the pinned R580.178.04 source and SDK declarations.",
+    "pc3_accessed": false,
+    "hardware_runtime_tested": false,
+    "build_or_module_operation_performed": false,
+    "qualification": "ANALYZED_STATICALLY",
+    "only_artifact_created": "evidence/r580-client-domain-contract-20261018.json"
+  },
+  "source_pin": {
+    "version": "580.178.04",
+    "version_file": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/version.mk",
+    "version_file_sha256": "cbc6488ed2c35ea814120bc80749dd2d11f486c3e98046b3be240d462ee86e7c",
+    "archive": ".cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+    "archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+    "extracted_source_root": "build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04",
+    "hashes": "SHA-256 of the exact pinned archive and referenced source files; line numbers are relative to each source file."
+  },
+  "sources": [
+    {
+      "id": "esc",
+      "path": "src/nvidia/arch/nvalloc/unix/src/escape.c",
+      "sha256": "dad7e4a427d6f045d2e11a60837e2f73567321426e24e399cf5b45d0bcf724a7",
+      "lines": "57-64,299-317,387-458,722-783,850-930"
+    },
+    {
+      "id": "esc_codes",
+      "path": "src/nvidia/arch/nvalloc/unix/include/nv_escape.h",
+      "sha256": "12850ee7368dbfeba1e2392f9ff7fb44563d88ed12cbf478d0c0f61a03763570",
+      "lines": "27-31"
+    },
+    {
+      "id": "kernel_nv",
+      "path": "kernel-open/nvidia/nv.c",
+      "sha256": "4f251e44dfd400d7611b57a029d0b38b6e8a67a30f4971085aad56029753aa40",
+      "lines": "1819-1857,2762-2765,3066-3096"
+    },
+    {
+      "id": "nvfp",
+      "path": "kernel-open/common/inc/nv.h",
+      "sha256": "bc5802ef5a0e47be045cac9b74e61a0092f0bb96fc1ede05e2361d164e3b7787",
+      "lines": "603-627"
+    },
+    {
+      "id": "nvos",
+      "path": "src/common/sdk/nvidia/inc/nvos.h",
+      "sha256": "07f9f453afbf080750663abc9e04e2d3b55500887303ba03bd6855916d2405bd",
+      "lines": "148-184,458-488,2220-2238"
+    },
+    {
+      "id": "root_class",
+      "path": "src/common/sdk/nvidia/inc/class/cl0000.h",
+      "sha256": "2f8c158b1e0d55fb425497054539e9dcb24002ec5e4949dd56b9b2b8e17d0208",
+      "lines": "37-52"
+    },
+    {
+      "id": "device_class",
+      "path": "src/common/sdk/nvidia/inc/class/cl0080.h",
+      "sha256": "8829ae3793aaad80dc8e9b560882d4e900565de7ce7832c0ea0ceffe7fe12b08",
+      "lines": "36-64"
+    },
+    {
+      "id": "subdevice_class",
+      "path": "src/common/sdk/nvidia/inc/class/cl2080.h",
+      "sha256": "6f0c32970e6ba7e56dec28c44594b41570237bf74b1ea33ab5e8bcd139805351",
+      "lines": "36-45"
+    },
+    {
+      "id": "resource_list",
+      "path": "src/nvidia/src/kernel/rmapi/resource_list.h",
+      "sha256": "19f365cf1c4492483a02172c1298f7ba54ae0571b156ac4b58c0c7522ba729b8",
+      "lines": "63-93,174-184,428-438"
+    },
+    {
+      "id": "entry",
+      "path": "src/nvidia/src/kernel/rmapi/entry_points.c",
+      "sha256": "8c8c10a392ba3f79e6637c3192a5b85bd1404526ef7326af8a8eab80fc190368",
+      "lines": "208-222,306-318,493-514"
+    },
+    {
+      "id": "alloc",
+      "path": "src/nvidia/src/kernel/rmapi/alloc_free.c",
+      "sha256": "4484ff47993b078565e4077a0e9dad63920a92090a3d42cdf52531e2c824432d",
+      "lines": "111-150,196-218,545-586,1183-1287,1483-1547"
+    },
+    {
+      "id": "server",
+      "path": "src/nvidia/src/libraries/resserv/src/rs_server.c",
+      "sha256": "246b6011cc34230765eccbdda040ce5a305f4f429f57b759f74f830aaa41b2dd",
+      "lines": "594-681,734-847,865-880,1398-1427,3146-3303,4636-4662"
+    },
+    {
+      "id": "rmapi",
+      "path": "src/nvidia/src/kernel/rmapi/rmapi.c",
+      "sha256": "2d78fa2704e6745f493458794630665bf69e740429933c2272b66ceea6071136",
+      "lines": "55-58,97-120,217-224,386-507,980-1043"
+    },
+    {
+      "id": "client",
+      "path": "src/nvidia/src/kernel/rmapi/client.c",
+      "sha256": "0f989413303807d51e60e4354137af34c0ecd9d6cdf25d7355c88e9c356662c8",
+      "lines": "52-95,219-226,738-765,933-963"
+    },
+    {
+      "id": "osapi",
+      "path": "src/nvidia/arch/nvalloc/unix/src/osapi.c",
+      "sha256": "bbb08710a4674408530e40146913b2ea328e2ba921c61f2a05bc31f8593416aa",
+      "lines": "455-492,2803-2868,2900-2981"
+    },
+    {
+      "id": "makefile",
+      "path": "src/nvidia/Makefile",
+      "sha256": "0d1ee1b8c69dad2e0668fbb23c8dcf88dc59b0c9e1bfa4c26cec998dccc807b2",
+      "lines": "128-132"
+    },
+    {
+      "id": "control",
+      "path": "src/nvidia/src/kernel/rmapi/control.c",
+      "sha256": "e6c44a621928620a1016f113a9dfd2a299d9e778d77bd5ff24822b22c1701513",
+      "lines": "142-153"
+    },
+    {
+      "id": "client_resource",
+      "path": "src/nvidia/src/kernel/rmapi/client_resource.c",
+      "sha256": "bea0ade8836094406ef9f73365c5884c2697878e54e9b7a8b057236847e25787",
+      "lines": "1368-1385"
+    },
+    {
+      "id": "gpu_mgr",
+      "path": "src/nvidia/src/kernel/gpu_mgr/gpu_mgr.c",
+      "sha256": "f1cb0a8cd08a3c64b2c1277ebe68dab56535c4597b166b4b2b316ae1baee9293",
+      "lines": "2311-2341"
+    },
+    {
+      "id": "ctrl_gpu",
+      "path": "src/common/sdk/nvidia/inc/ctrl/ctrl0000/ctrl0000gpu.h",
+      "sha256": "955d3f33157b516870bfa514bbcf613f705c990f0145a473a29e4cad97292b32",
+      "lines": "42-70,72-185,328-362"
+    },
+    {
+      "id": "resource_desc",
+      "path": "src/nvidia/src/kernel/rmapi/resource_desc.c",
+      "sha256": "a28a419e5f12a44acdad3203fe639b22a730759e194e19cf3aac51b731ecb9f1",
+      "lines": "68-80,180-217"
+    },
+    {
+      "id": "param_copy",
+      "path": "src/nvidia/src/kernel/rmapi/param_copy.c",
+      "sha256": "4d0c2c3b8a4e5b0f1302f6c17e75ea372f50c32ee04d039c5aea9d07bf0b110a",
+      "lines": "297-319"
+    }
+  ],
+  "findings": {
+    "namespace": {
+      "observation": "NVOS21, NVOS00 and NVOS54 contain numeric client/object handles, not an RM-instance identifier. Each request is resolved by whichever RM receives the ioctl.",
+      "rm_globals": "R580 source has one global g_resServ and one static g_RmApiList; RM control resolves hClient through g_resServ.",
+      "implication": "A usable dual-RM identity is (rm_domain, hClient) and (rm_domain, hObject). A bare hClient cannot route calls between cores. Two callbacks that enter the same stock g_resServ do not provide independent RM namespaces.",
+      "evidence": [
+        {
+          "source": "nvos",
+          "lines": "159-166,462-471,2228-2238"
+        },
+        {
+          "source": "entry",
+          "lines": "217-221,317-318,509-513"
+        },
+        {
+          "source": "rmapi",
+          "lines": "55-58,97-120,217-224"
+        },
+        {
+          "source": "control",
+          "lines": "142-148"
+        }
+      ]
+    },
+    "alloc_root": {
+      "code": "NV_ESC_RM_ALLOC=0x2b; NVOS21_PARAMETERS (or NVOS64_PARAMETERS).",
+      "exact_request": {
+        "hRoot": "desired_hClient. First backend may use 0 and retain its returned ID; second backend requests that exact ID here.",
+        "hObjectParent": 0,
+        "hObjectNew": 0,
+        "hClass": "NV01_ROOT_CLIENT (0x41); NV01_ROOT (0x0) is accepted at the escape and rewritten to ROOT_CLIENT.",
+        "pAllocParms": null,
+        "paramsSize": 0,
+        "endpoint": "Control fd; root class requires NV_FLAG_CONTROL.",
+        "why_null_parameters_are_valid": "The ROOT_CLIENT resource descriptor is RS_OPTIONAL(NvHandle). rmapiGetClassAllocParamSize allows NULL and leaves the copied parameter size at zero. RmClientResource skips writing a class payload when pAllocParams is NULL. A separate 4-byte NvHandle payload is optional and may be used as an extra output cross-check."
+      },
+      "source_trace": [
+        {
+          "source": "esc",
+          "lines": "387-435"
+        },
+        {
+          "source": "entry",
+          "lines": "208-222"
+        },
+        {
+          "source": "alloc",
+          "lines": "567-583,1183-1227"
+        },
+        {
+          "source": "server",
+          "lines": "612-638,734-773,875-880,3146-3303,4636-4662"
+        },
+        {
+          "source": "client",
+          "lines": "219-221"
+        },
+        {
+          "source": "root_class",
+          "lines": "42-52"
+        },
+        {
+          "source": "resource_list",
+          "lines": "63-93"
+        },
+        {
+          "source": "makefile",
+          "lines": "128-132"
+        },
+        {
+          "source": "resource_desc",
+          "lines": "68-80,180-217"
+        },
+        {
+          "source": "alloc",
+          "lines": "196-218"
+        },
+        {
+          "source": "param_copy",
+          "lines": "297-319"
+        }
+      ],
+      "explicit_id_verdict": "Source-supported, conditional: src/nvidia/Makefile sets RS_COMPATABILITY_MODE=1. serverAllocClient keeps nonzero pParams->hClient in this mode. _serverCreateEntryAndLockForNewClient rejects duplicate handles and requires the requested ID to be available exactly in its bucket; otherwise allocation fails. This confirms hRoot=desiredID, not hObjectNew=desiredID, as the relevant selection field for the second root.",
+      "output_caveat": "On the root path serverAllocClient sets hResource=hClient; _rmAlloc copies hResource to *hObjectNew even if serverAllocResource returns an error. The class-payload copyout is skipped on error, and RmClientResource only writes the optional pAllocParms value on success. Thus a nonzero hObjectNew accompanying an error is not proof of an active client and must not be freed blindly.",
+      "two_core_caveat": "This source supports requesting a nonzero hClient within one RsServer. Mirroring it across two backends requires genuinely isolated RsServer/global RM state and exact backend dispatch; R580 stock globals are singular."
+    },
+    "rm_control": {
+      "code": "NV_ESC_RM_CONTROL=0x2a; NVOS54_PARAMETERS fields are hClient, hObject, cmd, flags, params, paramsSize, status.",
+      "routing": "Escape requires the control fd, may resolve a GPU fd for command-specific references, and then passes hClient/hObject/cmd to Nv04ControlWithSecInfo. The payload has no RM-domain field.",
+      "root_enumeration_call": {
+        "hClient": "root client ID in selected RM domain",
+        "hObject": "same root handle",
+        "cmd": "NV0000_CTRL_CMD_GPU_GET_ATTACHED_IDS = 0x201",
+        "flags": 0,
+        "params": "NV0000_CTRL_GPU_GET_ATTACHED_IDS_PARAMS",
+        "paramsSize": 128
+      },
+      "evidence": [
+        {
+          "source": "esc",
+          "lines": "722-783"
+        },
+        {
+          "source": "nvos",
+          "lines": "2220-2238"
+        },
+        {
+          "source": "entry",
+          "lines": "493-514"
+        },
+        {
+          "source": "control",
+          "lines": "142-148"
+        },
+        {
+          "source": "ctrl_gpu",
+          "lines": "42-70"
+        },
+        {
+          "source": "client_resource",
+          "lines": "1375-1385"
+        },
+        {
+          "source": "gpu_mgr",
+          "lines": "2311-2341"
+        }
+      ]
+    },
+    "rm_free": {
+      "code": "NV_ESC_RM_FREE=0x29; NVOS00_PARAMETERS {hRoot,hObjectParent,hObjectOld,status}.",
+      "exact_root_free": {
+        "hRoot": "selected domain's hClient",
+        "hObjectParent": 0,
+        "hObjectOld": "same hClient"
+      },
+      "routing": "Control fd required; RM entry passes hRoot as hClient and hObjectOld as resource. Successful root free also frees OS events for that hRoot.",
+      "evidence": [
+        {
+          "source": "esc",
+          "lines": "438-458"
+        },
+        {
+          "source": "nvos",
+          "lines": "156-166"
+        },
+        {
+          "source": "entry",
+          "lines": "306-318"
+        },
+        {
+          "source": "alloc",
+          "lines": "1483-1529"
+        },
+        {
+          "source": "server",
+          "lines": "1398-1427"
+        }
+      ],
+      "exactness": "Both fields are required: NVOS00.hRoot selects the client namespace, and hObjectOld must equal that root client handle to free the root resource. The resource server detects hClient == hResource, deactivates the client, and invokes its client-free path."
+    },
+    "client_lifetime": {
+      "observation": "RmClient stores API_SECURITY_INFO.clientOSInfo. Strict validation checks pointer identity. The OS escape sets clientOSInfo to nvfp->ctl_nvfp, falling back to nvfp; osapi cleanup finds all clients registered under that OSInfo and disables/frees them from the one global g_resServ.",
+      "register_fd": "NV_ESC_REGISTER_FD permits one ctl_nvfp link per file-private object and rejects overwrite, self-link, or chaining. This is a file-lifetime association, not an RM-core selector.",
+      "implication": "Use a distinct nv_file_private_t/lifetime cleanup record per RM domain. Reusing one file-private pointer across two independently running cores risks asymmetric client cleanup; one stock cleanup traverses only one g_resServ.",
+      "evidence": [
+        {
+          "source": "esc",
+          "lines": "299-317,850-930"
+        },
+        {
+          "source": "nvfp",
+          "lines": "607-625"
+        },
+        {
+          "source": "client",
+          "lines": "88-95,738-765,933-963"
+        },
+        {
+          "source": "rmapi",
+          "lines": "980-1043"
+        },
+        {
+          "source": "osapi",
+          "lines": "455-492,2900-2981"
+        }
+      ]
+    },
+    "stock_dispatch": {
+      "observation": "Each open gets an nv_file_private_t; control open uses module's nv_ctl_device. Kernel ioctl dispatch hands the current nv_state plus file-private pointer to rm_ioctl, which calls RmIoctl. No backend selector is added.",
+      "evidence": [
+        {
+          "source": "kernel_nv",
+          "lines": "1819-1857,2762-2765,3066-3096"
+        },
+        {
+          "source": "osapi",
+          "lines": "2803-2868"
+        }
+      ]
+    }
+  },
+  "enumeration": {
+    "observation": "GET_ATTACHED_IDS returns contiguous local gpuId values plus invalid sentinels. SDK defines gpuId as opaque and platform-dependent. RmClientResource delegates to gpumgrGetAttachedGpuIds, which walks that RM's attached mask and returns its own pGpu->gpuId values.",
+    "union_contract": "Call GET_ATTACHED_IDS separately through each selected backend root and retain every entry as (backend, local_gpuId). Reconcile physical devices by stable external identity; do not concatenate/deduplicate raw gpuId values as if globally unique.",
+    "stable_identity": "SDK exposes GET_ID_INFO and GET_PCI_INFO controls; PCI info includes domain/bus/slot. Validate full PCI BDF or UUID for a public cross-backend identity.",
+    "child_handles": [
+      {
+        "class": "NV01_DEVICE_0=0x80",
+        "parent": "root/RmClientResource",
+        "allocation_parameter": "NV0080_ALLOC_PARAMETERS.deviceId is that backend's local GPU ID.",
+        "evidence": [
+          "resource_list:174-184",
+          "device_class:36-64"
+        ]
+      },
+      {
+        "class": "NV20_SUBDEVICE_0=0x2080",
+        "parent": "Device",
+        "allocation_parameter": "NV2080_ALLOC_PARAMETERS.subDeviceId is that backend's local subdevice index.",
+        "evidence": [
+          "resource_list:428-438",
+          "subdevice_class:36-45"
+        ]
+      }
+    ],
+    "limitation": "All child/resource handles remain RM-domain scoped. A CUDA-facing merge still needs backend-tagged handles or translation for every object and nested handle payload; root-only behavior does not establish this."
+  },
+  "next_experiment": {
+    "name": "Paired root-client create/control/free using two actual, state-isolated R580 RM callbacks",
+    "steps": [
+      "Backend A: call NV_ESC_RM_ALLOC with NVOS21: hRoot=0, hObjectParent=0, hObjectNew=0, hClass=NV01_ROOT_CLIENT, pAllocParms=NULL, paramsSize=0.",
+      "Require status=NV_OK and hObjectNew != 0; retain as private candidate tagged backend A.",
+      "Backend B: same request but hRoot=backend_A_hObjectNew and hObjectNew=0. Require status=NV_OK and hObjectNew == backend_A_hObjectNew.",
+      "If transport is uncertain, either status is non-OK, or outputs disagree, quarantine. Do not free based only on a nonzero output from a failed allocation.",
+      "Only after successful, coherent allocation in both domains, issue one NVOS54 GET_ATTACHED_IDS query per backend, preserving returned IDs with backend tags.",
+      "If a confirmed-successful A root must be rolled back after B failure, send NVOS00 to A with hRoot=id, hObjectParent=0, hObjectOld=id. Otherwise free B then A in reverse order with the same matching hRoot/hObjectOld fields. If cleanup fails, quarantine."
+    ],
+    "pass_criterion": "Demonstrate that each callback reaches a distinct RsServer state; exact mirrored root ID and coherent success statuses; per-domain control routing; successful reverse frees with no published partial pair.",
+    "fail_closed": [
+      "Both callbacks reach the same stock g_resServ.",
+      "Requested ID collision/unavailable or returned ID mismatch.",
+      "Unknown transport outcome, non-success status, or ambiguous handle output.",
+      "Cleanup/free failure.",
+      "One nv_file_private_t is shared without proven per-domain cleanup.",
+      "Root free must carry hRoot == hObjectOld == the successfully returned root ID in the same backend domain."
+    ],
+    "not_run": true,
+    "scope_boundary": "Passing this experiment would validate root-client brokerage and root-level control/free only. It would not validate merged CUDA enumeration, device/subdevice allocation, UVM, memory, kernel execution, or hardware behavior."
+  },
+  "limitations": [
+    "Static source only; no access to PC3, no hardware test, no build, and no driver load/install.",
+    "Explicit root hClient acceptance is source-supported in this R580 configuration but remains untested at runtime.",
+    "Stock R580 has one global g_resServ/g_RmApiList; two isolated cores must be supplied by another design and cannot be inferred from two callbacks alone.",
+    "Same root ID does not prove equal child handles, unified CUDA ABI, memory interoperability, or runtime safety."
+  ]
+}

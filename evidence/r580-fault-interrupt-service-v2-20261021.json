@@ -1,0 +1,121 @@
+{
+  "control": {
+    "id": "0x20801702",
+    "name": "NV2080_CTRL_CMD_MC_SERVICE_INTERRUPTS",
+    "scope": "NV2080_CTRL_MC_ENGINE_ID_ALL"
+  },
+  "facts": {
+    "client_queue_apis_do_not_acquire_rm_gpu_locks": true,
+    "client_queue_publish_is_fenced_before_put": true,
+    "control_success_does_not_prove_stuck_interrupt_drained": true,
+    "get_api_consumes_client_queue": true,
+    "get_api_uses_bottom_half_stack": true,
+    "gmmu_pending_checks_fault_service_state": true,
+    "gp100_pending_enumeration_includes_gmmu": true,
+    "gv100_copy_routes_rm_and_client_faults": true,
+    "gv100_fault_copy_is_bound_as_hal_variant": true,
+    "gv100_hw_get_advances_after_shadow_publication": true,
+    "linux_isr_copies_faults_before_uvm_callback": true,
+    "mc_service_control_is_documented_and_registered": true,
+    "non_gsp_fault_handler_invokes_rm_shadow_copy": true,
+    "non_gsp_rm_registers_non_replayable_fault_service": true,
+    "non_replayable_service_runs_after_hw_top_half": true,
+    "pending_api_checks_client_queue": true,
+    "pending_api_uses_isr_stack": true,
+    "rm_interrupt_service_consumes_rm_queue_and_notifies": true,
+    "rm_populates_uvm_cpu_client_queue": true,
+    "service_interrupts_api_delegates_to_rm": true,
+    "stall_service_loops_over_pending_engines": true,
+    "uvm_rm_method_services_all_engine_interrupts": true,
+    "uvm_suspend_and_top_half_share_isr_lock": true
+  },
+  "generated_utc": "2026-10-21T23:50:07Z",
+  "limitations": [
+    "The RM service loop may exit on a stuck interrupt after a void dispatch; the returned NV_OK is not proof that every pending engine drained.",
+    "The Linux ISR invokes RM fault-buffer handling before the UVM top-half callback. The UVM suspend flag and UVM top-half use interrupts_lock, but these source paths do not establish that suspend waits for an in-flight Linux RM interrupt handler.",
+    "The RM interrupt service path consumes RM software-shadow faults and notifies clients after the hardware-buffer copy step; source inspection does not prove its runtime completion or PM safety.",
+    "No RM call, GPU operation, module load, suspend, concurrent ISR/PM test, or fault-injection test was run."
+  ],
+  "ordering_assessment": {
+    "decision": "Do not add an RM service call to the candidate suspend path until the in-flight Linux ISR ordering and RM control runtime/error semantics are independently closed.",
+    "inference": "A UVM suspend racing an already-running Linux ISR is not ruled out by the UVM interrupts_lock alone because the RM fault-copy call precedes UVM top-half entry. Whether another Linux/RM PM barrier excludes that interleaving is unknown.",
+    "source_observation": "nvidia_isr calls rm_gpu_handle_mmu_faults before nv_uvm_event_interrupt; the physical non-GSP helper dispatches kgmmuCopyMmuFaults_HAL, and the generated GMMU vtable binds a GV100 implementation."
+  },
+  "qualification": "static-source-contract-only",
+  "schema": "r580-fault-interrupt-service-audit-v2",
+  "source_files": {
+    "kernel-open/common/inc/nv_uvm_interface.h": {
+      "sha256": "68b6cae62ad0bdf6940d48a34084d789cd1f87a06b84310195cd2adc4b9e50f8"
+    },
+    "kernel-open/common/inc/nv_uvm_types.h": {
+      "sha256": "5216a6a83924511f38c8a881ee0ffc601e2851e92e6a9b49810f9cc9e90dd614"
+    },
+    "kernel-open/nvidia-uvm/uvm_global.c": {
+      "sha256": "aeee2f257a289853f36d9c7b196f1e02d19b84695db44cdd2e00f28b0f1a4489"
+    },
+    "kernel-open/nvidia-uvm/uvm_gpu_isr.c": {
+      "sha256": "456ee47bb83564cc1ada830538781256bb246bf82888601d3c3f2b3a2bc777f5"
+    },
+    "kernel-open/nvidia/nv.c": {
+      "sha256": "4f251e44dfd400d7611b57a029d0b38b6e8a67a30f4971085aad56029753aa40"
+    },
+    "kernel-open/nvidia/nv_uvm_interface.c": {
+      "sha256": "b41c704d29363dd52dd0ea669ee253a37185f5826c7db56a07dec21c3d24eddc"
+    },
+    "src/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080mc.h": {
+      "sha256": "2cfd3953311c5609cb2fa5999f8e257e60d63c5361677b90efd99c7ae366353b"
+    },
+    "src/nvidia/arch/nvalloc/unix/src/rm-gpu-ops.c": {
+      "sha256": "5160157ccfb131b6957e746670890776a4fc222baa8328bf6d18839780ac569c"
+    },
+    "src/nvidia/arch/nvalloc/unix/src/unix_intr.c": {
+      "sha256": "a448ee8d52857cf58c8ad4e7cedbfafec92fa2edb8f3ec770d5d2d965b2517c2"
+    },
+    "src/nvidia/generated/g_kern_gmmu_nvoc.c": {
+      "sha256": "69f99676e8c054ec669959936dce078ffdd839c1afcbf517231c364db3cf5312"
+    },
+    "src/nvidia/generated/g_subdevice_nvoc.c": {
+      "sha256": "53570da27b08609f294186eebdfecfda03ebbde2a0e7ba3b497bd18426ac7da3"
+    },
+    "src/nvidia/src/kernel/gpu/intr/arch/pascal/intr_gp100.c": {
+      "sha256": "a03192535c0439b4b21c03305669d6320847f479817b8d161932f77ae129df2a"
+    },
+    "src/nvidia/src/kernel/gpu/intr/intr.c": {
+      "sha256": "3273490dbe94c15358e144484a58e3579bb7fb2e03fe0b88712cad9640a799c8"
+    },
+    "src/nvidia/src/kernel/gpu/mmu/arch/volta/kern_gmmu_gv100.c": {
+      "sha256": "cf511440a5ba24f13541bc502c995731459ce339c5b50c81aea76ee1cc4bfe12"
+    },
+    "src/nvidia/src/kernel/gpu/mmu/kern_gmmu.c": {
+      "sha256": "b8d68a75fe44b1ce571de5bfb997e08aaf82930e7874b02e82d2fcf8dcb01ccc"
+    },
+    "src/nvidia/src/kernel/rmapi/nv_gpu_ops.c": {
+      "sha256": "1aaf4f11896388812bf1a372718746e4e5753598bb4c0a43c42d10010e7e0f58"
+    }
+  },
+  "source_lines": {
+    "get_fault_wrapper": 979,
+    "gmmu_pending": 293,
+    "gp100_pending": 184,
+    "gv100_client_queue_copy": 1264,
+    "gv100_fault_copy_hal_binding": 1122,
+    "gv100_hardware_fault_copy": 887,
+    "gv100_queue_routing": 755,
+    "gv100_rm_queue_service": 1978,
+    "kgmmu_registration": 2226,
+    "kgmmu_service": 2325,
+    "linux_isr": 2830,
+    "mc_service_control": 186,
+    "pending_fault_wrapper": 970,
+    "rm_fault_copy_helper": 980,
+    "rm_fault_handler": 1007,
+    "rm_service_core": 7841,
+    "rm_service_wrapper": 371,
+    "service_interrupts_interface": 674,
+    "stall_service_loop": 1625,
+    "stuck_interrupt_exit": 1438,
+    "uvm_isr_suspend_setter": 263,
+    "uvm_isr_top_half": 218
+  },
+  "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04"
+}

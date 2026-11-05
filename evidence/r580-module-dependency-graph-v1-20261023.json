@@ -1,0 +1,95 @@
+{
+  "candidate_base": "build/experiments/r580-uvm-consumer-frontend-abi-v1-20261023T180126Z/dependency-stage",
+  "depmod": {
+    "exit_code": 0,
+    "modules_dep_path": "build/experiments/r580-uvm-consumer-frontend-abi-v1-20261023T180126Z/dependency-stage/lib/modules/7.0.0-38-generic/modules.dep",
+    "modules_dep_sha256": "f683e6dc53ae4078f1f69ff8744316e80cfe29ee7fba549cb6145c113641a5e2",
+    "nvidia_uvm_transitive_dependencies": [
+      "hybrid580_frontend",
+      "hybrid580_legacy",
+      "hybrid580_open"
+    ],
+    "warning_lines": [
+      "depmod: WARNING: could not open modules.order at /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-consumer-frontend-abi-v1-20261023T180126Z/dependency-stage/lib/modules/7.0.0-38-generic: No such file or directory",
+      "depmod: WARNING: could not open modules.builtin at /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-consumer-frontend-abi-v1-20261023T180126Z/dependency-stage/lib/modules/7.0.0-38-generic: No such file or directory",
+      "depmod: WARNING: could not open modules.builtin.modinfo at /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-consumer-frontend-abi-v1-20261023T180126Z/dependency-stage/lib/modules/7.0.0-38-generic: No such file or directory"
+    ]
+  },
+  "kernel_release": "7.0.0-38-generic",
+  "modinfo_dependency_graph": {
+    "hybrid580_frontend": [
+      "hybrid580_legacy",
+      "hybrid580_open"
+    ],
+    "hybrid580_legacy": [],
+    "hybrid580_open": [],
+    "nvidia_uvm": [
+      "hybrid580_frontend"
+    ]
+  },
+  "modprobe_show_depends": {
+    "exit_code": 0,
+    "insert_order": [
+      "hybrid580_open",
+      "hybrid580_legacy",
+      "hybrid580_frontend",
+      "nvidia_uvm"
+    ],
+    "stderr": [],
+    "stdout": [
+      "insmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-consumer-frontend-abi-v1-20261023T180126Z/dependency-stage/lib/modules/7.0.0-38-generic/updates/hybrid580_open.ko ",
+      "insmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-consumer-frontend-abi-v1-20261023T180126Z/dependency-stage/lib/modules/7.0.0-38-generic/updates/hybrid580_legacy.ko ",
+      "insmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-consumer-frontend-abi-v1-20261023T180126Z/dependency-stage/lib/modules/7.0.0-38-generic/updates/hybrid580_frontend.ko ",
+      "insmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-consumer-frontend-abi-v1-20261023T180126Z/dependency-stage/lib/modules/7.0.0-38-generic/updates/nvidia-uvm.ko "
+    ]
+  },
+  "module_load_attempted": false,
+  "modules": {
+    "hybrid580_frontend": {
+      "bytes": 2877392,
+      "depends": [
+        "hybrid580_legacy",
+        "hybrid580_open"
+      ],
+      "path": "build/experiments/r580-uvm-consumer-frontend-abi-v1-20261023T180126Z/dependency-stage/lib/modules/7.0.0-38-generic/updates/hybrid580_frontend.ko",
+      "sha256": "bf9d56fab14f0af9dd4c4b92d4e02e6e3fd7a6cb6a94add3813623885a432409",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": ""
+    },
+    "hybrid580_legacy": {
+      "bytes": 136861120,
+      "depends": [],
+      "path": "build/experiments/r580-uvm-consumer-frontend-abi-v1-20261023T180126Z/dependency-stage/lib/modules/7.0.0-38-generic/updates/hybrid580_legacy.ko",
+      "sha256": "085f3d130007ab51bef49a8d71d350c9a3e87e4b307db858be8127baa266a760",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.178.04"
+    },
+    "hybrid580_open": {
+      "bytes": 37200664,
+      "depends": [],
+      "path": "build/experiments/r580-uvm-consumer-frontend-abi-v1-20261023T180126Z/dependency-stage/lib/modules/7.0.0-38-generic/updates/hybrid580_open.ko",
+      "sha256": "5118f3ec80b6dad72e2933b398019bbf4245a33b213704812bdd5e0d8385a07c",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.178.04"
+    },
+    "nvidia_uvm": {
+      "bytes": 62650480,
+      "depends": [
+        "hybrid580_frontend"
+      ],
+      "path": "build/experiments/r580-uvm-consumer-frontend-abi-v1-20261023T180126Z/dependency-stage/lib/modules/7.0.0-38-generic/updates/nvidia-uvm.ko",
+      "sha256": "a1631b9b74d28255cb5d455df6b5f4b4481f3ccd4774a184557360f50dc64a31",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.178.04"
+    }
+  },
+  "notes": [
+    "depmod and modprobe resolved the staged module graph without inserting a module.",
+    "The isolated stage omits modules.order and modules.builtin metadata; depmod warnings for those absent files are recorded.",
+    "This does not test symbol relocation at load time, provider callbacks, RM, CUDA, or GPU initialization."
+  ],
+  "observed_at_utc": "2026-10-23T18:18:21.313742+00:00",
+  "qualification": "isolated-depmod-and-modprobe-resolution",
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-r580-hybrid-module-dependency-graph-v1"
+}

@@ -1,0 +1,1402 @@
+{
+  "binary_rm_abi": {
+    "elf_header": {
+      "argv": [
+        "/usr/bin/readelf",
+        "-h",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nv-kernel.o_binary"
+      ],
+      "exit_code": 0,
+      "selected_output": [
+        "Class:                             ELF64",
+        "Data:                              2's complement, little endian",
+        "Type:                              REL (Relocatable file)",
+        "Machine:                           Advanced Micro Devices X86-64"
+      ]
+    },
+    "file": {
+      "bytes": 112677456,
+      "exists": true,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nv-kernel.o_binary",
+      "sha256": "5269a23ffba19a17fe16f076463e7ad4151254659441d1711bee6c6221ff6f4b"
+    },
+    "file_identification": {
+      "argv": [
+        "/usr/bin/file",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nv-kernel.o_binary"
+      ],
+      "exit_code": 0,
+      "output": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nv-kernel.o_binary: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped"
+    },
+    "layout_match_established": false,
+    "qualification": "opaque-not-established",
+    "reason": "ELF bytes and symbols do not expose a complete source-level RM ABI layout; no matching compiler configuration or binary-side type metadata was established.",
+    "symbol_name_scan": {
+      "argv": [
+        "/usr/bin/nm",
+        "-a",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nv-kernel.o_binary"
+      ],
+      "diagnostic": "",
+      "exit_code": 0,
+      "match_count": 0,
+      "matching_names": []
+    }
+  },
+  "compiled_layout": {
+    "definitions": [
+      "NVRM=1"
+    ],
+    "ioctl_wrapper_types": {
+      "open": {
+        "header": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include/nv-unix-nvos-params-wrappers.h",
+        "types": {
+          "nv_ioctl_nvos02_parameters_with_fd": {
+            "compile": {
+              "argv": [
+                "/usr/bin/cc",
+                "-std=gnu11",
+                "-Wall",
+                "-Werror",
+                "-DNVRM=1",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+                "/tmp/r580-abi-layout-7stutfuc/open-unix-wrapper-nv_ioctl_nvos02_parameters_with_fd.c",
+                "-o",
+                "/tmp/r580-abi-layout-7stutfuc/open-unix-wrapper-nv_ioctl_nvos02_parameters_with_fd"
+              ],
+              "command_display": "/usr/bin/cc -std=gnu11 -Wall -Werror -DNVRM=1 -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include /tmp/r580-abi-layout-7stutfuc/open-unix-wrapper-nv_ioctl_nvos02_parameters_with_fd.c -o /tmp/r580-abi-layout-7stutfuc/open-unix-wrapper-nv_ioctl_nvos02_parameters_with_fd",
+              "diagnostic": "",
+              "exit_code": 0
+            },
+            "execution": {
+              "argv": [
+                "/tmp/r580-abi-layout-7stutfuc/open-unix-wrapper-nv_ioctl_nvos02_parameters_with_fd"
+              ],
+              "diagnostic": "",
+              "exit_code": 0,
+              "stdout": "TYPE\tnv_ioctl_nvos02_parameters_with_fd\t56\t8\tFIELD\tparams\t0\tFIELD\tfd\t48"
+            },
+            "field_list": [
+              "params",
+              "fd"
+            ],
+            "layout": {
+              "alignment": 8,
+              "field_offsets": {
+                "fd": 48,
+                "params": 0
+              },
+              "size": 56
+            },
+            "qualification": "compiled-and-ran-host-layout-probe",
+            "source_sha256": "81d64ba6fc0d066d19b63548731399615df739eca6fd445aabd2c30f82ce50fe",
+            "type": "nv_ioctl_nvos02_parameters_with_fd"
+          },
+          "nv_ioctl_nvos33_parameters_with_fd": {
+            "compile": {
+              "argv": [
+                "/usr/bin/cc",
+                "-std=gnu11",
+                "-Wall",
+                "-Werror",
+                "-DNVRM=1",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+                "/tmp/r580-abi-layout-7stutfuc/open-unix-wrapper-nv_ioctl_nvos33_parameters_with_fd.c",
+                "-o",
+                "/tmp/r580-abi-layout-7stutfuc/open-unix-wrapper-nv_ioctl_nvos33_parameters_with_fd"
+              ],
+              "command_display": "/usr/bin/cc -std=gnu11 -Wall -Werror -DNVRM=1 -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include /tmp/r580-abi-layout-7stutfuc/open-unix-wrapper-nv_ioctl_nvos33_parameters_with_fd.c -o /tmp/r580-abi-layout-7stutfuc/open-unix-wrapper-nv_ioctl_nvos33_parameters_with_fd",
+              "diagnostic": "",
+              "exit_code": 0
+            },
+            "execution": {
+              "argv": [
+                "/tmp/r580-abi-layout-7stutfuc/open-unix-wrapper-nv_ioctl_nvos33_parameters_with_fd"
+              ],
+              "diagnostic": "",
+              "exit_code": 0,
+              "stdout": "TYPE\tnv_ioctl_nvos33_parameters_with_fd\t56\t8\tFIELD\tparams\t0\tFIELD\tfd\t48"
+            },
+            "field_list": [
+              "params",
+              "fd"
+            ],
+            "layout": {
+              "alignment": 8,
+              "field_offsets": {
+                "fd": 48,
+                "params": 0
+              },
+              "size": 56
+            },
+            "qualification": "compiled-and-ran-host-layout-probe",
+            "source_sha256": "a200ba69c3dd04941c79d7655d0b687456a2ad189cffdd2b99735b1f9308accb",
+            "type": "nv_ioctl_nvos33_parameters_with_fd"
+          }
+        }
+      },
+      "proprietary_wrapper": {
+        "header": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc/nv-unix-nvos-params-wrappers.h",
+        "qualification": "not-available-in-wrapper-source",
+        "types": {
+          "nv_ioctl_nvos02_parameters_with_fd": {
+            "qualification": "not-compiled-source-header-absent"
+          },
+          "nv_ioctl_nvos33_parameters_with_fd": {
+            "qualification": "not-compiled-source-header-absent"
+          }
+        }
+      }
+    },
+    "kernel_interface_layer_defined": false,
+    "kernel_module_build_flags_verified": false,
+    "kernel_module_build_qualification": "not-established",
+    "language": "GNU C11 host program compiled and executed locally",
+    "layout_comparison": {
+      "NVOS00_PARAMETERS": "equal",
+      "NVOS21_PARAMETERS": "equal",
+      "NVOS54_PARAMETERS": "equal",
+      "NVOS64_PARAMETERS": "equal",
+      "NvHandle": "equal",
+      "NvP64": "equal",
+      "nv_file_private_t": "equal",
+      "nv_state_t": "equal",
+      "nvidia_stack_t": "equal"
+    },
+    "limits": [
+      "-DNVRM=1 exposes RM declarations guarded by NVRM; it does not reproduce the kernel module build environment.",
+      "NV_KERNEL_INTERFACE_LAYER and kernel conftest-generated headers are intentionally not used.",
+      "NVOS declarations for the proprietary-wrapper variant are supplied by the Open SDK nvos.h because the proprietary wrapper package does not contain nvos.h; nvtypes.h and the other wrapper headers resolve from the proprietary include directory first."
+    ],
+    "variants": {
+      "open": {
+        "include_directories": [
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include"
+        ],
+        "nvos_declaration_source": "open-sdk-header",
+        "types": {
+          "NVOS00_PARAMETERS": {
+            "compile": {
+              "argv": [
+                "/usr/bin/cc",
+                "-std=gnu11",
+                "-Wall",
+                "-Werror",
+                "-DNVRM=1",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+                "/tmp/r580-abi-layout-7stutfuc/open-NVOS00_PARAMETERS.c",
+                "-o",
+                "/tmp/r580-abi-layout-7stutfuc/open-NVOS00_PARAMETERS"
+              ],
+              "command_display": "/usr/bin/cc -std=gnu11 -Wall -Werror -DNVRM=1 -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include /tmp/r580-abi-layout-7stutfuc/open-NVOS00_PARAMETERS.c -o /tmp/r580-abi-layout-7stutfuc/open-NVOS00_PARAMETERS",
+              "diagnostic": "",
+              "exit_code": 0
+            },
+            "execution": {
+              "argv": [
+                "/tmp/r580-abi-layout-7stutfuc/open-NVOS00_PARAMETERS"
+              ],
+              "diagnostic": "",
+              "exit_code": 0,
+              "stdout": "TYPE\tNVOS00_PARAMETERS\t16\t4\tFIELD\thRoot\t0\tFIELD\thObjectParent\t4\tFIELD\thObjectOld\t8\tFIELD\tstatus\t12"
+            },
+            "field_list": [
+              "hRoot",
+              "hObjectParent",
+              "hObjectOld",
+              "status"
+            ],
+            "layout": {
+              "alignment": 4,
+              "field_offsets": {
+                "hObjectOld": 8,
+                "hObjectParent": 4,
+                "hRoot": 0,
+                "status": 12
+              },
+              "size": 16
+            },
+            "qualification": "compiled-and-ran-host-layout-probe",
+            "source_sha256": "c9d125cbc7942a89f72819bde4d987322f3e8fca09e4da4ebca3c7d1a9769a88",
+            "type": "NVOS00_PARAMETERS"
+          },
+          "NVOS21_PARAMETERS": {
+            "compile": {
+              "argv": [
+                "/usr/bin/cc",
+                "-std=gnu11",
+                "-Wall",
+                "-Werror",
+                "-DNVRM=1",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+                "/tmp/r580-abi-layout-7stutfuc/open-NVOS21_PARAMETERS.c",
+                "-o",
+                "/tmp/r580-abi-layout-7stutfuc/open-NVOS21_PARAMETERS"
+              ],
+              "command_display": "/usr/bin/cc -std=gnu11 -Wall -Werror -DNVRM=1 -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include /tmp/r580-abi-layout-7stutfuc/open-NVOS21_PARAMETERS.c -o /tmp/r580-abi-layout-7stutfuc/open-NVOS21_PARAMETERS",
+              "diagnostic": "",
+              "exit_code": 0
+            },
+            "execution": {
+              "argv": [
+                "/tmp/r580-abi-layout-7stutfuc/open-NVOS21_PARAMETERS"
+              ],
+              "diagnostic": "",
+              "exit_code": 0,
+              "stdout": "TYPE\tNVOS21_PARAMETERS\t32\t8\tFIELD\thRoot\t0\tFIELD\thObjectParent\t4\tFIELD\thObjectNew\t8\tFIELD\thClass\t12\tFIELD\tpAllocParms\t16\tFIELD\tparamsSize\t24\tFIELD\tstatus\t28"
+            },
+            "field_list": [
+              "hRoot",
+              "hObjectParent",
+              "hObjectNew",
+              "hClass",
+              "pAllocParms",
+              "paramsSize",
+              "status"
+            ],
+            "layout": {
+              "alignment": 8,
+              "field_offsets": {
+                "hClass": 12,
+                "hObjectNew": 8,
+                "hObjectParent": 4,
+                "hRoot": 0,
+                "pAllocParms": 16,
+                "paramsSize": 24,
+                "status": 28
+              },
+              "size": 32
+            },
+            "qualification": "compiled-and-ran-host-layout-probe",
+            "source_sha256": "1e6f4e881260ed8b60f2b531c5d6bb90def65217ec38581e9a04c47c96210b10",
+            "type": "NVOS21_PARAMETERS"
+          },
+          "NVOS54_PARAMETERS": {
+            "compile": {
+              "argv": [
+                "/usr/bin/cc",
+                "-std=gnu11",
+                "-Wall",
+                "-Werror",
+                "-DNVRM=1",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+                "/tmp/r580-abi-layout-7stutfuc/open-NVOS54_PARAMETERS.c",
+                "-o",
+                "/tmp/r580-abi-layout-7stutfuc/open-NVOS54_PARAMETERS"
+              ],
+              "command_display": "/usr/bin/cc -std=gnu11 -Wall -Werror -DNVRM=1 -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include /tmp/r580-abi-layout-7stutfuc/open-NVOS54_PARAMETERS.c -o /tmp/r580-abi-layout-7stutfuc/open-NVOS54_PARAMETERS",
+              "diagnostic": "",
+              "exit_code": 0
+            },
+            "execution": {
+              "argv": [
+                "/tmp/r580-abi-layout-7stutfuc/open-NVOS54_PARAMETERS"
+              ],
+              "diagnostic": "",
+              "exit_code": 0,
+              "stdout": "TYPE\tNVOS54_PARAMETERS\t32\t8\tFIELD\thClient\t0\tFIELD\thObject\t4\tFIELD\tcmd\t8\tFIELD\tflags\t12\tFIELD\tparams\t16\tFIELD\tparamsSize\t24\tFIELD\tstatus\t28"
+            },
+            "field_list": [
+              "hClient",
+              "hObject",
+              "cmd",
+              "flags",
+              "params",
+              "paramsSize",
+              "status"
+            ],
+            "layout": {
+              "alignment": 8,
+              "field_offsets": {
+                "cmd": 8,
+                "flags": 12,
+                "hClient": 0,
+                "hObject": 4,
+                "params": 16,
+                "paramsSize": 24,
+                "status": 28
+              },
+              "size": 32
+            },
+            "qualification": "compiled-and-ran-host-layout-probe",
+            "source_sha256": "1f39bd4b8205f5b4676aaaa04477369142190b7d225b8a44b32a18de4a25783b",
+            "type": "NVOS54_PARAMETERS"
+          },
+          "NVOS64_PARAMETERS": {
+            "compile": {
+              "argv": [
+                "/usr/bin/cc",
+                "-std=gnu11",
+                "-Wall",
+                "-Werror",
+                "-DNVRM=1",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+                "/tmp/r580-abi-layout-7stutfuc/open-NVOS64_PARAMETERS.c",
+                "-o",
+                "/tmp/r580-abi-layout-7stutfuc/open-NVOS64_PARAMETERS"
+              ],
+              "command_display": "/usr/bin/cc -std=gnu11 -Wall -Werror -DNVRM=1 -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include /tmp/r580-abi-layout-7stutfuc/open-NVOS64_PARAMETERS.c -o /tmp/r580-abi-layout-7stutfuc/open-NVOS64_PARAMETERS",
+              "diagnostic": "",
+              "exit_code": 0
+            },
+            "execution": {
+              "argv": [
+                "/tmp/r580-abi-layout-7stutfuc/open-NVOS64_PARAMETERS"
+              ],
+              "diagnostic": "",
+              "exit_code": 0,
+              "stdout": "TYPE\tNVOS64_PARAMETERS\t48\t8\tFIELD\thRoot\t0\tFIELD\thObjectParent\t4\tFIELD\thObjectNew\t8\tFIELD\thClass\t12\tFIELD\tpAllocParms\t16\tFIELD\tpRightsRequested\t24\tFIELD\tparamsSize\t32\tFIELD\tflags\t36\tFIELD\tstatus\t40"
+            },
+            "field_list": [
+              "hRoot",
+              "hObjectParent",
+              "hObjectNew",
+              "hClass",
+              "pAllocParms",
+              "pRightsRequested",
+              "paramsSize",
+              "flags",
+              "status"
+            ],
+            "layout": {
+              "alignment": 8,
+              "field_offsets": {
+                "flags": 36,
+                "hClass": 12,
+                "hObjectNew": 8,
+                "hObjectParent": 4,
+                "hRoot": 0,
+                "pAllocParms": 16,
+                "pRightsRequested": 24,
+                "paramsSize": 32,
+                "status": 40
+              },
+              "size": 48
+            },
+            "qualification": "compiled-and-ran-host-layout-probe",
+            "source_sha256": "bc83f8990b3c74321922e2e5cf529b20a51b4429c4a0fb5cf8ffbc9d8b53a346",
+            "type": "NVOS64_PARAMETERS"
+          },
+          "NvHandle": {
+            "compile": {
+              "argv": [
+                "/usr/bin/cc",
+                "-std=gnu11",
+                "-Wall",
+                "-Werror",
+                "-DNVRM=1",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+                "/tmp/r580-abi-layout-7stutfuc/open-NvHandle.c",
+                "-o",
+                "/tmp/r580-abi-layout-7stutfuc/open-NvHandle"
+              ],
+              "command_display": "/usr/bin/cc -std=gnu11 -Wall -Werror -DNVRM=1 -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include /tmp/r580-abi-layout-7stutfuc/open-NvHandle.c -o /tmp/r580-abi-layout-7stutfuc/open-NvHandle",
+              "diagnostic": "",
+              "exit_code": 0
+            },
+            "execution": {
+              "argv": [
+                "/tmp/r580-abi-layout-7stutfuc/open-NvHandle"
+              ],
+              "diagnostic": "",
+              "exit_code": 0,
+              "stdout": "TYPE\tNvHandle\t4\t4"
+            },
+            "field_list": [],
+            "layout": {
+              "alignment": 4,
+              "field_offsets": {},
+              "size": 4
+            },
+            "qualification": "compiled-and-ran-host-layout-probe",
+            "source_sha256": "c680d255d968d5b471256238e6967e43eca24b20ab7c2c5123f18000beae5f16",
+            "type": "NvHandle"
+          },
+          "NvP64": {
+            "compile": {
+              "argv": [
+                "/usr/bin/cc",
+                "-std=gnu11",
+                "-Wall",
+                "-Werror",
+                "-DNVRM=1",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+                "/tmp/r580-abi-layout-7stutfuc/open-NvP64.c",
+                "-o",
+                "/tmp/r580-abi-layout-7stutfuc/open-NvP64"
+              ],
+              "command_display": "/usr/bin/cc -std=gnu11 -Wall -Werror -DNVRM=1 -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include /tmp/r580-abi-layout-7stutfuc/open-NvP64.c -o /tmp/r580-abi-layout-7stutfuc/open-NvP64",
+              "diagnostic": "",
+              "exit_code": 0
+            },
+            "execution": {
+              "argv": [
+                "/tmp/r580-abi-layout-7stutfuc/open-NvP64"
+              ],
+              "diagnostic": "",
+              "exit_code": 0,
+              "stdout": "TYPE\tNvP64\t8\t8"
+            },
+            "field_list": [],
+            "layout": {
+              "alignment": 8,
+              "field_offsets": {},
+              "size": 8
+            },
+            "qualification": "compiled-and-ran-host-layout-probe",
+            "source_sha256": "d7da6d09f258b3ffbcdbd1637dc8c37b8b3210803c36f97a4f8cba11c547cbaf",
+            "type": "NvP64"
+          },
+          "nv_file_private_t": {
+            "compile": {
+              "argv": [
+                "/usr/bin/cc",
+                "-std=gnu11",
+                "-Wall",
+                "-Werror",
+                "-DNVRM=1",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+                "/tmp/r580-abi-layout-7stutfuc/open-nv_file_private_t.c",
+                "-o",
+                "/tmp/r580-abi-layout-7stutfuc/open-nv_file_private_t"
+              ],
+              "command_display": "/usr/bin/cc -std=gnu11 -Wall -Werror -DNVRM=1 -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include /tmp/r580-abi-layout-7stutfuc/open-nv_file_private_t.c -o /tmp/r580-abi-layout-7stutfuc/open-nv_file_private_t",
+              "diagnostic": "",
+              "exit_code": 0
+            },
+            "execution": {
+              "argv": [
+                "/tmp/r580-abi-layout-7stutfuc/open-nv_file_private_t"
+              ],
+              "diagnostic": "",
+              "exit_code": 0,
+              "stdout": "TYPE\tnv_file_private_t\t120\t8\tFIELD\thandles\t0\tFIELD\tmaxHandles\t8\tFIELD\tdeviceInstance\t12\tFIELD\tgpuInstanceId\t16\tFIELD\tmetadata\t20\tFIELD\tctl_nvfp\t88\tFIELD\tctl_nvfp_priv\t96\tFIELD\tregister_or_refcount\t104\tFIELD\tevent_posting_refcount\t108\tFIELD\tbCleanupRmapi\t112"
+            },
+            "field_list": [
+              "handles",
+              "maxHandles",
+              "deviceInstance",
+              "gpuInstanceId",
+              "metadata",
+              "ctl_nvfp",
+              "ctl_nvfp_priv",
+              "register_or_refcount",
+              "event_posting_refcount",
+              "bCleanupRmapi"
+            ],
+            "layout": {
+              "alignment": 8,
+              "field_offsets": {
+                "bCleanupRmapi": 112,
+                "ctl_nvfp": 88,
+                "ctl_nvfp_priv": 96,
+                "deviceInstance": 12,
+                "event_posting_refcount": 108,
+                "gpuInstanceId": 16,
+                "handles": 0,
+                "maxHandles": 8,
+                "metadata": 20,
+                "register_or_refcount": 104
+              },
+              "size": 120
+            },
+            "qualification": "compiled-and-ran-host-layout-probe",
+            "source_sha256": "b36d26f0a222d8f65ba25233da707f0860f252c215c78d61e77117a4ad196de3",
+            "type": "nv_file_private_t"
+          },
+          "nv_state_t": {
+            "compile": {
+              "argv": [
+                "/usr/bin/cc",
+                "-std=gnu11",
+                "-Wall",
+                "-Werror",
+                "-DNVRM=1",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+                "/tmp/r580-abi-layout-7stutfuc/open-nv_state_t.c",
+                "-o",
+                "/tmp/r580-abi-layout-7stutfuc/open-nv_state_t"
+              ],
+              "command_display": "/usr/bin/cc -std=gnu11 -Wall -Werror -DNVRM=1 -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include /tmp/r580-abi-layout-7stutfuc/open-nv_state_t.c -o /tmp/r580-abi-layout-7stutfuc/open-nv_state_t",
+              "diagnostic": "",
+              "exit_code": 0
+            },
+            "execution": {
+              "argv": [
+                "/tmp/r580-abi-layout-7stutfuc/open-nv_state_t"
+              ],
+              "diagnostic": "",
+              "exit_code": 0,
+              "stdout": "TYPE\tnv_state_t\t784\t8\tFIELD\tpriv\t0\tFIELD\tos_state\t8\tFIELD\tflags\t16\tFIELD\tpci_info\t20\tFIELD\tsubsystem_id\t32\tFIELD\tgpu_id\t36\tFIELD\tiovaspace_id\t40\tFIELD\tiommus\t768\tFIELD\tclient_managed_console\t780\tFIELD\tis_pm_unsupported\t781"
+            },
+            "field_list": [
+              "priv",
+              "os_state",
+              "flags",
+              "pci_info",
+              "subsystem_id",
+              "gpu_id",
+              "iovaspace_id",
+              "iommus",
+              "client_managed_console",
+              "is_pm_unsupported"
+            ],
+            "layout": {
+              "alignment": 8,
+              "field_offsets": {
+                "client_managed_console": 780,
+                "flags": 16,
+                "gpu_id": 36,
+                "iommus": 768,
+                "iovaspace_id": 40,
+                "is_pm_unsupported": 781,
+                "os_state": 8,
+                "pci_info": 20,
+                "priv": 0,
+                "subsystem_id": 32
+              },
+              "size": 784
+            },
+            "qualification": "compiled-and-ran-host-layout-probe",
+            "source_sha256": "81930bffa983eb3e223c5e3c59f34b6a3cd25197040af74858cb656445c0f0d7",
+            "type": "nv_state_t"
+          },
+          "nvidia_stack_t": {
+            "compile": {
+              "argv": [
+                "/usr/bin/cc",
+                "-std=gnu11",
+                "-Wall",
+                "-Werror",
+                "-DNVRM=1",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+                "/tmp/r580-abi-layout-7stutfuc/open-nvidia_stack_t.c",
+                "-o",
+                "/tmp/r580-abi-layout-7stutfuc/open-nvidia_stack_t"
+              ],
+              "command_display": "/usr/bin/cc -std=gnu11 -Wall -Werror -DNVRM=1 -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include /tmp/r580-abi-layout-7stutfuc/open-nvidia_stack_t.c -o /tmp/r580-abi-layout-7stutfuc/open-nvidia_stack_t",
+              "diagnostic": "",
+              "exit_code": 0
+            },
+            "execution": {
+              "argv": [
+                "/tmp/r580-abi-layout-7stutfuc/open-nvidia_stack_t"
+              ],
+              "diagnostic": "",
+              "exit_code": 0,
+              "stdout": "TYPE\tnvidia_stack_t\t12288\t16\tFIELD\tsize\t0\tFIELD\ttop\t8\tFIELD\tstack\t16"
+            },
+            "field_list": [
+              "size",
+              "top",
+              "stack"
+            ],
+            "layout": {
+              "alignment": 16,
+              "field_offsets": {
+                "size": 0,
+                "stack": 16,
+                "top": 8
+              },
+              "size": 12288
+            },
+            "qualification": "compiled-and-ran-host-layout-probe",
+            "source_sha256": "54879e008f9c40752f96464af8cbdf8434a2c6557c1921e422996828c27e5e94",
+            "type": "nvidia_stack_t"
+          }
+        }
+      },
+      "proprietary_wrapper": {
+        "include_directories": [
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+          "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include"
+        ],
+        "nvos_declaration_source": "open-sdk-header-with-proprietary-wrapper-header-search-order",
+        "types": {
+          "NVOS00_PARAMETERS": {
+            "compile": {
+              "argv": [
+                "/usr/bin/cc",
+                "-std=gnu11",
+                "-Wall",
+                "-Werror",
+                "-DNVRM=1",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NVOS00_PARAMETERS.c",
+                "-o",
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NVOS00_PARAMETERS"
+              ],
+              "command_display": "/usr/bin/cc -std=gnu11 -Wall -Werror -DNVRM=1 -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include /tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NVOS00_PARAMETERS.c -o /tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NVOS00_PARAMETERS",
+              "diagnostic": "",
+              "exit_code": 0
+            },
+            "execution": {
+              "argv": [
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NVOS00_PARAMETERS"
+              ],
+              "diagnostic": "",
+              "exit_code": 0,
+              "stdout": "TYPE\tNVOS00_PARAMETERS\t16\t4\tFIELD\thRoot\t0\tFIELD\thObjectParent\t4\tFIELD\thObjectOld\t8\tFIELD\tstatus\t12"
+            },
+            "field_list": [
+              "hRoot",
+              "hObjectParent",
+              "hObjectOld",
+              "status"
+            ],
+            "layout": {
+              "alignment": 4,
+              "field_offsets": {
+                "hObjectOld": 8,
+                "hObjectParent": 4,
+                "hRoot": 0,
+                "status": 12
+              },
+              "size": 16
+            },
+            "qualification": "compiled-and-ran-host-layout-probe",
+            "source_sha256": "c9d125cbc7942a89f72819bde4d987322f3e8fca09e4da4ebca3c7d1a9769a88",
+            "type": "NVOS00_PARAMETERS"
+          },
+          "NVOS21_PARAMETERS": {
+            "compile": {
+              "argv": [
+                "/usr/bin/cc",
+                "-std=gnu11",
+                "-Wall",
+                "-Werror",
+                "-DNVRM=1",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NVOS21_PARAMETERS.c",
+                "-o",
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NVOS21_PARAMETERS"
+              ],
+              "command_display": "/usr/bin/cc -std=gnu11 -Wall -Werror -DNVRM=1 -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include /tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NVOS21_PARAMETERS.c -o /tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NVOS21_PARAMETERS",
+              "diagnostic": "",
+              "exit_code": 0
+            },
+            "execution": {
+              "argv": [
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NVOS21_PARAMETERS"
+              ],
+              "diagnostic": "",
+              "exit_code": 0,
+              "stdout": "TYPE\tNVOS21_PARAMETERS\t32\t8\tFIELD\thRoot\t0\tFIELD\thObjectParent\t4\tFIELD\thObjectNew\t8\tFIELD\thClass\t12\tFIELD\tpAllocParms\t16\tFIELD\tparamsSize\t24\tFIELD\tstatus\t28"
+            },
+            "field_list": [
+              "hRoot",
+              "hObjectParent",
+              "hObjectNew",
+              "hClass",
+              "pAllocParms",
+              "paramsSize",
+              "status"
+            ],
+            "layout": {
+              "alignment": 8,
+              "field_offsets": {
+                "hClass": 12,
+                "hObjectNew": 8,
+                "hObjectParent": 4,
+                "hRoot": 0,
+                "pAllocParms": 16,
+                "paramsSize": 24,
+                "status": 28
+              },
+              "size": 32
+            },
+            "qualification": "compiled-and-ran-host-layout-probe",
+            "source_sha256": "1e6f4e881260ed8b60f2b531c5d6bb90def65217ec38581e9a04c47c96210b10",
+            "type": "NVOS21_PARAMETERS"
+          },
+          "NVOS54_PARAMETERS": {
+            "compile": {
+              "argv": [
+                "/usr/bin/cc",
+                "-std=gnu11",
+                "-Wall",
+                "-Werror",
+                "-DNVRM=1",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NVOS54_PARAMETERS.c",
+                "-o",
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NVOS54_PARAMETERS"
+              ],
+              "command_display": "/usr/bin/cc -std=gnu11 -Wall -Werror -DNVRM=1 -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include /tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NVOS54_PARAMETERS.c -o /tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NVOS54_PARAMETERS",
+              "diagnostic": "",
+              "exit_code": 0
+            },
+            "execution": {
+              "argv": [
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NVOS54_PARAMETERS"
+              ],
+              "diagnostic": "",
+              "exit_code": 0,
+              "stdout": "TYPE\tNVOS54_PARAMETERS\t32\t8\tFIELD\thClient\t0\tFIELD\thObject\t4\tFIELD\tcmd\t8\tFIELD\tflags\t12\tFIELD\tparams\t16\tFIELD\tparamsSize\t24\tFIELD\tstatus\t28"
+            },
+            "field_list": [
+              "hClient",
+              "hObject",
+              "cmd",
+              "flags",
+              "params",
+              "paramsSize",
+              "status"
+            ],
+            "layout": {
+              "alignment": 8,
+              "field_offsets": {
+                "cmd": 8,
+                "flags": 12,
+                "hClient": 0,
+                "hObject": 4,
+                "params": 16,
+                "paramsSize": 24,
+                "status": 28
+              },
+              "size": 32
+            },
+            "qualification": "compiled-and-ran-host-layout-probe",
+            "source_sha256": "1f39bd4b8205f5b4676aaaa04477369142190b7d225b8a44b32a18de4a25783b",
+            "type": "NVOS54_PARAMETERS"
+          },
+          "NVOS64_PARAMETERS": {
+            "compile": {
+              "argv": [
+                "/usr/bin/cc",
+                "-std=gnu11",
+                "-Wall",
+                "-Werror",
+                "-DNVRM=1",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NVOS64_PARAMETERS.c",
+                "-o",
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NVOS64_PARAMETERS"
+              ],
+              "command_display": "/usr/bin/cc -std=gnu11 -Wall -Werror -DNVRM=1 -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include /tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NVOS64_PARAMETERS.c -o /tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NVOS64_PARAMETERS",
+              "diagnostic": "",
+              "exit_code": 0
+            },
+            "execution": {
+              "argv": [
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NVOS64_PARAMETERS"
+              ],
+              "diagnostic": "",
+              "exit_code": 0,
+              "stdout": "TYPE\tNVOS64_PARAMETERS\t48\t8\tFIELD\thRoot\t0\tFIELD\thObjectParent\t4\tFIELD\thObjectNew\t8\tFIELD\thClass\t12\tFIELD\tpAllocParms\t16\tFIELD\tpRightsRequested\t24\tFIELD\tparamsSize\t32\tFIELD\tflags\t36\tFIELD\tstatus\t40"
+            },
+            "field_list": [
+              "hRoot",
+              "hObjectParent",
+              "hObjectNew",
+              "hClass",
+              "pAllocParms",
+              "pRightsRequested",
+              "paramsSize",
+              "flags",
+              "status"
+            ],
+            "layout": {
+              "alignment": 8,
+              "field_offsets": {
+                "flags": 36,
+                "hClass": 12,
+                "hObjectNew": 8,
+                "hObjectParent": 4,
+                "hRoot": 0,
+                "pAllocParms": 16,
+                "pRightsRequested": 24,
+                "paramsSize": 32,
+                "status": 40
+              },
+              "size": 48
+            },
+            "qualification": "compiled-and-ran-host-layout-probe",
+            "source_sha256": "bc83f8990b3c74321922e2e5cf529b20a51b4429c4a0fb5cf8ffbc9d8b53a346",
+            "type": "NVOS64_PARAMETERS"
+          },
+          "NvHandle": {
+            "compile": {
+              "argv": [
+                "/usr/bin/cc",
+                "-std=gnu11",
+                "-Wall",
+                "-Werror",
+                "-DNVRM=1",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NvHandle.c",
+                "-o",
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NvHandle"
+              ],
+              "command_display": "/usr/bin/cc -std=gnu11 -Wall -Werror -DNVRM=1 -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include /tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NvHandle.c -o /tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NvHandle",
+              "diagnostic": "",
+              "exit_code": 0
+            },
+            "execution": {
+              "argv": [
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NvHandle"
+              ],
+              "diagnostic": "",
+              "exit_code": 0,
+              "stdout": "TYPE\tNvHandle\t4\t4"
+            },
+            "field_list": [],
+            "layout": {
+              "alignment": 4,
+              "field_offsets": {},
+              "size": 4
+            },
+            "qualification": "compiled-and-ran-host-layout-probe",
+            "source_sha256": "c680d255d968d5b471256238e6967e43eca24b20ab7c2c5123f18000beae5f16",
+            "type": "NvHandle"
+          },
+          "NvP64": {
+            "compile": {
+              "argv": [
+                "/usr/bin/cc",
+                "-std=gnu11",
+                "-Wall",
+                "-Werror",
+                "-DNVRM=1",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NvP64.c",
+                "-o",
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NvP64"
+              ],
+              "command_display": "/usr/bin/cc -std=gnu11 -Wall -Werror -DNVRM=1 -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include /tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NvP64.c -o /tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NvP64",
+              "diagnostic": "",
+              "exit_code": 0
+            },
+            "execution": {
+              "argv": [
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-NvP64"
+              ],
+              "diagnostic": "",
+              "exit_code": 0,
+              "stdout": "TYPE\tNvP64\t8\t8"
+            },
+            "field_list": [],
+            "layout": {
+              "alignment": 8,
+              "field_offsets": {},
+              "size": 8
+            },
+            "qualification": "compiled-and-ran-host-layout-probe",
+            "source_sha256": "d7da6d09f258b3ffbcdbd1637dc8c37b8b3210803c36f97a4f8cba11c547cbaf",
+            "type": "NvP64"
+          },
+          "nv_file_private_t": {
+            "compile": {
+              "argv": [
+                "/usr/bin/cc",
+                "-std=gnu11",
+                "-Wall",
+                "-Werror",
+                "-DNVRM=1",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-nv_file_private_t.c",
+                "-o",
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-nv_file_private_t"
+              ],
+              "command_display": "/usr/bin/cc -std=gnu11 -Wall -Werror -DNVRM=1 -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include /tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-nv_file_private_t.c -o /tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-nv_file_private_t",
+              "diagnostic": "",
+              "exit_code": 0
+            },
+            "execution": {
+              "argv": [
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-nv_file_private_t"
+              ],
+              "diagnostic": "",
+              "exit_code": 0,
+              "stdout": "TYPE\tnv_file_private_t\t120\t8\tFIELD\thandles\t0\tFIELD\tmaxHandles\t8\tFIELD\tdeviceInstance\t12\tFIELD\tgpuInstanceId\t16\tFIELD\tmetadata\t20\tFIELD\tctl_nvfp\t88\tFIELD\tctl_nvfp_priv\t96\tFIELD\tregister_or_refcount\t104\tFIELD\tevent_posting_refcount\t108\tFIELD\tbCleanupRmapi\t112"
+            },
+            "field_list": [
+              "handles",
+              "maxHandles",
+              "deviceInstance",
+              "gpuInstanceId",
+              "metadata",
+              "ctl_nvfp",
+              "ctl_nvfp_priv",
+              "register_or_refcount",
+              "event_posting_refcount",
+              "bCleanupRmapi"
+            ],
+            "layout": {
+              "alignment": 8,
+              "field_offsets": {
+                "bCleanupRmapi": 112,
+                "ctl_nvfp": 88,
+                "ctl_nvfp_priv": 96,
+                "deviceInstance": 12,
+                "event_posting_refcount": 108,
+                "gpuInstanceId": 16,
+                "handles": 0,
+                "maxHandles": 8,
+                "metadata": 20,
+                "register_or_refcount": 104
+              },
+              "size": 120
+            },
+            "qualification": "compiled-and-ran-host-layout-probe",
+            "source_sha256": "b36d26f0a222d8f65ba25233da707f0860f252c215c78d61e77117a4ad196de3",
+            "type": "nv_file_private_t"
+          },
+          "nv_state_t": {
+            "compile": {
+              "argv": [
+                "/usr/bin/cc",
+                "-std=gnu11",
+                "-Wall",
+                "-Werror",
+                "-DNVRM=1",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-nv_state_t.c",
+                "-o",
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-nv_state_t"
+              ],
+              "command_display": "/usr/bin/cc -std=gnu11 -Wall -Werror -DNVRM=1 -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include /tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-nv_state_t.c -o /tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-nv_state_t",
+              "diagnostic": "",
+              "exit_code": 0
+            },
+            "execution": {
+              "argv": [
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-nv_state_t"
+              ],
+              "diagnostic": "",
+              "exit_code": 0,
+              "stdout": "TYPE\tnv_state_t\t784\t8\tFIELD\tpriv\t0\tFIELD\tos_state\t8\tFIELD\tflags\t16\tFIELD\tpci_info\t20\tFIELD\tsubsystem_id\t32\tFIELD\tgpu_id\t36\tFIELD\tiovaspace_id\t40\tFIELD\tiommus\t768\tFIELD\tclient_managed_console\t780\tFIELD\tis_pm_unsupported\t781"
+            },
+            "field_list": [
+              "priv",
+              "os_state",
+              "flags",
+              "pci_info",
+              "subsystem_id",
+              "gpu_id",
+              "iovaspace_id",
+              "iommus",
+              "client_managed_console",
+              "is_pm_unsupported"
+            ],
+            "layout": {
+              "alignment": 8,
+              "field_offsets": {
+                "client_managed_console": 780,
+                "flags": 16,
+                "gpu_id": 36,
+                "iommus": 768,
+                "iovaspace_id": 40,
+                "is_pm_unsupported": 781,
+                "os_state": 8,
+                "pci_info": 20,
+                "priv": 0,
+                "subsystem_id": 32
+              },
+              "size": 784
+            },
+            "qualification": "compiled-and-ran-host-layout-probe",
+            "source_sha256": "81930bffa983eb3e223c5e3c59f34b6a3cd25197040af74858cb656445c0f0d7",
+            "type": "nv_state_t"
+          },
+          "nvidia_stack_t": {
+            "compile": {
+              "argv": [
+                "/usr/bin/cc",
+                "-std=gnu11",
+                "-Wall",
+                "-Werror",
+                "-DNVRM=1",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref",
+                "-I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include",
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-nvidia_stack_t.c",
+                "-o",
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-nvidia_stack_t"
+              ],
+              "command_display": "/usr/bin/cc -std=gnu11 -Wall -Werror -DNVRM=1 -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/inc/swref -I/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include /tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-nvidia_stack_t.c -o /tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-nvidia_stack_t",
+              "diagnostic": "",
+              "exit_code": 0
+            },
+            "execution": {
+              "argv": [
+                "/tmp/r580-abi-layout-7stutfuc/proprietary_wrapper-nvidia_stack_t"
+              ],
+              "diagnostic": "",
+              "exit_code": 0,
+              "stdout": "TYPE\tnvidia_stack_t\t12288\t16\tFIELD\tsize\t0\tFIELD\ttop\t8\tFIELD\tstack\t16"
+            },
+            "field_list": [
+              "size",
+              "top",
+              "stack"
+            ],
+            "layout": {
+              "alignment": 16,
+              "field_offsets": {
+                "size": 0,
+                "stack": 16,
+                "top": 8
+              },
+              "size": 12288
+            },
+            "qualification": "compiled-and-ran-host-layout-probe",
+            "source_sha256": "54879e008f9c40752f96464af8cbdf8434a2c6557c1921e422996828c27e5e94",
+            "type": "nvidia_stack_t"
+          }
+        }
+      }
+    }
+  },
+  "compiler": {
+    "argv": [
+      "/usr/bin/cc",
+      "--version"
+    ],
+    "exit_code": 0,
+    "output": "cc (Ubuntu 15.2.0-16ubuntu1) 15.2.0\nCopyright (C) 2025 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+    "resolved_path": "/usr/bin/cc"
+  },
+  "inputs": {
+    "binary_rm": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nv-kernel.o_binary",
+    "open_source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04",
+    "open_source_version": {
+      "exists": true,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/version.mk",
+      "sha256": "cbc6488ed2c35ea814120bc80749dd2d11f486c3e98046b3be240d462ee86e7c",
+      "version": "580.178.04"
+    },
+    "proprietary_wrapper_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04",
+    "proprietary_wrapper_version_from_path": "580.178.04"
+  },
+  "observed_at_utc": "2026-10-19T00:41:10.835255+00:00",
+  "probe_tool": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/probe_r580_abi_layout.py",
+    "sha256": "48dfc29d0ae83d70c868053d9e3ac32bec6ef0ff55a76ec9b80ab007d50eba34"
+  },
+  "safety": {
+    "gpu_accessed": false,
+    "inputs_modified": false,
+    "installation_attempted": false,
+    "kernel_module_loaded": false
+  },
+  "schema": "nvidia-r580-abi-layout-v1",
+  "scope": "host-compiled-declaration-layout-only; no module load or GPU access",
+  "source_text": {
+    "header_comparisons": {
+      "kernel_interface_api_h": {
+        "exact_equal": true,
+        "open": {
+          "bytes": 1810,
+          "exists": true,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nv-kernel-interface-api.h",
+          "sha256": "1cf34c1dcd1abf535fb27387145374972a43ec9cd6f6c9ef927777431bda3cc4"
+        },
+        "proprietary_wrapper": {
+          "bytes": 1810,
+          "exists": true,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc/nv-kernel-interface-api.h",
+          "sha256": "1cf34c1dcd1abf535fb27387145374972a43ec9cd6f6c9ef927777431bda3cc4"
+        }
+      },
+      "kernel_nvstatus_h": {
+        "exact_equal": true,
+        "open": {
+          "bytes": 4565,
+          "exists": true,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nvstatus.h",
+          "sha256": "e8267172a1f7a56420d612c6734b3554b9ff6a3d33fdda21b1371ff4ce4b8675"
+        },
+        "proprietary_wrapper": {
+          "bytes": 4565,
+          "exists": true,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc/nvstatus.h",
+          "sha256": "e8267172a1f7a56420d612c6734b3554b9ff6a3d33fdda21b1371ff4ce4b8675"
+        }
+      },
+      "kernel_nvtypes_h": {
+        "exact_equal": true,
+        "open": {
+          "bytes": 26572,
+          "exists": true,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nvtypes.h",
+          "sha256": "e3901c0991b3a3dc77fffc2269fee84661bdda8a5bc43c0fe70a620af05edd5b"
+        },
+        "proprietary_wrapper": {
+          "bytes": 26572,
+          "exists": true,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc/nvtypes.h",
+          "sha256": "e3901c0991b3a3dc77fffc2269fee84661bdda8a5bc43c0fe70a620af05edd5b"
+        }
+      },
+      "nv_ioctl_h": {
+        "exact_equal": true,
+        "open": {
+          "bytes": 4790,
+          "exists": true,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nv-ioctl.h",
+          "sha256": "65778345a796fce81827bbc63bd26fe80c60dbe970007009ae902f0a7f6e730f"
+        },
+        "proprietary_wrapper": {
+          "bytes": 4790,
+          "exists": true,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc/nv-ioctl.h",
+          "sha256": "65778345a796fce81827bbc63bd26fe80c60dbe970007009ae902f0a7f6e730f"
+        }
+      },
+      "nv_linux_h": {
+        "diff_summary": {
+          "added_line_count": 6,
+          "changed_line_excerpt": [
+            "+    return nv_sme_clr(prot);",
+            "+#if !NV_IS_EXPORT_SYMBOL_GPL_mutex_destroy",
+            "+#endif",
+            "+#define NV_EXPORT_SYMBOL(symbol)        EXPORT_SYMBOL(symbol)",
+            "+#define NV_CHECK_EXPORT_SYMBOL(symbol)  (NV_IS_EXPORT_SYMBOL_PRESENT_##symbol && \\",
+            "+                                         !NV_IS_EXPORT_SYMBOL_GPL_##symbol)",
+            "-    return pgprot_decrypted(prot);",
+            "-",
+            "-#if defined(NVCPU_X86_64) && \\",
+            "-    NV_IS_EXPORT_SYMBOL_GPL_set_memory_encrypted && \\",
+            "-    NV_IS_EXPORT_SYMBOL_GPL_set_memory_decrypted",
+            "-#undef NV_HAVE_MEMORY_ENCRYPT_DECRYPT"
+          ],
+          "removed_line_count": 32
+        },
+        "exact_equal": false,
+        "open": {
+          "bytes": 61378,
+          "exists": true,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nv-linux.h",
+          "sha256": "f42689de8a2608926ec792325d8f383b9e87c567be0e640860156b68456fd253"
+        },
+        "proprietary_wrapper": {
+          "bytes": 60555,
+          "exists": true,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc/nv-linux.h",
+          "sha256": "16b7612d2a0f70708b1400e569a1b5d4b726c0218657d13de34e10c710f9169c"
+        }
+      },
+      "rm_nv_h": {
+        "exact_equal": true,
+        "open": {
+          "bytes": 55753,
+          "exists": true,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nv.h",
+          "sha256": "bc5802ef5a0e47be045cac9b74e61a0092f0bb96fc1ede05e2361d164e3b7787"
+        },
+        "proprietary_wrapper": {
+          "bytes": 55753,
+          "exists": true,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc/nv.h",
+          "sha256": "bc5802ef5a0e47be045cac9b74e61a0092f0bb96fc1ede05e2361d164e3b7787"
+        }
+      },
+      "sdk_nvtypes_vs_wrapper_nvtypes_h": {
+        "diff_summary": {
+          "added_line_count": 35,
+          "changed_line_excerpt": [
+            "+#if defined(NV_WINDOWS) && (!defined(_MSC_VER) || (_MSC_VER > 1600))",
+            "+#include <stddef.h>",
+            "+#define NV_HAS_WCHAR_T_TYPEDEF 1",
+            "+#endif",
+            "+#elif defined(_MSC_VER)",
+            "+#define NV_DECLARE_ALIGNED(TYPE_VAR, ALIGN) __declspec(align(ALIGN)) TYPE_VAR",
+            "+",
+            "+#if defined(_MSC_VER)",
+            "+",
+            "+    #if _MSC_VER >= 1310",
+            "+    #define NV_NOINLINE __declspec(noinline)",
+            "+    #else"
+          ],
+          "removed_line_count": 0
+        },
+        "exact_equal": false,
+        "open": {
+          "bytes": 25775,
+          "exists": true,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/nvtypes.h",
+          "sha256": "57bf6ee0fc9f604e7d6f224a3b861521526bb0b115e99a33e5704d881daca708"
+        },
+        "proprietary_wrapper": {
+          "bytes": 26572,
+          "exists": true,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc/nvtypes.h",
+          "sha256": "e3901c0991b3a3dc77fffc2269fee84661bdda8a5bc43c0fe70a620af05edd5b"
+        }
+      },
+      "unix_nv_h": {
+        "diff_summary": {
+          "added_line_count": 4,
+          "changed_line_excerpt": [
+            "+#if defined(NV_VMWARE)",
+            "+const void* NV_API_CALL rm_get_firmware(nv_firmware_type_t fw_type, const void **fw_buf, NvU32 *fw_size);",
+            "+#endif",
+            "+"
+          ],
+          "removed_line_count": 0
+        },
+        "exact_equal": false,
+        "open": {
+          "bytes": 55616,
+          "exists": true,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include/nv.h",
+          "sha256": "cd3631cac31133639babd711d5101b8ed1d3d953adb5df0b21f888fd0f3eb799"
+        },
+        "proprietary_wrapper": {
+          "bytes": 55753,
+          "exists": true,
+          "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc/nv.h",
+          "sha256": "bc5802ef5a0e47be045cac9b74e61a0092f0bb96fc1ede05e2361d164e3b7787"
+        }
+      }
+    },
+    "nv_ioctl_nvos_wrappers": {
+      "interpretation": "The nv_ioctl_nvos* names located here are wrapper structure types in the Open Unix layer, not demonstrated RM function exports. The proprietary wrapper package does not contain that header.",
+      "open_escape_references": [
+        {
+          "line": 322,
+          "text": "nv_ioctl_nvos02_parameters_with_fd *pApi;"
+        },
+        {
+          "line": 515,
+          "text": "nv_ioctl_nvos33_parameters_with_fd *pApi;"
+        }
+      ],
+      "open_header": {
+        "bytes": 1700,
+        "exists": true,
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/arch/nvalloc/unix/include/nv-unix-nvos-params-wrappers.h",
+        "sha256": "d3ff263781baae28ade28d5fd7a9f69d2019e8f4ca7bfb5675fa280be77792e5"
+      },
+      "open_type_definitions": [
+        {
+          "line": 37,
+          "text": "} nv_ioctl_nvos02_parameters_with_fd;"
+        },
+        {
+          "line": 46,
+          "text": "} nv_ioctl_nvos33_parameters_with_fd;"
+        }
+      ],
+      "proprietary_source_references": [],
+      "proprietary_wrapper_header": {
+        "exists": false,
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc/nv-unix-nvos-params-wrappers.h"
+      },
+      "proprietary_wrapper_matches": []
+    },
+    "nvos_header": {
+      "open": {
+        "bytes": 158869,
+        "exists": true,
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/common/sdk/nvidia/inc/nvos.h",
+        "sha256": "07f9f453afbf080750663abc9e04e2d3b55500887303ba03bd6855916d2405bd"
+      },
+      "open_exists": true,
+      "proprietary_wrapper": {
+        "exists": false,
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc/nvos.h"
+      },
+      "proprietary_wrapper_exists": false,
+      "proprietary_wrapper_matches": []
+    },
+    "rm_private_declaration_guard": {
+      "macro": "NVRM",
+      "open_guard_line": 258,
+      "open_nv_h": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nv.h",
+      "proprietary_guard_line": 258,
+      "proprietary_nv_h": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/common/inc/nv.h",
+      "types_inside_guard": [
+        "nvidia_stack_t",
+        "nv_state_t",
+        "nv_file_private_t"
+      ]
+    }
+  }
+}

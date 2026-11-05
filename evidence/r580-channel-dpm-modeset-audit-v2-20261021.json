@@ -1,0 +1,138 @@
+{
+  "bundles": [
+    {
+      "interpretation": [
+        "The aggregate channels-only phase skips global NVKMS suspend/resume and its failed-suspend rollback; PCI DPM owns balanced per-GPU callbacks.",
+        "The callback setter is one slot per provider-core instance; the source does not define a cross-provider owner.",
+        "A modeset callback is void, so its failure cannot be aggregated by the provider PM state machine.",
+        "The modeset module reserves one fixed device number; loading independent copies requires resolving that collision.",
+        "The PCI DPM deferral contract is verified statically only; callback ordering, error paths, and runtime lock pairing have not run on a kernel."
+      ],
+      "label": "open-r580-580.178.04-channel-dpm-v5",
+      "modeset_interface": {
+        "callback_slot_rejects_second_registration": true,
+        "fixed_chrdev_major": 195,
+        "fixed_chrdev_minor": 254,
+        "fixed_chrdev_reservation": true,
+        "global_write_lock_uses_down_write_up_write": true,
+        "gpu_zero_pairs_global_write_lock_and_unlock": true,
+        "source_lines": {
+          "callback_setter": 46,
+          "nvkms_resume": 805,
+          "nvkms_suspend": 792,
+          "register_chrdev": 2033,
+          "resume_dispatch": 66,
+          "suspend_dispatch": 58,
+          "write_lock": 561,
+          "write_unlock": 566
+        },
+        "suspend_resume_callbacks_return_no_status": true
+      },
+      "provider_pm": {
+        "channel_depth_rollback_skips_aggregate_modeset_resume": true,
+        "channel_depth_skips_aggregate_modeset_resume": true,
+        "channel_depth_skips_aggregate_modeset_suspend": true,
+        "modeset_suspend_precedes_channel_preemption": true,
+        "pci_dpm_keeps_per_gpu_modeset_resume": true,
+        "pci_dpm_keeps_per_gpu_modeset_suspend": true,
+        "source_lines": {
+          "pci_resume": 6825,
+          "pci_suspend": 6725,
+          "resume": 6905,
+          "suspend": 6970
+        }
+      },
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "common/inc/nv-chardev-numbers.h": {
+          "bytes": 1804,
+          "sha256": "405047bb836229f55f39955d2565e2aad2e470bd796bdf6b6f7a8795fe12ea64"
+        },
+        "nvidia-modeset/nvidia-modeset-linux.c": {
+          "bytes": 57822,
+          "sha256": "ce61c6d5810e6ef3b4b230dc5b75c13cd67c6c0a79dda6e205998f823ba5635e"
+        },
+        "nvidia/nv-modeset-interface.c": {
+          "bytes": 5019,
+          "sha256": "207017bb34673b098f41bcda0eededca6ac850de18b59e9779c2eedb857a6785"
+        },
+        "nvidia/nv.c": {
+          "bytes": 232595,
+          "sha256": "978cc71f9da4697ac2f9696053372e19fbbfbdb4bd85c405a22191d462bf3548"
+        }
+      },
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-pm-channel-dpm-v5-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open"
+    },
+    {
+      "interpretation": [
+        "The aggregate channels-only phase skips global NVKMS suspend/resume and its failed-suspend rollback; PCI DPM owns balanced per-GPU callbacks.",
+        "The callback setter is one slot per provider-core instance; the source does not define a cross-provider owner.",
+        "A modeset callback is void, so its failure cannot be aggregated by the provider PM state machine.",
+        "The modeset module reserves one fixed device number; loading independent copies requires resolving that collision.",
+        "The PCI DPM deferral contract is verified statically only; callback ordering, error paths, and runtime lock pairing have not run on a kernel."
+      ],
+      "label": "proprietary-r580-580.178.04-channel-dpm-v8",
+      "modeset_interface": {
+        "callback_slot_rejects_second_registration": true,
+        "fixed_chrdev_major": 195,
+        "fixed_chrdev_minor": 254,
+        "fixed_chrdev_reservation": true,
+        "global_write_lock_uses_down_write_up_write": true,
+        "gpu_zero_pairs_global_write_lock_and_unlock": true,
+        "source_lines": {
+          "callback_setter": 46,
+          "nvkms_resume": 805,
+          "nvkms_suspend": 792,
+          "register_chrdev": 2033,
+          "resume_dispatch": 66,
+          "suspend_dispatch": 58,
+          "write_lock": 561,
+          "write_unlock": 566
+        },
+        "suspend_resume_callbacks_return_no_status": true
+      },
+      "provider_pm": {
+        "channel_depth_rollback_skips_aggregate_modeset_resume": true,
+        "channel_depth_skips_aggregate_modeset_resume": true,
+        "channel_depth_skips_aggregate_modeset_suspend": true,
+        "modeset_suspend_precedes_channel_preemption": true,
+        "pci_dpm_keeps_per_gpu_modeset_resume": true,
+        "pci_dpm_keeps_per_gpu_modeset_suspend": true,
+        "source_lines": {
+          "pci_resume": 7005,
+          "pci_suspend": 6928,
+          "resume": 7055,
+          "suspend": 7120
+        }
+      },
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "common/inc/nv-chardev-numbers.h": {
+          "bytes": 1804,
+          "sha256": "405047bb836229f55f39955d2565e2aad2e470bd796bdf6b6f7a8795fe12ea64"
+        },
+        "nvidia-modeset/nvidia-modeset-linux.c": {
+          "bytes": 57816,
+          "sha256": "2b515eedc602fed4f98a6a55f9f28b44bcf6056e49b2428aa4feae0f1b0b0d49"
+        },
+        "nvidia/nv-modeset-interface.c": {
+          "bytes": 5019,
+          "sha256": "207017bb34673b098f41bcda0eededca6ac850de18b59e9779c2eedb857a6785"
+        },
+        "nvidia/nv.c": {
+          "bytes": 231543,
+          "sha256": "d2c48be38a6b6e465d340be91ade0e1f11dfb4f8c3420c278592a371bd458622"
+        }
+      },
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-proprietary-pm-channel-dpm-v8-20261021/nvidia-580.178.04"
+    }
+  ],
+  "generated_utc": "2026-10-21T22:18:36Z",
+  "limitations": [
+    "No module was loaded and no PM transition was executed.",
+    "The report does not prove whether the two private cores would bind one modeset instance or two.",
+    "The opaque RM modeset operations and display behavior are not inspected."
+  ],
+  "qualification": "static-source-contract-only",
+  "schema": "r580-modeset-pm-audit-v1"
+}

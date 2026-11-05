@@ -1,0 +1,41 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "tests.test_hybrid_frontend",
+    "tests.test_hybrid580_uvm_typed_child_route",
+    "tests.test_hybrid580_uvm_dup_memory_route",
+    "tests.test_gt200_debugger_alloc_contract",
+    "tests.test_audit_gt200_debugger_alloc_static",
+    "tests.test_r595_provider_id_validation",
+    "-v"
+  ],
+  "environment": {
+    "PYTHONPATH": "tests:."
+  },
+  "exit_code": 0,
+  "log": {
+    "bytes": 5921,
+    "mode": "0600",
+    "path": "evidence/logs/provider-routing-focused-v1-20261101T053754Z.log",
+    "sha256": "defb876a6923ca2b6f37bc326a362c0c7df919c7c1ed6245bdcf346290b8fc05"
+  },
+  "observed_at_utc": "2026-11-01T05:37:55.775951+00:00",
+  "qualification": "focused-cpu-contract-tests",
+  "schema": "hybrid-provider-routing-focused-tests-v1",
+  "scope": {
+    "coverage": [
+      "frontend fail-closed GT200_DEBUGGER handling",
+      "typed UVM child ownership and no cross-provider fallback",
+      "duplicate-memory provider routing and failed-free retry",
+      "pinned debugger class/ancestry audit",
+      "provider ID validation before GPU publication"
+    ],
+    "driver_module_loaded": false,
+    "hardware_tested": false
+  },
+  "test_count": 31,
+  "test_duration_seconds": 1.444
+}

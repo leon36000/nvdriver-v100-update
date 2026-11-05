@@ -1,0 +1,36 @@
+{
+  "schema": "nvidia-hybrid-direct-rm-link-probe-v1",
+  "observed_at_utc": "2026-10-19T00:04:05.724780+00:00",
+  "scope": "relocatable-link-experiment-only",
+  "command": [
+    "ld",
+    "-r",
+    "-o",
+    "build/experiments/direct-rm-link-v1/combined-rm.o",
+    ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nv-kernel.o_binary",
+    ".cache/upstream/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5/src/nvidia/_out/Linux_x86_64/nv-kernel.o"
+  ],
+  "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+  "input_sha256": {
+    ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nv-kernel.o_binary": "5269a23ffba19a17fe16f076463e7ad4151254659441d1711bee6c6221ff6f4b",
+    ".cache/upstream/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5/src/nvidia/_out/Linux_x86_64/nv-kernel.o": "3d590ac9a8530be2d4be4c8702ebc11ef8e913754e2827a423df662acc967f68"
+  },
+  "inputs_unchanged": true,
+  "exit_code": 1,
+  "duration_seconds": 0.218,
+  "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/r580-proprietary-r595-open-direct-link-20261018.log",
+  "log_sha256": "09ab80314cdf8139471fcce6c2203d1b573220713c131c2d444b593daf06c357",
+  "duplicate_definition_diagnostic_count": 210,
+  "duplicate_definition_samples": [
+    "(.text+0x126c40): multiple definition of `rm_p2p_get_gpu_info'; .cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nv-kernel.o_binary:(.text+0xd68ec0): first defined here",
+    "(.text+0x130700): multiple definition of `rm_gpu_ops_ccsl_rotate_key'; .cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nv-kernel.o_binary:(.text+0xd79440): first defined here",
+    "(.text+0x11b5c0): multiple definition of `nv_vgpu_get_bar_info'; .cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nv-kernel.o_binary:(.text+0xd77450): first defined here",
+    "(.text+0x130490): multiple definition of `rm_gpu_ops_toggle_prefetch_faults'; .cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nv-kernel.o_binary:(.text+0xd78aa0): first defined here",
+    "(.text+0x1301c0): multiple definition of `rm_gpu_ops_get_pma_object'; .cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nv-kernel.o_binary:(.text+0xd77f60): first defined here"
+  ],
+  "output_exists": false,
+  "qualification": "failed-direct-link",
+  "kernel_exports_or_abi_validated": false,
+  "loaded_or_installed": false,
+  "proprietary_code_relicensed_or_redistributed": false
+}

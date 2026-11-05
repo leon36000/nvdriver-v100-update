@@ -1,0 +1,149 @@
+{
+  "change": {
+    "coordinator_behavior": "on drain failure, restore attempted provider channels in reverse order; shared UVM suspend is not called; the post notifier retires recovery records and reopens frontend admission",
+    "frontend_callback": "validate backend id then return -EOPNOTSUPP until an audited provider lifetime/barrier protocol exists",
+    "full_software_suite": {
+      "duration_seconds": 33.292,
+      "failures": 0,
+      "log": "evidence/logs/software-verification-r580-irq-lifetime-guard-v1-20261022.log",
+      "log_sha256": "7b93a7ce9f5d897930762a547d9e31e2f57b2bd1c9f9507deabe203d440bc6dd",
+      "skipped": 0,
+      "tests": 675
+    },
+    "kernel_build": {
+      "gpu_accessed": false,
+      "kernel": "7.0.0-38-generic",
+      "loaded_or_installed": false,
+      "module_sha256": "fe24386e8898653758d06f4fb8e95aeb7e9b359cdeb3c208bc0c11cccd188e86",
+      "objtool_warnings": 0,
+      "real_rm_executed": false,
+      "report": "evidence/frontend-pm-irq-lifetime-guard-v1-20261022.json",
+      "report_sha256": "b377839428402626f91bbbca4fdf7f071faec5672a3bcbff76f67e9ecb9dda3e",
+      "unresolved_imports": 0
+    },
+    "tests": {
+      "coverage": "fail-closed suspend plus hibernation/freeze/restore event matrix and begin failure",
+      "frontend_unittests": 14,
+      "result": "passed"
+    }
+  },
+  "decision": "Keep the runtime frontend fail-closed. Audit reuse of nv_system_pm_lock and a dedicated lifecycle gate; include PCI removal, deferred work, partial MSI-X registration, UVM work, failure rollback, and lock ordering before implementing any live drain.",
+  "input_sha256": {
+    "frontend": {
+      "path": "src/hybrid_frontend.c",
+      "sha256": "797605e1861173e6746186848da14927c06d9b1dd07be207c4366c8d38c856e9"
+    },
+    "frontend_build_report": {
+      "path": "evidence/frontend-pm-irq-lifetime-guard-v1-20261022.json",
+      "sha256": "b377839428402626f91bbbca4fdf7f071faec5672a3bcbff76f67e9ecb9dda3e"
+    },
+    "frontend_module": {
+      "path": "build/experiments/frontend-pm-irq-lifetime-guard-v1-20261022/hybrid580_frontend.ko",
+      "sha256": "fe24386e8898653758d06f4fb8e95aeb7e9b359cdeb3c208bc0c11cccd188e86"
+    },
+    "frontend_tests": {
+      "path": "tests/test_hybrid_frontend.py",
+      "sha256": "d3fb2d473fc7ea51c3bf603a44d063e093801290e893b52045a2ae6a6eff0bf7"
+    },
+    "full_suite_log": {
+      "path": "evidence/logs/software-verification-r580-irq-lifetime-guard-v1-20261022.log",
+      "sha256": "7b93a7ce9f5d897930762a547d9e31e2f57b2bd1c9f9507deabe203d440bc6dd"
+    },
+    "linux_lock_contract": {
+      "path": "build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nv-linux.h",
+      "sha256": "b2f28c6acac451b1673bb1dc3b9712d888a51c80b4ffbd03109871cd54965019"
+    },
+    "linux_wrapper": {
+      "path": "build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv.c",
+      "sha256": "3fddec7956bd263ac1d238a82861894c93cd9ca904067b770cca5a7beec2631a"
+    },
+    "msix_wrapper": {
+      "path": "build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv-msi.c",
+      "sha256": "444917fc7855970c64c6d3f81e2ba71a7a2f062add6e24f27e6e24ca97b3a913"
+    },
+    "pci_lifecycle": {
+      "path": "build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv-pci.c",
+      "sha256": "877386d02f00f8ff61f81cb0bd3e4675ff6b376df59459d0d14824d32b47e9d2"
+    },
+    "pinned_version": {
+      "path": "build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04/version.mk",
+      "sha256": "cbc6488ed2c35ea814120bc80749dd2d11f486c3e98046b3be240d462ee86e7c"
+    },
+    "pm_coordinator": {
+      "path": "src/hybrid580_system_pm_coordinator.h",
+      "sha256": "5c80085d1dca155aec6cccc77512e549f60a438d13e488fd4ed997b606c1362c"
+    },
+    "pm_provider": {
+      "path": "src/hybrid580_pm_provider_kernel.h",
+      "sha256": "5fa0d8ecde9a48852b24b137003d14b91a1afed0bdcffe7d151a3af664e99d90"
+    }
+  },
+  "not_established": [
+    "safe synchronize_irq integration",
+    "proven no-new-fault producer boundary",
+    "UVM suspend/resume on hardware",
+    "same-Linux V100 plus RTX 5080 CUDA",
+    "hybrid CUDA, P2P, prolonged stability, or performance"
+  ],
+  "observations": [
+    {
+      "finding": "The documented order is nv_linux_devices_lock, then nvl->ldata_lock; release the list lock before releasing ldata_lock.",
+      "id": "device-list-lock-order",
+      "source": "build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nv-linux.h:1491-1504",
+      "status": "source-confirmed"
+    },
+    {
+      "finding": "The provider holds nv_linux_devices_lock while calling nv_preempt_user_channels(); that wrapper takes and releases ldata_lock around RM stop, so ldata_lock is not retained by the provider after the stop returns.",
+      "id": "channel-stop-lock-scope",
+      "source": "src/hybrid580_pm_provider_kernel.h:318-400; pinned kernel-open/nvidia/nv.c:6631-6669",
+      "status": "source-confirmed"
+    },
+    {
+      "finding": "Legacy/MSI or MSI-X IRQs are requested during nv_start_device before NV_FLAG_OPEN is set. Persistent-state and SoC paths differ. The flag alone cannot identify a fully registered IRQ set.",
+      "id": "irq-registration-is-not-equivalent-to-open-flag",
+      "source": "pinned kernel-open/nvidia/nv.c:1377-1494",
+      "status": "source-confirmed"
+    },
+    {
+      "finding": "Close enters nv_linux_state through ldata_lock and the last close can stop the device; adapter shutdown stops bottom_half_q, frees legacy/MSI or MSI-X IRQs, and releases the MSI-X array.",
+      "id": "close-teardown-owns-irq-lifetime",
+      "source": "pinned kernel-open/nvidia/nv.c:2114-2176, 1943-1987",
+      "status": "source-confirmed"
+    },
+    {
+      "finding": "The inspected PCI remove callback takes device-list and ldata locks and can shut down/free the adapter, but it does not acquire nv_system_pm_lock. That existing rwsem therefore does not by itself pin the complete nvl/IRQ lifetime against remove.",
+      "id": "hot-remove-bypasses-system-rwsem",
+      "source": "pinned kernel-open/nvidia/nv-pci.c:1754-1949",
+      "status": "source-confirmed"
+    },
+    {
+      "finding": "The ISR can queue bottom_half_q work separately from the IRQ thread. synchronize_irq() alone does not flush this driver queue; shutdown stops it, but that is not a pre-UVM drain contract.",
+      "id": "deferred-rm-bottom-half",
+      "source": "pinned kernel-open/nvidia/nv.c:2906-2921, 1949-1951",
+      "status": "source-confirmed"
+    },
+    {
+      "finding": "The common frontend drain callback currently returns -EOPNOTSUPP for either backend. Therefore the coordinator rolls channels back and returns before shared UVM suspend.",
+      "id": "provider-irq-drain-not-implemented",
+      "source": "src/hybrid_frontend.c:300-385",
+      "status": "source-confirmed"
+    },
+    {
+      "finding": "The existing nv_system_pm_lock read side covers ordinary GPU open/close and many control operations; its write side is used by the separate procfs power-state path. Hybrid provider PM APIs do not currently acquire it, and PCI remove is outside it. UVM work coverage and cross-backend ordering remain under audit.",
+      "id": "native-system-pm-rwsem-candidate",
+      "source": "pinned kernel-open/nvidia/nv.c:1848-1929, 2192-2233, 7055-7077; common/inc/nv-linux.h:1513",
+      "status": "analyzed-but-not-qualified"
+    },
+    {
+      "finding": "synchronize_irq() waits current IRQ handlers but does not disable future interrupts; holding a resource required by an IRQ callback while waiting can deadlock. This cannot alone prove a no-new-fault boundary or drain the separate NVIDIA bottom-half queue.",
+      "id": "irq-barrier-limit",
+      "source": "https://www.kernel.org/doc/html/latest/core-api/genericirq.html",
+      "status": "documented-kernel-semantics"
+    }
+  ],
+  "observed_at_utc": "2026-10-22",
+  "qualification": "static-source-analysis-plus-cpu-contract-tests",
+  "schema": "nvidia-hybrid-r580-pm-irq-lifetime-audit-v1",
+  "source_tree": "build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04",
+  "source_version": "NVIDIA R580.178.04"
+}

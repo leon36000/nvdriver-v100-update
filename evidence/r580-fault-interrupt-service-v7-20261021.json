@@ -1,0 +1,195 @@
+{
+  "audit_tool": {
+    "path": "audit_r580_fault_interrupt_service.py",
+    "sha256": "309a347f9c2ea0726ed1e1f1a995907ad4a4ea827f18f8b57fe74c70dd24b31e"
+  },
+  "control": {
+    "id": "0x20801702",
+    "name": "NV2080_CTRL_CMD_MC_SERVICE_INTERRUPTS",
+    "scope": "NV2080_CTRL_MC_ENGINE_ID_ALL"
+  },
+  "facts": {
+    "adapter_shutdown_frees_linux_irq": true,
+    "client_queue_apis_do_not_acquire_rm_gpu_locks": true,
+    "client_queue_publish_is_fenced_before_put": true,
+    "control_success_does_not_prove_stuck_interrupt_drained": true,
+    "generated_hal_routes_vf_non_t234d_t264d_to_gv100_fault_copy": true,
+    "get_api_consumes_client_queue": true,
+    "get_api_uses_bottom_half_stack": true,
+    "gmmu_pending_checks_fault_service_state": true,
+    "gp100_pending_enumeration_includes_gmmu": true,
+    "gv100_copy_routes_rm_and_client_faults": true,
+    "gv100_empty_copy_rewrites_hw_get_without_shadow_publication": true,
+    "gv100_fault_copy_checks_rm_intr_state": true,
+    "gv100_nonempty_copy_advances_hw_get_after_shadow_publication": true,
+    "intr_setter_only_changes_rm_software_state": true,
+    "linux_isr_copies_faults_before_uvm_callback": true,
+    "linux_pci_dpm_suspend_bypasses_global_uvm_suspend": true,
+    "linux_pci_dpm_suspend_calls_per_device_suspend": true,
+    "mc_service_control_is_documented_and_registered": true,
+    "msix_irq_registered_to_serializing_wrapper": true,
+    "msix_wrapper_serializes_isr_calls": true,
+    "non_gsp_fault_handler_invokes_rm_shadow_copy": true,
+    "non_gsp_rm_registers_non_replayable_fault_service": true,
+    "non_replayable_service_runs_after_hw_top_half": true,
+    "normal_irq_registered_directly_to_fault_copy_isr": true,
+    "pending_api_checks_client_queue": true,
+    "pending_api_uses_isr_stack": true,
+    "procfs_control_functions_have_no_preprocessor_directives": true,
+    "procfs_depth_writer_accepts_uvm_modeset_default": true,
+    "procfs_full_depth_orders_preempt_uvm_gpu_suspend": true,
+    "procfs_modeset_depth_returns_before_preempt_or_uvm": true,
+    "procfs_suspend_writer_uses_selected_depth": true,
+    "procfs_uvm_depth_returns_after_uvm_before_gpu_suspend": true,
+    "rm_disables_intr_state_before_gpu_power_transition": true,
+    "rm_interrupt_service_consumes_rm_queue_and_notifies": true,
+    "rm_populates_uvm_cpu_client_queue": true,
+    "service_interrupts_api_delegates_to_rm": true,
+    "stall_service_loops_over_pending_engines": true,
+    "uvm_rm_method_services_all_engine_interrupts": true,
+    "uvm_suspend_and_top_half_share_isr_lock": true
+  },
+  "generated_utc": "2026-10-22T00:26:33Z",
+  "limitations": [
+    "The RM service loop may exit on a stuck interrupt after a void dispatch; the returned NV_OK is not proof that every pending engine drained.",
+    "The Linux ISR invokes RM fault-buffer handling before the UVM top-half callback. The UVM suspend flag and UVM top-half use interrupts_lock, but these source paths do not establish that suspend waits for an in-flight Linux RM interrupt handler.",
+    "The procfs PM ordering applies only to its full-depth successful path: MODESET returns before channel preemption or UVM suspend, UVM depth returns after UVM and before per-device GPU suspend, and the Linux PCI suspend callback invokes nvidia_suspend directly. The audit does not cover generic Linux noirq IRQ suspension.",
+    "The procfs depth-selection and suspend-dispatch predicates fail closed if either inspected function contains a preprocessor directive; no build-specific preprocessor branches are inferred.",
+    "The RM interrupt service path consumes RM software-shadow faults and notifies clients after the hardware-buffer copy step; source inspection does not prove its runtime completion or PM safety.",
+    "The GV100 generated-HAL result is conditional: the source assigns the GV100 copier for the VF RM variant when the chip-HAL mask for T234D/T264D does not match. This source branch alone does not establish the runtime HAL selection for a particular physical GPU.",
+    "The GET-pointer publication-order fact applies only to the nonempty-copy path. When totalCount is zero, GV100 rewrites the cached GET pointer and exits without a shadow-buffer publication.",
+    "No RM call, GPU operation, module load, suspend, concurrent ISR/PM test, or fault-injection test was run."
+  ],
+  "ordering_assessment": {
+    "decision": "Do not add an RM service call to the candidate suspend path until the in-flight Linux ISR ordering and RM control runtime/error semantics are independently closed.",
+    "generated_hal_condition": "RmVariantHal VF branch AND chipHal T234D/T264D mask condition false assigns kgmmuCopyMmuFaults_GV100; this is source-conditional and not a physical-device selection result.",
+    "hardware_fault_buffer_paths": {
+      "empty_total_count": "rewrites cached GET and exits without shadow publication",
+      "nonempty_total_count": "copies to shadow queue, clears packets, fences, sets fatalFaultIntrPending, fences, then advances GET"
+    },
+    "inference": "A UVM suspend racing an already-running Linux ISR is not ruled out by the UVM interrupts_lock alone because the RM fault-copy call precedes UVM top-half entry. Whether another Linux/RM PM barrier excludes that interleaving is unknown.",
+    "pm_irq_quiescence": {
+      "adapter_shutdown_uses_free_irq": true,
+      "decision": "Keep the UVM non-replayable drain patch as an unqualified candidate; do not claim producer quiescence or merge/install it until the in-flight ISR ordering is resolved and tested.",
+      "gv100_fault_copy_checks_rm_intr_state": true,
+      "in_flight_rm_fault_copy_completion_proven": false,
+      "inference": "The RM interrupt gate is not itself an explicit Linux synchronize_irq/free_irq join. Because nvidia_isr copies RM faults before entering the UVM top half, a handler that already passed the GV100 interrupt-state check is not proven complete by the source-visible PM wrapper sequence. The UVM interrupts_lock protects UVM top-half state, not that earlier RM copy.",
+      "intr_setter_only_changes_rm_software_state": true,
+      "linux_irq_wait_calls_in_inspected_pm_wrappers": [],
+      "linux_pci_dpm_suspend_calls_global_uvm_suspend": false,
+      "linux_pci_dpm_suspend_calls_per_device_suspend": true,
+      "msix_irq_registered_to_serializing_wrapper": true,
+      "msix_wrapper_serializes_isr_calls": true,
+      "normal_irq_registered_directly_to_fault_copy_isr": true,
+      "pm_wrapper_contains_linux_irq_wait": false,
+      "procfs_control_functions_have_no_preprocessor_directives": true,
+      "procfs_depth_writer_accepts_uvm_modeset_default": true,
+      "procfs_full_depth_orders_preempt_uvm_gpu_suspend": true,
+      "procfs_modeset_depth_returns_before_preempt_or_uvm": true,
+      "procfs_suspend_writer_uses_selected_depth": true,
+      "procfs_uvm_depth_returns_after_uvm_before_gpu_suspend": true,
+      "rm_disables_intr_state_before_gpu_power_transition": true,
+      "source_observation": "On the procfs full-depth success path, nv_suspend_devices preempts user channels, invokes UVM suspend, then calls per-device nvidia_suspend. MODESET depth returns before preemption/UVM; UVM depth returns after UVM and before per-device suspend. The Linux PCI callback calls nvidia_suspend directly. Its RM wrapper stores INTERRUPT_TYPE_DISABLED before gpuEnterStandby/Hibernate. intrSetIntrEn_IMPL assigns the RM software field; the GV100 fault copier returns early when that field reads disabled."
+    },
+    "source_observation": "nvidia_isr calls rm_gpu_handle_mmu_faults before nv_uvm_event_interrupt; the physical non-GSP helper dispatches kgmmuCopyMmuFaults_HAL. In the generated HAL block, the VF RM variant uses the GV100 copier on the else branch of the T234D/T264D chip-HAL mask test; other branches assign different copiers."
+  },
+  "qualification": "static-source-contract-only",
+  "schema": "r580-fault-interrupt-service-audit-v7",
+  "source_files": {
+    "kernel-open/common/inc/nv_uvm_interface.h": {
+      "sha256": "68b6cae62ad0bdf6940d48a34084d789cd1f87a06b84310195cd2adc4b9e50f8"
+    },
+    "kernel-open/common/inc/nv_uvm_types.h": {
+      "sha256": "5216a6a83924511f38c8a881ee0ffc601e2851e92e6a9b49810f9cc9e90dd614"
+    },
+    "kernel-open/nvidia-uvm/uvm_global.c": {
+      "sha256": "aeee2f257a289853f36d9c7b196f1e02d19b84695db44cdd2e00f28b0f1a4489"
+    },
+    "kernel-open/nvidia-uvm/uvm_gpu_isr.c": {
+      "sha256": "456ee47bb83564cc1ada830538781256bb246bf82888601d3c3f2b3a2bc777f5"
+    },
+    "kernel-open/nvidia/nv-msi.c": {
+      "sha256": "444917fc7855970c64c6d3f81e2ba71a7a2f062add6e24f27e6e24ca97b3a913"
+    },
+    "kernel-open/nvidia/nv-procfs.c": {
+      "sha256": "8cfcde5e57cd10d709c573dca2db10ddad8049c222a5a73437738252886620c8"
+    },
+    "kernel-open/nvidia/nv.c": {
+      "sha256": "4f251e44dfd400d7611b57a029d0b38b6e8a67a30f4971085aad56029753aa40"
+    },
+    "kernel-open/nvidia/nv_uvm_interface.c": {
+      "sha256": "b41c704d29363dd52dd0ea669ee253a37185f5826c7db56a07dec21c3d24eddc"
+    },
+    "src/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080mc.h": {
+      "sha256": "2cfd3953311c5609cb2fa5999f8e257e60d63c5361677b90efd99c7ae366353b"
+    },
+    "src/nvidia/arch/nvalloc/unix/src/dynamic-power.c": {
+      "sha256": "119b50bb1bd366c931e3c282f2af4af5b6bd1286a67454d1084a58509a50fe89"
+    },
+    "src/nvidia/arch/nvalloc/unix/src/rm-gpu-ops.c": {
+      "sha256": "5160157ccfb131b6957e746670890776a4fc222baa8328bf6d18839780ac569c"
+    },
+    "src/nvidia/arch/nvalloc/unix/src/unix_intr.c": {
+      "sha256": "a448ee8d52857cf58c8ad4e7cedbfafec92fa2edb8f3ec770d5d2d965b2517c2"
+    },
+    "src/nvidia/generated/g_kern_gmmu_nvoc.c": {
+      "sha256": "69f99676e8c054ec669959936dce078ffdd839c1afcbf517231c364db3cf5312"
+    },
+    "src/nvidia/generated/g_subdevice_nvoc.c": {
+      "sha256": "53570da27b08609f294186eebdfecfda03ebbde2a0e7ba3b497bd18426ac7da3"
+    },
+    "src/nvidia/src/kernel/gpu/intr/arch/pascal/intr_gp100.c": {
+      "sha256": "a03192535c0439b4b21c03305669d6320847f479817b8d161932f77ae129df2a"
+    },
+    "src/nvidia/src/kernel/gpu/intr/intr.c": {
+      "sha256": "3273490dbe94c15358e144484a58e3579bb7fb2e03fe0b88712cad9640a799c8"
+    },
+    "src/nvidia/src/kernel/gpu/mmu/arch/volta/kern_gmmu_gv100.c": {
+      "sha256": "cf511440a5ba24f13541bc502c995731459ce339c5b50c81aea76ee1cc4bfe12"
+    },
+    "src/nvidia/src/kernel/gpu/mmu/kern_gmmu.c": {
+      "sha256": "b8d68a75fe44b1ce571de5bfb997e08aaf82930e7874b02e82d2fcf8dcb01ccc"
+    },
+    "src/nvidia/src/kernel/rmapi/nv_gpu_ops.c": {
+      "sha256": "1aaf4f11896388812bf1a372718746e4e5753598bb4c0a43c42d10010e7e0f58"
+    }
+  },
+  "source_lines": {
+    "adapter_shutdown": 1955,
+    "device_suspend": 4487,
+    "get_fault_wrapper": 979,
+    "gmmu_pending": 293,
+    "gp100_pending": 184,
+    "gv100_client_queue_copy": 1264,
+    "gv100_empty_hw_buffer_path": 1086,
+    "gv100_fault_copy_hal_binding": 1122,
+    "gv100_hardware_fault_copy": 887,
+    "gv100_queue_routing": 755,
+    "gv100_rm_queue_service": 1978,
+    "intr_enable_setter": 342,
+    "kgmmu_registration": 2226,
+    "kgmmu_service": 2325,
+    "linux_isr": 2830,
+    "linux_pci_dpm_suspend_callback": 4886,
+    "mc_service_control": 186,
+    "msix_irq_registration": 141,
+    "msix_isr_wrapper": 2801,
+    "pending_fault_wrapper": 970,
+    "power_management": 4334,
+    "procfs_depth_writer": 567,
+    "procfs_suspend_writer": 645,
+    "rm_fault_copy_helper": 980,
+    "rm_fault_handler": 1007,
+    "rm_power_management": 2462,
+    "rm_power_transition": 2183,
+    "rm_service_core": 7841,
+    "rm_service_wrapper": 371,
+    "service_interrupts_interface": 674,
+    "stall_service_loop": 1625,
+    "stuck_interrupt_exit": 1438,
+    "system_suspend": 4719,
+    "uvm_isr_suspend_setter": 263,
+    "uvm_isr_top_half": 218
+  },
+  "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04"
+}

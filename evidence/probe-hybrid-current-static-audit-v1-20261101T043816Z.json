@@ -1,0 +1,95 @@
+{
+  "build_manifest": "build/probe-hybrid-current-v1-20261101T043749Z/build-manifest.json",
+  "build_manifest_sha256": "d0782f9b2990e5c341f335f6b22f7b5f65e3c4c8673274a5e43054d331845b23",
+  "checks": {
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/bin/volta13": {
+      "matches_build_pin": true,
+      "sha256": "587688b00f2207d1804aecc702eabc3d1c7d4ef62495187a1ce374d22c3a2ee6"
+    },
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/kernels/hybrid_probe.cu": {
+      "matches_build_pin": true,
+      "sha256": "eb08482739ac2f601bb1954ac8a88035e7752b91e8188aaba6730b952c48c22a"
+    },
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/hybrid_cuda_probe.cpp": {
+      "matches_build_pin": true,
+      "sha256": "59b6b057e7b122b4e3d9882c4304e9818660ec4dd2f8a13d268958fb97a26384"
+    },
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/tools/clang23-local/usr/lib/llvm-23/bin/clang++": {
+      "matches_build_pin": true,
+      "sha256": "c300fb439c33a9b2cbde6112a09681ce8278a5bb08bdea3ba0cc91e32d07120d"
+    },
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/tools/cuda13.1-front/usr/local/cuda-13.1/bin/cuobjdump": {
+      "matches_build_pin": true,
+      "sha256": "d76bde61348813d19643b18d7ae1b8287eabcdb2195cc4d6e6d860a9b1995900"
+    },
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/tools/cuda13.1-front/usr/local/cuda-13.1/bin/fatbinary": {
+      "matches_build_pin": true,
+      "sha256": "54ad3cda647855ac018eb6829513d80d65dfdc320b526f6817ba8df606951c10"
+    },
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/tools/cuda13.1-front/usr/local/cuda-13.1/bin/ptxas": {
+      "matches_build_pin": true,
+      "sha256": "85836303aeca1a2ac9387a6d364b276a3603907c95c3b06c9e3aadf46195b0d8"
+    },
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/tools/cuda13.1-front/usr/local/cuda-13.1/include/cuda.h": {
+      "matches_build_pin": true,
+      "sha256": "756c5d0b68c4bf33d279419d5db479d63263abe80c1e476f8899f4b077215bf5"
+    },
+    "/usr/bin/x86_64-linux-gnu-g++-15": {
+      "matches_build_pin": true,
+      "sha256": "e6718f7e0c7d057c3ff77b550c603da9bc4030e3ede3c053705acce1293dbe4d"
+    },
+    "fatbin": {
+      "matches_build_pin": true,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-hybrid-current-v1-20261101T043749Z/hybrid_probe.sm70-sm120.fatbin",
+      "sha256": "9b6c772590c0e7ce6a95e36fb637b769eceef69856979761d739028d8b45675f"
+    },
+    "fatbin_inventory": {
+      "exit_code": 0,
+      "images": [
+        "hybrid_probe.sm70-sm120.1.sm_70.cubin",
+        "hybrid_probe.sm70-sm120.2.sm_120.cubin"
+      ],
+      "stdout_sha256": "a4534461dffebb525e6f106f0f78496de96258934515bdc2f66fe99592971632"
+    },
+    "sm120_cubin": {
+      "matches_build_pin": true,
+      "nvdisasm": {
+        "exit_code": 0,
+        "nvdisasm_sha256": "544018f6d03bbe9ed1c0fba206c37815bd53494678c1cfef7f3827eef10bfab4",
+        "stdout_sha256": "7041d599d216316fa03d1499c5bbceefea5f39fa4ac063a77470c231b810d863",
+        "target_markers": [
+          ".target\tsm_120"
+        ]
+      },
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-hybrid-current-v1-20261101T043749Z/hybrid_probe.sm120.cubin",
+      "ptx": {
+        "path": "build/probe-hybrid-current-v1-20261101T043749Z/hybrid_probe.sm120.ptx",
+        "sha256": "b1aa213b248d35b88479e3809f8c409762851e5f4487414fd1cc62692adf761a",
+        "target": ".target sm_120"
+      },
+      "sha256": "983ffee5ae4f8e6c1f312ef7aaca5887bea352d9bc98060b3099fcaa71a38ea9"
+    },
+    "sm70_cubin": {
+      "matches_build_pin": true,
+      "nvdisasm": {
+        "exit_code": 0,
+        "nvdisasm_sha256": "544018f6d03bbe9ed1c0fba206c37815bd53494678c1cfef7f3827eef10bfab4",
+        "stdout_sha256": "6a20fc57110d43a8a61abd25051a32d0b68a488b8b406777b0c068617b10c5a7",
+        "target_markers": [
+          ".headerflags\t@\"EF_CUDA_TEXMODE_UNIFIED EF_CUDA_64BIT_ADDRESS EF_CUDA_SM70 EF_CUDA_VIRTUAL_SM(EF_CUDA_SM70)\""
+        ]
+      },
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-hybrid-current-v1-20261101T043749Z/hybrid_probe.sm70.cubin",
+      "ptx": {
+        "path": "build/probe-hybrid-current-v1-20261101T043749Z/hybrid_probe.sm70.ptx",
+        "sha256": "6aea173eafac00e8926ee8cdd11a810232a6008cd3327a680daf28de55f67f77",
+        "target": ".target sm_70"
+      },
+      "sha256": "db3399bb49d6daa1d1abbfa1487515f8e4e46206743f7046a3ff9b906898fe4b"
+    }
+  },
+  "created_utc": "20261101T043816Z",
+  "qualification": "current-source-SM70-and-SM120-images-statically-verified; no GPU execution or driver operation",
+  "schema": "hybrid-current-probe-static-image-audit-v1",
+  "status": "passed"
+}

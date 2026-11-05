@@ -1,0 +1,36 @@
+{
+  "all_patches_applied": false,
+  "compile_attempted": false,
+  "expected_source_archive_sha256": "21914a460f17190c43cffb75f0c35aef957e267bfefea267bc18638beae17084",
+  "observed_at_utc": "2026-10-28T19:45:20+00:00",
+  "patches": [
+    {
+      "exit_code": 0,
+      "output": "patching file kernel-open/nvidia-uvm/uvm_gpu.c\npatching file kernel-open/nvidia-uvm/uvm_gpu_semaphore.c\npatching file kernel-open/nvidia-uvm/uvm_push.c\npatching file kernel-open/nvidia-uvm/uvm_migrate_pageable.c\n",
+      "path": "patches/r580.178.04/uvm/0002-hybrid-isolated-gpu-execution.patch",
+      "sha256": "23145778c944ae2cf222a6df192d97a1b3260c564772f4b353d48f0cf0cb26f0"
+    },
+    {
+      "exit_code": 0,
+      "output": "patching file kernel-open/nvidia/nv_uvm_interface.c\npatching file kernel-open/nvidia-uvm/uvm_map_external.c\npatching file kernel-open/common/inc/hybrid580_uvm_control_fd_dispatch.h\n",
+      "path": "patches/r580.178.04/uvm/0003-pass-control-fd-to-dup-memory.patch",
+      "sha256": "1ea8a83f9af76d1d8189aa04647591d92e02ce7ad3a55db8c55cb13e280c1be6"
+    },
+    {
+      "exit_code": 1,
+      "output": "patching file kernel-open/nvidia/nvidia.Kbuild\nHunk #1 FAILED at 104.\n1 out of 1 hunk FAILED -- saving rejects to file kernel-open/nvidia/nvidia.Kbuild.rej\npatching file kernel-open/nvidia-uvm/nvidia-uvm.Kbuild\npatching file kernel-open/common/nvidia-kernel-interface-conftests.Kbuild\n",
+      "path": "patches/r580.178.04/uvm/0004-share-linux-conftests-with-uvm-consumer.patch",
+      "sha256": "53358544aa10f7ede4827bbce1ee909da2bbea61a7ab03242d0b258aac10517a"
+    }
+  ],
+  "runtime_or_hardware_validated": false,
+  "schema": "r580-196-uvm-patch-port-apply-v1",
+  "scratch_removed": true,
+  "source_archive": "build/experiments/private-open580-native-19607-v1-20261024/inputs/open580-580.196.07.tar.xz",
+  "source_archive_pinned": true,
+  "source_archive_sha256": "21914a460f17190c43cffb75f0c35aef957e267bfefea267bc18638beae17084",
+  "source_layout": {
+    "root_name": "NVIDIA-kernel-module-source-580.196.07",
+    "uvm_relative": "kernel-open/nvidia-uvm"
+  }
+}

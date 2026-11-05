@@ -1,0 +1,283 @@
+{
+  "audit_tool": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/audit_nvidia_pm_entrypoints.py",
+    "sha256": "d54e0a242cd32208175cb4b263391b3f1bdcb917a3597802c9eaa44000c0d61b"
+  },
+  "generated_utc": "2026-10-22T01:21:42Z",
+  "limitations": [
+    "No provider modules were loaded and no Linux suspend/resume was attempted.",
+    "The audit does not inspect opaque RM behavior behind rm_power_management().",
+    "A source-level notifier registration path does not prove its runtime module parameter value.",
+    "The audit does not prove Linux free_irq, threaded-IRQ, or vendor queue-drain semantics.",
+    "Source ordering alone does not establish whether queued bottom-half work can race shutdown.",
+    "The queue race predicate is a source-level interleaving window, not a hardware reproducer."
+  ],
+  "qualification": "static-source-contract-only",
+  "schema": "nvidia-pm-entrypoints-v4",
+  "source_trees": [
+    {
+      "deferred_queue_lifecycle": {
+        "raw_enqueue_rechecks_exit_under_queue_lock": false,
+        "schedule_checks_exit_before_enqueue_entrypoint": true,
+        "source_exposes_post_flush_enqueue_window": true,
+        "source_lines": {
+          "raw_schedule": 252,
+          "schedule": 282,
+          "stop": 119
+        },
+        "stop_exit_transition_uses_queue_lock": false,
+        "stop_flushes_before_setting_exit": true,
+        "stop_is_atomic_producer_barrier": false
+      },
+      "global_nvidia_pm": {
+        "procfs_suspend_enters_global_state_machine": true,
+        "resume_restores_local_gpus_then_resumes_uvm_then_channels": true,
+        "source_lines": {
+          "procfs_suspend": 649,
+          "resume_devices": 6853,
+          "state_machine": 7024,
+          "suspend_devices": 6914
+        },
+        "state_machine_dispatches_suspend_and_resume": true,
+        "suspend_preempts_channels_then_suspends_uvm_then_local_gpus": true
+      },
+      "irq_lifecycle": {
+        "isr_can_schedule_provider_bottom_half_queue": true,
+        "legacy_irq_allows_sharing": true,
+        "legacy_irq_uses_threaded_rm_handlers": true,
+        "msix_setup_rolls_back_prior_vectors_on_partial_failure": true,
+        "msix_thread_serializes_common_bottom_half": true,
+        "msix_top_half_serializes_rm_isr": true,
+        "msix_uses_threaded_per_vector_handlers": true,
+        "shutdown_stops_bottom_half_queue_before_free_irq": true,
+        "source_lines": {
+          "irq_flags": 1698,
+          "isr": 2809,
+          "msix_isr": 2780,
+          "msix_request": 141,
+          "msix_thread": 2934,
+          "nvidia_suspend": 6673,
+          "power_management": 6520,
+          "shutdown_adapter": 1943,
+          "start_device": 1321
+        },
+        "suspend_path_calls_opaque_rm_power_management": true,
+        "suspend_path_explicitly_synchronizes_or_frees_irqs": false
+      },
+      "kernel_pm_notifier": {
+        "notifier_dispatches_global_state_machine": false,
+        "registration_parameter_gated": false,
+        "registration_supported_in_source": false,
+        "source_lines": {
+          "init": 827,
+          "notifier": null
+        }
+      },
+      "label": "r580-open",
+      "lifetime_gate": {
+        "control_close_bypasses_rwsem": true,
+        "control_open_bypasses_rwsem": true,
+        "deferred_open_bypasses_rwsem": true,
+        "native_pci_dpm_bypasses_rwsem": true,
+        "native_suspend_flushes_deferred_opens_before_rm": true,
+        "nv_system_pm_lock_is_complete_lifetime_gate": false,
+        "pci_remove_bypasses_rwsem_and_tears_down_adapter": true,
+        "source_lines": {
+          "close": 2200,
+          "deferred_open": 1723,
+          "open": 1808,
+          "pci_remove": 1754,
+          "pmops_resume": 7101,
+          "pmops_suspend": 7087,
+          "power_management": 6520,
+          "uvm_suspend": 272
+        },
+        "uvm_uses_separate_pm_lock_and_queue_drain": true
+      },
+      "pci_device_pm": {
+        "callbacks_call_per_device_suspend_resume": true,
+        "explicit_channel_preempt_or_restore_in_pmops_or_helper": false,
+        "explicit_uvm_suspend_or_resume_in_pmops_or_helper": false,
+        "source_lines": {
+          "nvidia_suspend": 6673,
+          "resume": 7101,
+          "suspend": 7087
+        }
+      },
+      "procfs_namespace": {
+        "buffer_expression": "sizeof(\"driver/\" MODULE_NAME)",
+        "buffer_sized_for_private_module_name": true,
+        "directory_derived_from_module_name": true,
+        "source_line": 1339
+      },
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "common/inc/nv-kthread-q.h": {
+          "bytes": 8960,
+          "sha256": "24b46d1c3b2c1e02a524de058ba0a2d4b999bb41b8396014faf23bff03a2d364"
+        },
+        "common/inc/nv-linux.h": {
+          "bytes": 61386,
+          "sha256": "b2f28c6acac451b1673bb1dc3b9712d888a51c80b4ffbd03109871cd54965019"
+        },
+        "nvidia-uvm/uvm_global.c": {
+          "bytes": 18035,
+          "sha256": "aeee2f257a289853f36d9c7b196f1e02d19b84695db44cdd2e00f28b0f1a4489"
+        },
+        "nvidia/nv-kthread-q.c": {
+          "bytes": 11520,
+          "sha256": "13222c7db5bd1e57c5d36d0125d4cca4da1d288e5e52ac679f005668bc2e6274"
+        },
+        "nvidia/nv-msi.c": {
+          "bytes": 4982,
+          "sha256": "444917fc7855970c64c6d3f81e2ba71a7a2f062add6e24f27e6e24ca97b3a913"
+        },
+        "nvidia/nv-pci.c": {
+          "bytes": 68892,
+          "sha256": "877386d02f00f8ff61f81cb0bd3e4675ff6b376df59459d0d14824d32b47e9d2"
+        },
+        "nvidia/nv-procfs.c": {
+          "bytes": 36301,
+          "sha256": "eaddecce117d5d130b1752a9ea30ea4099646981daf39031f410cc3ef818cd19"
+        },
+        "nvidia/nv.c": {
+          "bytes": 229287,
+          "sha256": "3fddec7956bd263ac1d238a82861894c93cd9ca904067b770cca5a7beec2631a"
+        }
+      },
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open"
+    },
+    {
+      "deferred_queue_lifecycle": {
+        "raw_enqueue_rechecks_exit_under_queue_lock": false,
+        "schedule_checks_exit_before_enqueue_entrypoint": true,
+        "source_exposes_post_flush_enqueue_window": true,
+        "source_lines": {
+          "raw_schedule": 252,
+          "schedule": 282,
+          "stop": 119
+        },
+        "stop_exit_transition_uses_queue_lock": false,
+        "stop_flushes_before_setting_exit": true,
+        "stop_is_atomic_producer_barrier": false
+      },
+      "global_nvidia_pm": {
+        "procfs_suspend_enters_global_state_machine": true,
+        "resume_restores_local_gpus_then_resumes_uvm_then_channels": true,
+        "source_lines": {
+          "procfs_suspend": 656,
+          "resume_devices": 7055,
+          "state_machine": 7225,
+          "suspend_devices": 7116
+        },
+        "state_machine_dispatches_suspend_and_resume": true,
+        "suspend_preempts_channels_then_suspends_uvm_then_local_gpus": true
+      },
+      "irq_lifecycle": {
+        "isr_can_schedule_provider_bottom_half_queue": true,
+        "legacy_irq_allows_sharing": true,
+        "legacy_irq_uses_threaded_rm_handlers": true,
+        "msix_setup_rolls_back_prior_vectors_on_partial_failure": true,
+        "msix_thread_serializes_common_bottom_half": true,
+        "msix_top_half_serializes_rm_isr": true,
+        "msix_uses_threaded_per_vector_handlers": true,
+        "shutdown_stops_bottom_half_queue_before_free_irq": true,
+        "source_lines": {
+          "irq_flags": 1681,
+          "isr": 2856,
+          "msix_isr": 2827,
+          "msix_request": 141,
+          "msix_thread": 2981,
+          "nvidia_suspend": 6928,
+          "power_management": 6775,
+          "shutdown_adapter": 1973,
+          "start_device": 1323
+        },
+        "suspend_path_calls_opaque_rm_power_management": true,
+        "suspend_path_explicitly_synchronizes_or_frees_irqs": false
+      },
+      "kernel_pm_notifier": {
+        "notifier_dispatches_global_state_machine": false,
+        "registration_parameter_gated": false,
+        "registration_supported_in_source": false,
+        "source_lines": {
+          "init": 817,
+          "notifier": null
+        }
+      },
+      "label": "r580-proprietary",
+      "lifetime_gate": {
+        "control_close_bypasses_rwsem": false,
+        "control_open_bypasses_rwsem": false,
+        "deferred_open_bypasses_rwsem": true,
+        "native_pci_dpm_bypasses_rwsem": true,
+        "native_suspend_flushes_deferred_opens_before_rm": true,
+        "nv_system_pm_lock_is_complete_lifetime_gate": false,
+        "pci_remove_bypasses_rwsem_and_tears_down_adapter": true,
+        "source_lines": {
+          "close": 2230,
+          "deferred_open": 1738,
+          "open": 1823,
+          "pci_remove": 660,
+          "pmops_resume": 7305,
+          "pmops_suspend": 7291,
+          "power_management": 6775,
+          "uvm_suspend": 272
+        },
+        "uvm_uses_separate_pm_lock_and_queue_drain": true
+      },
+      "pci_device_pm": {
+        "callbacks_call_per_device_suspend_resume": true,
+        "explicit_channel_preempt_or_restore_in_pmops_or_helper": false,
+        "explicit_uvm_suspend_or_resume_in_pmops_or_helper": false,
+        "source_lines": {
+          "nvidia_suspend": 6928,
+          "resume": 7305,
+          "suspend": 7291
+        }
+      },
+      "procfs_namespace": {
+        "buffer_expression": "sizeof(\"driver/\" MODULE_NAME)",
+        "buffer_sized_for_private_module_name": true,
+        "directory_derived_from_module_name": true,
+        "source_line": 1346
+      },
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "common/inc/nv-kthread-q.h": {
+          "bytes": 8960,
+          "sha256": "24b46d1c3b2c1e02a524de058ba0a2d4b999bb41b8396014faf23bff03a2d364"
+        },
+        "common/inc/nv-linux.h": {
+          "bytes": 61137,
+          "sha256": "42a1436d32edb21a18af4258e0b1b50dba763098cb41f7c42ad7580c5ece624e"
+        },
+        "nvidia-uvm/uvm_global.c": {
+          "bytes": 18035,
+          "sha256": "aeee2f257a289853f36d9c7b196f1e02d19b84695db44cdd2e00f28b0f1a4489"
+        },
+        "nvidia/nv-kthread-q.c": {
+          "bytes": 11520,
+          "sha256": "13222c7db5bd1e57c5d36d0125d4cca4da1d288e5e52ac679f005668bc2e6274"
+        },
+        "nvidia/nv-msi.c": {
+          "bytes": 4982,
+          "sha256": "444917fc7855970c64c6d3f81e2ba71a7a2f062add6e24f27e6e24ca97b3a913"
+        },
+        "nvidia/nv-pci.c": {
+          "bytes": 34128,
+          "sha256": "b8670b605af960adf52a1a4f2690ef1da7ad1d0f69099811e1f5dfaad87e0084"
+        },
+        "nvidia/nv-procfs.c": {
+          "bytes": 36679,
+          "sha256": "2b9c986fbe1c3b8802b17bc4b589d5163d8927d1f9a565306ae3f578b0180137"
+        },
+        "nvidia/nv.c": {
+          "bytes": 231163,
+          "sha256": "9f94c3010ff0290e6290849225db115ac9adfe93013c1198d41ad7634a3c8006"
+        }
+      },
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-proprietary-pm-recovery-provider-v5-20261021/nvidia-580.178.04"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "build_reports": {
+    "baseline": {
+      "path": "evidence/private-open580-native-v3-20261023.json",
+      "sha256": "7787074bdf252e0ab12b7427d48166a0d995279d46a2d6306ea9e2ee3a6ec262"
+    },
+    "target": {
+      "path": "evidence/private-open580-native-19607-v1-20261024.json",
+      "sha256": "3f800850b011211d43ad2d2a2cab145ce0765b13106dfc53a33b45b8a5d45482"
+    }
+  },
+  "gpu_accessed": false,
+  "loaded_or_installed": false,
+  "observed_at_utc": "2026-10-24T00:43:05.247677+00:00",
+  "patch_application": {
+    "fuzz_used": false,
+    "hunk_count": 20,
+    "nonunique_context_hunk_count": 3,
+    "offset_message_count": 18,
+    "offset_messages": [
+      "Hunk #1 succeeded at 261 (offset 39 lines).",
+      "Hunk #2 succeeded at 276 (offset 40 lines).",
+      "Hunk #3 succeeded at 298 (offset 40 lines).",
+      "Hunk #4 succeeded at 1884 (offset 15 lines).",
+      "Hunk #5 succeeded at 2275 (offset 19 lines).",
+      "Hunk #6 succeeded at 3148 (offset -2 lines).",
+      "Hunk #7 succeeded at 3154 (offset -2 lines).",
+      "Hunk #8 succeeded at 3206 (offset -2 lines).",
+      "Hunk #9 succeeded at 7308 (offset 2583 lines).",
+      "Hunk #10 succeeded at 7319 (offset 2583 lines).",
+      "Hunk #11 succeeded at 7339 (offset 2583 lines).",
+      "Hunk #12 succeeded at 7369 (offset 2583 lines).",
+      "Hunk #13 succeeded at 7412 (offset 2583 lines).",
+      "Hunk #14 succeeded at 7416 (offset 2583 lines).",
+      "Hunk #15 succeeded at 7423 (offset 2583 lines).",
+      "Hunk #16 succeeded at 7446 (offset 2583 lines).",
+      "Hunk #17 succeeded at 7455 (offset 2583 lines).",
+      "Hunk #18 succeeded at 7473 (offset 2583 lines)."
+    ],
+    "patch": "0031-private-open-pm-channel-depth.patch"
+  },
+  "pm_functions": {
+    "nv_resume_devices": {
+      "byte_identical": true,
+      "r580_178_04_bytes": 1375,
+      "r580_178_04_sha256": "12d239bae6ec6238da4fb95029e4ce99f674edb0fe319651e79a2d0173d54ada",
+      "r580_196_07_bytes": 1375,
+      "r580_196_07_sha256": "12d239bae6ec6238da4fb95029e4ce99f674edb0fe319651e79a2d0173d54ada"
+    },
+    "nv_suspend_devices": {
+      "byte_identical": true,
+      "r580_178_04_bytes": 3561,
+      "r580_178_04_sha256": "90b473866669261894ba47b23b09dd2b763fbac68b9d50c9838748c250488a40",
+      "r580_196_07_bytes": 3561,
+      "r580_196_07_sha256": "90b473866669261894ba47b23b09dd2b763fbac68b9d50c9838748c250488a40"
+    }
+  },
+  "qualification": "static-function-body-comparison-only",
+  "real_rm_executed": false,
+  "runtime_or_binary_abi_validated": false,
+  "schema": "r580-private-pm-function-port-comparison-v1",
+  "source_trees": {
+    "baseline_nv_c": "build/experiments/private-open580-native-v3-20261023/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv.c",
+    "baseline_nv_c_sha256": "97fa45f1c6146e7327c1d272fa93ffa0dffdf3cc22200b7663dc3778364268c0",
+    "target_nv_c": "build/experiments/private-open580-native-19607-v1-20261024/private/NVIDIA-kernel-module-source-580.196.07/kernel-open/nvidia/nv.c",
+    "target_nv_c_sha256": "39ef384fa0ecf6ca6a593b457561ad7d769726a1121dbf06a46e59d4c1059a2a"
+  },
+  "source_versions": {
+    "baseline_private": "580.178.04",
+    "target_private": "580.196.07"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "nvidia-hybrid-proprietary-reference-acquisition-v1",
+  "observed_at_utc": "2026-10-18T23:57:02.052997+00:00",
+  "source": "Ubuntu configured resolute-updates/restricted index; apt-get download only",
+  "command": [
+    "apt-get",
+    "download",
+    "nvidia-kernel-source-580=580.178.04-0ubuntu0.26.04.1"
+  ],
+  "source_url": "http://ca.archive.ubuntu.com/ubuntu/pool/restricted/n/nvidia-graphics-drivers-580/nvidia-kernel-source-580_580.178.04-0ubuntu0.26.04.1_amd64.deb",
+  "package": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/nvidia-kernel-source-580_580.178.04-0ubuntu0.26.04.1_amd64.deb",
+  "package_sha256": "31666b2940d0375d9ca984bd78a195c2da8d353998f92f745e0831e5c7bd2a5c",
+  "package_size_bytes": 83880328,
+  "apt_index_sha256_matched": true,
+  "extraction_command": [
+    "dpkg-deb",
+    "--extract",
+    ".cache/vendor-proprietary/nvidia-kernel-source-580_580.178.04-0ubuntu0.26.04.1_amd64.deb",
+    ".cache/vendor-proprietary/r580.178.04-ubuntu"
+  ],
+  "package_metadata": "Package: nvidia-kernel-source-580\nVersion: 580.178.04-0ubuntu0.26.04.1\nArchitecture: amd64\nInstalled-Size: 121063\n",
+  "installed_or_loaded": false,
+  "package_scripts_executed": false,
+  "objects": [
+    {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nv-kernel.o_binary",
+      "sha256": "5269a23ffba19a17fe16f076463e7ad4151254659441d1711bee6c6221ff6f4b",
+      "bytes": 112677456
+    }
+  ],
+  "qualification": "binary-acquired-for-static-analysis",
+  "proprietary_code_redistributed_or_relicensed": false
+}

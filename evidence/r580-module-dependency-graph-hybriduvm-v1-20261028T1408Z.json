@@ -1,0 +1,132 @@
+{
+  "candidate_base": "build/experiments/r580-module-dependency-graph-hybriduvm-v1-20261028T1408Z",
+  "depmod": {
+    "exit_code": 0,
+    "modules_dep_path": "build/experiments/r580-module-dependency-graph-hybriduvm-v1-20261028T1408Z/lib/modules/7.0.0-38-generic/modules.dep",
+    "modules_dep_sha256": "955a6c3c759e20202ac4fb61bb72a91132078d91a233935df6a6abf49db4df4f",
+    "uvm_transitive_dependencies": [
+      "hybrid580_frontend",
+      "hybrid580_legacy",
+      "hybrid580_open"
+    ],
+    "warning_lines": []
+  },
+  "kernel_release": "7.0.0-38-generic",
+  "modinfo_dependency_graph": {
+    "hybrid580_frontend": [
+      "hybrid580_legacy",
+      "hybrid580_open"
+    ],
+    "hybrid580_legacy": [],
+    "hybrid580_open": [],
+    "hybrid580_uvm": [
+      "hybrid580_frontend"
+    ]
+  },
+  "modprobe_show_depends": {
+    "exit_code": 0,
+    "insert_order": [
+      "ecdsa_generic",
+      "hybrid580_open",
+      "hybrid580_legacy",
+      "hybrid580_frontend",
+      "hybrid580_uvm"
+    ],
+    "stderr": [],
+    "stdout": [
+      "builtin ecdh_generic",
+      "insmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-module-dependency-graph-hybriduvm-v1-20261028T1408Z/lib/modules/7.0.0-38-generic/kernel/crypto/ecdsa_generic.ko.zst ",
+      "insmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-module-dependency-graph-hybriduvm-v1-20261028T1408Z/lib/modules/7.0.0-38-generic/updates/hybrid580_open.ko ",
+      "insmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-module-dependency-graph-hybriduvm-v1-20261028T1408Z/lib/modules/7.0.0-38-generic/updates/hybrid580_legacy.ko ",
+      "insmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-module-dependency-graph-hybriduvm-v1-20261028T1408Z/lib/modules/7.0.0-38-generic/updates/hybrid580_frontend.ko ",
+      "insmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-module-dependency-graph-hybriduvm-v1-20261028T1408Z/lib/modules/7.0.0-38-generic/updates/hybrid580-uvm.ko "
+    ]
+  },
+  "module_load_attempted": false,
+  "modules": {
+    "hybrid580_frontend": {
+      "bytes": 3066248,
+      "depends": [
+        "hybrid580_legacy",
+        "hybrid580_open"
+      ],
+      "path": "build/experiments/r580-module-dependency-graph-hybriduvm-v1-20261028T1408Z/lib/modules/7.0.0-38-generic/updates/hybrid580_frontend.ko",
+      "sha256": "72d5d06473c9da89289364e95f4eeb67ba91f565fd8b6eb1bfaf9f88330409e2",
+      "softdep": "",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": ""
+    },
+    "hybrid580_legacy": {
+      "bytes": 136885088,
+      "depends": [],
+      "path": "build/experiments/r580-module-dependency-graph-hybriduvm-v1-20261028T1408Z/lib/modules/7.0.0-38-generic/updates/hybrid580_legacy.ko",
+      "sha256": "67d9f00b4fee9cf1a3d1873eb4721bae20419a8b5bbec1dce6d1612e30c9f971",
+      "softdep": "",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.178.04"
+    },
+    "hybrid580_open": {
+      "bytes": 37254536,
+      "depends": [],
+      "path": "build/experiments/r580-module-dependency-graph-hybriduvm-v1-20261028T1408Z/lib/modules/7.0.0-38-generic/updates/hybrid580_open.ko",
+      "sha256": "576d76b97dc2ba1434fccb9244e696be0fb4e19a22f3e38987c12f66664545b1",
+      "softdep": "pre: ecdh_generic ecdsa_generic",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.178.04"
+    },
+    "hybrid580_uvm": {
+      "bytes": 62572712,
+      "depends": [
+        "hybrid580_frontend"
+      ],
+      "path": "build/experiments/r580-module-dependency-graph-hybriduvm-v1-20261028T1408Z/lib/modules/7.0.0-38-generic/updates/hybrid580-uvm.ko",
+      "sha256": "bee0bbbf9e1ed8990efe7bd072ee026c7032e272aa4af9592e45f04b95bf4f7e",
+      "softdep": "",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.178.04"
+    }
+  },
+  "notes": [
+    "depmod and modprobe resolved the staged module graph without inserting a module.",
+    "The UVM module identity was checked against the explicitly selected name; this can be the standard nvidia_uvm or the isolated hybrid580_uvm candidate.",
+    "The isolated stage includes the target kernel's modules.order/modules.builtin metadata and compressed ecdsa_generic provider, so the dependency resolution uses the actual target-kernel inputs.",
+    "The Open provider softdep uses kmod-compatible space-separated module names. The dry-run verifies ecdsa_generic precedes the provider when it is not already resident; ecdh_generic is identified as built in and therefore has no insmod line.",
+    "The module's comma-separated softdep from the pinned source was omitted by kmod 34.2 dry-run despite being visible in modinfo/modules.softdep; an explicit space-separated rule resolved correctly. The private build overlay normalizes the delimiter without changing crypto code.",
+    "This does not test symbol relocation at load time, provider callbacks, RM, CUDA, or GPU initialization."
+  ],
+  "observed_at_utc": "2026-10-28T14:09:55.912111+00:00",
+  "qualification": "isolated-depmod-and-modprobe-resolution",
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-r580-hybrid-module-dependency-graph-v4",
+  "softdep_resolution": {
+    "builtin_dependencies": [
+      "ecdh_generic"
+    ],
+    "depmod_file_path": "build/experiments/r580-module-dependency-graph-hybriduvm-v1-20261028T1408Z/lib/modules/7.0.0-38-generic/modules.softdep",
+    "depmod_file_sha256": "03070036ef525ec8010e5a6c77d09a85a8e73b23856b5c848229fb813b6852e1",
+    "dry_run": {
+      "exit_code": 0,
+      "insert_order": [
+        "ecdsa_generic",
+        "hybrid580_open"
+      ],
+      "stderr": [],
+      "stdout": [
+        "insmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-module-dependency-graph-hybriduvm-v1-20261028T1408Z/lib/modules/7.0.0-38-generic/kernel/crypto/ecdsa_generic.ko.zst ",
+        "insmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-module-dependency-graph-hybriduvm-v1-20261028T1408Z/lib/modules/7.0.0-38-generic/updates/hybrid580_open.ko "
+      ]
+    },
+    "ecdsa_generic_resident_before_probe": false,
+    "module_metadata": {
+      "hybrid580_frontend": "",
+      "hybrid580_legacy": "",
+      "hybrid580_open": "pre: ecdh_generic ecdsa_generic",
+      "hybrid580_uvm": ""
+    },
+    "modules_builtin_path": "build/experiments/r580-module-dependency-graph-hybriduvm-v1-20261028T1408Z/lib/modules/7.0.0-38-generic/modules.builtin",
+    "modules_builtin_sha256": "ef55d7bc5528d2c01f38fc0d8f6473c75e14ec62349898f6529be9bbac871366",
+    "show_depends_exposes_softdep_order": true,
+    "staged_ecdsa_module": "build/experiments/r580-module-dependency-graph-hybriduvm-v1-20261028T1408Z/lib/modules/7.0.0-38-generic/kernel/crypto/ecdsa_generic.ko.zst"
+  },
+  "uvm_module_name": "hybrid580_uvm"
+}

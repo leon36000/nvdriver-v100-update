@@ -1,0 +1,220 @@
+{
+  "decision": {
+    "minimum_protocol_obligations": [
+      "Pin nvl and an explicit successfully-requested IRQ/vector set while excluding new close/remove teardown.",
+      "Close admission to new provider work and drain already-queued open work without holding a lock required by that worker.",
+      "Quiesce the device interrupt producer before synchronize_irq, with MSI-X, shared IRQ, persistent-state, SoC, partial-registration, and restore paths covered.",
+      "Flush NVIDIA bottom_half_q and any RM/UVM fault-service work in a verified order before the UVM suspend callback.",
+      "Make PCI remove, surprise removal, last close, normal resume, and every PM rollback release/wait on the same lifecycle state.",
+      "Use a documented lock order across Open and proprietary module-local gate instances; release gates at a post-resume phase that preserves UVM and channel restore ordering."
+    ],
+    "next_discriminating_experiment": "Build a CPU concurrency state-machine fixture first for close/remove racing with PM pin, partial MSI-X registration, queued open completion, paired backend acquisition failure, and resume/abort release. Then implement the minimum provider API in isolated patched R580 source trees and compile both backends. Do not connect it to synchronize_irq until the RM producer-stop and handler lock dependencies are established.",
+    "selected_path": "Do not reuse nv_system_pm_lock as a standalone IRQ barrier. Keep the common provider drain fail-closed. Design a provider-owned lifecycle protocol that participates in IRQ registration, shutdown/last-close, and PCI removal; model all exits, then compile both provider patches."
+  },
+  "generated_utc": "2026-10-22T01:10:02Z",
+  "hardware_actions": "none: no PM transition, IRQ manipulation, module install/load, device rebind/reset, or GPU/RM access",
+  "input_sha256": {
+    "build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nv-linux.h": {
+      "bytes": 61386,
+      "sha256": "b2f28c6acac451b1673bb1dc3b9712d888a51c80b4ffbd03109871cd54965019"
+    },
+    "build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open/common/inc/nv-procfs-utils.h": {
+      "bytes": 9535,
+      "sha256": "d06ef353119a0aebf3e972fecc40aff0d9745a52aacfca2163b919fec5212545"
+    },
+    "build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_global.c": {
+      "bytes": 18035,
+      "sha256": "aeee2f257a289853f36d9c7b196f1e02d19b84695db44cdd2e00f28b0f1a4489"
+    },
+    "build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv-caps.c": {
+      "bytes": 22819,
+      "sha256": "a712a41b2e206e73e743b5f824c565e30b1ab132440fcb89aa10e11e77bb5079"
+    },
+    "build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv-mmap.c": {
+      "bytes": 27079,
+      "sha256": "35617fd599b76bf405874e11545eaab89bc941c0fa2e3ae0aa2f226a9a774d5e"
+    },
+    "build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv-msi.c": {
+      "bytes": 4982,
+      "sha256": "444917fc7855970c64c6d3f81e2ba71a7a2f062add6e24f27e6e24ca97b3a913"
+    },
+    "build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv-pci.c": {
+      "bytes": 68892,
+      "sha256": "877386d02f00f8ff61f81cb0bd3e4675ff6b376df59459d0d14824d32b47e9d2"
+    },
+    "build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv-procfs.c": {
+      "bytes": 36301,
+      "sha256": "eaddecce117d5d130b1752a9ea30ea4099646981daf39031f410cc3ef818cd19"
+    },
+    "build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv.c": {
+      "bytes": 229287,
+      "sha256": "3fddec7956bd263ac1d238a82861894c93cd9ca904067b770cca5a7beec2631a"
+    },
+    "build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia/nv_uvm_interface.c": {
+      "bytes": 55393,
+      "sha256": "b41c704d29363dd52dd0ea669ee253a37185f5826c7db56a07dec21c3d24eddc"
+    },
+    "build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04/version.mk": {
+      "bytes": 319,
+      "sha256": "cbc6488ed2c35ea814120bc80749dd2d11f486c3e98046b3be240d462ee86e7c"
+    },
+    "evidence/frontend-pm-irq-lifetime-guard-v1-20261022.json": {
+      "bytes": 290113,
+      "sha256": "b377839428402626f91bbbca4fdf7f071faec5672a3bcbff76f67e9ecb9dda3e"
+    },
+    "evidence/logs/software-verification-r580-irq-lifetime-guard-v1-20261022.log": {
+      "bytes": 160796,
+      "sha256": "7b93a7ce9f5d897930762a547d9e31e2f57b2bd1c9f9507deabe203d440bc6dd"
+    },
+    "evidence/r580-pm-irq-lifetime-audit-v1-20261022.json": {
+      "bytes": 8405,
+      "sha256": "f919e93566f2387c5849253053cd60f5722ad38b6a4f08157ad14ca38a7946c6"
+    },
+    "patches/r580.178.04/0035-private-open-pm-recovery-provider.patch": {
+      "bytes": 2763,
+      "sha256": "060f6ff65802ff691ec59d9ea39b88b5a65b28498b825efd57fa46d09835091f"
+    },
+    "patches/r580.178.04/proprietary/0035-private-legacy-pm-recovery-provider.patch": {
+      "bytes": 2036,
+      "sha256": "7ac552341f5d9ab4287c638abe6ea8a12696100657bcbbad0a8c179d632d63e0"
+    },
+    "src/hybrid580_pm_provider_kernel.h": {
+      "bytes": 15130,
+      "sha256": "5fa0d8ecde9a48852b24b137003d14b91a1afed0bdcffe7d151a3af664e99d90"
+    },
+    "src/hybrid_frontend.c": {
+      "bytes": 212407,
+      "sha256": "797605e1861173e6746186848da14927c06d9b1dd07be207c4366c8d38c856e9"
+    },
+    "tests/test_hybrid_frontend.py": {
+      "bytes": 248840,
+      "sha256": "d3fb2d473fc7ea51c3bf603a44d063e093801290e893b52045a2ae6a6eff0bf7"
+    }
+  },
+  "not_established": [
+    "A safe in-flight Linux IRQ barrier or no-new-GPU-fault producer boundary.",
+    "Complete provider lifecycle coverage across last close, hot removal, and surprise removal.",
+    "Correctness of callback-internal RM lock dependencies for use around synchronize_irq.",
+    "Hybrid UVM suspend/resume or any DPM transition on hardware.",
+    "Same-Linux V100 plus RTX 5080 CUDA, P2P, prolonged stability, or performance."
+  ],
+  "observed_at_utc": "2026-10-22",
+  "qualification": "pinned-static-source-audit-plus-CPU-contract-tests-and-compile-only-frontend-build",
+  "schema": "nvidia-hybrid-r580-pm-irq-lifetime-audit-v2",
+  "source_findings": [
+    {
+      "classification": "source-confirmed",
+      "finding": "The per-module nv_system_pm_lock read side covers ordinary GPU opens and most normal closes; the existing procfs system-power path takes its write side. The hybrid provider APIs do not acquire this write side. It therefore is not currently a provider IRQ-lifetime gate.",
+      "id": "provider-rwsem-is-not-a-complete-lifetime-gate",
+      "references": [
+        "pinned kernel-open/nvidia/nv.c:1848-1929, 2192-2233, 7055-7077",
+        "src/hybrid580_pm_provider_kernel.h:1-150",
+        "patches/r580.178.04/0035-private-open-pm-recovery-provider.patch",
+        "patches/r580.178.04/proprietary/0035-private-legacy-pm-recovery-provider.patch"
+      ]
+    },
+    {
+      "classification": "source-confirmed-with-bounded-scope",
+      "finding": "nvidia_open dispatches control-device opens to nvidia_ctl_open before taking nv_system_pm_lock; nvidia_close similarly dispatches control close to nvidia_ctl_close before the ordinary-device read lock. Other internal control-path synchronization was not analyzed here.",
+      "id": "control-open-close-bypass-rwsem-entry",
+      "references": [
+        "pinned kernel-open/nvidia/nv.c:1838-1850, 2210-2223"
+      ]
+    },
+    {
+      "classification": "source-confirmed",
+      "finding": "nvidia_open_deferred intentionally runs without nv_system_pm_lock so open_q can make progress. NVIDIA flushes open_q in its native per-device suspend path before RM power management; the hybrid provider channel/PM API has no corresponding open_q drain. Taking the ordinary rwsem writer alone does not prove already-queued opens have completed.",
+      "id": "deferred-open-worker-requires-explicit-queue-drain",
+      "references": [
+        "pinned kernel-open/nvidia/nv.c:1723-1752, 1900-1929, 6547-6560",
+        "src/hybrid580_pm_provider_kernel.h:318-400"
+      ]
+    },
+    {
+      "classification": "source-confirmed",
+      "finding": "The PCI dev_pm_ops callbacks call nvidia_suspend/nvidia_resume directly and do not call the procfs global-state routine that acquires nv_system_pm_lock. A custom cross-provider PM path must explicitly serialize with native DPM; current provider APIs do not establish this.",
+      "id": "native-pci-dpm-is-a-separate-path",
+      "references": [
+        "pinned kernel-open/nvidia/nv.c:7087-7139"
+      ]
+    },
+    {
+      "classification": "source-confirmed",
+      "finding": "nv_pci_remove does not acquire nv_system_pm_lock. It stops open_q, removes the device, and can call nv_shutdown_adapter; shutdown frees IRQ registrations and vector metadata. The ordinary system PM rwsem alone therefore does not pin nvl or its IRQ set against device removal.",
+      "id": "pci-remove-can-teardown-outside-rwsem",
+      "references": [
+        "pinned kernel-open/nvidia/nv-pci.c:1754-1949",
+        "pinned kernel-open/nvidia/nv.c:1943-1987"
+      ]
+    },
+    {
+      "classification": "source-confirmed",
+      "finding": "The R580 wrapper source declares nv_system_pm_lock in each nv.c translation/module instance, and the two private provider patches compile separately namespaced provider APIs into Open and proprietary wrappers. A hybrid PM coordinator cannot treat the two providers as one rwsem; any paired gate needs a fixed cross-backend acquisition and rollback order.",
+      "id": "provider-locks-are-per-module",
+      "references": [
+        "pinned kernel-open/nvidia/nv.c:186, 579",
+        "patches/r580.178.04/0035-private-open-pm-recovery-provider.patch",
+        "patches/r580.178.04/proprietary/0035-private-legacy-pm-recovery-provider.patch"
+      ]
+    },
+    {
+      "classification": "source-confirmed-plus-ordering-limit",
+      "finding": "UVM uses g_uvm_global.pm.lock, flushes its global work queue and selected per-GPU ISR/kill-channel queues, suspends its ISR, then performs per-VA-space synchronization. The NVIDIA wrapper callback is serialized with registration through g_pNvUvmEventsLock. These are distinct mechanisms; they do not by themselves prove that provider RM fault production and the NVIDIA bottom_half_q were quiescent before entering UVM suspend.",
+      "id": "uvm-has-independent-pm-and-work-drains",
+      "references": [
+        "pinned kernel-open/nvidia-uvm/uvm_global.c:90, 294-358, 388-396",
+        "pinned kernel-open/nvidia/nv_uvm_interface.c:1108-1125",
+        "pinned kernel-open/nvidia/nv.c:2906-2921"
+      ]
+    },
+    {
+      "classification": "source-confirmed",
+      "finding": "The hybrid provider holds nv_linux_devices_lock while calling nv_preempt_user_channels, whose wrapper releases nvl->ldata_lock before return. Close/removal can later run shutdown and free IRQ resources. The list/device locks do not form a retained pin for a subsequent IRQ barrier.",
+      "id": "nv-open-list-and-ldata-locks-do-not-pin-irq-lifetime",
+      "references": [
+        "common/inc/nv-linux.h:1491-1504",
+        "pinned kernel-open/nvidia/nv.c:6631-6669, 1943-1987",
+        "src/hybrid580_pm_provider_kernel.h:318-400"
+      ]
+    },
+    {
+      "classification": "source-confirmed-and-cpu-tested",
+      "finding": "The common frontend returns -EOPNOTSUPP for provider IRQ drain until a lifecycle and producer-quiescence API exists. The coordinator rolls back attempted provider channel stops before UVM suspend and retains the blocked state until the matching recovery event.",
+      "id": "frontend-remains-fail-closed",
+      "references": [
+        "src/hybrid_frontend.c:300-385",
+        "tests/test_hybrid_frontend.py: system-pm-provider-adapter-fail-closed cases"
+      ]
+    }
+  ],
+  "source_tree": "build/experiments/private-open-hybrid-pm-v2-20261021/NVIDIA-kernel-module-source-580.178.04",
+  "source_tree_version": "NVIDIA Open and proprietary Linux kernel wrappers R580.178.04; private project patch snapshots, independently hashed above",
+  "source_version": "NVIDIA R580.178.04",
+  "supersedes": {
+    "path": "evidence/r580-pm-irq-lifetime-audit-v1-20261022.json",
+    "scope": "initial IRQ lifetime and nv_system_pm_lock candidate review; v1 did not close all admission, UVM, deferred-work, PCI-remove, and cross-provider paths",
+    "sha256": "f919e93566f2387c5849253053cd60f5722ad38b6a4f08157ad14ca38a7946c6"
+  },
+  "verification": {
+    "focused_frontend_tests": {
+      "count": 14,
+      "status": "passed"
+    },
+    "frontend_kernel_build": {
+      "gpu_or_rm_access": false,
+      "installed_or_loaded": false,
+      "module_sha256": "fe24386e8898653758d06f4fb8e95aeb7e9b359cdeb3c208bc0c11cccd188e86",
+      "report": "evidence/frontend-pm-irq-lifetime-guard-v1-20261022.json",
+      "report_sha256": "b377839428402626f91bbbca4fdf7f071faec5672a3bcbff76f67e9ecb9dda3e",
+      "status": "passed-build-only"
+    },
+    "full_software_suite": {
+      "count": 675,
+      "failures": 0,
+      "log": "evidence/logs/software-verification-r580-irq-lifetime-guard-v1-20261022.log",
+      "log_sha256": "7b93a7ce9f5d897930762a547d9e31e2f57b2bd1c9f9507deabe203d440bc6dd",
+      "seconds": 33.292,
+      "skipped": 0
+    }
+  }
+}

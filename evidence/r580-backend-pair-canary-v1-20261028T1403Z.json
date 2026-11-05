@@ -1,0 +1,103 @@
+{
+  "driver_version": "580.178.04",
+  "exports": {
+    "collisions": [],
+    "legacy_count": 144,
+    "open_count": 144
+  },
+  "gpu_accessed": false,
+  "kernel_release": "7.0.0-38-generic",
+  "limitations": [
+    "Static metadata and ELF markers only; no kernel insertion or VFS registration was attempted.",
+    "Unscoped legacy device-name strings are reported as ambiguous and are not treated as proof of active registration.",
+    "Does not prove independent RM/NVLink library semantics, GPU initialization, UVM, or CUDA."
+  ],
+  "loaded_or_installed": false,
+  "modules": {
+    "legacy": {
+      "ambiguous_legacy_literals": [
+        "nvidia-nvswitch"
+      ],
+      "autoload_aliases": [],
+      "bytes": 136885088,
+      "imports_checked": [
+        "alloc_chrdev_region",
+        "cdev_add",
+        "cdev_del",
+        "proc_create_data",
+        "proc_remove",
+        "unregister_chrdev_region"
+      ],
+      "license": "NVIDIA",
+      "name": "hybrid580_legacy",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-proprietary-gpu-name-string-v3-20261028/nvidia-580.178.04/hybrid580_legacy.ko",
+      "pci_selector_parameter_present": true,
+      "private_resource_name_markers": [
+        "driver/hybrid580_legacy",
+        "driver/hybrid580_legacy-caps",
+        "driver/hybrid580_legacy-nvlink",
+        "driver/hybrid580_legacy-nvswitch",
+        "hybrid580_legacy",
+        "hybrid580_legacy-caps",
+        "hybrid580_legacy-caps-imex-channels",
+        "hybrid580_legacy-nvlink",
+        "hybrid580_legacy-nvswitch"
+      ],
+      "public_conflicting_resource_literals": [],
+      "sha256": "67d9f00b4fee9cf1a3d1873eb4721bae20419a8b5bbec1dce6d1612e30c9f971",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.178.04"
+    },
+    "open": {
+      "ambiguous_legacy_literals": [
+        "nvidia-nvswitch"
+      ],
+      "autoload_aliases": [],
+      "bytes": 37254536,
+      "imports_checked": [
+        "alloc_chrdev_region",
+        "cdev_add",
+        "cdev_del",
+        "proc_create_data",
+        "proc_remove",
+        "unregister_chrdev_region"
+      ],
+      "license": "Dual MIT/GPL",
+      "name": "hybrid580_open",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open580-gpu-name-string-v2-20261028/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/hybrid580_open.ko",
+      "pci_selector_parameter_present": true,
+      "private_resource_name_markers": [
+        "driver/hybrid580_open",
+        "driver/hybrid580_open-caps",
+        "driver/hybrid580_open-nvlink",
+        "driver/hybrid580_open-nvswitch",
+        "hybrid580_open",
+        "hybrid580_open-caps",
+        "hybrid580_open-caps-imex-channels",
+        "hybrid580_open-nvlink",
+        "hybrid580_open-nvswitch"
+      ],
+      "public_conflicting_resource_literals": [],
+      "sha256": "576d76b97dc2ba1434fccb9244e696be0fb4e19a22f3e38987c12f66664545b1",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.178.04"
+    }
+  },
+  "observed_at_utc": "2026-10-28T14:03:36.176109+00:00",
+  "qualification": "static-only-no-load",
+  "runtime_validated": false,
+  "schema": "nvidia-hybrid-r580-backend-pair-audit-v2",
+  "status": "passed",
+  "symvers_inputs": {
+    "legacy": {
+      "bytes": 12932,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-proprietary-gpu-name-string-v3-20261028/nvidia-580.178.04/Module.symvers",
+      "sha256": "9911d939c43d0c47c61075b4c28799c638f7a02edd2b4fb751116a87bcd2fdb3"
+    },
+    "open": {
+      "bytes": 12391,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open580-gpu-name-string-v2-20261028/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/Module.symvers",
+      "sha256": "89d3d3a077c160bfa44e5fb38d78e7a48048b15ef5e939a37377083c6ec791ad"
+    }
+  }
+}

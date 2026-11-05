@@ -1,0 +1,65 @@
+{
+  "schema": "probe-current-source-verification-v1",
+  "generated_utc": "2026-10-22T04:09:10Z",
+  "qualification": "source-build-and-cpu-test-only",
+  "build": {
+    "command": "python3 tools/build_probe.py --output-dir build/probe-current-src-v1-20261022",
+    "status": "built-static-images",
+    "manifest": {
+      "path": "build/probe-current-src-v1-20261022/build-manifest.json",
+      "sha256": "376f943d074a283e25432dadefd51ac7da7fddc5ee42370983928a4f76bcc46e"
+    },
+    "probe": {
+      "path": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+      "sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808"
+    },
+    "fatbin": {
+      "path": "build/probe-current-src-v1-20261022/hybrid_probe.sm70-sm120.fatbin",
+      "sha256": "fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305",
+      "images": [
+        "sm_70",
+        "sm_120"
+      ]
+    }
+  },
+  "verification": {
+    "command": "HYBRID_PROBE=<fresh probe> HYBRID_CUDA_PROBE=<fresh probe> python3 -B -m unittest discover -v -s tests",
+    "exit_code": 0,
+    "tests_passed": 698,
+    "failures": 0,
+    "skips": 0,
+    "elapsed_seconds": 35.533,
+    "log": {
+      "path": "evidence/logs/software-verification-current-probe-v1-20261022.log",
+      "bytes": 168265,
+      "mode": "0600",
+      "sha256": "9a6a3a8610ce6dbca33b55c0f85fd13b24fd491e67b534d9af01f13bde3c4b6f"
+    }
+  },
+  "stale_default_diagnostic": {
+    "command": "python3 -B -m unittest discover -v -s tests -p test_probe_fake_driver.py with both probe variables unset",
+    "exit_code": 1,
+    "tests_run": 19,
+    "default_probe": "build/hybrid_cuda_probe",
+    "default_probe_sha256": "f5cc183d37b81754b07b169127cfe6df6fc0c6a19b1cc76cf21b0a89596d3762",
+    "log": {
+      "path": "evidence/logs/test-probe-default-stale-negative-v1-20261022.log",
+      "bytes": 60125,
+      "mode": "0600",
+      "sha256": "1ab0b84d6ee9893707302a0a2321fbc1f867e51c8b3c82d9e870c50b503fe7e0"
+    },
+    "observed_cause": "The default binary rejects current --expected-pci, --phase, and --cuda-graphs options and lacks current report fields; it is stale relative to the tests. This does not reproduce the alleged subprocess.run(command=...) error."
+  },
+  "source_observation": {
+    "path": "tests/test_probe_fake_driver.py",
+    "line": 46,
+    "text": "completed = subprocess.run(command, text=True, capture_output=True, check=False)",
+    "classification": "command list passed as first positional argv; not an unsupported command= keyword"
+  },
+  "limits": [
+    "The fresh build proves compiler/linker/ELF checks only.",
+    "The fake Driver API suite proves CPU-side probe control flow only.",
+    "No physical GPU, NVIDIA driver, experimental module, hybrid same-process path, inference workload, or performance metric was exercised."
+  ],
+  "decision": "No code fix was justified for the reviewer command= claim. Preserve explicit probe pinning in test runs; the repository README build-and-pin workflow avoids the stale default."
+}

@@ -1,0 +1,191 @@
+{
+  "schema": "nvidia-hybrid-r580-r595-symbol-audit-v1",
+  "observed_at_utc": "2026-10-19T00:01:38Z",
+  "scope": "Targeted static ELF/source comparison only. No proprietary disassembly/decompilation, module load, hardware test, or binary modification.",
+  "artifacts": {
+    "r580_proprietary_core": {
+      "version": "580.178.04-0ubuntu0.26.04.1 (Ubuntu nvidia-kernel-source-580 package)",
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nv-kernel.o_binary",
+      "package_sha256": "31666b2940d0375d9ca984bd78a195c2da8d353998f92f745e0831e5c7bd2a5c",
+      "sha256": "5269a23ffba19a17fe16f076463e7ad4151254659441d1711bee6c6221ff6f4b",
+      "size_bytes": 112677456,
+      "elf": {
+        "class": "ELF64",
+        "endianness": "little",
+        "type": "ET_REL",
+        "machine": "AMD x86-64",
+        "symtab_entries": 62277
+      },
+      "acquisition_record": "evidence/r580-proprietary-reference-acquisition-20261018.json",
+      "handling": "Downloaded and extracted without package scripts; not installed, loaded, modified, redistributed, or relicensed."
+    },
+    "r595_open_core": {
+      "version": "595.104.02, as stated in the source README",
+      "path": ".cache/upstream/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5/src/nvidia/_out/Linux_x86_64/nv-kernel.o",
+      "cache_directory_suffix": "ac24e02fc090c3e05c1fc03384b317ac2cc301b5",
+      "revision_status": "The cache directory has no .git metadata; its suffix is not independently verified as a Git commit.",
+      "sha256": "3d590ac9a8530be2d4be4c8702ebc11ef8e913754e2827a423df662acc967f68",
+      "size_bytes": 17800784,
+      "elf": {
+        "class": "ELF64",
+        "endianness": "little",
+        "type": "ET_REL",
+        "machine": "AMD x86-64",
+        "symtab_entries": 22748
+      }
+    }
+  },
+  "method": {
+    "tools": {
+      "nm": "GNU nm (GNU Binutils for Ubuntu) 2.46",
+      "readelf": "GNU readelf; used with -W -h and -W -s"
+    },
+    "commands": [
+      "sha256sum <R580 nv-kernel.o_binary> <R595 nv-kernel.o>",
+      "readelf -W -h <object>",
+      "readelf -W -s <object>",
+      "nm -C -S --defined-only <object> | targeted-name filters",
+      "nm -a <object> | exact-name filters",
+      "rg -n <target> <R595 src/nvidia>",
+      "rg -n -C 4 'rm_is_supported_(pci_)?device' <R580 nvidia/nv-pci.c>"
+    ],
+    "targeted_name_search": "Exact symbol-name searches covered registerHalModule_GV100, gpuConstructPhysical*, gr*_GV100, subdeviceCtrlCmdKGrInternalStaticGetInfo/Caps (including _IMPL), nvUvmInterface*, GB202/GB203, and GSPCLIENT names. The R580 numeric _nvNNNNNNrm pattern was counted separately.",
+    "strong_global_symbol_intersection": {
+      "rule": "Count unique STB_GLOBAL, defined, non-ABS ELF symbols from readelf -W -s; STB_WEAK is excluded. Intersection is exact symbol-name equality between the two ET_REL objects.",
+      "r580_count": 213,
+      "r595_open_count": 13582,
+      "intersection_count": 210,
+      "r580_only_names": [
+        "rm_get_firmware_version",
+        "rm_get_vbios_version",
+        "rm_gpu_need_4k_page_isolation"
+      ],
+      "r595_open_only_count": 13372,
+      "samples": [
+        {
+          "name": "rm_ioctl",
+          "r580": {"type": "FUNC", "binding": "GLOBAL", "visibility": "DEFAULT", "section": ".text", "value": "0x00d659b0", "size_bytes": 970},
+          "r595_open": {"type": "FUNC", "binding": "GLOBAL", "visibility": "DEFAULT", "section": ".text", "value": "0x00123ba0", "size_bytes": 1527}
+        },
+        {
+          "name": "rm_is_supported_pci_device",
+          "r580": {"type": "FUNC", "binding": "GLOBAL", "visibility": "DEFAULT", "section": ".text", "value": "0x00d67790", "size_bytes": 317},
+          "r595_open": {"type": "FUNC", "binding": "GLOBAL", "visibility": "DEFAULT", "section": ".text", "value": "0x001257f0", "size_bytes": 44}
+        },
+        {
+          "name": "rm_is_supported_device",
+          "r580": {"type": "FUNC", "binding": "GLOBAL", "visibility": "DEFAULT", "section": ".text", "value": "0x00d67470", "size_bytes": 797},
+          "r595_open": {"type": "FUNC", "binding": "GLOBAL", "visibility": "DEFAULT", "section": ".text", "value": "0x00125590", "size_bytes": 604}
+        },
+        {
+          "name": "rm_init_rm",
+          "r580": {"type": "FUNC", "binding": "GLOBAL", "visibility": "DEFAULT", "section": ".text", "value": "0x00d65400", "size_bytes": 92},
+          "r595_open": {"type": "FUNC", "binding": "GLOBAL", "visibility": "DEFAULT", "section": ".text", "value": "0x00123900", "size_bytes": 15}
+        },
+        {
+          "name": "rm_gpu_ops_get_gpu_info",
+          "r580": {"type": "FUNC", "binding": "GLOBAL", "visibility": "DEFAULT", "section": ".text", "value": "0x00d784b0", "size_bytes": 100},
+          "r595_open": {"type": "FUNC", "binding": "GLOBAL", "visibility": "DEFAULT", "section": ".text", "value": "0x00130340", "size_bytes": 18}
+        },
+        {
+          "name": "rm_p2p_get_pages",
+          "r580": {"type": "FUNC", "binding": "GLOBAL", "visibility": "DEFAULT", "section": ".text", "value": "0x00d69120", "size_bytes": 617},
+          "r595_open": {"type": "FUNC", "binding": "GLOBAL", "visibility": "DEFAULT", "section": ".text", "value": "0x00126e00", "size_bytes": 374}
+        }
+      ],
+      "interpretation_limit": "The 210 repeated strong global names predict direct-link duplicate-definition conflicts unless symbols are isolated or renamed. This is a name-level link-risk count, not proof of kernel exports, ABI compatibility, equivalent semantics, or runtime interoperability."
+    }
+  },
+  "symbol_findings": [
+    {
+      "target": "R580 GV100 HAL registration, physical construction, GR/FB/FIFO initialization, and GB202/GB203/GSPCLIENT names",
+      "r580_observation": "No readable exact target-name matches were found in nm -a. This does not establish that the code paths are absent: 58417 defined symbol names match _nv[0-9]+rm, and sample entries are local functions (readelf: _nv054968rm FUNC LOCAL DEFAULT .text value 0x0 size 5; _nv055133rm FUNC LOCAL DEFAULT .text value 0x10 size 30). The architecture semantics of those numbered symbols were not inferred.",
+      "r595_open_observation": "No registerHalModule_GV100, gr*_GV100, or GB202/GB203/GSPCLIENT-named counterpart was found in the proprietary R580 symbol names. See the separate R595 Open findings below; symbol-name absence in R580 is inconclusive."
+    },
+    {
+      "target": "R595 Open Blackwell HAL registration",
+      "symbols": [
+        {"name": "registerHalModule_GB202", "type": "FUNC", "binding": "GLOBAL", "visibility": "DEFAULT", "section": ".text", "value": "0x001581e0", "size_bytes": 21},
+        {"name": "registerHalModule_GB203", "type": "FUNC", "binding": "GLOBAL", "visibility": "DEFAULT", "section": ".text", "value": "0x00158200", "size_bytes": 21},
+        {"name": "halIface_GB202", "type": "OBJECT", "binding": "LOCAL", "visibility": "DEFAULT", "section": ".rodata", "elf_st_value": "0x00745d60", "nm_value": "0x00b2aae0", "size_bytes": 16},
+        {"name": "halIface_GB203", "type": "OBJECT", "binding": "LOCAL", "visibility": "DEFAULT", "section": ".rodata", "elf_st_value": "0x00745d50", "nm_value": "0x00b2aad0", "size_bytes": 16}
+      ],
+      "source": [
+        "src/nvidia/generated/g_hal_private.h:462-490 defines the GB202/GB203 HAL interface objects and calls registerHalModule(HAL_IMPL_GB202/GB203, ...).",
+        "src/nvidia/generated/g_hal_register.h:169-189 declares and invokes the GB20x registrations."
+      ],
+      "interpretation": "The registration symbols are present in this R595 Open object. The halIface objects are local, not global exports. No GV100 registration counterpart was found in the Open source search."
+    },
+    {
+      "target": "R595 Open GV100 reusable functions",
+      "symbols": [
+        {"name": "kfifoRingChannelDoorBell_GV100", "type": "FUNC", "binding": "GLOBAL", "visibility": "DEFAULT", "section": ".text", "value": "0x001decf0", "size_bytes": 146},
+        {"name": "kgmmuServicePriFaults_GV100", "type": "FUNC", "binding": "GLOBAL", "visibility": "DEFAULT", "section": ".text", "value": "0x002b2710", "size_bytes": 2703},
+        {"name": "kmemsysGetFbNumaInfo_GV100", "type": "FUNC", "binding": "GLOBAL", "visibility": "DEFAULT", "section": ".text", "value": "0x0028e550", "size_bytes": 195},
+        {"name": "kfifoConstructUsermodeMemdescs_GV100", "type": "FUNC", "binding": "GLOBAL", "visibility": "DEFAULT", "section": ".text", "value": "0x001debe0", "size_bytes": 236}
+      ],
+      "interpretation": "The object contains named GV100 FIFO, GMMU and memory-system helpers that are concrete reuse candidates. Their presence does not establish that the complete GV100 initialization path or a functional Volta driver exists."
+    },
+    {
+      "target": "R595 Open GSP client symbols",
+      "symbols": [
+        {"name": "gpuCheckPageRetirementSupport_GSPCLIENT", "type": "FUNC", "binding": "GLOBAL", "visibility": "DEFAULT", "section": ".text", "value": "0x00204f90", "size_bytes": 22},
+        {"name": "kbusPatchBar1Pdb_GSPCLIENT", "type": "FUNC", "binding": "GLOBAL", "visibility": "DEFAULT", "section": ".text", "value": "0x00191e30", "size_bytes": 544},
+        {"name": "kbusPatchBar2Pdb_GSPCLIENT", "type": "FUNC", "binding": "GLOBAL", "visibility": "DEFAULT", "section": ".text", "value": "0x00192050", "size_bytes": 485}
+      ],
+      "interpretation": "These named helpers exist in the R595 Open core object. They do not prove that R580 proprietary contains equivalent code under a usable interface or that any GSP path is suitable for GV100."
+    },
+    {
+      "target": "Physical construction and GR dispatch methods",
+      "r595_open_source": [
+        "src/nvidia/generated/g_gpu_nvoc.h:1752-1757 and :4856 implement generic gpuConstructPhysical as static inline code; src/nvidia/src/kernel/gpu/gpu.c:676 calls it. It is not a standalone named object symbol and is not GV100-specific.",
+        "src/nvidia/generated/g_subdevice_nvoc.h:2359 and :2369 declare subdeviceCtrlCmdKGrInternalStaticGetInfo_IMPL and ...GetCaps_IMPL; g_subdevice_nvoc.c:2113 and :2233 contain dispatch-table pointer references. Neither exact name appears in nm -a for the compared R595 nv-kernel.o object. The reason (build configuration, conditional inclusion, or component boundary) is not established by these observations."
+      ],
+      "architecture_tree": "The R595 source tree has no src/nvidia/src/kernel/gpu/gr/arch/volta directory. It does have fifo/arch/volta, mem_mgr/arch/volta and mem_sys/arch/volta. GR directories include Maxwell, Pascal, Turing, Ampere and Blackwell.",
+      "interpretation": "This is evidence of partial reusable Volta support, not an open GV100 GR backend in this source release. The generated generic constructor and GR control names do not replace architecture-specific GR registration and implementation."
+    },
+    {
+      "target": "UVM interface symbol names",
+      "observation": "No nvUvmInterface* symbol name was found in either compared nv-kernel core object. This comparison does not include the separate nvidia-uvm kernel component or establish UVM availability."
+    }
+  ],
+  "source_observations": [
+    {
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nvidia.Kbuild:19-22,40-42",
+      "observation": "The R580 wrapper describes nv-kernel.o_binary as the core binary component shared across UNIX platforms and links it through an nv-kernel.o symlink into nvidia.ko. Thus this symbol comparison covers the opaque core object, not the complete Linux module interface."
+    },
+    {
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nv-pci.c:308-315,411-415,934-959",
+      "observation": "rm_is_supported_pci_device is a named R580 global function (value 0xd67790, size 317). The PCI probe passes PCI base class, subclass, vendor, device, subsystem vendor/device and NV_FALSE before enabling/probing the device; the VGA/3D enumeration passes the corresponding fields with NV_TRUE. After the probe copies the PCI identifiers into nv_state, rm_is_supported_device(sp,nv) is called (value 0xd67470, size 797); failure exits before rm_init_private_state and the 'Wire RM HAL' step."
+    },
+    {
+      "path": ".cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/detect-self-hosted.h:27-43 and nvidia/nv.c:1294-1303,1325-1335",
+      "observation": "The R580 wrapper explicitly requires Open kernel modules for a narrowly defined self-hosted-Hopper/Blackwell PCI-ID set (GH100 0x2340-0x237f; GB100 0x2940-0x297f; GB110 0x31c0-0x31ff or 0x31a1). This special-case check is not evidence of general RTX 5090/5080 support in the proprietary branch."
+    },
+    {
+      "path": ".cache/upstream/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5/README.md:1-4,18-21,180-183",
+      "observation": "The source README identifies version 595.104.02, requires matching GSP firmware and user-space components, and states Open kernel modules are usable on Turing or later. Volta is outside that documented support floor despite the GV100 helper symbols and Volta subdirectories."
+    },
+    {
+      "path": ".cache/upstream/open-gpu-kernel-modules-ac24e02fc090c3e05c1fc03384b317ac2cc301b5/COPYING:1-24",
+      "observation": "The package says individual files are MIT-licensed except where noted; a linked Linux kernel module is dual licensed MIT/GPLv2. Check file-level notices before reusing particular files. This does not grant rights to redistribute the proprietary R580 object."
+    }
+  ],
+  "decision_limits": [
+    "No symbol-name match in the R580 proprietary object is not evidence that the corresponding machine-code path is absent: its internal implementation names are largely numeric _nvNNNNNNrm names, whose semantics were not mapped.",
+    "A defined ELF symbol is not necessarily a kernel-exported symbol, stable interface, reachable dispatch entry, or implementation compatible with the other object.",
+    "The 210 matching global names predict an un-namespaced direct-link collision risk; no combined link was attempted in this bounded audit.",
+    "No object-level comparison proves device initialization, CUDA execution, UVM, P2P, stability, or performance on hardware.",
+    "The R595 compiled object is identified by its SHA256 and cache path; its full build flags and Git revision are unavailable."
+  ],
+  "next_discriminating_experiments": [
+    {
+      "question": "Does the R580 RM policy accept each actual PCI ID, and at which gate does a device fail?",
+      "experiment": "On a disposable canary, log the arguments and return values of rm_is_supported_pci_device and rm_is_supported_device at the nv-pci.c call sites before rm_init_private_state, separately for verified V100 and Blackwell PCI devices. A false early gate distinguishes PCI allow-list policy from later RM/HAL initialization failure. Do not infer these returns from the symbol table."
+    },
+    {
+      "question": "Can R580 and R595 core objects be directly linked together?",
+      "experiment": "In a scratch directory only, run a relocatable link of copies with ld -r and capture the first duplicate-definition diagnostics. The 210-name overlap predicts failure without namespace isolation/renaming; the link result is still not an ABI or runtime test."
+    }
+  ]
+}

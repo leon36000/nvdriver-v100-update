@@ -1,0 +1,128 @@
+{
+  "bundles": [
+    {
+      "interpretation": [
+        "The private channels-depth path still dispatches a GPU-zero modeset suspend/resume callback.",
+        "The callback setter is one slot per provider-core instance; the source does not define a cross-provider owner.",
+        "A modeset callback is void, so its failure cannot be aggregated by the provider PM state machine.",
+        "The modeset module reserves one fixed device number; loading independent copies requires resolving that collision.",
+        "A second GPU-zero suspend on the same modeset instance before its matching resume would contend on its global write semaphore; whether both private providers reach one instance is not established here."
+      ],
+      "label": "private-open-r580-channel-pm",
+      "modeset_interface": {
+        "callback_slot_rejects_second_registration": true,
+        "fixed_chrdev_major": 195,
+        "fixed_chrdev_minor": 254,
+        "fixed_chrdev_reservation": true,
+        "global_write_lock_uses_down_write_up_write": true,
+        "gpu_zero_pairs_global_write_lock_and_unlock": true,
+        "source_lines": {
+          "callback_setter": 46,
+          "nvkms_resume": 805,
+          "nvkms_suspend": 792,
+          "register_chrdev": 2033,
+          "resume_dispatch": 66,
+          "suspend_dispatch": 58,
+          "write_lock": 561,
+          "write_unlock": 566
+        },
+        "suspend_resume_callbacks_return_no_status": true
+      },
+      "provider_pm": {
+        "channels_resume_calls_global_modeset": true,
+        "channels_suspend_calls_global_modeset": true,
+        "modeset_suspend_precedes_channel_preemption": true,
+        "source_lines": {
+          "resume": 6853,
+          "suspend": 6914
+        }
+      },
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "common/inc/nv-chardev-numbers.h": {
+          "bytes": 1804,
+          "sha256": "405047bb836229f55f39955d2565e2aad2e470bd796bdf6b6f7a8795fe12ea64"
+        },
+        "nvidia-modeset/nvidia-modeset-linux.c": {
+          "bytes": 57822,
+          "sha256": "ce61c6d5810e6ef3b4b230dc5b75c13cd67c6c0a79dda6e205998f823ba5635e"
+        },
+        "nvidia/nv-modeset-interface.c": {
+          "bytes": 5019,
+          "sha256": "207017bb34673b098f41bcda0eededca6ac850de18b59e9779c2eedb857a6785"
+        },
+        "nvidia/nv.c": {
+          "bytes": 230110,
+          "sha256": "91a6fa380fea249ea9e01d84dd21dae3320a0a784b9790e0b68ea413c88732fb"
+        }
+      },
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-pm-channel-restart-v2-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open"
+    },
+    {
+      "interpretation": [
+        "The private channels-depth path still dispatches a GPU-zero modeset suspend/resume callback.",
+        "The callback setter is one slot per provider-core instance; the source does not define a cross-provider owner.",
+        "A modeset callback is void, so its failure cannot be aggregated by the provider PM state machine.",
+        "The modeset module reserves one fixed device number; loading independent copies requires resolving that collision.",
+        "A second GPU-zero suspend on the same modeset instance before its matching resume would contend on its global write semaphore; whether both private providers reach one instance is not established here."
+      ],
+      "label": "private-proprietary-r580-channel-pm",
+      "modeset_interface": {
+        "callback_slot_rejects_second_registration": true,
+        "fixed_chrdev_major": 195,
+        "fixed_chrdev_minor": 254,
+        "fixed_chrdev_reservation": true,
+        "global_write_lock_uses_down_write_up_write": true,
+        "gpu_zero_pairs_global_write_lock_and_unlock": true,
+        "source_lines": {
+          "callback_setter": 46,
+          "nvkms_resume": 805,
+          "nvkms_suspend": 792,
+          "register_chrdev": 2033,
+          "resume_dispatch": 66,
+          "suspend_dispatch": 58,
+          "write_lock": 561,
+          "write_unlock": 566
+        },
+        "suspend_resume_callbacks_return_no_status": true
+      },
+      "provider_pm": {
+        "channels_resume_calls_global_modeset": true,
+        "channels_suspend_calls_global_modeset": true,
+        "modeset_suspend_precedes_channel_preemption": true,
+        "source_lines": {
+          "resume": 6998,
+          "suspend": 7059
+        }
+      },
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "common/inc/nv-chardev-numbers.h": {
+          "bytes": 1804,
+          "sha256": "405047bb836229f55f39955d2565e2aad2e470bd796bdf6b6f7a8795fe12ea64"
+        },
+        "nvidia-modeset/nvidia-modeset-linux.c": {
+          "bytes": 57816,
+          "sha256": "2b515eedc602fed4f98a6a55f9f28b44bcf6056e49b2428aa4feae0f1b0b0d49"
+        },
+        "nvidia/nv-modeset-interface.c": {
+          "bytes": 5019,
+          "sha256": "207017bb34673b098f41bcda0eededca6ac850de18b59e9779c2eedb857a6785"
+        },
+        "nvidia/nv.c": {
+          "bytes": 228885,
+          "sha256": "aff8f3c55e1e5d38a521855b24a8363843f9fcc0def029c489321a2caa862ec5"
+        }
+      },
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-proprietary-pm-channel-restart-v2-20261021/nvidia-580.178.04"
+    }
+  ],
+  "generated_utc": "2026-10-21T21:22:18Z",
+  "limitations": [
+    "No module was loaded and no PM transition was executed.",
+    "The report does not prove whether the two private cores would bind one modeset instance or two.",
+    "The opaque RM modeset operations and display behavior are not inspected."
+  ],
+  "qualification": "static-source-contract-only",
+  "schema": "r580-modeset-pm-audit-v1"
+}

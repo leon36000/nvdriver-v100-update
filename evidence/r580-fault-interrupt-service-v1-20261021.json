@@ -1,0 +1,79 @@
+{
+  "control": {
+    "id": "0x20801702",
+    "name": "NV2080_CTRL_CMD_MC_SERVICE_INTERRUPTS",
+    "scope": "NV2080_CTRL_MC_ENGINE_ID_ALL"
+  },
+  "facts": {
+    "client_queue_apis_do_not_acquire_rm_gpu_locks": true,
+    "control_success_does_not_prove_stuck_interrupt_drained": true,
+    "get_api_consumes_client_queue": true,
+    "get_api_uses_bottom_half_stack": true,
+    "gmmu_pending_checks_fault_service_state": true,
+    "gp100_pending_enumeration_includes_gmmu": true,
+    "mc_service_control_is_documented_and_registered": true,
+    "non_gsp_rm_registers_non_replayable_fault_service": true,
+    "non_replayable_service_runs_after_hw_top_half": true,
+    "pending_api_checks_client_queue": true,
+    "pending_api_uses_isr_stack": true,
+    "rm_populates_uvm_cpu_client_queue": true,
+    "service_interrupts_api_delegates_to_rm": true,
+    "stall_service_loops_over_pending_engines": true,
+    "uvm_rm_method_services_all_engine_interrupts": true
+  },
+  "generated_utc": "2026-10-21T23:45:08Z",
+  "limitations": [
+    "The RM service loop may exit on a stuck interrupt after a void dispatch; the returned NV_OK is not proof that every pending engine drained.",
+    "This service API does not by itself prove that all GV100 hardware non-replayable faults have reached the UVM client queue before ISR suspension.",
+    "No RM call, GPU operation, module load, suspend, or fault-injection test was run."
+  ],
+  "qualification": "static-source-contract-only",
+  "schema": "r580-fault-interrupt-service-audit-v1",
+  "source_files": {
+    "kernel-open/common/inc/nv_uvm_interface.h": {
+      "sha256": "68b6cae62ad0bdf6940d48a34084d789cd1f87a06b84310195cd2adc4b9e50f8"
+    },
+    "kernel-open/common/inc/nv_uvm_types.h": {
+      "sha256": "5216a6a83924511f38c8a881ee0ffc601e2851e92e6a9b49810f9cc9e90dd614"
+    },
+    "kernel-open/nvidia/nv_uvm_interface.c": {
+      "sha256": "b41c704d29363dd52dd0ea669ee253a37185f5826c7db56a07dec21c3d24eddc"
+    },
+    "src/common/sdk/nvidia/inc/ctrl/ctrl2080/ctrl2080mc.h": {
+      "sha256": "2cfd3953311c5609cb2fa5999f8e257e60d63c5361677b90efd99c7ae366353b"
+    },
+    "src/nvidia/arch/nvalloc/unix/src/rm-gpu-ops.c": {
+      "sha256": "5160157ccfb131b6957e746670890776a4fc222baa8328bf6d18839780ac569c"
+    },
+    "src/nvidia/generated/g_subdevice_nvoc.c": {
+      "sha256": "53570da27b08609f294186eebdfecfda03ebbde2a0e7ba3b497bd18426ac7da3"
+    },
+    "src/nvidia/src/kernel/gpu/intr/arch/pascal/intr_gp100.c": {
+      "sha256": "a03192535c0439b4b21c03305669d6320847f479817b8d161932f77ae129df2a"
+    },
+    "src/nvidia/src/kernel/gpu/intr/intr.c": {
+      "sha256": "3273490dbe94c15358e144484a58e3579bb7fb2e03fe0b88712cad9640a799c8"
+    },
+    "src/nvidia/src/kernel/gpu/mmu/kern_gmmu.c": {
+      "sha256": "b8d68a75fe44b1ce571de5bfb997e08aaf82930e7874b02e82d2fcf8dcb01ccc"
+    },
+    "src/nvidia/src/kernel/rmapi/nv_gpu_ops.c": {
+      "sha256": "1aaf4f11896388812bf1a372718746e4e5753598bb4c0a43c42d10010e7e0f58"
+    }
+  },
+  "source_lines": {
+    "get_fault_wrapper": 979,
+    "gmmu_pending": 293,
+    "gp100_pending": 184,
+    "kgmmu_registration": 2226,
+    "kgmmu_service": 2325,
+    "mc_service_control": 186,
+    "pending_fault_wrapper": 970,
+    "rm_service_core": 7841,
+    "rm_service_wrapper": 371,
+    "service_interrupts_interface": 674,
+    "stall_service_loop": 1625,
+    "stuck_interrupt_exit": 1438
+  },
+  "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04"
+}

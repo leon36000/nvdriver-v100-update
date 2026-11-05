@@ -1,0 +1,146 @@
+{
+  "abi_layout": {
+    "compiler": [
+      "cc"
+    ],
+    "r580": {
+      "alignof": 8,
+      "bar1DmaAddress_offset": 32,
+      "sizeof": 64
+    },
+    "r595": {
+      "alignof": 8,
+      "bar1DmaAddress_offset": 32,
+      "bar1PcieAtomics_offset": 64,
+      "sizeof": 72
+    },
+    "target": "x86_64-linux-gnu"
+  },
+  "branch_delta": [
+    "R580 UvmGpuP2PCapsParams has no bar1PcieAtomics field; R595 appends two NvBool entries.",
+    "R580 reports UVM_LINK_TYPE_PCIE for the PCIe path; R595 distinguishes PCIE_BAR1 from PCIE.",
+    "R580 and R595 preserve the two directional BAR1 DMA mappings in the inspected source excerpts."
+  ],
+  "checks": {
+    "r580_has_no_bar1_atomic_field_or_producer_output": true,
+    "r580_p2p_struct_matches_known_base_fields": true,
+    "r580_producer_has_two_directional_bar1_dma_mappings": true,
+    "r580_reports_generic_pcie_link_after_bar1_probe": true,
+    "r595_appends_two_nvbool_atomic_flags": true,
+    "r595_distinguishes_bar1_from_generic_pcie_link": true,
+    "r595_maps_directional_atomic_flags_to_bar1_owners": true,
+    "r595_retains_r580_field_prefix": true
+  },
+  "fixture_sha256": {
+    "r580_function": "e1c5e1ccfd7743abd3faf9c3e392c57289e6ea1177999aef2556faae3bd8dfff",
+    "r580_struct": "6e41d7fe81278e103c62129ae8ced115b970a9df8370c2bb984d25a9be06f330",
+    "r595_function": "b82c723cef882f053fca6ac7b3837b47aed2be5636ac23c956c46a04668008e4",
+    "r595_struct": "5a5574d7b316e03e87fe8efe7783cd1c59911d1a5045d538ee7338eee8fbe250"
+  },
+  "observed_at_utc": "2026-11-02T17:04:53.890974+00:00",
+  "releases": {
+    "580.196.07": {
+      "nvbool_typedef": "typedef NvU8 NvBool;",
+      "nvtypes_file_sha256": "57bf6ee0fc9f604e7d6f224a3b861521526bb0b115e99a33e5704d881daca708",
+      "source_archive_sha256": "21914a460f17190c43cffb75f0c35aef957e267bfefea267bc18638beae17084",
+      "source_file_sha256": "98e4fcca21a17eb9b52793805f4d3a0f8ab9468a4f7154c0eddc2714b1443722",
+      "types_file_sha256": "ee22643e79d6b7dae56ac52da517bae19b6594b1bf9564baeb68df10af6d5922"
+    },
+    "595.112.07": {
+      "nvbool_typedef": "typedef NvU8 NvBool;",
+      "nvtypes_file_sha256": "0cadade26afecb4d7994893264467ae2cdac2c90fc1412c4d87a9a4184b25e6e",
+      "source_archive_sha256": "567d4ba082a54ef733e7ce87c87401da488a3aabe29837c92feb19011c8250c4",
+      "source_file_sha256": "e3cd52c0eb84554ad92e8ab6436e949492f45591307ff0b149a239367a837c8f",
+      "types_file_sha256": "9bbe94713cfd6215ecb74e4626c19077e386009fe340fe156f94de9693ea635e",
+      "upstream_commit": "d8257d95ae5fed364163e4df51db66df8b1ee0d2",
+      "upstream_tag_object": "2e8dd6c0bbd2e08194b96abeb5c319717cd13682"
+    }
+  },
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-r580-r595-p2p-source-abi-delta-v1",
+  "source_function_fingerprints": {
+    "r580_nvGpuOpsGetP2PCaps": "ef68751c9d572b0ea0f5ad5858d31b285db00626cc3845abbe6327d223ae9d87",
+    "r595_nvGpuOpsGetP2PCaps": "37e772c1306a93bad97b879a0c73b77eae6af14fcc6d8b93064dc8e6376fbc55"
+  },
+  "struct_fields": {
+    "r580": [
+      {
+        "count": 2,
+        "name": "peerIds",
+        "type": "NvU32"
+      },
+      {
+        "count": 2,
+        "name": "egmPeerIds",
+        "type": "NvU32"
+      },
+      {
+        "count": 1,
+        "name": "p2pLink",
+        "type": "NvU32"
+      },
+      {
+        "count": 2,
+        "name": "optimalNvlinkWriteCEs",
+        "type": "NvU32"
+      },
+      {
+        "count": 1,
+        "name": "totalLinkLineRateMBps",
+        "type": "NvU32"
+      },
+      {
+        "count": 2,
+        "name": "bar1DmaAddress",
+        "type": "NvU64"
+      },
+      {
+        "count": 2,
+        "name": "bar1DmaSize",
+        "type": "NvU64"
+      }
+    ],
+    "r595": [
+      {
+        "count": 2,
+        "name": "peerIds",
+        "type": "NvU32"
+      },
+      {
+        "count": 2,
+        "name": "egmPeerIds",
+        "type": "NvU32"
+      },
+      {
+        "count": 1,
+        "name": "p2pLink",
+        "type": "NvU32"
+      },
+      {
+        "count": 2,
+        "name": "optimalNvlinkWriteCEs",
+        "type": "NvU32"
+      },
+      {
+        "count": 1,
+        "name": "totalLinkLineRateMBps",
+        "type": "NvU32"
+      },
+      {
+        "count": 2,
+        "name": "bar1DmaAddress",
+        "type": "NvU64"
+      },
+      {
+        "count": 2,
+        "name": "bar1DmaSize",
+        "type": "NvU64"
+      },
+      {
+        "count": 2,
+        "name": "bar1PcieAtomics",
+        "type": "NvBool"
+      }
+    ]
+  }
+}

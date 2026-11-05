@@ -1,0 +1,51 @@
+{
+  "build_exit_code": 0,
+  "classification": "compile-and-link-only; official R580 source baseline; no install/load/hardware execution",
+  "command": [
+    "make",
+    "-C",
+    "/tmp/nv-hybrid-r580-58019607-open-build-v1-20261023/NVIDIA-kernel-module-source-580.196.07",
+    "KERNEL_UNAME=7.0.0-38-generic",
+    "NV_KERNEL_MODULES=nvidia nvidia-uvm",
+    "-j8",
+    "modules"
+  ],
+  "created_utc": "2026-10-23T09:31:40.026837+00:00",
+  "duration_seconds": 28.732,
+  "hardware_accessed": false,
+  "kernel_release": "7.0.0-38-generic",
+  "log": {
+    "bytes": 1352178,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/r580-58019607-open-module-build-v1-20261023.log",
+    "sha256": "ba1db68c2531068e25e5327892935202dcf0b018b1a3fe81cd19f66a1c8cb274"
+  },
+  "module_install_attempted": false,
+  "module_linkage_lines": [
+    "  LD [M]  nvidia.o",
+    "  LD [M]  nvidia-uvm.o",
+    "  LD [M]  nvidia-uvm.ko",
+    "  LD [M]  nvidia.ko"
+  ],
+  "module_load_attempted": false,
+  "modules": {
+    "nvidia-uvm.ko": {
+      "bytes": 62530520,
+      "exists": true,
+      "path": "/tmp/nv-hybrid-r580-58019607-open-build-v1-20261023/NVIDIA-kernel-module-source-580.196.07/kernel-open/nvidia-uvm.ko",
+      "sha256": "8c491792718cb83ac006eaf256f88942e3877f888d087cea62c205f7136d1f3d"
+    },
+    "nvidia.ko": {
+      "bytes": 36640736,
+      "exists": true,
+      "path": "/tmp/nv-hybrid-r580-58019607-open-build-v1-20261023/NVIDIA-kernel-module-source-580.196.07/kernel-open/nvidia.ko",
+      "sha256": "afd876e590fe5bcaf67c63150c5a36091d9dd1bce99386356c6cd5570775c59a"
+    }
+  },
+  "schema": "r580-open-module-build-v1",
+  "scratch": "/tmp/nv-hybrid-r580-58019607-open-build-v1-20261023",
+  "source_archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/NVIDIA-kernel-module-source-580.196.07.tar.xz",
+  "source_archive_sha256": "21914a460f17190c43cffb75f0c35aef957e267bfefea267bc18638beae17084",
+  "source_version": "580.196.07",
+  "started_utc": "2026-10-23T09:31:11.235803+00:00",
+  "status": "passed"
+}
