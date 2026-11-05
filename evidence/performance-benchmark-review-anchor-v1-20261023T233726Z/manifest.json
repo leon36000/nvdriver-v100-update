@@ -1,0 +1,48 @@
+{
+  "canonical_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+  "created_at_utc": "2026-10-23T23:37:26.566198+00:00",
+  "files": {
+    "docs/STATE.md": {
+      "bytes": 403029,
+      "sha256": "054992967d88f7a6e88061ce3006fa9ce50169a86ce380d1e22a5b0ded9058ab"
+    },
+    "kernels/hybrid_probe.cu": {
+      "bytes": 393,
+      "sha256": "6c474bdcd7c2c4098b7d2b920b3be0a870842049aece1f47b7c534a2710086f2"
+    },
+    "src/hybrid_cuda_probe.cpp": {
+      "bytes": 64995,
+      "sha256": "1a6458f582523c48791f56080dc5f726fb39a8b84298df44bb961612a7b990d7"
+    },
+    "tests/fixtures/fake_cuda_driver.cpp": {
+      "bytes": 29005,
+      "sha256": "c00c40f6fd94f302af7872e2b4d9a33cf21ea32f52f4f151797d76057e094711"
+    },
+    "tests/run_hybrid_acceptance.py": {
+      "bytes": 115085,
+      "sha256": "dc98343552d159dc2bc7cc469fb81c9e3829caac7ce0ac388f45c794410d8d21"
+    },
+    "tests/test_probe_fake_driver.py": {
+      "bytes": 33059,
+      "sha256": "444531dab3868586d0de656b63af374205022b58780b8dbda0da8e6decc5d5b3"
+    },
+    "tools/build_probe.py": {
+      "bytes": 6097,
+      "sha256": "489a76095c30ee9b08d0108d42c04eb884d79fc022a2f01fbb9976519716161a"
+    },
+    "tools/cuda_probe_contract.py": {
+      "bytes": 3771,
+      "sha256": "7cfd55cf6a5b70551472d23c4b925794b4336234ccbc2124ee0dd8902a81959e"
+    },
+    "tools/run_pc3_v100_guest_reference.py": {
+      "bytes": 154204,
+      "sha256": "6521b8ace09638422231726894d43dc8e783b740f567f3c1a37deb7f79c5c44a"
+    },
+    "tools/run_remote_selected_gpu.py": {
+      "bytes": 116117,
+      "sha256": "61f34b3c7b268ae637c1c5fde128643816fb436165693048312e4983f12e3a32"
+    }
+  },
+  "git_repository_present": false,
+  "schema": "nvidia-hybrid-source-review-anchor-v1"
+}

@@ -1,0 +1,36 @@
+{
+  "schema": "software-test-run-v1",
+  "observed_at_utc": "2026-10-23T15:15:58Z",
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-v",
+    "-s",
+    "tests"
+  ],
+  "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+  "environment": {
+    "HYBRID_PROBE": {
+      "path": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+      "sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808"
+    },
+    "HYBRID_CUDA_PROBE": {
+      "path": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+      "sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808"
+    }
+  },
+  "exit_code": 0,
+  "result": "pass",
+  "tests_run": 1076,
+  "duration_seconds": 47.559,
+  "failure_summary": null,
+  "log": {
+    "path": "evidence/logs/full-suite-nvos56-v2-20261023151558.log",
+    "mode": "0600",
+    "sha256": "ae97d029df8fd2fb64e3cefde0c9ad2301d18fe559c0a878c8b3cff937cceeb6"
+  },
+  "scope_note": "software tests only; providers are simulated in the frontend C harness; no experimental driver load/install or GPU hardware validation"
+}

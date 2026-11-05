@@ -1,0 +1,191 @@
+{
+  "schema": "pc6-adversarial-review-decision-v1",
+  "subject": "PC3 canary static preflight: active kernel-module collision gate",
+  "review_directory": "/home/pc6/claude-driver-hybrid-preflight-module-collision-v1",
+  "decided_at_utc": "2026-10-24T00:45:08Z",
+  "loop_iteration": 1,
+  "decision": "changes_required",
+  "gate_accepted_as_complete_collision_check": false,
+  "question_answers": {
+    "fails_closed_when_exact_candidate_name_is_loaded": {
+      "nvidia_uvm": true,
+      "hybrid580_open": false,
+      "hybrid580_legacy": false,
+      "hybrid580_frontend": false
+    },
+    "false_clear_possible": true,
+    "misleading_report_possible": true,
+    "core_fail_closed_property_pinned_by_tests": false
+  },
+  "current_pc3_report": {
+    "owner_claimed_status": "blocked",
+    "consistent_with_code": true,
+    "is_false_clear": false,
+    "verified_against_owner_evidence": false,
+    "reason_not_verified": "owner snapshot and preflight report are not in the packet (evidence/ is empty)"
+  },
+  "proven_defects": [
+    {
+      "id": "D1",
+      "severity": "high",
+      "title": "nvidia-prefix inventory filter blinds the collision check to hybrid580_open, hybrid580_legacy and hybrid580_frontend",
+      "locations": [
+        "tools/collect_pc3_canary_host_state.py:103-107",
+        "tools/collect_pc3_canary_host_state.py:270-275",
+        "tools/audit_pc3_canary_preflight.py:85-89",
+        "tools/audit_pc3_canary_preflight.py:166-177",
+        "tools/audit_pc3_canary_preflight.py:21-26",
+        "tools/audit_pc3_canary_preflight.py:180-182"
+      ],
+      "evidence": [
+        "P1: /proc/modules with hybrid580_open -> collector active_modules [] -> validate_host_state ok -> gate status static-preflight-clear, conflicts []",
+        "P1b: same with signature policy on and bound trust evidence -> static-preflight-clear, signature_trust_verified true",
+        "P2: all three hybrid580 modules loaded -> static-preflight-clear",
+        "P3: inventory listing hybrid580_open -> ValueError 'active NVIDIA module record is invalid' (exit-2 path, wrong diagnosis)",
+        "M3: comparison restricted to role uvm survives all 37 tests"
+      ],
+      "found_by": ["own analysis", "sonnet F1 (independent)"],
+      "current_pc3_impact": "latent: no experimental module loaded per README; report already blocked",
+      "minimal_owner_correction": "Collect every /proc/modules name into active_modules (COLL 103-107); replace startswith('nvidia') with a module-name grammar check in COLL 271 and GATE 88; bump the host-state schema or require active_modules_scope 'all' so prefix-filtered snapshots are rejected; compute conflicts on the full set and report inventory scope; add per-role conflict and collector-parser tests."
+    },
+    {
+      "id": "D2",
+      "severity": "low",
+      "title": "collector validate_host_state rejects the collector's own stored snapshot (collector_metadata.transport.credential_host matches SENSITIVE_KEY)",
+      "locations": [
+        "tools/collect_pc3_canary_host_state.py:45",
+        "tools/collect_pc3_canary_host_state.py:239",
+        "tools/collect_pc3_canary_host_state.py:324-325"
+      ],
+      "evidence": [
+        "validate_host_state(raw_state) ok",
+        "validate_host_state(make_report(raw_state)) -> ValueError: sensitive field is forbidden in host-state snapshot: snapshot.collector_metadata.transport.credential_host",
+        "gate on the same stored report -> static-preflight-clear (no provenance validation)"
+      ],
+      "found_by": ["sonnet F6", "confirmed by execution"],
+      "current_pc3_impact": "none on gate output; fail-closed for any re-validation; blocks the shared-validator remediation of R2",
+      "minimal_owner_correction": "Validate stored snapshots without collector_metadata and check metadata with its own schema, or rename the transport keys away from SENSITIVE_KEY and bump COLLECTOR_SCHEMA; add a make_report round-trip test."
+    }
+  ],
+  "risks": [
+    {
+      "id": "R1",
+      "title": "no freshness or boot binding for the inventory",
+      "evidence": ["P5a observed_at_utc absent -> clear (null in report)", "P5b 2019 timestamp -> clear", "P5c 'not-a-time' -> clear", "P11 boot_id consumed but never collected"],
+      "locations": ["tools/audit_pc3_canary_preflight.py:55-113", "tools/audit_pc3_canary_preflight.py:249", "tools/audit_pc3_canary_preflight.py:121-129", "tools/collect_pc3_canary_host_state.py:179-200", "tools/collect_pc3_canary_host_state.py:255-257"]
+    },
+    {
+      "id": "R2",
+      "title": "gate applies none of the collector's validation and checks no provenance",
+      "evidence": ["test fixture lacks 7 of 16 REQUIRED_STATE_FIELDS yet clears", "P6 host pc6 accepted by gate and validate_host_state; only make_report enforces pc3", "collector_metadata ignored and not propagated"],
+      "locations": ["tools/audit_pc3_canary_preflight.py:55-113", "tools/audit_pc3_canary_preflight.py:465-468", "tools/collect_pc3_canary_host_state.py:312-313", "tools/collect_pc3_canary_host_state.py:319-326"]
+    },
+    {
+      "id": "R3",
+      "title": "active_modules and loaded_nvidia_modules never cross-checked; other loaded-module evidence ignored",
+      "evidence": ["P7 inconsistent inventory -> collector ok, gate clear", "Sonnet F3 exact trigger executed -> collector ok, gate clear"],
+      "locations": ["tools/collect_pc3_canary_host_state.py:101-107", "tools/collect_pc3_canary_host_state.py:267-275", "tools/audit_pc3_canary_preflight.py:82-89"]
+    },
+    {
+      "id": "R4",
+      "title": "active module names only prefix-checked; non-canonical names silently never match",
+      "evidence": ["P8 trailing space, newline, .ko, [permanent], U+2010 -> both validators ok, gate clear", "F4 probe NUL -> both validators ok, gate clear"],
+      "locations": ["tools/audit_pc3_canary_preflight.py:85-89", "tools/audit_pc3_canary_preflight.py:166-168", "tools/collect_pc3_canary_host_state.py:270-272"],
+      "note": "not producible by the current collector (split()[0])"
+    },
+    {
+      "id": "R5",
+      "scope": "adjacent",
+      "title": "device-number gate ignores collected /proc/devices majors",
+      "evidence": ["P10 major 195 registered, no /dev nodes -> clear", "P11 char_device_major_names collected, not consumed"],
+      "locations": ["tools/collect_pc3_canary_host_state.py:122-133", "tools/audit_pc3_canary_preflight.py:228-244"]
+    },
+    {
+      "id": "R6",
+      "severity": "low",
+      "title": "report fields that can mislead (constant modules_loaded/modules_installed, normalized names without scope or count, unvalidated evidence_refs, present-tense detail)",
+      "locations": ["tools/audit_pc3_canary_preflight.py:175-177", "tools/audit_pc3_canary_preflight.py:254-255", "tools/audit_pc3_canary_preflight.py:263-264", "tools/audit_pc3_canary_preflight.py:463"],
+      "found_by": ["sonnet F5"]
+    }
+  ],
+  "test_gaps": {
+    "mutation_command": "python3 -m unittest discover -s tests -p test_pc3_canary_preflight.py (in scratch copies; 37 tests each)",
+    "control": "M0 OK",
+    "killed": ["M1", "M8", "M9"],
+    "survived": ["M2", "M3", "M4", "M5", "M6", "M7", "M11", "M12"],
+    "most_significant": [
+      "M12: status ignoring loaded_module_name_conflict survives (core fail-closed property unpinned)",
+      "M3: hybrid580 roles never exercised",
+      "M4/M5: report fields never asserted"
+    ],
+    "other": [
+      "no test imports the collector, calls the tool main(), or calls _parse_json_bytes",
+      "only positive conflict test uses kernel-impossible spelling nvidia-uvm and is masked by signature_trust_unverified",
+      "fixture host_state() is not a valid collector snapshot (7 of 16 required fields missing)"
+    ]
+  },
+  "hypotheses": [
+    {"id": "H1", "summary": "exported-symbol collisions with loaded stock nvidia are not modelled", "source": ["own", "sonnet F8"]},
+    {"id": "H2", "summary": "built-in modules absent from /proc/modules", "source": ["own", "sonnet F8"]},
+    {"id": "H3", "summary": ".modinfo name vs struct module name divergence for crafted objects", "source": ["own", "sonnet F8"]},
+    {"id": "H4", "summary": "'loaded stock module' wording is an inference; inventory holds names only", "source": ["own"]},
+    {"id": "H5", "summary": "owner pipeline/merge step unverifiable; could alter active_modules or attach fresh boot_id to stale inventory", "source": ["own", "sonnet F2"]},
+    {"id": "H6", "summary": "installed stock nvidia_uvm.ko autoload via alias/softdep after snapshot", "source": ["sonnet F8"]},
+    {"id": "H7", "summary": "/proc/driver/nvidia or PCI driver-name clashes", "source": ["sonnet F8"]},
+    {"id": "H8", "summary": "modprobe without --first-time silently keeps an older loaded hybrid580 build under D1", "source": ["sonnet F1"]}
+  ],
+  "sonnet_review": {
+    "agent": "sonnet-reviewer",
+    "invocation": "Agent (Task) tool, subagent_type sonnet-reviewer, model sonnet (Sonnet 5.5; agents.json model claude-sonnet-5-5), tools Read/Glob/Grep",
+    "independent_brief": true,
+    "received": true,
+    "reconciled": true,
+    "findings_reconciled": {
+      "F1": "confirmed -> D1, H8",
+      "F2": "confirmed -> R1, R2, H5",
+      "F3": "confirmed by executing its trigger -> R3",
+      "F4": "confirmed by executing NUL case -> R4",
+      "F5": "confirmed (low) -> R6",
+      "F6": "confirmed by execution -> D2; amended R2 correction",
+      "F7": "confirmed; predicted mutant executed as M12 (survived)",
+      "F8": "accepted as hypotheses H1-H3, H6, H7",
+      "incidental_char_device_major_names": "confirmed -> R5",
+      "incidental_uncaught_exception_exit_1": "confirmed, fail-closed"
+    },
+    "substantive_disagreements": [],
+    "own_probe_error_corrected": "regex reported calls_main true by matching unittest.main(); grep shows TEST:730 is the only main( call"
+  },
+  "verification": {
+    "focused_tests": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_pc3_canary_preflight.py -v",
+      "python": "3.12.3",
+      "result": "Ran 37 tests in 0.083s; OK"
+    },
+    "supplied_files_sha256": {
+      "README.md": "cadb58218e7a4c66a16b5a7cc5bd7916d3ab6024cd7231a5de556526eddf129f",
+      "agents.json": "57af23ec1ee148e3e79a15b030fae33f6bc1b8a58f3919ba00dfe87d14984012",
+      "RALPH_COMMAND.txt": "192cf5daa8d4172ba7af9ae3cb1febc1c4e760f5d3f6fb16afe6606458f2ce84",
+      "tools/audit_pc3_canary_preflight.py": "6c383aadfc5de5954b3d90afea3411850095f5b62bef3f1c3812074d9b782e04",
+      "tools/collect_pc3_canary_host_state.py": "de5fc5c8c0103a1081a5c0dbf3a3f2fe8401fbb70926324b0a1e9c2aad5805f7",
+      "tests/test_pc3_canary_preflight.py": "2c40103e3f9b23dfb29c86aa0d2951f70e3b7ad0e5cd74b256b9a14fa2260c6a"
+    },
+    "supplied_files_unmodified": true
+  },
+  "constraints_honored": {
+    "network_accessed": false,
+    "hosts_accessed": false,
+    "hardware_accessed": false,
+    "credentials_accessed": false,
+    "live_project_accessed": false,
+    "source_or_tests_edited": false,
+    "kernel_modules_loaded_or_installed": false,
+    "deliverables_written_outside_review_directory": false
+  },
+  "unresolved": [
+    "owner PC3 snapshot and preflight report not in packet",
+    "tools/run_pc3_v100_guest_reference not in packet (collector transport unreviewed; out of scope)",
+    "merge step adding boot_id/module_signature_trust not in packet",
+    "canary load procedure (insmod vs modprobe) not in packet",
+    "kernel/kmod behaviors (EEXIST, modprobe --first-time, duplicate-symbol refusal, register_chrdev_region EBUSY) cited as documented, not executed"
+  ]
+}

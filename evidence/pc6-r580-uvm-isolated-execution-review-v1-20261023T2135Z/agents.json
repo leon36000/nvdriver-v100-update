@@ -1,0 +1,41 @@
+{
+  "r580-callsite-census": {
+    "description": "Read-only exhaustive UVM direct GPU tracker/semaphore acquire and migration callsite audit for the pinned R580 source. Write findings only to SONNET_REVIEW_CALLSITES.md in the current review directory.",
+    "prompt": "Independently enumerate all production paths that create GPU-to-GPU tracker waits or semaphore acquires in the supplied exact R580 source. Trace callers, guards, same-GPU assumptions, pageable migration, eviction, peer/copy and teardown paths. Verify whether the patch covers every direct GPU acquire that could cross providers. Cite source path, line numbers, function names and hashes if feasible. Be adversarial. Write only SONNET_REVIEW_CALLSITES.md in the current isolated review directory; do not modify inputs or canonical files. Hardware and runtime remain unvalidated.",
+    "model": "claude-sonnet-5-5",
+    "effort": "max",
+    "tools": [
+      "Read",
+      "Grep",
+      "Glob",
+      "Bash",
+      "Write"
+    ]
+  },
+  "r580-ordering-lifetime": {
+    "description": "Read-only audit of tracker wait ordering, locks, errors, and semaphore page lifetime in exact R580 UVM source.",
+    "prompt": "Independently analyze uvm_tracker_wait_for_other_gpus, migrate_vma_copy_begin_push ordering, semaphore-page allocation/map/unmap/free and surrounding locks/lifetime/error paths for the proposed patch. Find deadlocks, stalls, lost ordering, unsafe context loss, or counterexamples. Cite exact source lines and function names. Be adversarial and mark unsupported conclusions as unknown. Write only SONNET_REVIEW_ORDERING.md in the isolated review directory. Do not modify inputs or canonical files; do not test hardware.",
+    "model": "claude-sonnet-5-5",
+    "effort": "max",
+    "tools": [
+      "Read",
+      "Grep",
+      "Glob",
+      "Bash",
+      "Write"
+    ]
+  },
+  "r580-scope-cc-mixed-provider": {
+    "description": "Read-only adversarial scope review of isolation mode, CC compatibility, and unsupported memory/P2P claims.",
+    "prompt": "Review the patch's mode parameter, Confidential Computing branches, semaphore pool map/unmap/allocation semantics, provider ownership, and the claims the code can actually support. Search for missing shared managed memory/P2P/VA semantics and parameter/runtime caveats. Cite the exact R580 source and patch lines. Write only SONNET_REVIEW_SCOPE.md in the isolated review directory. Do not modify inputs or canonical files, and do not test hardware.",
+    "model": "claude-sonnet-5-5",
+    "effort": "max",
+    "tools": [
+      "Read",
+      "Grep",
+      "Glob",
+      "Bash",
+      "Write"
+    ]
+  }
+}

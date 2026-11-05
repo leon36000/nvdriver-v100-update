@@ -1,0 +1,204 @@
+{
+  "schema": "nvidia-hybrid-rm-root-protocol-comparison-v2",
+  "observed_at_utc": "2026-10-20T22:38:50.787050+00:00",
+  "comparison": {
+    "root_allocation_inputs_equal": true,
+    "root_free_shape_equal": true,
+    "same_linux_instance": false,
+    "same_cuda_process": false,
+    "experimental_backend_loaded": false
+  },
+  "devices": [
+    {
+      "role": "Volta",
+      "gpu": "Tesla V100-SXM2-16GB",
+      "uuid": "GPU-42d06a85-027a-75ea-7857-a8de27ad465e",
+      "pci": "0000:00:05.0",
+      "kernel": "6.8.0-147-generic",
+      "driver": "580.178.04",
+      "driver_api": 13000,
+      "host": "PC3 VM pc3-v100",
+      "observer_records": 195,
+      "probe_exit_code": 0,
+      "overall_probe_status": "control-passed",
+      "required_set_passed": true,
+      "missing_sm": [],
+      "selected_device_kernel_passed": true,
+      "sync_sizes": [
+        1,
+        31,
+        256,
+        4096,
+        65537
+      ],
+      "async_sizes": [
+        1,
+        31,
+        256,
+        4096,
+        65537
+      ],
+      "sm": 70,
+      "source_report": {
+        "path": "evidence/pc3-v100-rm-ioctl-reference-v1-20261020.json",
+        "sha256": "ce8625081edbb98a8da676b2567053e11d6a4f04b8f24ec97b9dcb9cc1887d1e"
+      },
+      "summary": {
+        "path": "evidence/pc3-v100-rm-ioctl-summary-v1-20261020.json",
+        "sha256": "a15aa480e3b2069934f3244a8ac5b7474e386e91708053256d06a754ef1a6107",
+        "source_report_sha256": "ce8625081edbb98a8da676b2567053e11d6a4f04b8f24ec97b9dcb9cc1887d1e",
+        "payload_summarizer_sha256": "67666a19edfc8b60cf1ce7008bf0b94cb4dbad35dfb5a642cb744c20e5d024f8"
+      },
+      "root_allocations": 2,
+      "confirmed_root_allocations": 2,
+      "broker_compatible_root_inputs": 2,
+      "unsupported_root_inputs": [],
+      "confirmed_root_frees": 1
+    },
+    {
+      "role": "Blackwell",
+      "gpu": "NVIDIA GeForce RTX 5080",
+      "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77",
+      "pci": "0000:02:00.0",
+      "kernel": "7.0.0-38-generic",
+      "driver_api": 13020,
+      "host": "pc3",
+      "driver": "595.99.02",
+      "observer_records": 188,
+      "probe_exit_code": 77,
+      "overall_probe_status": "incomplete",
+      "required_set_passed": false,
+      "missing_sm": [
+        70
+      ],
+      "selected_device_kernel_passed": true,
+      "sync_sizes": [
+        1,
+        31,
+        256,
+        4096,
+        65537
+      ],
+      "async_sizes": [
+        1,
+        31,
+        256,
+        4096,
+        65537
+      ],
+      "sm": 120,
+      "source_report": {
+        "path": "evidence/pc3-rtx5080-postcanary-reference-v1-20261020.json",
+        "sha256": "8c53f63f6ba621d14e48c3f3514c76d09b121a7014c513491d6aa5dbc2831395"
+      },
+      "summary": {
+        "path": "evidence/pc3-rtx5080-postcanary-root-summary-v2-20261020.json",
+        "sha256": "97a1327c7e4e72bd34322face6e936c919e58be2f45607056efb70b892ee62be",
+        "source_report_sha256": "8c53f63f6ba621d14e48c3f3514c76d09b121a7014c513491d6aa5dbc2831395",
+        "payload_summarizer_sha256": "67666a19edfc8b60cf1ce7008bf0b94cb4dbad35dfb5a642cb744c20e5d024f8"
+      },
+      "root_allocations": 2,
+      "confirmed_root_allocations": 2,
+      "broker_compatible_root_inputs": 2,
+      "unsupported_root_inputs": [],
+      "confirmed_root_frees": 1
+    }
+  ],
+  "root_allocation_input_shapes": {
+    "volta": [
+      {
+        "layout": "NVOS64",
+        "hRoot": 0,
+        "hObjectParent": 0,
+        "hObjectNew": 0,
+        "hClass": 0,
+        "pAllocParms": 0,
+        "paramsSize": 0,
+        "pRightsRequested": 0,
+        "flags": 0,
+        "status": 0,
+        "packet_size": 48
+      },
+      {
+        "layout": "NVOS64",
+        "hRoot": 0,
+        "hObjectParent": 0,
+        "hObjectNew": 0,
+        "hClass": 0,
+        "pAllocParms": 0,
+        "paramsSize": 0,
+        "pRightsRequested": 0,
+        "flags": 0,
+        "status": 0,
+        "packet_size": 48
+      }
+    ],
+    "blackwell": [
+      {
+        "layout": "NVOS64",
+        "hRoot": 0,
+        "hObjectParent": 0,
+        "hObjectNew": 0,
+        "hClass": 0,
+        "pAllocParms": 0,
+        "paramsSize": 0,
+        "pRightsRequested": 0,
+        "flags": 0,
+        "status": 0,
+        "packet_size": 48
+      },
+      {
+        "layout": "NVOS64",
+        "hRoot": 0,
+        "hObjectParent": 0,
+        "hObjectNew": 0,
+        "hClass": 0,
+        "pAllocParms": 0,
+        "paramsSize": 0,
+        "pRightsRequested": 0,
+        "flags": 0,
+        "status": 0,
+        "packet_size": 48
+      }
+    ]
+  },
+  "root_free_shapes": {
+    "volta": [
+      {
+        "layout": "NVOS00",
+        "packet_size": 16,
+        "hRoot_nonzero": true,
+        "hObjectOld_equals_hRoot": true,
+        "hObjectParent_equals_hRoot": true,
+        "syscall_success": true,
+        "payload_status_success": true
+      }
+    ],
+    "blackwell": [
+      {
+        "layout": "NVOS00",
+        "packet_size": 16,
+        "hRoot_nonzero": true,
+        "hObjectOld_equals_hRoot": true,
+        "hObjectParent_equals_hRoot": true,
+        "syscall_success": true,
+        "payload_status_success": true
+      }
+    ]
+  },
+  "interpretation": "The successful V100 R580 guest and RTX5080 R595 host references have matching observed NVOS64 ROOT allocation input shapes and ROOT FREE alias shapes. They fit the broker current null-parameter/null-rights/flags-zero slice. The RTX5080 probe successfully tested its own SM120 device, while the overall dual-architecture acceptance correctly returned incomplete because SM70 was absent from that Linux instance.",
+  "not_proven": [
+    "same-process or same-Linux coexistence",
+    "mirrored client-ID acceptance by either backend",
+    "general NVOS/RM ABI coverage",
+    "GPU-file/control/event/mmap/UVM routing",
+    "hybrid CUDA execution or performance"
+  ],
+  "method_limits": [
+    "observer traces only the explicitly launched process and its threads",
+    "no nested pointers are read",
+    "fd identity is not tracked",
+    "the V100 and RTX5080 runs use separate Linux instances and installed driver branches",
+    "the RTX5080 combined acceptance exits 77 because no SM70 device is visible"
+  ]
+}

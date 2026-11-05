@@ -1,0 +1,26 @@
+{
+  "schema": "software-test-run-v1",
+  "observed_at_utc": "2026-10-23T15:07:06.286755+00:00",
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-v",
+    "-s",
+    "tests"
+  ],
+  "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+  "exit_code": 0,
+  "result": "pass",
+  "tests_run": 1076,
+  "duration_seconds": 47.238,
+  "failure_summary": null,
+  "log": {
+    "path": "evidence/logs/full-suite-nvos56-v1-20261023T150618Z.log",
+    "mode": "0600",
+    "sha256": "0138c61759b739d64901ecc8597614f19f2fb130d1d8038dd787e8a57dcce859"
+  },
+  "scope_note": "software tests only; no driver load/install and no GPU hardware validation"
+}

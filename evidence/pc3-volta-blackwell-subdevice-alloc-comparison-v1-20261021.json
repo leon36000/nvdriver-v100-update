@@ -1,0 +1,68 @@
+{
+  "conclusion": "Both isolated stock-driver phases emitted the same NV2080 subDeviceId fields.",
+  "limits": [
+    "The references ran on separate Linux kernels and separate installed NVIDIA driver branches.",
+    "The capture observes one NV20_SUBDEVICE_0 construction, not the complete RM object graph.",
+    "Matching request shape does not validate either experimental backend or class dispatch.",
+    "This does not validate one libcuda, same-process dual-GPU enumeration, kernel execution, UVM, P2P, or hybrid operation."
+  ],
+  "observed_at_utc": "2026-10-21T15:12:48.044343+00:00",
+  "observer_binary_match": true,
+  "qualification": "paired-sanitized-installed-driver-observations-compared",
+  "references": {
+    "rtx5080": {
+      "branch": "rtx5080",
+      "driver": "595.99.02",
+      "gpu": "NVIDIA GeForce RTX 5080",
+      "kernel_release": "7.0.0-38-generic",
+      "observation": {
+        "entry_exit_stable": true,
+        "operation": "subdevice_alloc",
+        "packet_size": 48,
+        "records": 1,
+        "request": "0xc030462b",
+        "snapshots": 2,
+        "successful_status": 0,
+        "typed_payload": {
+          "classPayloadBytes": 4,
+          "subDeviceId": 0
+        }
+      },
+      "observer_sha256": "783ef7637355ff66e9c45fc9ee9d13a7aaa2ac546ccd685c6c0bd5daf303b707",
+      "pci": "0000:02:00.0",
+      "report_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-rtx5080-subdevice-alloc-context-v1-20261021.json",
+      "report_sha256": "1a72c7dd2b8120e58c63b39470092b08bc7296df4e12a4db2ca6ea466465384e",
+      "sm": 120,
+      "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77"
+    },
+    "v100": {
+      "branch": "v100",
+      "driver": "580.178.04",
+      "gpu": "Tesla V100-SXM2-16GB",
+      "kernel_release": "6.8.0-147-generic",
+      "observation": {
+        "entry_exit_stable": true,
+        "operation": "subdevice_alloc",
+        "packet_size": 48,
+        "records": 1,
+        "request": "0xc030462b",
+        "snapshots": 2,
+        "successful_status": 0,
+        "typed_payload": {
+          "classPayloadBytes": 4,
+          "subDeviceId": 0
+        }
+      },
+      "observer_sha256": "783ef7637355ff66e9c45fc9ee9d13a7aaa2ac546ccd685c6c0bd5daf303b707",
+      "pci": "0000:00:05.0",
+      "report_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-v100-subdevice-alloc-context-v1-20261021.json",
+      "report_sha256": "3ad05911b5afc8433d77f7c58b0fa1a4133cc5e5e0212a032dc8e11ad8ff60b1",
+      "sm": 70,
+      "uuid": "GPU-42d06a85-027a-75ea-7857-a8de27ad465e"
+    }
+  },
+  "same_kernel_hybrid_validated": false,
+  "schema": "nvidia-hybrid-nv2080-subdevice-allocation-comparison-v1",
+  "typed_payload_differences": [],
+  "typed_payload_match": true
+}

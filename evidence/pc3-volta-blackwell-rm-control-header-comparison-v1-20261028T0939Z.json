@@ -1,0 +1,1408 @@
+{
+  "comparison": {
+    "common_command_ids": 48,
+    "hybrid_runtime_validated": false,
+    "observer_schema": "nvidia-hybrid-rm-ioctl-observer-v23",
+    "payload_addresses_recorded": false,
+    "rm_control_payloads_read": false,
+    "rtx5080_only_command_ids": [
+      "0x2080019f",
+      "0x208001a3",
+      "0x20801230"
+    ],
+    "scope": "Fixed NVOS54 command/flags/size/status headers with handle-presence and relational booleans only; raw handles and nested parameter bytes omitted; two separate installed-driver references.",
+    "shared_command_call_count_drift": [
+      {
+        "command": "0x00000d01",
+        "params_size": [
+          12
+        ],
+        "rtx5080_calls": 3,
+        "v100_calls": 2
+      },
+      {
+        "command": "0x2080122b",
+        "params_size": [
+          24
+        ],
+        "rtx5080_calls": 7,
+        "v100_calls": 6
+      }
+    ],
+    "shared_command_size_drift": [
+      {
+        "command": "0x20800110",
+        "rtx5080": [
+          {
+            "bytes": 68,
+            "count": 2
+          }
+        ],
+        "v100": [
+          {
+            "bytes": 132,
+            "count": 2
+          }
+        ]
+      },
+      {
+        "command": "0x2080012f",
+        "rtx5080": [
+          {
+            "bytes": 1664,
+            "count": 1
+          }
+        ],
+        "v100": [
+          {
+            "bytes": 1464,
+            "count": 1
+          }
+        ]
+      },
+      {
+        "command": "0x20803002",
+        "rtx5080": [
+          {
+            "bytes": 13864,
+            "count": 1
+          }
+        ],
+        "v100": [
+          {
+            "bytes": 13344,
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "shared_command_status_code_drift": [],
+    "v100_only_command_ids": [
+      "0x00000136",
+      "0x20800195",
+      "0x503c0102",
+      "0x90e60101"
+    ]
+  },
+  "not_proven": [
+    "same-Linux or same-process Volta plus Blackwell execution",
+    "identity or lifetime of Linux struct file objects",
+    "RM command payload layouts beyond the declared byte count",
+    "cross-version command compatibility or frontend forwarding safety",
+    "CUDA contexts, UVM, P2P, concurrency, stability, or performance"
+  ],
+  "reports": [
+    {
+      "client_handle_present_records": 71,
+      "commands": [
+        {
+          "calls": 1,
+          "command": "0x00000101",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 40,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x0000013a",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 1352,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x000001f0",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 4,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 2,
+          "command": "0x00000201",
+          "embedded_statuses": [
+            {
+              "count": 2,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 128,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 3,
+          "command": "0x00000202",
+          "embedded_statuses": [
+            {
+              "count": 3,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 40,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 2,
+          "command": "0x00000205",
+          "embedded_statuses": [
+            {
+              "count": 2,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 32,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x00000214",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 384,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x00000215",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 132,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x0000027b",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 4,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x00000288",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 3076,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x00000a04",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 2244,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 3,
+          "command": "0x00000d01",
+          "embedded_statuses": [
+            {
+              "count": 3,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 12,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 2,
+          "command": "0x00000d04",
+          "embedded_statuses": [
+            {
+              "count": 2,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 12,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x00800280",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 4,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x00800289",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 8,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x00800292",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 804,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x00801307",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 3,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x00801402",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 3,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20800102",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 564,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 2,
+          "command": "0x20800110",
+          "embedded_statuses": [
+            {
+              "count": 2,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 68,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20800111",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 64,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20800119",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 4,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x2080012f",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000056"
+            }
+          ],
+          "params_size": 1664,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20800131",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 4,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 2,
+          "command": "0x2080014a",
+          "embedded_statuses": [
+            {
+              "count": 2,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 268,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20800170",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 340,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x2080019f",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 400,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x208001a3",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 56,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20801201",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 32,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x2080121b",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 9240,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20801227",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 48,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x2080122a",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 24,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 7,
+          "command": "0x2080122b",
+          "embedded_statuses": [
+            {
+              "count": 7,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 24,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20801230",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 32,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 5,
+          "command": "0x20801303",
+          "embedded_statuses": [
+            {
+              "count": 5,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 1028,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20801701",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 16,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20801801",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 16,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20801803",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 200,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 2,
+          "command": "0x20801823",
+          "embedded_statuses": [
+            {
+              "count": 2,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 420,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x2080182a",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 112,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x2080182b",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 28,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x2080220c",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 0,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20802210",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 0,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20802a0a",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 136,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20803002",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 13864,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20803601",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 72,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20803801",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 1928,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20808159",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 332,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20808162",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 1,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20810108",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 992,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0xcb330101",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 6,
+          "syscall_failures": 0
+        }
+      ],
+      "device": {
+        "compute_capability": "12.0",
+        "name": "NVIDIA GeForce RTX 5080",
+        "pci_bus_id": "0000:02:00.0",
+        "sm": 120
+      },
+      "driver": {
+        "api": 13020,
+        "kernel_release": "7.0.0-38-generic",
+        "library": "libcuda.so.595.99.02",
+        "version_from_library_name": "595.99.02"
+      },
+      "embedded_nonzero_statuses": 1,
+      "header_mutations": {
+        "status": 1
+      },
+      "object_handle_present_records": 71,
+      "object_matches_prior_root_allocation_correlations": 20,
+      "observer_record_count": 71,
+      "observer_schema": "nvidia-hybrid-rm-ioctl-observer-v23",
+      "params_size_zero_records": 2,
+      "payload_addresses_recorded": false,
+      "qualification": "rtx5080-cuda-phase-validated",
+      "report_schema": "nvidia-hybrid-remote-selected-gpu-transport-v1",
+      "rm_control_nested_parameters_read": false,
+      "rm_control_records": 71,
+      "role": "rtx5080",
+      "same_root_client_object_correlations": 20,
+      "source_report": {
+        "name": "pc3-rtx5080-enumerate-rm-control-headers-v2-20261028T0930Z.json",
+        "sha256": "376c219c1dad0e19e5cf265877d539925ff85242dfe513fd6f9d4d3119ad0d1e"
+      },
+      "syscall_failures": 0
+    },
+    {
+      "client_handle_present_records": 70,
+      "commands": [
+        {
+          "calls": 1,
+          "command": "0x00000101",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 40,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x00000136",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 4,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x0000013a",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 1352,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x000001f0",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 4,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 2,
+          "command": "0x00000201",
+          "embedded_statuses": [
+            {
+              "count": 2,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 128,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 3,
+          "command": "0x00000202",
+          "embedded_statuses": [
+            {
+              "count": 3,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 40,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 2,
+          "command": "0x00000205",
+          "embedded_statuses": [
+            {
+              "count": 2,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 32,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x00000214",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 384,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x00000215",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 132,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x0000027b",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 4,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x00000288",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 3076,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x00000a04",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 2244,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 2,
+          "command": "0x00000d01",
+          "embedded_statuses": [
+            {
+              "count": 2,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 12,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 2,
+          "command": "0x00000d04",
+          "embedded_statuses": [
+            {
+              "count": 2,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 12,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x00800280",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 4,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x00800289",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 8,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x00800292",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 804,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x00801307",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 3,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x00801402",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 3,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20800102",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 564,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 2,
+          "command": "0x20800110",
+          "embedded_statuses": [
+            {
+              "count": 2,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 132,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20800111",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 64,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20800119",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 4,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x2080012f",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 1464,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20800131",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 4,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 2,
+          "command": "0x2080014a",
+          "embedded_statuses": [
+            {
+              "count": 2,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 268,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20800170",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 340,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20800195",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 260,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20801201",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 32,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x2080121b",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 9240,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20801227",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 48,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x2080122a",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 24,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 6,
+          "command": "0x2080122b",
+          "embedded_statuses": [
+            {
+              "count": 6,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 24,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 5,
+          "command": "0x20801303",
+          "embedded_statuses": [
+            {
+              "count": 5,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 1028,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20801701",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 16,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20801801",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 16,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20801803",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 200,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 2,
+          "command": "0x20801823",
+          "embedded_statuses": [
+            {
+              "count": 2,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 420,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x2080182a",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 112,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x2080182b",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 28,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x2080220c",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 0,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20802210",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 0,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20802a0a",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 136,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20803002",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 13344,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20803601",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 72,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20803801",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 1928,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20808159",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 332,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20808162",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 1,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x20810108",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 992,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x503c0102",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 16,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0x90e60101",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 16,
+          "syscall_failures": 0
+        },
+        {
+          "calls": 1,
+          "command": "0xcb330101",
+          "embedded_statuses": [
+            {
+              "count": 1,
+              "status": "0x00000000"
+            }
+          ],
+          "params_size": 6,
+          "syscall_failures": 0
+        }
+      ],
+      "device": {
+        "compute_capability": "7.0",
+        "name": "Tesla V100-SXM2-16GB",
+        "pci_bus_id": "0000:00:05.0",
+        "sm": 70
+      },
+      "driver": {
+        "api": 13000,
+        "kernel_release": "6.8.0-147-generic",
+        "library": "libcuda.so.580.178.04",
+        "version_from_library_name": "580.178.04"
+      },
+      "embedded_nonzero_statuses": 0,
+      "header_mutations": {},
+      "object_handle_present_records": 70,
+      "object_matches_prior_root_allocation_correlations": 20,
+      "observer_record_count": 70,
+      "observer_schema": "nvidia-hybrid-rm-ioctl-observer-v23",
+      "params_size_zero_records": 2,
+      "payload_addresses_recorded": false,
+      "qualification": "v100-cuda-phase-validated",
+      "report_schema": "nvidia-hybrid-pc3-v100-reference-transport-v1",
+      "rm_control_nested_parameters_read": false,
+      "rm_control_records": 70,
+      "role": "v100",
+      "same_root_client_object_correlations": 20,
+      "source_report": {
+        "name": "pc3-v100-guest-enumerate-rm-control-headers-v1-20261028T0935Z.json",
+        "sha256": "4bd2a9d56e547d8dc27c3318633b8efa7d7320822be082768526d5646d6cbf73"
+      },
+      "syscall_failures": 0
+    }
+  ],
+  "schema": "nvidia-hybrid-rm-control-header-comparison-v2",
+  "tool_sha256": "e611b876f4bac847a4961bd9d85dc93e73a40124e2de5f084f33001ebae5e083"
+}

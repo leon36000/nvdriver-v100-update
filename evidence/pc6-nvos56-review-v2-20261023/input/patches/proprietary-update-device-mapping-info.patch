@@ -1,0 +1,65 @@
+--- a/nvidia/nv.c
++++ b/nvidia/nv.c
+@@ -4779,6 +4779,62 @@
+         control_status);
+ }
+ EXPORT_SYMBOL(hybrid580_legacy_control_session_p2p_unregister_vidmem_v1);
++/* NVOS56 carries scalar CPU mapping keys. Invoke the native escape inline in
++ * the caller's process: RM compares pOldCpuAddress against mappings owned by
++ * current and updates the matching mapping to pNewCpuAddress. */
++NV_STATUS hybrid580_legacy_control_session_update_device_mapping_info_v1(
++    struct hybrid580_control_session *session, NVOS56_PARAMETERS *params)
++{
++    nv_linux_file_private_t *nvlfp;
++    nvidia_stack_t *sp = NULL;
++    nv_state_t *nv;
++    NVOS56_PARAMETERS api;
++    NV_STATUS status;
++
++    if (session == NULL || params == NULL)
++        return NV_ERR_INVALID_ARGUMENT;
++    params->status = 0xffffffffU;
++    if (mutex_lock_interruptible(&session->lock) != 0)
++        return NV_ERR_OPERATING_SYSTEM;
++    nvlfp = hybrid580_legacy_backend_file(session->file, 1);
++    if (nvlfp == NULL)
++    {
++        status = NV_ERR_INVALID_STATE;
++        goto done;
++    }
++    if (nv_down_read_interruptible(&nv_system_pm_lock) != 0)
++    {
++        status = NV_ERR_OPERATING_SYSTEM;
++        goto done;
++    }
++    if (nv_kmem_cache_alloc_stack(&sp) != 0)
++    {
++        status = NV_ERR_NO_MEMORY;
++        goto done_pm;
++    }
++
++    api = *params;
++    api.status = 0xffffffffU;
++    nv = NV_STATE_PTR(nvlfp->nvptr);
++    status = nv_check_gpu_state(nv);
++    if (status == NV_OK)
++    {
++        status = rm_ioctl(sp, nv, &nvlfp->nvfp,
++                          NV_ESC_RM_UPDATE_DEVICE_MAPPING_INFO,
++                          &api, sizeof(api));
++        if (status == NV_OK)
++            *params = api;
++    }
++    nv_kmem_cache_free_stack(sp);
++done_pm:
++    up_read(&nv_system_pm_lock);
++done:
++    mutex_unlock(&session->lock);
++    return status;
++}
++EXPORT_SYMBOL(hybrid580_legacy_control_session_update_device_mapping_info_v1);
++
++
+ static void hybrid580_control_session_release(struct kref *refs)
+ {
+     struct hybrid580_control_session *session =
