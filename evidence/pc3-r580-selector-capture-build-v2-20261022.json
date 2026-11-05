@@ -1,0 +1,161 @@
+{
+  "active_mode_requested": false,
+  "build_only_mode_requested": true,
+  "credential_file": "/home/pc6/Desktop/ACCES-BANC-GPU.env",
+  "credential_host": "gx10-e526",
+  "finished_utc": "2026-10-22T19:02:47+00:00",
+  "guest_firmware_or_vm_change": null,
+  "guest_firmware_or_vm_change_requested": false,
+  "guest_kprobe_attached_at_end": false,
+  "guest_observer_module_loaded_at_end": false,
+  "guest_pci_binding_change_requested": false,
+  "guest_pci_binding_changed": null,
+  "guest_ssh_timeout_seconds": 360,
+  "guest_stock_driver_changed": false,
+  "host_key_alias": "pc3",
+  "module": "pc3_r580_kprobe_observer",
+  "operation_scope": "build and modpost in private guest /tmp only; no module load",
+  "pc3_ssh_returncode": 0,
+  "pc3_ssh_timeout_seconds": 420,
+  "remote": {
+    "artifact": {
+      "bytes": 364696,
+      "mode": "0o644",
+      "path": "/tmp/pc3-r580-kprobe-wbl_uqzr/pc3_r580_kprobe_observer.ko",
+      "sha256": "d010e6a82dac1f6dac53756b4e1b63be1feb0c8c9063bf069c9d8b870a21e4a9"
+    },
+    "build": {
+      "returncode": 0,
+      "stderr_bytes": 352,
+      "stderr_sha256": "2b6c136ef548aa0fea56ef73f3986f10161e971a39af1729cc2e08c1c32c9a49",
+      "stdout_bytes": 464,
+      "stdout_sha256": "5faeb970a0a72fd7df0b7e36d3975d28bf5da6966c20b56f6db22c19079697e5"
+    },
+    "compute_pids_before_count": 0,
+    "effective_uid": 0,
+    "final_integrity_failures": null,
+    "final_integrity_passed": null,
+    "firmware_or_vm_change": null,
+    "firmware_or_vm_change_requested": false,
+    "gpu_after": [
+      {
+        "driver_version": "580.178.04",
+        "name": "Tesla V100-SXM2-16GB",
+        "pci": "00000000:00:05.0"
+      }
+    ],
+    "gpu_before": [
+      {
+        "driver_version": "580.178.04",
+        "name": "Tesla V100-SXM2-16GB",
+        "pci": "00000000:00:05.0"
+      }
+    ],
+    "gpu_identity_unchanged": true,
+    "hostname": "pc3-v100",
+    "kernel_release": "6.8.0-147-generic",
+    "kernel_symbol_resolution": {
+      "export_rows": [
+        {
+          "crc": "0x4531ab62",
+          "export_type": "EXPORT_SYMBOL_GPL",
+          "provider": "vmlinux"
+        }
+      ],
+      "imported_by_module": true,
+      "nm_returncode": 0,
+      "passed": true,
+      "symbol": "copy_from_kernel_nofault",
+      "symvers_readable": true
+    },
+    "kernel_taint_after": 12289,
+    "kernel_taint_before": 12289,
+    "kernel_taint_unchanged": true,
+    "kprobe_attached_at_end": false,
+    "module_metadata": {
+      "license": "GPL",
+      "license_returncode": 0,
+      "vermagic": "6.8.0-147-generic SMP preempt mod_unload modversions",
+      "vermagic_returncode": 0
+    },
+    "observer_module_loaded_at_end": false,
+    "observer_module_owned_at_end": false,
+    "owner_nonce_sha256": "887869c76bf978c9d3b733a4ae3d1ccfa6cdc48bda1be748bfaa085fa48ab171",
+    "pci_binding_change_requested": false,
+    "pci_binding_changed": null,
+    "runner_lock_acquired": true,
+    "schema": "nvidia-hybrid-pc3-r580-direct-kprobe-canary-v3",
+    "scratch_removed": true,
+    "staged_inputs": [
+      {
+        "bytes": 76,
+        "mode": "0o600",
+        "path": "/tmp/pc3-r580-kprobe-wbl_uqzr/Kbuild",
+        "sha256": "e83163e205f0e27dcef701e0a807bc5daae029c210df176c0eb3cecd78588576"
+      },
+      {
+        "bytes": 9170,
+        "mode": "0o600",
+        "path": "/tmp/pc3-r580-kprobe-wbl_uqzr/pc3_r580_kprobe_observer.c",
+        "sha256": "5b36c65083d072ae5554ecdcffe2adc0fe9bc1f64cc1b885df6e9816d1165fb0"
+      }
+    ],
+    "status": "build_only_passed",
+    "stock_driver_changed": false,
+    "target": "nvidia:rm_init_adapter",
+    "target_probe_lines_at_end": [],
+    "target_probe_lines_before": [],
+    "target_probe_list_unchanged": true,
+    "trace_event_definition_write_attempted": false,
+    "unowned_observer_module_at_end": false,
+    "workload_query_returncode": 0
+  },
+  "remote_stderr_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+  "remote_stdout_bytes": 3185,
+  "remote_stdout_sha256": "585237a67249a26252bf5ca3c4ce2fac08136492a838af2fea85ebd3f284d507",
+  "scalar_capture_requested": false,
+  "schema": "nvidia-hybrid-pc3-r580-direct-kprobe-canary-transport-v1",
+  "selector_path_observation_requested": false,
+  "selector_scalar_capture_requested": false,
+  "source_hashes": {
+    "Kbuild": "e83163e205f0e27dcef701e0a807bc5daae029c210df176c0eb3cecd78588576",
+    "pc3_r580_kprobe_observer.c": "5b36c65083d072ae5554ecdcffe2adc0fe9bc1f64cc1b885df6e9816d1165fb0"
+  },
+  "started_utc": "2026-10-22T19:02:43+00:00",
+  "status": "build_only_passed",
+  "target_host": "pc3@pc3",
+  "target_symbol": "nvidia:rm_init_adapter",
+  "transport": {
+    "guest_transport": {
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 2510,
+      "stdout_sha256": "f56394e593d0b6bcec1bd9720fd969402895d2eef92b81694ea41645549f7b12"
+    },
+    "read_only": false,
+    "schema": "nvidia-hybrid-pc3-v100-trace-capability-v3",
+    "status": "observed",
+    "trace_event_definition_write_attempted": false
+  },
+  "transport_helper_sha256": "cc721874f86406260575d425ea292847dcb2af10b19aec8b6ce4127dea251901",
+  "transport_summary": {
+    "guest_host_key_verified": true,
+    "guest_schema": "nvidia-hybrid-pc3-r580-direct-kprobe-canary-v3",
+    "guest_status": "build_only_passed",
+    "pc3_hostname": "pc3",
+    "read_only": false,
+    "schema": "nvidia-hybrid-pc3-v100-trace-capability-v3",
+    "status": "observed",
+    "sudo_identity_verified": true,
+    "trace_event_definition_write_attempted": false
+  },
+  "transport_validation": {
+    "guest_host_key": true,
+    "no_trace_event_definition_write": true,
+    "not_read_only": true,
+    "pc3_hostname": true,
+    "sudo_identity": true,
+    "transport_status": true
+  },
+  "transport_wrapper_sha256": "9f2324439b1f83c2499be46fc1a46d81288faa33f4e8b5ea5e6aa52441ffa051"
+}

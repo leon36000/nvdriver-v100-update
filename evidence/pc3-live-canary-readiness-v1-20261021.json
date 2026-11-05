@@ -1,0 +1,39 @@
+{
+  "host_key_alias": "pc3",
+  "observed_at_utc": "2026-10-21T16:44:43.334109+00:00",
+  "read_only": true,
+  "remote": {
+    "compute_process_count": 0,
+    "compute_query_exit": 0,
+    "gpu_rows": [
+      "NVIDIA GeForce RTX 5080, 00000000:02:00.0, 595.99.02, 0, 18, 16303"
+    ],
+    "kernel_release": "7.0.0-38-generic",
+    "loaded_nvidia_or_hybrid_modules": [
+      "nvidia",
+      "nvidia_drm",
+      "nvidia_modeset",
+      "nvidia_uvm"
+    ],
+    "nvidia_smi_exit": 0,
+    "pc3_v100_domain_state": null,
+    "pci_0000_02_00_0": {
+      "device": "0x2c02",
+      "driver": "nvidia",
+      "present": true,
+      "vendor": "0x10de"
+    },
+    "pci_0000_81_00_0": {
+      "device": "0x1db1",
+      "driver": "vfio-pci",
+      "present": true,
+      "vendor": "0x10de"
+    },
+    "running_domain_count": null,
+    "running_domain_query_exit": 125,
+    "virsh_domain_query_exit": 125
+  },
+  "schema": "nvidia-hybrid-pc3-canary-readiness-v1",
+  "strict_host_key_checking": true,
+  "target": "pc3@pc3"
+}

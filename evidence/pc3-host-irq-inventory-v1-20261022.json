@@ -1,0 +1,57 @@
+{
+  "schema": "nvidia-hybrid-pc3-host-irq-inventory-v1",
+  "qualification": "read-only-host-inventory",
+  "observed_at_utc": "2026-10-22T00:50:26Z",
+  "host": {
+    "hostname": "pc3",
+    "kernel_release": "7.0.0-38-generic",
+    "access_user": "pc3",
+    "root_access_used": false
+  },
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 5080",
+    "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77",
+    "pci_bdf": "0000:02:00.0",
+    "driver_version": "595.99.02",
+    "kernel_driver": "nvidia",
+    "msix_vector_count": 8,
+    "linux_irq_numbers": [203, 204, 205, 206, 207, 208, 209, 210],
+    "proc_interrupt_controller": "IR-PCI-MSIX-0000:02:00.0",
+    "per_irq_handler_label": "nvidia",
+    "threaded_irq_task_names": [
+      "irq/203-nvidia",
+      "irq/204-nvidia",
+      "irq/205-nvidia",
+      "irq/206-nvidia",
+      "irq/207-nvidia",
+      "irq/208-nvidia",
+      "irq/209-nvidia",
+      "irq/210-nvidia"
+    ],
+    "legacy_pci_pin_route_irq": 16,
+    "legacy_pci_pin_route_is_active_vector": false
+  },
+  "interpretation": [
+    "The active RTX 5080 host IRQs are eight distinct MSI-X vectors, observed in sysfs and /proc/interrupts; each has an irq/*-nvidia thread.",
+    "The lspci pin-route IRQ 16 is separate metadata and is not one of the active MSI-X vectors in this observation.",
+    "This observation is for the PC3 host R595 stack only; it does not establish V100 guest interrupt mode or R580 provider behavior.",
+    "Synchronizing the observed MSI-X vectors could wait for currently active hard/threaded handlers. It would not mask or prevent later interrupts and does not itself prove UVM suspend safety."
+  ],
+  "state_changes": {
+    "driver_or_module_changed": false,
+    "gpu_state_changed": false,
+    "irq_state_changed": false,
+    "pci_binding_changed": false,
+    "vm_state_changed": false,
+    "rebooted": false
+  },
+  "evidence_log": {
+    "path": "evidence/logs/pc3-host-irq-inventory-v2-20261022.log",
+    "sha256": "3bf527a2fb8911292ed1d730109d2e749954f630a72308b4c57fb7ae84e8c917",
+    "mode": "0600"
+  },
+  "transport": {
+    "method": "SSH with BatchMode and strict host-key checking",
+    "host_key_verification_bypassed": false
+  }
+}

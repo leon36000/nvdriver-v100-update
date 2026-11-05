@@ -1,0 +1,69 @@
+{
+  "apt_simulation": {
+    "actions": [
+      {
+        "operation": "Inst",
+        "package": "nvidia-driver-595-open"
+      },
+      {
+        "operation": "Conf",
+        "package": "nvidia-driver-595-open"
+      }
+    ],
+    "exit_code": 0,
+    "invoked": true,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "0cc7c2a55bc6677d5b03e088e51c36e84f216ad80d95d88ffbfb2cd694c447c7"
+  },
+  "audit_provenance": {
+    "local_tool_sha256": "0bb00d48f4dd667911f38f442a65cf2b710f06b7f5f351e4d11c8d29cd0d611f",
+    "qualification": "read-only-package-query-and-apt-simulation",
+    "remote_script_sha256": "743f62059e730cb81abbc51d45c2ac139ab9e01bbeb242f770d205c8f9a033a1",
+    "transport": {
+      "host_key_alias": "pc3",
+      "sudo_value_logged": false,
+      "sudo_value_persisted": false,
+      "target": "pc3@pc3"
+    }
+  },
+  "dpkg_audit": {
+    "exit_code": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_nonempty": false,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "host": "pc3",
+  "kernel_release": "7.0.0-38-generic",
+  "loaded_nvidia_module_version": "595.99.02",
+  "observed_at_utc": "2026-10-29T01:42:06.474640+00:00",
+  "packages": {
+    "nvidia-driver-595-open": {
+      "query_exit_code": 0,
+      "status": "ii ",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "0da22cd5406345ca92cab450351ea248753dbe7e8de9e1bed352d7698fe64d63",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    "xserver-xorg-video-nvidia-595": {
+      "query_exit_code": 0,
+      "status": "ii ",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "0da22cd5406345ca92cab450351ea248753dbe7e8de9e1bed352d7698fe64d63",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    }
+  },
+  "schema": "pc3-package-dependency-state-audit-v1",
+  "snapshot": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-canary-host-state-continuation-v14-20261029T0137Z.json",
+    "sha256": "8bf110384704a8900dde4a123b4865ac050f30ba02ac7306e03e0bf9c9feed83"
+  },
+  "state_changes": {
+    "apt_downloaded_packages": false,
+    "driver_modules_changed": false,
+    "package_database_modified": false,
+    "packages_installed": false,
+    "packages_removed": false,
+    "pc3_contacted": true
+  },
+  "status": "package-state-observed"
+}

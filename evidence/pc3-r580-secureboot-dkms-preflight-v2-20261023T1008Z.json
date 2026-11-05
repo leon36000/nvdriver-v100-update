@@ -1,0 +1,134 @@
+{
+  "actions": {
+    "module_load_or_unload": false,
+    "mok_enrollment": false,
+    "package_install": false,
+    "pci_rebind": false,
+    "reboot": false,
+    "secureboot_change": false
+  },
+  "host_key_alias": "pc3",
+  "observed_at_utc": "2026-10-23T10:08:00Z",
+  "r580_open_modules_from_prior_isolated_build": {
+    "nvidia-uvm.ko": {
+      "sha256": "8c491792718cb83ac006eaf256f88942e3877f888d087cea62c205f7136d1f3d",
+      "signer": null,
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions"
+    },
+    "nvidia.ko": {
+      "sha256": "afd876e590fe5bcaf67c63150c5a36091d9dd1bce99386356c6cd5570775c59a",
+      "signer": null,
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions"
+    }
+  },
+  "remote_read_only_snapshot": {
+    "dkms": {
+      "active_signing_overrides": {},
+      "framework_conf_sha256": "e7adb32267b328025af40d1b2e8bf26152846faa1ea0acf85d2130a09e19ac64",
+      "source_markers": {
+        "if [[ ! -f ": [
+          466,
+          1195,
+          1254,
+          1260,
+          1275,
+          1302,
+          1308,
+          1495
+        ],
+        "mok_certificate=": [
+          1193,
+          1212,
+          1219,
+          1226,
+          1238
+        ],
+        "mok_signing_key=": [
+          1192,
+          1211,
+          1216,
+          1223,
+          1233
+        ],
+        "prepare_mok; then": [
+          1313
+        ],
+        "update-secureboot-policy --enroll-key": [
+          1206
+        ]
+      },
+      "source_path": "/usr/sbin/dkms",
+      "source_sha256": "c7ec604afaad8c8f831efe18fe4cf6f5558e1b26ac837dc67537e106acacfa5b",
+      "status": {
+        "exit_code": 0,
+        "output": ""
+      },
+      "version": {
+        "exit_code": 0,
+        "output": "3.2.2-1ubuntu1"
+      }
+    },
+    "dkms_default_key_metadata_only": {
+      "cert": {
+        "exists": false
+      },
+      "key": {
+        "exists": false
+      }
+    },
+    "headers": {
+      "kernel_release_file": "7.0.0-38-generic",
+      "make_kernelrelease": {
+        "exit_code": 0,
+        "output": "7.0.14"
+      },
+      "package_version": {
+        "exit_code": 0,
+        "output": "7.0.0-38.38"
+      },
+      "realpath": "/usr/src/linux-headers-7.0.0-38-generic",
+      "utsrelease": "#define UTS_RELEASE \"7.0.0-38-generic\"\n#define UTS_UBUNTU_RELEASE_ABI 38",
+      "utsrelease_value": "7.0.0-38-generic"
+    },
+    "hostname": "pc3",
+    "installed_nvidia_module": {
+      "signer": {
+        "exit_code": 0,
+        "output": "Canonical Ltd. Kernel Module Signing"
+      },
+      "vermagic": {
+        "exit_code": 0,
+        "output": "7.0.0-38-generic SMP preempt mod_unload modversions"
+      }
+    },
+    "kernel": "7.0.0-38-generic",
+    "mok_certificate": {
+      "bytes": 915,
+      "exists": true,
+      "gid": 0,
+      "mode": "0o644",
+      "sha256": "27a69d9988202e45bf8d5d0ae48fb1d0047545c81c3cf90e19a9c55eac021ee3",
+      "symlink": false,
+      "uid": 0
+    },
+    "mok_certificate_test": {
+      "exit_code": 0,
+      "output": "Failed to access kernel trusted keyring: Required key not available\n/var/lib/shim-signed/mok/MOK.der is not enrolled"
+    },
+    "mok_private_key_metadata_only": {
+      "bytes": 1704,
+      "exists": true,
+      "gid": 0,
+      "mode": "0o600",
+      "sha256": null,
+      "symlink": false,
+      "uid": 0
+    },
+    "secureboot": {
+      "exit_code": 0,
+      "output": "SecureBoot enabled"
+    }
+  },
+  "schema": "pc3-r580-secureboot-dkms-preflight-v2",
+  "target": "pc3@pc3"
+}

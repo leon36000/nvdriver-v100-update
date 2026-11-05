@@ -1,0 +1,53 @@
+{
+  "host": {
+    "kernel_release": "7.0.0-38-generic",
+    "nvidia_driver_version": "595.99.02"
+  },
+  "interpretation": "The V100 is physically present on PC3 but remains assigned to its active QEMU VM. The host CUDA inventory and nvidia-smi topology expose only the RTX 5080; this receipt does not establish guest access, hybrid CUDA, peer capability, or P2P.",
+  "observed_access_limits": {
+    "compute_processes_visible_to_nvidia_smi": 0,
+    "guest_dns": "unresolved",
+    "noninteractive_sudo": "interactive authentication required",
+    "virsh": "unavailable to unprivileged PC3 user"
+  },
+  "observed_at_utc": "2026-11-02T22:29:26.260759+00:00",
+  "qualification": "unprivileged-read-only-host-inventory; no CUDA workload run",
+  "rtx5080_host_assignment": {
+    "host_kernel_driver": "nvidia",
+    "iommu_group": "13",
+    "pci_bus_id": "0000:02:00.0"
+  },
+  "schema": "pc3-hybrid-gpu-access-summary-v1",
+  "scope": {
+    "cross_gpu_p2p_tested": false,
+    "driver_or_pci_or_vm_state_changed": false,
+    "experimental_module_loaded": false,
+    "host_key_pinned": true,
+    "read_only": true,
+    "same_kernel_v100_and_rtx_cuda_tested": false
+  },
+  "source_reports": {
+    "direct_sudo_noop": {
+      "bytes": 450,
+      "sha256": "aba078b698ee042938ddb84da4ee63b422d39aa0cb8f0a975ff82ce95b08d1c2"
+    },
+    "host_inventory": {
+      "bytes": 12873,
+      "sha256": "fa68838defa5c4aaf0a6ce1437bd0e859f9305db45ad3845a1bb0e1116071c16"
+    }
+  },
+  "v100_host_assignment": {
+    "host_kernel_driver": "vfio-pci",
+    "iommu_group": "23",
+    "name": "Tesla V100 SXM2 16GB / GV100",
+    "pci_bus_id": "0000:81:00.0",
+    "vm_service": "active/running"
+  },
+  "visible_cuda_devices": [
+    {
+      "compute_capability": "12.0",
+      "name": "NVIDIA GeForce RTX 5080",
+      "pci_bus_id": "0000:02:00.0"
+    }
+  ]
+}

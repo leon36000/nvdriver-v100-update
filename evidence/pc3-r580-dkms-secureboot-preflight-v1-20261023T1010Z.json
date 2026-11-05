@@ -1,0 +1,95 @@
+{
+  "driver_modified": false,
+  "host_key_alias": "pc3",
+  "observations": {
+    "current_module_signer": {
+      "argv": [
+        "modinfo",
+        "-F",
+        "signer",
+        "/lib/modules/7.0.0-38-generic/kernel/nvidia-595-open/nvidia.ko"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Canonical Ltd. Kernel Module Signing\n"
+    },
+    "dkms_package": {
+      "argv": [
+        "dpkg-query",
+        "-W",
+        "-f=${db:Status-Abbrev} ${binary:Package} ${Version}\\n",
+        "dkms"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "ii  dkms 3.2.2-1ubuntu1\n"
+    },
+    "dkms_status": {
+      "argv": [
+        "dkms",
+        "status"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    "headers_kernelrelease": {
+      "argv": [
+        "make",
+        "-s",
+        "-C",
+        "/lib/modules/7.0.0-38-generic/build",
+        "kernelrelease"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "7.0.14\n"
+    },
+    "headers_package": {
+      "argv": [
+        "dpkg-query",
+        "-W",
+        "-f=${db:Status-Abbrev} ${binary:Package} ${Version}\\n",
+        "linux-headers-7.0.0-38-generic"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "ii  linux-headers-7.0.0-38-generic 7.0.0-38.38\n"
+    },
+    "kernel": {
+      "argv": [
+        "uname",
+        "-r"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "7.0.0-38-generic\n"
+    },
+    "secureboot": {
+      "argv": [
+        "mokutil",
+        "--sb-state"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "SecureBoot enabled\n"
+    },
+    "secureboot_config": {
+      "argv": [
+        "sh",
+        "-c",
+        "grep -E '^CONFIG_MODULE_SIG(_FORCE)?=' /boot/config-7.0.0-38-generic"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "CONFIG_MODULE_SIG=y\n"
+    }
+  },
+  "observed_at_utc": "2026-10-23T09:57:22.573207+00:00",
+  "package_install_invoked": false,
+  "pci_ownership_modified": false,
+  "remote_exit_code": 0,
+  "schema": "pc3-r580-dkms-secureboot-readonly-preflight-v1",
+  "target": "pc3@pc3",
+  "vm_management_issued": false
+}

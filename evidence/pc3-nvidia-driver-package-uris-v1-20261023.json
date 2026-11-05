@@ -1,0 +1,60 @@
+{
+  "classification": "apt --print-uris only; resolves sizes and cache/URI availability; downloads, installs, removals and driver changes are not performed",
+  "host_key_alias": "pc3",
+  "inventory": {
+    "hostname": "pc3",
+    "rollback_transaction": {
+      "argv": [
+        "apt-get",
+        "-o",
+        "Debug::NoLocking=1",
+        "--print-uris",
+        "--reinstall",
+        "install",
+        "libnvidia-cfg1-595:amd64=595.99.02-0ubuntu0.26.04.1",
+        "libnvidia-common-595=595.99.02-0ubuntu0.26.04.1",
+        "libnvidia-compute-595:amd64=595.99.02-0ubuntu0.26.04.1",
+        "libnvidia-decode-595:amd64=595.99.02-0ubuntu0.26.04.1",
+        "libnvidia-encode-595:amd64=595.99.02-0ubuntu0.26.04.1",
+        "libnvidia-extra-595=595.99.02-0ubuntu0.26.04.1",
+        "libnvidia-fbc1-595:amd64=595.99.02-0ubuntu0.26.04.1",
+        "libnvidia-gl-595:amd64=595.99.02-0ubuntu0.26.04.1",
+        "linux-modules-nvidia-595-7.0.0-38-generic=7.0.0-38.38+2",
+        "linux-modules-nvidia-595-open-7.0.0-38-generic=7.0.0-38.38+2",
+        "linux-modules-nvidia-595-open-generic=7.0.0-38.38+2",
+        "nvidia-compute-utils-595=595.99.02-0ubuntu0.26.04.1",
+        "nvidia-driver-595-open=595.99.02-0ubuntu0.26.04.1",
+        "nvidia-kernel-common-595=595.99.02-0ubuntu0.26.04.1",
+        "nvidia-kernel-source-595-open=595.99.02-0ubuntu0.26.04.1",
+        "nvidia-prime=0.8.17.2build1",
+        "nvidia-utils-595=595.99.02-0ubuntu0.26.04.1",
+        "xserver-xorg-video-nvidia-595=595.99.02-0ubuntu0.26.04.1"
+      ],
+      "label": "r595-595.99.02-open-rollback",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Lecture des listes de paquets\u2026\nConstruction de l'arbre des d\u00e9pendances\u2026\nLecture des informations d'\u00e9tat\u2026\nR\u00e9solution des d\u00e9pendances\u00a0 \u2026\nLes paquets suivants ont \u00e9t\u00e9 install\u00e9s automatiquement et ne sont plus n\u00e9cessaires\u00a0:\n  dkms nvidia-firmware-580-580.178.04 nvidia-firmware-595-595.91.07\nVeuillez utiliser \u00ab\u00a0apt autoremove\u00a0\u00bb pour les supprimer.\n0 mis \u00e0 jour, 0 nouvellement install\u00e9s, 18 r\u00e9install\u00e9s, 0 \u00e0 enlever et 59 non mis \u00e0 jour.\nIl est n\u00e9cessaire de prendre 1\u202f822 ko/247 Mo dans les archives.\nApr\u00e8s cette op\u00e9ration, 0 o d'espace disque suppl\u00e9mentaires seront utilis\u00e9s.\n'http://ca.archive.ubuntu.com/ubuntu/pool/main/n/nvidia-prime/nvidia-prime_0.8.17.2build1_all.deb' nvidia-prime_0.8.17.2build1_all.deb 10496 MD5Sum:302a1d26950f11d47e442c89b0ca61d5\n'http://ca.archive.ubuntu.com/ubuntu/pool/restricted/n/nvidia-graphics-drivers-595/nvidia-utils-595_595.99.02-0ubuntu0.26.04.1_amd64.deb' nvidia-utils-595_595.99.02-0ubuntu0.26.04.1_amd64.deb 608486 MD5Sum:2edf5a8648fdb8c85d98082da445d9e2\n'http://ca.archive.ubuntu.com/ubuntu/pool/restricted/n/nvidia-graphics-drivers-595/xserver-xorg-video-nvidia-595_595.99.02-0ubuntu0.26.04.1_amd64.deb' xserver-xorg-video-nvidia-595_595.99.02-0ubuntu0.26.04.1_amd64.deb 1203152 MD5Sum:7b483a01913bc20c5317ea8d09417459"
+    },
+    "schema": "pc3-nvidia-driver-package-uris-remote-v1",
+    "target_transaction": {
+      "argv": [
+        "apt-get",
+        "-o",
+        "Debug::NoLocking=1",
+        "--print-uris",
+        "--no-install-recommends",
+        "install",
+        "nvidia-driver-580-open=580.196.07-1ubuntu1"
+      ],
+      "label": "r580-580.196.07-open-canary",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Lecture des listes de paquets\u2026\nConstruction de l'arbre des d\u00e9pendances\u2026\nLecture des informations d'\u00e9tat\u2026\nR\u00e9solution des d\u00e9pendances\u00a0 \u2026\nLes paquets suivants ont \u00e9t\u00e9 install\u00e9s automatiquement et ne sont plus n\u00e9cessaires\u00a0:\n  libpkgconf7 libvdpau1 libxnvctrl0 nvidia-firmware-580-580.178.04\n  nvidia-firmware-595-595.91.07 nvidia-firmware-595-595.99.02 nvidia-settings\n  ocl-icd-libopencl1 pkg-config pkgconf pkgconf-bin screen-resolution-extra\nVeuillez utiliser \u00ab\u00a0apt autoremove\u00a0\u00bb pour les supprimer.\nLes paquets suppl\u00e9mentaires suivants seront install\u00e9s\u00a0: \n  libnvidia-cfg1-580 libnvidia-compute-580 libnvidia-decode-580\n  libnvidia-egl-gbm1 libnvidia-egl-xcb1 libnvidia-egl-xlib1\n  libnvidia-encode-580 libnvidia-fbc1-580 libnvidia-gl-580\n  libnvidia-gpucomp-580 nvidia-dkms-580-open nvidia-firmware-580\n  nvidia-kernel-common-580 nvidia-kernel-source-580-open nvidia-modprobe\n  nvidia-persistenced xserver-xorg-video-nvidia-580\nPaquets sugg\u00e9r\u00e9s\u00a0:\n  nvidia-driver-pinning-580\nPaquets recommand\u00e9s\u00a0:\n  switcheroo-control nvidia-settings libnvidia-compute-580:i386\n  libnvidia-decode-580:i386 libnvidia-encode-580:i386 libnvidia-fbc1-580:i386\n  libnvidia-gl-580:i386\nLes paquets suivants seront ENLEV\u00c9S\u00a0:\n  libnvidia-cfg1-595 libnvidia-common-595 libnvidia-compute-595\n  libnvidia-decode-595 libnvidia-encode-595 libnvidia-extra-595\n  libnvidia-fbc1-595 libnvidia-gl-595\n  linux-modules-nvidia-595-7.0.0-38-generic\n  linux-modules-nvidia-595-open-7.0.0-38-generic\n  linux-modules-nvidia-595-open-generic nvidia-compute-utils-595\n  nvidia-driver-595-open nvidia-kernel-common-595\n  nvidia-kernel-source-595-open nvidia-prime nvidia-utils-595\n  xserver-xorg-video-nvidia-595\nLes NOUVEAUX paquets suivants seront install\u00e9s\u00a0:\n  libnvidia-cfg1-580 libnvidia-compute-580 libnvidia-decode-580\n  libnvidia-egl-gbm1 libnvidia-egl-xcb1 libnvidia-egl-xlib1\n  libnvidia-encode-580 libnvidia-fbc1-580 libnvidia-gl-580\n  libnvidia-gpucomp-580 nvidia-dkms-580-open nvidia-driver-580-open\n  nvidia-firmware-580 nvidia-kernel-common-580 nvidia-kernel-source-580-open\n  nvidia-modprobe nvidia-persistenced xserver-xorg-video-nvidia-580\n0 mis \u00e0 jour, 18 nouvellement install\u00e9s, 18 \u00e0 enlever et 59 non mis \u00e0 jour.\nIl est n\u00e9cessaire de prendre 312 Mo dans les archives.\nApr\u00e8s cette op\u00e9ration, 173 Mo d'espace disque suppl\u00e9mentaires seront utilis\u00e9s.\n'https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/./libnvidia-cfg1-580_580.196.07-1ubuntu1_amd64.deb' libnvidia-cfg1-580_580.196.07-1ubuntu1_amd64.deb 147818 MD5Sum:62045380644fe5dcc30cfce64b061a4a\n'https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/./libnvidia-decode-580_580.196.07-1ubuntu1_amd64.deb' libnvidia-decode-580_580.196.07-1ubuntu1_amd64.deb 2724296 MD5Sum:9c83b70961f2bf5c05d99c91af3ef0b8\n'https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/./libnvidia-gpucomp-580_580.196.07-1ubuntu1_amd64.deb' libnvidia-gpucomp-580_580.196.07-1ubuntu1_amd64.deb 18502184 MD5Sum:b34d732c6488e69c6a5a4772393ed899\n'https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/./nvidia-persistenced_615.71.10-1ubuntu1_amd64.deb' nvidia-persistenced_615.71.10-1ubuntu1_amd64.deb 24450 MD5Sum:6a781ecfc58ceffd65b740bf9c99e044\n'https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/./libnvidia-compute-580_580.196.07-1ubuntu1_amd64.deb' libnvidia-compute-580_580.196.07-1ubuntu1_amd64.deb 54671338 MD5Sum:6014f900e38ef5c6d3d11a5bad4b7f18\n'https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/./libnvidia-egl-gbm1_1.1.4-2ubuntu1_amd64.deb' libnvidia-egl-gbm1_1.1.4-2ubuntu1_amd64.deb 13318 MD5Sum:314fb4eed0273c5112ba41736fbc5695\n'https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/./libnvidia-egl-xcb1_1.0.6-1ubuntu1_amd64.deb' libnvidia-egl-xcb1_1.0.6-1ubuntu1_amd64.deb 34456 MD5Sum:7605a857a137d74c474b63a09ceeb19f\n'https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/./libnvidia-egl-xlib1_1.0.6-1ubuntu1_amd64.deb' libnvidia-egl-xlib1_1.0.6-1ubuntu1_amd64.deb 35142 MD5Sum:6279f304a8ec8d264e99e62cf23d8196\n'https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/./libnvidia-encode-580_580.196.07-1ubuntu1_amd64.deb' libnvidia-encode-580_580.196.07-1ubuntu1_amd64.deb 106606 MD5Sum:075ce897eda65b99fd87f175a883a096\n'https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/./libnvidia-fbc1-580_580.196.07-1ubuntu1_amd64.deb' libnvidia-fbc1-580_580.196.07-1ubuntu1_amd64.deb 87042 MD5Sum:002a1800cdc483252b791bd9c25c0adf\n'https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/./libnvidia-gl-580_580.196.07-1ubuntu1_amd64.deb' libnvidia-gl-580_580.196.07-1ubuntu1_amd64.deb 150377314 MD5Sum:5be64c4ed86d4eb0c5a2775243f6ece0\n'https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/./nvidia-kernel-source-580-open_580.196.07-1ubuntu1_amd64.deb' nvidia-kernel-source-580-open_580.196.07-1ubuntu1_amd64.deb 7994466 MD5Sum:f4a2d71b25064d97f9e4b0ad7630626c\n'https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/./nvidia-firmware-580_580.196.07-1ubuntu1_amd64.deb' nvidia-firmware-580_580.196.07-1ubuntu1_amd64.deb 74788940 MD5Sum:498dc3e47da5d7a48df0bc3638f6c8be\n'https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/./nvidia-modprobe_615.71.10-1ubuntu1_amd64.deb' nvidia-modprobe_615.71.10-1ubuntu1_amd64.deb 15674 MD5Sum:0f12af9ef76267c56576e31c8b3ebcd7\n'https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/./nvidia-kernel-common-580_580.196.07-1ubuntu1_amd64.deb' nvidia-kernel-common-580_580.196.07-1ubuntu1_amd64.deb 716448 MD5Sum:a8322af209b8b0ae943dfbadf7e136fa\n'https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/./nvidia-dkms-580-open_580.196.07-1ubuntu1_amd64.deb' nvidia-dkms-580-open_580.196.07-1ubuntu1_amd64.deb 15306 MD5Sum:5d8557974177120080fe08673d05a581\n'https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/./xserver-xorg-video-nvidia-580_580.196.07-1ubuntu1_amd64.deb' xserver-xorg-video-nvidia-580_580.196.07-1ubuntu1_amd64.deb 2160328 MD5Sum:899b56e94b8a5ff8ece8dc78d7b2ed43\n'https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/./nvidia-driver-580-open_580.196.07-1ubuntu1_amd64.deb' nvidia-driver-580-open_580.196.07-1ubuntu1_amd64.deb 13018 MD5Sum:dc04c99835eff64ebaf2e709e8b161b7"
+    }
+  },
+  "observed_at_utc": "2026-10-23T09:41:32.253334+00:00",
+  "schema": "pc3-nvidia-driver-package-uris-v1",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "strict_host_key_checking": true,
+  "target": "pc3@pc3"
+}

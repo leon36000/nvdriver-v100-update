@@ -1,0 +1,170 @@
+{
+  "comparison": {
+    "hybrid_runtime_validated": false,
+    "raw_syscall_arguments_in_report": false,
+    "raw_trace_sidecars_retained_privately": true,
+    "same_cuda_fatbin": true,
+    "same_probe_binary": true,
+    "scope": "one isolated cuInit/device-enumeration process per stock-driver environment"
+  },
+  "devices": {
+    "rtx5080": {
+      "compressed_trace_sha256": "0bcf924941a20da475afb1635eb9efdc580edd9746ce1c1be4d7e3a27d84e679",
+      "cuda_fatbin_sha256": "fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305",
+      "driver": {
+        "driver_api": 13020,
+        "kernel_release": "7.0.0-38-generic",
+        "version": "595.99.02"
+      },
+      "gpu": {
+        "compute_capability": "12.0",
+        "name": "NVIDIA GeForce RTX 5080",
+        "pci_bus_id": "0000:02:00.0",
+        "sm": 120
+      },
+      "probe_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+      "role": "rtx5080",
+      "source_report": {
+        "name": "pc3-rtx5080-libcuda-open-lifecycle-v1-20261023.json",
+        "sha256": "32904dfccbdbf99edc51afe5ec0a34add61382fef8b2d6b83b5b0f867b334aeb"
+      },
+      "trace": {
+        "close_count_by_node": {
+          "nvidia0": 2,
+          "nvidiactl": 2
+        },
+        "descriptor_lifecycle_scope": "selected node descriptors only; ioctl payloads and syscall arguments omitted",
+        "descriptors_open_at_trace_end_by_node": {
+          "nvidia-uvm": 2,
+          "nvidia0": 4,
+          "nvidiactl": 1
+        },
+        "ioctl_counts_by_node": {
+          "nvidia-uvm": 6,
+          "nvidia0": 5,
+          "nvidiactl": 93
+        },
+        "ioctl_requests_by_node": {
+          "nvidia-uvm": {
+            "0x17": 1,
+            "0x25": 1,
+            "0x27": 1,
+            "0x30000001": 1,
+            "0x46": 1,
+            "0x4b": 1
+          },
+          "nvidia0": {
+            "0xc00446c9": 3,
+            "0xc01046ce": 1,
+            "0xc23046d7": 1
+          },
+          "nvidiactl": {
+            "0xc00846d6": 2,
+            "0xc0104629": 2,
+            "0xc020462a": 71,
+            "0xc028465e": 1,
+            "0xc030462b": 12,
+            "0xc038464e": 3,
+            "0xc90046c8": 2
+          }
+        },
+        "negative_syscall_returns": 7,
+        "open_count_by_node": {
+          "nvidia-uvm": 2,
+          "nvidia0": 6,
+          "nvidiactl": 3
+        },
+        "other_open_count": 39,
+        "relative_path_open_count": 0,
+        "selected_node_open_count": 11,
+        "successful_selected_node_open_count": 11,
+        "trace_bytes": 15363,
+        "trace_sha256": "c9892b5e3cf4e57cab3b9419db75606cf86fbcd1fcd81d160d11e1df904d6d5d"
+      }
+    },
+    "v100": {
+      "compressed_trace_sha256": "8f1020381796b8d2bcb8c4c7dd698df50c49d5dc039f6fce02f08a9ffbfef280",
+      "cuda_fatbin_sha256": "fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305",
+      "driver": {
+        "driver_api": 13000,
+        "kernel_release": "6.8.0-147-generic",
+        "version": "580.178.04"
+      },
+      "gpu": {
+        "compute_capability": "7.0",
+        "name": "Tesla V100-SXM2-16GB",
+        "pci_bus_id": "0000:00:05.0",
+        "sm": 70
+      },
+      "probe_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+      "role": "v100",
+      "source_report": {
+        "name": "pc3-v100-libcuda-open-lifecycle-v2-20261023.json",
+        "sha256": "67edd13a5c0616b340b549d32399d6b22594237ad22d981375affb08bdee6919"
+      },
+      "trace": {
+        "close_count_by_node": {
+          "nvidia-uvm": 1,
+          "nvidia0": 2,
+          "nvidiactl": 1
+        },
+        "descriptor_lifecycle_scope": "selected node descriptors only; ioctl payloads and syscall arguments omitted",
+        "descriptors_open_at_trace_end_by_node": {
+          "nvidia-uvm": 1,
+          "nvidia0": 3,
+          "nvidiactl": 1
+        },
+        "ioctl_counts_by_node": {
+          "nvidia-uvm": 5,
+          "nvidia0": 3,
+          "nvidiactl": 90
+        },
+        "ioctl_requests_by_node": {
+          "nvidia-uvm": {
+            "0x17": 1,
+            "0x25": 1,
+            "0x27": 1,
+            "0x30000001": 1,
+            "0x4b": 1
+          },
+          "nvidia0": {
+            "0xc00446c9": 2,
+            "0xc23046d7": 1
+          },
+          "nvidiactl": {
+            "0xc00846d6": 2,
+            "0xc0104629": 2,
+            "0xc020462a": 70,
+            "0xc030462b": 12,
+            "0xc038464e": 2,
+            "0xc90046c8": 2
+          }
+        },
+        "negative_syscall_returns": 4,
+        "open_count_by_node": {
+          "nvidia-uvm": 2,
+          "nvidia0": 5,
+          "nvidiactl": 2
+        },
+        "other_open_count": 37,
+        "relative_path_open_count": 0,
+        "selected_node_open_count": 9,
+        "successful_selected_node_open_count": 9,
+        "trace_bytes": 15116,
+        "trace_sha256": "9d06ec852159618621b0d150f9b576f635403155c63af57caa292b6efbdfefb2"
+      }
+    }
+  },
+  "not_proven": [
+    "same-Linux or same-process operation of both devices",
+    "compatibility of cross-version RM command payloads",
+    "kernel struct-file identity beyond the observed process-local descriptor lifecycle",
+    "CUDA context creation, kernel execution, UVM, P2P, concurrency, or performance",
+    "meaning of negative syscalls outside the selected NVIDIA-node lifecycle"
+  ],
+  "observed_at_utc": "2026-10-23T14:27:21.538241+00:00",
+  "qualification": "paired-stock-driver-enumeration-reference",
+  "schema": "nvidia-hybrid-cuda-node-open-lifecycle-comparison-v2",
+  "tool_sha256": "92de78da4e30903316e5834d6c1d6f85e314656ce44c4511394265dc9fe6c742",
+  "trace_helper_sha256": "9f1dea7dc173e44bf83feb89c99d835af9033d3552f9b1e3bc73f9f8ec7e3ed9"
+}

@@ -1,0 +1,638 @@
+{
+  "apt_archives_downloaded": false,
+  "apt_simulation_is_simulation_only": true,
+  "driver_modified": false,
+  "host_key_alias": "pc3",
+  "maintainer_scripts_run": false,
+  "manifest_sha256": "8aa76d874bf9ebbf9fe0c5528b4fdeb9f932b17115232b0cdbb14f5470f6e764",
+  "modules_loaded": false,
+  "observed_at_utc": "2026-10-23T09:57:03.036966+00:00",
+  "package_install_invoked": false,
+  "pci_ownership_modified": false,
+  "previous_no_download_simulation": {
+    "exit_code": 100,
+    "reason": "APT --no-download rejected its simulated local-file transaction before resolving the plan; no system operation was run",
+    "system_modified": false
+  },
+  "remote_stage_dir": "/var/tmp/codex-r580-canary-20261023T095544Z-ab7b7b33",
+  "remote_summary": {
+    "apt_simulation": {
+      "command": "apt-get --simulate --no-install-recommends --allow-downgrades install <18 staged target .deb paths>",
+      "download_or_install_performed": false,
+      "install_count": 18,
+      "installs": [
+        {
+          "package": "libnvidia-cfg1-580",
+          "version": "580.196.07-1ubuntu1"
+        },
+        {
+          "package": "libnvidia-decode-580",
+          "version": "580.196.07-1ubuntu1"
+        },
+        {
+          "package": "libnvidia-gpucomp-580",
+          "version": "580.196.07-1ubuntu1"
+        },
+        {
+          "package": "nvidia-persistenced",
+          "version": "580.196.07-1ubuntu1"
+        },
+        {
+          "package": "libnvidia-compute-580",
+          "version": "580.196.07-1ubuntu1"
+        },
+        {
+          "package": "libnvidia-egl-gbm1",
+          "version": "1.1.4-2ubuntu1"
+        },
+        {
+          "package": "libnvidia-egl-xcb1",
+          "version": "1.0.6-1ubuntu1"
+        },
+        {
+          "package": "libnvidia-egl-xlib1",
+          "version": "1.0.6-1ubuntu1"
+        },
+        {
+          "package": "libnvidia-encode-580",
+          "version": "580.196.07-1ubuntu1"
+        },
+        {
+          "package": "libnvidia-fbc1-580",
+          "version": "580.196.07-1ubuntu1"
+        },
+        {
+          "package": "libnvidia-gl-580",
+          "version": "580.196.07-1ubuntu1"
+        },
+        {
+          "package": "nvidia-kernel-source-580-open",
+          "version": "580.196.07-1ubuntu1"
+        },
+        {
+          "package": "nvidia-firmware-580",
+          "version": "580.196.07-1ubuntu1"
+        },
+        {
+          "package": "nvidia-modprobe",
+          "version": "580.196.07-1ubuntu1"
+        },
+        {
+          "package": "nvidia-kernel-common-580",
+          "version": "580.196.07-1ubuntu1"
+        },
+        {
+          "package": "nvidia-dkms-580-open",
+          "version": "580.196.07-1ubuntu1"
+        },
+        {
+          "package": "xserver-xorg-video-nvidia-580",
+          "version": "580.196.07-1ubuntu1"
+        },
+        {
+          "package": "nvidia-driver-580-open",
+          "version": "580.196.07-1ubuntu1"
+        }
+      ],
+      "plan_lines": [
+        "Remv nvidia-driver-595-open [595.99.02-0ubuntu0.26.04.1]",
+        "Remv xserver-xorg-video-nvidia-595 [595.99.02-0ubuntu0.26.04.1]",
+        "Remv libnvidia-cfg1-595 [595.99.02-0ubuntu0.26.04.1]",
+        "Remv libnvidia-gl-595 [595.99.02-0ubuntu0.26.04.1]",
+        "Remv libnvidia-common-595 [595.99.02-0ubuntu0.26.04.1]",
+        "Remv nvidia-utils-595 [595.99.02-0ubuntu0.26.04.1]",
+        "Remv nvidia-compute-utils-595 [595.99.02-0ubuntu0.26.04.1]",
+        "Remv libnvidia-compute-595 [595.99.02-0ubuntu0.26.04.1] [libnvidia-decode-595:amd64 ]",
+        "Remv libnvidia-encode-595 [595.99.02-0ubuntu0.26.04.1] [libnvidia-decode-595:amd64 ]",
+        "Remv libnvidia-decode-595 [595.99.02-0ubuntu0.26.04.1]",
+        "Remv libnvidia-extra-595 [595.99.02-0ubuntu0.26.04.1]",
+        "Remv libnvidia-fbc1-595 [595.99.02-0ubuntu0.26.04.1]",
+        "Remv linux-modules-nvidia-595-7.0.0-38-generic [7.0.0-38.38+2]",
+        "Remv linux-modules-nvidia-595-open-generic [7.0.0-38.38+2]",
+        "Remv linux-modules-nvidia-595-open-7.0.0-38-generic [7.0.0-38.38+2]",
+        "Remv nvidia-kernel-common-595 [595.99.02-0ubuntu0.26.04.1]",
+        "Remv nvidia-kernel-source-595-open [595.99.02-0ubuntu0.26.04.1]",
+        "Remv nvidia-prime [0.8.17.2build1]",
+        "Inst libnvidia-cfg1-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Inst libnvidia-decode-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64]) []",
+        "Inst libnvidia-gpucomp-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64]) []",
+        "Inst nvidia-persistenced (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64]) []",
+        "Inst libnvidia-compute-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Inst libnvidia-egl-gbm1 (1.1.4-2ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Inst libnvidia-egl-xcb1 (1.0.6-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Inst libnvidia-egl-xlib1 (1.0.6-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Inst libnvidia-encode-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Inst libnvidia-fbc1-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Inst libnvidia-gl-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Inst nvidia-kernel-source-580-open (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Inst nvidia-firmware-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Inst nvidia-modprobe (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Inst nvidia-kernel-common-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Inst nvidia-dkms-580-open (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Inst xserver-xorg-video-nvidia-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Inst nvidia-driver-580-open (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Conf libnvidia-cfg1-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Conf libnvidia-decode-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Conf libnvidia-gpucomp-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Conf nvidia-persistenced (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Conf libnvidia-compute-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Conf libnvidia-egl-gbm1 (1.1.4-2ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Conf libnvidia-egl-xcb1 (1.0.6-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Conf libnvidia-egl-xlib1 (1.0.6-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Conf libnvidia-encode-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Conf libnvidia-fbc1-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Conf libnvidia-gl-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Conf nvidia-kernel-source-580-open (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Conf nvidia-firmware-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Conf nvidia-modprobe (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Conf nvidia-kernel-common-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Conf nvidia-dkms-580-open (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Conf xserver-xorg-video-nvidia-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])",
+        "Conf nvidia-driver-580-open (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com, local-deb [amd64])"
+      ],
+      "removals": [
+        {
+          "package": "nvidia-driver-595-open",
+          "version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        {
+          "package": "xserver-xorg-video-nvidia-595",
+          "version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        {
+          "package": "libnvidia-cfg1-595",
+          "version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        {
+          "package": "libnvidia-gl-595",
+          "version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        {
+          "package": "libnvidia-common-595",
+          "version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        {
+          "package": "nvidia-utils-595",
+          "version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        {
+          "package": "nvidia-compute-utils-595",
+          "version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        {
+          "package": "libnvidia-compute-595",
+          "version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        {
+          "package": "libnvidia-encode-595",
+          "version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        {
+          "package": "libnvidia-decode-595",
+          "version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        {
+          "package": "libnvidia-extra-595",
+          "version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        {
+          "package": "libnvidia-fbc1-595",
+          "version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        {
+          "package": "linux-modules-nvidia-595-7.0.0-38-generic",
+          "version": "7.0.0-38.38+2"
+        },
+        {
+          "package": "linux-modules-nvidia-595-open-generic",
+          "version": "7.0.0-38.38+2"
+        },
+        {
+          "package": "linux-modules-nvidia-595-open-7.0.0-38-generic",
+          "version": "7.0.0-38.38+2"
+        },
+        {
+          "package": "nvidia-kernel-common-595",
+          "version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        {
+          "package": "nvidia-kernel-source-595-open",
+          "version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        {
+          "package": "nvidia-prime",
+          "version": "0.8.17.2build1"
+        }
+      ],
+      "remove_count": 18,
+      "returncode": 0,
+      "stderr": ""
+    },
+    "files": [
+      {
+        "control_verified": true,
+        "filename": "libnvidia-cfg1-580_580.196.07-1ubuntu1_amd64.deb",
+        "md5": "62045380644fe5dcc30cfce64b061a4a",
+        "mode": "0600",
+        "package": "libnvidia-cfg1-580",
+        "sha256": "c8b62c6509aea9e51e17a2d0184598fd5945bf4c659ba8a99366b873b98ca17d",
+        "size": 147818,
+        "transaction": "target",
+        "version": "580.196.07-1ubuntu1"
+      },
+      {
+        "control_verified": true,
+        "filename": "libnvidia-decode-580_580.196.07-1ubuntu1_amd64.deb",
+        "md5": "9c83b70961f2bf5c05d99c91af3ef0b8",
+        "mode": "0600",
+        "package": "libnvidia-decode-580",
+        "sha256": "572e491c691f231623fd0a552516cb17ad0bca1cf1dbd7ac9985d7c753f3bd4b",
+        "size": 2724296,
+        "transaction": "target",
+        "version": "580.196.07-1ubuntu1"
+      },
+      {
+        "control_verified": true,
+        "filename": "libnvidia-gpucomp-580_580.196.07-1ubuntu1_amd64.deb",
+        "md5": "b34d732c6488e69c6a5a4772393ed899",
+        "mode": "0600",
+        "package": "libnvidia-gpucomp-580",
+        "sha256": "4034f539ba63867c6dc5a3b0069c3c77c6abe5393900954ef461c4fb136494ee",
+        "size": 18502184,
+        "transaction": "target",
+        "version": "580.196.07-1ubuntu1"
+      },
+      {
+        "control_verified": true,
+        "filename": "nvidia-persistenced_580.196.07-1ubuntu1_amd64.deb",
+        "md5": "5d64efec1bdb562e280c544c969dab1f",
+        "mode": "0600",
+        "package": "nvidia-persistenced",
+        "sha256": "cf83d1ee78b99d061264f786dce0ae97d5431f68a7fe505589452055a32bf492",
+        "size": 24456,
+        "transaction": "target",
+        "version": "580.196.07-1ubuntu1"
+      },
+      {
+        "control_verified": true,
+        "filename": "libnvidia-compute-580_580.196.07-1ubuntu1_amd64.deb",
+        "md5": "6014f900e38ef5c6d3d11a5bad4b7f18",
+        "mode": "0600",
+        "package": "libnvidia-compute-580",
+        "sha256": "b6a5b9a94267d1995a2bd54e7a9876961f3efb6928edbbcce675d09ea9cb2c8d",
+        "size": 54671338,
+        "transaction": "target",
+        "version": "580.196.07-1ubuntu1"
+      },
+      {
+        "control_verified": true,
+        "filename": "libnvidia-egl-gbm1_1.1.4-2ubuntu1_amd64.deb",
+        "md5": "314fb4eed0273c5112ba41736fbc5695",
+        "mode": "0600",
+        "package": "libnvidia-egl-gbm1",
+        "sha256": "46be77d8400ba5b930c29213eaf8afa855773d2b12623efc36a4f5e6a1b63828",
+        "size": 13318,
+        "transaction": "target",
+        "version": "1.1.4-2ubuntu1"
+      },
+      {
+        "control_verified": true,
+        "filename": "libnvidia-egl-xcb1_1.0.6-1ubuntu1_amd64.deb",
+        "md5": "7605a857a137d74c474b63a09ceeb19f",
+        "mode": "0600",
+        "package": "libnvidia-egl-xcb1",
+        "sha256": "f4ad0a5fe26efa12f92078053cbda988a307e7525ce03e501727adc82b270b56",
+        "size": 34456,
+        "transaction": "target",
+        "version": "1.0.6-1ubuntu1"
+      },
+      {
+        "control_verified": true,
+        "filename": "libnvidia-egl-xlib1_1.0.6-1ubuntu1_amd64.deb",
+        "md5": "6279f304a8ec8d264e99e62cf23d8196",
+        "mode": "0600",
+        "package": "libnvidia-egl-xlib1",
+        "sha256": "0f7e45ff671e961319735c23bc20b54864f71c277b3e2cef2111f72b46b28079",
+        "size": 35142,
+        "transaction": "target",
+        "version": "1.0.6-1ubuntu1"
+      },
+      {
+        "control_verified": true,
+        "filename": "libnvidia-encode-580_580.196.07-1ubuntu1_amd64.deb",
+        "md5": "075ce897eda65b99fd87f175a883a096",
+        "mode": "0600",
+        "package": "libnvidia-encode-580",
+        "sha256": "c9c07fbda7419f3719706d6ca84037eac1a61097780b1a3dfa0188a3e379f3b3",
+        "size": 106606,
+        "transaction": "target",
+        "version": "580.196.07-1ubuntu1"
+      },
+      {
+        "control_verified": true,
+        "filename": "libnvidia-fbc1-580_580.196.07-1ubuntu1_amd64.deb",
+        "md5": "002a1800cdc483252b791bd9c25c0adf",
+        "mode": "0600",
+        "package": "libnvidia-fbc1-580",
+        "sha256": "dd36656fdb4fb758c74902d6ccf0ae4205e7d767ac187c8d7c802a660d1c50c9",
+        "size": 87042,
+        "transaction": "target",
+        "version": "580.196.07-1ubuntu1"
+      },
+      {
+        "control_verified": true,
+        "filename": "libnvidia-gl-580_580.196.07-1ubuntu1_amd64.deb",
+        "md5": "5be64c4ed86d4eb0c5a2775243f6ece0",
+        "mode": "0600",
+        "package": "libnvidia-gl-580",
+        "sha256": "0a13d0472e9035652a3dbb6f0af79832dbd6c93114a20510705c5cd5b647f4d1",
+        "size": 150377314,
+        "transaction": "target",
+        "version": "580.196.07-1ubuntu1"
+      },
+      {
+        "control_verified": true,
+        "filename": "nvidia-kernel-source-580-open_580.196.07-1ubuntu1_amd64.deb",
+        "md5": "f4a2d71b25064d97f9e4b0ad7630626c",
+        "mode": "0600",
+        "package": "nvidia-kernel-source-580-open",
+        "sha256": "500915ba5ea32d4ab8b2256f9cb7fa8006503d7e391f846245c9c8d1f7259840",
+        "size": 7994466,
+        "transaction": "target",
+        "version": "580.196.07-1ubuntu1"
+      },
+      {
+        "control_verified": true,
+        "filename": "nvidia-firmware-580_580.196.07-1ubuntu1_amd64.deb",
+        "md5": "498dc3e47da5d7a48df0bc3638f6c8be",
+        "mode": "0600",
+        "package": "nvidia-firmware-580",
+        "sha256": "8595f10092f341ee973d4efeab612161c4527c3e8d35bd64d5764fdf6d3244fb",
+        "size": 74788940,
+        "transaction": "target",
+        "version": "580.196.07-1ubuntu1"
+      },
+      {
+        "control_verified": true,
+        "filename": "nvidia-modprobe_580.196.07-1ubuntu1_amd64.deb",
+        "md5": "fae50cc3c278d8fe9d5aca3f3a21fc90",
+        "mode": "0600",
+        "package": "nvidia-modprobe",
+        "sha256": "724830b72112b34352dc9b7c4ab0f67b663cc9fd8f53ea205fe5230be27007ff",
+        "size": 15674,
+        "transaction": "target",
+        "version": "580.196.07-1ubuntu1"
+      },
+      {
+        "control_verified": true,
+        "filename": "nvidia-kernel-common-580_580.196.07-1ubuntu1_amd64.deb",
+        "md5": "a8322af209b8b0ae943dfbadf7e136fa",
+        "mode": "0600",
+        "package": "nvidia-kernel-common-580",
+        "sha256": "0b5b3df398018d1f6e6dd903baf2e018094ddb66df4b3d1b7c36dabf9a33cd7e",
+        "size": 716448,
+        "transaction": "target",
+        "version": "580.196.07-1ubuntu1"
+      },
+      {
+        "control_verified": true,
+        "filename": "nvidia-dkms-580-open_580.196.07-1ubuntu1_amd64.deb",
+        "md5": "5d8557974177120080fe08673d05a581",
+        "mode": "0600",
+        "package": "nvidia-dkms-580-open",
+        "sha256": "fd348c30ad1cb12db519e0be40c9637d675df5f55eca38661bee70db63ce206e",
+        "size": 15306,
+        "transaction": "target",
+        "version": "580.196.07-1ubuntu1"
+      },
+      {
+        "control_verified": true,
+        "filename": "xserver-xorg-video-nvidia-580_580.196.07-1ubuntu1_amd64.deb",
+        "md5": "899b56e94b8a5ff8ece8dc78d7b2ed43",
+        "mode": "0600",
+        "package": "xserver-xorg-video-nvidia-580",
+        "sha256": "b75719ae464b740dfeac63fcc4b97adfc73e9db061db27035ac86c0c410363a1",
+        "size": 2160328,
+        "transaction": "target",
+        "version": "580.196.07-1ubuntu1"
+      },
+      {
+        "control_verified": true,
+        "filename": "nvidia-driver-580-open_580.196.07-1ubuntu1_amd64.deb",
+        "md5": "dc04c99835eff64ebaf2e709e8b161b7",
+        "mode": "0600",
+        "package": "nvidia-driver-580-open",
+        "sha256": "7c01a3d7c933fbbc3917d55552835a5ca125a6a0ea5e7f2fffa243eb2c400f11",
+        "size": 13018,
+        "transaction": "target",
+        "version": "580.196.07-1ubuntu1"
+      },
+      {
+        "control_verified": true,
+        "filename": "libnvidia-cfg1-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+        "md5": "0fb5dcba2a2450b6baffa53864bd9cc1",
+        "mode": "0600",
+        "package": "libnvidia-cfg1-595",
+        "sha256": "c9b58e84e474dfb07c9cd4b677553a1a27a93f1a316f2312fcb2fc9d94f6ff91",
+        "size": 157868,
+        "transaction": "rollback",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "control_verified": true,
+        "filename": "libnvidia-extra-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+        "md5": "a699a172c93e49404c5514f11641e806",
+        "mode": "0600",
+        "package": "libnvidia-extra-595",
+        "sha256": "8d3ecc17a894b8fb73b569b0ccfd14f00a4ef1086d232c77ec6f4ee3ba6efe25",
+        "size": 77406,
+        "transaction": "rollback",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "control_verified": true,
+        "filename": "libnvidia-common-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+        "md5": "e29179a22e20fbfd34d72f79f3f2c88d",
+        "mode": "0600",
+        "package": "libnvidia-common-595",
+        "sha256": "942a151eb4af7e3266458c80e9e948cd5e521ff489bd7c76bc23e7c9eb202a25",
+        "size": 18570,
+        "transaction": "rollback",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "control_verified": true,
+        "filename": "libnvidia-compute-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+        "md5": "11dc81450d19a91f549d46291b1a817b",
+        "mode": "0600",
+        "package": "libnvidia-compute-595",
+        "sha256": "a8f3ed02c0a89502b24a4fdf6a8dd88ffd646c254896cb3e12e8f74bebb06136",
+        "size": 85770234,
+        "transaction": "rollback",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "control_verified": true,
+        "filename": "libnvidia-decode-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+        "md5": "c3559894f4a2618bd4873fab73d4abec",
+        "mode": "0600",
+        "package": "libnvidia-decode-595",
+        "sha256": "76a50d7ada4f294e872288f8d453aace435204b3d622bc72a15fa670537b65b5",
+        "size": 3059774,
+        "transaction": "rollback",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "control_verified": true,
+        "filename": "libnvidia-encode-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+        "md5": "8db265100541c2505a7dade6bd4b6723",
+        "mode": "0600",
+        "package": "libnvidia-encode-595",
+        "sha256": "9b3a048077c21eb9f9118da0ef52a2e9ace710fc6fc6c4b3de2a4f392fb73467",
+        "size": 118548,
+        "transaction": "rollback",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "control_verified": true,
+        "filename": "libnvidia-fbc1-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+        "md5": "7750369715290c93870c6b124d93bf09",
+        "mode": "0600",
+        "package": "libnvidia-fbc1-595",
+        "sha256": "7f742ec0a3addfd6ec319d58e22acc7321231535ace164cdefd9b35edecea074",
+        "size": 93852,
+        "transaction": "rollback",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "control_verified": true,
+        "filename": "libnvidia-gl-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+        "md5": "0e7f1597d73fd7a9653fe80b9a179d66",
+        "mode": "0600",
+        "package": "libnvidia-gl-595",
+        "sha256": "3c7e157b41892aa9d589f966fece636b808bb4e649a71cc2c9cbf7337007f6f7",
+        "size": 138928876,
+        "transaction": "rollback",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "control_verified": true,
+        "filename": "linux-modules-nvidia-595-7.0.0-38-generic_7.0.0-38.38+2_amd64.deb",
+        "md5": "4c7b3e73f0d696e664d2157b968e1ec3",
+        "mode": "0600",
+        "package": "linux-modules-nvidia-595-7.0.0-38-generic",
+        "sha256": "4fc9b5e93dd43b5fea534c1569825cb41017202c4d228024c3798cd895aa556a",
+        "size": 11740,
+        "transaction": "rollback",
+        "version": "7.0.0-38.38+2"
+      },
+      {
+        "control_verified": true,
+        "filename": "linux-modules-nvidia-595-open-7.0.0-38-generic_7.0.0-38.38+2_amd64.deb",
+        "md5": "d3a7f40a34fcfa5cf2ffcd2ae9e8eedf",
+        "mode": "0600",
+        "package": "linux-modules-nvidia-595-open-7.0.0-38-generic",
+        "sha256": "f98818bce400ae37b3266d4be58880a07cbd2fb71d68b6021164943c3c1a366c",
+        "size": 8052172,
+        "transaction": "rollback",
+        "version": "7.0.0-38.38+2"
+      },
+      {
+        "control_verified": true,
+        "filename": "linux-modules-nvidia-595-open-generic_7.0.0-38.38+2_amd64.deb",
+        "md5": "ed0b5be2818a0cd0ce0849077a5a4157",
+        "mode": "0600",
+        "package": "linux-modules-nvidia-595-open-generic",
+        "sha256": "147e68eb6b638ddad32b508d0029f6e18052f8000603786148390d462ab39219",
+        "size": 10048,
+        "transaction": "rollback",
+        "version": "7.0.0-38.38+2"
+      },
+      {
+        "control_verified": true,
+        "filename": "nvidia-compute-utils-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+        "md5": "b248d2e20ff9b633de02673790cd4903",
+        "mode": "0600",
+        "package": "nvidia-compute-utils-595",
+        "sha256": "6d6885920c4e627f3a033b9e637f11b2a56a5a3f77dea6ab61be45636ae0ac6b",
+        "size": 134856,
+        "transaction": "rollback",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "control_verified": true,
+        "filename": "nvidia-driver-595-open_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+        "md5": "fe5e80e00b7e6871483b8f993b8e455c",
+        "mode": "0600",
+        "package": "nvidia-driver-595-open",
+        "sha256": "b2115b9f6d2485307db0e3df391122ac2612677f666bb59913a3e2269b9d4160",
+        "size": 14158,
+        "transaction": "rollback",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "control_verified": true,
+        "filename": "nvidia-kernel-common-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+        "md5": "9b6f94bf213d5e42b6be221a24b72124",
+        "mode": "0600",
+        "package": "nvidia-kernel-common-595",
+        "sha256": "20d9ed271ee10e509b672cb2899ccaeaf9facb922cb05fc7e3a485cfff04d551",
+        "size": 822334,
+        "transaction": "rollback",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "control_verified": true,
+        "filename": "nvidia-kernel-source-595-open_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+        "md5": "b5221d13e8b24a678c93aeafd0b9d428",
+        "mode": "0600",
+        "package": "nvidia-kernel-source-595-open",
+        "sha256": "5434b4b228a07a82968618da1f88776fdb867ee67266d41f4dabc10825712bcd",
+        "size": 8324952,
+        "transaction": "rollback",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "control_verified": true,
+        "filename": "nvidia-prime_0.8.17.2build1_all.deb",
+        "md5": "302a1d26950f11d47e442c89b0ca61d5",
+        "mode": "0600",
+        "package": "nvidia-prime",
+        "sha256": "c5f1e0744fde82b54cb54ca0a3ffb5d76d8d1f2c83ca582dea91ea1f377bba12",
+        "size": 10496,
+        "transaction": "rollback",
+        "version": "0.8.17.2build1"
+      },
+      {
+        "control_verified": true,
+        "filename": "nvidia-utils-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+        "md5": "2edf5a8648fdb8c85d98082da445d9e2",
+        "mode": "0600",
+        "package": "nvidia-utils-595",
+        "sha256": "1a36b69f827ca41c92a70de00f469aefd87a40efad64411b00f7d962838243fb",
+        "size": 608486,
+        "transaction": "rollback",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "control_verified": true,
+        "filename": "xserver-xorg-video-nvidia-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+        "md5": "7b483a01913bc20c5317ea8d09417459",
+        "mode": "0600",
+        "package": "xserver-xorg-video-nvidia-595",
+        "sha256": "7c77eecb0c50325b8fb4d97f8deb8c96ef66d666bab9a7c868f2e98e934d5fa2",
+        "size": 1203152,
+        "transaction": "rollback",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      }
+    ],
+    "remote_dir": "/var/tmp/codex-r580-canary-20261023T095544Z-ab7b7b33",
+    "transaction_bytes": {
+      "rollback": 247417522,
+      "target": 312428150
+    }
+  },
+  "schema": "pc3-r580-canary-local-deb-apt-simulation-v1",
+  "target": "pc3@pc3",
+  "vm_stopped_or_reconfigured": false
+}

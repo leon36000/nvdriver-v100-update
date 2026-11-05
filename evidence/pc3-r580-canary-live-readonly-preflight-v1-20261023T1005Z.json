@@ -1,0 +1,73 @@
+{
+  "driver_modified": false,
+  "gpu_compute_requested": false,
+  "host_key_alias": "pc3",
+  "observed_at_utc": "2026-10-23T09:55:02.436998+00:00",
+  "pci_ownership_modified": false,
+  "remote_commands": {
+    "compute_processes": {
+      "argv": [
+        "nvidia-smi",
+        "--query-compute-apps=pid,process_name,used_gpu_memory",
+        "--format=csv,noheader,nounits"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    "display_manager": {
+      "argv": [
+        "systemctl",
+        "is-active",
+        "display-manager.service"
+      ],
+      "returncode": 4,
+      "stderr": "",
+      "stdout": "inactive\n"
+    },
+    "gpu": {
+      "argv": [
+        "nvidia-smi",
+        "--query-gpu=name,uuid,pci.bus_id,driver_version,utilization.gpu,memory.used,memory.total",
+        "--format=csv,noheader,nounits"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "NVIDIA GeForce RTX 5080, GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77, 00000000:02:00.0, 595.99.02, 0, 2, 16303\n"
+    },
+    "kernel": {
+      "argv": [
+        "uname",
+        "-r"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "7.0.0-38-generic\n"
+    },
+    "v100_vm": {
+      "argv": [
+        "systemctl",
+        "is-active",
+        "pc3-v100-qemu.service"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "active\n"
+    },
+    "var_tmp_free_bytes": {
+      "argv": [
+        "df",
+        "-B1",
+        "--output=avail",
+        "/var/tmp"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "      Avail\n65763258368\n"
+    }
+  },
+  "remote_exit_code": 0,
+  "schema": "pc3-r580-canary-live-readonly-preflight-v1",
+  "target": "pc3@pc3",
+  "vm_management_issued": false
+}

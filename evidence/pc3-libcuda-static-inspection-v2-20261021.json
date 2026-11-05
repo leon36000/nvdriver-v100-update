@@ -1,0 +1,50 @@
+{
+  "execution_scope": {
+    "driver_or_module_changed": false,
+    "firmware_or_vm_changed": false,
+    "gpu_state_changed": false
+  },
+  "gpu_workload_run": false,
+  "host_key_alias": "pc3",
+  "host_key_checking": "strict",
+  "library_contents_copied": false,
+  "observed_at": "2026-10-21T17:06:03.148915+00:00",
+  "qualification": "read-only-static-inspection",
+  "remote": {
+    "hostname": "pc3",
+    "kernel": "7.0.0-38-generic",
+    "libraries": [
+      {
+        "build_id": "d1f87d481dafdcf05cb82430fdee0d8ed8f6b239",
+        "bytes": 91505672,
+        "dynamic_export_count": 738,
+        "dynamic_symbol_marker_matches": [],
+        "links": [
+          "/usr/lib/x86_64-linux-gnu/libcuda.so",
+          "/usr/lib/x86_64-linux-gnu/libcuda.so.1",
+          "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02"
+        ],
+        "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+        "sha256": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d",
+        "static_symbol_table": false,
+        "string_marker_counts": {
+          "20810108": 0,
+          "BINAPI": 0,
+          "FINN": 0,
+          "NV2081": 0
+        }
+      }
+    ],
+    "nvidia_smi": [
+      {
+        "driver_version": "595.99.02",
+        "name": "NVIDIA GeForce RTX 5080",
+        "pci_bus_id": "0000:02:00.0",
+        "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77"
+      }
+    ]
+  },
+  "remote_source_sha256": "81d9b5afcd61130063e4d5c9b5cc4faadc64c08f5eefac71c0fcbe87b3e1231c",
+  "schema": "nvidia-hybrid-pc3-libcuda-static-inspection-v1",
+  "target": "pc3@pc3"
+}

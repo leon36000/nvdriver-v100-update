@@ -1,0 +1,77 @@
+{
+  "classification": "read-only no-recommends APT simulation and metadata; no transaction executed",
+  "host_key_alias": "pc3",
+  "inventory": {
+    "hostname": "pc3",
+    "no_recommends_simulation": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "NOTE: Ceci n'est qu'une simulation\u00a0!\n      apt-get a besoin des privil\u00e8ges du superutilisateur\n      pour pouvoir vraiment fonctionner.\n      Veuillez aussi noter que le verrouillage est d\u00e9sactiv\u00e9,\n      et la situation n'est donc pas forc\u00e9ment repr\u00e9sentative\n      de la r\u00e9alit\u00e9\u00a0!\nLecture des listes de paquets\u2026\nConstruction de l'arbre des d\u00e9pendances\u2026\nLecture des informations d'\u00e9tat\u2026\nR\u00e9solution des d\u00e9pendances\u00a0 \u2026\nLes paquets suivants ont \u00e9t\u00e9 install\u00e9s automatiquement et ne sont plus n\u00e9cessaires\u00a0:\n  libpkgconf7 libvdpau1 libxnvctrl0 nvidia-firmware-580-580.178.04\n  nvidia-firmware-595-595.91.07 nvidia-firmware-595-595.99.02 nvidia-settings\n  ocl-icd-libopencl1 pkg-config pkgconf pkgconf-bin screen-resolution-extra\nVeuillez utiliser \u00ab\u00a0apt autoremove\u00a0\u00bb pour les supprimer.\nLes paquets suppl\u00e9mentaires suivants seront install\u00e9s\u00a0: \n  libnvidia-cfg1-580 libnvidia-compute-580 libnvidia-decode-580\n  libnvidia-egl-gbm1 libnvidia-egl-xcb1 libnvidia-egl-xlib1\n  libnvidia-encode-580 libnvidia-fbc1-580 libnvidia-gl-580\n  libnvidia-gpucomp-580 nvidia-dkms-580-open nvidia-firmware-580\n  nvidia-kernel-common-580 nvidia-kernel-source-580-open nvidia-modprobe\n  nvidia-persistenced xserver-xorg-video-nvidia-580\nPaquets sugg\u00e9r\u00e9s\u00a0:\n  nvidia-driver-pinning-580\nPaquets recommand\u00e9s\u00a0:\n  switcheroo-control nvidia-settings libnvidia-compute-580:i386\n  libnvidia-decode-580:i386 libnvidia-encode-580:i386 libnvidia-fbc1-580:i386\n  libnvidia-gl-580:i386\nLes paquets suivants seront ENLEV\u00c9S\u00a0:\n  libnvidia-cfg1-595 libnvidia-common-595 libnvidia-compute-595\n  libnvidia-decode-595 libnvidia-encode-595 libnvidia-extra-595\n  libnvidia-fbc1-595 libnvidia-gl-595\n  linux-modules-nvidia-595-7.0.0-38-generic\n  linux-modules-nvidia-595-open-7.0.0-38-generic\n  linux-modules-nvidia-595-open-generic nvidia-compute-utils-595\n  nvidia-driver-595-open nvidia-kernel-common-595\n  nvidia-kernel-source-595-open nvidia-prime nvidia-utils-595\n  xserver-xorg-video-nvidia-595\nLes NOUVEAUX paquets suivants seront install\u00e9s\u00a0:\n  libnvidia-cfg1-580 libnvidia-compute-580 libnvidia-decode-580\n  libnvidia-egl-gbm1 libnvidia-egl-xcb1 libnvidia-egl-xlib1\n  libnvidia-encode-580 libnvidia-fbc1-580 libnvidia-gl-580\n  libnvidia-gpucomp-580 nvidia-dkms-580-open nvidia-driver-580-open\n  nvidia-firmware-580 nvidia-kernel-common-580 nvidia-kernel-source-580-open\n  nvidia-modprobe nvidia-persistenced xserver-xorg-video-nvidia-580\n0 mis \u00e0 jour, 18 nouvellement install\u00e9s, 18 \u00e0 enlever et 59 non mis \u00e0 jour.\nRemv nvidia-driver-595-open [595.99.02-0ubuntu0.26.04.1]\nRemv xserver-xorg-video-nvidia-595 [595.99.02-0ubuntu0.26.04.1]\nRemv libnvidia-cfg1-595 [595.99.02-0ubuntu0.26.04.1]\nRemv libnvidia-gl-595 [595.99.02-0ubuntu0.26.04.1]\nRemv libnvidia-common-595 [595.99.02-0ubuntu0.26.04.1]\nRemv nvidia-utils-595 [595.99.02-0ubuntu0.26.04.1]\nRemv nvidia-compute-utils-595 [595.99.02-0ubuntu0.26.04.1]\nRemv libnvidia-compute-595 [595.99.02-0ubuntu0.26.04.1] [libnvidia-decode-595:amd64 ]\nRemv libnvidia-encode-595 [595.99.02-0ubuntu0.26.04.1] [libnvidia-decode-595:amd64 ]\nRemv libnvidia-decode-595 [595.99.02-0ubuntu0.26.04.1]\nRemv libnvidia-extra-595 [595.99.02-0ubuntu0.26.04.1]\nRemv libnvidia-fbc1-595 [595.99.02-0ubuntu0.26.04.1]\nRemv linux-modules-nvidia-595-7.0.0-38-generic [7.0.0-38.38+2]\nRemv linux-modules-nvidia-595-open-generic [7.0.0-38.38+2]\nRemv linux-modules-nvidia-595-open-7.0.0-38-generic [7.0.0-38.38+2]\nRemv nvidia-kernel-common-595 [595.99.02-0ubuntu0.26.04.1]\nRemv nvidia-kernel-source-595-open [595.99.02-0ubuntu0.26.04.1]\nRemv nvidia-prime [0.8.17.2build1]\nInst libnvidia-cfg1-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nInst libnvidia-decode-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64]) []\nInst libnvidia-gpucomp-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64]) []\nInst nvidia-persistenced (615.71.10-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64]) []\nInst libnvidia-compute-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nInst libnvidia-egl-gbm1 (1.1.4-2ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nInst libnvidia-egl-xcb1 (1.0.6-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nInst libnvidia-egl-xlib1 (1.0.6-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nInst libnvidia-encode-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nInst libnvidia-fbc1-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nInst libnvidia-gl-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nInst nvidia-kernel-source-580-open (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nInst nvidia-firmware-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nInst nvidia-modprobe (615.71.10-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nInst nvidia-kernel-common-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nInst nvidia-dkms-580-open (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nInst xserver-xorg-video-nvidia-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nInst nvidia-driver-580-open (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nConf libnvidia-cfg1-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nConf libnvidia-decode-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nConf libnvidia-gpucomp-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nConf nvidia-persistenced (615.71.10-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nConf libnvidia-compute-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nConf libnvidia-egl-gbm1 (1.1.4-2ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nConf libnvidia-egl-xcb1 (1.0.6-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nConf libnvidia-egl-xlib1 (1.0.6-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nConf libnvidia-encode-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nConf libnvidia-fbc1-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nConf libnvidia-gl-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nConf nvidia-kernel-source-580-open (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nConf nvidia-firmware-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nConf nvidia-modprobe (615.71.10-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nConf nvidia-kernel-common-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nConf nvidia-dkms-580-open (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nConf xserver-xorg-video-nvidia-580 (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])\nConf nvidia-driver-580-open (580.196.07-1ubuntu1 NVIDIA CUDA:developer.download.nvidia.com [amd64])"
+    },
+    "package_metadata": {
+      "nvidia-driver-580-open=580.196.07-1ubuntu1": {
+        "fields": {
+          "Conflicts": "bbswitch, bbswitch-dkms, bbswitch-source, bumblebee, bumblebee-nvidia, nvidia-prime, python3-envycontrol",
+          "Depends": "libnvidia-gl-580 (= 580.196.07-1ubuntu1), nvidia-dkms-580-open (= 580.196.07-1ubuntu1), nvidia-kernel-common-580 (= 580.196.07-1ubuntu1), nvidia-kernel-source-580-open (= 580.196.07-1ubuntu1), libnvidia-compute-580 (= 580.196.07-1ubuntu1), libnvidia-decode-580 (= 580.196.07-1ubuntu1), libnvidia-encode-580 (= 580.196.07-1ubuntu1), xserver-xorg-video-nvidia-580 (= 580.196.07-1ubuntu1), libnvidia-fbc1-580 (= 580.196.07-1ubuntu1)",
+          "Description": "NVIDIA driver (open kernel) metapackage",
+          "Filename": "./nvidia-driver-580-open_580.196.07-1ubuntu1_amd64.deb",
+          "Package": "nvidia-driver-580-open",
+          "Replaces": "bbswitch, bbswitch-dkms, bbswitch-source, bumblebee, bumblebee-nvidia, nvidia-prime, python3-envycontrol",
+          "SHA256": "7c01a3d7c933fbbc3917d55552835a5ca125a6a0ea5e7f2fffa243eb2c400f11",
+          "Size": "13018",
+          "Version": "580.196.07-1ubuntu1"
+        },
+        "returncode": 0,
+        "stderr": ""
+      },
+      "nvidia-modprobe=615.71.10-1ubuntu1": {
+        "fields": {
+          "Depends": "libc6 (>= 2.34)",
+          "Description": "Load the NVIDIA kernel driver and create device files",
+          "Filename": "./nvidia-modprobe_615.71.10-1ubuntu1_amd64.deb",
+          "Package": "nvidia-modprobe",
+          "SHA256": "a63a9fa7490eec8fefa4429c6e1c1eb767eeec3d2147deb43a7297f50d28adbe",
+          "Size": "15674",
+          "Version": "615.71.10-1ubuntu1"
+        },
+        "returncode": 0,
+        "stderr": ""
+      },
+      "nvidia-persistenced=615.71.10-1ubuntu1": {
+        "fields": {
+          "Depends": "adduser, libnvidia-cfg1, libc6 (>= 2.34), libtirpc3t64 (>= 1.0.2)",
+          "Description": "daemon to maintain persistent software state in the NVIDIA driver",
+          "Filename": "./nvidia-persistenced_615.71.10-1ubuntu1_amd64.deb",
+          "Package": "nvidia-persistenced",
+          "SHA256": "016bd96c504970aea25ecc25139cfa863ceee0a6c0d15581d2d931d35aa3bd87",
+          "Size": "24450",
+          "Version": "615.71.10-1ubuntu1"
+        },
+        "returncode": 0,
+        "stderr": ""
+      },
+      "nvidia-settings=615.71.10-1ubuntu1": {
+        "fields": {
+          "Conflicts": "nvidia-settings-binary",
+          "Depends": "libc6 (>= 2.38), libcairo2 (>= 1.2.4), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0t64 (>= 2.16.0), libgtk-3-0t64 (>= 3.0.0), libjansson4 (>= 2.14), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libwayland-client0 (>= 1.20.0), libx11-6, libxnvctrl0 (>= 615.71.10), libxxf86vm1, libvdpau1, pkg-config, screen-resolution-extra (>= 0.17~)",
+          "Description": "Tool for configuring the NVIDIA graphics driver",
+          "Filename": "./nvidia-settings_615.71.10-1ubuntu1_amd64.deb",
+          "Package": "nvidia-settings",
+          "Provides": "nvidia-settings-binary",
+          "Replaces": "nvidia-settings-binary",
+          "SHA256": "3c18e37f8bf2df2e0439d117929fa60432df205f83c47d76dfc3838208a64d53",
+          "Size": "828512",
+          "Version": "615.71.10-1ubuntu1"
+        },
+        "returncode": 0,
+        "stderr": ""
+      }
+    },
+    "schema": "pc3-r580-apt-plan-v2-remote"
+  },
+  "observed_at_utc": "2026-10-23T09:41:03.663320+00:00",
+  "schema": "pc3-r580-apt-plan-v2",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "strict_host_key_checking": true,
+  "target": "pc3@pc3"
+}

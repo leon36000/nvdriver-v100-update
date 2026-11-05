@@ -1,0 +1,259 @@
+{
+  "active_gpu": {
+    "compute_apps": {
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    "modules": {
+      "nvidia": {
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "/lib/modules/7.0.0-38-generic/kernel/nvidia-595-open/nvidia.ko\n"
+      },
+      "nvidia_modeset": {
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "/lib/modules/7.0.0-38-generic/kernel/nvidia-595-open/nvidia-modeset.ko\n"
+      },
+      "nvidia_uvm": {
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "/lib/modules/7.0.0-38-generic/kernel/nvidia-595-open/nvidia-uvm.ko\n"
+      }
+    },
+    "nvidia_smi": {
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "NVIDIA GeForce RTX 5080, GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77, 00000000:02:00.0, 595.99.02\n"
+    }
+  },
+  "boot": {
+    "efi_directory_present": true,
+    "efibootmgr": {
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "BootCurrent: 0001\nTimeout: 0 seconds\nBootOrder: 0001,0002,0003,0004\nBoot0001* Ubuntu\tHD(1,GPT,8dd45488-08ab-419f-a3a5-dde7c9237d26,0x800,0x219800)/\\EFI\\ubuntu\\shimx64.efi\n      dp: 04 01 2a 00 01 00 00 00 00 08 00 00 00 00 00 00 00 98 21 00 00 00 00 00 88 54 d4 8d ab 08 9f 41 a3 a5 dd e7 c9 23 7d 26 02 02 / 04 04 34 00 5c 00 45 00 46 00 49 00 5c 00 75 00 62 00 75 00 6e 00 74 00 75 00 5c 00 73 00 68 00 69 00 6d 00 78 00 36 00 34 00 2e 00 65 00 66 00 69 00 00 00 / 7f ff 04 00\nBoot0002* UEFI:CD/DVD Drive\tBBS(129,,0x0)\n      dp: 05 01 09 00 81 00 00 00 00 / 7f ff 04 00\nBoot0003* UEFI:Removable Device\tBBS(130,,0x0)\n      dp: 05 01 09 00 82 00 00 00 00 / 7f ff 04 00\nBoot0004* UEFI:Network Device\tBBS(131,,0x0)\n      dp: 05 01 09 00 83 00 00 00 00 / 7f ff 04 00\n"
+    },
+    "grub_environment": {
+      "exit_code": 1,
+      "stderr": "sudo: interactive authentication is required\n",
+      "stdout": ""
+    }
+  },
+  "boot_configuration_modified": false,
+  "boot_files": [
+    {
+      "bytes": 11018537,
+      "name": "System.map-7.0.0-34-generic",
+      "read_status": "sudo-hash-unavailable:sudo: interactive authentication is required\n",
+      "sha256": null
+    },
+    {
+      "bytes": 11028836,
+      "name": "System.map-7.0.0-38-generic",
+      "read_status": "sudo-hash-unavailable:sudo: interactive authentication is required\n",
+      "sha256": null
+    },
+    {
+      "bytes": 308473,
+      "name": "config-7.0.0-34-generic",
+      "read_status": "sudo-hash-unavailable:sudo: interactive authentication is required\n",
+      "sha256": null
+    },
+    {
+      "bytes": 308501,
+      "name": "config-7.0.0-38-generic",
+      "read_status": "sudo-hash-unavailable:sudo: interactive authentication is required\n",
+      "sha256": null
+    },
+    {
+      "bytes": 62817822,
+      "name": "initrd.img-7.0.0-34-generic",
+      "read_status": "sudo-hash-unavailable:sudo: interactive authentication is required\n",
+      "sha256": null
+    },
+    {
+      "bytes": 62824248,
+      "name": "initrd.img-7.0.0-38-generic",
+      "read_status": "sudo-hash-unavailable:sudo: interactive authentication is required\n",
+      "sha256": null
+    },
+    {
+      "bytes": 17303944,
+      "name": "vmlinuz-7.0.0-34-generic",
+      "read_status": "sudo-hash-unavailable:sudo: interactive authentication is required\n",
+      "sha256": null
+    },
+    {
+      "bytes": 17320328,
+      "name": "vmlinuz-7.0.0-38-generic",
+      "read_status": "sudo-hash-unavailable:sudo: interactive authentication is required\n",
+      "sha256": null
+    }
+  ],
+  "driver_modified": false,
+  "fallback_kernel": {
+    "modules_package_status": {
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "rc  linux-modules-nvidia-595-open-7.0.0-34-generic 7.0.0-34.34+1\n"
+    },
+    "nvidia": {
+      "filename": {
+        "exit_code": 1,
+        "stderr": "modinfo: ERROR: Module nvidia not found.\n",
+        "stdout": ""
+      },
+      "signer": {
+        "exit_code": 1,
+        "stderr": "modinfo: ERROR: Module nvidia not found.\n",
+        "stdout": ""
+      },
+      "vermagic": {
+        "exit_code": 1,
+        "stderr": "modinfo: ERROR: Module nvidia not found.\n",
+        "stdout": ""
+      },
+      "version": {
+        "exit_code": 1,
+        "stderr": "modinfo: ERROR: Module nvidia not found.\n",
+        "stdout": ""
+      }
+    },
+    "release": "7.0.0-34-generic"
+  },
+  "host": "pc3",
+  "installed_nvidia_packages": {
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "ii  libnvidia-cfg1-595:amd64 595.99.02-0ubuntu0.26.04.1\nun  libnvidia-cfg1-any \nun  libnvidia-common \nii  libnvidia-common-595 595.99.02-0ubuntu0.26.04.1\nun  libnvidia-compute \nrc  libnvidia-compute-580:amd64 580.178.04-0ubuntu0.26.04.1\nii  libnvidia-compute-595:amd64 595.99.02-0ubuntu0.26.04.1\nun  libnvidia-decode \nii  libnvidia-decode-595:amd64 595.99.02-0ubuntu0.26.04.1\nun  libnvidia-egl-gbm1 \nii  libnvidia-egl-wayland1:amd64 1:1.1.21-1\nun  libnvidia-encode \nii  libnvidia-encode-595:amd64 595.99.02-0ubuntu0.26.04.1\nun  libnvidia-extra \nii  libnvidia-extra-595:amd64 595.99.02-0ubuntu0.26.04.1\nun  libnvidia-fbc1 \nii  libnvidia-fbc1-595:amd64 595.99.02-0ubuntu0.26.04.1\nun  libnvidia-gl \nun  libnvidia-gl-390 \nun  libnvidia-gl-410 \nii  libnvidia-gl-595:amd64 595.99.02-0ubuntu0.26.04.1\nun  libnvidia-legacy-390xx-egl-wayland1 \nun  libnvidia-ml.so.1 \nun  libnvidia-ml1 \nrc  linux-modules-nvidia-580-7.0.0-38-generic 7.0.0-38.38+2\nii  linux-modules-nvidia-595-7.0.0-38-generic 7.0.0-38.38+2\nrc  linux-modules-nvidia-595-open-7.0.0-34-generic 7.0.0-34.34+1\nii  linux-modules-nvidia-595-open-7.0.0-38-generic 7.0.0-38.38+2\nii  linux-modules-nvidia-595-open-generic 7.0.0-38.38+2\nun  nvidia-compute-utils \nrc  nvidia-compute-utils-580 580.178.04-0ubuntu0.26.04.1\nii  nvidia-compute-utils-595 595.99.02-0ubuntu0.26.04.1\nrc  nvidia-dkms-595 595.99.02-0ubuntu0.26.04.1\nun  nvidia-dkms-595-open \nun  nvidia-dkms-kernel \nun  nvidia-driver-595 \nii  nvidia-driver-595-open 595.99.02-0ubuntu0.26.04.1\nun  nvidia-driver-binary \nun  nvidia-egl-wayland-common \nii  nvidia-firmware-580-580.178.04 580.178.04-0ubuntu0.26.04.1\nun  nvidia-firmware-580-server-580.178.04 \nii  nvidia-firmware-595-595.91.07 595.91.07-0ubuntu0.26.04.1\nii  nvidia-firmware-595-595.99.02 595.99.02-0ubuntu0.26.04.1\nun  nvidia-firmware-595-server-595.91.07 \nun  nvidia-firmware-595-server-595.99.02 \nun  nvidia-kernel-common \nrc  nvidia-kernel-common-580 580.178.04-0ubuntu0.26.04.1\nun  nvidia-kernel-common-580-580.178.04 \nii  nvidia-kernel-common-595 595.99.02-0ubuntu0.26.04.1\nun  nvidia-kernel-common-595-595.99.02 \nun  nvidia-kernel-dkms \nun  nvidia-kernel-source \nun  nvidia-kernel-source-595 \nii  nvidia-kernel-source-595-open 595.99.02-0ubuntu0.26.04.1\nun  nvidia-libopencl1-dev \nun  nvidia-opencl-icd \nun  nvidia-persistenced \nun  nvidia-prebuilt-kernel \nii  nvidia-prime 0.8.17.2build1\nii  nvidia-settings 510.47.03-0ubuntu7\nun  nvidia-settings-binary \nun  nvidia-smi \nun  nvidia-tesla-535-kernel-dkms \nun  nvidia-utils \nii  nvidia-utils-595 595.99.02-0ubuntu0.26.04.1\nii  xserver-xorg-video-nvidia-595 595.99.02-0ubuntu0.26.04.1\n"
+  },
+  "interpretation": "Read-only canary planning inventory; existing SSH is not independent out-of-band recovery. No install, boot, DKMS, Secure Boot, module, PCI, guest, or firmware action was taken.",
+  "kernel": "7.0.0-38-generic",
+  "module_load_or_unload_attempted": false,
+  "mok_enrollment_attempted": false,
+  "observed_at_utc": "2026-10-23T10:15:40.072346+00:00",
+  "out_of_band_console_verified": false,
+  "package_changes_attempted": false,
+  "pci_ownership_modified": false,
+  "rollback_package_match": {
+    "all_match": true,
+    "expected_count": 18,
+    "match_count": 18,
+    "packages": [
+      {
+        "installed_version": "595.99.02-0ubuntu0.26.04.1",
+        "matches_current": true,
+        "package": "libnvidia-cfg1-595",
+        "staged_version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_version": "595.99.02-0ubuntu0.26.04.1",
+        "matches_current": true,
+        "package": "libnvidia-extra-595",
+        "staged_version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_version": "595.99.02-0ubuntu0.26.04.1",
+        "matches_current": true,
+        "package": "libnvidia-common-595",
+        "staged_version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_version": "595.99.02-0ubuntu0.26.04.1",
+        "matches_current": true,
+        "package": "libnvidia-compute-595",
+        "staged_version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_version": "595.99.02-0ubuntu0.26.04.1",
+        "matches_current": true,
+        "package": "libnvidia-decode-595",
+        "staged_version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_version": "595.99.02-0ubuntu0.26.04.1",
+        "matches_current": true,
+        "package": "libnvidia-encode-595",
+        "staged_version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_version": "595.99.02-0ubuntu0.26.04.1",
+        "matches_current": true,
+        "package": "libnvidia-fbc1-595",
+        "staged_version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_version": "595.99.02-0ubuntu0.26.04.1",
+        "matches_current": true,
+        "package": "libnvidia-gl-595",
+        "staged_version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_version": "7.0.0-38.38+2",
+        "matches_current": true,
+        "package": "linux-modules-nvidia-595-7.0.0-38-generic",
+        "staged_version": "7.0.0-38.38+2"
+      },
+      {
+        "installed_version": "7.0.0-38.38+2",
+        "matches_current": true,
+        "package": "linux-modules-nvidia-595-open-7.0.0-38-generic",
+        "staged_version": "7.0.0-38.38+2"
+      },
+      {
+        "installed_version": "7.0.0-38.38+2",
+        "matches_current": true,
+        "package": "linux-modules-nvidia-595-open-generic",
+        "staged_version": "7.0.0-38.38+2"
+      },
+      {
+        "installed_version": "595.99.02-0ubuntu0.26.04.1",
+        "matches_current": true,
+        "package": "nvidia-compute-utils-595",
+        "staged_version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_version": "595.99.02-0ubuntu0.26.04.1",
+        "matches_current": true,
+        "package": "nvidia-driver-595-open",
+        "staged_version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_version": "595.99.02-0ubuntu0.26.04.1",
+        "matches_current": true,
+        "package": "nvidia-kernel-common-595",
+        "staged_version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_version": "595.99.02-0ubuntu0.26.04.1",
+        "matches_current": true,
+        "package": "nvidia-kernel-source-595-open",
+        "staged_version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_version": "0.8.17.2build1",
+        "matches_current": true,
+        "package": "nvidia-prime",
+        "staged_version": "0.8.17.2build1"
+      },
+      {
+        "installed_version": "595.99.02-0ubuntu0.26.04.1",
+        "matches_current": true,
+        "package": "nvidia-utils-595",
+        "staged_version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_version": "595.99.02-0ubuntu0.26.04.1",
+        "matches_current": true,
+        "package": "xserver-xorg-video-nvidia-595",
+        "staged_version": "595.99.02-0ubuntu0.26.04.1"
+      }
+    ]
+  },
+  "schema": "pc3-r580-recovery-readonly-preflight-v2",
+  "ssh_exit_code": 0,
+  "ssh_host_key_alias": "pc3",
+  "ssh_stderr": ""
+}

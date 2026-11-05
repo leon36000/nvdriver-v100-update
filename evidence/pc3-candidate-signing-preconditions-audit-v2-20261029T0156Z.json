@@ -1,0 +1,110 @@
+{
+  "audit_provenance": {
+    "local_tool_sha256": "8b1fc7d6737363f1fd3a32a3d41bf00f9ffb8afc9ba6edf4c0ddcc86f587c562",
+    "qualification": "read-only-signing-input-metadata",
+    "remote_script_sha256": "30c822a30df21506120dfe891fe58f9715d3342f8b37be362099de0a2d2092be",
+    "transport": {
+      "host_key_alias": "pc3",
+      "sudo_value_logged": false,
+      "sudo_value_persisted": false,
+      "target": "pc3@pc3"
+    }
+  },
+  "canary_ready": false,
+  "candidate_modules": [
+    {
+      "name": "hybrid580_open",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-client-share-policy-native-build-v5/source/kernel-open/hybrid580_open.ko",
+      "role": "open",
+      "sha256": "9303156826692af85df3c1913d8b6e48bd75a223495255c673beaceb402898ac",
+      "sig_hashalgo": "",
+      "sig_key": "",
+      "signer": "",
+      "unsigned": true,
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions"
+    },
+    {
+      "name": "hybrid580_legacy",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-legacy-client-share-policy-v1/nvidia-580.178.04/hybrid580_legacy.ko",
+      "role": "legacy",
+      "sha256": "4d5cb36f24dfe0af6b8cd56c5cd111acd4474c187c7642a4d6e0f5953054ab4e",
+      "sig_hashalgo": "",
+      "sig_key": "",
+      "signer": "",
+      "unsigned": true,
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions"
+    },
+    {
+      "name": "nvidia",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-provider-identity-frontend-v1-20261028T2032Z/nvidia.ko",
+      "role": "frontend",
+      "sha256": "dd08aafccdc3612df065173b0ed112505fe9e9848175a21b046d4ba5fd7a68ab",
+      "sig_hashalgo": "",
+      "sig_key": "",
+      "signer": "",
+      "unsigned": true,
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions"
+    },
+    {
+      "name": "nvidia_uvm",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-provider-id-validation-v1-20261029/candidate/nvidia-uvm.ko",
+      "role": "uvm",
+      "sha256": "9bc17aca8620cf0f628074dfb98f28939961f7d00c2916db026ddaf445090184",
+      "sig_hashalgo": "",
+      "sig_key": "",
+      "signer": "",
+      "unsigned": true,
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions"
+    }
+  ],
+  "candidate_modules_unsigned": true,
+  "host": "pc3",
+  "inputs": {
+    "candidate_preflight": {
+      "path": "evidence/pc3-canary-preflight-r595-r580-provider-identity-v5-20261029T0155Z.json",
+      "sha256": "f2d759be87fb8f7afe920f9e7129021db16b6fa1feb22f1d56eafea9ddbdd5ce"
+    },
+    "host_snapshot": {
+      "path": "evidence/pc3-canary-host-state-signing-preflight-v17-20261029T0155Z.json",
+      "sha256": "1e0dd74f5d57da6c7270ad048f9e3296f611765d82107a5fdac67754e7b905ab"
+    }
+  },
+  "kernel_release": "7.0.0-38-generic",
+  "loaded_nvidia_module_version": "595.99.02",
+  "lockdown": "integrity",
+  "module_sig_enforce": true,
+  "mok_certificate": {
+    "enrolled": false,
+    "mokutil_exit_code": 0,
+    "present": true,
+    "sha256": "27a69d9988202e45bf8d5d0ae48fb1d0047545c81c3cf90e19a9c55eac021ee3"
+  },
+  "mok_private_key_metadata": {
+    "gid": 0,
+    "mode": 384,
+    "permissions_restricted": true,
+    "present": true,
+    "regular": true,
+    "size_bytes": 1704,
+    "symlink": false,
+    "uid": 0
+  },
+  "observed_at_utc": "2026-10-29T01:55:36.749622+00:00",
+  "schema": "pc3-candidate-signing-preconditions-audit-v1",
+  "sign_file": {
+    "available": true,
+    "executable": true,
+    "path": "/usr/src/linux-headers-7.0.0-38-generic/scripts/sign-file",
+    "sha256": "d68059fca5400222e6ce637af31391391a9a9cecba8e46c767cf266667c45dcb"
+  },
+  "signature_trust_verified": false,
+  "state_changes": {
+    "driver_or_key_state_changed": false,
+    "module_installed": false,
+    "module_loaded": false,
+    "module_signed": false,
+    "pc3_contacted": true,
+    "private_key_contents_read": false
+  },
+  "status": "signing-preconditions-observed"
+}

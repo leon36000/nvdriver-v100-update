@@ -1,0 +1,305 @@
+{
+  "date": "2026-10-21",
+  "experimental_frontend_loaded": false,
+  "hybrid_cuda_validated": false,
+  "interpretation": "Each phase ran as a fresh process against its own installed stock driver. The matrix validates standalone paths and repeated fixed BINAPI observations; it does not validate two GPUs under one kernel or a shared frontend.",
+  "phases": [
+    "initialize",
+    "enumerate",
+    "context",
+    "allocation",
+    "module",
+    "kernel"
+  ],
+  "qualification": "separate-stock-driver-reference-tests-only",
+  "same_linux_kernel": false,
+  "schema": "pc3-cuda-driver-api-phase-matrix-v1",
+  "systems": [
+    {
+      "driver": "595.99.02",
+      "gpu": "NVIDIA GeForce RTX 5080",
+      "kernel": "7.0.0-38-generic",
+      "key": "rtx5080",
+      "pci": "0000:02:00.0",
+      "phases": [
+        {
+          "binapi": {
+            "bytes": 992,
+            "changed_bytes": 0,
+            "class_id": "0x2081",
+            "command": "0x20810108",
+            "entry_exit_equal": true,
+            "entry_nonzero_u32": 0,
+            "exit_changed_bytes": 0,
+            "exit_nonzero_u32": 0,
+            "records": 1,
+            "snapshots": 2
+          },
+          "cleanup_passed": true,
+          "driver_api": null,
+          "exit_code": 0,
+          "numeric_result": null,
+          "phase": "initialize",
+          "report": "evidence/pc3-rtx5080-cuda-phase-initialize-v2-20261021.json",
+          "sha256": "1bfc100cd6af595495fbb6f6fbcd42040f808e6757b2a1d40e82543e7e599f96",
+          "status": "phase-passed"
+        },
+        {
+          "binapi": {
+            "bytes": 992,
+            "changed_bytes": 0,
+            "class_id": "0x2081",
+            "command": "0x20810108",
+            "entry_exit_equal": true,
+            "entry_nonzero_u32": 0,
+            "exit_changed_bytes": 0,
+            "exit_nonzero_u32": 0,
+            "records": 1,
+            "snapshots": 2
+          },
+          "cleanup_passed": true,
+          "driver_api": 13020,
+          "exit_code": 0,
+          "numeric_result": null,
+          "phase": "enumerate",
+          "report": "evidence/pc3-rtx5080-cuda-phase-enumerate-v1-20261021.json",
+          "sha256": "1d7f324754cc31605079acf5512f1778c56df851355ad282222a73544fad90f3",
+          "status": "phase-passed"
+        },
+        {
+          "binapi": {
+            "bytes": 992,
+            "changed_bytes": 0,
+            "class_id": "0x2081",
+            "command": "0x20810108",
+            "entry_exit_equal": true,
+            "entry_nonzero_u32": 0,
+            "exit_changed_bytes": 0,
+            "exit_nonzero_u32": 0,
+            "records": 1,
+            "snapshots": 2
+          },
+          "cleanup_passed": true,
+          "driver_api": 13020,
+          "exit_code": 0,
+          "numeric_result": null,
+          "phase": "context",
+          "report": "evidence/pc3-rtx5080-cuda-phase-context-v1-20261021.json",
+          "sha256": "f9ed339c036e09606f0af894965d2c7465fd139735c375a4bbabe7065bed5485",
+          "status": "phase-passed"
+        },
+        {
+          "binapi": {
+            "bytes": 992,
+            "changed_bytes": 0,
+            "class_id": "0x2081",
+            "command": "0x20810108",
+            "entry_exit_equal": true,
+            "entry_nonzero_u32": 0,
+            "exit_changed_bytes": 0,
+            "exit_nonzero_u32": 0,
+            "records": 1,
+            "snapshots": 2
+          },
+          "cleanup_passed": true,
+          "driver_api": 13020,
+          "exit_code": 0,
+          "numeric_result": null,
+          "phase": "allocation",
+          "report": "evidence/pc3-rtx5080-cuda-phase-allocation-v1-20261021.json",
+          "sha256": "edbfbb85bd28ee55523dfbc8891d87b1f5e25511154a88aca39b33bdee5f7b5b",
+          "status": "phase-passed"
+        },
+        {
+          "binapi": {
+            "bytes": 992,
+            "changed_bytes": 0,
+            "class_id": "0x2081",
+            "command": "0x20810108",
+            "entry_exit_equal": true,
+            "entry_nonzero_u32": 0,
+            "exit_changed_bytes": 0,
+            "exit_nonzero_u32": 0,
+            "records": 1,
+            "snapshots": 2
+          },
+          "cleanup_passed": true,
+          "driver_api": 13020,
+          "exit_code": 0,
+          "numeric_result": null,
+          "phase": "module",
+          "report": "evidence/pc3-rtx5080-cuda-phase-module-v1-20261021.json",
+          "sha256": "633969a4463ebe6e73dc361e6284ef2f7195dd11963fa76f72eed8d53e7822db",
+          "status": "phase-passed"
+        },
+        {
+          "binapi": {
+            "bytes": 992,
+            "changed_bytes": 0,
+            "class_id": "0x2081",
+            "command": "0x20810108",
+            "entry_exit_equal": true,
+            "entry_nonzero_u32": 0,
+            "exit_changed_bytes": 0,
+            "exit_nonzero_u32": 0,
+            "records": 1,
+            "snapshots": 2
+          },
+          "cleanup_passed": true,
+          "driver_api": 13020,
+          "exit_code": 0,
+          "numeric_result": 1200,
+          "phase": "kernel",
+          "report": "evidence/pc3-rtx5080-cuda-phase-kernel-v2-20261021.json",
+          "sha256": "dd941936b1d9ad1db5c6dbaebcf47ef066abad98ff0fc3536b8ce67e7d069f4b",
+          "status": "phase-passed"
+        }
+      ],
+      "sm": 120,
+      "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77"
+    },
+    {
+      "driver": "580.178.04",
+      "gpu": "Tesla V100-SXM2-16GB",
+      "kernel": "6.8.0-147-generic",
+      "key": "v100",
+      "pci": "0000:00:05.0",
+      "phases": [
+        {
+          "binapi": {
+            "bytes": 992,
+            "changed_bytes": 0,
+            "class_id": "0x2081",
+            "command": "0x20810108",
+            "entry_exit_equal": true,
+            "entry_nonzero_u32": 0,
+            "exit_changed_bytes": 0,
+            "exit_nonzero_u32": 0,
+            "records": 1,
+            "snapshots": 2
+          },
+          "cleanup_passed": true,
+          "driver_api": null,
+          "exit_code": 0,
+          "numeric_result": null,
+          "phase": "initialize",
+          "report": "evidence/pc3-v100-cuda-phase-initialize-v1-20261021.json",
+          "sha256": "b6fbf466f17776453b49c47d274de427e9c7a6e93b53199a5d9702056a3f5b68",
+          "status": "phase-passed"
+        },
+        {
+          "binapi": {
+            "bytes": 992,
+            "changed_bytes": 0,
+            "class_id": "0x2081",
+            "command": "0x20810108",
+            "entry_exit_equal": true,
+            "entry_nonzero_u32": 0,
+            "exit_changed_bytes": 0,
+            "exit_nonzero_u32": 0,
+            "records": 1,
+            "snapshots": 2
+          },
+          "cleanup_passed": true,
+          "driver_api": 13000,
+          "exit_code": 0,
+          "numeric_result": null,
+          "phase": "enumerate",
+          "report": "evidence/pc3-v100-cuda-phase-enumerate-v1-20261021.json",
+          "sha256": "6f67eebac3d0766f36070886982f5500c1f2cb123d46ccbc5f14cb805cba9bb0",
+          "status": "phase-passed"
+        },
+        {
+          "binapi": {
+            "bytes": 992,
+            "changed_bytes": 0,
+            "class_id": "0x2081",
+            "command": "0x20810108",
+            "entry_exit_equal": true,
+            "entry_nonzero_u32": 0,
+            "exit_changed_bytes": 0,
+            "exit_nonzero_u32": 0,
+            "records": 1,
+            "snapshots": 2
+          },
+          "cleanup_passed": true,
+          "driver_api": 13000,
+          "exit_code": 0,
+          "numeric_result": null,
+          "phase": "context",
+          "report": "evidence/pc3-v100-cuda-phase-context-v1-20261021.json",
+          "sha256": "78271af08699f2f9d99b6f596aa5b86be71bceba6c1a55cbbec3fdd382d2fd55",
+          "status": "phase-passed"
+        },
+        {
+          "binapi": {
+            "bytes": 992,
+            "changed_bytes": 0,
+            "class_id": "0x2081",
+            "command": "0x20810108",
+            "entry_exit_equal": true,
+            "entry_nonzero_u32": 0,
+            "exit_changed_bytes": 0,
+            "exit_nonzero_u32": 0,
+            "records": 1,
+            "snapshots": 2
+          },
+          "cleanup_passed": true,
+          "driver_api": 13000,
+          "exit_code": 0,
+          "numeric_result": null,
+          "phase": "allocation",
+          "report": "evidence/pc3-v100-cuda-phase-allocation-v1-20261021.json",
+          "sha256": "443966527ec369099f81f53e01ff5d3622100b76d7612e5c8ed24c4c5ea8d3b2",
+          "status": "phase-passed"
+        },
+        {
+          "binapi": {
+            "bytes": 992,
+            "changed_bytes": 0,
+            "class_id": "0x2081",
+            "command": "0x20810108",
+            "entry_exit_equal": true,
+            "entry_nonzero_u32": 0,
+            "exit_changed_bytes": 0,
+            "exit_nonzero_u32": 0,
+            "records": 1,
+            "snapshots": 2
+          },
+          "cleanup_passed": true,
+          "driver_api": 13000,
+          "exit_code": 0,
+          "numeric_result": null,
+          "phase": "module",
+          "report": "evidence/pc3-v100-cuda-phase-module-v1-20261021.json",
+          "sha256": "0b7df242ccb54437029284b48043e24a9c389ef0f431779e787fd47bd3e4c3e4",
+          "status": "phase-passed"
+        },
+        {
+          "binapi": {
+            "bytes": 992,
+            "changed_bytes": 0,
+            "class_id": "0x2081",
+            "command": "0x20810108",
+            "entry_exit_equal": true,
+            "entry_nonzero_u32": 0,
+            "exit_changed_bytes": 0,
+            "exit_nonzero_u32": 0,
+            "records": 1,
+            "snapshots": 2
+          },
+          "cleanup_passed": true,
+          "driver_api": 13000,
+          "exit_code": 0,
+          "numeric_result": 700,
+          "phase": "kernel",
+          "report": "evidence/pc3-v100-cuda-phase-kernel-v2-20261021.json",
+          "sha256": "c9410d90c8da5a538acb6847212a9c657989c6d2a7b75ff8d7de0a4444a1131f",
+          "status": "phase-passed"
+        }
+      ],
+      "sm": 70,
+      "uuid": "GPU-42d06a85-027a-75ea-7857-a8de27ad465e"
+    }
+  ]
+}

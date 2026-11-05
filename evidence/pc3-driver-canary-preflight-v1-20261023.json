@@ -1,0 +1,119 @@
+{
+  "classification": "read-only inventory only; no CUDA workload, module install/load, driver change or PCI ownership change",
+  "host_key_alias": "pc3",
+  "observed_at_utc": "2026-10-23T09:39:37.697270+00:00",
+  "remote_exit_code": 0,
+  "remote_inventory": {
+    "driver_modified": false,
+    "gpu_compute_tested": false,
+    "hostname": "pc3",
+    "kernel": "7.0.0-38-generic",
+    "modules": {
+      "nvidia": {
+        "installed_path": "/lib/modules/7.0.0-38-generic/kernel/nvidia-595-open/nvidia.ko",
+        "installed_sha256": "9f12e5806c2ff1f0569b783061ab9d57c71cbb909781ce0c12bd8feef3975adb",
+        "installed_version": "595.99.02",
+        "loaded": true,
+        "loaded_version": "595.99.02",
+        "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions"
+      },
+      "nvidia_drm": {
+        "installed_path": "/lib/modules/7.0.0-38-generic/kernel/nvidia-595-open/nvidia-drm.ko",
+        "installed_sha256": "3b1056328535ef6d999d1dbcf0675e10712c60a3eabdc792647fecf9277ac18e",
+        "installed_version": "595.99.02",
+        "loaded": true,
+        "loaded_version": "595.99.02",
+        "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions"
+      },
+      "nvidia_modeset": {
+        "installed_path": "/lib/modules/7.0.0-38-generic/kernel/nvidia-595-open/nvidia-modeset.ko",
+        "installed_sha256": "3c0b2367fed797577a5680d093d573204c6305dacaf86edbb9d6dad1ef0d20d8",
+        "installed_version": "595.99.02",
+        "loaded": true,
+        "loaded_version": "595.99.02",
+        "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions"
+      },
+      "nvidia_uvm": {
+        "installed_path": "/lib/modules/7.0.0-38-generic/kernel/nvidia-595-open/nvidia-uvm.ko",
+        "installed_sha256": "1487496d4ad1c810086a7661410c37fdbe226e6d71b914fc8711abcc36657787",
+        "installed_version": "595.99.02",
+        "loaded": true,
+        "loaded_version": "595.99.02",
+        "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions"
+      }
+    },
+    "nvidia_smi": {
+      "argv": [
+        "nvidia-smi",
+        "--query-gpu=name,uuid,pci.bus_id,driver_version,memory.total",
+        "--format=csv,noheader,nounits"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "NVIDIA GeForce RTX 5080, GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77, 00000000:02:00.0, 595.99.02, 16303"
+    },
+    "os_release": {
+      "ID": "ubuntu",
+      "PRETTY_NAME": "Ubuntu 26.04.1 LTS",
+      "VERSION_ID": "26.04"
+    },
+    "pci": {
+      "0000:02:00.0": {
+        "device": "0x2c02",
+        "driver": "nvidia",
+        "vendor": "0x10de"
+      },
+      "0000:81:00.0": {
+        "device": "0x1db1",
+        "driver": "vfio-pci",
+        "vendor": "0x10de"
+      }
+    },
+    "pci_ownership_modified": false,
+    "qemu_service": {
+      "argv": [
+        "systemctl",
+        "is-active",
+        "pc3-v100-qemu.service"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "active"
+    },
+    "schema": "pc3-driver-canary-preflight-remote-v1",
+    "selected_packages": [
+      "libnvidia-cfg1-595:amd64=595.99.02-0ubuntu0.26.04.1",
+      "libnvidia-common-595=595.99.02-0ubuntu0.26.04.1",
+      "libnvidia-compute-580:amd64=580.178.04-0ubuntu0.26.04.1",
+      "libnvidia-compute-595:amd64=595.99.02-0ubuntu0.26.04.1",
+      "libnvidia-decode-595:amd64=595.99.02-0ubuntu0.26.04.1",
+      "libnvidia-egl-wayland1:amd64=1:1.1.21-1",
+      "libnvidia-encode-595:amd64=595.99.02-0ubuntu0.26.04.1",
+      "libnvidia-extra-595:amd64=595.99.02-0ubuntu0.26.04.1",
+      "libnvidia-fbc1-595:amd64=595.99.02-0ubuntu0.26.04.1",
+      "libnvidia-gl-595:amd64=595.99.02-0ubuntu0.26.04.1",
+      "linux-modules-nvidia-580-7.0.0-38-generic=7.0.0-38.38+2",
+      "linux-modules-nvidia-595-7.0.0-38-generic=7.0.0-38.38+2",
+      "linux-modules-nvidia-595-open-7.0.0-34-generic=7.0.0-34.34+1",
+      "linux-modules-nvidia-595-open-7.0.0-38-generic=7.0.0-38.38+2",
+      "linux-modules-nvidia-595-open-generic=7.0.0-38.38+2",
+      "nvidia-compute-utils-580=580.178.04-0ubuntu0.26.04.1",
+      "nvidia-compute-utils-595=595.99.02-0ubuntu0.26.04.1",
+      "nvidia-dkms-595=595.99.02-0ubuntu0.26.04.1",
+      "nvidia-driver-595-open=595.99.02-0ubuntu0.26.04.1",
+      "nvidia-firmware-580-580.178.04=580.178.04-0ubuntu0.26.04.1",
+      "nvidia-firmware-595-595.91.07=595.91.07-0ubuntu0.26.04.1",
+      "nvidia-firmware-595-595.99.02=595.99.02-0ubuntu0.26.04.1",
+      "nvidia-kernel-common-580=580.178.04-0ubuntu0.26.04.1",
+      "nvidia-kernel-common-595=595.99.02-0ubuntu0.26.04.1",
+      "nvidia-kernel-source-595-open=595.99.02-0ubuntu0.26.04.1",
+      "nvidia-prime=0.8.17.2build1",
+      "nvidia-settings=510.47.03-0ubuntu7",
+      "nvidia-utils-595=595.99.02-0ubuntu0.26.04.1"
+    ]
+  },
+  "schema": "pc3-driver-canary-preflight-v1",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "strict_host_key_checking": true,
+  "target": "pc3@pc3"
+}

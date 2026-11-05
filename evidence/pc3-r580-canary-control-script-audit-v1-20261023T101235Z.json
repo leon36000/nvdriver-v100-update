@@ -1,0 +1,861 @@
+{
+  "control_extraction": "dpkg-deb --control only; no maintainer scripts executed",
+  "driver_modified": false,
+  "initramfs_modified": false,
+  "interpretation": [
+    "The R580 nvidia-dkms-580-open postinst calls Ubuntu common.postinst and update-initramfs; its prerm removes all DKMS modules.",
+    "The R580 nvidia-kernel-common-580 postinst and postrm update initramfs around module-blacklist configuration.",
+    "This is static maintainer-script evidence only; it does not execute or validate package transaction behavior, Secure Boot signing, module loading, or rollback."
+  ],
+  "manifest_sha256": "8aa76d874bf9ebbf9fe0c5528b4fdeb9f932b17115232b0cdbb14f5470f6e764",
+  "module_load_or_unload_attempted": false,
+  "mok_enrollment_attempted": false,
+  "observed_at_utc": "2026-10-23T10:12:35.348284+00:00",
+  "package_count": 36,
+  "package_install_invoked": false,
+  "package_scripts_executed": false,
+  "packages": [
+    {
+      "control_files": [
+        {
+          "bytes": 75,
+          "matched_lines": [],
+          "name": "triggers",
+          "sha256": "0f1eda96d7595190cc2d40a06fafff8def651d19ceb635292ae6104de50de218"
+        }
+      ],
+      "deb_sha256": "c8b62c6509aea9e51e17a2d0184598fd5945bf4c659ba8a99366b873b98ca17d",
+      "filename": "libnvidia-cfg1-580_580.196.07-1ubuntu1_amd64.deb",
+      "package": "libnvidia-cfg1-580",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 75,
+          "matched_lines": [],
+          "name": "triggers",
+          "sha256": "0f1eda96d7595190cc2d40a06fafff8def651d19ceb635292ae6104de50de218"
+        }
+      ],
+      "deb_sha256": "572e491c691f231623fd0a552516cb17ad0bca1cf1dbd7ac9985d7c753f3bd4b",
+      "filename": "libnvidia-decode-580_580.196.07-1ubuntu1_amd64.deb",
+      "package": "libnvidia-decode-580",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 75,
+          "matched_lines": [],
+          "name": "triggers",
+          "sha256": "0f1eda96d7595190cc2d40a06fafff8def651d19ceb635292ae6104de50de218"
+        }
+      ],
+      "deb_sha256": "4034f539ba63867c6dc5a3b0069c3c77c6abe5393900954ef461c4fb136494ee",
+      "filename": "libnvidia-gpucomp-580_580.196.07-1ubuntu1_amd64.deb",
+      "package": "libnvidia-gpucomp-580",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 1759,
+          "matched_lines": [
+            {
+              "line": 35,
+              "text": "\t\tsystemctl --system daemon-reload >/dev/null || true"
+            }
+          ],
+          "name": "postinst",
+          "sha256": "0519f36861d11daa62f36a71247aae5b1eda7c604454c5cf9225abaae2ead226"
+        },
+        {
+          "bytes": 271,
+          "matched_lines": [],
+          "name": "prerm",
+          "sha256": "3cd8259d3611e998def449cfc105cd8b8ea54c9192c666931368811f6866f7af"
+        },
+        {
+          "bytes": 473,
+          "matched_lines": [
+            {
+              "line": 5,
+              "text": "\tsystemctl --system daemon-reload >/dev/null || true"
+            }
+          ],
+          "name": "postrm",
+          "sha256": "3201ae0e7c6dbcbcda954b00c590c54087e36e71c12266685c4f7ff4af3b1876"
+        }
+      ],
+      "deb_sha256": "cf83d1ee78b99d061264f786dce0ae97d5431f68a7fe505589452055a32bf492",
+      "filename": "nvidia-persistenced_580.196.07-1ubuntu1_amd64.deb",
+      "package": "nvidia-persistenced",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 75,
+          "matched_lines": [],
+          "name": "triggers",
+          "sha256": "0f1eda96d7595190cc2d40a06fafff8def651d19ceb635292ae6104de50de218"
+        }
+      ],
+      "deb_sha256": "b6a5b9a94267d1995a2bd54e7a9876961f3efb6928edbbcce675d09ea9cb2c8d",
+      "filename": "libnvidia-compute-580_580.196.07-1ubuntu1_amd64.deb",
+      "package": "libnvidia-compute-580",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 75,
+          "matched_lines": [],
+          "name": "triggers",
+          "sha256": "0f1eda96d7595190cc2d40a06fafff8def651d19ceb635292ae6104de50de218"
+        }
+      ],
+      "deb_sha256": "46be77d8400ba5b930c29213eaf8afa855773d2b12623efc36a4f5e6a1b63828",
+      "filename": "libnvidia-egl-gbm1_1.1.4-2ubuntu1_amd64.deb",
+      "package": "libnvidia-egl-gbm1",
+      "transaction": "target",
+      "version": "1.1.4-2ubuntu1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 75,
+          "matched_lines": [],
+          "name": "triggers",
+          "sha256": "0f1eda96d7595190cc2d40a06fafff8def651d19ceb635292ae6104de50de218"
+        }
+      ],
+      "deb_sha256": "f4ad0a5fe26efa12f92078053cbda988a307e7525ce03e501727adc82b270b56",
+      "filename": "libnvidia-egl-xcb1_1.0.6-1ubuntu1_amd64.deb",
+      "package": "libnvidia-egl-xcb1",
+      "transaction": "target",
+      "version": "1.0.6-1ubuntu1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 75,
+          "matched_lines": [],
+          "name": "triggers",
+          "sha256": "0f1eda96d7595190cc2d40a06fafff8def651d19ceb635292ae6104de50de218"
+        }
+      ],
+      "deb_sha256": "0f7e45ff671e961319735c23bc20b54864f71c277b3e2cef2111f72b46b28079",
+      "filename": "libnvidia-egl-xlib1_1.0.6-1ubuntu1_amd64.deb",
+      "package": "libnvidia-egl-xlib1",
+      "transaction": "target",
+      "version": "1.0.6-1ubuntu1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 75,
+          "matched_lines": [],
+          "name": "triggers",
+          "sha256": "0f1eda96d7595190cc2d40a06fafff8def651d19ceb635292ae6104de50de218"
+        }
+      ],
+      "deb_sha256": "c9c07fbda7419f3719706d6ca84037eac1a61097780b1a3dfa0188a3e379f3b3",
+      "filename": "libnvidia-encode-580_580.196.07-1ubuntu1_amd64.deb",
+      "package": "libnvidia-encode-580",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 75,
+          "matched_lines": [],
+          "name": "triggers",
+          "sha256": "0f1eda96d7595190cc2d40a06fafff8def651d19ceb635292ae6104de50de218"
+        }
+      ],
+      "deb_sha256": "dd36656fdb4fb758c74902d6ccf0ae4205e7d767ac187c8d7c802a660d1c50c9",
+      "filename": "libnvidia-fbc1-580_580.196.07-1ubuntu1_amd64.deb",
+      "package": "libnvidia-fbc1-580",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 75,
+          "matched_lines": [],
+          "name": "triggers",
+          "sha256": "0f1eda96d7595190cc2d40a06fafff8def651d19ceb635292ae6104de50de218"
+        }
+      ],
+      "deb_sha256": "0a13d0472e9035652a3dbb6f0af79832dbd6c93114a20510705c5cd5b647f4d1",
+      "filename": "libnvidia-gl-580_580.196.07-1ubuntu1_amd64.deb",
+      "package": "libnvidia-gl-580",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "control_files": [],
+      "deb_sha256": "500915ba5ea32d4ab8b2256f9cb7fa8006503d7e391f846245c9c8d1f7259840",
+      "filename": "nvidia-kernel-source-580-open_580.196.07-1ubuntu1_amd64.deb",
+      "package": "nvidia-kernel-source-580-open",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "control_files": [],
+      "deb_sha256": "8595f10092f341ee973d4efeab612161c4527c3e8d35bd64d5764fdf6d3244fb",
+      "filename": "nvidia-firmware-580_580.196.07-1ubuntu1_amd64.deb",
+      "package": "nvidia-firmware-580",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 1079,
+          "matched_lines": [
+            {
+              "line": 2,
+              "text": "# postinst script for nvidia-modprobe"
+            },
+            {
+              "line": 25,
+              "text": "        # Make nvidia-modprobe setuid root"
+            },
+            {
+              "line": 26,
+              "text": "        chmod ug+s /usr/bin/nvidia-modprobe"
+            }
+          ],
+          "name": "postinst",
+          "sha256": "b8ba3a39e4e610a81891ada87e087bab39168ed0620cfc34c71a959dfaa2101a"
+        }
+      ],
+      "deb_sha256": "724830b72112b34352dc9b7c4ab0f67b663cc9fd8f53ea205fe5230be27007ff",
+      "filename": "nvidia-modprobe_580.196.07-1ubuntu1_amd64.deb",
+      "package": "nvidia-modprobe",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 3031,
+          "matched_lines": [
+            {
+              "line": 92,
+              "text": "        if [ -x /usr/sbin/update-initramfs ]; then"
+            },
+            {
+              "line": 93,
+              "text": "            /usr/sbin/update-initramfs -u"
+            },
+            {
+              "line": 97,
+              "text": "                /usr/sbin/update-initramfs -u -k $CURRENT_KERNEL"
+            }
+          ],
+          "name": "postinst",
+          "sha256": "9c2dac21d31be7f73650396cfcf3bc7e26ea0afdfeb592fe1036af11b57a4f5b"
+        },
+        {
+          "bytes": 1220,
+          "matched_lines": [
+            {
+              "line": 26,
+              "text": "        rm -f /etc/modprobe.d/nvidia-580_hybrid.conf"
+            },
+            {
+              "line": 29,
+              "text": "        if [ -x /usr/sbin/update-initramfs ]; then"
+            },
+            {
+              "line": 30,
+              "text": "            /usr/sbin/update-initramfs -u"
+            }
+          ],
+          "name": "postrm",
+          "sha256": "8d2be7f89bdcc232d000a239e9b8ecb307cb64d442e07bb3c1e8ba0f2c7d6e12"
+        },
+        {
+          "bytes": 89,
+          "matched_lines": [
+            {
+              "line": 2,
+              "text": "activate-noawait update-initramfs"
+            }
+          ],
+          "name": "triggers",
+          "sha256": "0565c9193c3549548a9a403ac74f565eb7cf0be8986000f0c8f077544bb317db"
+        }
+      ],
+      "deb_sha256": "0b5b3df398018d1f6e6dd903baf2e018094ddb66df4b3d1b7c36dabf9a33cd7e",
+      "filename": "nvidia-kernel-common-580_580.196.07-1ubuntu1_amd64.deb",
+      "package": "nvidia-kernel-common-580",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 911,
+          "matched_lines": [
+            {
+              "line": 2,
+              "text": "# preinst script for nvidia-dkms-580-open"
+            }
+          ],
+          "name": "preinst",
+          "sha256": "cd4d8a8b64d04068f300d002e4c7e5fb365bbeed706e2a0fcacc5b46bf4ffdbc"
+        },
+        {
+          "bytes": 3842,
+          "matched_lines": [
+            {
+              "line": 2,
+              "text": "# postinst script for nvidia-dkms-580-open"
+            },
+            {
+              "line": 94,
+              "text": "        if [ -n \"$(update-alternatives --list gl_conf 2>/dev/null)\" ]; then"
+            },
+            {
+              "line": 95,
+              "text": "            set -a $(update-alternatives --list gl_conf 2>/dev/null)"
+            },
+            {
+              "line": 98,
+              "text": "                update-alternatives --remove gl_conf $ALTERNATIVE"
+            },
+            {
+              "line": 107,
+              "text": "        if [ -x /usr/sbin/update-initramfs ]; then"
+            },
+            {
+              "line": 108,
+              "text": "            /usr/sbin/update-initramfs -u"
+            },
+            {
+              "line": 112,
+              "text": "                /usr/sbin/update-initramfs -u -k $CURRENT_KERNEL"
+            },
+            {
+              "line": 122,
+              "text": "        /usr/lib/dkms/common.postinst $PACKAGE_NAME $CVERSION /usr/share/$PACKAGE_NAME \"\" $2"
+            }
+          ],
+          "name": "postinst",
+          "sha256": "66066f57910042ea99a4286e0af79872bafec78aff523ff787dd33b547527f3f"
+        },
+        {
+          "bytes": 628,
+          "matched_lines": [
+            {
+              "line": 2,
+              "text": "# prerm script for nvidia-dkms-580-open"
+            },
+            {
+              "line": 14,
+              "text": "    echo \"Removing all DKMS Modules\""
+            },
+            {
+              "line": 15,
+              "text": "    dkms remove -m $PACKAGE_NAME -v $CVERSION --all > /dev/null"
+            }
+          ],
+          "name": "prerm",
+          "sha256": "c0a3a62c916e35f2ce7dc10755f29e7722852738ab8ed2bcb0cfd646da2bafc7"
+        },
+        {
+          "bytes": 1408,
+          "matched_lines": [
+            {
+              "line": 2,
+              "text": "# postrm script for nvidia-dkms-580-open"
+            },
+            {
+              "line": 31,
+              "text": "        rm -f /etc/modprobe.d/nvidia-580_hybrid.conf"
+            },
+            {
+              "line": 34,
+              "text": "        if [ -x /usr/sbin/update-initramfs ]; then"
+            },
+            {
+              "line": 35,
+              "text": "            /usr/sbin/update-initramfs -u"
+            }
+          ],
+          "name": "postrm",
+          "sha256": "63b555e7bf9e2a658b963b019bec4d81883fc73dc42543ec933ec79f481a9c15"
+        }
+      ],
+      "deb_sha256": "fd348c30ad1cb12db519e0be40c9637d675df5f55eca38661bee70db63ce206e",
+      "filename": "nvidia-dkms-580-open_580.196.07-1ubuntu1_amd64.deb",
+      "package": "nvidia-dkms-580-open",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "control_files": [],
+      "deb_sha256": "b75719ae464b740dfeac63fcc4b97adfc73e9db061db27035ac86c0c410363a1",
+      "filename": "xserver-xorg-video-nvidia-580_580.196.07-1ubuntu1_amd64.deb",
+      "package": "xserver-xorg-video-nvidia-580",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "control_files": [],
+      "deb_sha256": "7c01a3d7c933fbbc3917d55552835a5ca125a6a0ea5e7f2fffa243eb2c400f11",
+      "filename": "nvidia-driver-580-open_580.196.07-1ubuntu1_amd64.deb",
+      "package": "nvidia-driver-580-open",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 73,
+          "matched_lines": [],
+          "name": "triggers",
+          "sha256": "ce389f23d049c29114d6f767d233337326c3b061ee5cde9485f98acf2a9f4536"
+        }
+      ],
+      "deb_sha256": "c9b58e84e474dfb07c9cd4b677553a1a27a93f1a316f2312fcb2fc9d94f6ff91",
+      "filename": "libnvidia-cfg1-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "package": "libnvidia-cfg1-595",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 73,
+          "matched_lines": [],
+          "name": "triggers",
+          "sha256": "ce389f23d049c29114d6f767d233337326c3b061ee5cde9485f98acf2a9f4536"
+        }
+      ],
+      "deb_sha256": "8d3ecc17a894b8fb73b569b0ccfd14f00a4ef1086d232c77ec6f4ee3ba6efe25",
+      "filename": "libnvidia-extra-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "package": "libnvidia-extra-595",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "control_files": [],
+      "deb_sha256": "942a151eb4af7e3266458c80e9e948cd5e521ff489bd7c76bc23e7c9eb202a25",
+      "filename": "libnvidia-common-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "package": "libnvidia-common-595",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 73,
+          "matched_lines": [],
+          "name": "triggers",
+          "sha256": "ce389f23d049c29114d6f767d233337326c3b061ee5cde9485f98acf2a9f4536"
+        }
+      ],
+      "deb_sha256": "a8f3ed02c0a89502b24a4fdf6a8dd88ffd646c254896cb3e12e8f74bebb06136",
+      "filename": "libnvidia-compute-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "package": "libnvidia-compute-595",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 73,
+          "matched_lines": [],
+          "name": "triggers",
+          "sha256": "ce389f23d049c29114d6f767d233337326c3b061ee5cde9485f98acf2a9f4536"
+        }
+      ],
+      "deb_sha256": "76a50d7ada4f294e872288f8d453aace435204b3d622bc72a15fa670537b65b5",
+      "filename": "libnvidia-decode-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "package": "libnvidia-decode-595",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 73,
+          "matched_lines": [],
+          "name": "triggers",
+          "sha256": "ce389f23d049c29114d6f767d233337326c3b061ee5cde9485f98acf2a9f4536"
+        }
+      ],
+      "deb_sha256": "9b3a048077c21eb9f9118da0ef52a2e9ace710fc6fc6c4b3de2a4f392fb73467",
+      "filename": "libnvidia-encode-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "package": "libnvidia-encode-595",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 73,
+          "matched_lines": [],
+          "name": "triggers",
+          "sha256": "ce389f23d049c29114d6f767d233337326c3b061ee5cde9485f98acf2a9f4536"
+        }
+      ],
+      "deb_sha256": "7f742ec0a3addfd6ec319d58e22acc7321231535ace164cdefd9b35edecea074",
+      "filename": "libnvidia-fbc1-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "package": "libnvidia-fbc1-595",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 2554,
+          "matched_lines": [
+            {
+              "line": 40,
+              "text": "    if [ -n \"`update-alternatives --list $NAME 2>/dev/null`\" ]; then"
+            },
+            {
+              "line": 41,
+              "text": "        set -a `update-alternatives --list $NAME 2>/dev/null`"
+            },
+            {
+              "line": 44,
+              "text": "            update-alternatives --remove $NAME $ALTERNATIVE"
+            }
+          ],
+          "name": "preinst",
+          "sha256": "1e4d8c830436bc35cccff4445d9d238ac26d06dd3559dd2e801cb54b4d85c85f"
+        },
+        {
+          "bytes": 73,
+          "matched_lines": [],
+          "name": "triggers",
+          "sha256": "ce389f23d049c29114d6f767d233337326c3b061ee5cde9485f98acf2a9f4536"
+        }
+      ],
+      "deb_sha256": "3c7e157b41892aa9d589f966fece636b808bb4e649a71cc2c9cbf7337007f6f7",
+      "filename": "libnvidia-gl-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "package": "libnvidia-gl-595",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 1852,
+          "matched_lines": [
+            {
+              "line": 72,
+              "text": "depmod -a -F /boot/System.map-$version $version || true"
+            }
+          ],
+          "name": "postinst",
+          "sha256": "a07702edf8b4ff851f9299592af00081623634524670de6f58df29c8fb265b17"
+        },
+        {
+          "bytes": 311,
+          "matched_lines": [],
+          "name": "prerm",
+          "sha256": "cc7bca56951a0f6560f1e1d04d0423e177480658d971b6d2eac7eb11e5402877"
+        },
+        {
+          "bytes": 862,
+          "matched_lines": [
+            {
+              "line": 16,
+              "text": "depmod -a -F /boot/System.map-$version $version 2>/dev/null || true"
+            }
+          ],
+          "name": "postrm",
+          "sha256": "0b726e6756acd35031db5503520b7cf745e386c3b48c552b8c8db5c2841e01c1"
+        },
+        {
+          "bytes": 626,
+          "matched_lines": [],
+          "name": "config",
+          "sha256": "b8a2388b0de9dbe035db18dc57a2a1c4bb90a7806b007ad047c145c98bbd9461"
+        }
+      ],
+      "deb_sha256": "4fc9b5e93dd43b5fea534c1569825cb41017202c4d228024c3798cd895aa556a",
+      "filename": "linux-modules-nvidia-595-7.0.0-38-generic_7.0.0-38.38+2_amd64.deb",
+      "package": "linux-modules-nvidia-595-7.0.0-38-generic",
+      "transaction": "rollback",
+      "version": "7.0.0-38.38+2"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 449,
+          "matched_lines": [
+            {
+              "line": 11,
+              "text": "depmod -a -F /boot/System.map-$version $version || true"
+            }
+          ],
+          "name": "postinst",
+          "sha256": "df452cf168563852f80a1afc3443f3f90c650a63a11e746924e30e9b173532fd"
+        },
+        {
+          "bytes": 736,
+          "matched_lines": [
+            {
+              "line": 11,
+              "text": "depmod -a -F /boot/System.map-$version $version 2>/dev/null || true"
+            }
+          ],
+          "name": "postrm",
+          "sha256": "47b25d8357ec9c71e85d7c4f468e482d937cc1421ef213aaa8b8656b982ed8ca"
+        }
+      ],
+      "deb_sha256": "f98818bce400ae37b3266d4be58880a07cbd2fb71d68b6021164943c3c1a366c",
+      "filename": "linux-modules-nvidia-595-open-7.0.0-38-generic_7.0.0-38.38+2_amd64.deb",
+      "package": "linux-modules-nvidia-595-open-7.0.0-38-generic",
+      "transaction": "rollback",
+      "version": "7.0.0-38.38+2"
+    },
+    {
+      "control_files": [],
+      "deb_sha256": "147e68eb6b638ddad32b508d0029f6e18052f8000603786148390d462ab39219",
+      "filename": "linux-modules-nvidia-595-open-generic_7.0.0-38.38+2_amd64.deb",
+      "package": "linux-modules-nvidia-595-open-generic",
+      "transaction": "rollback",
+      "version": "7.0.0-38.38+2"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 1617,
+          "matched_lines": [
+            {
+              "line": 34,
+              "text": "        if [ -x /bin/systemctl ]; then"
+            },
+            {
+              "line": 35,
+              "text": "            /bin/systemctl stop --no-block nvidia-persistenced || true"
+            }
+          ],
+          "name": "preinst",
+          "sha256": "7862600d9a9db0825cd9e3853a8ed222549ef27a2dec90c659d10023c380eca6"
+        },
+        {
+          "bytes": 668,
+          "matched_lines": [],
+          "name": "postinst",
+          "sha256": "c67eb31c0325215b3feaf944d64b2b62d07f7aae3f871cdfee85c33cdc9766c9"
+        },
+        {
+          "bytes": 897,
+          "matched_lines": [
+            {
+              "line": 14,
+              "text": "        if [ -x /bin/systemctl ]; then"
+            },
+            {
+              "line": 15,
+              "text": "            /bin/systemctl stop --no-block nvidia-persistenced || true"
+            }
+          ],
+          "name": "prerm",
+          "sha256": "d46b17e573570227ef35cb3c9d55590675667f435e594db6e7ecd7e290ea187f"
+        },
+        {
+          "bytes": 1335,
+          "matched_lines": [
+            {
+              "line": 47,
+              "text": "\tsystemctl --system daemon-reload >/dev/null || true"
+            }
+          ],
+          "name": "postrm",
+          "sha256": "66dacb9a008a449d525857e2019b9dc069492372741b758dcdd0990162a726bb"
+        }
+      ],
+      "deb_sha256": "6d6885920c4e627f3a033b9e637f11b2a56a5a3f77dea6ab61be45636ae0ac6b",
+      "filename": "nvidia-compute-utils-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "package": "nvidia-compute-utils-595",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "control_files": [],
+      "deb_sha256": "b2115b9f6d2485307db0e3df391122ac2612677f666bb59913a3e2269b9d4160",
+      "filename": "nvidia-driver-595-open_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "package": "nvidia-driver-595-open",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 210,
+          "matched_lines": [
+            {
+              "line": 4,
+              "text": "dpkg-maintscript-helper rm_conffile /etc/modprobe.d/nvidia-graphics-drivers.conf 390.48-0ubuntu4\\~ -- \"$@\""
+            }
+          ],
+          "name": "preinst",
+          "sha256": "9bbb5ed67d1a27b2c5b9317481918ed27d7be6088b42c1ce5d87f9892a0dc635"
+        },
+        {
+          "bytes": 6776,
+          "matched_lines": [
+            {
+              "line": 92,
+              "text": "        if [ -x /usr/sbin/update-initramfs ]; then"
+            },
+            {
+              "line": 93,
+              "text": "            /usr/sbin/update-initramfs -u"
+            },
+            {
+              "line": 97,
+              "text": "                /usr/sbin/update-initramfs -u -k $CURRENT_KERNEL"
+            },
+            {
+              "line": 112,
+              "text": "dpkg-maintscript-helper rm_conffile /etc/modprobe.d/nvidia-graphics-drivers.conf 390.48-0ubuntu4\\~ -- \"$@\""
+            }
+          ],
+          "name": "postinst",
+          "sha256": "5766eba062ef0e4a8897a84e07890deab03e722d792d6c46721b9557ff06dfc2"
+        },
+        {
+          "bytes": 1182,
+          "matched_lines": [
+            {
+              "line": 24,
+              "text": "dpkg-maintscript-helper rm_conffile /etc/modprobe.d/nvidia-graphics-drivers.conf 390.48-0ubuntu4\\~ -- \"$@\""
+            }
+          ],
+          "name": "prerm",
+          "sha256": "1d7ea18b921b5f244ccfb33b20bcd3e347a023351b1e20b480899d9344dff5ac"
+        },
+        {
+          "bytes": 3205,
+          "matched_lines": [
+            {
+              "line": 26,
+              "text": "        rm -f /etc/modprobe.d/nvidia-595_hybrid.conf"
+            },
+            {
+              "line": 29,
+              "text": "        if [ -x /usr/sbin/update-initramfs ]; then"
+            },
+            {
+              "line": 30,
+              "text": "            /usr/sbin/update-initramfs -u"
+            },
+            {
+              "line": 48,
+              "text": "dpkg-maintscript-helper rm_conffile /etc/modprobe.d/nvidia-graphics-drivers.conf 390.48-0ubuntu4\\~ -- \"$@\""
+            },
+            {
+              "line": 52,
+              "text": "\tsystemctl --system daemon-reload >/dev/null || true"
+            },
+            {
+              "line": 64,
+              "text": "\tsystemctl --system daemon-reload >/dev/null || true"
+            },
+            {
+              "line": 76,
+              "text": "\tsystemctl --system daemon-reload >/dev/null || true"
+            },
+            {
+              "line": 88,
+              "text": "\tsystemctl --system daemon-reload >/dev/null || true"
+            }
+          ],
+          "name": "postrm",
+          "sha256": "e89af1c153d715a8c64a29af9c75b0ad8cefa1faf7ac933daf671f79ee7c5ab3"
+        },
+        {
+          "bytes": 87,
+          "matched_lines": [
+            {
+              "line": 2,
+              "text": "activate-noawait update-initramfs"
+            }
+          ],
+          "name": "triggers",
+          "sha256": "3e5578760988356fed4d8d453dba9b639e4a9247257dcacde471dbab785109ce"
+        }
+      ],
+      "deb_sha256": "20d9ed271ee10e509b672cb2899ccaeaf9facb922cb05fc7e3a485cfff04d551",
+      "filename": "nvidia-kernel-common-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "package": "nvidia-kernel-common-595",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "control_files": [],
+      "deb_sha256": "5434b4b228a07a82968618da1f88776fdb867ee67266d41f4dabc10825712bcd",
+      "filename": "nvidia-kernel-source-595-open_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "package": "nvidia-kernel-source-595-open",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "control_files": [
+        {
+          "bytes": 1219,
+          "matched_lines": [],
+          "name": "preinst",
+          "sha256": "61b7892e9ecc5d34b9059990a290870d19e6f821fc80ceef152542deb37696c1"
+        },
+        {
+          "bytes": 486,
+          "matched_lines": [],
+          "name": "postinst",
+          "sha256": "45654b53b2bf918fc7b178f2d9c99e0c20f064ec557997f593e6cdd09c16a65c"
+        },
+        {
+          "bytes": 1156,
+          "matched_lines": [],
+          "name": "postrm",
+          "sha256": "2ef8531d0faf98a33fa6338f8752939df9ca4625db3315622eb48114b7bb64e9"
+        }
+      ],
+      "deb_sha256": "c5f1e0744fde82b54cb54ca0a3ffb5d76d8d1f2c83ca582dea91ea1f377bba12",
+      "filename": "nvidia-prime_0.8.17.2build1_all.deb",
+      "package": "nvidia-prime",
+      "transaction": "rollback",
+      "version": "0.8.17.2build1"
+    },
+    {
+      "control_files": [],
+      "deb_sha256": "1a36b69f827ca41c92a70de00f469aefd87a40efad64411b00f7d962838243fb",
+      "filename": "nvidia-utils-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "package": "nvidia-utils-595",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "control_files": [],
+      "deb_sha256": "7c77eecb0c50325b8fb4d97f8deb8c96ef66d666bab9a7c868f2e98e934d5fa2",
+      "filename": "xserver-xorg-video-nvidia-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "package": "xserver-xorg-video-nvidia-595",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    }
+  ],
+  "rollback_count": 18,
+  "schema": "nvidia-deb-control-script-static-audit-v1",
+  "target_count": 18
+}
