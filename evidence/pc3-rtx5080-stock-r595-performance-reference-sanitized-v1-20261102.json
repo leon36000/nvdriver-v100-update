@@ -1,0 +1,114 @@
+{
+  "device": {
+    "driver_version": "595.99.02",
+    "name": "NVIDIA GeForce RTX 5080",
+    "pci_bus_id": "0000:02:00.0",
+    "sm": 120,
+    "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77"
+  },
+  "driver_library": {
+    "sha256_after": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d",
+    "sha256_before": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d",
+    "stable": true
+  },
+  "host": {
+    "kernel_release": "7.0.0-38-generic",
+    "name": "pc3"
+  },
+  "limitations": [
+    "Single RTX 5080 on stock R595.99.02 only.",
+    "V100 remained assigned to the QEMU guest via VFIO and was not tested.",
+    "No same-process mixed-generation CUDA, candidate driver, UVM/P2P, inference comparison, or gain is established.",
+    "Performance figures are one stock reference run, not a controlled before/after comparison."
+  ],
+  "observed_at_utc": "2026-11-02T21:17:52+00:00",
+  "pinned_test_artifacts": {
+    "fatbin_sha256": "8dc12fa61f5ed270c3122f5516c2afce43d9c39f5fa9a16f9a7e313fe34f6f70",
+    "probe_sha256": "85fdf6a3d3f7c98bad83d8e5dcd7f88fdbcf19fbf25866e0c7fc3e8d4e37bb98",
+    "provenance": "trusted-pinned-build"
+  },
+  "post_run_host_observation": {
+    "compute_processes": "none-listed",
+    "gpu_memory_used_mib": 2,
+    "gpu_power_state": "P8",
+    "gpu_temperature_c": 33,
+    "gpu_utilization_percent": 0,
+    "v100_driver": "vfio-pci",
+    "v100_pci_bus_id": "0000:81:00.0",
+    "v100_vm_pid": 2074,
+    "v100_vm_service": "active"
+  },
+  "qualification": {
+    "cuda_execution_validated": false,
+    "exit_code": 77,
+    "independent_hardware_attestation": false,
+    "interpretation": "Selected RTX fields and benchmark values are report-backed. The runner explicitly withholds hardware execution and benchmark validation because no independent hardware attestation was present; the overall run is incomplete because SM70 is not visible on the host.",
+    "performance_benchmark_validated": false,
+    "status": "rtx5080-report-contract-valid-hybrid-incomplete",
+    "transport_report_contract_validated": true
+  },
+  "raw_report_sha256": "6da5a0730ea2f5ec5fb28fdd90deecec85b0f3fb90f1c3d15ba8c71e813e3afc",
+  "remote_cleanup_passed": true,
+  "reported_cuda_result": {
+    "asynchronous_passed": true,
+    "asynchronous_sizes": [
+      1,
+      31,
+      256,
+      4096,
+      65537
+    ],
+    "cleanup_passed": true,
+    "context_coexistence_passed": false,
+    "hybrid_validated": false,
+    "missing_sm": [
+      70
+    ],
+    "numeric_kernel_passed": true,
+    "required_sm": [
+      70,
+      120
+    ],
+    "selected_device_targeted": true,
+    "selected_device_tested": true,
+    "synchronous_passed": true,
+    "synchronous_sizes": [
+      1,
+      31,
+      256,
+      4096,
+      65537
+    ]
+  },
+  "reported_performance": {
+    "kernel": "hybrid_empty",
+    "kernel_launch_device_elapsed_us": {
+      "median": 1.18424999528,
+      "p95": 1.26649998128
+    },
+    "kernel_launch_host_api_us": {
+      "median": 1.1824453125,
+      "p95": 1.2647578125
+    },
+    "method": "pinned probe; CUDA events and steady_clock",
+    "sample_count": 101,
+    "transfer_64_mib": {
+      "d_to_h": {
+        "data_integrity_passed": true,
+        "device_elapsed_us_per_copy_median": 2882.65609741,
+        "device_elapsed_us_per_copy_p95": 3105.11994362,
+        "gb_per_second_median": 23.2802185666,
+        "gb_per_second_p95": 23.9781382324
+      },
+      "h_to_d": {
+        "data_integrity_passed": true,
+        "device_elapsed_us_per_copy_median": 1306.62405491,
+        "device_elapsed_us_per_copy_p95": 1312.60800362,
+        "gb_per_second_median": 51.3604994091,
+        "gb_per_second_p95": 51.6501727793
+      },
+      "sample_count": 101
+    }
+  },
+  "schema": "nvidia-hybrid-pc3-rtx-reference-sanitized-v1"
+}

@@ -1,0 +1,54 @@
+{
+  "artifacts": {
+    "cuda_probe_contract.py": {
+      "bytes": 24798,
+      "sha256": "0e5741b360ff482af56c2cc5ae35db829d4aae96123351aa0c3f17b966db0dbd"
+    },
+    "module": {
+      "bytes": 18712,
+      "sha256": "8dc12fa61f5ed270c3122f5516c2afce43d9c39f5fa9a16f9a7e313fe34f6f70"
+    },
+    "observer": {
+      "bytes": 211792,
+      "sha256": "47e0635dbcc673c020898af09f2bd6ab16cbc363f1b4e99e53b79c13bfe59660"
+    },
+    "probe": {
+      "bytes": 231536,
+      "sha256": "85fdf6a3d3f7c98bad83d8e5dcd7f88fdbcf19fbf25866e0c7fc3e8d4e37bb98"
+    },
+    "runner": {
+      "bytes": 171163,
+      "sha256": "fb66e6ac01b3ed1b7ba2abb795eb53aeda099004bf3a615f49753126c2c5c7b2"
+    }
+  },
+  "cuda_driver_api_version": 13020,
+  "cuda_execution_validated": false,
+  "device": {
+    "compute_capability": "12.0",
+    "name": "NVIDIA GeForce RTX 5080",
+    "pci_bus_id": "0000:02:00.0",
+    "sm": 120
+  },
+  "device_alloc_observer": {
+    "payload_snapshots_read": 2,
+    "records_seen": true
+  },
+  "independent_hardware_attestation": false,
+  "kernel_release": "7.0.0-38-generic",
+  "numeric_result": {
+    "expected": 1200,
+    "report_contract_passed": true,
+    "reported": 1200
+  },
+  "observed_at_utc": "2026-11-02T19:49:20.001747Z",
+  "phase": "kernel",
+  "qualification": "report-contract-valid-no-independent-hardware-attestation",
+  "resource_cleanup_reported_passed": true,
+  "schema": "nvidia-hybrid-rtx-stock-phase-summary-v1",
+  "source_report": {
+    "bytes": 102869,
+    "sha256": "786179e458ef0da13ec8d917796f31ed82ee2657fab829c768e251a260a64306"
+  },
+  "system_libcuda_hash_stable": null,
+  "system_libcuda_sha256_before_and_after": null
+}

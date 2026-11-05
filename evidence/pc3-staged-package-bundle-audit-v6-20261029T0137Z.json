@@ -1,0 +1,879 @@
+{
+  "auditor": {
+    "focused_test_path": "tests/test_audit_pc3_staged_nvidia_bundle.py",
+    "focused_test_sha256": "04b9c758275f0c4eba79d891a464700c3068c5bec068b487fc24f380300ca4b5",
+    "path": "tools/audit_pc3_staged_nvidia_bundle.py",
+    "sha256": "bd7023b4142ff5270407131cd239d001115ddd30ff2e0582718323a1e82c7ad1"
+  },
+  "historical_stage_safety_flags": {
+    "all_deb_control_identities_verified": true,
+    "all_package_hashes_verified": true,
+    "apt_or_dpkg_install_invoked": false,
+    "driver_or_pci_modified": false,
+    "gpu_accessed": false,
+    "kernel_modules_loaded": false,
+    "package_scripts_executed": false
+  },
+  "host_snapshot": {
+    "kernel_release": "7.0.0-38-generic",
+    "loaded_nvidia_module_version": "595.99.02",
+    "observed_at_utc": "2026-10-29T01:37:21.410664Z",
+    "path": "evidence/pc3-canary-host-state-continuation-v14-20261029T0137Z.json",
+    "sha256": "8bf110384704a8900dde4a123b4865ac050f30ba02ac7306e03e0bf9c9feed83"
+  },
+  "manifest": {
+    "package_count": 36,
+    "path": "evidence/pc3-nvidia-canary-package-manifest-v1-20261023.json",
+    "sha256": "8aa76d874bf9ebbf9fe0c5528b4fdeb9f932b17115232b0cdbb14f5470f6e764"
+  },
+  "observed_at_utc": "2026-10-29T01:37:35.204304+00:00",
+  "package_archives": [
+    {
+      "architecture": "amd64",
+      "bytes": 147818,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "libnvidia-cfg1-580",
+          "Version": "580.196.07-1ubuntu1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "libnvidia-cfg1-580_580.196.07-1ubuntu1_amd64.deb",
+      "md5": "62045380644fe5dcc30cfce64b061a4a",
+      "package": "libnvidia-cfg1-580",
+      "path": ".cache/canary/pc3-r580-58019607/target/libnvidia-cfg1-580_580.196.07-1ubuntu1_amd64.deb",
+      "sha256": "c8b62c6509aea9e51e17a2d0184598fd5945bf4c659ba8a99366b873b98ca17d",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 2724296,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "libnvidia-decode-580",
+          "Version": "580.196.07-1ubuntu1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "libnvidia-decode-580_580.196.07-1ubuntu1_amd64.deb",
+      "md5": "9c83b70961f2bf5c05d99c91af3ef0b8",
+      "package": "libnvidia-decode-580",
+      "path": ".cache/canary/pc3-r580-58019607/target/libnvidia-decode-580_580.196.07-1ubuntu1_amd64.deb",
+      "sha256": "572e491c691f231623fd0a552516cb17ad0bca1cf1dbd7ac9985d7c753f3bd4b",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 18502184,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "libnvidia-gpucomp-580",
+          "Version": "580.196.07-1ubuntu1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "libnvidia-gpucomp-580_580.196.07-1ubuntu1_amd64.deb",
+      "md5": "b34d732c6488e69c6a5a4772393ed899",
+      "package": "libnvidia-gpucomp-580",
+      "path": ".cache/canary/pc3-r580-58019607/target/libnvidia-gpucomp-580_580.196.07-1ubuntu1_amd64.deb",
+      "sha256": "4034f539ba63867c6dc5a3b0069c3c77c6abe5393900954ef461c4fb136494ee",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 24456,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "nvidia-persistenced",
+          "Version": "580.196.07-1ubuntu1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "nvidia-persistenced_580.196.07-1ubuntu1_amd64.deb",
+      "md5": "5d64efec1bdb562e280c544c969dab1f",
+      "package": "nvidia-persistenced",
+      "path": ".cache/canary/pc3-r580-58019607/target/nvidia-persistenced_580.196.07-1ubuntu1_amd64.deb",
+      "sha256": "cf83d1ee78b99d061264f786dce0ae97d5431f68a7fe505589452055a32bf492",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 54671338,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "libnvidia-compute-580",
+          "Version": "580.196.07-1ubuntu1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "libnvidia-compute-580_580.196.07-1ubuntu1_amd64.deb",
+      "md5": "6014f900e38ef5c6d3d11a5bad4b7f18",
+      "package": "libnvidia-compute-580",
+      "path": ".cache/canary/pc3-r580-58019607/target/libnvidia-compute-580_580.196.07-1ubuntu1_amd64.deb",
+      "sha256": "b6a5b9a94267d1995a2bd54e7a9876961f3efb6928edbbcce675d09ea9cb2c8d",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 13318,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "libnvidia-egl-gbm1",
+          "Version": "1.1.4-2ubuntu1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "libnvidia-egl-gbm1_1.1.4-2ubuntu1_amd64.deb",
+      "md5": "314fb4eed0273c5112ba41736fbc5695",
+      "package": "libnvidia-egl-gbm1",
+      "path": ".cache/canary/pc3-r580-58019607/target/libnvidia-egl-gbm1_1.1.4-2ubuntu1_amd64.deb",
+      "sha256": "46be77d8400ba5b930c29213eaf8afa855773d2b12623efc36a4f5e6a1b63828",
+      "transaction": "target",
+      "version": "1.1.4-2ubuntu1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 34456,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "libnvidia-egl-xcb1",
+          "Version": "1.0.6-1ubuntu1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "libnvidia-egl-xcb1_1.0.6-1ubuntu1_amd64.deb",
+      "md5": "7605a857a137d74c474b63a09ceeb19f",
+      "package": "libnvidia-egl-xcb1",
+      "path": ".cache/canary/pc3-r580-58019607/target/libnvidia-egl-xcb1_1.0.6-1ubuntu1_amd64.deb",
+      "sha256": "f4ad0a5fe26efa12f92078053cbda988a307e7525ce03e501727adc82b270b56",
+      "transaction": "target",
+      "version": "1.0.6-1ubuntu1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 35142,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "libnvidia-egl-xlib1",
+          "Version": "1.0.6-1ubuntu1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "libnvidia-egl-xlib1_1.0.6-1ubuntu1_amd64.deb",
+      "md5": "6279f304a8ec8d264e99e62cf23d8196",
+      "package": "libnvidia-egl-xlib1",
+      "path": ".cache/canary/pc3-r580-58019607/target/libnvidia-egl-xlib1_1.0.6-1ubuntu1_amd64.deb",
+      "sha256": "0f7e45ff671e961319735c23bc20b54864f71c277b3e2cef2111f72b46b28079",
+      "transaction": "target",
+      "version": "1.0.6-1ubuntu1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 106606,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "libnvidia-encode-580",
+          "Version": "580.196.07-1ubuntu1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "libnvidia-encode-580_580.196.07-1ubuntu1_amd64.deb",
+      "md5": "075ce897eda65b99fd87f175a883a096",
+      "package": "libnvidia-encode-580",
+      "path": ".cache/canary/pc3-r580-58019607/target/libnvidia-encode-580_580.196.07-1ubuntu1_amd64.deb",
+      "sha256": "c9c07fbda7419f3719706d6ca84037eac1a61097780b1a3dfa0188a3e379f3b3",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 87042,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "libnvidia-fbc1-580",
+          "Version": "580.196.07-1ubuntu1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "libnvidia-fbc1-580_580.196.07-1ubuntu1_amd64.deb",
+      "md5": "002a1800cdc483252b791bd9c25c0adf",
+      "package": "libnvidia-fbc1-580",
+      "path": ".cache/canary/pc3-r580-58019607/target/libnvidia-fbc1-580_580.196.07-1ubuntu1_amd64.deb",
+      "sha256": "dd36656fdb4fb758c74902d6ccf0ae4205e7d767ac187c8d7c802a660d1c50c9",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 150377314,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "libnvidia-gl-580",
+          "Version": "580.196.07-1ubuntu1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "libnvidia-gl-580_580.196.07-1ubuntu1_amd64.deb",
+      "md5": "5be64c4ed86d4eb0c5a2775243f6ece0",
+      "package": "libnvidia-gl-580",
+      "path": ".cache/canary/pc3-r580-58019607/target/libnvidia-gl-580_580.196.07-1ubuntu1_amd64.deb",
+      "sha256": "0a13d0472e9035652a3dbb6f0af79832dbd6c93114a20510705c5cd5b647f4d1",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 7994466,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "nvidia-kernel-source-580-open",
+          "Version": "580.196.07-1ubuntu1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "nvidia-kernel-source-580-open_580.196.07-1ubuntu1_amd64.deb",
+      "md5": "f4a2d71b25064d97f9e4b0ad7630626c",
+      "package": "nvidia-kernel-source-580-open",
+      "path": ".cache/canary/pc3-r580-58019607/target/nvidia-kernel-source-580-open_580.196.07-1ubuntu1_amd64.deb",
+      "sha256": "500915ba5ea32d4ab8b2256f9cb7fa8006503d7e391f846245c9c8d1f7259840",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 74788940,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "nvidia-firmware-580",
+          "Version": "580.196.07-1ubuntu1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "nvidia-firmware-580_580.196.07-1ubuntu1_amd64.deb",
+      "md5": "498dc3e47da5d7a48df0bc3638f6c8be",
+      "package": "nvidia-firmware-580",
+      "path": ".cache/canary/pc3-r580-58019607/target/nvidia-firmware-580_580.196.07-1ubuntu1_amd64.deb",
+      "sha256": "8595f10092f341ee973d4efeab612161c4527c3e8d35bd64d5764fdf6d3244fb",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 15674,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "nvidia-modprobe",
+          "Version": "580.196.07-1ubuntu1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "nvidia-modprobe_580.196.07-1ubuntu1_amd64.deb",
+      "md5": "fae50cc3c278d8fe9d5aca3f3a21fc90",
+      "package": "nvidia-modprobe",
+      "path": ".cache/canary/pc3-r580-58019607/target/nvidia-modprobe_580.196.07-1ubuntu1_amd64.deb",
+      "sha256": "724830b72112b34352dc9b7c4ab0f67b663cc9fd8f53ea205fe5230be27007ff",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 716448,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "nvidia-kernel-common-580",
+          "Version": "580.196.07-1ubuntu1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "nvidia-kernel-common-580_580.196.07-1ubuntu1_amd64.deb",
+      "md5": "a8322af209b8b0ae943dfbadf7e136fa",
+      "package": "nvidia-kernel-common-580",
+      "path": ".cache/canary/pc3-r580-58019607/target/nvidia-kernel-common-580_580.196.07-1ubuntu1_amd64.deb",
+      "sha256": "0b5b3df398018d1f6e6dd903baf2e018094ddb66df4b3d1b7c36dabf9a33cd7e",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 15306,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "nvidia-dkms-580-open",
+          "Version": "580.196.07-1ubuntu1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "nvidia-dkms-580-open_580.196.07-1ubuntu1_amd64.deb",
+      "md5": "5d8557974177120080fe08673d05a581",
+      "package": "nvidia-dkms-580-open",
+      "path": ".cache/canary/pc3-r580-58019607/target/nvidia-dkms-580-open_580.196.07-1ubuntu1_amd64.deb",
+      "sha256": "fd348c30ad1cb12db519e0be40c9637d675df5f55eca38661bee70db63ce206e",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 2160328,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "xserver-xorg-video-nvidia-580",
+          "Version": "580.196.07-1ubuntu1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "xserver-xorg-video-nvidia-580_580.196.07-1ubuntu1_amd64.deb",
+      "md5": "899b56e94b8a5ff8ece8dc78d7b2ed43",
+      "package": "xserver-xorg-video-nvidia-580",
+      "path": ".cache/canary/pc3-r580-58019607/target/xserver-xorg-video-nvidia-580_580.196.07-1ubuntu1_amd64.deb",
+      "sha256": "b75719ae464b740dfeac63fcc4b97adfc73e9db061db27035ac86c0c410363a1",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 13018,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "nvidia-driver-580-open",
+          "Version": "580.196.07-1ubuntu1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "nvidia-driver-580-open_580.196.07-1ubuntu1_amd64.deb",
+      "md5": "dc04c99835eff64ebaf2e709e8b161b7",
+      "package": "nvidia-driver-580-open",
+      "path": ".cache/canary/pc3-r580-58019607/target/nvidia-driver-580-open_580.196.07-1ubuntu1_amd64.deb",
+      "sha256": "7c01a3d7c933fbbc3917d55552835a5ca125a6a0ea5e7f2fffa243eb2c400f11",
+      "transaction": "target",
+      "version": "580.196.07-1ubuntu1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 157868,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "libnvidia-cfg1-595",
+          "Version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "libnvidia-cfg1-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "md5": "0fb5dcba2a2450b6baffa53864bd9cc1",
+      "package": "libnvidia-cfg1-595",
+      "path": ".cache/canary/pc3-r580-58019607/rollback/libnvidia-cfg1-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "c9b58e84e474dfb07c9cd4b677553a1a27a93f1a316f2312fcb2fc9d94f6ff91",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 77406,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "libnvidia-extra-595",
+          "Version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "libnvidia-extra-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "md5": "a699a172c93e49404c5514f11641e806",
+      "package": "libnvidia-extra-595",
+      "path": ".cache/canary/pc3-r580-58019607/rollback/libnvidia-extra-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "8d3ecc17a894b8fb73b569b0ccfd14f00a4ef1086d232c77ec6f4ee3ba6efe25",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 18570,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "libnvidia-common-595",
+          "Version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "libnvidia-common-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "md5": "e29179a22e20fbfd34d72f79f3f2c88d",
+      "package": "libnvidia-common-595",
+      "path": ".cache/canary/pc3-r580-58019607/rollback/libnvidia-common-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "942a151eb4af7e3266458c80e9e948cd5e521ff489bd7c76bc23e7c9eb202a25",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 85770234,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "libnvidia-compute-595",
+          "Version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "libnvidia-compute-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "md5": "11dc81450d19a91f549d46291b1a817b",
+      "package": "libnvidia-compute-595",
+      "path": ".cache/canary/pc3-r580-58019607/rollback/libnvidia-compute-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "a8f3ed02c0a89502b24a4fdf6a8dd88ffd646c254896cb3e12e8f74bebb06136",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 3059774,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "libnvidia-decode-595",
+          "Version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "libnvidia-decode-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "md5": "c3559894f4a2618bd4873fab73d4abec",
+      "package": "libnvidia-decode-595",
+      "path": ".cache/canary/pc3-r580-58019607/rollback/libnvidia-decode-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "76a50d7ada4f294e872288f8d453aace435204b3d622bc72a15fa670537b65b5",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 118548,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "libnvidia-encode-595",
+          "Version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "libnvidia-encode-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "md5": "8db265100541c2505a7dade6bd4b6723",
+      "package": "libnvidia-encode-595",
+      "path": ".cache/canary/pc3-r580-58019607/rollback/libnvidia-encode-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "9b3a048077c21eb9f9118da0ef52a2e9ace710fc6fc6c4b3de2a4f392fb73467",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 93852,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "libnvidia-fbc1-595",
+          "Version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "libnvidia-fbc1-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "md5": "7750369715290c93870c6b124d93bf09",
+      "package": "libnvidia-fbc1-595",
+      "path": ".cache/canary/pc3-r580-58019607/rollback/libnvidia-fbc1-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "7f742ec0a3addfd6ec319d58e22acc7321231535ace164cdefd9b35edecea074",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 138928876,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "libnvidia-gl-595",
+          "Version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "libnvidia-gl-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "md5": "0e7f1597d73fd7a9653fe80b9a179d66",
+      "package": "libnvidia-gl-595",
+      "path": ".cache/canary/pc3-r580-58019607/rollback/libnvidia-gl-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "3c7e157b41892aa9d589f966fece636b808bb4e649a71cc2c9cbf7337007f6f7",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 11740,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "linux-modules-nvidia-595-7.0.0-38-generic",
+          "Version": "7.0.0-38.38+2"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "linux-modules-nvidia-595-7.0.0-38-generic_7.0.0-38.38+2_amd64.deb",
+      "md5": "4c7b3e73f0d696e664d2157b968e1ec3",
+      "package": "linux-modules-nvidia-595-7.0.0-38-generic",
+      "path": ".cache/canary/pc3-r580-58019607/rollback/linux-modules-nvidia-595-7.0.0-38-generic_7.0.0-38.38+2_amd64.deb",
+      "sha256": "4fc9b5e93dd43b5fea534c1569825cb41017202c4d228024c3798cd895aa556a",
+      "transaction": "rollback",
+      "version": "7.0.0-38.38+2"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 8052172,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "linux-modules-nvidia-595-open-7.0.0-38-generic",
+          "Version": "7.0.0-38.38+2"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "linux-modules-nvidia-595-open-7.0.0-38-generic_7.0.0-38.38+2_amd64.deb",
+      "md5": "d3a7f40a34fcfa5cf2ffcd2ae9e8eedf",
+      "package": "linux-modules-nvidia-595-open-7.0.0-38-generic",
+      "path": ".cache/canary/pc3-r580-58019607/rollback/linux-modules-nvidia-595-open-7.0.0-38-generic_7.0.0-38.38+2_amd64.deb",
+      "sha256": "f98818bce400ae37b3266d4be58880a07cbd2fb71d68b6021164943c3c1a366c",
+      "transaction": "rollback",
+      "version": "7.0.0-38.38+2"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 10048,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "linux-modules-nvidia-595-open-generic",
+          "Version": "7.0.0-38.38+2"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "linux-modules-nvidia-595-open-generic_7.0.0-38.38+2_amd64.deb",
+      "md5": "ed0b5be2818a0cd0ce0849077a5a4157",
+      "package": "linux-modules-nvidia-595-open-generic",
+      "path": ".cache/canary/pc3-r580-58019607/rollback/linux-modules-nvidia-595-open-generic_7.0.0-38.38+2_amd64.deb",
+      "sha256": "147e68eb6b638ddad32b508d0029f6e18052f8000603786148390d462ab39219",
+      "transaction": "rollback",
+      "version": "7.0.0-38.38+2"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 134856,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "nvidia-compute-utils-595",
+          "Version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "nvidia-compute-utils-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "md5": "b248d2e20ff9b633de02673790cd4903",
+      "package": "nvidia-compute-utils-595",
+      "path": ".cache/canary/pc3-r580-58019607/rollback/nvidia-compute-utils-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "6d6885920c4e627f3a033b9e637f11b2a56a5a3f77dea6ab61be45636ae0ac6b",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 14158,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "nvidia-driver-595-open",
+          "Version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "nvidia-driver-595-open_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "md5": "fe5e80e00b7e6871483b8f993b8e455c",
+      "package": "nvidia-driver-595-open",
+      "path": ".cache/canary/pc3-r580-58019607/rollback/nvidia-driver-595-open_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "b2115b9f6d2485307db0e3df391122ac2612677f666bb59913a3e2269b9d4160",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 822334,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "nvidia-kernel-common-595",
+          "Version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "nvidia-kernel-common-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "md5": "9b6f94bf213d5e42b6be221a24b72124",
+      "package": "nvidia-kernel-common-595",
+      "path": ".cache/canary/pc3-r580-58019607/rollback/nvidia-kernel-common-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "20d9ed271ee10e509b672cb2899ccaeaf9facb922cb05fc7e3a485cfff04d551",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 8324952,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "nvidia-kernel-source-595-open",
+          "Version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "nvidia-kernel-source-595-open_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "md5": "b5221d13e8b24a678c93aeafd0b9d428",
+      "package": "nvidia-kernel-source-595-open",
+      "path": ".cache/canary/pc3-r580-58019607/rollback/nvidia-kernel-source-595-open_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "5434b4b228a07a82968618da1f88776fdb867ee67266d41f4dabc10825712bcd",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "architecture": "all",
+      "bytes": 10496,
+      "deb_control": {
+        "fields": {
+          "Architecture": "all",
+          "Package": "nvidia-prime",
+          "Version": "0.8.17.2build1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "nvidia-prime_0.8.17.2build1_all.deb",
+      "md5": "302a1d26950f11d47e442c89b0ca61d5",
+      "package": "nvidia-prime",
+      "path": ".cache/canary/pc3-r580-58019607/rollback/nvidia-prime_0.8.17.2build1_all.deb",
+      "sha256": "c5f1e0744fde82b54cb54ca0a3ffb5d76d8d1f2c83ca582dea91ea1f377bba12",
+      "transaction": "rollback",
+      "version": "0.8.17.2build1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 608486,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "nvidia-utils-595",
+          "Version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "nvidia-utils-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "md5": "2edf5a8648fdb8c85d98082da445d9e2",
+      "package": "nvidia-utils-595",
+      "path": ".cache/canary/pc3-r580-58019607/rollback/nvidia-utils-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "1a36b69f827ca41c92a70de00f469aefd87a40efad64411b00f7d962838243fb",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    },
+    {
+      "architecture": "amd64",
+      "bytes": 1203152,
+      "deb_control": {
+        "fields": {
+          "Architecture": "amd64",
+          "Package": "xserver-xorg-video-nvidia-595",
+          "Version": "595.99.02-0ubuntu0.26.04.1"
+        },
+        "method": "dpkg-deb --field; no extraction or maintainer scripts",
+        "verified": true
+      },
+      "filename": "xserver-xorg-video-nvidia-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "md5": "7b483a01913bc20c5317ea8d09417459",
+      "package": "xserver-xorg-video-nvidia-595",
+      "path": ".cache/canary/pc3-r580-58019607/rollback/xserver-xorg-video-nvidia-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "7c77eecb0c50325b8fb4d97f8deb8c96ef66d666bab9a7c868f2e98e934d5fa2",
+      "transaction": "rollback",
+      "version": "595.99.02-0ubuntu0.26.04.1"
+    }
+  ],
+  "rollback_snapshot_comparison": {
+    "all_packages_match_snapshot": false,
+    "exact_package_version_matches": 17,
+    "expected_package_count": 18,
+    "limitations": [
+      "Archive availability and package-version agreement do not prove installation, boot, driver operation, or rollback recovery.",
+      "The snapshot is a captured PC3 observation and is not a live query performed by this audit.",
+      "No module-signature trust, PCI ownership change, or same-process mixed-GPU CUDA test is covered."
+    ],
+    "operational_recovery_proven": false,
+    "packages": [
+      {
+        "installed_exactly": true,
+        "package": "libnvidia-cfg1-595",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_exactly": true,
+        "package": "libnvidia-extra-595",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_exactly": true,
+        "package": "libnvidia-common-595",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_exactly": true,
+        "package": "libnvidia-compute-595",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_exactly": true,
+        "package": "libnvidia-decode-595",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_exactly": true,
+        "package": "libnvidia-encode-595",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_exactly": true,
+        "package": "libnvidia-fbc1-595",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_exactly": true,
+        "package": "libnvidia-gl-595",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_exactly": true,
+        "package": "linux-modules-nvidia-595-7.0.0-38-generic",
+        "version": "7.0.0-38.38+2"
+      },
+      {
+        "installed_exactly": true,
+        "package": "linux-modules-nvidia-595-open-7.0.0-38-generic",
+        "version": "7.0.0-38.38+2"
+      },
+      {
+        "installed_exactly": true,
+        "package": "linux-modules-nvidia-595-open-generic",
+        "version": "7.0.0-38.38+2"
+      },
+      {
+        "installed_exactly": true,
+        "package": "nvidia-compute-utils-595",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_exactly": true,
+        "package": "nvidia-driver-595-open",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_exactly": true,
+        "package": "nvidia-kernel-common-595",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_exactly": true,
+        "package": "nvidia-kernel-source-595-open",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_exactly": true,
+        "package": "nvidia-prime",
+        "version": "0.8.17.2build1"
+      },
+      {
+        "installed_exactly": true,
+        "package": "nvidia-utils-595",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      {
+        "installed_exactly": false,
+        "package": "xserver-xorg-video-nvidia-595",
+        "version": "595.99.02-0ubuntu0.26.04.1"
+      }
+    ],
+    "status": "partial-match",
+    "unmatched_packages": [
+      "xserver-xorg-video-nvidia-595"
+    ]
+  },
+  "schema": "pc3-staged-nvidia-package-bundle-audit-v1",
+  "scope": "offline local archive and captured-inventory audit; no PC3 connection or host mutation",
+  "stage_report": {
+    "path": "evidence/pc3-nvidia-canary-stage-v1-20261023T094921Z.json",
+    "sha256": "8bbef80f8ad3da40294ec7d914dfafc9e3990600c0e3d767215808b099b24e47",
+    "status": "staged-and-verified",
+    "target_kernel": "7.0.0-38-generic"
+  },
+  "status": "all-staged-archives-reverified",
+  "transactions": {
+    "rollback": {
+      "bytes": 247417522,
+      "package_count": 18
+    },
+    "target": {
+      "bytes": 312428150,
+      "package_count": 18
+    }
+  },
+  "verified_archive_count": 36
+}

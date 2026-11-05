@@ -1,0 +1,157 @@
+{
+  "artifacts": {
+    "observer": {
+      "bytes": 239696,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/rm-ioctl-observer-v25-20261024/rm_ioctl_observer",
+      "sha256": "ca80cb4625fe119702991855216ba0629518cc58bb56d2991f919bceb1c5b556"
+    },
+    "probe": {
+      "bytes": 144560,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-v100-reference-v4-20261023/hybrid_cuda_probe",
+      "sha256": "6e4f93e20b970205de1516c1258bdea83bbd39a72ba3c4ef719f114569fd497b"
+    }
+  },
+  "command": [
+    "/tmp/codex-pc3-observer-6eb4585ca85a4b91bf4eef0763e878e8",
+    "--output",
+    "/tmp/codex-pc3-system-features-6eb4585ca85a4b91bf4eef0763e878e8.json",
+    "--system-features",
+    "--",
+    "/usr/bin/env",
+    "CUDA_VISIBLE_DEVICES=GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77",
+    "PATH=/usr/bin:/bin",
+    "LC_ALL=C",
+    "/tmp/codex-pc3-probe-6eb4585ca85a4b91bf4eef0763e878e8",
+    "--list",
+    "--expected-pci",
+    "0000:02:00.0"
+  ],
+  "execution_scope": {
+    "driver_changed": false,
+    "firmware_changed": false,
+    "module_loaded": false,
+    "pci_binding_changed": false,
+    "system_installation_issued": false,
+    "vm_management_issued": false
+  },
+  "gpu_selection": {
+    "driver": "R595.99.02",
+    "name": "NVIDIA GeForce RTX 5080",
+    "pci": "0000:02:00.0",
+    "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77"
+  },
+  "host_key_alias": "pc3",
+  "observed_at_utc": "2026-10-24T02:34:34+00:00",
+  "observer_exit_code": 0,
+  "observer_report": {
+    "architecture": "x86_64",
+    "child_exit_code": 0,
+    "control_path": "/dev/nvidiactl",
+    "errors": [],
+    "fd_identity_tracking": false,
+    "nested_pointer_scope": "exact NV0000_CTRL_CMD_SYSTEM_GET_FEATURES 4-byte featuresMask only; raw addresses and handles omitted",
+    "nested_pointers_read": true,
+    "payload_scope": "exact root-global SYSTEM_GET_FEATURES 4-byte mask plus fixed RM_CONTROL headers; raw addresses and handles omitted",
+    "pointer_bits": 64,
+    "records": [
+      {
+        "entry": {
+          "client_matches_prior_root_allocation": true,
+          "client_object_equal": true,
+          "command": 496,
+          "featuresMask": 0,
+          "flags": 0,
+          "hClientPresent": true,
+          "hObjectPresent": true,
+          "object_matches_prior_root_allocation": true,
+          "params_size": 4,
+          "status": 0
+        },
+        "exit": {
+          "client_matches_prior_root_allocation": true,
+          "client_object_equal": true,
+          "command": 496,
+          "featuresMask": 8,
+          "flags": 0,
+          "hClientPresent": true,
+          "hObjectPresent": true,
+          "object_matches_prior_root_allocation": true,
+          "params_size": 4,
+          "status": 0
+        },
+        "fd": 8,
+        "fd_role": "control",
+        "operation": "rm_control_system_features",
+        "packet_size": 32,
+        "request": 3223340586,
+        "syscall_return": 0,
+        "tid": 100628
+      }
+    ],
+    "schema": "nvidia-hybrid-rm-ioctl-observer-v25",
+    "snapshot_consistency": "per-task syscall stop; other threads may mutate shared packet memory",
+    "system_features_payload_snapshots_read": 2,
+    "trace_complete": true
+  },
+  "probe_exit_code": 0,
+  "probe_stdout": {
+    "concurrent_kernel_execution_validated": false,
+    "context_coexistence_passed": false,
+    "cuda_graph_api": "not-requested",
+    "cuda_graphs_requested": false,
+    "devices": [
+      {
+        "architecture_kernel_passed": false,
+        "asynchronous_passed": false,
+        "asynchronous_sizes": [],
+        "cleanup_errors": [],
+        "cleanup_passed": true,
+        "compute_capability": "12.0",
+        "concurrent_managed_access": true,
+        "cuda_graph_launches": 0,
+        "cuda_graphs_passed": false,
+        "error": "",
+        "managed_memory_passed": false,
+        "managed_prefetch_passed": false,
+        "name": "NVIDIA GeForce RTX 5080",
+        "ordinal": 0,
+        "pageable_memory_access": true,
+        "pageable_memory_access_uses_host_page_tables": false,
+        "pci_bus_id": "0000:02:00.0",
+        "sm": 120,
+        "synchronous_passed": false,
+        "synchronous_sizes": [],
+        "targeted": false,
+        "tested": false
+      }
+    ],
+    "driver_api": 13020,
+    "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+    "execution_mode": "resident-contexts-sequential-kernels",
+    "hybrid_validated": false,
+    "managed_prefetch_api": "not-requested",
+    "managed_prefetch_requested": false,
+    "memory_mode": "device",
+    "missing_sm": [],
+    "required_set_passed": false,
+    "required_sm": [
+      70,
+      120
+    ],
+    "schema": "nvidia-hybrid-probe-v2",
+    "status": "inventory"
+  },
+  "qualification": "rtx5080-cuda-enumeration-system-features-validated",
+  "remote_temporary_files_cleanup_passed": true,
+  "schema": "nvidia-hybrid-pc3-rtx5080-system-features-reference-v1",
+  "target": "pc3@pc3",
+  "validation": {
+    "features_masks": [
+      8
+    ],
+    "features_records": 1,
+    "observer_contract": "passed by tools.run_pc3_v100_guest_reference.validate_system_features_capture",
+    "probe_inventory": "one CUDA-visible RTX 5080 SM120 on 0000:02:00.0",
+    "remote_cleanup": "passed"
+  }
+}

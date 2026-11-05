@@ -1,0 +1,85 @@
+{
+  "artifact_manifest": {
+    "cuda_probe_contract.py": {
+      "bytes": 28216,
+      "sha256": "9f65e31214f0b323198460879e015967baa3feec855df1177d371a5b8cf28506"
+    },
+    "module": {
+      "bytes": 18712,
+      "sha256": "8dc12fa61f5ed270c3122f5516c2afce43d9c39f5fa9a16f9a7e313fe34f6f70"
+    },
+    "probe": {
+      "bytes": 240792,
+      "sha256": "c2c0aa30d26fe2fb7e61a5ef732bc1f659faa39eb4626e1d46689f2aa85e1422"
+    },
+    "runner": {
+      "bytes": 171309,
+      "sha256": "0384723a7962042137d6380a1db484ae112168d8384dc6662a00c7258d159840"
+    }
+  },
+  "capture": {
+    "reason": "SM70 image absent on the RTX-only host",
+    "report_contract": "passed",
+    "reported_exit_code": 77,
+    "sha256": "5ce8137e35e207162ad85f8d3e2de5c758cf7a934735a0f2b742c9d051a79311"
+  },
+  "cuda_execution_validated": true,
+  "cuda_result": {
+    "asynchronous_sizes": [
+      1,
+      31,
+      256,
+      4096,
+      65537
+    ],
+    "cleanup_passed": true,
+    "synchronous_sizes": [
+      1,
+      31,
+      256,
+      4096,
+      65537
+    ],
+    "targeted_numeric_kernels_passed": true
+  },
+  "device": {
+    "compute_capability": "12.0",
+    "cuda_driver_api_version": 13020,
+    "driver_version": "595.99.02",
+    "name": "NVIDIA GeForce RTX 5080",
+    "pci_bus_id": "0000:02:00.0",
+    "sm": 120
+  },
+  "external_observer": {
+    "gpu_pci_bus_id": "0000:02:00.0",
+    "gpu_uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77",
+    "kind": "nvidia-smi pmon process-utilization stream",
+    "nonzero_sm_samples_during_benchmark": 12,
+    "observed_process_name": "probe",
+    "peak_memory_utilization_percent": 8,
+    "peak_sm_utilization_percent": 99,
+    "probe_process_samples_during_benchmark": 12,
+    "sample_count": 20,
+    "sample_interval_seconds": 1,
+    "samples_during_benchmark": 13,
+    "transport": "separate strict-host-key SSH session to pc3",
+    "unique_probe_process_count": 1
+  },
+  "fatbin_sha256": "8dc12fa61f5ed270c3122f5516c2afce43d9c39f5fa9a16f9a7e313fe34f6f70",
+  "hardware_execution_validated": true,
+  "independent_hardware_attestation": false,
+  "limitations": [
+    "Stock RTX 5080/R595 only; no candidate hybrid module was loaded.",
+    "The V100 was not targeted and remains outside this proof.",
+    "SM70 is missing, so the whole probe exits 77 and hybrid acceptance is incomplete.",
+    "pmon independently observed the process and SM utilization, but this is not cryptographic remote attestation.",
+    "Performance measurements remain unqualified and are not aggregated."
+  ],
+  "observed_at_utc": "2026-11-03T04:35:21.809160Z",
+  "performance_benchmark_validated": false,
+  "probe_sha256": "c2c0aa30d26fe2fb7e61a5ef732bc1f659faa39eb4626e1d46689f2aa85e1422",
+  "qualification": "stock-rtx5080-cuda-kernel-observed-by-independent-nvml-pmon",
+  "raw_witness_sha256": "81ee3699b3ac38903f79b3df9d51c25aa83e5686adc6e08842b985f6f19ba5c4",
+  "schema": "nvidia-hybrid-pc3-rtx-pmon-runtime-summary-v1",
+  "stock_libcuda_sha256": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d"
+}
