@@ -1,0 +1,23 @@
+{
+  "core_modified": false,
+  "error": "kernel config must define CONFIG_RETHUNK exactly once",
+  "hardware_validated": false,
+  "loaded_or_installed": false,
+  "module_license": "NVIDIA",
+  "module_license_changed": false,
+  "observed_at_utc": "20261028T235707535456Z",
+  "qualification": "build-or-analysis-failed",
+  "remaining_boundaries": [
+    "No frontend/provider registered or real broker invocation",
+    "No VFS/LSM/deferred-fput/unload runtime validation",
+    "Private UVM/modeset consumer routing is not integrated",
+    "Module-wide RM/NVLink/caps initialization precedes BDF GPU gate",
+    "Original proprietary core retains its objtool return/frame warnings",
+    "No GPU or CUDA execution; no performance claim"
+  ],
+  "runtime_isolation_validated": false,
+  "schema": "private-proprietary580-v1",
+  "status": "failed",
+  "steps": [],
+  "work_dir": "/tmp/codex-legacy580-354ad2c5a5af487e853f6f3633cf18d9/build/experiments/pc3-v100-private-proprietary580-354ad2c5a5af487e853f6f3633cf18d9"
+}

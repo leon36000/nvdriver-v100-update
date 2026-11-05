@@ -1,0 +1,331 @@
+{
+  "core_modified": false,
+  "error": "cpu-contracts failed: /tmp/codex-legacy580-82f331adf902434d888780592d92647a/evidence/logs/private-proprietary-cpu-contracts-20261028T232922158502Z.log",
+  "hardware_validated": false,
+  "inputs": [
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/.cache/vendor-proprietary/nvidia-kernel-source-580_580.178.04-0ubuntu0.26.04.1_amd64.deb",
+      "sha256": "31666b2940d0375d9ca984bd78a195c2da8d353998f92f745e0831e5c7bd2a5c"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nv-kernel.o_binary",
+      "sha256": "5269a23ffba19a17fe16f076463e7ad4151254659441d1711bee6c6221ff6f4b"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/.cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+      "sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/build/experiments/proprietary580-wrapper-baseline-v1/nvidia-580.178.04/nvidia.ko",
+      "sha256": "6687ca7503c4fef5b44186fba1209d579631ba4a96998625001299dda0eecff4"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/evidence/private-proprietary-session-v2-20261019.json",
+      "sha256": "26b18c6e0b32ad8d73be38f60644116f9552c48869ab56602f709ead107a1b13"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/build/experiments/private-proprietary-session-v2/nvidia-580.178.04/Module.symvers",
+      "sha256": "897065a1a1a9ec4bf1d1cef4f1495fa782498f4ba397560361e32b420b1a66fc"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/build/experiments/private-proprietary-session-v2/nvidia-580.178.04/nvidia/hybrid580-control-session.h",
+      "sha256": "b836278f6c81b6e10109ab9954e80a633bb569d54fa2814e1519c62d793dc8c6"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0001-private-legacy-pm-channel-depth-enum.patch",
+      "sha256": "9087dead3b26e88b8c9d48d194adbdb6e877ae11ba0b7047a4e59e48661c48f0"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0002-private-legacy-module.patch",
+      "sha256": "d298ea1f1422b343540a20ead1e90062b1eecd25cd4edad70faba7e56914ef0a"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0003-private-legacy-pci-guard.patch",
+      "sha256": "4ed13eeb9cf02eea9ba34bf887c8619222639da122d8f1d5939719f4ebf6acaf"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0004-private-legacy-chardev.patch",
+      "sha256": "cd9473069a13000f430a849c76ec770087c28a640c6fbc5c640ec734fb9631eb"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0005-private-legacy-procfs-path.patch",
+      "sha256": "5528d0feaf3413e8bec44db20b6b347f752cec497a8d568ebbbcd2f347d0f24a"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0006-private-legacy-resource-names.patch",
+      "sha256": "9d75016cfdf2f5001edfac38b2775345a42cf631b294bffaefe2fff9dd21a08a"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0007-private-legacy-pci-only-lifecycle.patch",
+      "sha256": "6b12c0b30fa124b97fcc3a351a04c7bf2d1142ed78b18d4f6bfa441bab5f091a"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0008-private-legacy-file-projection.patch",
+      "sha256": "c06d8b5ca52aa79d5ab56f087bd8d02b0b8c33756de65db55f3b782c28f90edb"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0009-private-legacy-control-session.patch",
+      "sha256": "35c608bf68d781726cb34f6fca9a9e57a1c1b67387aa4b6d21a348fd9bde3fee"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0009-private-legacy-gpu-session.patch",
+      "sha256": "4b47736a0cd8f39d41a393f4f16183d87c62e4deb05a4f4b51275520a1106cb2"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0009z-private-legacy-gpu-bdf-lookup.patch",
+      "sha256": "8db31520eefe589f9b7bdd2c8a683543f0e777c985fde39ca1769636e2a976fb"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0011-private-legacy-gpu-inventory.patch",
+      "sha256": "849717e2d86a9650ae18272510a2dad4631559948bd373b697f2633bf1210350"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0012-private-legacy-control-attach.patch",
+      "sha256": "548b18c9fa95496523c6dd9d3b385c36e9e621feae5baf5f5f73f6056eacaf88"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0013-private-legacy-card-info.patch",
+      "sha256": "0bcc3ae385b60b0a69e8706f0c4b42392b30c04030beb88698d41a56132c18b8"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0014-private-legacy-gpu-id-info.patch",
+      "sha256": "0f2ca8f2c407e9c53cedf13e604ab0af96cd009f360aa1b49a91936b134a4a9e"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0015-private-legacy-attached-ids.patch",
+      "sha256": "5586dc57a4cc80df6f7b6e381948718feff6438812a29f90046511dd412265cf"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0016-private-legacy-probed-ids.patch",
+      "sha256": "97b70eee19aaefc9182f38496cbbff3e1b23208439cb7c03d439a58fd14a9ad5"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0017-private-legacy-device-ids.patch",
+      "sha256": "ca21693fef710708766d06e515b9d3e9706affcba7ca970789f54be3ec80abf6"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0018-private-legacy-device-object.patch",
+      "sha256": "37e8ece80204169b09d9ef12b5b6cf5aa95fecdeaca1aeb26c5e6879c4d29b1e"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0019-private-legacy-memory-object.patch",
+      "sha256": "958e53d58127a058bf9888143800701687d9a39b01ec4ac4a39664f565482d86"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0020-private-legacy-vaspace-object.patch",
+      "sha256": "5c9a1579141257bd1e1cebda95d36f4ce019e74b34b28a9609960af44569e5c4"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0021-private-legacy-channel-group-object.patch",
+      "sha256": "b02bf13ba5956cb21883dd467b4ae23e567872f665ba1a05104f35fd3f6d2cec"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0022-private-legacy-context-share-object.patch",
+      "sha256": "92436c1e29be63627e7a963e83c1cd07ba41f19d69691b26deeb0e92e4d58042"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0023-private-legacy-channel-object.patch",
+      "sha256": "e5f9563802dd7a826edb99566b9aabe48153cd118b49b16dce2dcf714fefa556"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0024-private-legacy-subdevice-and-tpc-mask.patch",
+      "sha256": "b9fe9aaee761717ff96fa8e5d9611291a9da0850345e228bf0420cd59f9ef697"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0025-private-legacy-binapi-object.patch",
+      "sha256": "19005d07753568c49cc079fb2d66ed2a508e9cf6c91f0ac303ebf70d71bdad4a"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0026-private-legacy-usermode-object.patch",
+      "sha256": "5e22adacfd90d21a71f2ffff8bb339a66aa2384eb91e5c8562bfeac3296e35a5"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0027-private-legacy-map-memory.patch",
+      "sha256": "bab9b7f854bf8cb7ea17e6c2d5eeea8301ae516d875ad1a9a863e20770c723b7"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0028-private-legacy-p2p-object.patch",
+      "sha256": "c224dfddfd65becc8fdd7ef68ec68c2925c94d0a500f56c0f0d8c96663dac0d3"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0029-private-legacy-p2p-controls.patch",
+      "sha256": "f976de9783699469732c82652239b5242991080503e27cd14241ce32b5444936"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0030-private-legacy-rusd-object.patch",
+      "sha256": "4f382b59196139a1f72864a150acaf8bf855dc0fcb60511e2fa208e1addfa6bd"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0031-private-legacy-pm-channel-depth.patch",
+      "sha256": "53fc27c276c5b516994e62615d4fa151a56eabc3fa4d532f44849716f2fde920"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0032-private-legacy-pm-procfs-channel-depth.patch",
+      "sha256": "62a3be6867d05ad4efdf745f80e0c738da31bad0aeb1962638f05ad0dc74c361"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0033-private-legacy-pm-vma-access-guard.patch",
+      "sha256": "719c14bf057f618ac3ff4a0631126b5b5d16e63244ae8691b4c113eb0dd044b6"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0034-private-legacy-vma-free-list-lock.patch",
+      "sha256": "08df9e3927860abfcdab133a85d1fe8c10c575af61ecf8af47f3c103403a01e0"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0035-private-legacy-pm-recovery-provider.patch",
+      "sha256": "7ac552341f5d9ab4287c638abe6ea8a12696100657bcbbad0a8c179d632d63e0"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0036-private-legacy-pm-channel-dpm-modeset.patch",
+      "sha256": "3818e03e17e71d9435cc5e7f02bd3ea81ade9727ab7d9684f08cedd2cee9e7d0"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0037-private-legacy-sys-params.patch",
+      "sha256": "263cc7ae57cd6927261098bbcb8e14600392d0d901c5f9f5485fc44a5edd157d"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0038-private-legacy-gpu-register-control.patch",
+      "sha256": "ff5116f29efb0c4a13e7b6995d79567289dfbe3a91020b8f3944ee713a00548b"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0039-private-legacy-engine-object.patch",
+      "sha256": "ab874f2244d121b7a3fec081c92f32f1f62ef1ed750397799bd051565e4b88e8"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0040-private-legacy-update-device-mapping-info.patch",
+      "sha256": "b66b51f2fc761f79052a16dd6dc123d2c1fda537e0b0e7cf715fbbcf77c2021a"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0043-private-legacy-version-check.patch",
+      "sha256": "9a0e2f8d1687eceaf892a8af7d827ff0a7c3a2aae407a71f60842f4f8bb9f0f6"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0044-private-legacy-gpu-name-string.patch",
+      "sha256": "cbd6624558d9d7cf82c3c8571a92e9f7466e9b653ccbecb0a53b661f51537af8"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0045-private-legacy-client-share-policy.patch",
+      "sha256": "82ebe2a19af0ad829f7f7aedd867edca7ce220202a9d7080835fb2e6abc0b4a7"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/patches/r580.178.04/proprietary/0010-local-modification-notices.patch",
+      "sha256": "2059c60344ea9311153034b26e8b64a21e1ee059b7d5030757c6bc04627e90fa"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/tools/build_private_proprietary580.py",
+      "sha256": "b9c882bdf122f63164742ef66dca554992c942bfb94d83482660fcaa66ced2fe"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/src/rm_session_endpoint.h",
+      "sha256": "6a447c37f738eb09098b419e42203b4b4d16c85c108510acba483f37c6e700c7"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/tests/test_private_proprietary580.py",
+      "sha256": "ea0ce9087797872c21711e0e90437983db8ee7be4d46e557485e586722e7d7ed"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/tests/test_hybrid_pm_channel_depth.py",
+      "sha256": "0d888027e95b64388f37e9857142152a6fff24f56ede435712563a8b4cdd17da"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/tests/test_hybrid580_pm_provider_recovery.py",
+      "sha256": "77e439b1e4224846bf9e2b39699bbc4cb8d8b1cc5d130092d718f027a293344c"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/tests/test_private_pm_recovery_provider.py",
+      "sha256": "2534ac91166fa58d217713460fcd83d6c8f586eb9f12ca8e75ecf66bed84bdbb"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/tests/test_usermode_object.py",
+      "sha256": "83270cc8d8f6424866420a0ec3990ccb7b7ea67a695608bb405104c04e46e7dc"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/src/hybrid580-gpu-session.h",
+      "sha256": "b2d84c220d00741d89c415ca2d97e9573da4c4539be9eaf4e5e6b324bc11f3bf"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/src/hybrid580-control-session.h",
+      "sha256": "7c63550def573e81eb2c4816648c721456d4542359cdfa735c6d156ea4bff44c"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/src/hybrid580_pm_provider_recovery.h",
+      "sha256": "f2b2322302d7c71fae17b31840dc341fa560d5219720ab3c2bf4481b0c108172"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/src/hybrid580_pm_provider_kernel.h",
+      "sha256": "a7a79984b3f9d53383299b5c4a928f6f6aac3a5624bbabc8dff6d6299d2a6bb4"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/tests/test_private_backend_control_session.py",
+      "sha256": "556f701e4bf4048f167de5eaf7610220e116dbf89d09f9a8b8b062c60db639e6"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/tests/test_private_backend_gpu_session.py",
+      "sha256": "9afcd5cd3899b12e36a251e873615d4d328e4e7cd02f0cb5bff6f3f37dba502b"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/tests/test_private_backend_file_projection.py",
+      "sha256": "87797266a90dd8b9a5072849a8503f9794e94a4eebe148cb05422f5f5d755224"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/tests/test_private_backend_pci.py",
+      "sha256": "e15cf8f8fb2183f7e1ec98b50709e9e1b3403920ee64184440d6ca9d3c6beb84"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/tools/build_proprietary580_wrapper_baseline.py",
+      "sha256": "15b90e912237ff8258be8b319f9eed1059a2ecc93f2cfec968254cda44b015c6"
+    },
+    {
+      "path": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/build/experiments/proprietary580-wrapper-baseline-v1/nvidia-580.178.04/Module.symvers",
+      "sha256": "ccf8312d1ff2e8292ddff13482b2f0a66b86d50af6c034bd2b35a994a3ad51fb"
+    },
+    {
+      "path": "/usr/src/linux-headers-6.8.0-147-generic/Module.symvers",
+      "sha256": "8e7eb5798789b9610c324b3d9b13373d88c30ae17bb9e41e622efd05e0277a87"
+    },
+    {
+      "path": "/usr/src/linux-headers-6.8.0-147-generic/.config",
+      "sha256": "cf8454bc2e67effab87a5bff3c39042f2d8d106b6a777c4302e52f50d23b7400"
+    }
+  ],
+  "loaded_or_installed": false,
+  "module_license": "NVIDIA",
+  "module_license_changed": false,
+  "observed_at_utc": "20261028T232922158502Z",
+  "qualification": "build-or-analysis-failed",
+  "remaining_boundaries": [
+    "No frontend/provider registered or real broker invocation",
+    "No VFS/LSM/deferred-fput/unload runtime validation",
+    "Private UVM/modeset consumer routing is not integrated",
+    "Module-wide RM/NVLink/caps initialization precedes BDF GPU gate",
+    "Original proprietary core retains its objtool return/frame warnings",
+    "No GPU or CUDA execution; no performance claim"
+  ],
+  "runtime_isolation_validated": false,
+  "schema": "private-proprietary580-v1",
+  "status": "failed",
+  "steps": [
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-v",
+        "-s",
+        "tests",
+        "-p",
+        "test_private_proprietary580.py"
+      ],
+      "cwd": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a",
+      "duration_seconds": 0.064,
+      "exit_code": 1,
+      "log": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/evidence/logs/private-proprietary-cpu-contracts-20261028T232922158502Z.log",
+      "log_bytes": 1639,
+      "log_sha256": "1bfc01171f849faaef0b3e570ef2d71fe33c7af67f19513f8162e73081b4c359",
+      "name": "cpu-contracts"
+    }
+  ],
+  "work_dir": "/tmp/codex-legacy580-82f331adf902434d888780592d92647a/build/experiments/pc3-v100-private-proprietary580-82f331adf902434d888780592d92647a"
+}
