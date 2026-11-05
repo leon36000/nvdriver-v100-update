@@ -1,0 +1,72 @@
+{
+  "attached_ids_capture_requested": false,
+  "binapi_alloc_capture_requested": false,
+  "binapi_control_capture_requested": false,
+  "channel_alloc_capture_requested": false,
+  "credential_file": "/home/pc6/Desktop/ACCES-BANC-GPU.env",
+  "credential_host": "pc6",
+  "credential_value_logged": false,
+  "credential_value_persisted": false,
+  "cuda_graphs_requested": true,
+  "device_alloc_capture_requested": false,
+  "error": "PC3 payload staging failed",
+  "exit_code": 2,
+  "failure_stage": "local_preflight",
+  "gpu_id_info_capture_requested": false,
+  "guest_pin_bootstrap": {
+    "created_by_attempt": true,
+    "fingerprint": "SHA256:wqpBfvwVW7iYhOk7LWB8y438NOQHSgfcUgnOGaRK6ts",
+    "mode": "0o600",
+    "preexisting_matching_pin": false,
+    "sha256": "f2a0d9cee6258d3ab957f78b2e7c6600c2c5f99c3efbcd35c7591daddde61376",
+    "uid": 0
+  },
+  "host_ssh_transport": {
+    "credential_logged": false,
+    "credential_persisted": false,
+    "mode": "ephemeral ASKPASS, protected PC6 credential fetched on demand",
+    "pc3_host_fingerprint": "SHA256:04QMvstMuydvbUvYWq7HguzzjN1RzwG8zoqL4olbs5g"
+  },
+  "managed_prefetch_requested": true,
+  "map_memory_capture_requested": false,
+  "memory_mode": "managed",
+  "module": {
+    "bytes": 15608,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_probe.sm70-sm120.fatbin",
+    "sha256": "fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305"
+  },
+  "observed_at_utc": "2026-10-23T05:45:45+00:00",
+  "p2p_alloc_capture_requested": false,
+  "p2p_control_capture_requested": false,
+  "payload_cleanup_passed": false,
+  "payload_staging": {
+    "bytes": 188393,
+    "path": "/tmp/codex-v100-payload-6c0b3241aeee4d2285fd3db42750baf9.json",
+    "sha256": "6301b40b7bfb00e61d7afff39006e24cded30aedbe938e0cde29b0b50db6ce00",
+    "uploaded": false
+  },
+  "phase": null,
+  "phase_capture_requested": false,
+  "probe": {
+    "bytes": 125168,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808"
+  },
+  "probed_ids_capture_requested": false,
+  "qualification": "failed",
+  "remote_script_sha256": "35da0945cb5d648554ca27f3f4e598b68f82211142d4cbf5f6e373b9aefb9ee1",
+  "rm_control_capture_requested": false,
+  "runner_source": {
+    "bytes": 139721,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/run_pc3_v100_guest_reference.py",
+    "sha256": "cc721874f86406260575d425ea292847dcb2af10b19aec8b6ce4127dea251901"
+  },
+  "rusd_alloc_capture_requested": false,
+  "schema": "nvidia-hybrid-pc3-v100-reference-transport-v1",
+  "subdevice_alloc_capture_requested": false,
+  "target": "pc3@192.168.1.126",
+  "temporary_guest_pin_cleanup": {
+    "passed": true,
+    "remaining": false
+  }
+}
