@@ -136,7 +136,7 @@ sonarqube-token-access-preflight:
   image: python:3.12-bookworm
   script:
     - >-
-      python3 -B tools/probe_sonar_token_access.py
+      python3 -B -m tools.probe_sonar_token_access
       --endpoint "$SONAR_HOST_URL"
       --fallback-ip "${SONAR_HOST_IP:-}"
       --project-key nvdriver-v100-update

@@ -29,6 +29,7 @@ PINNED_HOST_SOURCE_SHA256 = "947b734156b9d3f86b6e7f66d02a068dfaced47c8bd820e8d57
 PINNED_KERNEL_SOURCE_SHA256 = "eb08482739ac2f601bb1954ac8a88035e7752b91e8188aaba6730b952c48c22a"
 TEST_ROOT = ROOT / "tests"
 IMPLEMENTATION_INPUTS = (
+    ".gitlab-ci.yml",
     "kernels/experiments/concurrent_dispatch_v1/hybrid_probe.cu",
     "kernels/hybrid_probe.cu",
     "patches/r595.112.07/0001-open-core-rethunk-return-thunk.patch",

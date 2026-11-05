@@ -5,6 +5,10 @@
 from __future__ import annotations
 
 import json
+import os
+from pathlib import Path
+import subprocess
+import sys
 import unittest
 from unittest.mock import patch
 
@@ -130,6 +134,33 @@ class SonarTokenAccessProbeTests(unittest.TestCase):
         self.assertEqual(report["connection_address_source"], "dns")
         self.assertFalse(report["fallback_attempted"])
         self.assertEqual(calls[0][4], self.candidate)
+
+    def test_ci_module_entrypoint_works_without_pythonpath(self):
+        root = Path(__file__).resolve().parents[1]
+        ci_config = (root / ".gitlab-ci.yml").read_text(encoding="utf-8")
+        self.assertIn(
+            "python3 -B -m tools.probe_sonar_token_access",
+            ci_config,
+        )
+        self.assertNotIn(
+            "python3 -B tools/probe_sonar_token_access.py",
+            ci_config,
+        )
+
+        environment = os.environ.copy()
+        for name in ("PYTHONPATH", "SONAR_TOKEN", "SONAR_HOST_URL", "SONAR_HOST_IP"):
+            environment.pop(name, None)
+        result = subprocess.run(
+            [sys.executable, "-B", "-m", "tools.probe_sonar_token_access", "--help"],
+            cwd=root,
+            env=environment,
+            check=False,
+            capture_output=True,
+            text=True,
+            timeout=10,
+        )
+        self.assertEqual(result.returncode, 0, msg=result.stderr)
+        self.assertIn("usage:", result.stdout.lower())
 
 
 if __name__ == "__main__":
