@@ -1,0 +1,83 @@
+{
+  "artifacts": {
+    "fatbin_images": [
+      "sm_70",
+      "sm_120"
+    ],
+    "fatbin_sha256": "9b6c772590c0e7ce6a95e36fb637b769eceef69856979761d739028d8b45675f",
+    "probe_links_libcuda": false,
+    "probe_sha256": "ad1d63b81f8ec2dbeba37c156bf230c9059f7d9d54e5a48e9097303408966898",
+    "sm120_cubin_sha256": "983ffee5ae4f8e6c1f312ef7aaca5887bea352d9bc98060b3099fcaa71a38ea9",
+    "sm70_cubin_sha256": "db3399bb49d6daa1d1abbfa1487515f8e4e46206743f7046a3ff9b906898fe4b"
+  },
+  "build_command": [
+    "python3",
+    "-B",
+    "tools/build_probe.py",
+    "--output-dir",
+    "build/probe-local-no-gpu-v1-20261102T0601Z"
+  ],
+  "build_manifest_sha256": "889f2e5a1d8a10541430bb24774115160f0e4c7f610c64654c617544fbf345b5",
+  "build_tool_sha256": "ded3f130a18fdde3e41378b0009844b3b5392c724ca411c6d34700c7adca3115",
+  "contract_command": [
+    "build/probe-local-no-gpu-v1-20261102T0601Z/hybrid_cuda_probe",
+    "--contract"
+  ],
+  "contract_exit_code": 0,
+  "contract_report": {
+    "contract_version": 9,
+    "device_report_fields": [
+      "concurrent_managed_access",
+      "pageable_memory_access",
+      "pageable_memory_access_uses_host_page_tables",
+      "managed_memory_passed",
+      "managed_prefetch_passed",
+      "cuda_graphs_passed",
+      "cuda_graph_launches",
+      "performance_benchmark_passed",
+      "performance_benchmark"
+    ],
+    "probe_report_fields": [
+      "expected_device_pci_by_sm",
+      "memory_mode",
+      "managed_prefetch_requested",
+      "managed_prefetch_api",
+      "devices",
+      "cuda_graphs_requested",
+      "cuda_graph_api",
+      "performance_benchmark_requested",
+      "concurrent_kernel_test_requested",
+      "concurrent_kernel_dispatch_passed",
+      "concurrent_kernel_dispatch",
+      "peer_transfer_requested",
+      "peer_transfer"
+    ],
+    "probe_report_schema": "nvidia-hybrid-probe-v2",
+    "schema": "nvidia-hybrid-probe-contract-v1"
+  },
+  "execution_boundary": {
+    "cuda_driver_api_initialized": false,
+    "cuda_kernel_executed": false,
+    "cuda_module_loaded": false,
+    "driver_module_installed_or_loaded": false,
+    "gpu_accessed": false,
+    "process_started_in_contract_mode": true,
+    "runtime_or_hardware_validated": false
+  },
+  "observed_at_utc": "2026-11-02T06:02:36.824770+00:00",
+  "qualification": "compiled-static-images-and-contract-only",
+  "schema": "hybrid-probe-build-acceptance-v1",
+  "source_sha256": {
+    "kernels/hybrid_probe.cu": "eb08482739ac2f601bb1954ac8a88035e7752b91e8188aaba6730b952c48c22a",
+    "src/hybrid_cuda_probe.cpp": "8c4da13a2e9ee7dc8d6aaf2150aa17361425178cb1dc44c46a98e607b28ab9b5"
+  },
+  "tool_inputs_sha256_by_basename": {
+    "clang++": "c300fb439c33a9b2cbde6112a09681ce8278a5bb08bdea3ba0cc91e32d07120d",
+    "cuda.h": "756c5d0b68c4bf33d279419d5db479d63263abe80c1e476f8899f4b077215bf5",
+    "cuobjdump": "d76bde61348813d19643b18d7ae1b8287eabcdb2195cc4d6e6d860a9b1995900",
+    "fatbinary": "54ad3cda647855ac018eb6829513d80d65dfdc320b526f6817ba8df606951c10",
+    "ptxas": "85836303aeca1a2ac9387a6d364b276a3603907c95c3b06c9e3aadf46195b0d8",
+    "volta13": "587688b00f2207d1804aecc702eabc3d1c7d4ef62495187a1ce374d22c3a2ee6",
+    "x86_64-linux-gnu-g++-15": "e6718f7e0c7d057c3ff77b550c603da9bc4030e3ede3c053705acce1293dbe4d"
+  }
+}

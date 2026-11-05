@@ -1,0 +1,256 @@
+{
+  "adapter_fixture_output": "R580 payloads are explicitly translated into the R595 UVM ABI: passed",
+  "adapters": {
+    "copy_engines": "passed: copies the R580 capability prefix and explicitly defaults R595 scrub=false",
+    "event_callbacks": "passed: adapts the exact R595 5-slot Linux table into the R580 7-slot table, in legacy field order, with startDevice/stopDevice NULL",
+    "p2p": "passed: translates R580/R595 link enum, BAR1 classification, stable fields; PCIe atomics default false",
+    "pma_statistics": "passed: preserves the live R580 pointer; pinned R595 runtime reads only shared prefix counters at offsets 8 and 16",
+    "retained_channel": "passed: translates the old runlist base to base+0x90 and CHID[11:0] token"
+  },
+  "classification": "compiled-static-header-and-CPU-adapter-contract",
+  "compiler": [
+    "cc"
+  ],
+  "created_utc": "2026-10-23T08:19:35.736696+00:00",
+  "event_adapter_fixture_output": "R595 Linux UVM event table maps to the R580 Linux ABI and passed",
+  "gpu_registration_abi": {
+    "classification": "pinned-header-and-host-compiler-layout",
+    "gpu_info": {
+      "field_count": 35,
+      "r580_size": 240,
+      "r595_size": 240,
+      "size_and_offsets_equal": true
+    },
+    "gpu_platform_info": {
+      "declaration_identical": true,
+      "fields": [
+        "pci_dev",
+        "dma_addressable_start",
+        "dma_addressable_limit"
+      ],
+      "normalized_declaration": "typedef struct { struct pci_dev *pci_dev; NvU64 dma_addressable_start; NvU64 dma_addressable_limit; } UvmGpuPlatformInfo;"
+    },
+    "hardware_validated": false
+  },
+  "inputs": {
+    "adapter_fixture": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests/fixtures/hybrid580_uvm_abi_compat_test.c",
+      "sha256": "b886757194ecc8bc5e644cf6a06413d837409006ddc597c882d1f8dc41da6f6f"
+    },
+    "adapter_header": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/hybrid580_uvm_abi_compat.h",
+      "sha256": "c54ba50f1b5d5c230da70acf33c9e9386bc5f596f9b535fa4456c08895a4fc49"
+    },
+    "event_adapter_fixture": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests/fixtures/hybrid580_uvm_event_compat_test.c",
+      "sha256": "069c571d4143572b0aa23b7bdf974f8b01d85a9bf3b47981df08a0d9ddd468ec"
+    },
+    "event_adapter_header": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/hybrid580_uvm_event_compat.h",
+      "sha256": "51fe39de3f35e35d8266ebd6974eeb25db6b1e46b83eef8f9d0697a1bf5b63d3"
+    },
+    "layout_probe": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tests/fixtures/uvm_branch_layout_probe.c",
+      "sha256": "6aee92ef9879e5fb7e6eac2ea03a48b65adbea4f655b5503a21187ef67302c5b"
+    },
+    "r580_channel_host": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-private-proprietary-build-v2-20261023/nvidia-580.178.04/nvidia-uvm/uvm_ampere_host.c",
+      "sha256": "7b951347fccb01d2fb5337df1c21706ec010ec9849ccd7e7808a3a15c968c3e9"
+    },
+    "r580_runlist_header": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-private-proprietary-build-v2-20261023/nvidia-580.178.04/nvidia-uvm/hwref/ampere/ga100/dev_runlist.h",
+      "sha256": "a6c03ba62652b4ee4f59c7addd5ba5fbb885903ece9707f3401290d70c6e79c4"
+    },
+    "r580_types": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-private-proprietary-build-v2-20261023/nvidia-580.178.04/common/inc/nv_uvm_types.h",
+      "sha256": "5216a6a83924511f38c8a881ee0ffc601e2851e92e6a9b49810f9cc9e90dd614"
+    },
+    "r580_user_types": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-private-proprietary-build-v2-20261023/nvidia-580.178.04/common/inc/nv_uvm_user_types.h",
+      "sha256": "2f83bf2cf6bd7d53ab5fdb08bd820658498e2e0fd50b2d3e51823e043449cfa8"
+    },
+    "r580_uvm_interface": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-private-proprietary-build-v2-20261023/nvidia-580.178.04/common/inc/nv_uvm_interface.h",
+      "sha256": "68b6cae62ad0bdf6940d48a34084d789cd1f87a06b84310195cd2adc4b9e50f8"
+    },
+    "r595_pmm_runtime": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-r580-open-fullbuild-v3-20261023/source/kernel-open/nvidia-uvm/uvm_pmm_gpu.c",
+      "sha256": "074cd307b7700270453fa4509fcbdf12400165fb1dd4cfb7cd8e8997554640ff"
+    },
+    "r595_types": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-r580-open-fullbuild-v3-20261023/source/kernel-open/common/inc/nv_uvm_types.h",
+      "sha256": "5515b06a13072584d4668251c2e31bbb724118c914691eb4abf1cd76c1b63e65"
+    },
+    "r595_user_types": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-r580-open-fullbuild-v3-20261023/source/kernel-open/common/inc/nv_uvm_user_types.h",
+      "sha256": "fffd902620642d566fe06619343a151795c7d0e4540c904a41baea24aae03d8c"
+    },
+    "r595_uvm_interface": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-r580-open-fullbuild-v3-20261023/source/kernel-open/common/inc/nv_uvm_interface.h",
+      "sha256": "4d8e4f46bc2afc99cb074f425f459b98ca072d50b91e25b7085db0df0081c89d"
+    }
+  },
+  "layout": {
+    "r580": {
+      "channel_divergence_offset": 1104,
+      "channel_resource_size": 80,
+      "channel_size": 1120,
+      "copy_caps_size": 8,
+      "copy_mask_offset": 4,
+      "event_drain_p2p_offset": 40,
+      "event_isr_top_half_offset": 32,
+      "event_resume_offset": 8,
+      "event_resume_p2p_offset": 48,
+      "event_start_device_offset": 16,
+      "event_stop_device_offset": 24,
+      "event_suspend_offset": 0,
+      "event_table_size": 56,
+      "gpu_client_info_offsets": {
+        "hClient": 0,
+        "hSmcPartRef": 4
+      },
+      "gpu_client_info_size": 8,
+      "gpu_conf_caps_offsets": {
+        "bConfComputingEnabled": 0,
+        "bKeyRotationEnabled": 1
+      },
+      "gpu_conf_caps_size": 2,
+      "gpu_info_offsets": {
+        "accessCntrBufferCount": 132,
+        "atsSupport": 224,
+        "cdmmEnabled": 226,
+        "ceClass": 92,
+        "computeClass": 96,
+        "connectedToSwitch": 184,
+        "egmBaseAddr": 208,
+        "egmEnabled": 200,
+        "egmPeerId": 201,
+        "gpcCount": 116,
+        "gpuArch": 80,
+        "gpuConfComputeCaps": 152,
+        "gpuImplementation": 84,
+        "gpuInTcc": 100,
+        "hostClass": 88,
+        "isSimulated": 112,
+        "maxGpcCount": 120,
+        "maxTpcPerGpcCount": 128,
+        "name": 0,
+        "nonPasidAtsSupport": 225,
+        "nvlDirectConnect": 227,
+        "nvlDirectConnectMemoryWindowStart": 232,
+        "nvswitchEgmMemoryWindowStart": 216,
+        "nvswitchMemoryWindowStart": 192,
+        "smcEnabled": 136,
+        "smcSwizzId": 140,
+        "smcUserClientInfo": 144,
+        "subdeviceCount": 104,
+        "sysmemLink": 156,
+        "sysmemLinkRateMBps": 160,
+        "systemMemoryWindowSize": 176,
+        "systemMemoryWindowStart": 168,
+        "tpcCount": 124,
+        "uuid": 64,
+        "virtMode": 108
+      },
+      "gpu_info_size": 240,
+      "link_c2c": 7,
+      "link_nvlink1": 2,
+      "link_pcie": 1,
+      "p2p_size": 64,
+      "pma_free2m_offset": 16,
+      "pma_free64k_offset": 8,
+      "pma_size": 48
+    },
+    "r595": {
+      "channel_divergence_offset": 1104,
+      "channel_resource_size": 80,
+      "channel_size": 1128,
+      "copy_caps_size": 8,
+      "copy_mask_offset": 4,
+      "event_drain_p2p_offset": 24,
+      "event_isr_top_half_offset": 0,
+      "event_resume_offset": 16,
+      "event_resume_p2p_offset": 32,
+      "event_suspend_offset": 8,
+      "event_table_size": 40,
+      "gpu_client_info_offsets": {
+        "hClient": 0,
+        "hSmcPartRef": 4
+      },
+      "gpu_client_info_size": 8,
+      "gpu_conf_caps_offsets": {
+        "bConfComputingEnabled": 0,
+        "bKeyRotationEnabled": 1
+      },
+      "gpu_conf_caps_size": 2,
+      "gpu_info_offsets": {
+        "accessCntrBufferCount": 132,
+        "atsSupport": 224,
+        "cdmmEnabled": 226,
+        "ceClass": 92,
+        "computeClass": 96,
+        "connectedToSwitch": 184,
+        "egmBaseAddr": 208,
+        "egmEnabled": 200,
+        "egmPeerId": 201,
+        "gpcCount": 116,
+        "gpuArch": 80,
+        "gpuConfComputeCaps": 152,
+        "gpuImplementation": 84,
+        "gpuInTcc": 100,
+        "hostClass": 88,
+        "isSimulated": 112,
+        "maxGpcCount": 120,
+        "maxTpcPerGpcCount": 128,
+        "name": 0,
+        "nonPasidAtsSupport": 225,
+        "nvlDirectConnect": 227,
+        "nvlDirectConnectMemoryWindowStart": 232,
+        "nvswitchEgmMemoryWindowStart": 216,
+        "nvswitchMemoryWindowStart": 192,
+        "smcEnabled": 136,
+        "smcSwizzId": 140,
+        "smcUserClientInfo": 144,
+        "subdeviceCount": 104,
+        "sysmemLink": 156,
+        "sysmemLinkRateMBps": 160,
+        "systemMemoryWindowSize": 176,
+        "systemMemoryWindowStart": 168,
+        "tpcCount": 124,
+        "uuid": 64,
+        "virtMode": 108
+      },
+      "gpu_info_size": 240,
+      "link_c2c": 8,
+      "link_nvlink1": 3,
+      "link_pcie": 1,
+      "link_pcie_bar1": 2,
+      "p2p_size": 72,
+      "pma_free2m_offset": 16,
+      "pma_free64k_offset": 8,
+      "pma_size": 96
+    }
+  },
+  "limitations": [
+    "No NVIDIA RM function or proprietary R580 binary was executed by this audit.",
+    "No kernel module was loaded and no GPU was accessed.",
+    "The event fixture validates callback-pointer mapping but does not invoke the callbacks or prove their runtime lifetime behavior.",
+    "R580/R595 UvmGpuInfo layouts and UvmGpuPlatformInfo declarations match statically; no registration call, proprietary RM path, GPU initialization, or Volta HAL was exercised.",
+    "This proves pinned source layout and CPU conversion contracts only; hardware runtime remains unvalidated."
+  ],
+  "pma_runtime_fields_read": [
+    "numFreePages2m",
+    "numFreePages64k"
+  ],
+  "r580_doorbell": {
+    "chid_field": "11:0",
+    "offset": "0x090",
+    "source_mapping_found": true
+  },
+  "schema": "hybrid-uvm-branch-abi-audit-v3",
+  "source_roots": {
+    "r580": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-private-proprietary-build-v2-20261023/nvidia-580.178.04",
+    "r595": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-r580-open-fullbuild-v3-20261023/source/kernel-open"
+  },
+  "status": "passed"
+}

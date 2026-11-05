@@ -1,0 +1,151 @@
+{
+  "abi": {
+    "ambiguous_imports": 0,
+    "control_fd_replacement": {
+      "crc_matches": true,
+      "dispatch": "nvUvmInterfaceDupAddressSpaceWithControlFd",
+      "replaces": "nvUvmInterfaceDupAddressSpace"
+    },
+    "hybrid_uvm_direct_public_imports_matched": 78,
+    "provider_import_crcs_verified": true,
+    "stock_r595_uvm_public_apis_matched": 79,
+    "unresolved_imports": 0
+  },
+  "build_warning_inventory": {
+    "components": {
+      "frontend": {
+        "pahole_version_mismatch_lines": 1,
+        "reported_warning_lines": 1,
+        "warning_log_in_report": false
+      },
+      "legacy_provider": {
+        "build_log_hash_verified": true,
+        "build_log_sha256": "ddec2f6b5b1f440f2d1ccaa889de1d2cfb3127d156e397dad5d5ad28c5ddc983",
+        "categories": {
+          "objtool_frame_pointer": 1756,
+          "objtool_naked_return": 44978,
+          "other_warning": 12
+        },
+        "reported_warning_lines": 46746,
+        "unclassified_warning_lines": 12
+      },
+      "open_provider": {
+        "build_log_hash_verified": true,
+        "build_log_sha256": "0c336ed6320f9c27f2a24f90a4dc671b5f9f3ea135f2a101693fc7d80036d9a6",
+        "pahole_version_mismatch_lines": 1,
+        "reported_warning_lines": 11157,
+        "unclassified_warning_lines": 11156
+      },
+      "uvm": {
+        "build_log_hash_verified": true,
+        "build_log_sha256": "d482cb7523d264d11ec75d1f1ded81655c6b2676049c36f17eeba56a52ddc36e",
+        "pahole_version_mismatch_lines": 1,
+        "reported_warning_lines": 2,
+        "unclassified_warning_lines": 1
+      }
+    },
+    "counting_complete": true,
+    "limitations": [
+      "Warning totals are bound to the build reports and available raw logs.",
+      "The R580 provider warning categories are retained from its structured build report; the proprietary warning sources are not attributed here.",
+      "Some warning lines remain aggregated or unclassified; warning counts do not establish runtime safety or impact."
+    ],
+    "message_classification_complete": false,
+    "reported_total_lines": 57906,
+    "unclassified_warning_lines": 11169
+  },
+  "cuda_execution_validated": false,
+  "dependency_resolution": {
+    "nvidia": [
+      "ecdsa_generic.ko.zst",
+      "hybrid580_open.ko",
+      "hybrid580_legacy.ko",
+      "nvidia.ko"
+    ],
+    "nvidia_uvm": [
+      "ecdsa_generic.ko.zst",
+      "hybrid580_open.ko",
+      "hybrid580_legacy.ko",
+      "nvidia.ko",
+      "nvidia_uvm.ko"
+    ],
+    "softdep_builtin": [
+      "ecdh_generic"
+    ],
+    "softdep_module": [
+      "ecdsa_generic.ko.zst"
+    ]
+  },
+  "gpu_accessed": false,
+  "kernel_release": "7.0.0-38-generic",
+  "limitations": [
+    "This receipt verifies compile, symbol CRC, static bundle, and isolated kmod dependency closure only.",
+    "No module was installed or loaded; no RM, GPU, CUDA, UVM runtime, P2P, or performance test ran.",
+    "The R580 proprietary module is identified by hash; this receipt does not grant redistribution rights."
+  ],
+  "module_installed": false,
+  "module_loaded": false,
+  "modules": {
+    "frontend": {
+      "bytes": 3182520,
+      "depends": [
+        "hybrid580_legacy",
+        "hybrid580_open"
+      ],
+      "license": "Dual MIT/GPL",
+      "module_name": "nvidia",
+      "sha256": "20cb41ed3bd3955395ca27bb1d6bb7357b66961fe8704690b2ccc5baa6067601",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": ""
+    },
+    "legacy": {
+      "bytes": 137000840,
+      "depends": [],
+      "license": "NVIDIA",
+      "module_name": "hybrid580_legacy",
+      "sha256": "f38e9bf452d4d28c6ac1281eaa5095523daf231a129721db2176a4e8fa2ee02f",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.196.07"
+    },
+    "open": {
+      "bytes": 37265448,
+      "depends": [],
+      "license": "Dual MIT/GPL",
+      "module_name": "hybrid580_open",
+      "sha256": "67052f19d331f10f463f8b04dc8746819fbc4040487009fa7a079c97cd2d4d05",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "595.99.02"
+    },
+    "uvm": {
+      "bytes": 57135792,
+      "depends": [
+        "nvidia"
+      ],
+      "license": "Dual MIT/GPL",
+      "module_name": "nvidia_uvm",
+      "sha256": "5bac018abdb0a73f18fe456b131d730d23591e3f8b40204a6238b97efd058432",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "595.99.02"
+    }
+  },
+  "observed_at_utc": "2026-11-03T12:25:33.205878+00:00",
+  "qualification": "four-module-static-build-and-dependency-closure",
+  "report_sha256": {
+    "bundle": "0be5ad73899129dc5c8a4567cae06580082b2daccb8878263a586a29f5b140fa",
+    "depmod": "45b7998881a2fdb84db294e10759437ca9ee6eca139f0649e5cdbd5ba6bbc95f",
+    "frontend": "04a08db497fcf40abd733ea069b0dd983a8abb68a486facbbe28bc17807a22c3",
+    "legacy": "76e15357a700734df8d60c0c4186aae09d1876fb7983d698b8632261dc4321a1",
+    "open": "63d8e30b652186c9736f6bccb1ce6518f3a87ceae945f5b2a5a33778cfc4f5ac",
+    "uvm": "e675c785cabb3f528c7909d1519c10e7c65ecda0bb39af89fe14d4fc503cdeb3"
+  },
+  "runtime_or_hardware_validated": false,
+  "schema": "hybrid-r580-r595-split-provider-build-sanitized-v2",
+  "symbol_closure": {
+    "frontend_imports": 311,
+    "legacy_provider_imports": 305,
+    "open_provider_imports": 461,
+    "uvm_imports": 331,
+    "uvm_imports_from_frontend": 81,
+    "uvm_imports_from_kernel": 250
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "created_utc": "2026-10-28T21:33:51.990465+00:00",
+  "implementation_sha256": {
+    "tools/audit_hybrid_candidate_bundle.py": "5d1adaeb7a331a873b7f431551985aa6ee522610a1669b88a110cecf059a9e70",
+    "tools/audit_r595_uvm_symbol_closure.py": "be1dea8c4f00f146fcdf3c9c8016313ceb40c0e3d92cf153f48bb597c20c7fdc",
+    "tools/build_hybrid_frontend.py": "c704aa43e45efd7266ce2f3ebdc1ffd6437c4e917254f19b2d52ca0515a586ab",
+    "tools/probe_r595_gv100_complete_hal.py": "5f2325ec151a3606fa71ddcdb3e0c92271b606ad591a46846f529fda0b7d0c25",
+    "tools/probe_volta_uvm_port.py": "539d55209d845359831ae80e025b2a2772620184d5514486fe1712e2b6b6bd08"
+  },
+  "issues": [],
+  "kernel_release": "7.0.0-38-generic",
+  "module_installed": false,
+  "module_loaded": false,
+  "modules": {
+    "frontend": {
+      "depends": [
+        "hybrid580_legacy",
+        "hybrid580_open"
+      ],
+      "license": "Dual MIT/GPL",
+      "name": "nvidia",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/hybrid-r580-standard-nvidia-frontend-v1-20261028T212901Z/nvidia.ko",
+      "sha256": "1f5eba02a37b5b5d67b7ee496655cfdb9d61510e57c04d7f0f9b8dda1cb20533",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": ""
+    },
+    "legacy": {
+      "depends": [],
+      "license": "NVIDIA",
+      "name": "hybrid580_legacy",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-legacy-client-share-policy-v1/nvidia-580.178.04/hybrid580_legacy.ko",
+      "sha256": "4d5cb36f24dfe0af6b8cd56c5cd111acd4474c187c7642a4d6e0f5953054ab4e",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.178.04"
+    },
+    "open": {
+      "depends": [],
+      "license": "Dual MIT/GPL",
+      "name": "hybrid580_open",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-open-client-share-policy-matched-v1/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/hybrid580_open.ko",
+      "sha256": "9d4f328460a4e6d33b3626627db63296f8f386bb53e8e3a9bc0187878ace7e62",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.178.04"
+    },
+    "uvm": {
+      "depends": [
+        "nvidia"
+      ],
+      "license": "Dual MIT/GPL",
+      "name": "nvidia_uvm",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/hybrid-r580-nvidia-uvm-v1-20261028T2129Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm.ko",
+      "sha256": "622a3b79bf46ae42440af3f0af1f260f04b1e770d9a57892a93af0a1ee221fd7",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.178.04"
+    }
+  },
+  "qualification": "static-module-bundle-closure",
+  "reports": {
+    "frontend": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/hybrid-r580-standard-nvidia-frontend-v1-20261028T212901Z.json",
+      "sha256": "3761dcc88761267b0fad5e10971b8a840cc0f038bce1e9766fd877ca069c3d2c"
+    },
+    "legacy": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/r580-legacy-client-share-policy-v1.json",
+      "sha256": "4999831c9e19c66996689ba251ff5d09126c4e3a18698011cad426b49886aa9e"
+    },
+    "open": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/r580-open-client-share-policy-matched-v1.json",
+      "sha256": "cabe731fd7785af60e8b4a17f19e77be138a8ba39d1d2a27cdd40492aeaf6050"
+    },
+    "uvm": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/hybrid-r580-nvidia-uvm-v1-20261028T2129Z.json",
+      "sha256": "0518b985acb55c1b2351d27e96fdd39f7f5a57f4234e10c4611191ef863d560e"
+    }
+  },
+  "runtime_or_hardware_validated": false,
+  "schema": "hybrid-module-bundle-static-audit-v1",
+  "status": "passed",
+  "symbol_closure": {
+    "frontend_imports": {
+      "ambiguous_matches": [],
+      "crc_mismatches": [],
+      "import_count": 305,
+      "matched_by_provider": {
+        "kernel": 67,
+        "legacy": 119,
+        "open": 119
+      }
+    },
+    "frontend_private_import_count": 238,
+    "module_exports": {
+      "frontend": {
+        "actual_export_count": 80,
+        "crc_mismatches": [],
+        "expected_export_count": 80,
+        "missing_exports": [],
+        "unexpected_exports": []
+      },
+      "legacy": {
+        "actual_export_count": 145,
+        "crc_mismatches": [],
+        "expected_export_count": 145,
+        "missing_exports": [],
+        "unexpected_exports": []
+      },
+      "open": {
+        "actual_export_count": 145,
+        "crc_mismatches": [],
+        "expected_export_count": 145,
+        "missing_exports": [],
+        "unexpected_exports": []
+      }
+    },
+    "standard_uvm_interface_closure": {
+      "crc_mismatches": [],
+      "frontend_only_extensions": [
+        "nvUvmInterfaceAreGpuProvidersSame",
+        "nvUvmInterfaceGetGpuProvider"
+      ],
+      "missing_exports": [],
+      "missing_frontend_extensions": [],
+      "unexpected_exports": []
+    },
+    "standard_uvm_interface_export_count": 80,
+    "standard_uvm_interface_import_count": 77,
+    "uvm_imports": {
+      "ambiguous_matches": [],
+      "crc_mismatches": [],
+      "import_count": 324,
+      "matched_by_provider": {
+        "frontend": 77,
+        "kernel": 247
+      }
+    }
+  },
+  "symvers": {
+    "frontend": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/hybrid-r580-standard-nvidia-frontend-v1-20261028T212901Z/Module.symvers",
+      "sha256": "9bd2d923562f4e36e9b1b8459b8731463bb9daf7aa061190a172840758f7bc28"
+    },
+    "kernel": {
+      "path": "/usr/src/linux-headers-7.0.0-38-generic/Module.symvers",
+      "sha256": "ea539a464a3beb960dc84288afaf41c1e2d6a4506902af14affe80111d1bf97e"
+    },
+    "legacy": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-legacy-client-share-policy-v1/nvidia-580.178.04/Module.symvers",
+      "sha256": "2f802678a2f18a02a148720174fcb60d728c8163b83e7f431b277a73530cd577"
+    },
+    "open": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-open-client-share-policy-matched-v1/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/Module.symvers",
+      "sha256": "c6558b423931f8fc8f9f5b4d78e0bbb99bb5a25c21efad1e16110cf3a3a84bfd"
+    }
+  }
+}

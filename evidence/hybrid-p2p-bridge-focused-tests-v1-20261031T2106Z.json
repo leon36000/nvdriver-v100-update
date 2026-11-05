@@ -1,0 +1,35 @@
+{
+  "candidate_module_operation_performed": false,
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "tests.test_hybrid_frontend_gpu",
+    "tests.test_hybrid580_uvm_p2p_object_route",
+    "tests.test_r595_device_p2p_control_fd",
+    "-v"
+  ],
+  "finished_at_utc": "2026-10-31T21:07:55+00:00",
+  "hardware_validated": false,
+  "log": {
+    "bytes": 10236,
+    "mode": "0600",
+    "path": "evidence/logs/hybrid-p2p-bridge-focused-tests-v1-20261031T2106Z.log",
+    "sha256": "db241ecac7f1720365acf3e594788fb13b7f4aef83d77d33d4fbdb40cb1aedea"
+  },
+  "process_exit_code": 0,
+  "reported_duration_seconds": 0.078,
+  "schema": "hybrid-p2p-bridge-focused-tests-v1",
+  "software_only": true,
+  "source_hashes": {
+    "src/hybrid580_uvm_callback_bridge.c": "d98803c63d2d8b50a858cc9a9b08207f61f991244bd2ce468d98f1adc5e8a9fe",
+    "src/hybrid580_uvm_p2p_object_route.h": "4c2e499d64194ad2225084691359abdf575a64535fcb5cba5eb6834fb98e85dc",
+    "tests/test_hybrid580_uvm_p2p_object_route.py": "db7191dd181845819401622aca7ff629e5929905fa1fb83a7c547e4afc22815d",
+    "tests/test_hybrid_frontend_gpu.py": "4b7383a1fd50abcf62c7d20728f1832ad728013f357e23e92b8f39645021d60f",
+    "tests/test_r595_device_p2p_control_fd.py": "4e59c9e9484f1509f801c3f9b733956379402ef33552679d3ea7c60d6eb1d741"
+  },
+  "started_at_utc": "2026-10-31T21:07:55+00:00",
+  "status": "passed",
+  "tests_run": 51
+}

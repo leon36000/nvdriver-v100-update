@@ -1,0 +1,304 @@
+{
+  "header": {
+    "class": "ELF64",
+    "data": "2's complement, little endian",
+    "entry_point_address": "0x0",
+    "machine": "Advanced Micro Devices X86-64",
+    "os_abi": "UNIX - System V",
+    "type": "REL (Relocatable file)"
+  },
+  "linux_module_export_evidence": {
+    "interpretation": "No __ksymtab evidence found; global ELF symbol bindings alone do not prove Linux kernel exports.",
+    "ksymtab_sections": [],
+    "ksymtab_symbols": [],
+    "verified_symbol_names_from_ksymtab_markers": []
+  },
+  "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/kernel-stub/hybrid_lab_stub.ko",
+  "schema": "nvidia-hybrid-elf-audit-v1",
+  "sections": [
+    {
+      "index": "0",
+      "name": "NULL",
+      "type": "0000000000000000"
+    },
+    {
+      "index": "1",
+      "name": "__patchable_function_entries",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "2",
+      "name": ".rela__patchable_function_entries",
+      "type": "RELA"
+    },
+    {
+      "index": "3",
+      "name": ".text",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "4",
+      "name": ".rela.text",
+      "type": "RELA"
+    },
+    {
+      "index": "5",
+      "name": ".bss",
+      "type": "NOBITS"
+    },
+    {
+      "index": "6",
+      "name": ".data",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "7",
+      "name": ".rela.data",
+      "type": "RELA"
+    },
+    {
+      "index": "8",
+      "name": ".rodata",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "9",
+      "name": ".rela.rodata",
+      "type": "RELA"
+    },
+    {
+      "index": "10",
+      "name": ".init.text",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "11",
+      "name": ".rela.init.text",
+      "type": "RELA"
+    },
+    {
+      "index": "12",
+      "name": "__mcount_loc",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "13",
+      "name": ".rela__mcount_loc",
+      "type": "RELA"
+    },
+    {
+      "index": "14",
+      "name": ".exit.text",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "15",
+      "name": ".rela.exit.text",
+      "type": "RELA"
+    },
+    {
+      "index": "16",
+      "name": ".modinfo",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "17",
+      "name": ".exit.data",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "18",
+      "name": ".rela.exit.data",
+      "type": "RELA"
+    },
+    {
+      "index": "19",
+      "name": ".init.data",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "20",
+      "name": ".rela.init.data",
+      "type": "RELA"
+    },
+    {
+      "index": "21",
+      "name": ".debug_info",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "22",
+      "name": ".rela.debug_info",
+      "type": "RELA"
+    },
+    {
+      "index": "23",
+      "name": ".debug_abbrev",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "24",
+      "name": ".debug_loclists",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "25",
+      "name": ".rela.debug_loclists",
+      "type": "RELA"
+    },
+    {
+      "index": "26",
+      "name": ".debug_aranges",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "27",
+      "name": ".rela.debug_aranges",
+      "type": "RELA"
+    },
+    {
+      "index": "28",
+      "name": ".debug_rnglists",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "29",
+      "name": ".rela.debug_rnglists",
+      "type": "RELA"
+    },
+    {
+      "index": "30",
+      "name": ".debug_line",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "31",
+      "name": ".rela.debug_line",
+      "type": "RELA"
+    },
+    {
+      "index": "32",
+      "name": ".debug_str",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "33",
+      "name": ".debug_line_str",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "34",
+      "name": ".comment",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "35",
+      "name": ".note.GNU-stack",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "36",
+      "name": ".debug_frame",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "37",
+      "name": ".rela.debug_frame",
+      "type": "RELA"
+    },
+    {
+      "index": "38",
+      "name": ".return_sites",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "39",
+      "name": ".rela.return_sites",
+      "type": "RELA"
+    },
+    {
+      "index": "40",
+      "name": ".call_sites",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "41",
+      "name": ".rela.call_sites",
+      "type": "RELA"
+    },
+    {
+      "index": "42",
+      "name": ".note.gnu.build-id",
+      "type": "NOTE"
+    },
+    {
+      "index": "43",
+      "name": "__version_ext_names",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "44",
+      "name": "__version_ext_crcs",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "45",
+      "name": "__versions",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "46",
+      "name": ".gnu.linkonce.this_module",
+      "type": "PROGBITS"
+    },
+    {
+      "index": "47",
+      "name": ".rela.gnu.linkonce.this_module",
+      "type": "RELA"
+    },
+    {
+      "index": "48",
+      "name": ".note.Linux",
+      "type": "NOTE"
+    },
+    {
+      "index": "49",
+      "name": ".symtab",
+      "type": "SYMTAB"
+    },
+    {
+      "index": "50",
+      "name": ".strtab",
+      "type": "STRTAB"
+    },
+    {
+      "index": "51",
+      "name": ".shstrtab",
+      "type": "STRTAB"
+    }
+  ],
+  "sha256": "ba67db8e6faa2d57284247d86ba709c6fee27f2680b0b75a0354265eca4468c3",
+  "symbol_counts": {
+    "global_defined": 5,
+    "undefined": 6,
+    "weak_defined": 0
+  },
+  "symbols": {
+    "global_defined": [
+      "__pfx_cleanup_module",
+      "__pfx_init_module",
+      "__this_module",
+      "cleanup_module",
+      "init_module"
+    ],
+    "undefined": [
+      "__fentry__",
+      "__x86_return_thunk",
+      "default_llseek",
+      "misc_deregister",
+      "misc_register",
+      "simple_read_from_buffer"
+    ],
+    "weak_defined": []
+  }
+}
