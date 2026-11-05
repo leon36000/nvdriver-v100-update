@@ -1,0 +1,64 @@
+{
+  "capture_mode": "event_cleanup",
+  "error": "ValueError:event-cleanup observer exceeded its fixed path, ABI, or lifecycle boundary",
+  "exit_code": 2,
+  "expected_driver": "595.99.02",
+  "expected_gpu_uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77",
+  "expected_kernel": "7.0.0-38-generic",
+  "expected_pci": "0000:02:00.0",
+  "host_key_alias": "pc3",
+  "local_artifacts": {
+    "fatbin": {
+      "bytes": 19016,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-pc3-rtx5080-event-close-v1-20261027/hybrid_probe.sm70-sm120.fatbin",
+      "sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741"
+    },
+    "observer": {
+      "bytes": 255392,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/rm_ioctl_observer-event-cleanup-lineage-v2-20261027/rm_ioctl_observer",
+      "sha256": "992cc267487bb7e441555131e8731bd8d570a9551a4b4e99108e38519c07449f"
+    },
+    "probe": {
+      "bytes": 168064,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-pc3-rtx5080-event-close-v1-20261027/hybrid_cuda_probe",
+      "sha256": "9fb5bf0d612b07b21f500e53f01539fe130f0dd8df746de19c454dbe6687d646"
+    }
+  },
+  "local_artifacts_after": {
+    "fatbin": {
+      "bytes": 19016,
+      "sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741"
+    },
+    "observer": {
+      "bytes": 255392,
+      "sha256": "992cc267487bb7e441555131e8731bd8d570a9551a4b4e99108e38519c07449f"
+    },
+    "probe": {
+      "bytes": 168064,
+      "sha256": "9fb5bf0d612b07b21f500e53f01539fe130f0dd8df746de19c454dbe6687d646"
+    }
+  },
+  "observed_at_utc": "2026-10-27T21:19:44.241930+00:00",
+  "probe_contract": {
+    "build_manifest_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-pc3-rtx5080-event-close-v1-20261027/build-manifest.json",
+    "build_manifest_sha256": "1914e4de7ac51e8aa8c5461b73313c8969f0cbe6dd1eca4efe5247fa167820c0",
+    "contract_version": 5,
+    "fatbin_sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741",
+    "probe_report_schema": "nvidia-hybrid-probe-v2",
+    "probe_sha256": "9fb5bf0d612b07b21f500e53f01539fe130f0dd8df746de19c454dbe6687d646",
+    "schema": "nvidia-hybrid-probe-contract-v1",
+    "source_inputs_sha256": {
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/kernels/hybrid_probe.cu": "6e6effc856fc12474c09f6b8b8006497d6c30e3133353abbb3159cb80bfd4541",
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/hybrid_cuda_probe.cpp": "2a3e42b6c1f9130f880db90adb6ef3e35ccc35650e1b64d38fb3593e9c2945e7"
+    }
+  },
+  "qualification": "failed",
+  "remote_script_sha256": "9fb6a90db5dc5c33b8e5a64715f7bd7617a9c37fe5f656d5cdcee2ccfd1b2416",
+  "schema": "nvidia-hybrid-pc3-rtx5080-ioctl-shape-runner-v2",
+  "ssh_exit_code": 0,
+  "ssh_stderr_bytes": 0,
+  "ssh_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "ssh_stdout_bytes": 82198,
+  "ssh_stdout_sha256": "297317f0e7a7a576bc16e059b0c2430206c7f7dc889e3c826678b6582b62e8a7",
+  "target": "pc3@pc3"
+}

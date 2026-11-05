@@ -1,0 +1,347 @@
+{
+  "capture_mode": "event_cleanup",
+  "exit_code": 0,
+  "expected_driver": "595.99.02",
+  "expected_gpu_uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77",
+  "expected_kernel": "7.0.0-38-generic",
+  "expected_pci": "0000:02:00.0",
+  "host_key_alias": "pc3",
+  "local_artifacts": {
+    "fatbin": {
+      "bytes": 19016,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-pc3-rtx5080-event-close-v1-20261027/hybrid_probe.sm70-sm120.fatbin",
+      "sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741"
+    },
+    "observer": {
+      "bytes": 255184,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/rm_ioctl_observer-event-cleanup-lineage-v3-20261027/rm_ioctl_observer",
+      "sha256": "8813e7429e55ae3bca93b7bce3bb5347224b42b46e78f439cb13a951cd244a3a"
+    },
+    "probe": {
+      "bytes": 168064,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-pc3-rtx5080-event-close-v1-20261027/hybrid_cuda_probe",
+      "sha256": "9fb5bf0d612b07b21f500e53f01539fe130f0dd8df746de19c454dbe6687d646"
+    }
+  },
+  "local_artifacts_after": {
+    "fatbin": {
+      "bytes": 19016,
+      "sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741"
+    },
+    "observer": {
+      "bytes": 255184,
+      "sha256": "8813e7429e55ae3bca93b7bce3bb5347224b42b46e78f439cb13a951cd244a3a"
+    },
+    "probe": {
+      "bytes": 168064,
+      "sha256": "9fb5bf0d612b07b21f500e53f01539fe130f0dd8df746de19c454dbe6687d646"
+    }
+  },
+  "observed_at_utc": "2026-10-27T21:23:27.965970+00:00",
+  "probe_contract": {
+    "build_manifest_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-pc3-rtx5080-event-close-v1-20261027/build-manifest.json",
+    "build_manifest_sha256": "1914e4de7ac51e8aa8c5461b73313c8969f0cbe6dd1eca4efe5247fa167820c0",
+    "contract_version": 5,
+    "fatbin_sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741",
+    "probe_report_schema": "nvidia-hybrid-probe-v2",
+    "probe_sha256": "9fb5bf0d612b07b21f500e53f01539fe130f0dd8df746de19c454dbe6687d646",
+    "schema": "nvidia-hybrid-probe-contract-v1",
+    "source_inputs_sha256": {
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/kernels/hybrid_probe.cu": "6e6effc856fc12474c09f6b8b8006497d6c30e3133353abbb3159cb80bfd4541",
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/src/hybrid_cuda_probe.cpp": "2a3e42b6c1f9130f880db90adb6ef3e35ccc35650e1b64d38fb3593e9c2945e7"
+    }
+  },
+  "qualification": "rtx5080-r595-kernel-phase-validated-event-cleanup-partial",
+  "remote": {
+    "artifacts_after": {
+      "fatbin": {
+        "bytes": 19016,
+        "sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741"
+      },
+      "observer": {
+        "bytes": 255184,
+        "sha256": "8813e7429e55ae3bca93b7bce3bb5347224b42b46e78f439cb13a951cd244a3a"
+      },
+      "probe": {
+        "bytes": 168064,
+        "sha256": "9fb5bf0d612b07b21f500e53f01539fe130f0dd8df746de19c454dbe6687d646"
+      }
+    },
+    "artifacts_before": {
+      "fatbin": {
+        "bytes": 19016,
+        "sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741"
+      },
+      "observer": {
+        "bytes": 255184,
+        "sha256": "8813e7429e55ae3bca93b7bce3bb5347224b42b46e78f439cb13a951cd244a3a"
+      },
+      "probe": {
+        "bytes": 168064,
+        "sha256": "9fb5bf0d612b07b21f500e53f01539fe130f0dd8df746de19c454dbe6687d646"
+      }
+    },
+    "capture_mode": "event_cleanup",
+    "cleanup_passed": true,
+    "cuda_visible_devices": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77",
+    "execution_scope": {
+      "driver_or_module_changed": false,
+      "gpu_reset_requested": false,
+      "imex_configuration_changed": false,
+      "pci_binding_changed": false,
+      "vm_management_issued": false
+    },
+    "gpu": {
+      "binding": "nvidia",
+      "control_node": {
+        "major": 195,
+        "minor": 255,
+        "path": "/dev/nvidiactl"
+      },
+      "driver_version": "595.99.02",
+      "gpu_node": {
+        "identity_source": "proc-driver-gpu-information+sysfs-pci-binding",
+        "major": 195,
+        "minor": 0,
+        "path": "/dev/nvidia0",
+        "sysfs_pci": "0000:02:00.0"
+      },
+      "minor": 0,
+      "name": "NVIDIA GeForce RTX 5080",
+      "node": "/dev/nvidia0",
+      "pci": "0000:02:00.0",
+      "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77"
+    },
+    "gpu_after": {
+      "binding": "nvidia",
+      "control_node": {
+        "major": 195,
+        "minor": 255,
+        "path": "/dev/nvidiactl"
+      },
+      "driver_version": "595.99.02",
+      "gpu_node": {
+        "identity_source": "proc-driver-gpu-information+sysfs-pci-binding",
+        "major": 195,
+        "minor": 0,
+        "path": "/dev/nvidia0",
+        "sysfs_pci": "0000:02:00.0"
+      },
+      "minor": 0,
+      "name": "NVIDIA GeForce RTX 5080",
+      "node": "/dev/nvidia0",
+      "pci": "0000:02:00.0",
+      "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77"
+    },
+    "gpu_compute_process_count_after": 0,
+    "gpu_compute_process_count_before": 0,
+    "gpu_compute_process_count_prelaunch": 0,
+    "hostname": "pc3",
+    "ioctl_observation": {
+      "coverage_status": "partial",
+      "event_cleanup": {
+        "causal_attribution": "not-proven",
+        "cleanup_route_candidate_observed": true,
+        "close_range_count": 1,
+        "control_close_count": 24,
+        "control_dup_count": 0,
+        "control_open_count": 25,
+        "fd_identity_capture_complete": true,
+        "gpu_aliases_without_observed_close_at_process_exit": 0,
+        "gpu_close_count": 17,
+        "gpu_dup_count": 7,
+        "gpu_file_identities_without_observed_close_at_process_exit": 0,
+        "gpu_open_count": 14,
+        "pending_event_allocations_at_close_range": 1,
+        "pending_event_allocations_at_gpu_close": 0,
+        "pending_event_allocations_on_open_gpu_files_at_process_exit": 0,
+        "rm_free_ioctl_count": 94,
+        "root_free_candidate_count": 1,
+        "root_free_success_after_event_alloc_count": 0,
+        "root_free_success_count": 1,
+        "successful_control_close_count": 24,
+        "successful_gpu_close_count": 17
+      },
+      "event_lifecycle": {
+        "allocation_count": 8,
+        "balanced_by_file_identity": false,
+        "free_count": 7,
+        "matched_file_identity_groups": 7
+      },
+      "hybrid_validated": false,
+      "missing_requests": [],
+      "observer_record_count": 225,
+      "record_count": 43,
+      "request_contracts": {
+        "0xc01046ce": {
+          "all_snapshots_complete": true,
+          "all_success": true,
+          "changed_record_count": 0,
+          "fd_role": "gpu",
+          "packet_size": 16
+        },
+        "0xc01046cf": {
+          "all_snapshots_complete": true,
+          "all_success": true,
+          "changed_record_count": 0,
+          "fd_role": "gpu",
+          "packet_size": 16
+        },
+        "0xc028465e": {
+          "all_snapshots_complete": true,
+          "all_success": true,
+          "changed_record_count": 0,
+          "fd_role": "control",
+          "packet_size": 40
+        },
+        "0xc038464e": {
+          "all_snapshots_complete": true,
+          "all_success": true,
+          "changed_record_count": 26,
+          "fd_role": "control",
+          "packet_size": 56
+        }
+      },
+      "request_counts": {
+        "0xc01046ce": 8,
+        "0xc01046cf": 7,
+        "0xc028465e": 2,
+        "0xc038464e": 26
+      },
+      "trace_complete": true,
+      "trace_error_count": 0
+    },
+    "kernel_release": "7.0.0-38-generic",
+    "libcuda_after": {
+      "bytes": 91505672,
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+      "sha256": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d"
+    },
+    "libcuda_before": {
+      "bytes": 91505672,
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+      "sha256": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d"
+    },
+    "module_after": {
+      "bytes": 19031070,
+      "loaded_version": "595.99.02",
+      "path": "/usr/lib/modules/7.0.0-38-generic/kernel/nvidia-595-open/nvidia.ko",
+      "sha256": "9f12e5806c2ff1f0569b783061ab9d57c71cbb909781ce0c12bd8feef3975adb"
+    },
+    "module_before": {
+      "bytes": 19031070,
+      "loaded_version": "595.99.02",
+      "path": "/usr/lib/modules/7.0.0-38-generic/kernel/nvidia-595-open/nvidia.ko",
+      "sha256": "9f12e5806c2ff1f0569b783061ab9d57c71cbb909781ce0c12bd8feef3975adb"
+    },
+    "observer_error_bytes": 0,
+    "observer_exit_code": 0,
+    "observer_output_bytes": 1099,
+    "observer_report_bytes": 68724,
+    "observer_report_sha256": "a75a159524e158bc878dab812cd44726b436b5a38938136882c4454977a0b5f6",
+    "observer_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observer_stdout_sha256": "2e75511d2520cb19b217400a5767609924e3a4ea628e5d4e6da0a4816b96e733",
+    "phase": {
+      "cleanup_errors": [],
+      "cleanup_passed": true,
+      "completed_operations": [
+        "cuInit",
+        "cuDriverGetVersion",
+        "cuDeviceGetCount",
+        "cuDeviceGet",
+        "cuDeviceGetName",
+        "cuDeviceGetPCIBusId",
+        "cuDeviceGetAttribute.major",
+        "cuDeviceGetAttribute.minor",
+        "cuDeviceGetAttribute.concurrent_managed_access",
+        "cuDeviceGetAttribute.pageable_memory_access",
+        "cuDeviceGetAttribute.pageable_memory_access_uses_host_page_tables",
+        "cuCtxCreate_v2",
+        "cuCtxSetCurrent",
+        "cuCtxGetDevice",
+        "cuModuleLoad",
+        "cuModuleGetFunction(hybrid_arch)",
+        "cuMemAlloc_v2",
+        "cuLaunchKernel(hybrid_arch)",
+        "cuCtxSynchronize",
+        "cuMemcpyDtoH_v2"
+      ],
+      "driver_api": 13020,
+      "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+      "error": "",
+      "expected_pci": "00000000:02:00.0",
+      "expected_result": 1200,
+      "numeric_result_passed": true,
+      "phase": "kernel",
+      "result_value": 1200,
+      "schema": "nvidia-cuda-driver-phase-v1",
+      "selected_device": {
+        "compute_capability": "12.0",
+        "concurrent_managed_access": true,
+        "name": "NVIDIA GeForce RTX 5080",
+        "pageable_memory_access": true,
+        "pageable_memory_access_uses_host_page_tables": false,
+        "pci_bus_id": "0000:02:00.0",
+        "sm": 120
+      },
+      "status": "phase-passed"
+    },
+    "phase_stdout_bytes": 1098,
+    "phase_stdout_sha256": "7319a4003332967d91e0c680136f2a23b02bfaa67cb988e8f3e32ec29b2e6459",
+    "probe_exit_code": 0,
+    "remote_workspace_removed": true,
+    "schema": "nvidia-hybrid-pc3-rtx5080-ioctl-shape-reference-v2",
+    "status": "complete"
+  },
+  "remote_qualification": {
+    "event_cleanup": {
+      "causal_attribution": "not-proven",
+      "cleanup_route_candidate_observed": true,
+      "close_range_count": 1,
+      "control_close_count": 24,
+      "control_dup_count": 0,
+      "control_open_count": 25,
+      "fd_identity_capture_complete": true,
+      "gpu_aliases_without_observed_close_at_process_exit": 0,
+      "gpu_close_count": 17,
+      "gpu_dup_count": 7,
+      "gpu_file_identities_without_observed_close_at_process_exit": 0,
+      "gpu_open_count": 14,
+      "pending_event_allocations_at_close_range": 1,
+      "pending_event_allocations_at_gpu_close": 0,
+      "pending_event_allocations_on_open_gpu_files_at_process_exit": 0,
+      "rm_free_ioctl_count": 94,
+      "root_free_candidate_count": 1,
+      "root_free_success_after_event_alloc_count": 0,
+      "root_free_success_count": 1,
+      "successful_control_close_count": 24,
+      "successful_gpu_close_count": 17
+    },
+    "event_lifecycle": {
+      "allocation_count": 8,
+      "balanced_by_file_identity": false,
+      "free_count": 7,
+      "matched_file_identity_groups": 7
+    },
+    "hybrid_validated": false,
+    "ioctl_coverage": "partial",
+    "numeric_result": 1200,
+    "phase": "kernel",
+    "qualification": "rtx5080-r595-kernel-phase-validated-event-cleanup-partial",
+    "request_counts": {
+      "0xc01046ce": 8,
+      "0xc01046cf": 7,
+      "0xc028465e": 2,
+      "0xc038464e": 26
+    },
+    "sm120_kernel_passed": true
+  },
+  "remote_script_sha256": "9fb6a90db5dc5c33b8e5a64715f7bd7617a9c37fe5f656d5cdcee2ccfd1b2416",
+  "schema": "nvidia-hybrid-pc3-rtx5080-ioctl-shape-runner-v2",
+  "ssh_exit_code": 0,
+  "ssh_stderr_bytes": 0,
+  "ssh_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "ssh_stdout_bytes": 82197,
+  "ssh_stdout_sha256": "9ae98b02231f2216a8c80a795a894dc3950ad5d51f0a3f7162f2031bdaf47a96",
+  "target": "pc3@pc3"
+}
