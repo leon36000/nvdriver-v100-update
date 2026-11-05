@@ -170,16 +170,25 @@ def verify_manifest(root: Path, manifest_path: str, *,
             f"unexpected={len(unexpected)})")
 
     total_bytes = 0
+    mismatches: list[str] = []
     for path in sorted(expected):
         item = expected[path]
         if actual[path] != item["mode"]:
-            raise ValueError(f"Git index mode differs from manifest: {path}")
+            mismatches.append(f"{path} (mode)")
         observed = _file_record(root, path, actual[path])
         if observed["size_bytes"] != item["size_bytes"]:
-            raise ValueError(f"file size differs from manifest: {path}")
+            mismatches.append(
+                f"{path} (size expected={item['size_bytes']}, "
+                f"observed={observed['size_bytes']})")
         if observed["sha256"] != item["sha256"]:
-            raise ValueError(f"file SHA-256 differs from manifest: {path}")
+            mismatches.append(f"{path} (SHA-256)")
         total_bytes += observed["size_bytes"]
+    if mismatches:
+        shown = "; ".join(mismatches[:20])
+        omitted = len(mismatches) - min(len(mismatches), 20)
+        if omitted:
+            shown += f"; … {omitted} more mismatch(es)"
+        raise ValueError(f"manifest content differs in {len(mismatches)} check(s): {shown}")
     return {"schema": SCHEMA, "status": "pass", "files_verified": len(expected),
             "bytes_verified": total_bytes}
 
@@ -198,9 +207,15 @@ def main() -> int:
                       help="verify a clean checkout without requiring Git in the image")
     args = parser.parse_args()
     root = args.root.resolve(strict=True)
-    result = (write_manifest(root, args.manifest) if args.write
-              else verify_manifest(root, args.manifest,
-                                   working_tree=args.verify_tree))
+    if args.write:
+        document = write_manifest(root, args.manifest)
+        result = {"schema": SCHEMA, "status": "written",
+                  "files_written": document["file_count"],
+                  "bytes_written": sum(item["size_bytes"]
+                                       for item in document["files"])}
+    else:
+        result = verify_manifest(root, args.manifest,
+                                 working_tree=args.verify_tree)
     print(json.dumps(result, sort_keys=True))
     return 0
 

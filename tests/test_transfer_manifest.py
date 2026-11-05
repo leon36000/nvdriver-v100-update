@@ -61,6 +61,13 @@ class TransferManifestTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "SHA-256"):
             verify_manifest(self.root, self.manifest)
 
+    def test_size_mismatch_reports_expected_and_observed_lengths(self):
+        write_manifest(self.root, self.manifest)
+        subprocess.run(["git", "-C", str(self.root), "add", self.manifest], check=True)
+        (self.root / "src" / "module.c").write_text("changed length\n")
+        with self.assertRaisesRegex(ValueError, r"size expected=\d+, observed=\d+"):
+            verify_manifest(self.root, self.manifest)
+
     def test_new_index_path_fails_exact_path_set_check(self):
         write_manifest(self.root, self.manifest)
         subprocess.run(["git", "-C", str(self.root), "add", self.manifest], check=True)

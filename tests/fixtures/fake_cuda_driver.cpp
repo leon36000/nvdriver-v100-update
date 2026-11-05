@@ -3,6 +3,8 @@
 // implement CUDA, access a GPU, or validate any physical NVIDIA device.
 
 #include <algorithm>
+#include <chrono>
+#include <condition_variable>
 #include <cstdint>
 #include <cstdio>
 #include <cstdlib>
@@ -160,6 +162,10 @@ bool managed_advice_unset_failure_injected = false;
 bool graph_launch_failure_injected = false;
 bool graph_launch_corruption_injected = false;
 #endif
+std::mutex concurrent_launch_gate_mutex;
+std::condition_variable concurrent_launch_gate_changed;
+unsigned int concurrent_launch_gate_arrivals = 0;
+bool concurrent_launch_gate_cancelled = false;
 
 const char *tracePath() {
   const char *path = std::getenv("FAKE_CUDA_TRACE_PATH");
@@ -305,6 +311,31 @@ void resourceSnapshot() {
 }  // namespace
 
 #define FAKE_DRIVER_LOCK std::lock_guard<std::recursive_mutex> driverLock(fake_driver_mutex)
+
+bool isConcurrentWorkFunction(CUfunction function) {
+  FAKE_DRIVER_LOCK;
+  return function && functions.count(function) &&
+         function->name == "hybrid_concurrent_work";
+}
+
+bool waitForConcurrentWorkPeer() {
+  std::unique_lock<std::mutex> lock(concurrent_launch_gate_mutex);
+  ++concurrent_launch_gate_arrivals;
+  if (concurrent_launch_gate_arrivals == 2) {
+    concurrent_launch_gate_changed.notify_all();
+    return true;
+  }
+  if (!concurrent_launch_gate_changed.wait_for(
+          lock, std::chrono::seconds(5), [] {
+            return concurrent_launch_gate_arrivals == 2 ||
+                   concurrent_launch_gate_cancelled;
+          })) {
+    concurrent_launch_gate_cancelled = true;
+    concurrent_launch_gate_changed.notify_all();
+    return false;
+  }
+  return !concurrent_launch_gate_cancelled;
+}
 
 extern "C" {
 
@@ -883,6 +914,8 @@ CUresult cuLaunchKernel(CUfunction function,
                         unsigned int block_y, unsigned int block_z,
                         unsigned int shared_bytes, CUstream stream,
                         void **kernel_parameters, void **extra) {
+  if (isConcurrentWorkFunction(function) && !waitForConcurrentWorkPeer())
+    return CUDA_ERROR_UNKNOWN;
   FAKE_DRIVER_LOCK;
   (void)grid_y;
   (void)grid_z;

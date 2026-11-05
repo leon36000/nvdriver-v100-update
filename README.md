@@ -402,11 +402,11 @@ The tools below emit create-only mode-0600 evidence reports. Use new output path
 
 ```sh
 python3 -B tools/compare_rm_control_headers.py \
-  --rtx-report evidence/pc3-rtx5080-rm-control-v1-20261021.json \
+  --rtx-report evidence/pc3-rtx5080-rm-control-v1-20261021.json.gz \
   --v100-report evidence/pc3-v100-rm-control-v1-20261021.json \
   --report evidence/pc3-volta-blackwell-rm-control-header-comparison-next.json
 python3 -B tools/summarize_rm_alloc_headers.py \
-  --rtx-report evidence/pc3-rtx5080-rm-control-v1-20261021.json \
+  --rtx-report evidence/pc3-rtx5080-rm-control-v1-20261021.json.gz \
   --v100-report evidence/pc3-v100-rm-control-v1-20261021.json \
   --report evidence/pc3-volta-blackwell-rm-alloc-header-summary-next.json
 python3 -B tools/probe_rm_ctrl_layouts.py \
