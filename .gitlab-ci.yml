@@ -8,6 +8,7 @@ variables:
 cpu-focused-regression:
   stage: software
   when: always
+  dependencies: []
   image: python:3.12-bookworm
   script:
     - python3 --version
@@ -27,6 +28,7 @@ cpu-focused-regression:
 transfer-snapshot-integrity:
   stage: software
   when: always
+  dependencies: []
   image: python:3.12-bookworm
   script:
     - python3 -B tools/verify_compressed_evidence.py --root "$CI_PROJECT_DIR" --manifest evidence/gitlab-compressed-evidence-manifest-20261105.json
@@ -37,6 +39,8 @@ transfer-snapshot-integrity:
 
 gitguardian-secret-history:
   stage: quality
+  when: always
+  dependencies: []
   image: gitguardian/ggshield:1.55.0
   variables:
     GIT_STRATEGY: clone
@@ -49,6 +53,7 @@ gitguardian-secret-history:
 sonarqube-analysis:
   stage: quality
   when: always
+  dependencies: []
   image:
     name: sonarsource/sonar-scanner-cli:11.2.1.1844_7.0.2
     entrypoint: [""]

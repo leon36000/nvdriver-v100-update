@@ -212,6 +212,21 @@ class CiSecurityReportSummaryTests(unittest.TestCase):
         self.assertNotIn("PRIVATE_PATH_MARKER", stderr.getvalue())
         self.assertIn("details suppressed", stderr.getvalue())
 
+    def test_cli_reports_fixed_schema_error_without_scanner_values(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "gitleaks-report.json").write_text(
+                '{"finding": "PRIVATE_CONTENT_MARKER"}', encoding="utf-8")
+            stdout, stderr = io.StringIO(), io.StringIO()
+            with patch("sys.argv", ["summarize", "--root", str(root)]), \
+                    redirect_stdout(stdout), redirect_stderr(stderr):
+                exit_code = main()
+        self.assertEqual(exit_code, 2)
+        self.assertEqual(stdout.getvalue(), "")
+        self.assertIn("Gitleaks report must be a JSON array", stderr.getvalue())
+        self.assertNotIn("PRIVATE_CONTENT_MARKER", stderr.getvalue())
+        self.assertNotIn(str(root), stderr.getvalue())
+
     def test_deeply_nested_json_fails_without_recursion_trace(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

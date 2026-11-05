@@ -223,8 +223,13 @@ def main() -> int:
             args.output.write_text(rendered, encoding="utf-8", newline="\n")
         print(rendered, end="")
         return 0 if result["status"] == "reports_complete" else 2
-    except (OSError, ValueError):
+    except OSError:
         print("security report summarization failed; details suppressed", file=sys.stderr)
+        return 2
+    except ValueError as error:
+        # Parser errors are emitted only from fixed schema labels and fixed field names.
+        # Filesystem failures remain generic above because their messages can include paths.
+        print(f"security report summarization failed: {error}", file=sys.stderr)
         return 2
 
 
