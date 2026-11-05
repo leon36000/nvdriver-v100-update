@@ -1,0 +1,44 @@
+{
+  "audit_base_gitlab_sha": "3d0373c209ed504a9c11a0d4994587f5ff0b3f2a",
+  "clean_index_portable_ci": {
+    "log_sha256": "7e7735f88f16504feb9a156005ddb186a06fb675b0499b68a7c71930642dddd2",
+    "status": "pass",
+    "tests_run": 29
+  },
+  "clean_index_suite": {
+    "errors": 321,
+    "failures": 71,
+    "log_sha256": "82bff69a507da520c5bd79195cbf257a2d19e2c570fa845aeed67d3230001dfa",
+    "seconds": 24.079,
+    "skipped": 6,
+    "tests_run": 2531
+  },
+  "full_suite": {
+    "implementation_source_changes": [],
+    "log_sha256": "5b5c5091adf47ae9572f61c852ed06f7bf4ef690e529f0939b7a973d366ff9d6",
+    "network_namespace_isolated": true,
+    "private_report_sha256": "4241723e638b7d42e637b82cab6c212ede3bceba59b8e97c2cd009a8d9212aa5",
+    "seconds": 188.547,
+    "status": "pass",
+    "test_source_changes": [],
+    "tests_run": 2815
+  },
+  "gpu_accessed": false,
+  "module_loaded_or_installed": false,
+  "pc3_accessed": false,
+  "qualification": "static-and-cpu-audit-only",
+  "rm_trace_vs_dispatch": {
+    "necessity_for_cuda_established": false,
+    "payloads_inspected": false,
+    "rtx_distinct": 51,
+    "rtx_not_in_dispatch_comparisons": 42,
+    "v100_distinct": 52,
+    "v100_not_in_dispatch_comparisons": 40
+  },
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-hybrid-deep-audit-v1",
+  "source_pin_mutation": {
+    "canonical_source_matches_pinned": true,
+    "mutated_temporary_source_accepted": true
+  }
+}

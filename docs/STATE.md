@@ -1,4 +1,10 @@
-# Current checkpoint — PC4 CI findings and Sonar entrypoint correction — 2026-11-05T06:41Z
+# Current checkpoint — deep audit and PC3 prohibition — 2026-11-05T07:14Z
+
+The user currently prohibits accessing PC3 or its GPUs. Historical authorization and host inventories below are superseded and do not authorize any contact. The [deep audit](AUDIT_APPROFONDI_20261105.md) is based on GitLab commit `3d0373c209ed504a9c11a0d4994587f5ff0b3f2a`; this documentation may be published in a descendant commit. MR !1 remains draft. The next work is the audit-driven RM command matrix, source-pin verifier correction, and portable test closure; no GPU validation is claimed.
+
+All older checkpoint entries below are historical snapshots; consult the deep audit and live GitLab state for current results.
+
+## Previous checkpoint — PC4 CI findings and Sonar entrypoint correction — 2026-11-05T06:41Z
 
 Canonical source: the Infrastructure-mounted `cuda13-volta-compat-20260927/driver-hybrid` snapshot. Private PC4 GitLab project `root/nvdriver-v100-update` is the remote source of truth. Its verified parent is `e3daf83c4c312b12bbac72aeaab18d3378a17c10`; the current code, test, and checkpoint changes are staged locally and have not yet been committed remotely. Draft MR [!1](https://pc4.tail0c55ff.ts.net/root/nvdriver-v100-update/-/merge_requests/1) targets protected `main`; leave it in draft.
 
