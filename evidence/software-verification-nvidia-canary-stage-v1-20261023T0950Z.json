@@ -1,0 +1,29 @@
+{
+  "command": "HYBRID_PROBE=build/probe-current-src-v1-20261022/hybrid_cuda_probe HYBRID_CUDA_PROBE=build/probe-current-src-v1-20261022/hybrid_cuda_probe python3 -B -m unittest discover -v -s tests",
+  "created_utc": "2026-10-23T09:50:44.992739+00:00",
+  "cuda_hybrid_compatibility_established": false,
+  "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+  "environment": {
+    "HYBRID_CUDA_PROBE": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "HYBRID_PROBE": "build/probe-current-src-v1-20261022/hybrid_cuda_probe"
+  },
+  "experimental_module_loaded_or_installed": false,
+  "hardware_accessed": false,
+  "log_bytes": 218385,
+  "log_path": "evidence/logs/software-verification-nvidia-canary-stage-v1-20261023T0950Z.log",
+  "log_sha256": "f65ccf570ec71c5a3f16c2ac2712711df42b92e696a2c069c9465bcaeab853d1",
+  "probe_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+  "reported_test_seconds": 45.924,
+  "returncode": 0,
+  "schema": "nvidia-hybrid-software-verification-v1",
+  "scope": "Full pinned software, static-source, package-staging and CPU-contract suite; not NVIDIA driver or hybrid CUDA runtime qualification.",
+  "source_inputs": {
+    "evidence/pc3-nvidia-canary-package-manifest-v1-20261023.json": "8aa76d874bf9ebbf9fe0c5528b4fdeb9f932b17115232b0cdbb14f5470f6e764",
+    "evidence/pc3-nvidia-canary-stage-v1-20261023T094921Z.json": "8bbef80f8ad3da40294ec7d914dfafc9e3990600c0e3d767215808b099b24e47",
+    "tests/test_stage_nvidia_canary_packages.py": "77b0a06f5c25ba21dc16809f8d1f3447549344932b3e5c5ce43255079fc4cb7c",
+    "tools/stage_nvidia_canary_packages.py": "2ce543116bcd50719490056763b138aaf3c75ab513233c3f95819bbbc568e350"
+  },
+  "status": "passed",
+  "summary_line": "Ran 961 tests in 45.924s; OK",
+  "tests_run": 961
+}

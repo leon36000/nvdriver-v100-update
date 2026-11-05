@@ -1,0 +1,58 @@
+{
+  "build_manifest": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/probe-build-libcuda-override-v8-20261029.json",
+    "sha256": "8b43faeb0d31336867e06b15bcbbc3df41c8c718cc56c8fdafc8c058c5ce2631"
+  },
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-v",
+    "-s",
+    "tests"
+  ],
+  "duration_seconds": 140.738,
+  "environment": {
+    "HYBRID_CUDA_PROBE": "/tmp/hybrid-libcuda-override-v8/hybrid_cuda_probe",
+    "HYBRID_PROBE": "/tmp/hybrid-libcuda-override-v8/hybrid_cuda_probe",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "errors": 0,
+  "exit_code": 0,
+  "failures": 0,
+  "fatbin_sha256": "b5b4fa31e18e1fb5f3c9d1e9fd8f0d36a43ca413ed63ad17b98387167e52727f",
+  "implementation_sha256": {
+    "src/hybrid_cuda_probe.cpp": "a9849b143c052d9d25f81e8696f014e1f9eb8ce89f2d8a74a8a2d164300e0e34",
+    "tests/run_hybrid_acceptance.py": "37d4f3dcf6d8cc66ac7c208bc4e0d9cf61e8978f78210c4ca3fb6917af953e17",
+    "tests/test_acceptance_contract.py": "05a1f06fcf3cc415263d942aa37058f6a46596101c40738194f94bf79065e782",
+    "tests/test_pc3_canary_host_state_collector.py": "a8f1c1b8a25906f128caf9d49e46f97b56e2985b486fe697b58c0040fb7f0882",
+    "tests/test_probe_fake_driver.py": "03ea0884dd51bdd1285c855dd62d61d363139a6fb8286eb7d368aca1c9b96533",
+    "tests/test_run_pc3_v100_guest_reference.py": "42b80635d8ea1107e863aef5dfc15fb67d5ba21df188e6f8c08762cac8098010",
+    "tools/build_probe.py": "e7f426730aaec079e5f71fee9b1fa10cfe885881771cd76902b86da4f8479aa6",
+    "tools/run_software_test_suite.py": "c9a772f961173a31a1e651d5bc050d27710c8f21048e92ad41d1e0a56c48d54a"
+  },
+  "log": {
+    "bytes": 62183,
+    "bytes_uncompressed": 515690,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/software-verification-libcuda-override-v2-20261029.log.gz",
+    "sha256_gzip": "1a59a6759995f4756519aaed14962e173497366655b5c77383883d63604b87c3",
+    "sha256_uncompressed": "e7eb8708b444c7b4f6c76aec9fa4ad4cfe8c9d79bce0f2cde7327e0a5f728e61"
+  },
+  "module_installed_or_loaded": false,
+  "observed_at_utc": "2026-10-29T17:56:35+00:00",
+  "probe_binary_sha256": "2b1d5a25cf867672de93142105fd3277823d5a4809165d061214df8ca71c4737",
+  "qualification_boundary": "CPU fixtures, source/build contracts, and fake CUDA Driver API behavior only; no V100 or Blackwell hardware execution.",
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-hybrid-software-verification-v1",
+  "skipped": 0,
+  "status": "passed-software-suite-only",
+  "test_count": 2187,
+  "test_source_manifest": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/test-source-manifest-libcuda-override-v2-20261029.json.gz",
+    "sha256_gzip": "2e6c0c0f7b9e21f60a04b59e5bb17d4230e29ddbfb7181e4f773cc283c68f4b6",
+    "sha256_uncompressed": "cd087fd1eeb54acbed1219f2d35fcfae4e8d0948a6aa64bc8bb4fa7a0bf0dba3",
+    "test_file_count": 272
+  }
+}

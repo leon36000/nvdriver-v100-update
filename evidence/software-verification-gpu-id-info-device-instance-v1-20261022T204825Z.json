@@ -1,0 +1,19 @@
+{
+  "schema": "software-verification-v1",
+  "started_at_utc": "2026-10-22T20:48:25.176019+00:00",
+  "completed_at_utc": "2026-10-22T20:49:09.453600+00:00",
+  "command": "HYBRID_PROBE=<pinned-probe> HYBRID_CUDA_PROBE=<pinned-probe> python3 -B -m unittest discover -v -s tests",
+  "probe": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+  "probe_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+  "inputs": {
+    "src/hybrid_frontend.c": "a84f316d36906db8a43201cafd6757dbdc40bc1ca6470bd81fc5c6b9efb2ff87",
+    "tests/test_hybrid_frontend.py": "3a3c34bd5e39133c1178f4871310d240828e224c8c0e8f142f00f73bd7ef94c0"
+  },
+  "exit_code": 0,
+  "elapsed_seconds": 44.277,
+  "test_count": 853,
+  "unittest_seconds": 44.155,
+  "passed": true,
+  "log": "evidence/logs/software-verification-gpu-id-info-device-instance-v1-20261022T204825Z.log",
+  "log_sha256": "ff946bb1c9e9d59db9c45d13446c8f3b18e483f4e32f7b9ceea9f78eda1024d8"
+}
