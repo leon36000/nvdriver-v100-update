@@ -1,0 +1,80 @@
+{
+  "baseline": {
+    "core_export_symbol_collisions": 0,
+    "export_count": 96,
+    "export_flavors": {
+      "EXPORT_SYMBOL": 81,
+      "EXPORT_SYMBOL_GPL": 15
+    },
+    "module_bytes": 36554816,
+    "module_sha256": "7d3deb33c19e81f86a4fe20811ff75972825a00427ea45cee7b6a3a512791616",
+    "symvers_sha256": "1afbdc5d864d0d8f7ae7c57b6def32b82a0d99da73772fafc85f5da07baaa918"
+  },
+  "core": "/usr/src/nvidia-595.99.02/nvidia/nv-kernel.o_binary",
+  "core_input_unchanged": true,
+  "core_sha256": "c19870e43606b4358d9274c4d3dec2adb1822d65ce1203520a8184cf043cafe8",
+  "error": "RuntimeError: private-build failed; see evidence/logs/r595-private-open-private-build-20261023T061821Z.log",
+  "gpu_accessed": false,
+  "hardware_validated": false,
+  "inputs_unchanged": true,
+  "kernel_release": "7.0.0-38-generic",
+  "loaded_or_installed": false,
+  "observed_at_utc": "2026-10-23T06:18:21.824349+00:00",
+  "private_export_prefix": "hybrid580_open_",
+  "private_module_name": "hybrid580_open",
+  "private_source_adaptations": {
+    "kernel-open/common/inc/nv-linux.h": "ec2e63182e6b042ef271333801f6f83298a0b389ae8c429152496b1c71950179",
+    "kernel-open/nvidia/hybrid580-file-projection.h": "2847fab2fc3f26d27a7baba5da812f7f955fe5faa6bd4ffe75a283d314aaf3d8",
+    "kernel-open/nvidia/hybrid580-open-exports.h": "33f75501c77892c5697e368be3ab72846c123ef0006b27323d838405f988333d",
+    "kernel-open/nvidia/nv-pci-table.c": "713d51895b59ebcf7b9c10c2faecfc5600e33bec0ea51202782a05f68ebad983",
+    "kernel-open/nvidia/nv-pci.c": "d35c7bb14db6236de2b47ade8421f4b6d8314e3e237aad08172cfa16b17ff848",
+    "kernel-open/nvidia/nv-platform.c": "b86b049ade0354f21f31cafa92398a5cf56e943adbafc161d33dfb651b23d45c",
+    "kernel-open/nvidia/nv-procfs.c": "450f6a68298ec61d2c8e3ee2c20b8460caf1a82bdc51811bdaa64b46685b6ae7",
+    "kernel-open/nvidia/nv.c": "cfba87333c0c578457efadafcbc5ead7a46a0e55f4509056b53e49999c4e313c",
+    "kernel-open/nvidia/nvidia.Kbuild": "7c5840d3cea083b9b2a56b8940654d9eefaaf474904a2edb3d5f57fa75cc2607"
+  },
+  "qualification": "failed",
+  "schema": "private-open595-wrapper-v1",
+  "source": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/research/open-gpu-kernel-modules-595.99.02/source/open-gpu-kernel-modules-595.99.02",
+  "source_file_count": 3810,
+  "source_tree_manifest_sha256": "6d4ae86fb03f3afac63007c3c13422b114c93f5ab6a271ccb3dde5fb2440c066",
+  "source_tree_unchanged": true,
+  "source_version": "595.99.02",
+  "steps": [
+    {
+      "argv": [
+        "make",
+        "-C",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open595-wrapper-fileproj-v1-20261023/baseline/source/kernel-open",
+        "KERNEL_UNAME=7.0.0-38-generic",
+        "NV_KERNEL_MODULES=nvidia",
+        "-j4",
+        "modules"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 9.878,
+      "exit_code": 0,
+      "log": "evidence/logs/r595-private-open-baseline-build-20261023T061821Z.log",
+      "log_sha256": "4e6c84bff3ef6112a6cc099d4853d3cabced952c864ae00ae28b03331b347a2f",
+      "name": "baseline-build"
+    },
+    {
+      "argv": [
+        "make",
+        "-C",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open595-wrapper-fileproj-v1-20261023/private/source/kernel-open",
+        "KERNEL_UNAME=7.0.0-38-generic",
+        "NV_KERNEL_MODULES=nvidia",
+        "-j4",
+        "modules"
+      ],
+      "cwd": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+      "duration_seconds": 6.272,
+      "exit_code": 2,
+      "log": "evidence/logs/r595-private-open-private-build-20261023T061821Z.log",
+      "log_sha256": "8c1c8cad088de0ea2e2603ba175940c29df9144f3c0672711b73066205b00522",
+      "name": "private-build"
+    }
+  ],
+  "work_dir": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open595-wrapper-fileproj-v1-20261023"
+}
