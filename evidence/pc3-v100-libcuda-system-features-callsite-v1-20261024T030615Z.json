@@ -1,0 +1,50 @@
+{
+  "guest_observation": {
+    "caller": {
+      "image": "libcuda.so.580.178.04",
+      "nearest_dynamic_symbol_after": [
+        "0x4a1db0 T cudbgMain"
+      ],
+      "nearest_dynamic_symbol_before": [
+        "0x3a56e0 T cuVDPAUCtxCreate"
+      ],
+      "rva": "0x48bc88",
+      "window_start": "0x48bc58",
+      "window_stop": "0x48bcb8"
+    },
+    "disassembly": "\n/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04:     file format elf64-x86-64\n\n\nDisassembly of section .text:\n\n000000000048bc58 <cuVDPAUCtxCreate@@Base+0xe6578>:\n  48bc58:\t49 89 cc             \tmov    %rcx,%r12\n  48bc5b:\t53                   \tpush   %rbx\n  48bc5c:\t4c 89 c3             \tmov    %r8,%rbx\n  48bc5f:\t48 83 ec 28          \tsub    $0x28,%rsp\n  48bc63:\te8 88 ab cd ff       \tcall   1667f0 <time@plt>\n  48bc68:\t66 0f ef c0          \tpxor   %xmm0,%xmm0\n  48bc6c:\t48 89 45 b8          \tmov    %rax,-0x48(%rbp)\n  48bc70:\t0f 29 45 c0          \tmovaps %xmm0,-0x40(%rbp)\n  48bc74:\t0f 1f 40 00          \tnopl   0x0(%rax)\n  48bc78:\t31 c0                \txor    %eax,%eax\n  48bc7a:\t48 89 da             \tmov    %rbx,%rdx\n  48bc7d:\t4c 89 e6             \tmov    %r12,%rsi\n  48bc80:\t44 89 ef             \tmov    %r13d,%edi\n  48bc83:\te8 d8 a4 cd ff       \tcall   166160 <ioctl@plt>\n  48bc88:\t85 c0                \ttest   %eax,%eax\n  48bc8a:\t79 2c                \tjns    48bcb8 <cuVDPAUCtxCreate@@Base+0xe65d8>\n  48bc8c:\te8 2f af cd ff       \tcall   166bc0 <__errno_location@plt>\n  48bc91:\t8b 00                \tmov    (%rax),%eax\n  48bc93:\t83 f8 04             \tcmp    $0x4,%eax\n  48bc96:\t74 e0                \tje     48bc78 <cuVDPAUCtxCreate@@Base+0xe6598>\n  48bc98:\t83 f8 0b             \tcmp    $0xb,%eax\n  48bc9b:\t74 db                \tje     48bc78 <cuVDPAUCtxCreate@@Base+0xe6598>\n  48bc9d:\t48 83 c4 28          \tadd    $0x28,%rsp\n  48bca1:\tb8 59 00 00 00       \tmov    $0x59,%eax\n  48bca6:\t5b                   \tpop    %rbx\n  48bca7:\t41 5c                \tpop    %r12\n  48bca9:\t41 5d                \tpop    %r13\n  48bcab:\t41 5e                \tpop    %r14\n  48bcad:\t41 5f                \tpop    %r15\n  48bcaf:\t5d                   \tpop    %rbp\n  48bcb0:\tc3                   \tret\n  48bcb1:\t0f 1f 80 00 00 00 00 \tnopl   0x0(%rax)\n",
+    "driver_or_module_changed": false,
+    "elf_header": "  Class:                             ELF64\n  Data:                              2's complement, little endian\n  Type:                              DYN (Shared object file)\n  Machine:                           Advanced Micro Devices X86-64",
+    "gpu_accessed": false,
+    "hostname": "pc3-v100",
+    "kernel_release": "6.8.0-147-generic",
+    "libcuda": {
+      "bytes": 96284520,
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+      "sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9"
+    },
+    "objdump_version": "GNU objdump (GNU Binutils for Ubuntu) 2.42",
+    "read_only": true,
+    "schema": "nvidia-hybrid-v100-libcuda-callsite-inspection-v1",
+    "status": "observed"
+  },
+  "observed_at_utc": "2026-10-24T03:06:15+00:00",
+  "schema": "nvidia-hybrid-pc3-v100-libcuda-callsite-static-v1",
+  "source_sensitivity_report": "evidence/pc3-v100-system-features-sensitivity-v1-20261024T030436Z.json",
+  "source_sensitivity_report_sha256": "fa8ae0ffae130f906c0cac96e9d34d646671afc9311a478feec0adf41850cead",
+  "system_scope": {
+    "driver_or_module_changed": false,
+    "firmware_changed": false,
+    "gpu_accessed": false,
+    "pci_binding_changed": false,
+    "vm_management_issued": false
+  },
+  "target": "pc3-v100 guest",
+  "transport_host": {
+    "guest_host_key_verified": true,
+    "hostname": "pc3",
+    "kernel_release": "7.0.0-38-generic",
+    "sudo_identity_verified": true
+  },
+  "transport_read_only": true
+}

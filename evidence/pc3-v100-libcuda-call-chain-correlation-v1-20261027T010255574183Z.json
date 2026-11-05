@@ -1,0 +1,64 @@
+{
+  "generated_at_utc": "2026-10-27T01:02:55+00:00",
+  "inputs": {
+    "ghidra_report": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-v100-libcuda-ghidra-function-v2-20261027T005038430029Z.json",
+      "sha256": "1b450727a9ee288223fb8cdeab8e1f50c574bc2f0f8fd059ca97b4ef212186b9"
+    },
+    "sensitivity_report": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-v100-system-features-sensitivity-v1-20261027T010034Z.json",
+      "sha256": "6e20768f567445f9716f25931da0299cddfb517e774d9f1802d5e9758712abf9"
+    }
+  },
+  "interpretation": "The immediate runtime caller return offset matches the source RVA plus five bytes for one static unconditional-call reference into the observed ioctl helper. Ghidra's FUN_* labels are analysis-generated, not NVIDIA source names.",
+  "limits": [
+    "The callsite correlation does not establish the caller's semantic purpose.",
+    "It does not prove where SYSTEM_GET_FEATURES bits are consumed.",
+    "The Ghidra incoming-reference list was truncated; the matched reference is present in its retained sample.",
+    "No context creation, allocation, kernel execution, UVM migration, P2P, or hybrid driver path was exercised."
+  ],
+  "observation": {
+    "api_outcomes_equal": true,
+    "caller_chain_offsets": [
+      "0x495acc",
+      "0x4600fc",
+      "0x49d4c2",
+      "0x2ba6e9",
+      "0x2d2340",
+      "0x331c32",
+      "0x3279b0"
+    ],
+    "controls_equal": true,
+    "direct_function_entry_rva": "0x48bc40",
+    "direct_function_name": "FUN_0058bc40",
+    "direct_ioctl_return_rva": "0x48bc88",
+    "driver_api": 13000,
+    "gpu": {
+      "driver_version": "580.178.04",
+      "name": "Tesla V100-SXM2-16GB",
+      "pci": "0000:00:05.0",
+      "uuid": "GPU-42d06a85-027a-75ea-7857-a8de27ad465e"
+    },
+    "kernel_mask_per_run": 9,
+    "kernel_release": "6.8.0-147-generic",
+    "libcuda_sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9",
+    "masks": [
+      9,
+      8,
+      1,
+      0
+    ],
+    "runtime_first_caller_return_rva": "0x495acc",
+    "same_chain_across_masks": true,
+    "static_call_reference": {
+      "function_entry_rva": "0x494f60",
+      "function_name": "FUN_00594f60",
+      "observed_return_delta_bytes": 5,
+      "reference_type": "UNCONDITIONAL_CALL",
+      "source_rva": "0x495ac7"
+    },
+    "static_incoming_callers_truncated": true
+  },
+  "schema": "nvidia-hybrid-v100-libcuda-call-chain-correlation-v1",
+  "status": "correlated_static_and_runtime_metadata"
+}

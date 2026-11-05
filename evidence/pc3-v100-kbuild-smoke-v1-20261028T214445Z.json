@@ -1,0 +1,59 @@
+{
+  "gpu_execution_tested": false,
+  "guest_hostkey_fingerprint": "SHA256:wqpBfvwVW7iYhOk7LWB8y438NOQHSgfcUgnOGaRK6ts",
+  "guest_result": {
+    "build_path": "/usr/src/linux-headers-6.8.0-147-generic",
+    "gpu_execution_tested": false,
+    "hostname": "pc3-v100",
+    "kernel_inputs_after_sha256": {
+      "Makefile": "5e672a6361467a06c163120d7b56eaafd1d0daae9cbbe779849d5078c30ec256",
+      "Module.symvers": "8e7eb5798789b9610c324b3d9b13373d88c30ae17bb9e41e622efd05e0277a87",
+      "include/config/auto.conf": "d9de805a473f5e989435ad240679c20dd1d3f54ba994073d9a113401ef74d3ab",
+      "include/generated/autoconf.h": "6a2862fe4585aa4412748326074eae144871514f18d231d434068b36af9c7fa1",
+      "include/generated/utsrelease.h": "a1f2b79ea6579bf9ac5e61d12a975570ec47058ef51813e7d4e61243211d78a9",
+      "scripts/Makefile.build": "b76046d854848d866d2aa2ffd9a549261e1414e7e55f3271b4fb689c59e87361",
+      "scripts/Makefile.modpost": "7da18133253def95f80ae82b56d90907fc1cee94342a81af3480f5f35bcb89e4",
+      "scripts/basic/fixdep": "a436c777091d52571cb041a0b7a4de12d7b6c5de1de850006be3a133151c9715",
+      "scripts/mod/modpost": "338cf9657234aa9147070b312f6a60be64df8b58cb00c437d0c2270f16d1b4c3"
+    },
+    "kernel_inputs_before_sha256": {
+      "Makefile": "5e672a6361467a06c163120d7b56eaafd1d0daae9cbbe779849d5078c30ec256",
+      "Module.symvers": "8e7eb5798789b9610c324b3d9b13373d88c30ae17bb9e41e622efd05e0277a87",
+      "include/config/auto.conf": "d9de805a473f5e989435ad240679c20dd1d3f54ba994073d9a113401ef74d3ab",
+      "include/generated/autoconf.h": "6a2862fe4585aa4412748326074eae144871514f18d231d434068b36af9c7fa1",
+      "include/generated/utsrelease.h": "a1f2b79ea6579bf9ac5e61d12a975570ec47058ef51813e7d4e61243211d78a9",
+      "scripts/Makefile.build": "b76046d854848d866d2aa2ffd9a549261e1414e7e55f3271b4fb689c59e87361",
+      "scripts/Makefile.modpost": "7da18133253def95f80ae82b56d90907fc1cee94342a81af3480f5f35bcb89e4",
+      "scripts/basic/fixdep": "a436c777091d52571cb041a0b7a4de12d7b6c5de1de850006be3a133151c9715",
+      "scripts/mod/modpost": "338cf9657234aa9147070b312f6a60be64df8b58cb00c437d0c2270f16d1b4c3"
+    },
+    "kernel_release": "6.8.0-147-generic",
+    "make_exit_code": 0,
+    "make_stderr_sha256": "a89dc0171f4635313ccbd8c15291ea65fc6c668ed12053e08ef2a66b013a7759",
+    "make_stdout_sha256": "8e748f66b5f80e31e6adf38a4df569f0c52832ff2f8e0d965f60ab5b4608c333",
+    "module": {
+      "bytes": 159864,
+      "elf_class_bits": 64,
+      "elf_machine": 62,
+      "filename": "codex_kbuild_smoke.ko",
+      "sha256": "9ad47227472de01efbc8b3c042cdc61d855264793e0e709b6157c0fae121db4b",
+      "vermagic_matches": true
+    },
+    "module_installed": false,
+    "module_loaded": false,
+    "schema": "nvidia-hybrid-pc3-v100-kbuild-smoke-result-v1",
+    "status": "passed",
+    "temporary_directory_created": true,
+    "temporary_directory_removed": true
+  },
+  "guest_script_sha256": "39c42fe2c9aeaf8d8ae1ab699eacd2d826e6228b4ffeff0b2f5ee462473d003c",
+  "guest_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "module_installed": false,
+  "module_loaded": false,
+  "observed_at_utc": "2026-10-28T21:44:45+00:00",
+  "qualification": "external-kernel-module-build-only",
+  "schema": "nvidia-hybrid-pc3-v100-kbuild-smoke-capture-v1",
+  "status": "passed",
+  "target": "pc3@pc3",
+  "transport_script_sha256": "2ec5db5766f38c18a6da58b8cd022b2fef5e5b33962901744b1311973ab46790"
+}

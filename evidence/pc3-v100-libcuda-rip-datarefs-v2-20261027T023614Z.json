@@ -1,0 +1,524 @@
+{
+  "generated_at_utc": "2026-10-27T02:36:25+00:00",
+  "guest": {
+    "address_mapping": {
+      "elf_load_base": "0x0",
+      "ghidra_image_base": "0x100000",
+      "target_elf_vma": "0x5bdc70c",
+      "target_ghidra_address": "0x5cdc70c",
+      "target_rva": "0x5bdc70c"
+    },
+    "disassembler": {
+      "exit_code": 0,
+      "path": "/usr/bin/objdump",
+      "version": "GNU objdump (GNU Binutils for Ubuntu) 2.42"
+    },
+    "guest": {
+      "gpu": {
+        "driver_version": "580.178.04",
+        "name": "Tesla V100-SXM2-16GB",
+        "pci": "0000:00:05.0",
+        "uuid": "GPU-42d06a85-027a-75ea-7857-a8de27ad465e"
+      },
+      "hostname": "pc3-v100",
+      "kernel_release": "6.8.0-147-generic"
+    },
+    "library": {
+      "basename": "libcuda.so.580.178.04",
+      "bytes": 96284520,
+      "elf_layout": {
+        "load_base": 0,
+        "load_end_exclusive": 96776512,
+        "load_segment_count": 4,
+        "segments": [
+          {
+            "file_size": 1465640,
+            "memory_size": 1465640,
+            "offset": 0,
+            "vaddr": 0
+          },
+          {
+            "file_size": 16266482,
+            "memory_size": 16266482,
+            "offset": 1466368,
+            "vaddr": 1466368
+          },
+          {
+            "file_size": 77245616,
+            "memory_size": 77245616,
+            "offset": 17735680,
+            "vaddr": 17735680
+          },
+          {
+            "file_size": 1299664,
+            "memory_size": 1789712,
+            "offset": 94982704,
+            "vaddr": 94986800
+          }
+        ]
+      },
+      "elf_type": "ELF64-LE",
+      "sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9"
+    },
+    "limitations": [
+      "The scanner resolves only decoded direct RIP-relative operands in objdump executable sections.",
+      "A full linear sweep is not a control-flow graph; embedded data and invalid bytes may be missed or misdecoded.",
+      "No match does not exclude indirect, GOT-mediated, dynamically computed, or runtime-generated references.",
+      "Reference classes describe instruction form only and do not assign CUDA or feature semantics."
+    ],
+    "scan": {
+      "decode_scan_complete": true,
+      "elf_load_base": "0x0",
+      "instruction_count": 3832614,
+      "line_count": 3834477,
+      "malformed_decode_count": 0,
+      "match_count": 4,
+      "matches": [
+        {
+          "linear_instruction_context": [
+            {
+              "mnemonic": "jmp",
+              "operands": "26a298",
+              "section": ".text",
+              "source_rva": "0x26a32d",
+              "source_va": "0x26a32d"
+            },
+            {
+              "mnemonic": "mov",
+              "operands": "r8d,DWORD PTR [rdi+0x72b8]",
+              "section": ".text",
+              "source_rva": "0x26a332",
+              "source_va": "0x26a332"
+            },
+            {
+              "mnemonic": "test",
+              "operands": "r8d,r8d",
+              "section": ".text",
+              "source_rva": "0x26a339",
+              "source_va": "0x26a339"
+            },
+            {
+              "mnemonic": "je",
+              "operands": "26b16b",
+              "section": ".text",
+              "source_rva": "0x26a33c",
+              "source_va": "0x26a33c"
+            },
+            {
+              "mnemonic": "cmp",
+              "operands": "BYTE PTR [rip+0x59723c3],0x0",
+              "section": ".text",
+              "source_rva": "0x26a342",
+              "source_va": "0x26a342"
+            },
+            {
+              "mnemonic": "jne",
+              "operands": "26b07b",
+              "section": ".text",
+              "source_rva": "0x26a349",
+              "source_va": "0x26a349"
+            },
+            {
+              "mnemonic": "xor",
+              "operands": "eax,eax",
+              "section": ".text",
+              "source_rva": "0x26a34f",
+              "source_va": "0x26a34f"
+            },
+            {
+              "mnemonic": "mov",
+              "operands": "DWORD PTR [rbx],eax",
+              "section": ".text",
+              "source_rva": "0x26a351",
+              "source_va": "0x26a351"
+            },
+            {
+              "mnemonic": "xor",
+              "operands": "eax,eax",
+              "section": ".text",
+              "source_rva": "0x26a353",
+              "source_va": "0x26a353"
+            },
+            {
+              "mnemonic": "jmp",
+              "operands": "26a298",
+              "section": ".text",
+              "source_rva": "0x26a355",
+              "source_va": "0x26a355"
+            },
+            {
+              "mnemonic": "test",
+              "operands": "BYTE PTR [rdi+0x5e41],0x40",
+              "section": ".text",
+              "source_rva": "0x26a35a",
+              "source_va": "0x26a35a"
+            },
+            {
+              "mnemonic": "jne",
+              "operands": "26b17f",
+              "section": ".text",
+              "source_rva": "0x26a361",
+              "source_va": "0x26a361"
+            },
+            {
+              "mnemonic": "xor",
+              "operands": "eax,eax",
+              "section": ".text",
+              "source_rva": "0x26a367",
+              "source_va": "0x26a367"
+            }
+          ],
+          "mnemonic": "cmp",
+          "preceding_symbol_anchor_rva": "0x263450",
+          "preceding_symbol_anchor_va": "0x263450",
+          "reference_kind": "read_or_compare",
+          "section": ".text",
+          "source_rva": "0x26a342",
+          "source_va": "0x26a342"
+        },
+        {
+          "linear_instruction_context": [
+            {
+              "mnemonic": "jbe",
+              "operands": "26b1be",
+              "section": ".text",
+              "source_rva": "0x26afaa",
+              "source_va": "0x26afaa"
+            },
+            {
+              "mnemonic": "or",
+              "operands": "DWORD PTR [rbx],0x1",
+              "section": ".text",
+              "source_rva": "0x26afb0",
+              "source_va": "0x26afb0"
+            },
+            {
+              "mnemonic": "cmp",
+              "operands": "DWORD PTR [r12+0x72b8],0x0",
+              "section": ".text",
+              "source_rva": "0x26afb3",
+              "source_va": "0x26afb3"
+            },
+            {
+              "mnemonic": "je",
+              "operands": "26b1be",
+              "section": ".text",
+              "source_rva": "0x26afbc",
+              "source_va": "0x26afbc"
+            },
+            {
+              "mnemonic": "cmp",
+              "operands": "BYTE PTR [rip+0x5971743],0x0",
+              "section": ".text",
+              "source_rva": "0x26afc2",
+              "source_va": "0x26afc2"
+            },
+            {
+              "mnemonic": "je",
+              "operands": "26a770",
+              "section": ".text",
+              "source_rva": "0x26afc9",
+              "source_va": "0x26afc9"
+            },
+            {
+              "mnemonic": "mov",
+              "operands": "rdi,r12",
+              "section": ".text",
+              "source_rva": "0x26afcf",
+              "source_va": "0x26afcf"
+            },
+            {
+              "mnemonic": "call",
+              "operands": "261520",
+              "section": ".text",
+              "source_rva": "0x26afd2",
+              "source_va": "0x26afd2"
+            },
+            {
+              "mnemonic": "test",
+              "operands": "al,al",
+              "section": ".text",
+              "source_rva": "0x26afd7",
+              "source_va": "0x26afd7"
+            },
+            {
+              "mnemonic": "je",
+              "operands": "26a770",
+              "section": ".text",
+              "source_rva": "0x26afd9",
+              "source_va": "0x26afd9"
+            },
+            {
+              "mnemonic": "mov",
+              "operands": "eax,DWORD PTR [r12+0x72b8]",
+              "section": ".text",
+              "source_rva": "0x26afdf",
+              "source_va": "0x26afdf"
+            },
+            {
+              "mnemonic": "test",
+              "operands": "eax,eax",
+              "section": ".text",
+              "source_rva": "0x26afe7",
+              "source_va": "0x26afe7"
+            },
+            {
+              "mnemonic": "jne",
+              "operands": "26a770",
+              "section": ".text",
+              "source_rva": "0x26afe9",
+              "source_va": "0x26afe9"
+            }
+          ],
+          "mnemonic": "cmp",
+          "preceding_symbol_anchor_rva": "0x263450",
+          "preceding_symbol_anchor_va": "0x263450",
+          "reference_kind": "read_or_compare",
+          "section": ".text",
+          "source_rva": "0x26afc2",
+          "source_va": "0x26afc2"
+        },
+        {
+          "linear_instruction_context": [
+            {
+              "mnemonic": "jmp",
+              "operands": "26a298",
+              "section": ".text",
+              "source_rva": "0x26b006",
+              "source_va": "0x26b006"
+            },
+            {
+              "mnemonic": "mov",
+              "operands": "eax,DWORD PTR [r12+0x72b8]",
+              "section": ".text",
+              "source_rva": "0x26b00b",
+              "source_va": "0x26b00b"
+            },
+            {
+              "mnemonic": "test",
+              "operands": "eax,eax",
+              "section": ".text",
+              "source_rva": "0x26b013",
+              "source_va": "0x26b013"
+            },
+            {
+              "mnemonic": "je",
+              "operands": "26b1aa",
+              "section": ".text",
+              "source_rva": "0x26b015",
+              "source_va": "0x26b015"
+            },
+            {
+              "mnemonic": "cmp",
+              "operands": "BYTE PTR [rip+0x59716ea],0x0",
+              "section": ".text",
+              "source_rva": "0x26b01b",
+              "source_va": "0x26b01b"
+            },
+            {
+              "mnemonic": "je",
+              "operands": "26a641",
+              "section": ".text",
+              "source_rva": "0x26b022",
+              "source_va": "0x26b022"
+            },
+            {
+              "mnemonic": "mov",
+              "operands": "rdi,r12",
+              "section": ".text",
+              "source_rva": "0x26b028",
+              "source_va": "0x26b028"
+            },
+            {
+              "mnemonic": "call",
+              "operands": "261520",
+              "section": ".text",
+              "source_rva": "0x26b02b",
+              "source_va": "0x26b02b"
+            },
+            {
+              "mnemonic": "test",
+              "operands": "al,al",
+              "section": ".text",
+              "source_rva": "0x26b030",
+              "source_va": "0x26b030"
+            },
+            {
+              "mnemonic": "je",
+              "operands": "26a641",
+              "section": ".text",
+              "source_rva": "0x26b032",
+              "source_va": "0x26b032"
+            },
+            {
+              "mnemonic": "cmp",
+              "operands": "DWORD PTR [r12+0x72b8],0x0",
+              "section": ".text",
+              "source_rva": "0x26b038",
+              "source_va": "0x26b038"
+            },
+            {
+              "mnemonic": "jne",
+              "operands": "26a641",
+              "section": ".text",
+              "source_rva": "0x26b041",
+              "source_va": "0x26b041"
+            },
+            {
+              "mnemonic": "mov",
+              "operands": "rax,QWORD PTR [rip+0x596cb7a]",
+              "section": ".text",
+              "source_rva": "0x26b047",
+              "source_va": "0x26b047"
+            }
+          ],
+          "mnemonic": "cmp",
+          "preceding_symbol_anchor_rva": "0x263450",
+          "preceding_symbol_anchor_va": "0x263450",
+          "reference_kind": "read_or_compare",
+          "section": ".text",
+          "source_rva": "0x26b01b",
+          "source_va": "0x26b01b"
+        },
+        {
+          "linear_instruction_context": [
+            {
+              "mnemonic": "mov",
+              "operands": "rdx,QWORD PTR [rax+0x48]",
+              "section": ".text",
+              "source_rva": "0x49d4a3",
+              "source_va": "0x49d4a3"
+            },
+            {
+              "mnemonic": "cmp",
+              "operands": "DWORD PTR [rdx],0x1fd",
+              "section": ".text",
+              "source_rva": "0x49d4a7",
+              "source_va": "0x49d4a7"
+            },
+            {
+              "mnemonic": "ja",
+              "operands": "49d5b0",
+              "section": ".text",
+              "source_rva": "0x49d4ad",
+              "source_va": "0x49d4ad"
+            },
+            {
+              "mnemonic": "mov",
+              "operands": "edi,DWORD PTR [rax]",
+              "section": ".text",
+              "source_rva": "0x49d4b3",
+              "source_va": "0x49d4b3"
+            },
+            {
+              "mnemonic": "lea",
+              "operands": "rsi,[rip+0x573f250]",
+              "section": ".text",
+              "source_rva": "0x49d4b5",
+              "source_va": "0x49d4b5"
+            },
+            {
+              "mnemonic": "call",
+              "operands": "QWORD PTR [rdx+0x4d8]",
+              "section": ".text",
+              "source_rva": "0x49d4bc",
+              "source_va": "0x49d4bc"
+            },
+            {
+              "mnemonic": "test",
+              "operands": "BYTE PTR [rip+0x573a363],0x4",
+              "section": ".text",
+              "source_rva": "0x49d4c2",
+              "source_va": "0x49d4c2"
+            },
+            {
+              "mnemonic": "je",
+              "operands": "49d53f",
+              "section": ".text",
+              "source_rva": "0x49d4c9",
+              "source_va": "0x49d4c9"
+            },
+            {
+              "mnemonic": "mov",
+              "operands": "rdi,QWORD PTR [rip+0x573a556]",
+              "section": ".text",
+              "source_rva": "0x49d4cb",
+              "source_va": "0x49d4cb"
+            },
+            {
+              "mnemonic": "call",
+              "operands": "3defd0",
+              "section": ".text",
+              "source_rva": "0x49d4d2",
+              "source_va": "0x49d4d2"
+            },
+            {
+              "mnemonic": "mov",
+              "operands": "r13d,eax",
+              "section": ".text",
+              "source_rva": "0x49d4d7",
+              "source_va": "0x49d4d7"
+            },
+            {
+              "mnemonic": "test",
+              "operands": "eax,eax",
+              "section": ".text",
+              "source_rva": "0x49d4da",
+              "source_va": "0x49d4da"
+            },
+            {
+              "mnemonic": "je",
+              "operands": "49d608",
+              "section": ".text",
+              "source_rva": "0x49d4dc",
+              "source_va": "0x49d4dc"
+            }
+          ],
+          "mnemonic": "lea",
+          "preceding_symbol_anchor_rva": "0x3a56e0",
+          "preceding_symbol_anchor_va": "0x3a56e0",
+          "reference_kind": "address_materialization",
+          "section": ".text",
+          "source_rva": "0x49d4b5",
+          "source_va": "0x49d4b5"
+        }
+      ],
+      "rip_relative_reference_count": 112895,
+      "target_rva": "0x5bdc70c",
+      "target_va": "0x5bdc70c",
+      "truncated": false,
+      "undecoded_byte_directive_count": 0
+    },
+    "schema": "nvidia-hybrid-pc3-v100-libcuda-rip-scan-v1",
+    "scope": {
+      "binary_copied": false,
+      "binary_retained": false,
+      "driver_or_vm_changed": false,
+      "gpu_workload_run": false,
+      "pseudocode_retained": false,
+      "raw_disassembly_retained": false,
+      "symbols_retained": false
+    }
+  },
+  "host": {
+    "hostname": "pc3",
+    "kernel_release": "7.0.0-38-generic",
+    "nvidia_smi_gpu": {
+      "driver_version": "595.99.02",
+      "name": "NVIDIA GeForce RTX 5080",
+      "pci": "00000000:02:00.0",
+      "uuid": "GPU-819a4547-5ff3-130b-ea3b-1d1a837b1c77"
+    },
+    "pci_ownership": {
+      "0000:02:00.0": "nvidia",
+      "0000:81:00.0": "vfio-pci"
+    }
+  },
+  "interpretation": "A direct RIP-relative operand in the pinned R580 libcuda linear disassembly resolves to the selected ELF VMA. This is static reference metadata only; it does not prove that the instruction executes or define the global's semantics.",
+  "producer": {
+    "hostkey_fingerprint": "SHA256:wqpBfvwVW7iYhOk7LWB8y438NOQHSgfcUgnOGaRK6ts",
+    "tool_sha256": "27bb2bde83d35c86a39b719246b921019240069304bd76339eb0a1fa0481da17"
+  },
+  "qualification": "bounded-in-place-static-reference-metadata",
+  "schema": "nvidia-hybrid-pc3-v100-libcuda-rip-evidence-v1"
+}

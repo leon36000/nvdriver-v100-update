@@ -1,0 +1,110 @@
+{
+  "cuda_execution_tested": false,
+  "driver_or_gpu_execution_tested": false,
+  "files": [
+    {
+      "bytes": 19131,
+      "depends": [],
+      "guest_path": "kernel/crypto/ecc.ko.zst",
+      "kind": "module",
+      "name": "ecc",
+      "path": "build/experiments/pc3-v100-kernel-dependencies-20261029T011956Z-e1f84f0b903a/lib/modules/6.8.0-147-generic/kernel/crypto/ecc.ko.zst",
+      "sha256": "97a82a7011c93b6acc9ceb33f80907ba510988375ba50df9eef69038bab12d02"
+    },
+    {
+      "bytes": 4748,
+      "depends": [
+        "ecc"
+      ],
+      "guest_path": "kernel/crypto/ecdh_generic.ko.zst",
+      "kind": "module",
+      "name": "ecdh_generic",
+      "path": "build/experiments/pc3-v100-kernel-dependencies-20261029T011956Z-e1f84f0b903a/lib/modules/6.8.0-147-generic/kernel/crypto/ecdh_generic.ko.zst",
+      "sha256": "a7afa413d7aa6caaf477de2a34c04e851889341a1a3775a1349df6528ea14243"
+    },
+    {
+      "bytes": 5584,
+      "depends": [
+        "ecc"
+      ],
+      "guest_path": "kernel/crypto/ecdsa_generic.ko.zst",
+      "kind": "module",
+      "name": "ecdsa_generic",
+      "path": "build/experiments/pc3-v100-kernel-dependencies-20261029T011956Z-e1f84f0b903a/lib/modules/6.8.0-147-generic/kernel/crypto/ecdsa_generic.ko.zst",
+      "sha256": "e80680795815722e159c78ac1dd929ff3212a407008d2681fe7bc539f5cc6d5e"
+    },
+    {
+      "bytes": 9714,
+      "guest_path": "modules.builtin",
+      "kind": "metadata",
+      "name": "modules.builtin",
+      "path": "build/experiments/pc3-v100-kernel-dependencies-20261029T011956Z-e1f84f0b903a/lib/modules/6.8.0-147-generic/modules.builtin",
+      "sha256": "508ae45959f569e45b1e6f1888b254cdc02da5c4bb8b3edc043539b6dd2d735d"
+    },
+    {
+      "bytes": 87651,
+      "guest_path": "modules.builtin.modinfo",
+      "kind": "metadata",
+      "name": "modules.builtin.modinfo",
+      "path": "build/experiments/pc3-v100-kernel-dependencies-20261029T011956Z-e1f84f0b903a/lib/modules/6.8.0-147-generic/modules.builtin.modinfo",
+      "sha256": "0bfb2407d4ff23d68735c6643e65f738d6ae4bc62ef79486a1afbac8d55393ad"
+    },
+    {
+      "bytes": 99971,
+      "guest_path": "modules.dep",
+      "kind": "metadata",
+      "name": "modules.dep",
+      "path": "build/experiments/pc3-v100-kernel-dependencies-20261029T011956Z-e1f84f0b903a/lib/modules/6.8.0-147-generic/modules.dep",
+      "sha256": "bb27b419f766576f6eec5778fee77edcff354a0ba72031fb3179d007f37f6022"
+    },
+    {
+      "bytes": 262957,
+      "guest_path": "modules.order",
+      "kind": "metadata",
+      "name": "modules.order",
+      "path": "build/experiments/pc3-v100-kernel-dependencies-20261029T011956Z-e1f84f0b903a/lib/modules/6.8.0-147-generic/modules.order",
+      "sha256": "08e373f249757b5ffc7d53649049bd828f16420be248d588fafed06d032fc679"
+    },
+    {
+      "bytes": 940,
+      "guest_path": "modules.softdep",
+      "kind": "metadata",
+      "name": "modules.softdep",
+      "path": "build/experiments/pc3-v100-kernel-dependencies-20261029T011956Z-e1f84f0b903a/lib/modules/6.8.0-147-generic/modules.softdep",
+      "sha256": "a737b147b97ef6bf6422dc9b2c9535d493db9e58dd373bb8b2a46f24cf2a001a"
+    }
+  ],
+  "guest_hostkey_fingerprint": "SHA256:wqpBfvwVW7iYhOk7LWB8y438NOQHSgfcUgnOGaRK6ts",
+  "guest_hostname": "pc3-v100",
+  "guest_mutation_performed": false,
+  "guest_script_sha256": "452f4f2051fe0b349f9f68c0bc57cd8dc75a646ed990043a10d3ca1cb14c92dd",
+  "guest_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "hard_dependency_graph": {
+    "ecc": [],
+    "ecdh_generic": [
+      "ecc"
+    ],
+    "ecdsa_generic": [
+      "ecc"
+    ]
+  },
+  "kernel_release": "6.8.0-147-generic",
+  "module_installed": false,
+  "module_loaded": false,
+  "module_root": "/lib/modules/6.8.0-147-generic",
+  "observed_at_utc": "2026-10-29T01:19:56+00:00",
+  "qualification": "read-only-exact-kernel-support-module-capture",
+  "read_only_guest_query": true,
+  "root_transport_script_sha256": "2ec5db5766f38c18a6da58b8cd022b2fef5e5b33962901744b1311973ab46790",
+  "roots": [
+    "ecc",
+    "ecdh_generic",
+    "ecdsa_generic"
+  ],
+  "runtime_or_hardware_validated": false,
+  "schema": "pc3-v100-kernel-dependency-capture-v1",
+  "stage_root": "build/experiments/pc3-v100-kernel-dependencies-20261029T011956Z-e1f84f0b903a",
+  "status": "captured",
+  "target": "pc3@pc3",
+  "total_bytes": 490696
+}

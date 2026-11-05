@@ -1,0 +1,334 @@
+{
+  "generated_at_utc": "2026-10-27T01:15:14+00:00",
+  "inputs": {
+    "ghidra_report": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-v100-libcuda-ghidra-function-v2-20261027T005038430029Z.json",
+      "sha256": "1b450727a9ee288223fb8cdeab8e1f50c574bc2f0f8fd059ca97b4ef212186b9"
+    },
+    "sensitivity_report": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-v100-system-features-sensitivity-v1-20261027T010034Z.json",
+      "sha256": "6e20768f567445f9716f25931da0299cddfb517e774d9f1802d5e9758712abf9"
+    },
+    "stack_ghidra_report": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-v100-libcuda-ghidra-call-chain-multi-v1-20261027T010757238216Z.json",
+      "sha256": "39a70bd6526a2d9790c4db91a4bfc5249b63c6ab43dae301f2031c8d50f2ba37"
+    }
+  },
+  "interpretation": "The immediate runtime caller return offset matches the source RVA plus five bytes for one static unconditional-call reference into the observed ioctl helper. Ghidra's FUN_* labels are analysis-generated, not NVIDIA source names.",
+  "limits": [
+    "The callsite correlation does not establish the caller's semantic purpose.",
+    "It does not prove where SYSTEM_GET_FEATURES bits are consumed.",
+    "The Ghidra incoming-reference list was truncated; the matched reference is present in its retained sample.",
+    "No context creation, allocation, kernel execution, UVM migration, P2P, or hybrid driver path was exercised."
+  ],
+  "observation": {
+    "api_outcomes_equal": true,
+    "caller_chain_offsets": [
+      "0x495acc",
+      "0x4600fc",
+      "0x49d4c2",
+      "0x2ba6e9",
+      "0x2d2340",
+      "0x331c32",
+      "0x3279b0"
+    ],
+    "controls_equal": true,
+    "direct_function_entry_rva": "0x48bc40",
+    "direct_function_name": "FUN_0058bc40",
+    "direct_ioctl_return_rva": "0x48bc88",
+    "driver_api": 13000,
+    "gpu": {
+      "driver_version": "580.178.04",
+      "name": "Tesla V100-SXM2-16GB",
+      "pci": "0000:00:05.0",
+      "uuid": "GPU-42d06a85-027a-75ea-7857-a8de27ad465e"
+    },
+    "kernel_mask_per_run": 9,
+    "kernel_release": "6.8.0-147-generic",
+    "libcuda_sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9",
+    "masks": [
+      9,
+      8,
+      1,
+      0
+    ],
+    "runtime_first_caller_return_rva": "0x495acc",
+    "same_chain_across_masks": true,
+    "static_call_reference": {
+      "function_entry_rva": "0x494f60",
+      "function_name": "FUN_00594f60",
+      "observed_return_delta_bytes": 5,
+      "reference_type": "UNCONDITIONAL_CALL",
+      "source_rva": "0x495ac7"
+    },
+    "static_incoming_callers_truncated": true
+  },
+  "schema": "nvidia-hybrid-v100-libcuda-call-chain-correlation-v1",
+  "stack_correlation": {
+    "call_edges": [
+      {
+        "callee_function_name": "FUN_0058bc40",
+        "callee_return_rva": "0x48bc88",
+        "caller_function_name": "FUN_00594f60",
+        "caller_return_rva": "0x495acc",
+        "matching_references": [
+          {
+            "reference_type": "UNCONDITIONAL_CALL",
+            "return_delta_bytes": 5,
+            "source_rva": "0x495ac7",
+            "target_name": "FUN_0058bc40",
+            "target_rva": "0x48bc40"
+          }
+        ],
+        "nearby_call_references": [
+          {
+            "reference_type": "UNCONDITIONAL_CALL",
+            "return_delta_bytes": 5,
+            "source_rva": "0x495ac7",
+            "target_name": "FUN_0058bc40",
+            "target_rva": "0x48bc40"
+          }
+        ],
+        "outgoing_reference_sample_truncated": true,
+        "status": "matched_static_call_reference"
+      },
+      {
+        "callee_function_name": "FUN_00594f60",
+        "callee_return_rva": "0x495acc",
+        "caller_function_name": "FUN_005600d0",
+        "caller_return_rva": "0x4600fc",
+        "matching_references": [
+          {
+            "reference_type": "UNCONDITIONAL_CALL",
+            "return_delta_bytes": 5,
+            "source_rva": "0x4600f7",
+            "target_name": "FUN_00594f60",
+            "target_rva": "0x494f60"
+          }
+        ],
+        "nearby_call_references": [
+          {
+            "reference_type": "UNCONDITIONAL_CALL",
+            "return_delta_bytes": 5,
+            "source_rva": "0x4600f7",
+            "target_name": "FUN_00594f60",
+            "target_rva": "0x494f60"
+          }
+        ],
+        "outgoing_reference_sample_truncated": false,
+        "status": "matched_static_call_reference"
+      },
+      {
+        "callee_function_name": "FUN_005600d0",
+        "callee_return_rva": "0x4600fc",
+        "caller_function_name": "FUN_0059d360",
+        "caller_return_rva": "0x49d4c2",
+        "matching_references": [],
+        "nearby_call_references": [],
+        "outgoing_reference_sample_truncated": false,
+        "status": "no_matching_static_call_reference"
+      },
+      {
+        "callee_function_name": "FUN_0059d360",
+        "callee_return_rva": "0x49d4c2",
+        "caller_function_name": "FUN_003ba4b0",
+        "caller_return_rva": "0x2ba6e9",
+        "matching_references": [],
+        "nearby_call_references": [
+          {
+            "reference_type": "COMPUTED_CALL",
+            "return_delta_bytes": 6,
+            "source_rva": "0x2ba6e3",
+            "target_name": "LAB_003b23ec+4",
+            "target_rva": "0x2b23f0"
+          }
+        ],
+        "outgoing_reference_sample_truncated": false,
+        "status": "nearby_reference_target_unresolved"
+      },
+      {
+        "callee_function_name": "FUN_003ba4b0",
+        "callee_return_rva": "0x2ba6e9",
+        "caller_function_name": "FUN_003d1e00",
+        "caller_return_rva": "0x2d2340",
+        "matching_references": [
+          {
+            "reference_type": "UNCONDITIONAL_CALL",
+            "return_delta_bytes": 5,
+            "source_rva": "0x2d233b",
+            "target_name": "FUN_003ba4b0",
+            "target_rva": "0x2ba4b0"
+          }
+        ],
+        "nearby_call_references": [
+          {
+            "reference_type": "UNCONDITIONAL_CALL",
+            "return_delta_bytes": 15,
+            "source_rva": "0x2d2331",
+            "target_name": "FUN_0109b9c0",
+            "target_rva": "0xf9b9c0"
+          },
+          {
+            "reference_type": "UNCONDITIONAL_CALL",
+            "return_delta_bytes": 10,
+            "source_rva": "0x2d2336",
+            "target_name": "FUN_003b9eb0",
+            "target_rva": "0x2b9eb0"
+          },
+          {
+            "reference_type": "UNCONDITIONAL_CALL",
+            "return_delta_bytes": 5,
+            "source_rva": "0x2d233b",
+            "target_name": "FUN_003ba4b0",
+            "target_rva": "0x2ba4b0"
+          }
+        ],
+        "outgoing_reference_sample_truncated": true,
+        "status": "matched_static_call_reference"
+      },
+      {
+        "callee_function_name": "FUN_003d1e00",
+        "callee_return_rva": "0x2d2340",
+        "caller_function_name": "FUN_00431bc0",
+        "caller_return_rva": "0x331c32",
+        "matching_references": [
+          {
+            "reference_type": "UNCONDITIONAL_CALL",
+            "return_delta_bytes": 5,
+            "source_rva": "0x331c2d",
+            "target_name": "FUN_003d1e00",
+            "target_rva": "0x2d1e00"
+          }
+        ],
+        "nearby_call_references": [
+          {
+            "reference_type": "UNCONDITIONAL_CALL",
+            "return_delta_bytes": 5,
+            "source_rva": "0x331c2d",
+            "target_name": "FUN_003d1e00",
+            "target_rva": "0x2d1e00"
+          }
+        ],
+        "outgoing_reference_sample_truncated": false,
+        "status": "matched_static_call_reference"
+      },
+      {
+        "callee_function_name": "FUN_00431bc0",
+        "callee_return_rva": "0x331c32",
+        "caller_function_name": "cuInit",
+        "caller_return_rva": "0x3279b0",
+        "matching_references": [
+          {
+            "reference_type": "COMPUTED_CALL",
+            "return_delta_bytes": 6,
+            "source_rva": "0x3279aa",
+            "target_name": "FUN_00431bc0",
+            "target_rva": "0x331bc0"
+          }
+        ],
+        "nearby_call_references": [
+          {
+            "reference_type": "COMPUTED_CALL",
+            "return_delta_bytes": 6,
+            "source_rva": "0x3279aa",
+            "target_name": "FUN_00431bc0",
+            "target_rva": "0x331bc0"
+          }
+        ],
+        "outgoing_reference_sample_truncated": false,
+        "status": "matched_static_call_reference"
+      }
+    ],
+    "first_frame_correlation": {
+      "function_entry_rva": "0x494f60",
+      "function_name": "FUN_00594f60",
+      "observed_return_delta_bytes": 5,
+      "reference_type": "UNCONDITIONAL_CALL",
+      "source_rva": "0x495ac7"
+    },
+    "limits": [
+      "Runtime frame membership and return offsets are observed; Ghidra function names are analysis-generated labels.",
+      "Unmatched static edges may involve indirect dispatch, function-boundary mistakes, or missing references; they are unresolved, not proof of absence.",
+      "The presence of cuInit in this stack identifies the tested entry path only; it does not establish feature-mask dataflow or behavior on other API paths."
+    ],
+    "runtime_frames": [
+      {
+        "function_end_rva_exclusive": "0x48bd43",
+        "function_entry_rva": "0x48bc40",
+        "function_name": "FUN_0058bc40",
+        "incoming_callers_truncated": true,
+        "instruction_count": 82,
+        "outgoing_calls_truncated": false,
+        "return_rva": "0x48bc88"
+      },
+      {
+        "function_end_rva_exclusive": "0x496bb1",
+        "function_entry_rva": "0x494f60",
+        "function_name": "FUN_00594f60",
+        "incoming_callers_truncated": true,
+        "instruction_count": 1520,
+        "outgoing_calls_truncated": true,
+        "return_rva": "0x495acc"
+      },
+      {
+        "function_end_rva_exclusive": "0x46010f",
+        "function_entry_rva": "0x4600d0",
+        "function_name": "FUN_005600d0",
+        "incoming_callers_truncated": false,
+        "instruction_count": 20,
+        "outgoing_calls_truncated": false,
+        "return_rva": "0x4600fc"
+      },
+      {
+        "function_end_rva_exclusive": "0x49d73c",
+        "function_entry_rva": "0x49d360",
+        "function_name": "FUN_0059d360",
+        "incoming_callers_truncated": false,
+        "instruction_count": 206,
+        "outgoing_calls_truncated": false,
+        "return_rva": "0x49d4c2"
+      },
+      {
+        "function_end_rva_exclusive": "0x2ba97c",
+        "function_entry_rva": "0x2ba4b0",
+        "function_name": "FUN_003ba4b0",
+        "incoming_callers_truncated": false,
+        "instruction_count": 241,
+        "outgoing_calls_truncated": false,
+        "return_rva": "0x2ba6e9"
+      },
+      {
+        "function_end_rva_exclusive": "0x2d405b",
+        "function_entry_rva": "0x2d1e00",
+        "function_name": "FUN_003d1e00",
+        "incoming_callers_truncated": false,
+        "instruction_count": 1789,
+        "outgoing_calls_truncated": true,
+        "return_rva": "0x2d2340"
+      },
+      {
+        "function_end_rva_exclusive": "0x331d7e",
+        "function_entry_rva": "0x331bc0",
+        "function_name": "FUN_00431bc0",
+        "incoming_callers_truncated": false,
+        "instruction_count": 97,
+        "outgoing_calls_truncated": false,
+        "return_rva": "0x331c32"
+      },
+      {
+        "function_end_rva_exclusive": "0x327a4f",
+        "function_entry_rva": "0x327990",
+        "function_name": "cuInit",
+        "incoming_callers_truncated": false,
+        "instruction_count": 55,
+        "outgoing_calls_truncated": false,
+        "return_rva": "0x3279b0"
+      }
+    ],
+    "same_chain_across_masks": true,
+    "static_edges_resolved": 5,
+    "static_edges_total": 7,
+    "status": "partial_stack_static_correlation"
+  },
+  "status": "correlated_static_and_runtime_metadata"
+}

@@ -1,0 +1,86 @@
+{
+  "attached_ids_capture_requested": false,
+  "binapi_alloc_capture_requested": false,
+  "binapi_control_capture_requested": false,
+  "channel_alloc_capture_requested": false,
+  "credential_file": "/home/pc6/Desktop/ACCES-BANC-GPU.env",
+  "credential_host": "gx10-e526",
+  "credential_value_logged": false,
+  "credential_value_persisted": false,
+  "cuda_graphs_requested": false,
+  "device_alloc_capture_requested": false,
+  "error": "name 'validate_ioctl_shapes_selection' is not defined",
+  "exit_code": 2,
+  "fabric_status_capture_requested": false,
+  "failure_stage": "input",
+  "gpu_id_info_capture_requested": false,
+  "ioctl_observer": {
+    "bytes": 244976,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/rm_ioctl_observer-ioctl-shapes-v2-20261027",
+    "sha256": "4f783c6480757442ba5cf246e176fc6f26a1b7fb62bde1f7128e27d6f39ffe2d"
+  },
+  "ioctl_shapes_capture_requested": true,
+  "managed_prefetch_requested": false,
+  "map_memory_capture_requested": false,
+  "memory_mode": "device",
+  "module": {
+    "bytes": 19016,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-pc3-rtx5080-ioctl-kernel-v1-20261027/hybrid_probe.sm70-sm120.fatbin",
+    "sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741"
+  },
+  "observed_at_utc": "2026-10-27T04:23:11+00:00",
+  "p2p_alloc_capture_requested": false,
+  "p2p_control_capture_requested": false,
+  "payload_cleanup_passed": true,
+  "payload_staging": {
+    "bytes": 576811,
+    "path": "/tmp/codex-v100-payload-3c9bf22ec7364d02b6a7cc13fcef8ebe.json",
+    "sha256": "b1560626654b5f7d50e31c7787cae43af52a8c30b1b18a8453cdc261431e1299",
+    "uploaded": true
+  },
+  "pc3_ssh_exit_code": 0,
+  "performance_benchmark_requested": false,
+  "phase": "kernel",
+  "phase_capture_requested": true,
+  "probe": {
+    "bytes": 167888,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-pc3-rtx5080-ioctl-kernel-v1-20261027/hybrid_cuda_probe",
+    "sha256": "c5bfd5740ff757d1d48d78634b85b7a0209eadc806220075c0397755dffad2d2"
+  },
+  "probe_contract": {
+    "contract_version": 5,
+    "probe_report_schema": "nvidia-hybrid-probe-v2",
+    "probe_sha256": "c5bfd5740ff757d1d48d78634b85b7a0209eadc806220075c0397755dffad2d2",
+    "schema": "nvidia-hybrid-probe-contract-v1"
+  },
+  "probed_ids_capture_requested": false,
+  "qualification": "failed",
+  "remote": {
+    "error": "name 'validate_ioctl_shapes_selection' is not defined",
+    "error_type": "NameError",
+    "execution_scope": {
+      "guest_driver_changed": false,
+      "module_loaded": false,
+      "pci_binding_changed": false,
+      "vm_management_issued": false
+    },
+    "failure_stage": "input",
+    "host": "pc3",
+    "payload_file_cleanup_passed": true,
+    "qualification": "failed",
+    "schema": "nvidia-hybrid-pc3-v100-guest-reference-v1"
+  },
+  "remote_script_sha256": "a4cb467b8402fa9f38f60e5aea87697314d2bdf20cad392868401eeef5ed1fa4",
+  "rm_control_capture_requested": false,
+  "rm_control_headers_capture_requested": false,
+  "runner_source": {
+    "bytes": 192020,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/run_pc3_v100_guest_reference.py",
+    "sha256": "2b67a9f273b30b3a8d54b14b2c2531f07637fa6899baf63ae9a2456159803931"
+  },
+  "rusd_alloc_capture_requested": false,
+  "schema": "nvidia-hybrid-pc3-v100-reference-transport-v1",
+  "subdevice_alloc_capture_requested": false,
+  "system_features_capture_requested": false,
+  "target": "pc3@pc3"
+}

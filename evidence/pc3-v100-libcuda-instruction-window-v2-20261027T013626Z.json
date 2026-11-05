@@ -1,0 +1,364 @@
+{
+  "address_mapping": {
+    "elf_load_base": "0x0",
+    "ghidra_image_base": "0x100000",
+    "mapping_basis": "RVA is added to the minimum PT_LOAD p_vaddr; the Ghidra analysis base is separately pinned",
+    "windows": [
+      {
+        "rva_start": "0x495aa0",
+        "rva_stop_exclusive": "0x495b20",
+        "va_start": "0x495aa0",
+        "va_stop_exclusive": "0x495b20"
+      },
+      {
+        "rva_start": "0x49551a",
+        "rva_stop_exclusive": "0x49559a",
+        "va_start": "0x49551a",
+        "va_stop_exclusive": "0x49559a"
+      }
+    ]
+  },
+  "call_edge": {
+    "call_instruction_rva": "0x495ac7",
+    "call_return_address_matches": true,
+    "call_return_address_rva": "0x495acc",
+    "call_target_matches_expected": true,
+    "call_target_rva": "0x48bc40",
+    "conditional_branch_rvas_in_bounded_window": [
+      "0x495ae9:je",
+      "0x495af2:jne"
+    ],
+    "expected_callee_rva": "0x48bc40",
+    "immediately_following_instructions": [
+      {
+        "mnemonic": "mov",
+        "operands": "r13d,eax",
+        "rva": "0x495acc"
+      },
+      {
+        "mnemonic": "jmp",
+        "operands": "49551a",
+        "rva": "0x495acf"
+      }
+    ],
+    "interpretation_limit": "Bounded instruction adjacency can show branches and memory operands, but does not by itself prove ioctl-status or feature-mask dataflow.",
+    "known_call_length_bytes": 5,
+    "memory_operand_count_after_return_in_bounded_window": 5
+  },
+  "control_flow": {
+    "call_return_capture": {
+      "mnemonic": "mov",
+      "operands": "r13d,eax",
+      "rva": "0x495acc"
+    },
+    "handoff_target_rva": "0x49551a",
+    "target_block_window_start_rva": "0x49551a",
+    "target_window_begins_at_handoff": true,
+    "unconditional_handoff": {
+      "mnemonic": "jmp",
+      "operands": "49551a",
+      "rva": "0x495acf"
+    }
+  },
+  "generated_at_utc": "2026-10-27T01:36:26.430154+00:00",
+  "guest": {
+    "gpu": {
+      "driver_version": "580.178.04",
+      "name": "Tesla V100-SXM2-16GB",
+      "pci": "0000:00:05.0",
+      "uuid": "GPU-42d06a85-027a-75ea-7857-a8de27ad465e"
+    },
+    "kernel_release": "6.8.0-147-generic",
+    "libcuda": {
+      "bytes": 96284520,
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+      "sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9"
+    },
+    "name": "pc3-v100"
+  },
+  "handoff_instructions": [
+    {
+      "mnemonic": "test",
+      "operands": "r13d,r13d",
+      "rva": "0x49551a"
+    },
+    {
+      "mnemonic": "je",
+      "operands": "4958e8",
+      "rva": "0x49551d"
+    },
+    {
+      "mnemonic": "mov",
+      "operands": "DWORD PTR [rbp-0x1114],r13d",
+      "rva": "0x495523"
+    },
+    {
+      "mnemonic": "cmp",
+      "operands": "ebx,0x3d05",
+      "rva": "0x49552a"
+    },
+    {
+      "mnemonic": "je",
+      "operands": "495f7d",
+      "rva": "0x495530"
+    },
+    {
+      "mnemonic": "cmp",
+      "operands": "ebx,0x3d0a",
+      "rva": "0x495536"
+    },
+    {
+      "mnemonic": "jne",
+      "operands": "495dd7",
+      "rva": "0x49553c"
+    },
+    {
+      "mnemonic": "xor",
+      "operands": "eax,eax",
+      "rva": "0x495542"
+    },
+    {
+      "mnemonic": "mov",
+      "operands": "edx,0x1",
+      "rva": "0x495544"
+    },
+    {
+      "mnemonic": "lock",
+      "operands": "cmpxchg DWORD PTR [rip+0x579fcb7],edx",
+      "rva": "0x495549"
+    },
+    {
+      "mnemonic": "jne",
+      "operands": "49672e",
+      "rva": "0x495551"
+    },
+    {
+      "mnemonic": "mov",
+      "operands": "edi,DWORD PTR [r12+0x48]",
+      "rva": "0x495557"
+    },
+    {
+      "mnemonic": "call",
+      "operands": "fa46d0",
+      "rva": "0x49555c"
+    },
+    {
+      "mnemonic": "mov",
+      "operands": "DWORD PTR [rip+0x579fc9d],0x0",
+      "rva": "0x495561"
+    },
+    {
+      "mnemonic": "mov",
+      "operands": "DWORD PTR [r12+0x48],0xffffffff",
+      "rva": "0x49556b"
+    },
+    {
+      "mnemonic": "nop",
+      "operands": "DWORD PTR [rax+0x0]",
+      "rva": "0x495574"
+    },
+    {
+      "mnemonic": "mov",
+      "operands": "r8d,DWORD PTR [rbp-0x1114]",
+      "rva": "0x495578"
+    },
+    {
+      "mnemonic": "jmp",
+      "operands": "4950b0",
+      "rva": "0x49557f"
+    },
+    {
+      "mnemonic": "nop",
+      "operands": "DWORD PTR [rax+0x0]",
+      "rva": "0x495584"
+    },
+    {
+      "mnemonic": "cmp",
+      "operands": "DWORD PTR [rbp-0x1158],0x4",
+      "rva": "0x495588"
+    },
+    {
+      "mnemonic": "mov",
+      "operands": "r8d,0x1f",
+      "rva": "0x49558f"
+    },
+    {
+      "mnemonic": "sti",
+      "operands": "",
+      "rva": "0x495598"
+    }
+  ],
+  "host": {
+    "kernel_release": "7.0.0-38-generic",
+    "name": "pc3",
+    "nvidia_module_version": "595.99.02",
+    "pci_ownership": {
+      "0000:02:00.0": "nvidia",
+      "0000:81:00.0": "vfio-pci"
+    }
+  },
+  "instructions": [
+    {
+      "mnemonic": "jmp",
+      "operands": "QWORD PTR [rsi+0xf]",
+      "rva": "0x495aa1"
+    },
+    {
+      "mnemonic": "add",
+      "operands": "BYTE PTR [rax],r8b",
+      "rva": "0x495aa5"
+    },
+    {
+      "mnemonic": "mov",
+      "operands": "edi,DWORD PTR [rip+0x573b872]",
+      "rva": "0x495aa8"
+    },
+    {
+      "mnemonic": "lea",
+      "operands": "r9,[rbp-0x1114]",
+      "rva": "0x495aae"
+    },
+    {
+      "mnemonic": "mov",
+      "operands": "r8,r10",
+      "rva": "0x495ab5"
+    },
+    {
+      "mnemonic": "mov",
+      "operands": "ecx,0xc020462a",
+      "rva": "0x495ab8"
+    },
+    {
+      "mnemonic": "mov",
+      "operands": "edx,0x20",
+      "rva": "0x495abd"
+    },
+    {
+      "mnemonic": "mov",
+      "operands": "esi,0x2a",
+      "rva": "0x495ac2"
+    },
+    {
+      "mnemonic": "call",
+      "operands": "48bc40",
+      "rva": "0x495ac7"
+    },
+    {
+      "mnemonic": "mov",
+      "operands": "r13d,eax",
+      "rva": "0x495acc"
+    },
+    {
+      "mnemonic": "jmp",
+      "operands": "49551a",
+      "rva": "0x495acf"
+    },
+    {
+      "mnemonic": "xor",
+      "operands": "r8d,r8d",
+      "rva": "0x495ad4"
+    },
+    {
+      "mnemonic": "mov",
+      "operands": "DWORD PTR [rip+0x579f727],0x0",
+      "rva": "0x495ad7"
+    },
+    {
+      "mnemonic": "mov",
+      "operands": "eax,DWORD PTR [rbp-0x1030]",
+      "rva": "0x495ae1"
+    },
+    {
+      "mnemonic": "test",
+      "operands": "eax,eax",
+      "rva": "0x495ae7"
+    },
+    {
+      "mnemonic": "je",
+      "operands": "4950b0",
+      "rva": "0x495ae9"
+    },
+    {
+      "mnemonic": "cmp",
+      "operands": "eax,0xfffffffb",
+      "rva": "0x495aef"
+    },
+    {
+      "mnemonic": "jne",
+      "operands": "495f2d",
+      "rva": "0x495af2"
+    },
+    {
+      "mnemonic": "mov",
+      "operands": "r8d,DWORD PTR [rbp-0x102c]",
+      "rva": "0x495af8"
+    },
+    {
+      "mnemonic": "jmp",
+      "operands": "4950b0",
+      "rva": "0x495aff"
+    },
+    {
+      "mnemonic": "nop",
+      "operands": "DWORD PTR [rax+0x0]",
+      "rva": "0x495b04"
+    },
+    {
+      "mnemonic": "xor",
+      "operands": "eax,eax",
+      "rva": "0x495b08"
+    },
+    {
+      "mnemonic": "xor",
+      "operands": "r8d,r8d",
+      "rva": "0x495b0a"
+    },
+    {
+      "mnemonic": "xor",
+      "operands": "r9d,r9d",
+      "rva": "0x495b0d"
+    },
+    {
+      "mnemonic": "jmp",
+      "operands": "49503d",
+      "rva": "0x495b10"
+    },
+    {
+      "mnemonic": "cmp",
+      "operands": "ebx,0x3d0a",
+      "rva": "0x495b15"
+    },
+    {
+      "mnemonic": "test",
+      "operands": "DWORD PTR [rbx],eax",
+      "rva": "0x495b1c"
+    },
+    {
+      "mnemonic": "stc",
+      "operands": "",
+      "rva": "0x495b1e"
+    }
+  ],
+  "limitations": [
+    "This is a static, bounded instruction window from the hash-pinned R580 libcuda.",
+    "No raw instruction bytes, binary, pseudocode, or symbol annotations are retained.",
+    "Instruction adjacency does not prove feature-mask dataflow or semantic use.",
+    "No kernel, driver module, VM state, PCI binding, or GPU state was changed by this inspection."
+  ],
+  "objdump_version": "GNU objdump (GNU Binutils for Ubuntu) 2.42",
+  "qualification": "read-only-static-instruction-window",
+  "schema": "nvidia-hybrid-pc3-v100-libcuda-bounded-window-v1",
+  "static_reference": {
+    "call_rva": "0x495ac7",
+    "callee_rva": "0x48bc40",
+    "correlation_report_sha256": "3e1d39b64cc64742ec3fcafac57fbf7fe7f6efa915d6f3a2d6ef2fb0ed4990c8",
+    "return_rva": "0x495acc"
+  },
+  "status": "observed",
+  "transport": {
+    "credential_value_logged": false,
+    "credential_value_persisted": false,
+    "guest_host_key_fingerprint_verified": true,
+    "target": "pc3@pc3"
+  }
+}

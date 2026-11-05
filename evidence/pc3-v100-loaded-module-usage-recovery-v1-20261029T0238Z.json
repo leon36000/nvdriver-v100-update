@@ -1,0 +1,170 @@
+{
+  "credential_file": "/home/pc6/Desktop/ACCES-BANC-GPU.env",
+  "credential_host": "gx10-e526",
+  "evidence": "evidence/pc3-v100-loaded-module-usage-recovery-v1-20261029T0238Z.json",
+  "finished_utc": "2026-10-29T02:37:36+00:00",
+  "host_key_alias": "pc3",
+  "pc3_ssh_returncode": 0,
+  "probe_source_sha256": "46e11a063c2e502061ad9abbbc34e49282e2bf1272e587e8fef85c993309894c",
+  "read_only_requested": true,
+  "remote": {
+    "experimental_module_loaded": false,
+    "guest": {
+      "build_id_match": true,
+      "compute_processes": {
+        "pids": [],
+        "query_complete": true
+      },
+      "effective_uid": 0,
+      "execution_scope": {
+        "experimental_module_loaded": false,
+        "pci_binding_changed": false,
+        "read_only": true,
+        "stock_driver_changed": false,
+        "vm_management_issued": false
+      },
+      "gpu": {
+        "driver_version": "580.178.04",
+        "name": "Tesla V100-SXM2-16GB",
+        "pci": "00000000:00:05.0"
+      },
+      "hostname": "pc3-v100",
+      "interpretation": "Matching GNU build IDs tie the loaded module note to the on-disk R580 module build. A build-id match does not prove every loaded text/data byte is identical or establish the identity of a separate embedded nv-kernel.o_binary object. The module-use scan is a point observation; quiescence does not prove an unload, reinsert, or VM recovery path.",
+      "kernel_release": "6.8.0-147-generic",
+      "loaded_module": {
+        "gnu_build_id": "b371b4fc5a3f536bc46b67035200c8254f5e6c76",
+        "note_error_class": null,
+        "sysfs_build_id_note_path": "/sys/module/nvidia/notes/.note.gnu.build-id",
+        "sysfs_build_id_note_readable": true,
+        "sysfs_build_id_note_sha256": "0abde6ec47d5d4aed6a1260b7da001863a3e0394aa3fa9e872419b859ed22024"
+      },
+      "module": {
+        "loaded": true,
+        "name": "nvidia",
+        "on_disk_path": "/lib/modules/6.8.0-147-generic/updates/dkms/nvidia.ko.zst",
+        "version": "580.178.04"
+      },
+      "module_usage": {
+        "all_expected_loaded": true,
+        "modules": [
+          {
+            "loaded": true,
+            "name": "nvidia",
+            "proc_refcount": 2,
+            "sysfs_holders": [
+              "nvidia_modeset",
+              "nvidia_uvm"
+            ],
+            "sysfs_refcount": 2
+          },
+          {
+            "loaded": true,
+            "name": "nvidia_uvm",
+            "proc_refcount": 0,
+            "sysfs_holders": [],
+            "sysfs_refcount": 0
+          },
+          {
+            "loaded": true,
+            "name": "nvidia_modeset",
+            "proc_refcount": 1,
+            "sysfs_holders": [
+              "nvidia_drm"
+            ],
+            "sysfs_refcount": 1
+          },
+          {
+            "loaded": true,
+            "name": "nvidia_drm",
+            "proc_refcount": 0,
+            "sysfs_holders": [],
+            "sysfs_refcount": 0
+          }
+        ]
+      },
+      "nvidia_device_fds": {
+        "fd_count": 0,
+        "owner_process_count": 0,
+        "owners": [],
+        "proc_processes_scanned": 165,
+        "proc_scan_complete": true
+      },
+      "on_disk_module": {
+        "decompressed_bytes": 113902159,
+        "decompressed_sha256": "dc6abc8c7624c97446c04108d493378d2cabc820adda65d2ef09a8baeb1c4fcd",
+        "gnu_build_id": "b371b4fc5a3f536bc46b67035200c8254f5e6c76"
+      },
+      "quiescent_observed": true,
+      "rm_function_hashes": {
+        "_nv031364rm": {
+          "sha256": "aa9f235fd99d9036bb9f3d2870a2900d7bdd96b77e15d18036e19396a5b4e46e",
+          "size": 3506
+        },
+        "_nv031399rm": {
+          "sha256": "271dd07e20fcf0794a0811730e7c129bc813042ebb96da9294534ea8ef75a21c",
+          "size": 353
+        },
+        "_nv049612rm": {
+          "sha256": "513e93520cf0f9d908e72200fadeb57066578a4d130453a39acf5eac46177dcb",
+          "size": 120
+        }
+      },
+      "schema": "nvidia-hybrid-pc3-v100-loaded-module-identity-v3",
+      "status": "observed"
+    },
+    "guest_transport": {
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 2578,
+      "stdout_sha256": "fb5933fc883274f6b23a4d58ec88584f1530fbb6ef5e8504075dd878c8bc8236"
+    },
+    "host": {
+      "guest_host_key_verified": true,
+      "hostname": "pc3",
+      "kernel_release": "7.0.0-38-generic",
+      "sudo_identity_verified": true
+    },
+    "kprobe_attached": false,
+    "pci_binding_changed": false,
+    "read_only": true,
+    "schema": "nvidia-hybrid-pc3-v100-trace-capability-v3",
+    "status": "observed",
+    "stock_driver_changed": false,
+    "trace_event_definition_write_attempted": false,
+    "vm_management_issued": false
+  },
+  "remote_stderr_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+  "remote_stdout_bytes": 3252,
+  "remote_stdout_sha256": "c5092693f9a60544ebcc195f7bf40e713b8e7ee442c536baefa5fd19895f6e32",
+  "rm_object_function_comparison": {
+    "all_match": true,
+    "functions": {
+      "_nv031364rm": {
+        "expected_sha256": "aa9f235fd99d9036bb9f3d2870a2900d7bdd96b77e15d18036e19396a5b4e46e",
+        "expected_size": 3506,
+        "match": true,
+        "observed_sha256": "aa9f235fd99d9036bb9f3d2870a2900d7bdd96b77e15d18036e19396a5b4e46e",
+        "observed_size": 3506
+      },
+      "_nv031399rm": {
+        "expected_sha256": "271dd07e20fcf0794a0811730e7c129bc813042ebb96da9294534ea8ef75a21c",
+        "expected_size": 353,
+        "match": true,
+        "observed_sha256": "271dd07e20fcf0794a0811730e7c129bc813042ebb96da9294534ea8ef75a21c",
+        "observed_size": 353
+      },
+      "_nv049612rm": {
+        "expected_sha256": "513e93520cf0f9d908e72200fadeb57066578a4d130453a39acf5eac46177dcb",
+        "expected_size": 120,
+        "match": true,
+        "observed_sha256": "513e93520cf0f9d908e72200fadeb57066578a4d130453a39acf5eac46177dcb",
+        "observed_size": 120
+      }
+    },
+    "reference_object_sha256": "5269a23ffba19a17fe16f076463e7ad4151254659441d1711bee6c6221ff6f4b"
+  },
+  "schema": "nvidia-hybrid-pc3-v100-loaded-module-identity-transport-v1",
+  "started_utc": "2026-10-29T02:37:33+00:00",
+  "status": "observed",
+  "target": "pc3@pc3"
+}

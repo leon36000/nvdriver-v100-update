@@ -1,0 +1,58 @@
+{
+  "all_created_event_definitions_removed": true,
+  "corrected_lifecycle": {
+    "control": {
+      "cleanup_verified": true,
+      "definition_removed": true,
+      "event_enabled_observed": false,
+      "registration_interpretation": "registered_disabled_then_removed",
+      "trace_event_definition_added": true
+    },
+    "control_absolute": {
+      "cleanup_verified": true,
+      "definition_removed": true,
+      "event_enabled_observed": false,
+      "registration_interpretation": "registered_disabled_then_removed",
+      "trace_event_definition_added": true
+    },
+    "nvidia_absolute": {
+      "cleanup_verified": true,
+      "definition_removed": false,
+      "event_enabled_observed": false,
+      "registration_interpretation": "not_registered",
+      "trace_event_definition_added": false
+    },
+    "nvidia_named": {
+      "cleanup_verified": true,
+      "definition_removed": false,
+      "event_enabled_observed": false,
+      "registration_interpretation": "not_registered",
+      "trace_event_definition_added": false
+    }
+  },
+  "created_utc": "2026-10-22T06:10:07+00:00",
+  "handlers_enabled_by_runner": false,
+  "interpretation": "The legacy kprobe_attached=false field did not mean that no kprobe was registered. Successful control trace-event definitions registered disabled kprobes and were removed; the runner never enabled their handlers. Both NVIDIA definitions failed with EINVAL before creation.",
+  "kernel_source_basis": {
+    "disabled_probe_documentation": "https://github.com/torvalds/linux/blob/v6.8/Documentation/trace/kprobes.rst#L310-L317",
+    "guest_distribution_source_verified": false,
+    "limitation": "This source-backed interpretation uses upstream v6.8 and the guest's observed 6.8.0-147-generic configuration. The exact Ubuntu downstream source package was not diffed; the generic trace error does not prove which guard returned EINVAL for the NVIDIA target.",
+    "notrace_guard_source": "https://github.com/torvalds/linux/blob/v6.8/kernel/trace/trace_kprobe.c#L2871-L2966",
+    "trace_kprobe_source": "https://github.com/torvalds/linux/blob/v6.8/kernel/trace/trace_kprobe.c#L2942-L2995",
+    "upstream_version": "Linux v6.8"
+  },
+  "nvidia_target_events_registered": false,
+  "pci_binding_changed": false,
+  "read_only": false,
+  "registered_disabled_events": [
+    "control",
+    "control_absolute"
+  ],
+  "schema": "nvidia-hybrid-pc3-v100-kprobe-semantics-correction-v1",
+  "source_legacy_kprobe_attached_value": false,
+  "source_probe_sha256": "969d58dfde7fb35673f2e8763bc95225705b789834c67399765ecabbd8f17480",
+  "source_report": "evidence/pc3-v100-elf-kprobe-address-v4-20261022.json",
+  "source_report_sha256": "db7611cbe32731b269db5800ea7d3567e9c5d3f19c3c410c17c8eec9b3975b8f",
+  "status": "interpreted",
+  "stock_driver_changed": false
+}
