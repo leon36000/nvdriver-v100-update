@@ -1,0 +1,122 @@
+{
+  "generated_utc": "2026-10-21T17:39:30Z",
+  "independent_trees_agree": true,
+  "limitations": [
+    "No provider modules were loaded and no Linux suspend/resume was attempted.",
+    "This does not prove callback fan-in safety, async device ordering, or a live bridge."
+  ],
+  "qualification": "static-source-contract-only",
+  "schema": "hybrid580-uvm-pm-lifecycle-v1",
+  "source_trees": [
+    {
+      "bridge_implication": "Callbacks can be registered in only one slot per RM provider. A shared UVM callback table must be installed into both providers and deregistered with both ISR barriers. Global suspend/resume have no UUID and the UVM suspend callback holds a global write lock across return. A dispatcher cannot safely invoke UVM suspend once after only the first provider has preempted its local channels; cross-provider channel-preemption and Linux PM callback ordering need a separate system-level coordination design and hardware/PM test.",
+      "callback_prototypes": {
+        "drain_p2p": true,
+        "isr_top_half": true,
+        "resume": true,
+        "resume_p2p": true,
+        "start_device": true,
+        "stop_device": true,
+        "suspend": true
+      },
+      "callback_registration": {
+        "de_registration_clears_then_quiesces_isr": true,
+        "isr_reads_published_callback_table_once": true,
+        "single_registration_slot_rejects_second": true,
+        "source_lines": {
+          "deregister": 1084,
+          "isr": 1194,
+          "register": 1051
+        }
+      },
+      "label": "open-r580-clean",
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "common/inc/nv_uvm_types.h": {
+          "bytes": 39722,
+          "sha256": "5216a6a83924511f38c8a881ee0ffc601e2851e92e6a9b49810f9cc9e90dd614"
+        },
+        "nvidia-uvm/uvm_global.c": {
+          "bytes": 18035,
+          "sha256": "aeee2f257a289853f36d9c7b196f1e02d19b84695db44cdd2e00f28b0f1a4489"
+        },
+        "nvidia/nv.c": {
+          "bytes": 160285,
+          "sha256": "4f251e44dfd400d7611b57a029d0b38b6e8a67a30f4971085aad56029753aa40"
+        },
+        "nvidia/nv_uvm_interface.c": {
+          "bytes": 55393,
+          "sha256": "b41c704d29363dd52dd0ea669ee253a37185f5826c7db56a07dec21c3d24eddc"
+        }
+      },
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-clean-v3-20261021/source/kernel-open",
+      "system_pm_order": {
+        "per_provider_preempts_local_channels_before_uvm_suspend_before_local_gpu_suspend": true,
+        "resume_calls_uvm_before_restoring_local_user_channels": true,
+        "source_lines": {
+          "driver_resume": 4667,
+          "driver_suspend": 4719,
+          "uvm_resume": 360,
+          "uvm_suspend": 272
+        },
+        "uvm_resume_clears_suspended_state_then_releases_global_pm_lock": true,
+        "uvm_suspend_holds_global_pm_write_lock_across_callback_return": true
+      }
+    },
+    {
+      "bridge_implication": "Callbacks can be registered in only one slot per RM provider. A shared UVM callback table must be installed into both providers and deregistered with both ISR barriers. Global suspend/resume have no UUID and the UVM suspend callback holds a global write lock across return. A dispatcher cannot safely invoke UVM suspend once after only the first provider has preempted its local channels; cross-provider channel-preemption and Linux PM callback ordering need a separate system-level coordination design and hardware/PM test.",
+      "callback_prototypes": {
+        "drain_p2p": true,
+        "isr_top_half": true,
+        "resume": true,
+        "resume_p2p": true,
+        "start_device": true,
+        "stop_device": true,
+        "suspend": true
+      },
+      "callback_registration": {
+        "de_registration_clears_then_quiesces_isr": true,
+        "isr_reads_published_callback_table_once": true,
+        "single_registration_slot_rejects_second": true,
+        "source_lines": {
+          "deregister": 1084,
+          "isr": 1194,
+          "register": 1051
+        }
+      },
+      "label": "proprietary-r580-patched",
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "common/inc/nv_uvm_types.h": {
+          "bytes": 39722,
+          "sha256": "5216a6a83924511f38c8a881ee0ffc601e2851e92e6a9b49810f9cc9e90dd614"
+        },
+        "nvidia-uvm/uvm_global.c": {
+          "bytes": 18035,
+          "sha256": "aeee2f257a289853f36d9c7b196f1e02d19b84695db44cdd2e00f28b0f1a4489"
+        },
+        "nvidia/nv.c": {
+          "bytes": 211939,
+          "sha256": "f66f6d578b39ba9a70a7516540508ec4f4b3dd16428393fd82c2e687caa8fc0f"
+        },
+        "nvidia/nv_uvm_interface.c": {
+          "bytes": 55393,
+          "sha256": "b41c704d29363dd52dd0ea669ee253a37185f5826c7db56a07dec21c3d24eddc"
+        }
+      },
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-proprietary-binapi-object-v1-20261021/nvidia-580.178.04",
+      "system_pm_order": {
+        "per_provider_preempts_local_channels_before_uvm_suspend_before_local_gpu_suspend": true,
+        "resume_calls_uvm_before_restoring_local_user_channels": true,
+        "source_lines": {
+          "driver_resume": 6510,
+          "driver_suspend": 6562,
+          "uvm_resume": 360,
+          "uvm_suspend": 272
+        },
+        "uvm_resume_clears_suspended_state_then_releases_global_pm_lock": true,
+        "uvm_suspend_holds_global_pm_write_lock_across_callback_return": true
+      }
+    }
+  ]
+}

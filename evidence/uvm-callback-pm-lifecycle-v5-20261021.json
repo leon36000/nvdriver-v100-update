@@ -1,0 +1,292 @@
+{
+  "generated_utc": "2026-10-21T17:50:38Z",
+  "independent_trees_agree": true,
+  "limitations": [
+    "No provider modules were loaded and no Linux suspend/resume was attempted.",
+    "The report distinguishes procfs/global NVIDIA PM from PCI device PM callbacks.",
+    "This does not prove systemd choreography, Linux async device ordering, or a live bridge."
+  ],
+  "qualification": "static-source-contract-only",
+  "schema": "hybrid580-uvm-pm-lifecycle-v3",
+  "source_trees": [
+    {
+      "bridge_implication": "The procfs command enters NVIDIA's global system-PM state machine, while nv_pmops_suspend/resume are per-device PCI callbacks and do not call UVM. Open R580 may also register a kernel PM notifier; the proprietary R580 tree does not. Global suspend/resume callbacks still have no UUID, and UVM keeps its global PM write lock held across suspend. A dual-provider design must audit notifier ownership, procfs orchestration, channel quiescence and GPU restore phases separately; merely deduplicating PCI callbacks is irrelevant.",
+      "callback_prototypes": {
+        "drain_p2p": true,
+        "isr_top_half": true,
+        "resume": true,
+        "resume_p2p": true,
+        "start_device": true,
+        "stop_device": true,
+        "suspend": true
+      },
+      "callback_registration": {
+        "de_registration_clears_then_quiesces_isr": true,
+        "isr_reads_published_callback_table_once": true,
+        "single_registration_slot_rejects_second": true,
+        "source_lines": {
+          "deregister": 1084,
+          "isr": 1194,
+          "register": 1051
+        }
+      },
+      "label": "open-r580-source-baseline",
+      "nvidia_global_pm_path": {
+        "per_provider_preempts_local_channels_before_uvm_suspend_before_local_gpu_suspend": true,
+        "reached_by_nv_set_system_power_state": true,
+        "resume_calls_uvm_before_restoring_local_user_channels": true,
+        "source_lines": {
+          "driver_resume": 4667,
+          "driver_suspend": 4719,
+          "uvm_resume": 360,
+          "uvm_suspend": 272
+        },
+        "state_machine_source_line": 4823,
+        "uvm_resume_clears_suspended_state_then_releases_global_pm_lock": true,
+        "uvm_suspend_holds_global_pm_write_lock_across_callback_return": true
+      },
+      "pci_device_pm_ops": {
+        "device_suspend_helper_explicitly_preempts_channels_or_suspends_uvm": false,
+        "pci_path_explicitly_preempts_channels_or_suspends_uvm": false,
+        "resume_calls_global_uvm_pm": false,
+        "resume_is_device_local": true,
+        "source_lines": {
+          "device_suspend_helper": 4487,
+          "resume": 4900,
+          "suspend": 4886
+        },
+        "suspend_calls_global_uvm_pm": false,
+        "suspend_is_device_local": true
+      },
+      "procfs_namespace": {
+        "buffer_expression": "20",
+        "buffer_sizes_module_named_path": false,
+        "directory_uses_module_name": true,
+        "module_name_binding_present": true,
+        "note": "A private module name must use a buffer sized for driver/<MODULE_NAME> including the NUL; the stock fixed 20-byte buffer is too short for the hybrid580 backend names.",
+        "path_format_is_driver_percent_s": true
+      },
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "common/inc/nv_uvm_types.h": {
+          "bytes": 39722,
+          "sha256": "5216a6a83924511f38c8a881ee0ffc601e2851e92e6a9b49810f9cc9e90dd614"
+        },
+        "nvidia-uvm/uvm_global.c": {
+          "bytes": 18035,
+          "sha256": "aeee2f257a289853f36d9c7b196f1e02d19b84695db44cdd2e00f28b0f1a4489"
+        },
+        "nvidia/nv-procfs.c": {
+          "bytes": 36155,
+          "sha256": "8cfcde5e57cd10d709c573dca2db10ddad8049c222a5a73437738252886620c8"
+        },
+        "nvidia/nv.c": {
+          "bytes": 160285,
+          "sha256": "4f251e44dfd400d7611b57a029d0b38b6e8a67a30f4971085aad56029753aa40"
+        },
+        "nvidia/nv_uvm_interface.c": {
+          "bytes": 55393,
+          "sha256": "b41c704d29363dd52dd0ea669ee253a37185f5826c7db56a07dec21c3d24eddc"
+        }
+      },
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-clean-v3-20261021/source/kernel-open",
+      "system_pm_entrypoints": {
+        "kernel_pm_notifier_dispatches_global_state_machine": false,
+        "kernel_pm_notifier_registration_is_parameter_gated": false,
+        "kernel_pm_notifier_supported": false,
+        "procfs_suspend_calls_global_state_machine": true,
+        "source_lines": {
+          "kernel_pm_notifier": null,
+          "procfs_init": 1335,
+          "procfs_suspend": 645
+        }
+      }
+    },
+    {
+      "bridge_implication": "The procfs command enters NVIDIA's global system-PM state machine, while nv_pmops_suspend/resume are per-device PCI callbacks and do not call UVM. Open R580 may also register a kernel PM notifier; the proprietary R580 tree does not. Global suspend/resume callbacks still have no UUID, and UVM keeps its global PM write lock held across suspend. A dual-provider design must audit notifier ownership, procfs orchestration, channel quiescence and GPU restore phases separately; merely deduplicating PCI callbacks is irrelevant.",
+      "callback_prototypes": {
+        "drain_p2p": true,
+        "isr_top_half": true,
+        "resume": true,
+        "resume_p2p": true,
+        "start_device": true,
+        "stop_device": true,
+        "suspend": true
+      },
+      "callback_registration": {
+        "de_registration_clears_then_quiesces_isr": true,
+        "isr_reads_published_callback_table_once": true,
+        "single_registration_slot_rejects_second": true,
+        "source_lines": {
+          "deregister": 1084,
+          "isr": 1194,
+          "register": 1051
+        }
+      },
+      "label": "open-r580-private-backend",
+      "nvidia_global_pm_path": {
+        "per_provider_preempts_local_channels_before_uvm_suspend_before_local_gpu_suspend": true,
+        "reached_by_nv_set_system_power_state": true,
+        "resume_calls_uvm_before_restoring_local_user_channels": true,
+        "source_lines": {
+          "driver_resume": 5548,
+          "driver_suspend": 5600,
+          "uvm_resume": 360,
+          "uvm_suspend": 272
+        },
+        "state_machine_source_line": 5704,
+        "uvm_resume_clears_suspended_state_then_releases_global_pm_lock": true,
+        "uvm_suspend_holds_global_pm_write_lock_across_callback_return": true
+      },
+      "pci_device_pm_ops": {
+        "device_suspend_helper_explicitly_preempts_channels_or_suspends_uvm": false,
+        "pci_path_explicitly_preempts_channels_or_suspends_uvm": false,
+        "resume_calls_global_uvm_pm": false,
+        "resume_is_device_local": true,
+        "source_lines": {
+          "device_suspend_helper": 5368,
+          "resume": 5781,
+          "suspend": 5767
+        },
+        "suspend_calls_global_uvm_pm": false,
+        "suspend_is_device_local": true
+      },
+      "procfs_namespace": {
+        "buffer_expression": "sizeof(\"driver/\" MODULE_NAME)",
+        "buffer_sizes_module_named_path": true,
+        "directory_uses_module_name": true,
+        "module_name_binding_present": true,
+        "note": "A private module name must use a buffer sized for driver/<MODULE_NAME> including the NUL; the stock fixed 20-byte buffer is too short for the hybrid580 backend names.",
+        "path_format_is_driver_percent_s": true
+      },
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "common/inc/nv_uvm_types.h": {
+          "bytes": 39722,
+          "sha256": "5216a6a83924511f38c8a881ee0ffc601e2851e92e6a9b49810f9cc9e90dd614"
+        },
+        "nvidia-uvm/uvm_global.c": {
+          "bytes": 18035,
+          "sha256": "aeee2f257a289853f36d9c7b196f1e02d19b84695db44cdd2e00f28b0f1a4489"
+        },
+        "nvidia/nv-procfs.c": {
+          "bytes": 36182,
+          "sha256": "689083643f493596a1ee9f75ec8f7c29be0e418a193030eb718cba04f62c4d44"
+        },
+        "nvidia/nv.c": {
+          "bytes": 188896,
+          "sha256": "e03cad3c88f9db755b8380abe6da9af185088c20c3ad682c254270cf5fe0ad96"
+        },
+        "nvidia/nv_uvm_interface.c": {
+          "bytes": 55393,
+          "sha256": "b41c704d29363dd52dd0ea669ee253a37185f5826c7db56a07dec21c3d24eddc"
+        }
+      },
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-open-attached-ids-v1-20261021/NVIDIA-kernel-module-source-580.178.04/kernel-open",
+      "system_pm_entrypoints": {
+        "kernel_pm_notifier_dispatches_global_state_machine": false,
+        "kernel_pm_notifier_registration_is_parameter_gated": false,
+        "kernel_pm_notifier_supported": false,
+        "procfs_suspend_calls_global_state_machine": true,
+        "source_lines": {
+          "kernel_pm_notifier": null,
+          "procfs_init": 1335,
+          "procfs_suspend": 645
+        }
+      }
+    },
+    {
+      "bridge_implication": "The procfs command enters NVIDIA's global system-PM state machine, while nv_pmops_suspend/resume are per-device PCI callbacks and do not call UVM. Open R580 may also register a kernel PM notifier; the proprietary R580 tree does not. Global suspend/resume callbacks still have no UUID, and UVM keeps its global PM write lock held across suspend. A dual-provider design must audit notifier ownership, procfs orchestration, channel quiescence and GPU restore phases separately; merely deduplicating PCI callbacks is irrelevant.",
+      "callback_prototypes": {
+        "drain_p2p": true,
+        "isr_top_half": true,
+        "resume": true,
+        "resume_p2p": true,
+        "start_device": true,
+        "stop_device": true,
+        "suspend": true
+      },
+      "callback_registration": {
+        "de_registration_clears_then_quiesces_isr": true,
+        "isr_reads_published_callback_table_once": true,
+        "single_registration_slot_rejects_second": true,
+        "source_lines": {
+          "deregister": 1084,
+          "isr": 1194,
+          "register": 1051
+        }
+      },
+      "label": "proprietary-r580-private-backend",
+      "nvidia_global_pm_path": {
+        "per_provider_preempts_local_channels_before_uvm_suspend_before_local_gpu_suspend": true,
+        "reached_by_nv_set_system_power_state": true,
+        "resume_calls_uvm_before_restoring_local_user_channels": true,
+        "source_lines": {
+          "driver_resume": 6510,
+          "driver_suspend": 6562,
+          "uvm_resume": 360,
+          "uvm_suspend": 272
+        },
+        "state_machine_source_line": 6643,
+        "uvm_resume_clears_suspended_state_then_releases_global_pm_lock": true,
+        "uvm_suspend_holds_global_pm_write_lock_across_callback_return": true
+      },
+      "pci_device_pm_ops": {
+        "device_suspend_helper_explicitly_preempts_channels_or_suspends_uvm": false,
+        "pci_path_explicitly_preempts_channels_or_suspends_uvm": false,
+        "resume_calls_global_uvm_pm": false,
+        "resume_is_device_local": true,
+        "source_lines": {
+          "device_suspend_helper": 6383,
+          "resume": 6720,
+          "suspend": 6706
+        },
+        "suspend_calls_global_uvm_pm": false,
+        "suspend_is_device_local": true
+      },
+      "procfs_namespace": {
+        "buffer_expression": "sizeof(\"driver/\" MODULE_NAME)",
+        "buffer_sizes_module_named_path": true,
+        "directory_uses_module_name": true,
+        "module_name_binding_present": true,
+        "note": "A private module name must use a buffer sized for driver/<MODULE_NAME> including the NUL; the stock fixed 20-byte buffer is too short for the hybrid580 backend names.",
+        "path_format_is_driver_percent_s": true
+      },
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "common/inc/nv_uvm_types.h": {
+          "bytes": 39722,
+          "sha256": "5216a6a83924511f38c8a881ee0ffc601e2851e92e6a9b49810f9cc9e90dd614"
+        },
+        "nvidia-uvm/uvm_global.c": {
+          "bytes": 18035,
+          "sha256": "aeee2f257a289853f36d9c7b196f1e02d19b84695db44cdd2e00f28b0f1a4489"
+        },
+        "nvidia/nv-procfs.c": {
+          "bytes": 36560,
+          "sha256": "549b61ca66f53429e0e97df90a65c0129e3c2dd984b09d24f71d8a06680c483e"
+        },
+        "nvidia/nv.c": {
+          "bytes": 211939,
+          "sha256": "f66f6d578b39ba9a70a7516540508ec4f4b3dd16428393fd82c2e687caa8fc0f"
+        },
+        "nvidia/nv_uvm_interface.c": {
+          "bytes": 55393,
+          "sha256": "b41c704d29363dd52dd0ea669ee253a37185f5826c7db56a07dec21c3d24eddc"
+        }
+      },
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-proprietary-binapi-object-v1-20261021/nvidia-580.178.04",
+      "system_pm_entrypoints": {
+        "kernel_pm_notifier_dispatches_global_state_machine": false,
+        "kernel_pm_notifier_registration_is_parameter_gated": false,
+        "kernel_pm_notifier_supported": false,
+        "procfs_suspend_calls_global_state_machine": true,
+        "source_lines": {
+          "kernel_pm_notifier": null,
+          "procfs_init": 1342,
+          "procfs_suspend": 652
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,273 @@
+{
+  "conclusion": {
+    "disabled_registration_path_unchanged_by_ubuntu_diff": true,
+    "errno_einval_is_consistent_with_upstream_guard": true,
+    "exact_runtime_errno_cause_proven": false,
+    "notes": "The observed module functions have no fentry/mcount references and are absent from available_filter_functions. With the guest's dynamic-ftrace/notrace config, the unchanged upstream guard is consistent with the observed EINVAL. The generic error log does not prove this was the exact runtime return path.",
+    "notrace_guard_unchanged_by_ubuntu_diff": true
+  },
+  "contract_hunk_overlaps": [],
+  "created_utc": "2026-10-22T06:20:45+00:00",
+  "guest": {
+    "available_filter_function_targets": [],
+    "hostname": "pc3-v100",
+    "installed_kernel_packages": [
+      {
+        "package": "linux-image-6.8.0-147-generic",
+        "version": "6.8.0-147.147"
+      },
+      {
+        "package": "linux-modules-6.8.0-147-generic",
+        "version": "6.8.0-147.147"
+      },
+      {
+        "package": "linux-modules-extra-6.8.0-147-generic",
+        "version": ""
+      },
+      {
+        "package": "linux-headers-6.8.0-147-generic",
+        "version": "6.8.0-147.147"
+      }
+    ],
+    "kernel_config": {
+      "config_dynamic_ftrace": "y",
+      "config_function_tracer": "y",
+      "config_kprobe_events_on_notrace": "n"
+    },
+    "kernel_config_sha256": "38e15c1c7499ee8741945df32128c3ec21439addc40561e3144c4bca705b6d65",
+    "kernel_release": "6.8.0-147-generic",
+    "os_release": {
+      "ID": "ubuntu",
+      "PRETTY_NAME": "Ubuntu 24.04.5 LTS",
+      "VERSION_ID": "24.04"
+    },
+    "stock_module_sha256": "dc6abc8c7624c97446c04108d493378d2cabc820adda65d2ef09a8baeb1c4fcd",
+    "target_fentry_inspection": {
+      "_nv000790rm": {
+        "fentry_reference": false,
+        "instruction_line_count": 1909,
+        "matching_line_count": 0,
+        "mcount_reference": false,
+        "objdump_succeeded": true,
+        "symbol_found": true,
+        "symbol_header_found": true
+      },
+      "_nv000794rm": {
+        "fentry_reference": false,
+        "instruction_line_count": 181,
+        "matching_line_count": 0,
+        "mcount_reference": false,
+        "objdump_succeeded": true,
+        "symbol_found": true,
+        "symbol_header_found": true
+      },
+      "_nv031399rm": {
+        "fentry_reference": false,
+        "instruction_line_count": 101,
+        "matching_line_count": 0,
+        "mcount_reference": false,
+        "objdump_succeeded": true,
+        "symbol_found": true,
+        "symbol_header_found": true
+      },
+      "rm_init_adapter": {
+        "fentry_reference": false,
+        "instruction_line_count": 65,
+        "matching_line_count": 0,
+        "mcount_reference": false,
+        "objdump_succeeded": true,
+        "symbol_found": true,
+        "symbol_header_found": true
+      },
+      "rm_init_private_state": {
+        "fentry_reference": false,
+        "instruction_line_count": 29,
+        "matching_line_count": 0,
+        "mcount_reference": false,
+        "objdump_succeeded": true,
+        "symbol_found": true,
+        "symbol_header_found": true
+      }
+    }
+  },
+  "schema": "nvidia-hybrid-ubuntu-kprobe-source-patch-audit-v1",
+  "source_package": {
+    "diff_md5": "841fc1a5c106c6c97a71da01796c40da",
+    "diff_sha256": "370fa76631a470323e92a0b25dca6012287c4ada448c7f2e4954f45a628e936c",
+    "diff_sha256_in_dsc": "370fa76631a470323e92a0b25dca6012287c4ada448c7f2e4954f45a628e936c",
+    "diff_url": "https://archive.ubuntu.com/ubuntu/pool/main/l/linux/linux_6.8.0-147.147.diff.gz",
+    "dsc_sha256": "c546485ca6c4bd45143817f44c7c12498b64e9c911f434fd14147ecb9ebb981f",
+    "dsc_signature_verification": "not_verified_public_key_unavailable",
+    "dsc_url": "https://archive.ubuntu.com/ubuntu/pool/main/l/linux/linux_6.8.0-147.147.dsc",
+    "name": "linux",
+    "package_source_page_url": "https://packages.ubuntu.com/noble-updates/linux-headers-6.8.0-147",
+    "upstream_source_sha256": "3d5130b1c160d3f3dadf482f94337488f8105b9dd07f9b33256bcdd52094cd9b",
+    "upstream_source_url": "https://raw.githubusercontent.com/torvalds/linux/v6.8/kernel/trace/trace_kprobe.c",
+    "version": "6.8.0-147.147"
+  },
+  "source_ranges": [
+    {
+      "end": 475,
+      "name": "dynamic-ftrace notrace guard",
+      "start": 433
+    },
+    {
+      "end": 515,
+      "name": "trace-kprobe registration",
+      "start": 478
+    }
+  ],
+  "status": "audited",
+  "ubuntu_trace_kprobe_hunks": [
+    {
+      "new_count": 7,
+      "new_start": 290,
+      "old_count": 7,
+      "old_start": 290
+    },
+    {
+      "new_count": 21,
+      "new_start": 670,
+      "old_count": 6,
+      "old_start": 670
+    },
+    {
+      "new_count": 7,
+      "new_start": 703,
+      "old_count": 7,
+      "old_start": 688
+    },
+    {
+      "new_count": 7,
+      "new_start": 717,
+      "old_count": 7,
+      "old_start": 702
+    },
+    {
+      "new_count": 84,
+      "new_start": 744,
+      "old_count": 17,
+      "old_start": 729
+    },
+    {
+      "new_count": 14,
+      "new_start": 941,
+      "old_count": 6,
+      "old_start": 859
+    },
+    {
+      "new_count": 6,
+      "new_start": 961,
+      "old_count": 31,
+      "old_start": 871
+    },
+    {
+      "new_count": 10,
+      "new_start": 994,
+      "old_count": 6,
+      "old_start": 929
+    },
+    {
+      "new_count": 18,
+      "new_start": 1010,
+      "old_count": 13,
+      "old_start": 941
+    },
+    {
+      "new_count": 7,
+      "new_start": 1066,
+      "old_count": 7,
+      "old_start": 992
+    },
+    {
+      "new_count": 8,
+      "new_start": 1377,
+      "old_count": 8,
+      "old_start": 1303
+    },
+    {
+      "new_count": 9,
+      "new_start": 1403,
+      "old_count": 6,
+      "old_start": 1329
+    },
+    {
+      "new_count": 7,
+      "new_start": 1436,
+      "old_count": 7,
+      "old_start": 1359
+    },
+    {
+      "new_count": 7,
+      "new_start": 1445,
+      "old_count": 7,
+      "old_start": 1368
+    },
+    {
+      "new_count": 31,
+      "new_start": 1461,
+      "old_count": 6,
+      "old_start": 1384
+    },
+    {
+      "new_count": 7,
+      "new_start": 1501,
+      "old_count": 7,
+      "old_start": 1399
+    },
+    {
+      "new_count": 7,
+      "new_start": 1511,
+      "old_count": 7,
+      "old_start": 1409
+    },
+    {
+      "new_count": 7,
+      "new_start": 1659,
+      "old_count": 7,
+      "old_start": 1557
+    },
+    {
+      "new_count": 7,
+      "new_start": 1670,
+      "old_count": 7,
+      "old_start": 1568
+    },
+    {
+      "new_count": 7,
+      "new_start": 1695,
+      "old_count": 7,
+      "old_start": 1593
+    },
+    {
+      "new_count": 7,
+      "new_start": 1706,
+      "old_count": 7,
+      "old_start": 1604
+    },
+    {
+      "new_count": 15,
+      "new_start": 1775,
+      "old_count": 14,
+      "old_start": 1673
+    },
+    {
+      "new_count": 7,
+      "new_start": 1795,
+      "old_count": 6,
+      "old_start": 1692
+    },
+    {
+      "new_count": 11,
+      "new_start": 1808,
+      "old_count": 10,
+      "old_start": 1704
+    },
+    {
+      "new_count": 9,
+      "new_start": 1880,
+      "old_count": 21,
+      "old_start": 1775
+    }
+  ]
+}

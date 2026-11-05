@@ -1,0 +1,54 @@
+{
+  "schema": "standard-node-clean-checkout-validation-v1",
+  "observed_at_utc": "2026-11-03T00:38:00Z",
+  "change": {
+    "fixture": "tests/fixtures/include/nv-chardev-numbers.h",
+    "fixture_sha256": "8b92ab56fe52aca8cddcad378ab5a55c678d7bfb9599fa9217febe8afac002dc",
+    "host_test": "tests/test_standard_node_devices.py",
+    "host_test_sha256": "c30eb6c1145ce13a62a66e6b087f6cade701853055bf91889f470cf15e195bd3",
+    "production_sources": [
+      "src/hybrid580-gpu-catalog.c",
+      "src/hybrid580-standard-node-map.c",
+      "src/hybrid580-standard-node-devices.c"
+    ],
+    "scenario_fixture_sha256": "b1ee10828f14d3bfe4ae4900d8a13c8c6acf9fe897741b201624811b588b7df4"
+  },
+  "reference": {
+    "release": "R580.178.04 open kernel source",
+    "file": "kernel-open/common/inc/nv-chardev-numbers.h",
+    "sha256": "405047bb836229f55f39955d2565e2aad2e470bd796bdf6b6f7a8795fe12ea64",
+    "values_match_fixture": true
+  },
+  "focused_tests": {
+    "canonical_checkout": {
+      "tests_run": 2,
+      "passed": 2,
+      "skipped": 0,
+      "failed": 0
+    },
+    "staged_index_export_without_build_cache": {
+      "tests_run": 2,
+      "passed": 1,
+      "skipped": 1,
+      "failed": 0,
+      "skip_reason": "optional R580.178.04 source snapshot is not in the staged checkout"
+    }
+  },
+  "full_software_suite": {
+    "status": "pass",
+    "tests_run": 2634,
+    "failed": 0,
+    "skipped": 0,
+    "reported_seconds": 178.05,
+    "test_source_count": 394,
+    "implementation_input_count": 98,
+    "test_sources_changed_during_run": false,
+    "implementation_inputs_changed_during_run": false,
+    "raw_report_sha256": "a52d99c4a8c710da5cdd921c952982b514e824a563c5cc72a25d87cd1ee09dbf",
+    "raw_log_sha256": "74941cd1910899fd617773e19f5dc9d6092ec282d7accaf765c8097851ad19f0"
+  },
+  "qualification": "host-cpu-ubsan-and-software-suite-only",
+  "hardware_execution_validated": false,
+  "kernel_module_loaded_or_installed": false,
+  "same_process_v100_and_rtx5080_validated": false
+}

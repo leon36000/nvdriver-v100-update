@@ -1,0 +1,526 @@
+{
+  "generated_utc": "2026-10-21T23:31:37Z",
+  "independent_trees_agree": true,
+  "limitations": [
+    "No provider modules were loaded and no Linux suspend/resume was attempted.",
+    "The report distinguishes procfs/global NVIDIA PM from PCI device PM callbacks.",
+    "This does not prove systemd choreography, Linux async device ordering, or a live bridge."
+  ],
+  "qualification": "static-source-contract-only",
+  "schema": "hybrid580-uvm-pm-lifecycle-v4",
+  "source_trees": [
+    {
+      "architecture_fault_support": {
+        "blackwell_non_replayable_faults_supported": true,
+        "volta_non_replayable_faults_supported": true
+      },
+      "bridge_implication": "The procfs command enters NVIDIA's global system-PM state machine, while nv_pmops_suspend/resume are per-device PCI callbacks and do not call UVM. Open R580 may also register a kernel PM notifier; the proprietary R580 tree does not. Global suspend/resume callbacks still have no UUID, and UVM keeps its global PM write lock held across suspend. A dual-provider design must audit notifier ownership, procfs orchestration, channel quiescence and GPU restore phases separately; merely deduplicating PCI callbacks is irrelevant.",
+      "callback_prototypes": {
+        "drain_p2p": true,
+        "isr_top_half": true,
+        "resume": true,
+        "resume_p2p": true,
+        "start_device": true,
+        "stop_device": true,
+        "suspend": true
+      },
+      "callback_registration": {
+        "de_registration_clears_then_quiesces_isr": true,
+        "isr_reads_published_callback_table_once": true,
+        "single_registration_slot_rejects_second": true,
+        "source_lines": {
+          "deregister": 1084,
+          "isr": 1194,
+          "register": 1051
+        }
+      },
+      "label": "R580.178.04-open-fault-drain-candidate",
+      "nvidia_global_pm_path": {
+        "per_provider_preempts_local_channels_before_uvm_suspend_before_local_gpu_suspend": true,
+        "reached_by_nv_set_system_power_state": true,
+        "resume_calls_uvm_before_restoring_local_user_channels": true,
+        "source_lines": {
+          "driver_resume": 4667,
+          "driver_suspend": 4719,
+          "uvm_resume": 374,
+          "uvm_suspend": 273
+        },
+        "state_machine_source_line": 4823,
+        "uvm_resume_clears_suspended_state_then_releases_global_pm_lock": true,
+        "uvm_suspend_holds_global_pm_write_lock_across_callback_return": true
+      },
+      "pci_device_pm_ops": {
+        "device_suspend_helper_explicitly_preempts_channels_or_suspends_uvm": false,
+        "pci_path_explicitly_preempts_channels_or_suspends_uvm": false,
+        "resume_calls_global_uvm_pm": false,
+        "resume_is_device_local": true,
+        "source_lines": {
+          "device_suspend_helper": 4487,
+          "resume": 4900,
+          "suspend": 4886
+        },
+        "suspend_calls_global_uvm_pm": false,
+        "suspend_is_device_local": true
+      },
+      "procfs_namespace": {
+        "buffer_expression": "20",
+        "buffer_sizes_module_named_path": false,
+        "directory_uses_module_name": true,
+        "module_name_binding_present": true,
+        "note": "A private module name must use a buffer sized for driver/<MODULE_NAME> including the NUL; the stock fixed 20-byte buffer is too short for the hybrid580 backend names.",
+        "path_format_is_driver_percent_s": true
+      },
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "common/inc/nv_uvm_types.h": {
+          "bytes": 39722,
+          "sha256": "5216a6a83924511f38c8a881ee0ffc601e2851e92e6a9b49810f9cc9e90dd614"
+        },
+        "nvidia-uvm/uvm.c": {
+          "bytes": 46908,
+          "sha256": "6549ff9293e5a789d53f59c29cbc2af4d7d8aedd0bfe7519699c4239e7ad24b3"
+        },
+        "nvidia-uvm/uvm_blackwell.c": {
+          "bytes": 7085,
+          "sha256": "47ce5838ec0e78e0c2147d27d4ebc9b6a9188c8350e7aabdb8ea186d52108840"
+        },
+        "nvidia-uvm/uvm_global.c": {
+          "bytes": 18940,
+          "sha256": "2979bb79d02897e8e5e8856665604d857b34b36b7a831d895c8b1b1b0bfe7c00"
+        },
+        "nvidia-uvm/uvm_gpu.c": {
+          "bytes": 151186,
+          "sha256": "b43bb94bbc465bbb4fb243e6f722cb450d6402f3071971843d61f1f7678bf700"
+        },
+        "nvidia-uvm/uvm_gpu_isr.c": {
+          "bytes": 40263,
+          "sha256": "456ee47bb83564cc1ada830538781256bb246bf82888601d3c3f2b3a2bc777f5"
+        },
+        "nvidia-uvm/uvm_gpu_non_replayable_faults.c": {
+          "bytes": 36310,
+          "sha256": "588e72e5e3163f2e9a3c1b0d78a5450c97a4393b5b0c8e024915c41460d0250b"
+        },
+        "nvidia-uvm/uvm_va_space.c": {
+          "bytes": 106199,
+          "sha256": "cff2ab99e9b45143865413cd15d78381ead57b370f4b3bc32ac7584ca9e91693"
+        },
+        "nvidia-uvm/uvm_volta.c": {
+          "bytes": 4420,
+          "sha256": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653"
+        },
+        "nvidia/nv-procfs.c": {
+          "bytes": 36155,
+          "sha256": "8cfcde5e57cd10d709c573dca2db10ddad8049c222a5a73437738252886620c8"
+        },
+        "nvidia/nv.c": {
+          "bytes": 160285,
+          "sha256": "4f251e44dfd400d7611b57a029d0b38b6e8a67a30f4971085aad56029753aa40"
+        },
+        "nvidia/nv_uvm_interface.c": {
+          "bytes": 55393,
+          "sha256": "b41c704d29363dd52dd0ea669ee253a37185f5826c7db56a07dec21c3d24eddc"
+        }
+      },
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-fault-drain-v1-20261021/kernel-open",
+      "system_pm_entrypoints": {
+        "kernel_pm_notifier_dispatches_global_state_machine": false,
+        "kernel_pm_notifier_registration_is_parameter_gated": false,
+        "kernel_pm_notifier_supported": false,
+        "procfs_suspend_calls_global_state_machine": true,
+        "source_lines": {
+          "kernel_pm_notifier": null,
+          "procfs_init": 1335,
+          "procfs_suspend": 645
+        }
+      },
+      "uvm_callback_context": {
+        "kill_channel_rm_callback_is_on_deferred_worker": true,
+        "service_interrupts_calls_rm_interface": true,
+        "service_interrupts_rejects_interrupt_context": true
+      },
+      "uvm_entry_admission": {
+        "deferred_release_worker_waits_until_pm_resume": true,
+        "fault_trylocks_pm_and_returns_busy_retry": true,
+        "ioctl_trylocks_pm_and_returns_eagain": true,
+        "mmap_trylocks_pm_and_disables_vma_on_failure": true,
+        "release_defers_teardown_when_pm_write_locked": true,
+        "source_lines": {
+          "cpu_fault": 2531,
+          "deferred_release": 186,
+          "ioctl": 1055,
+          "mmap": 759,
+          "release": 202
+        }
+      },
+      "uvm_suspend_quiescence": {
+        "flushes_global_work_and_isr_queues": true,
+        "kill_channel_worker_calls_rm_and_is_drained": true,
+        "non_replayable_fault_isr_bottom_half_dispatches_service": true,
+        "non_replayable_pending_query_is_in_isr_top_half": true,
+        "non_replayable_worker_queue_flushed_during_suspend": true,
+        "resume_releases_pm_lock_then_flushes_deferred_release": true,
+        "rm_get_fault_batches_synchronously_serviced_under_service_lock": true,
+        "rm_get_fault_service_drains_batches_until_empty": true,
+        "rm_hardware_fault_buffer_flush_is_not_present": true,
+        "source_lines": {
+          "isr_top_half": 218,
+          "kill_channel_worker": 483,
+          "non_replayable_bottom_half": 638,
+          "non_replayable_scheduler": 121,
+          "non_replayable_service": 777,
+          "resume": 374,
+          "schedule_kill_channel": 506,
+          "service_interrupts": 1336,
+          "suspend": 273
+        },
+        "suspend_calls_rm_get_fault_service_after_bottom_half_before_kill_queue_flush": true,
+        "suspend_queries_rm_pending_fault_status": false,
+        "suspend_rescans_pending_faults_before_queue_flush": false,
+        "takes_pm_write_lock_before_draining_work": true,
+        "takes_va_space_write_locks": true
+      }
+    },
+    {
+      "architecture_fault_support": {
+        "blackwell_non_replayable_faults_supported": true,
+        "volta_non_replayable_faults_supported": true
+      },
+      "bridge_implication": "The procfs command enters NVIDIA's global system-PM state machine, while nv_pmops_suspend/resume are per-device PCI callbacks and do not call UVM. Open R580 may also register a kernel PM notifier; the proprietary R580 tree does not. Global suspend/resume callbacks still have no UUID, and UVM keeps its global PM write lock held across suspend. A dual-provider design must audit notifier ownership, procfs orchestration, channel quiescence and GPU restore phases separately; merely deduplicating PCI callbacks is irrelevant.",
+      "callback_prototypes": {
+        "drain_p2p": true,
+        "isr_top_half": true,
+        "resume": true,
+        "resume_p2p": true,
+        "start_device": true,
+        "stop_device": true,
+        "suspend": true
+      },
+      "callback_registration": {
+        "de_registration_clears_then_quiesces_isr": true,
+        "isr_reads_published_callback_table_once": true,
+        "single_registration_slot_rejects_second": true,
+        "source_lines": {
+          "deregister": 1084,
+          "isr": 1194,
+          "register": 1051
+        }
+      },
+      "label": "R580.178.04-open-baseline",
+      "nvidia_global_pm_path": {
+        "per_provider_preempts_local_channels_before_uvm_suspend_before_local_gpu_suspend": true,
+        "reached_by_nv_set_system_power_state": true,
+        "resume_calls_uvm_before_restoring_local_user_channels": true,
+        "source_lines": {
+          "driver_resume": 4667,
+          "driver_suspend": 4719,
+          "uvm_resume": 360,
+          "uvm_suspend": 272
+        },
+        "state_machine_source_line": 4823,
+        "uvm_resume_clears_suspended_state_then_releases_global_pm_lock": true,
+        "uvm_suspend_holds_global_pm_write_lock_across_callback_return": true
+      },
+      "pci_device_pm_ops": {
+        "device_suspend_helper_explicitly_preempts_channels_or_suspends_uvm": false,
+        "pci_path_explicitly_preempts_channels_or_suspends_uvm": false,
+        "resume_calls_global_uvm_pm": false,
+        "resume_is_device_local": true,
+        "source_lines": {
+          "device_suspend_helper": 4487,
+          "resume": 4900,
+          "suspend": 4886
+        },
+        "suspend_calls_global_uvm_pm": false,
+        "suspend_is_device_local": true
+      },
+      "procfs_namespace": {
+        "buffer_expression": "20",
+        "buffer_sizes_module_named_path": false,
+        "directory_uses_module_name": true,
+        "module_name_binding_present": true,
+        "note": "A private module name must use a buffer sized for driver/<MODULE_NAME> including the NUL; the stock fixed 20-byte buffer is too short for the hybrid580 backend names.",
+        "path_format_is_driver_percent_s": true
+      },
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "common/inc/nv_uvm_types.h": {
+          "bytes": 39722,
+          "sha256": "5216a6a83924511f38c8a881ee0ffc601e2851e92e6a9b49810f9cc9e90dd614"
+        },
+        "nvidia-uvm/uvm.c": {
+          "bytes": 46908,
+          "sha256": "6549ff9293e5a789d53f59c29cbc2af4d7d8aedd0bfe7519699c4239e7ad24b3"
+        },
+        "nvidia-uvm/uvm_blackwell.c": {
+          "bytes": 7085,
+          "sha256": "47ce5838ec0e78e0c2147d27d4ebc9b6a9188c8350e7aabdb8ea186d52108840"
+        },
+        "nvidia-uvm/uvm_global.c": {
+          "bytes": 18035,
+          "sha256": "aeee2f257a289853f36d9c7b196f1e02d19b84695db44cdd2e00f28b0f1a4489"
+        },
+        "nvidia-uvm/uvm_gpu.c": {
+          "bytes": 151186,
+          "sha256": "b43bb94bbc465bbb4fb243e6f722cb450d6402f3071971843d61f1f7678bf700"
+        },
+        "nvidia-uvm/uvm_gpu_isr.c": {
+          "bytes": 40263,
+          "sha256": "456ee47bb83564cc1ada830538781256bb246bf82888601d3c3f2b3a2bc777f5"
+        },
+        "nvidia-uvm/uvm_gpu_non_replayable_faults.c": {
+          "bytes": 36310,
+          "sha256": "588e72e5e3163f2e9a3c1b0d78a5450c97a4393b5b0c8e024915c41460d0250b"
+        },
+        "nvidia-uvm/uvm_va_space.c": {
+          "bytes": 106199,
+          "sha256": "cff2ab99e9b45143865413cd15d78381ead57b370f4b3bc32ac7584ca9e91693"
+        },
+        "nvidia-uvm/uvm_volta.c": {
+          "bytes": 4420,
+          "sha256": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653"
+        },
+        "nvidia/nv-procfs.c": {
+          "bytes": 36155,
+          "sha256": "8cfcde5e57cd10d709c573dca2db10ddad8049c222a5a73437738252886620c8"
+        },
+        "nvidia/nv.c": {
+          "bytes": 160285,
+          "sha256": "4f251e44dfd400d7611b57a029d0b38b6e8a67a30f4971085aad56029753aa40"
+        },
+        "nvidia/nv_uvm_interface.c": {
+          "bytes": 55393,
+          "sha256": "b41c704d29363dd52dd0ea669ee253a37185f5826c7db56a07dec21c3d24eddc"
+        }
+      },
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r580-uvm-clean-v3-20261021/source/kernel-open",
+      "system_pm_entrypoints": {
+        "kernel_pm_notifier_dispatches_global_state_machine": false,
+        "kernel_pm_notifier_registration_is_parameter_gated": false,
+        "kernel_pm_notifier_supported": false,
+        "procfs_suspend_calls_global_state_machine": true,
+        "source_lines": {
+          "kernel_pm_notifier": null,
+          "procfs_init": 1335,
+          "procfs_suspend": 645
+        }
+      },
+      "uvm_callback_context": {
+        "kill_channel_rm_callback_is_on_deferred_worker": true,
+        "service_interrupts_calls_rm_interface": true,
+        "service_interrupts_rejects_interrupt_context": true
+      },
+      "uvm_entry_admission": {
+        "deferred_release_worker_waits_until_pm_resume": true,
+        "fault_trylocks_pm_and_returns_busy_retry": true,
+        "ioctl_trylocks_pm_and_returns_eagain": true,
+        "mmap_trylocks_pm_and_disables_vma_on_failure": true,
+        "release_defers_teardown_when_pm_write_locked": true,
+        "source_lines": {
+          "cpu_fault": 2531,
+          "deferred_release": 186,
+          "ioctl": 1055,
+          "mmap": 759,
+          "release": 202
+        }
+      },
+      "uvm_suspend_quiescence": {
+        "flushes_global_work_and_isr_queues": true,
+        "kill_channel_worker_calls_rm_and_is_drained": true,
+        "non_replayable_fault_isr_bottom_half_dispatches_service": true,
+        "non_replayable_pending_query_is_in_isr_top_half": true,
+        "non_replayable_worker_queue_flushed_during_suspend": true,
+        "resume_releases_pm_lock_then_flushes_deferred_release": true,
+        "rm_get_fault_batches_synchronously_serviced_under_service_lock": false,
+        "rm_get_fault_service_drains_batches_until_empty": true,
+        "rm_hardware_fault_buffer_flush_is_not_present": true,
+        "source_lines": {
+          "isr_top_half": 218,
+          "kill_channel_worker": 483,
+          "non_replayable_bottom_half": 638,
+          "non_replayable_scheduler": 121,
+          "non_replayable_service": 777,
+          "resume": 360,
+          "schedule_kill_channel": 506,
+          "service_interrupts": 1336,
+          "suspend": 272
+        },
+        "suspend_calls_rm_get_fault_service_after_bottom_half_before_kill_queue_flush": false,
+        "suspend_queries_rm_pending_fault_status": false,
+        "suspend_rescans_pending_faults_before_queue_flush": false,
+        "takes_pm_write_lock_before_draining_work": true,
+        "takes_va_space_write_locks": true
+      }
+    },
+    {
+      "architecture_fault_support": {
+        "blackwell_non_replayable_faults_supported": true,
+        "volta_non_replayable_faults_supported": true
+      },
+      "bridge_implication": "The procfs command enters NVIDIA's global system-PM state machine, while nv_pmops_suspend/resume are per-device PCI callbacks and do not call UVM. Open R580 may also register a kernel PM notifier; the proprietary R580 tree does not. Global suspend/resume callbacks still have no UUID, and UVM keeps its global PM write lock held across suspend. A dual-provider design must audit notifier ownership, procfs orchestration, channel quiescence and GPU restore phases separately; merely deduplicating PCI callbacks is irrelevant.",
+      "callback_prototypes": {
+        "drain_p2p": true,
+        "isr_top_half": true,
+        "resume": true,
+        "resume_p2p": true,
+        "start_device": true,
+        "stop_device": true,
+        "suspend": true
+      },
+      "callback_registration": {
+        "de_registration_clears_then_quiesces_isr": true,
+        "isr_reads_published_callback_table_once": true,
+        "single_registration_slot_rejects_second": true,
+        "source_lines": {
+          "deregister": 1084,
+          "isr": 1194,
+          "register": 1051
+        }
+      },
+      "label": "R580.178.04-proprietary-baseline",
+      "nvidia_global_pm_path": {
+        "per_provider_preempts_local_channels_before_uvm_suspend_before_local_gpu_suspend": true,
+        "reached_by_nv_set_system_power_state": true,
+        "resume_calls_uvm_before_restoring_local_user_channels": true,
+        "source_lines": {
+          "driver_resume": 4912,
+          "driver_suspend": 4964,
+          "uvm_resume": 360,
+          "uvm_suspend": 272
+        },
+        "state_machine_source_line": 5045,
+        "uvm_resume_clears_suspended_state_then_releases_global_pm_lock": true,
+        "uvm_suspend_holds_global_pm_write_lock_across_callback_return": true
+      },
+      "pci_device_pm_ops": {
+        "device_suspend_helper_explicitly_preempts_channels_or_suspends_uvm": false,
+        "pci_path_explicitly_preempts_channels_or_suspends_uvm": false,
+        "resume_calls_global_uvm_pm": false,
+        "resume_is_device_local": true,
+        "source_lines": {
+          "device_suspend_helper": 4785,
+          "resume": 5122,
+          "suspend": 5108
+        },
+        "suspend_calls_global_uvm_pm": false,
+        "suspend_is_device_local": true
+      },
+      "procfs_namespace": {
+        "buffer_expression": "sizeof(\"driver/\" MODULE_NAME)",
+        "buffer_sizes_module_named_path": true,
+        "directory_uses_module_name": true,
+        "module_name_binding_present": true,
+        "note": "A private module name must use a buffer sized for driver/<MODULE_NAME> including the NUL; the stock fixed 20-byte buffer is too short for the hybrid580 backend names.",
+        "path_format_is_driver_percent_s": true
+      },
+      "qualification": "static-source-contract-only",
+      "source_files": {
+        "common/inc/nv_uvm_types.h": {
+          "bytes": 39722,
+          "sha256": "5216a6a83924511f38c8a881ee0ffc601e2851e92e6a9b49810f9cc9e90dd614"
+        },
+        "nvidia-uvm/uvm.c": {
+          "bytes": 46908,
+          "sha256": "6549ff9293e5a789d53f59c29cbc2af4d7d8aedd0bfe7519699c4239e7ad24b3"
+        },
+        "nvidia-uvm/uvm_blackwell.c": {
+          "bytes": 7085,
+          "sha256": "47ce5838ec0e78e0c2147d27d4ebc9b6a9188c8350e7aabdb8ea186d52108840"
+        },
+        "nvidia-uvm/uvm_global.c": {
+          "bytes": 18035,
+          "sha256": "aeee2f257a289853f36d9c7b196f1e02d19b84695db44cdd2e00f28b0f1a4489"
+        },
+        "nvidia-uvm/uvm_gpu.c": {
+          "bytes": 151186,
+          "sha256": "b43bb94bbc465bbb4fb243e6f722cb450d6402f3071971843d61f1f7678bf700"
+        },
+        "nvidia-uvm/uvm_gpu_isr.c": {
+          "bytes": 40263,
+          "sha256": "456ee47bb83564cc1ada830538781256bb246bf82888601d3c3f2b3a2bc777f5"
+        },
+        "nvidia-uvm/uvm_gpu_non_replayable_faults.c": {
+          "bytes": 36310,
+          "sha256": "588e72e5e3163f2e9a3c1b0d78a5450c97a4393b5b0c8e024915c41460d0250b"
+        },
+        "nvidia-uvm/uvm_va_space.c": {
+          "bytes": 106199,
+          "sha256": "cff2ab99e9b45143865413cd15d78381ead57b370f4b3bc32ac7584ca9e91693"
+        },
+        "nvidia-uvm/uvm_volta.c": {
+          "bytes": 4420,
+          "sha256": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653"
+        },
+        "nvidia/nv-procfs.c": {
+          "bytes": 36560,
+          "sha256": "0a1f5f96bdfa7ecf2b4d07d1fa6ef748b435da4ed39894921644245695204e70"
+        },
+        "nvidia/nv.c": {
+          "bytes": 163865,
+          "sha256": "d7313f3152feb4f12ffaf813039043e3f445e3522a4255fff9f7b2f4814d3e6b"
+        },
+        "nvidia/nv_uvm_interface.c": {
+          "bytes": 55393,
+          "sha256": "b41c704d29363dd52dd0ea669ee253a37185f5826c7db56a07dec21c3d24eddc"
+        }
+      },
+      "source_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/private-proprietary-notices-v3/nvidia-580.178.04",
+      "system_pm_entrypoints": {
+        "kernel_pm_notifier_dispatches_global_state_machine": false,
+        "kernel_pm_notifier_registration_is_parameter_gated": false,
+        "kernel_pm_notifier_supported": false,
+        "procfs_suspend_calls_global_state_machine": true,
+        "source_lines": {
+          "kernel_pm_notifier": null,
+          "procfs_init": 1342,
+          "procfs_suspend": 652
+        }
+      },
+      "uvm_callback_context": {
+        "kill_channel_rm_callback_is_on_deferred_worker": true,
+        "service_interrupts_calls_rm_interface": true,
+        "service_interrupts_rejects_interrupt_context": true
+      },
+      "uvm_entry_admission": {
+        "deferred_release_worker_waits_until_pm_resume": true,
+        "fault_trylocks_pm_and_returns_busy_retry": true,
+        "ioctl_trylocks_pm_and_returns_eagain": true,
+        "mmap_trylocks_pm_and_disables_vma_on_failure": true,
+        "release_defers_teardown_when_pm_write_locked": true,
+        "source_lines": {
+          "cpu_fault": 2531,
+          "deferred_release": 186,
+          "ioctl": 1055,
+          "mmap": 759,
+          "release": 202
+        }
+      },
+      "uvm_suspend_quiescence": {
+        "flushes_global_work_and_isr_queues": true,
+        "kill_channel_worker_calls_rm_and_is_drained": true,
+        "non_replayable_fault_isr_bottom_half_dispatches_service": true,
+        "non_replayable_pending_query_is_in_isr_top_half": true,
+        "non_replayable_worker_queue_flushed_during_suspend": true,
+        "resume_releases_pm_lock_then_flushes_deferred_release": true,
+        "rm_get_fault_batches_synchronously_serviced_under_service_lock": false,
+        "rm_get_fault_service_drains_batches_until_empty": true,
+        "rm_hardware_fault_buffer_flush_is_not_present": true,
+        "source_lines": {
+          "isr_top_half": 218,
+          "kill_channel_worker": 483,
+          "non_replayable_bottom_half": 638,
+          "non_replayable_scheduler": 121,
+          "non_replayable_service": 777,
+          "resume": 360,
+          "schedule_kill_channel": 506,
+          "service_interrupts": 1336,
+          "suspend": 272
+        },
+        "suspend_calls_rm_get_fault_service_after_bottom_half_before_kill_queue_flush": false,
+        "suspend_queries_rm_pending_fault_status": false,
+        "suspend_rescans_pending_faults_before_queue_flush": false,
+        "takes_pm_write_lock_before_draining_work": true,
+        "takes_va_space_write_locks": true
+      }
+    }
+  ]
+}

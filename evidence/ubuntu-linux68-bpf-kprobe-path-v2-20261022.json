@@ -1,0 +1,107 @@
+{
+  "audit_tool": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/audit_linux68_bpf_kprobe_path.py",
+    "sha256": "3d4f824a515344b57af64988cc3ec158c08e5beeda8ddd930b4687ccd1512af6"
+  },
+  "conclusion": {
+    "bpf_kprobe_multi_can_target_these_rm_functions": false,
+    "bpf_perfevent_kprobe_bypasses_notrace": false,
+    "driver_or_gpu_changed": false,
+    "limitations": "This closes these BPF attachment routes only. It does not prove the exact errno from the earlier tracefs attempt or rule out a separately reviewed direct register_kprobe diagnostic module.",
+    "reason": "The perf-event path reaches the notrace rejection in trace-kprobe registration. The Ubuntu kprobe-multi path resolves ftrace IPs and registers an fprobe; the exact guest has no target ftrace callsites.",
+    "runtime_attach_attempted": false
+  },
+  "created_utc": "2026-10-22T06:34:57+00:00",
+  "guest_evidence": {
+    "bpf_tools_available": {
+      "bpftool": true,
+      "bpftrace": true,
+      "clang": false
+    },
+    "config": {
+      "config_bpf_events": "y",
+      "config_bpf_syscall": "y",
+      "config_dynamic_ftrace": "y",
+      "config_fprobe": "y",
+      "config_kprobe_events_on_notrace": "n"
+    },
+    "driver": "580.178.04",
+    "effective_capabilities": {
+      "cap_bpf": true,
+      "cap_perfmon": true,
+      "cap_sys_admin": true
+    },
+    "gpu": {
+      "driver_version": "580.178.04",
+      "name": "Tesla V100-SXM2-16GB",
+      "pci": "0000:00:05.0"
+    },
+    "guest": "pc3-v100",
+    "kernel_release": "6.8.0-147-generic",
+    "target_fentry_mcount_references": false,
+    "target_filter_functions": []
+  },
+  "inputs": {
+    "bpf_trace.c": {
+      "path": "/tmp/bpf_trace-v6.8.c",
+      "sha256": "f5537c7e6c8e5e8d1faf73e5e9ef93e776db8b7a8cc0182b154021f362e0dfe2"
+    },
+    "capability_evidence": {
+      "path": "evidence/pc3-v100-bpf-attach-capabilities-v3-20261022.json",
+      "sha256": "f7dd99e2790d889068551d685d4409d72b8133ee236a1855d21a52c9aececa50"
+    },
+    "diff": {
+      "path": "/tmp/linux_6.8.0-147.147.diff.gz",
+      "sha256": "370fa76631a470323e92a0b25dca6012287c4ada448c7f2e4954f45a628e936c"
+    },
+    "fprobe.c": {
+      "path": "/tmp/fprobe-v6.8.c",
+      "sha256": "6c5a9f0d532bc9b7d9b4d8e7db5578cba9997136dd6055cafbc60d8b6761e893"
+    },
+    "module_evidence": {
+      "path": "evidence/pc3-v100-module-ftrace-v4-20261022.json",
+      "sha256": "3b053042bb5b07fadc022162f34bbca0a5bbf9475cd38a368eadcb810107f5e8"
+    },
+    "trace_event_perf.c": {
+      "path": "/tmp/trace_event_perf-v6.8.c",
+      "sha256": "698c296df9f60325827e7e170db03ed0d1d1792f86d04eaf45af7445c8448a9c"
+    },
+    "trace_kprobe.c": {
+      "path": "/tmp/trace_kprobe-v6.8.c",
+      "sha256": "3d5130b1c160d3f3dadf482f94337488f8105b9dd07f9b33256bcdd52094cd9b"
+    }
+  },
+  "patch_application": {
+    "fprobe_core_patched": false,
+    "fuzz": 0,
+    "output": "patching file kernel/trace/bpf_trace.c\npatching file kernel/trace/trace_event_perf.c\npatching file kernel/trace/trace_kprobe.c",
+    "selected_paths": [
+      "kernel/trace/bpf_trace.c",
+      "kernel/trace/trace_event_perf.c",
+      "kernel/trace/trace_kprobe.c"
+    ],
+    "status": "clean",
+    "trace_fprobe_frontend_patched": true
+  },
+  "routes": {
+    "direct_kprobe_registration_in_kprobe_multi": false,
+    "kprobe_multi_route": [
+      "bpf_kprobe_multi_link_attach",
+      "ftrace_lookup_symbols",
+      "register_fprobe_ips",
+      "ftrace_set_filter_ips",
+      "register_ftrace_function"
+    ],
+    "kprobe_multi_uses_ftrace_fprobe": true,
+    "perf_event_kprobe_uses_notrace_guard": true,
+    "perf_event_route": [
+      "perf_kprobe_init",
+      "create_local_trace_kprobe",
+      "__register_trace_kprobe",
+      "within_notrace_func -> -EINVAL"
+    ]
+  },
+  "schema": "nvidia-hybrid-ubuntu-6.8-bpf-kprobe-path-v1",
+  "source_package": "linux 6.8.0-147.147; Ubuntu 24.04.5 kernel 6.8.0-147-generic",
+  "status": "static_path_audit_passed"
+}

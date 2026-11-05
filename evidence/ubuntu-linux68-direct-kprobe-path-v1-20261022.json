@@ -1,0 +1,124 @@
+{
+  "audit_tool": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/audit_linux68_direct_kprobe_path.py",
+    "sha256": "c99c4838e6a98283108e8d50f2befa7eebe872bc97721e4e6a638a7c1b9f8b09"
+  },
+  "conclusion": {
+    "direct_register_kprobe_source_route_exists": true,
+    "direct_route_bypasses_trace_event_notrace_guard": true,
+    "driver_or_gpu_changed": false,
+    "limitations": "Static source/config feasibility only. It does not establish module-signing policy, target symbol uniqueness at runtime, successful breakpoint preparation on the installed NVIDIA binary, observed function arguments, or GPU behavior.",
+    "next_step": "Build a one-target GPL diagnostic module with a no-sleep/no-allocation handler, run its attach/capture/unregister test on the PC3 V100 canary, and retain an immediate cleanup path.",
+    "runtime_attach_tested": false
+  },
+  "created_utc": "2026-10-22T06:41:57+00:00",
+  "guest_evidence": {
+    "config": {
+      "config_kallsyms": "y",
+      "config_kallsyms_all": "y",
+      "config_kprobes": "y",
+      "config_module_unload": "y",
+      "config_modules": "y"
+    },
+    "driver": "580.178.04",
+    "gpu": {
+      "driver_version": "580.178.04",
+      "name": "Tesla V100-SXM2-16GB",
+      "pci": "0000:00:05.0"
+    },
+    "guest": "pc3-v100",
+    "kernel_release": "6.8.0-147-generic",
+    "target_fentry_mcount_references": false,
+    "target_filter_functions": [],
+    "target_symbols": [
+      "_nv000790rm",
+      "_nv000794rm",
+      "_nv031399rm",
+      "rm_init_adapter",
+      "rm_init_private_state"
+    ]
+  },
+  "inputs": {
+    "arch/x86/kernel/kprobes/core.c": {
+      "path": "/tmp/nvidia-hybrid-kprobe-direct-v1/arch/x86/kernel/kprobes/core.c",
+      "sha256": "efb80a526428179345d10ff12c008f5e6e59bf18ef885c78b6a6a6e116752a18"
+    },
+    "include/linux/kprobes.h": {
+      "path": "/tmp/nvidia-hybrid-kprobe-direct-v1/include/linux/kprobes.h",
+      "sha256": "2fdf253122f970e33c43fa10a6bb0d54a8b29a2636428a95ac20251a3b3b7fa6"
+    },
+    "kernel/kallsyms.c": {
+      "path": "/tmp/nvidia-hybrid-kprobe-direct-v1/kernel/kallsyms.c",
+      "sha256": "231cbbe10420d8b1652145da3af908d63e03775c11f3ce052f85720bbeccb9dc"
+    },
+    "kernel/kprobes.c": {
+      "path": "/tmp/nvidia-hybrid-kprobe-direct-v1/kernel/kprobes.c",
+      "sha256": "8044adfbc5198aaddefd882fba4eb2c95a3b341b7194eea5fe4d5c899d1c9438"
+    },
+    "kernel/module/kallsyms.c": {
+      "path": "/tmp/nvidia-hybrid-kprobe-direct-v1/kernel/module/kallsyms.c",
+      "sha256": "010bdb7ceffbe02f51cfdf0353a4762c2f0aaa3abdc1d73632a812d4244d690b"
+    },
+    "kernel/trace/trace_kprobe.c": {
+      "path": "/tmp/nvidia-hybrid-kprobe-direct-v1/kernel/trace/trace_kprobe.c",
+      "sha256": "3d5130b1c160d3f3dadf482f94337488f8105b9dd07f9b33256bcdd52094cd9b"
+    },
+    "pc3_capability_report": {
+      "path": "evidence/pc3-v100-bpf-attach-capabilities-v3-20261022.json",
+      "sha256": "f7dd99e2790d889068551d685d4409d72b8133ee236a1855d21a52c9aececa50"
+    },
+    "pc3_module_ftrace_report": {
+      "path": "evidence/pc3-v100-module-ftrace-v4-20261022.json",
+      "sha256": "3b053042bb5b07fadc022162f34bbca0a5bbf9475cd38a368eadcb810107f5e8"
+    },
+    "ubuntu_diff": {
+      "path": "/tmp/linux_6.8.0-147.147.diff.gz",
+      "sha256": "370fa76631a470323e92a0b25dca6012287c4ada448c7f2e4954f45a628e936c"
+    }
+  },
+  "patch_application": {
+    "fuzz": 0,
+    "output": "patching file arch/x86/kernel/kprobes/core.c\npatching file include/linux/kprobes.h\npatching file kernel/kallsyms.c\npatching file kernel/kprobes.c\npatching file kernel/module/kallsyms.c\npatching file kernel/trace/trace_kprobe.c",
+    "selected_paths": [
+      "arch/x86/kernel/kprobes/core.c",
+      "include/linux/kprobes.h",
+      "kernel/kallsyms.c",
+      "kernel/kprobes.c",
+      "kernel/module/kallsyms.c",
+      "kernel/trace/trace_kprobe.c"
+    ],
+    "status": "clean"
+  },
+  "route": {
+    "contrasting_trace_event_path_has_notrace_guard": true,
+    "direct_path_notrace_guard": false,
+    "direct_register_kprobe_module_api": true,
+    "module_qualified_symbol_resolution": true,
+    "module_text_ref_held_during_patch": true,
+    "non_ftrace_target_uses_arch_breakpoint": true,
+    "register_kprobe_gpl_export": true,
+    "sequence": [
+      "kprobe.symbol_name (module:symbol)",
+      "_kprobe_addr -> kprobe_lookup_name -> kallsyms_lookup_name",
+      "check_kprobe_address_safe",
+      "prepare_kprobe",
+      "arm_kprobe -> __arm_kprobe (no ftrace callsite)",
+      "unregister_kprobes -> synchronize_rcu -> free probe state"
+    ],
+    "target_module_unload_invalidates_probes": true,
+    "ubuntu_x86_entry_nofault_read": true,
+    "unregister_waits_for_rcu_handlers": true
+  },
+  "schema": "nvidia-hybrid-ubuntu-6.8-direct-kprobe-path-v1",
+  "source_package": "linux 6.8.0-147.147; Ubuntu 24.04.5 kernel 6.8.0-147-generic",
+  "source_refs": {
+    "arch/x86/kernel/kprobes/core.c": "https://raw.githubusercontent.com/torvalds/linux/v6.8/arch/x86/kernel/kprobes/core.c",
+    "include/linux/kprobes.h": "https://raw.githubusercontent.com/torvalds/linux/v6.8/include/linux/kprobes.h",
+    "kernel/kallsyms.c": "https://raw.githubusercontent.com/torvalds/linux/v6.8/kernel/kallsyms.c",
+    "kernel/kprobes.c": "https://raw.githubusercontent.com/torvalds/linux/v6.8/kernel/kprobes.c",
+    "kernel/module/kallsyms.c": "https://raw.githubusercontent.com/torvalds/linux/v6.8/kernel/module/kallsyms.c",
+    "kernel/trace/trace_kprobe.c": "https://raw.githubusercontent.com/torvalds/linux/v6.8/kernel/trace/trace_kprobe.c",
+    "ubuntu_diff": "https://archive.ubuntu.com/ubuntu/pool/main/l/linux/linux_6.8.0-147.147.diff.gz"
+  },
+  "status": "static_path_audit_passed"
+}

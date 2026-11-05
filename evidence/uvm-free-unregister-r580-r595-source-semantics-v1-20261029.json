@@ -1,0 +1,119 @@
+{
+  "findings": [
+    {
+      "interpretation": "This is a source-level contract change accompanying the removed length field. The stock trace lacks payload bytes, so observed length values and runtime cross-branch consequences are unknown.",
+      "name": "UVM_FREE semantics",
+      "r580": "The API requires a valid 4 KiB-aligned base/length pair and verifies that the pair exactly spans the VA range before destroying it.",
+      "r595": "The API receives base only, finds the range by base, and requires that the range start equals base before destroying the whole range."
+    },
+    {
+      "interpretation": "The UUID field appears unused by these two source handlers, but its removal shifts the UAPI offsets. This does not make the old and new payload layouts interchangeable.",
+      "name": "UVM_UNREGISTER_CHANNEL handler fields",
+      "r580": "The wrapper passes params->hClient and params->hChannel to the internal unregister helper; it does not read params->gpuUuid.",
+      "r595": "The wrapper does the same and also does not read params->gpuUuid."
+    }
+  ],
+  "observed_at_utc": "2026-10-29T15:09:19.425589+00:00",
+  "observed_request_context": {
+    "abi_report": {
+      "free_payload_bytes": {
+        "r580": 24,
+        "r595": 16
+      },
+      "path": "evidence/uvm-payload-abi-r580-r595-v100-sequence-v4-20261029.json",
+      "sha256": "3c0005d81ee92b98ce46a796f441972b380c935a5131ba11ccac5592d32632d1",
+      "unregister_channel_payload_bytes": {
+        "r580": 28,
+        "r595": 12
+      }
+    },
+    "route_report": {
+      "capture_count": 2,
+      "path": "evidence/r580-r595-v100-observed-uvm-route-coverage-v2-20261029.json",
+      "requests_routed_each_branch_each_capture": 16,
+      "sha256": "3f0536663f3fc0c0041221a30ca7cd0fba2719fb635501d6d9eac42d3543b99b"
+    },
+    "sequence_report": {
+      "captures": 2,
+      "path": "evidence/pc3-v100-context-uvm-sequence-v1-20261028.json",
+      "payload_bytes_observed": false,
+      "sha256": "475fa6e4275328de55626161998e641dfe8de68ff246da6cf6e8ecc6dfc0c1bb",
+      "unregister_channel_count_each": 16,
+      "uvm_free_count_each": 28
+    }
+  },
+  "profiles": {
+    "r580": "R580.178.04 open candidate",
+    "r595": "R595.99.02 hybrid UVM base"
+  },
+  "qualification": "analyzed-statically",
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-hybrid-observed-uvm-handler-semantics-v1",
+  "scope_limits": [
+    "No captured ioctl payload bytes exist.",
+    "No candidate module was installed or loaded.",
+    "No GPU was accessed.",
+    "The observations do not establish all UVM handler semantics, CUDA correctness, P2P, performance, or same-process V100 plus Blackwell execution."
+  ],
+  "source_lines_are_not_runtime_proof": true,
+  "sources": {
+    "r580": {
+      "files": {
+        "uvm_user_channel.c": {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_user_channel.c",
+          "sha256": "8fe5ce63871dbf7509c4ebbe7d0eeee8e0008693622479aed452d3b7c42015b6"
+        },
+        "uvm_va_range.c": {
+          "path": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm/uvm_va_range.c",
+          "sha256": "10c80433314c9b38cc84f82ac156f2df9d0f5c9d3c73a9e64179047eb2148878"
+        }
+      },
+      "line_anchors": {
+        "uvm_api_free": 740,
+        "uvm_api_unregister_channel": 914,
+        "uvm_free": 663
+      },
+      "root": "build/experiments/r580-nonreplayable-fault-drains-v3-20261028T0634Z/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm",
+      "uvm_api_unregister_channel_reads_client_and_channel": true,
+      "uvm_api_unregister_channel_reads_gpu_uuid": false,
+      "uvm_free_public_wrapper": "return uvm_free(uvm_va_space_get(filp), params->base, params->length);",
+      "uvm_free_signature": "static NV_STATUS uvm_free(uvm_va_space_t *va_space, NvU64 base, NvU64 length)",
+      "uvm_free_source_predicates": {
+        "checks_exact_range_end": true,
+        "destroys_full_va_range": true,
+        "range_lookup_by_base": true,
+        "rejects_invalid_4k_base_length": true,
+        "requires_length_argument": true
+      }
+    },
+    "r595": {
+      "files": {
+        "uvm_user_channel.c": {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_user_channel.c",
+          "sha256": "9a6cec689eaf9c1edd1b7defa9ee7e74215382d802e7ab192b52caa1d0e93fe7"
+        },
+        "uvm_va_range.c": {
+          "path": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm/uvm_va_range.c",
+          "sha256": "26c4c705ea797d0247740678b545d5b2394839eba61d79bef50182ffe6537787"
+        }
+      },
+      "line_anchors": {
+        "uvm_api_free": 742,
+        "uvm_api_unregister_channel": 947,
+        "uvm_free": 673
+      },
+      "root": "build/experiments/r595-gv100-hal-standard-nvidia-frontend-v15-20261028T004147Z/nvidia-uvm",
+      "uvm_api_unregister_channel_reads_client_and_channel": true,
+      "uvm_api_unregister_channel_reads_gpu_uuid": false,
+      "uvm_free_public_wrapper": "return uvm_free(uvm_va_space_get(filp), params->base);",
+      "uvm_free_signature": "static NV_STATUS uvm_free(uvm_va_space_t *va_space, NvU64 base)",
+      "uvm_free_source_predicates": {
+        "checks_exact_range_end": false,
+        "destroys_full_va_range": true,
+        "range_lookup_by_base": true,
+        "rejects_invalid_4k_base_length": false,
+        "requires_length_argument": false
+      }
+    }
+  }
+}

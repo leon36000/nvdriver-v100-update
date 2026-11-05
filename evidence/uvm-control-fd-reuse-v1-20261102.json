@@ -1,0 +1,47 @@
+{
+  "full_software_suite": {
+    "implementation_source_changes": [],
+    "loaded_or_installed": false,
+    "log": "evidence/logs/software-verification-openrm-hal-matrix-v1-20261102T071416Z.log",
+    "log_sha256": "4db7aee316fab166cdaeaf9d698b0e9fef06aa6afc7aa3e6d933e246dde68cad",
+    "report": "evidence/software-verification-openrm-hal-matrix-v1-20261102T071416Z.json",
+    "report_sha256": "3aa18f28b384e0724d3c3795f49eed89e700a8c775e98c95c707bb346103b190",
+    "reported_seconds": 169.671,
+    "runtime_or_hardware_validated": false,
+    "status": "pass",
+    "test_source_changes": [],
+    "tests_run": 2451
+  },
+  "hypothesis": "An acquired UVM control-file pin remains bound to the original struct file after its numeric FD is closed and reused; a later pin resolves the replacement file independently.",
+  "limitations": [
+    "The host fixture models Linux file references; it is not a live kernel race test.",
+    "No GPU, NVIDIA module, CUDA process, UVM runtime, or hardware behavior was exercised.",
+    "The test covers close and reuse after the pin has acquired fget; it does not claim to define concurrent close/reuse semantics before the kernel resolves the FD."
+  ],
+  "observed_at_utc": "2026-11-02T07:17:06Z",
+  "qualification": "cpu-host-fixture-only",
+  "scenario": {
+    "closed_fd": 50,
+    "first_control_file": "front",
+    "first_pin_backend_memory": "original backend handle recorded before FD reuse",
+    "observed": "the original pin retained the original file reference until unpin; the reused FD selected the replacement file and its distinct backend handle; both RM frees were blocked while pinned and succeeded for the exact backend objects after unpin",
+    "public_client_and_memory_handles_collide_across_control_files": true,
+    "replacement_backend_memory": "0xdecafbad",
+    "replacement_control_file": "other"
+  },
+  "schema": "uvm-control-fd-reuse-v1",
+  "source": {
+    "fget_and_type_check": "src/hybrid_frontend.c:2851-2859",
+    "retained_file_reference": "src/hybrid_frontend.c:2902-2917",
+    "sha256": "fbd58920739764d0be486185b701ba3828f88f92cf7b3444cbe2e310001d92c0",
+    "unpin_reference_release": "src/hybrid_frontend.c:2943-2945"
+  },
+  "status": "pass",
+  "test": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=tests python3 -B -m unittest test_hybrid_frontend.HybridFrontendTests.test_actual_frontend_lifecycle_and_broker_cpu_contract -v",
+    "result": "pass",
+    "scenario": "uvm-owner-control-fd-lifetime",
+    "test_source_sha256": "08f804649480dbdf3a4ae87f07d07cbf485f53de1de7607ff7bb5871db611fe1",
+    "unittest": "test_actual_frontend_lifecycle_and_broker_cpu_contract"
+  }
+}

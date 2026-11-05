@@ -1,0 +1,74 @@
+{
+  "kernel_config": {
+    "CONFIG_MITIGATION_RETHUNK": true,
+    "CONFIG_OBJTOOL_WERROR": false
+  },
+  "kernel_release": "7.0.0-38-generic",
+  "limitations": [
+    "Warning category classification does not establish severity, security impact, or runtime behavior.",
+    "Objtool naked-return warnings remain unresolved with CONFIG_MITIGATION_RETHUNK=y; no warning suppression or driver installation was performed.",
+    "The receipt-bound UVM raw log is unavailable, so its warning classification cannot be reconstructed from the preserved artifact set."
+  ],
+  "observed_at_utc": "2026-11-03T13:13:59.276258+00:00",
+  "previous_inventory": {
+    "unclassified_warning_lines": 11169,
+    "warning_lines_total": 57906
+  },
+  "qualification": "hash-verified-warning-message-classification",
+  "runtime_or_hardware_validated": false,
+  "schema": "split-provider-warning-classification-audit-v1",
+  "separate_uvm_candidate": {
+    "bound_to_previous_receipt": false,
+    "categories": {
+      "pahole_version_mismatch": 1
+    },
+    "sha256": "6f1bfb48600e50c89f8b9cfabbf08018ce7a737a837c764c565c3bdb650197f6",
+    "warning_lines": 1
+  },
+  "source_receipt_sha256": "b1c8925aa5e467d75590f96ffcfebd8c0ba240b12aead3f0790f3a41bd85eaf0",
+  "unclassified_reconciliation": {
+    "classified_in_verified_open_and_legacy_logs": 11168,
+    "previous_unclassified": 11169,
+    "remaining_line_reason": "The prior UVM log SHA-256 is not present among the searched preserved logs; the one UVM warning previously reported as unclassified cannot be reconciled.",
+    "remaining_previous_unclassified_lines": 1
+  },
+  "uvm_log_recovery": {
+    "candidate_filter": "log-named files and .stderr/.stdout between 8,000 and 100,000 bytes",
+    "expected_sha256_from_previous_receipt": "d482cb7523d264d11ec75d1f1ded81655c6b2676049c36f17eeba56a52ddc36e",
+    "hashed_candidate_count": 3696,
+    "matching_file_found": false,
+    "scope_limitation": "This search does not prove absence outside the stated roots, filenames, or size range.",
+    "search_scope": [
+      "evidence/logs",
+      "build/experiments"
+    ]
+  },
+  "verified_logs": {
+    "r580_legacy_provider": {
+      "categories": {
+        "compiler:-Wexpansion-to-defined": 7,
+        "compiler:-Wunused-result": 1,
+        "compiler:-Wunused-variable": 3,
+        "objtool_frame_pointer": 1756,
+        "objtool_naked_return": 44978,
+        "pahole_version_mismatch": 1
+      },
+      "hash_verified": true,
+      "sha256": "ddec2f6b5b1f440f2d1ccaa889de1d2cfb3127d156e397dad5d5ad28c5ddc983",
+      "unclassified_warning_lines": 0,
+      "warning_lines": 46746
+    },
+    "r595_open_provider": {
+      "categories": {
+        "compiler:-Wexpansion-to-defined": 7,
+        "compiler:-Wmissing-prototypes": 8,
+        "objtool_naked_return": 11141,
+        "pahole_version_mismatch": 1
+      },
+      "hash_verified": true,
+      "sha256": "0c336ed6320f9c27f2a24f90a4dc671b5f9f3ea135f2a101693fc7d80036d9a6",
+      "unclassified_warning_lines": 0,
+      "warning_lines": 11157
+    }
+  }
+}

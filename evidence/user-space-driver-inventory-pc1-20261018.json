@@ -1,0 +1,53 @@
+{
+  "schema": "nvidia-hybrid-user-space-driver-inventory-v1",
+  "observed_at_utc": "2026-10-18T23:02:00Z",
+  "host": "pc1",
+  "kernel": "7.0.0-38-generic",
+  "driver_version": "595.99.02",
+  "kernel_modules": {
+    "nvidia": {
+      "version": "595.99.02",
+      "license": "Dual MIT/GPL",
+      "path": "/lib/modules/7.0.0-38-generic/updates/dkms/nvidia.ko.zst"
+    },
+    "nvidia_uvm": {
+      "version": "595.99.02",
+      "license": "Dual MIT/GPL",
+      "path": "/lib/modules/7.0.0-38-generic/updates/dkms/nvidia-uvm.ko.zst"
+    },
+    "nvidia_modeset": {
+      "version": "595.99.02",
+      "license": "Dual MIT/GPL",
+      "path": "/lib/modules/7.0.0-38-generic/updates/dkms/nvidia-modeset.ko.zst"
+    },
+    "nvidia_drm": {
+      "version": "595.99.02",
+      "license": "Dual MIT/GPL",
+      "path": "/lib/modules/7.0.0-38-generic/updates/dkms/nvidia-drm.ko.zst"
+    },
+    "nvidia_peermem": {
+      "version": "595.99.02",
+      "license": "Dual BSD/GPL",
+      "path": "/lib/modules/7.0.0-38-generic/updates/dkms/nvidia-peermem.ko.zst"
+    }
+  },
+  "user_libraries": {
+    "libcuda.so.1": {
+      "resolved_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+      "sha256": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d",
+      "driver_api_version_returned_by_probe": 13020,
+      "symbols_observed": [
+        "cuInit",
+        "cuDriverGetVersion",
+        "cuDeviceGetCount",
+        "cuModuleLoad",
+        "cuLaunchKernel"
+      ]
+    },
+    "libnvidia-ml.so.1": {
+      "resolved_path": "/usr/lib/x86_64-linux-gnu/libnvidia-ml.so.595.99.02",
+      "sha256": "770e9de75c14b07cce9718b214700b10e6d6866f7383101d6fe530352543b1de"
+    }
+  },
+  "inspection_limits": "Static symbols and local Blackwell execution only; no cross-branch libcuda/NVML ABI or Volta compatibility is implied."
+}

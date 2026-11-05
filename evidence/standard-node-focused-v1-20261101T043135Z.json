@@ -1,0 +1,56 @@
+{
+  "created_utc": "20261101T043135Z",
+  "schema": "hybrid-standard-node-focused-tests-v1",
+  "scope": "local CPU-only provider catalog and standard device node mapping; no GPU or remote host accessed",
+  "status": "passed",
+  "tests": [
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_standard_node_map.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "evidence/logs/standard-node-focused-v1-20261101T043135Z-1.log",
+      "log_sha256": "dc0d0cfa55cb32b9a0c4e987b307160a48efaa6ba6003952d71c5ecbaccbf26e",
+      "output_tail": [
+        "test_r580_standard_minor_resolution_under_ubsan (test_standard_node_map.StandardNodeMapTests.test_r580_standard_minor_resolution_under_ubsan) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 1 test in 0.093s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_standard_node_devices.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "evidence/logs/standard-node-focused-v1-20261101T043135Z-2.log",
+      "log_sha256": "d24b4b714369af9753579f2ee7b0aa1848073c213283da0eefe4a86340cb1979",
+      "output_tail": [
+        "test_registration_nodes_and_every_failure_unwind_under_ubsan (test_standard_node_devices.StandardNodeDeviceTests.test_registration_nodes_and_every_failure_unwind_under_ubsan) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 1 test in 0.112s",
+        "",
+        "OK"
+      ]
+    }
+  ]
+}

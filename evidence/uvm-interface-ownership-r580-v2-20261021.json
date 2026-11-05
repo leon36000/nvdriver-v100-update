@@ -1,0 +1,3511 @@
+{
+  "apis": [
+    {
+      "line": 78,
+      "name": "nvUvmInterfaceRegisterGpu",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "const NvProcessorUuid *gpuUuid",
+          "handle_parameters": [],
+          "uuid_parameter": true,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuPlatformInfo *gpuInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "uuid",
+      "routing_obligation": "resolve the registered physical GPU to one backend",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 2927,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        }
+      ]
+    },
+    {
+      "line": 93,
+      "name": "nvUvmInterfaceUnregisterGpu",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "const NvProcessorUuid *gpuUuid",
+          "handle_parameters": [],
+          "uuid_parameter": true,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "void",
+      "route_class": "uuid",
+      "routing_obligation": "resolve the registered physical GPU to one backend",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 2975,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        },
+        {
+          "line": 3005,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        }
+      ]
+    },
+    {
+      "line": 107,
+      "name": "nvUvmInterfaceSessionCreate",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuSessionHandle *session",
+          "handle_parameters": [
+            {
+              "candidate_direction": "output_or_inout",
+              "explicit_pointer_depth": 1,
+              "type": "uvmGpuSessionHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmPlatformInfo *platformInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "global_factory",
+      "routing_obligation": "create one logical session backed by one child session per provider",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 115,
+          "path": "nvidia-uvm/uvm_global.c"
+        },
+        {
+          "line": 117,
+          "path": "nvidia-uvm/uvm_global.c"
+        }
+      ]
+    },
+    {
+      "line": 120,
+      "name": "nvUvmInterfaceSessionDestroy",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuSessionHandle session",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuSessionHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "session_scope",
+      "routing_obligation": "resolve the logical session and any child object before dispatch",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 248,
+          "path": "nvidia-uvm/uvm_global.c"
+        }
+      ]
+    },
+    {
+      "line": 138,
+      "name": "nvUvmInterfaceDeviceCreate",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuSessionHandle session",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuSessionHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "const UvmGpuInfo *pGpuInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "const NvProcessorUuid *gpuUuid",
+          "handle_parameters": [],
+          "uuid_parameter": true,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle *device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "output_or_inout",
+              "explicit_pointer_depth": 1,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvBool bCreateSmcPartition",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "session_plus_uuid",
+      "routing_obligation": "select GPU provider by UUID and use its child session",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 1414,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        },
+        {
+          "line": 1535,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        }
+      ]
+    },
+    {
+      "line": 150,
+      "name": "nvUvmInterfaceDeviceDestroy",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "void",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 1756,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        },
+        {
+          "line": 1805,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        }
+      ]
+    },
+    {
+      "line": 163,
+      "name": "nvUvmInterfaceAddressSpaceCreate",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "unsigned long long vaBase",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "unsigned long long vaSize",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvBool enableAts",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuAddressSpaceHandle *vaSpace",
+          "handle_parameters": [
+            {
+              "candidate_direction": "output_or_inout",
+              "explicit_pointer_depth": 1,
+              "type": "uvmGpuAddressSpaceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuAddressSpaceInfo *vaSpaceInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 230,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        }
+      ]
+    },
+    {
+      "line": 181,
+      "name": "nvUvmInterfaceDupAddressSpace",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvHandle hUserClient",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvHandle hUserVASpace",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuAddressSpaceHandle *vaSpace",
+          "handle_parameters": [
+            {
+              "candidate_direction": "output_or_inout",
+              "explicit_pointer_depth": 1,
+              "type": "uvmGpuAddressSpaceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuAddressSpaceInfo *vaSpaceInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 1531,
+          "path": "nvidia-uvm/uvm_va_space.c"
+        }
+      ]
+    },
+    {
+      "line": 194,
+      "name": "nvUvmInterfaceAddressSpaceDestroy",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuAddressSpaceHandle vaSpace",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuAddressSpaceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "void",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 1799,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        },
+        {
+          "line": 1483,
+          "path": "nvidia-uvm/uvm_va_space.c"
+        }
+      ]
+    },
+    {
+      "line": 239,
+      "name": "nvUvmInterfaceMemoryAllocFB",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuAddressSpaceHandle vaSpace",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuAddressSpaceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvLength length",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuPointer * gpuPointer",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuAllocInfo * allocInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 233,
+          "path": "nvidia-uvm/uvm_rm_mem.c"
+        }
+      ]
+    },
+    {
+      "line": 283,
+      "name": "nvUvmInterfaceMemoryAllocSys",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuAddressSpaceHandle vaSpace",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuAddressSpaceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvLength length",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuPointer * gpuPointer",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuAllocInfo * allocInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 223,
+          "path": "nvidia-uvm/uvm_rm_mem.c"
+        },
+        {
+          "line": 229,
+          "path": "nvidia-uvm/uvm_rm_mem.c"
+        }
+      ]
+    },
+    {
+      "line": 305,
+      "name": "nvUvmInterfaceGetP2PCaps",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device1",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device2",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuP2PCapsParams * p2pCapsParams",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "paired_device_handles",
+      "routing_obligation": "require a same-provider pair or an explicit cross-provider policy",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 2233,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        },
+        {
+          "line": 2235,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        }
+      ]
+    },
+    {
+      "line": 327,
+      "name": "nvUvmInterfaceGetPmaObject",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "void **pPma",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": true
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "const UvmPmaStatistics **pPmaPubStats",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "handle_plus_opaque_pointer",
+      "routing_obligation": "route by the typed handle and register/translate provider-owned pointer results",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 3691,
+          "path": "nvidia-uvm/uvm_pmm_gpu.c"
+        }
+      ]
+    },
+    {
+      "line": 351,
+      "name": "nvUvmInterfacePmaRegisterEvictionCallbacks",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "void *pPma",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": true
+        },
+        {
+          "callback_parameter": true,
+          "declaration": "uvmPmaEvictPagesCallback evictPages",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": true,
+          "declaration": "uvmPmaEvictRangeCallback evictRange",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "void *callbackData",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": true
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "provider_opaque_pointer",
+      "routing_obligation": "resolve provider through an explicit opaque-token map; never forward a foreign backend pointer; use provider-aware callback trampolines",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 3697,
+          "path": "nvidia-uvm/uvm_pmm_gpu.c"
+        }
+      ]
+    },
+    {
+      "line": 361,
+      "name": "nvUvmInterfacePmaUnregisterEvictionCallbacks",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "void *pPma",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": true
+        }
+      ],
+      "return_type": "void",
+      "route_class": "provider_opaque_pointer",
+      "routing_obligation": "resolve provider through an explicit opaque-token map; never forward a foreign backend pointer",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 3747,
+          "path": "nvidia-uvm/uvm_pmm_gpu.c"
+        }
+      ]
+    },
+    {
+      "line": 394,
+      "name": "nvUvmInterfacePmaAllocPages",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "void *pPma",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": true
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvLength pageCount",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU64 pageSize",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmPmaAllocationOptions *pPmaAllocOptions",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU64 *pPages",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "provider_opaque_pointer",
+      "routing_obligation": "resolve provider through an explicit opaque-token map; never forward a foreign backend pointer",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 1984,
+          "path": "nvidia-uvm/uvm_pmm_gpu.c"
+        },
+        {
+          "line": 3992,
+          "path": "nvidia-uvm/uvm_pmm_gpu.c"
+        }
+      ]
+    },
+    {
+      "line": 422,
+      "name": "nvUvmInterfacePmaPinPages",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "void *pPma",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": true
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU64 *pPages",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvLength pageCount",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU64 pageSize",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU32 flags",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "provider_opaque_pointer",
+      "routing_obligation": "resolve provider through an explicit opaque-token map; never forward a foreign backend pointer",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 1549,
+          "path": "nvidia-uvm/uvm_pmm_gpu.c"
+        }
+      ]
+    },
+    {
+      "line": 433,
+      "name": "nvUvmInterfaceMemoryFree",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuAddressSpaceHandle vaSpace",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuAddressSpaceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuPointer gpuPointer",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "void",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 358,
+          "path": "nvidia-uvm/uvm_rm_mem.c"
+        }
+      ]
+    },
+    {
+      "line": 464,
+      "name": "nvUvmInterfacePmaFreePages",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "void *pPma",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": true
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU64 *pPages",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvLength pageCount",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU64 pageSize",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU32 flags",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "void",
+      "route_class": "provider_opaque_pointer",
+      "routing_obligation": "resolve provider through an explicit opaque-token map; never forward a foreign backend pointer",
+      "uvm_callsite_count": 4,
+      "uvm_callsites": [
+        {
+          "line": 2074,
+          "path": "nvidia-uvm/uvm_pmm_gpu.c"
+        },
+        {
+          "line": 2595,
+          "path": "nvidia-uvm/uvm_pmm_gpu.c"
+        },
+        {
+          "line": 2609,
+          "path": "nvidia-uvm/uvm_pmm_gpu.c"
+        },
+        {
+          "line": 4015,
+          "path": "nvidia-uvm/uvm_pmm_gpu.c"
+        }
+      ]
+    },
+    {
+      "line": 483,
+      "name": "nvUvmInterfaceMemoryCpuMap",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuAddressSpaceHandle vaSpace",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuAddressSpaceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuPointer gpuPointer",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvLength length",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "void **cpuPtr",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": true
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU64 pageSize",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "handle_plus_opaque_pointer",
+      "routing_obligation": "route by the typed handle and register/translate provider-owned pointer results",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 279,
+          "path": "nvidia-uvm/uvm_rm_mem.c"
+        },
+        {
+          "line": 285,
+          "path": "nvidia-uvm/uvm_rm_mem.c"
+        }
+      ]
+    },
+    {
+      "line": 493,
+      "name": "nvUvmInterfaceMemoryCpuUnMap",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuAddressSpaceHandle vaSpace",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuAddressSpaceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "void *cpuPtr",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": true
+        }
+      ],
+      "return_type": "void",
+      "route_class": "handle_plus_opaque_pointer",
+      "routing_obligation": "route by the typed handle and register/translate provider-owned pointer results",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 301,
+          "path": "nvidia-uvm/uvm_rm_mem.c"
+        }
+      ]
+    },
+    {
+      "line": 528,
+      "name": "nvUvmInterfaceTsgAllocate",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuAddressSpaceHandle vaSpace",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuAddressSpaceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "const UvmGpuTsgAllocParams *allocParams",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuTsgHandle *tsg",
+          "handle_parameters": [
+            {
+              "candidate_direction": "output_or_inout",
+              "explicit_pointer_depth": 1,
+              "type": "uvmGpuTsgHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 2675,
+          "path": "nvidia-uvm/uvm_channel.c"
+        },
+        {
+          "line": 2677,
+          "path": "nvidia-uvm/uvm_channel.c"
+        }
+      ]
+    },
+    {
+      "line": 540,
+      "name": "nvUvmInterfaceTsgDestroy",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuTsgHandle tsg",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuTsgHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "void",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 2660,
+          "path": "nvidia-uvm/uvm_channel.c"
+        }
+      ]
+    },
+    {
+      "line": 569,
+      "name": "nvUvmInterfaceChannelAllocate",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "const uvmGpuTsgHandle tsg",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuTsgHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "const UvmGpuChannelAllocParams *allocParams",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuChannelHandle *channel",
+          "handle_parameters": [
+            {
+              "candidate_direction": "output_or_inout",
+              "explicit_pointer_depth": 1,
+              "type": "uvmGpuChannelHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuChannelInfo *channelInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 2366,
+          "path": "nvidia-uvm/uvm_channel.c"
+        },
+        {
+          "line": 2371,
+          "path": "nvidia-uvm/uvm_channel.c"
+        }
+      ]
+    },
+    {
+      "line": 582,
+      "name": "nvUvmInterfaceChannelDestroy",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuChannelHandle channel",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuChannelHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "void",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 2316,
+          "path": "nvidia-uvm/uvm_channel.c"
+        }
+      ]
+    },
+    {
+      "line": 605,
+      "name": "nvUvmInterfaceQueryCaps",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuCaps *caps",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 148,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        }
+      ]
+    },
+    {
+      "line": 618,
+      "name": "nvUvmInterfaceQueryCopyEnginesCaps",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuCopyEnginesCaps *caps",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 3172,
+          "path": "nvidia-uvm/uvm_channel.c"
+        },
+        {
+          "line": 489,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        }
+      ]
+    },
+    {
+      "line": 639,
+      "name": "nvUvmInterfaceGetGpuInfo",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "const NvProcessorUuid *gpuUuid",
+          "handle_parameters": [],
+          "uuid_parameter": true,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "const UvmGpuClientInfo *pGpuClientInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuInfo *pGpuInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "uuid",
+      "routing_obligation": "resolve the registered physical GPU to one backend",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 2932,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        }
+      ]
+    },
+    {
+      "line": 654,
+      "name": "nvUvmInterfaceServiceDeviceInterruptsRM",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 1342,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        }
+      ]
+    },
+    {
+      "line": 683,
+      "name": "nvUvmInterfaceSetPageDirectory",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuAddressSpaceHandle vaSpace",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuAddressSpaceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU64 physAddress",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "unsigned numEntries",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvBool bVidMemAperture",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU32 pasid",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU64 *dmaAddress",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 4,
+      "uvm_callsites": [
+        {
+          "line": 1305,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        },
+        {
+          "line": 1312,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        },
+        {
+          "line": 1394,
+          "path": "nvidia-uvm/uvm_va_space.c"
+        },
+        {
+          "line": 1407,
+          "path": "nvidia-uvm/uvm_va_space.c"
+        }
+      ]
+    },
+    {
+      "line": 699,
+      "name": "nvUvmInterfaceUnsetPageDirectory",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuAddressSpaceHandle vaSpace",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuAddressSpaceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 3,
+      "uvm_callsites": [
+        {
+          "line": 1330,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        },
+        {
+          "line": 1431,
+          "path": "nvidia-uvm/uvm_va_space.c"
+        },
+        {
+          "line": 1433,
+          "path": "nvidia-uvm/uvm_va_space.c"
+        }
+      ]
+    },
+    {
+      "line": 738,
+      "name": "nvUvmInterfaceDupAllocation",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuAddressSpaceHandle srcVaSpace",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuAddressSpaceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU64 srcAddress",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuAddressSpaceHandle dstVaSpace",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuAddressSpaceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU64 dstVaAlignment",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU64 *dstAddress",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "multiple_object_handles",
+      "routing_obligation": "resolve every handle and reject mixed providers unless this API is explicitly bridged",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 326,
+          "path": "nvidia-uvm/uvm_rm_mem.c"
+        },
+        {
+          "line": 332,
+          "path": "nvidia-uvm/uvm_rm_mem.c"
+        }
+      ]
+    },
+    {
+      "line": 763,
+      "name": "nvUvmInterfaceDupMemory",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvHandle hClient",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvHandle hPhysMemory",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvHandle *hDupMemory",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuMemoryInfo *pGpuMemoryInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 6,
+      "uvm_callsites": [
+        {
+          "line": 196,
+          "path": "nvidia-uvm/uvm_get_rm_ptes_test.c"
+        },
+        {
+          "line": 299,
+          "path": "nvidia-uvm/uvm_get_rm_ptes_test.c"
+        },
+        {
+          "line": 909,
+          "path": "nvidia-uvm/uvm_map_external.c"
+        },
+        {
+          "line": 307,
+          "path": "nvidia-uvm/uvm_va_range_device_p2p.c"
+        },
+        {
+          "line": 405,
+          "path": "nvidia-uvm/uvm_va_range_device_p2p.c"
+        },
+        {
+          "line": 470,
+          "path": "nvidia-uvm/uvm_va_range_device_p2p.c"
+        }
+      ]
+    },
+    {
+      "line": 783,
+      "name": "nvUvmInterfaceFreeDupedHandle",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvHandle hPhysHandle",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 8,
+      "uvm_callsites": [
+        {
+          "line": 273,
+          "path": "nvidia-uvm/uvm_get_rm_ptes_test.c"
+        },
+        {
+          "line": 338,
+          "path": "nvidia-uvm/uvm_get_rm_ptes_test.c"
+        },
+        {
+          "line": 583,
+          "path": "nvidia-uvm/uvm_map_external.c"
+        },
+        {
+          "line": 112,
+          "path": "nvidia-uvm/uvm_va_range_device_p2p.c"
+        },
+        {
+          "line": 385,
+          "path": "nvidia-uvm/uvm_va_range_device_p2p.c"
+        },
+        {
+          "line": 444,
+          "path": "nvidia-uvm/uvm_va_range_device_p2p.c"
+        },
+        {
+          "line": 450,
+          "path": "nvidia-uvm/uvm_va_range_device_p2p.c"
+        },
+        {
+          "line": 513,
+          "path": "nvidia-uvm/uvm_va_range_device_p2p.c"
+        }
+      ]
+    },
+    {
+      "line": 799,
+      "name": "nvUvmInterfaceGetFbInfo",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuFbInfo * fbInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 260,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        },
+        {
+          "line": 1437,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        }
+      ]
+    },
+    {
+      "line": 815,
+      "name": "nvUvmInterfaceGetEccInfo",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuEccInfo * eccInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 280,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        }
+      ]
+    },
+    {
+      "line": 865,
+      "name": "nvUvmInterfaceOwnPageFaultIntr",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvBool bOwnInterrupts",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 188,
+          "path": "nvidia-uvm/uvm_gpu_replayable_faults.c"
+        },
+        {
+          "line": 308,
+          "path": "nvidia-uvm/uvm_gpu_replayable_faults.c"
+        }
+      ]
+    },
+    {
+      "line": 883,
+      "name": "nvUvmInterfaceInitFaultInfo",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuFaultInfo *pFaultInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "embedded_gpu_state",
+      "routing_obligation": "resolve provider from RM-owned GPU state embedded in UvmGpuFaultInfo",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 254,
+          "path": "nvidia-uvm/uvm_gpu_replayable_faults.c"
+        }
+      ]
+    },
+    {
+      "line": 900,
+      "name": "nvUvmInterfaceDestroyFaultInfo",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuFaultInfo *pFaultInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "embedded_gpu_state",
+      "routing_obligation": "resolve provider from RM-owned GPU state embedded in UvmGpuFaultInfo",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 311,
+          "path": "nvidia-uvm/uvm_gpu_replayable_faults.c"
+        }
+      ]
+    },
+    {
+      "line": 929,
+      "name": "nvUvmInterfaceHasPendingNonReplayableFaults",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuFaultInfo *pFaultInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvBool *hasPendingFaults",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "embedded_gpu_state",
+      "routing_obligation": "resolve provider from RM-owned GPU state embedded in UvmGpuFaultInfo",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 173,
+          "path": "nvidia-uvm/uvm_gpu_non_replayable_faults.c"
+        }
+      ]
+    },
+    {
+      "line": 960,
+      "name": "nvUvmInterfaceGetNonReplayableFaults",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuFaultInfo *pFaultInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "void *pFaultBuffer",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": true
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU32 *numFaults",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "embedded_gpu_state",
+      "routing_obligation": "resolve provider from RM-owned GPU state embedded in UvmGpuFaultInfo",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 192,
+          "path": "nvidia-uvm/uvm_gpu_non_replayable_faults.c"
+        },
+        {
+          "line": 197,
+          "path": "nvidia-uvm/uvm_gpu_non_replayable_faults.c"
+        }
+      ]
+    },
+    {
+      "line": 987,
+      "name": "nvUvmInterfaceFlushReplayableFaultBuffer",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuFaultInfo *pFaultInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvBool bCopyAndFlush",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "embedded_gpu_state",
+      "routing_obligation": "resolve provider from RM-owned GPU state embedded in UvmGpuFaultInfo",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 593,
+          "path": "nvidia-uvm/uvm_gpu_replayable_faults.c"
+        }
+      ]
+    },
+    {
+      "line": 1009,
+      "name": "nvUvmInterfaceTogglePrefetchFaults",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuFaultInfo *pFaultInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvBool bEnable",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "embedded_gpu_state",
+      "routing_obligation": "resolve provider from RM-owned GPU state embedded in UvmGpuFaultInfo",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 390,
+          "path": "nvidia-uvm/uvm_pascal_mmu.c"
+        }
+      ]
+    },
+    {
+      "line": 1026,
+      "name": "nvUvmInterfaceInitAccessCntrInfo",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuAccessCntrInfo *pAccessCntrInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU32 accessCntrIndex",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 379,
+          "path": "nvidia-uvm/uvm_gpu_access_counters.c"
+        }
+      ]
+    },
+    {
+      "line": 1043,
+      "name": "nvUvmInterfaceDestroyAccessCntrInfo",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuAccessCntrInfo *pAccessCntrInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 462,
+          "path": "nvidia-uvm/uvm_gpu_access_counters.c"
+        }
+      ]
+    },
+    {
+      "line": 1065,
+      "name": "nvUvmInterfaceEnableAccessCntr",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuAccessCntrInfo *pAccessCntrInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "const UvmGpuAccessCntrConfig *pAccessCntrConfig",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 497,
+          "path": "nvidia-uvm/uvm_gpu_access_counters.c"
+        }
+      ]
+    },
+    {
+      "line": 1085,
+      "name": "nvUvmInterfaceDisableAccessCntr",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuAccessCntrInfo *pAccessCntrInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 529,
+          "path": "nvidia-uvm/uvm_gpu_access_counters.c"
+        },
+        {
+          "line": 550,
+          "path": "nvidia-uvm/uvm_gpu_access_counters.c"
+        }
+      ]
+    },
+    {
+      "line": 1093,
+      "name": "nvUvmInterfaceRegisterUvmCallbacks",
+      "parameters": [
+        {
+          "callback_parameter": true,
+          "declaration": "struct UvmOpsUvmEvents *importedUvmOps",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "global_callback",
+      "routing_obligation": "coordinate callback registration, teardown, and exactly-once event delivery",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 62,
+          "path": "nvidia-uvm/uvm_global.c"
+        }
+      ]
+    },
+    {
+      "line": 1102,
+      "name": "nvUvmInterfaceDeRegisterUvmOps",
+      "parameters": [],
+      "return_type": "void",
+      "route_class": "global_callback",
+      "routing_obligation": "coordinate callback registration, teardown, and exactly-once event delivery",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 74,
+          "path": "nvidia-uvm/uvm_global.c"
+        }
+      ]
+    },
+    {
+      "line": 1117,
+      "name": "nvUvmInterfaceGetNvlinkInfo",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuNvlinkInfo *nvlinkInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 304,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        }
+      ]
+    },
+    {
+      "line": 1136,
+      "name": "nvUvmInterfaceP2pObjectCreate",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device1",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device2",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvHandle *hP2pObject",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "paired_device_handles",
+      "routing_obligation": "require a same-provider pair or an explicit cross-provider policy",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 2263,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        },
+        {
+          "line": 2265,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        }
+      ]
+    },
+    {
+      "line": 1151,
+      "name": "nvUvmInterfaceP2pObjectDestroy",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuSessionHandle session",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuSessionHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvHandle hP2pObject",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "void",
+      "route_class": "session_scope",
+      "routing_obligation": "resolve the logical session and any child object before dispatch",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 2425,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        },
+        {
+          "line": 2451,
+          "path": "nvidia-uvm/uvm_gpu.c"
+        }
+      ]
+    },
+    {
+      "line": 1190,
+      "name": "nvUvmInterfaceGetExternalAllocPtes",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuAddressSpaceHandle vaSpace",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuAddressSpaceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvHandle hMemory",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU64 offset",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU64 size",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuExternalMappingInfo *gpuExternalMappingInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 37,
+          "path": "nvidia-uvm/uvm_get_rm_ptes_test.c"
+        },
+        {
+          "line": 187,
+          "path": "nvidia-uvm/uvm_map_external.c"
+        }
+      ]
+    },
+    {
+      "line": 1232,
+      "name": "nvUvmInterfaceGetExternalAllocPhysAddrs",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuAddressSpaceHandle vaSpace",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuAddressSpaceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvHandle hMemory",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU64 offset",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU64 size",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuExternalPhysAddrInfo *gpuExternalPhysAddrsInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 215,
+          "path": "nvidia-uvm/uvm_va_range_device_p2p.c"
+        }
+      ]
+    },
+    {
+      "line": 1260,
+      "name": "nvUvmInterfaceRetainChannel",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuAddressSpaceHandle vaSpace",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuAddressSpaceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvHandle hClient",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvHandle hChannel",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "void **retainedChannel",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": true
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuChannelInstanceInfo *channelInstanceInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "handle_plus_opaque_pointer",
+      "routing_obligation": "route by the typed handle and register/translate provider-owned pointer results",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 141,
+          "path": "nvidia-uvm/uvm_user_channel.c"
+        },
+        {
+          "line": 950,
+          "path": "nvidia-uvm/uvm_user_channel.c"
+        }
+      ]
+    },
+    {
+      "line": 1282,
+      "name": "nvUvmInterfaceBindChannelResources",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "void *retainedChannel",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": true
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuChannelResourceBindParams *channelResourceBindParams",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "provider_opaque_pointer",
+      "routing_obligation": "resolve provider through an explicit opaque-token map; never forward a foreign backend pointer",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 467,
+          "path": "nvidia-uvm/uvm_user_channel.c"
+        }
+      ]
+    },
+    {
+      "line": 1290,
+      "name": "nvUvmInterfaceReleaseChannel",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "void *retainedChannel",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": true
+        }
+      ],
+      "return_type": "void",
+      "route_class": "provider_opaque_pointer",
+      "routing_obligation": "resolve provider through an explicit opaque-token map; never forward a foreign backend pointer",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 857,
+          "path": "nvidia-uvm/uvm_user_channel.c"
+        },
+        {
+          "line": 958,
+          "path": "nvidia-uvm/uvm_user_channel.c"
+        }
+      ]
+    },
+    {
+      "line": 1301,
+      "name": "nvUvmInterfaceStopChannel",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "void *retainedChannel",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": true
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvBool bImmediate",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "void",
+      "route_class": "provider_opaque_pointer",
+      "routing_obligation": "resolve provider through an explicit opaque-token map; never forward a foreign backend pointer",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 787,
+          "path": "nvidia-uvm/uvm_user_channel.c"
+        }
+      ]
+    },
+    {
+      "line": 1333,
+      "name": "nvUvmInterfaceGetChannelResourcePtes",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuAddressSpaceHandle vaSpace",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuAddressSpaceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvP64 resourceDescriptor",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU64 offset",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU64 size",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuExternalMappingInfo *externalMappingInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 180,
+          "path": "nvidia-uvm/uvm_map_external.c"
+        }
+      ]
+    },
+    {
+      "line": 1353,
+      "name": "nvUvmInterfaceReportNonReplayableFault",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "const void *pFaultPacket",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": true
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "handle_plus_opaque_pointer",
+      "routing_obligation": "route by the typed handle and register/translate provider-owned pointer results",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 492,
+          "path": "nvidia-uvm/uvm_gpu_non_replayable_faults.c"
+        }
+      ]
+    },
+    {
+      "line": 1381,
+      "name": "nvUvmInterfacePagingChannelAllocate",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "const UvmGpuPagingChannelAllocParams *allocParams",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuPagingChannelHandle *channel",
+          "handle_parameters": [
+            {
+              "candidate_direction": "output_or_inout",
+              "explicit_pointer_depth": 1,
+              "type": "UvmGpuPagingChannelHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuPagingChannelInfo *channelInfo",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 2406,
+          "path": "nvidia-uvm/uvm_channel.c"
+        },
+        {
+          "line": 2411,
+          "path": "nvidia-uvm/uvm_channel.c"
+        }
+      ]
+    },
+    {
+      "line": 1398,
+      "name": "nvUvmInterfacePagingChannelDestroy",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuPagingChannelHandle channel",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "UvmGpuPagingChannelHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "void",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 2314,
+          "path": "nvidia-uvm/uvm_channel.c"
+        }
+      ]
+    },
+    {
+      "line": 1424,
+      "name": "nvUvmInterfacePagingChannelsMap",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuAddressSpaceHandle srcVaSpace",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuAddressSpaceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuPointer srcAddress",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU64 *dstAddress",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "multiple_object_handles",
+      "routing_obligation": "resolve every handle and reject mixed providers unless this API is explicitly bridged",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 156,
+          "path": "nvidia-uvm/uvm_rm_mem.c"
+        },
+        {
+          "line": 161,
+          "path": "nvidia-uvm/uvm_rm_mem.c"
+        }
+      ]
+    },
+    {
+      "line": 1443,
+      "name": "nvUvmInterfacePagingChannelsUnmap",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuAddressSpaceHandle srcVaSpace",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuAddressSpaceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuPointer srcAddress",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuDeviceHandle device",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuDeviceHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "void",
+      "route_class": "multiple_object_handles",
+      "routing_obligation": "resolve every handle and reject mixed providers unless this API is explicitly bridged",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 185,
+          "path": "nvidia-uvm/uvm_rm_mem.c"
+        }
+      ]
+    },
+    {
+      "line": 1535,
+      "name": "nvUvmInterfacePagingChannelPushStream",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "UvmGpuPagingChannelHandle channel",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "UvmGpuPagingChannelHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "char *methodStream",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU32 methodStreamSize",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "single_opaque_handle",
+      "routing_obligation": "resolve the opaque object token to its provider and native handle",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 1024,
+          "path": "nvidia-uvm/uvm_channel.c"
+        },
+        {
+          "line": 1033,
+          "path": "nvidia-uvm/uvm_channel.c"
+        }
+      ]
+    },
+    {
+      "line": 1547,
+      "name": "nvUvmInterfaceReportFatalError",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "NV_STATUS error",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "void",
+      "route_class": "global",
+      "routing_obligation": "define explicit fanout, aggregation, or provider-neutral semantics",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 437,
+          "path": "nvidia-uvm/uvm_global.c"
+        }
+      ]
+    },
+    {
+      "line": 1573,
+      "name": "nvUvmInterfaceCslInitContext",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "UvmCslContext *uvmCslContext",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "uvmGpuChannelHandle channel",
+          "handle_parameters": [
+            {
+              "candidate_direction": "input",
+              "explicit_pointer_depth": 0,
+              "type": "uvmGpuChannelHandle"
+            }
+          ],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "context_plus_handle",
+      "routing_obligation": "validate context and typed handle share one provider, then bind context ownership",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 2186,
+          "path": "nvidia-uvm/uvm_channel.c"
+        },
+        {
+          "line": 2190,
+          "path": "nvidia-uvm/uvm_channel.c"
+        }
+      ]
+    },
+    {
+      "line": 1589,
+      "name": "nvUvmInterfaceDeinitCslContext",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "UvmCslContext *uvmCslContext",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "void",
+      "route_class": "provider_context",
+      "routing_obligation": "resolve the backend from the CSL context association; do not forward RM-private context pointers across providers",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 2231,
+          "path": "nvidia-uvm/uvm_channel.c"
+        }
+      ]
+    },
+    {
+      "line": 1619,
+      "name": "nvUvmInterfaceCslRotateKey",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "UvmCslContext *contextList[]",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU32 contextListCount",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "provider_context",
+      "routing_obligation": "resolve the backend from the CSL context association; do not forward RM-private context pointers across providers",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 831,
+          "path": "nvidia-uvm/uvm_conf_computing.c"
+        },
+        {
+          "line": 843,
+          "path": "nvidia-uvm/uvm_conf_computing.c"
+        }
+      ]
+    },
+    {
+      "line": 1652,
+      "name": "nvUvmInterfaceCslRotateIv",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "UvmCslContext *uvmCslContext",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmCslOperation operation",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "provider_context",
+      "routing_obligation": "resolve the backend from the CSL context association; do not forward RM-private context pointers across providers",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 677,
+          "path": "nvidia-uvm/uvm_conf_computing.c"
+        },
+        {
+          "line": 680,
+          "path": "nvidia-uvm/uvm_conf_computing.c"
+        }
+      ]
+    },
+    {
+      "line": 1688,
+      "name": "nvUvmInterfaceCslEncrypt",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "UvmCslContext *uvmCslContext",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU32 bufferSize",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU8 const *inputBuffer",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmCslIv *encryptIv",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU8 *outputBuffer",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU8 *authTagBuffer",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "provider_context",
+      "routing_obligation": "resolve the backend from the CSL context association; do not forward RM-private context pointers across providers",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 490,
+          "path": "nvidia-uvm/uvm_conf_computing.c"
+        }
+      ]
+    },
+    {
+      "line": 1740,
+      "name": "nvUvmInterfaceCslDecrypt",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "UvmCslContext *uvmCslContext",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU32 bufferSize",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU8 const *inputBuffer",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmCslIv const *decryptIv",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU32 keyRotationId",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU8 *outputBuffer",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU8 const *addAuthData",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU32 addAuthDataSize",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU8 const *authTagBuffer",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "provider_context",
+      "routing_obligation": "resolve the backend from the CSL context association; do not forward RM-private context pointers across providers",
+      "uvm_callsite_count": 4,
+      "uvm_callsites": [
+        {
+          "line": 535,
+          "path": "nvidia-uvm/uvm_conf_computing.c"
+        },
+        {
+          "line": 546,
+          "path": "nvidia-uvm/uvm_conf_computing.c"
+        },
+        {
+          "line": 580,
+          "path": "nvidia-uvm/uvm_conf_computing.c"
+        },
+        {
+          "line": 591,
+          "path": "nvidia-uvm/uvm_conf_computing.c"
+        }
+      ]
+    },
+    {
+      "line": 1776,
+      "name": "nvUvmInterfaceCslSign",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "UvmCslContext *uvmCslContext",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU32 bufferSize",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU8 const *inputBuffer",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU8 *authTagBuffer",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "provider_context",
+      "routing_obligation": "resolve the backend from the CSL context association; do not forward RM-private context pointers across providers",
+      "uvm_callsite_count": 1,
+      "uvm_callsites": [
+        {
+          "line": 67,
+          "path": "nvidia-uvm/uvm_hopper_sec2.c"
+        }
+      ]
+    },
+    {
+      "line": 1799,
+      "name": "nvUvmInterfaceCslQueryMessagePool",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "UvmCslContext *uvmCslContext",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmCslOperation operation",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU64 *messageNum",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "provider_context",
+      "routing_obligation": "resolve the backend from the CSL context association; do not forward RM-private context pointers across providers",
+      "uvm_callsite_count": 2,
+      "uvm_callsites": [
+        {
+          "line": 632,
+          "path": "nvidia-uvm/uvm_conf_computing.c"
+        },
+        {
+          "line": 636,
+          "path": "nvidia-uvm/uvm_conf_computing.c"
+        }
+      ]
+    },
+    {
+      "line": 1831,
+      "name": "nvUvmInterfaceCslIncrementIv",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "UvmCslContext *uvmCslContext",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmCslOperation operation",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU64 increment",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmCslIv *iv",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "provider_context",
+      "routing_obligation": "resolve the backend from the CSL context association; do not forward RM-private context pointers across providers",
+      "uvm_callsite_count": 3,
+      "uvm_callsites": [
+        {
+          "line": 449,
+          "path": "nvidia-uvm/uvm_conf_computing.c"
+        },
+        {
+          "line": 463,
+          "path": "nvidia-uvm/uvm_conf_computing.c"
+        },
+        {
+          "line": 616,
+          "path": "nvidia-uvm/uvm_conf_computing.c"
+        }
+      ]
+    },
+    {
+      "line": 1870,
+      "name": "nvUvmInterfaceCslLogEncryption",
+      "parameters": [
+        {
+          "callback_parameter": false,
+          "declaration": "UvmCslContext *uvmCslContext",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "UvmCslOperation operation",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        },
+        {
+          "callback_parameter": false,
+          "declaration": "NvU32 bufferSize",
+          "handle_parameters": [],
+          "uuid_parameter": false,
+          "void_pointer_parameter": false
+        }
+      ],
+      "return_type": "NV_STATUS",
+      "route_class": "provider_context",
+      "routing_obligation": "resolve the backend from the CSL context association; do not forward RM-private context pointers across providers",
+      "uvm_callsite_count": 4,
+      "uvm_callsites": [
+        {
+          "line": 440,
+          "path": "nvidia-uvm/uvm_conf_computing.c"
+        },
+        {
+          "line": 502,
+          "path": "nvidia-uvm/uvm_conf_computing.c"
+        },
+        {
+          "line": 575,
+          "path": "nvidia-uvm/uvm_conf_computing.c"
+        },
+        {
+          "line": 611,
+          "path": "nvidia-uvm/uvm_conf_computing.c"
+        }
+      ]
+    }
+  ],
+  "interface": {
+    "declaration_export_sets_match": true,
+    "declared_exported_count": 76,
+    "duplicate_exports": [],
+    "provider_export_count": 76
+  },
+  "observed_at_utc": "2026-10-21T17:24:29.376454+00:00",
+  "qualification": "static-source-contract",
+  "routing_inventory": {
+    "apis_with_multiple_object_handles": 5,
+    "apis_with_opaque_handle_inputs": 48,
+    "apis_with_untyped_void_pointer_parameters": 14,
+    "apis_with_uuid_parameters": 4,
+    "apis_without_observed_uvm_callsite": [],
+    "by_route_class": {
+      "context_plus_handle": 1,
+      "embedded_gpu_state": 6,
+      "global": 1,
+      "global_callback": 2,
+      "global_factory": 1,
+      "handle_plus_opaque_pointer": 5,
+      "multiple_object_handles": 3,
+      "paired_device_handles": 2,
+      "provider_context": 9,
+      "provider_opaque_pointer": 8,
+      "session_plus_uuid": 1,
+      "session_scope": 2,
+      "single_opaque_handle": 32,
+      "uuid": 3
+    }
+  },
+  "schema": "nvidia-r580-uvm-interface-ownership-audit-v1",
+  "scope": {
+    "dual_backend_runtime": false,
+    "hardware_execution": false,
+    "module_load_or_install": false,
+    "routing_policy_is_implementation": false,
+    "uvm_workload_validated": false
+  },
+  "source_inputs": {
+    "common/inc/nv_uvm_interface.h": "68b6cae62ad0bdf6940d48a34084d789cd1f87a06b84310195cd2adc4b9e50f8",
+    "nvidia-uvm/nv-kthread-q-selftest.c": "c40423b0ee26b7e5941d2b0a6be254b78c58b7468de4daf8257f7691b839fd03",
+    "nvidia-uvm/nv-kthread-q.c": "13222c7db5bd1e57c5d36d0125d4cca4da1d288e5e52ac679f005668bc2e6274",
+    "nvidia-uvm/nvCpuUuid.c": "a230d3f8553974dffc867d2a14a4e1cac4aea231649ce2ccddf5397211049cf6",
+    "nvidia-uvm/nvstatus.c": "712c99bc6b17cd888d2b21dab3ee17948468a3676de2777331ec2c96505952ea",
+    "nvidia-uvm/uvm.c": "6549ff9293e5a789d53f59c29cbc2af4d7d8aedd0bfe7519699c4239e7ad24b3",
+    "nvidia-uvm/uvm_ada.c": "c3e2ced50fedd5f0f234146634b7cad83b1c110d39e4b1f3bc50877faac1e65f",
+    "nvidia-uvm/uvm_ampere.c": "9bb23ba5c3ffc627222beaea796f7846827c617fa0df89405989d6ba8830af66",
+    "nvidia-uvm/uvm_ampere_ce.c": "2d2ab7e91e64699bc299ea128001cb290b9666ff492c2d58a60fc02917f45922",
+    "nvidia-uvm/uvm_ampere_fault_buffer.c": "824203dc13dcc0eba943ad4d77c9541a76c5798713227d74a32cacf2c207b73a",
+    "nvidia-uvm/uvm_ampere_host.c": "7b951347fccb01d2fb5337df1c21706ec010ec9849ccd7e7808a3a15c968c3e9",
+    "nvidia-uvm/uvm_ampere_mmu.c": "3680b3a2b196870fbd4634e0825408d67de25a7db84d25e2a16095e72c0cb810",
+    "nvidia-uvm/uvm_ats.c": "e637830fc7735d68638e34d3001455de80a08d6505b9760705739da6d95244ca",
+    "nvidia-uvm/uvm_ats_faults.c": "4ad27640aa15efd4ec7e87fa649aa67049441b63208285cd6cfed5bc87fb41cc",
+    "nvidia-uvm/uvm_ats_sva.c": "2fc324dd5eabdca43c62fb07e77779e48037c1c66988247f6219bf8cf4ab081a",
+    "nvidia-uvm/uvm_blackwell.c": "47ce5838ec0e78e0c2147d27d4ebc9b6a9188c8350e7aabdb8ea186d52108840",
+    "nvidia-uvm/uvm_blackwell_fault_buffer.c": "9fa867cce504d99e6bbdde7ca311ba0448f79f726000d614975e00aabebedc55",
+    "nvidia-uvm/uvm_blackwell_host.c": "c5634282b6377f40eef1cd097d21b2034d163c5b2efd85b4c1bd83295508d16d",
+    "nvidia-uvm/uvm_blackwell_mmu.c": "eeb057979921fd1fd1e7005e8927c0efdc70d306c3be1a1f2c28c04b1813c336",
+    "nvidia-uvm/uvm_ce_test.c": "2108c0950e199f9a322e5ba632e0d18c9008bd9e1581ebb563f16887020630e5",
+    "nvidia-uvm/uvm_channel.c": "64fcdb55ecba388c8ed6c656ca72b60f2b6f4b8bc0ebaffd794ed1e78068a248",
+    "nvidia-uvm/uvm_channel_test.c": "f846b5e2925258bb1643e389bee4016743a73a6f396571e0621aac109bb94e87",
+    "nvidia-uvm/uvm_common.c": "4703e2717dc3eb71bdbaa08f2759887e26ddf129a93918a4014ed19d7089bfa2",
+    "nvidia-uvm/uvm_conf_computing.c": "a6f00c57334ce6bb397cb69b129cb72ba938460e10dd2fc8fddb680edfe273c0",
+    "nvidia-uvm/uvm_fault_buffer_flush_test.c": "13ac60c873ae46a6ca2fbba4969b9c10e4d7e54fadb4911f6adc766a338142b6",
+    "nvidia-uvm/uvm_fd_type.c": "2b67296b7ab45c0a47181c11cc0af2e67ba98d4d9270e4bd0a46ebcd67eff639",
+    "nvidia-uvm/uvm_get_rm_ptes_test.c": "3ec1fa648d8447280e07d6ffeae20ee2f7a106e2d99f3cf02f11d1dde5f9580d",
+    "nvidia-uvm/uvm_global.c": "aeee2f257a289853f36d9c7b196f1e02d19b84695db44cdd2e00f28b0f1a4489",
+    "nvidia-uvm/uvm_gpu.c": "b43bb94bbc465bbb4fb243e6f722cb450d6402f3071971843d61f1f7678bf700",
+    "nvidia-uvm/uvm_gpu_access_counters.c": "cda1dfa8ca763d78a4db2b30aa559b75334e5fe0f0262b32de7be22d7f73357d",
+    "nvidia-uvm/uvm_gpu_isr.c": "456ee47bb83564cc1ada830538781256bb246bf82888601d3c3f2b3a2bc777f5",
+    "nvidia-uvm/uvm_gpu_non_replayable_faults.c": "588e72e5e3163f2e9a3c1b0d78a5450c97a4393b5b0c8e024915c41460d0250b",
+    "nvidia-uvm/uvm_gpu_replayable_faults.c": "c7991f9a9e029ae1e9dc4aba579ecb37c64408d9600117abdeec82fbc1b245b3",
+    "nvidia-uvm/uvm_gpu_semaphore.c": "1472d3bdcd91b35095fb7ae6aa1f66a075ea495c08d106ed7da497176a3d629f",
+    "nvidia-uvm/uvm_gpu_semaphore_test.c": "2c9339e77c04cb94bf361ee881260ef7e5dc100dfa6bb2dccf41f6bd81c70155",
+    "nvidia-uvm/uvm_hal.c": "9e1c8c1e0e70d26328809713fc7af7f79e49a57a545ea474b36d70a07d56325d",
+    "nvidia-uvm/uvm_hmm.c": "6e0476ded5b3adc6f5996bcd83e18012f7c38b6ccb662c9d9befd8b2e885cfc9",
+    "nvidia-uvm/uvm_hopper.c": "5750d496b5c6f0903ebcb1c2a77ef228e3430964d77cddc16cf08c7f90562902",
+    "nvidia-uvm/uvm_hopper_ce.c": "26efc1ddea7f2c9b16c8e4bae44424b8271b85ca98a3f291f0c9e54cfbbcd694",
+    "nvidia-uvm/uvm_hopper_fault_buffer.c": "62265011327da0454a060ee58933dc0e8c8cf857b5a7b599648ce6bb2785c45f",
+    "nvidia-uvm/uvm_hopper_host.c": "63afaf72e0993a75fc8e5630a6c609742d47a8da2fca97805dff7160860e2ea5",
+    "nvidia-uvm/uvm_hopper_mmu.c": "d7fc290482a86ae3dafbc2e5625f9c632dfdee736c1b33df68073d1c2116c810",
+    "nvidia-uvm/uvm_hopper_sec2.c": "ef4e687142882876c249eaac51a0defb5213b79d2bc36fbb620e02c902efaad1",
+    "nvidia-uvm/uvm_host_test.c": "ad1ab9157ec9113575f351b15e3a8ea5543b74a9a99af60154cda56d6ff8025a",
+    "nvidia-uvm/uvm_kvmalloc.c": "c076016dc5fcad9619eb935af1e187070653b1a97b34d392c66e0b320356d9db",
+    "nvidia-uvm/uvm_kvmalloc_test.c": "8c5a54dd56cce17c256ba8d806e927279f734e3a095f2576d843ec086de75786",
+    "nvidia-uvm/uvm_linux.c": "72f505a96078109a5984e10999288d63dafe05ca4f5e52db15d4a930a67f281d",
+    "nvidia-uvm/uvm_lock.c": "a79a089e74a8d89eec19f87f7a790367fbc8a7c84e52a7f409772001391d7036",
+    "nvidia-uvm/uvm_lock_test.c": "a670869f40e4e370d557bf748dd99483bbf5af43dd2e25622d22e6381ae3e36b",
+    "nvidia-uvm/uvm_map_external.c": "4115e9f2de1fc9ad460a61168e78e68ede19c57ac6216740dc57475b29d07511",
+    "nvidia-uvm/uvm_maxwell.c": "cacff13f42270bfee8703c4646a557c4ea7c626521c867a5a7b69956f3490456",
+    "nvidia-uvm/uvm_maxwell_access_counter_buffer.c": "09450615b001caebee8776f8a507679453a747508c0fb69e017ad119ac18150f",
+    "nvidia-uvm/uvm_maxwell_ce.c": "917111014f1400fc97046fe3e4812e60fa98955e7945c67c10d9ee5b95760890",
+    "nvidia-uvm/uvm_maxwell_fault_buffer.c": "41e154d831941617008bb1bc9a33d6fd0a8dff9308d31c503d0a70bff45b6e63",
+    "nvidia-uvm/uvm_maxwell_host.c": "184c79ac70133209a320b64dfa4896525066a3894423ad95848ba75d6c45ca76",
+    "nvidia-uvm/uvm_maxwell_mmu.c": "2d39f3cdd775185712e41015a3a8723d77c327b94d60ec61783acc550b9f602a",
+    "nvidia-uvm/uvm_maxwell_sec2.c": "47f6af9905d9a0ac4be2b290fcc76a54aaa168906afe33359214a5d01d8732d7",
+    "nvidia-uvm/uvm_mem.c": "e98ce17dd9902f5a8b6cf8fb3919b3e85a4f82814029011af64c6e287a1d84d2",
+    "nvidia-uvm/uvm_mem_test.c": "1d4f277d93f0f4f235bcf11f7318c8a05704f6fab3ba2522b2859327441bc2dc",
+    "nvidia-uvm/uvm_migrate.c": "e8fb855d0fc4150107118752b6a5e897b2c5f7d770243278f631a49ca4b36e36",
+    "nvidia-uvm/uvm_migrate_pageable.c": "e7178513d684596aadbe24c1f699eb9e7b13b7f39c19805fe213bbef090898da",
+    "nvidia-uvm/uvm_mmu.c": "61dcbb1826e6104452d82d319b5b8c810e328e6a606f619e0efaa273d162bdea",
+    "nvidia-uvm/uvm_page_tree_test.c": "256607e85c1bd4490a338ce161b78489a52de2e636c567de20b704fd1d20a696",
+    "nvidia-uvm/uvm_pascal.c": "979407e323c1e93749023d0d1b95d122ab07b99fb1fe88ab90d1c47b36131d8f",
+    "nvidia-uvm/uvm_pascal_ce.c": "7a79e535258bd75992606b61097cc77f2dd7db6640c3b0a560e65d728d58ad5b",
+    "nvidia-uvm/uvm_pascal_fault_buffer.c": "a4cafceee01aac86cb2a4a0527729f28ec6cbc17ff34ec7150d5a5fa0dd7df52",
+    "nvidia-uvm/uvm_pascal_host.c": "c8d125fd53813d50c7fe97ce4b768333aea8f5bde35d51abfcd2f9c0554cf407",
+    "nvidia-uvm/uvm_pascal_mmu.c": "ffe96be7a232418066906963b7d868a4f271b3fe4eeefe083c79c9b9cb7e4664",
+    "nvidia-uvm/uvm_peer_identity_mappings_test.c": "9b8c47f319be79cdc2b72e83f3a3a8b02de768b6c76b0d326d9a7a5e146234e3",
+    "nvidia-uvm/uvm_perf_events.c": "f96a7d436fe0d7f25d89d2551419086a068ceb42bc1c18452e92b1bc5de219de",
+    "nvidia-uvm/uvm_perf_events_test.c": "de65b67addbf33b8e7b26f6c69dd148f8311da5e15b7d76270b58143f86a9abd",
+    "nvidia-uvm/uvm_perf_heuristics.c": "d8e1e0e5f74a43cf48004cf2da5e378fb435022819270ec5640181447c31f5a6",
+    "nvidia-uvm/uvm_perf_module.c": "1967c3498c0af0680b1e477ac11937a21bafae39303df3715a243673cc8a8792",
+    "nvidia-uvm/uvm_perf_module_test.c": "5d0be280e8a963db2624bd24d9cd65532e72a40f1d85205c2b0d814b9a63d9b7",
+    "nvidia-uvm/uvm_perf_prefetch.c": "fe3d4e338321cecb16fde67b0dd9affc57909b5a61b8f91f5538482bdf1f1f7c",
+    "nvidia-uvm/uvm_perf_thrashing.c": "a41ebea7945fb2bb1d3226ca6abf72989bc9f4ccccde0fc286723289f36f00de",
+    "nvidia-uvm/uvm_perf_utils.c": "0f194e41ce558e3c0f60cb804015f7120db8ecc261df8421244c91687ec8c659",
+    "nvidia-uvm/uvm_perf_utils_test.c": "4a16bb121a62e275cd73ddfac0a7cd809f451aa04f4606ad3aa463fc0b5363bd",
+    "nvidia-uvm/uvm_pmm_gpu.c": "35248129b757c9a405bed7adf7022ea108ebbd9bbb0b091a008935f1247dea9b",
+    "nvidia-uvm/uvm_pmm_sysmem.c": "83d371c8395a5e1e36a18c8efcb0d9dabd93e4a6e29e7a0651aad4c4ba9e5932",
+    "nvidia-uvm/uvm_pmm_sysmem_test.c": "14389ebe63c67676599f987c8d77b0a9560940009351a44ea7cc03e44db49957",
+    "nvidia-uvm/uvm_pmm_test.c": "fdbae9de9b14967e7cb36f81fd4e9726fe43d857239419d58d88fb9078aff7b2",
+    "nvidia-uvm/uvm_policy.c": "0aa0dfa810e67b1b78c3de96581089b37cc4421ed20f5adedecb4df638ac95db",
+    "nvidia-uvm/uvm_populate_pageable.c": "418ec47eac64fe51f273067024e24c69bc584c8e9e717d38861c40e885306e93",
+    "nvidia-uvm/uvm_processors.c": "3c80cd5f6e08633337f67e2601f99193d87f9d80c2e4a3c33ce32f5c454e3081",
+    "nvidia-uvm/uvm_procfs.c": "cd0b384f4c596b79716c626035236a58d67444619f06a0a88674007094d2c540",
+    "nvidia-uvm/uvm_pte_batch.c": "30589fc78423a572bc03ab1dd51d1c2c807403b665bc6c2bafcb102cc7eea8c0",
+    "nvidia-uvm/uvm_push.c": "9628ada0b4007eff5af16525d0d71788045832e5ca268699e2ae82a5dc14b85e",
+    "nvidia-uvm/uvm_push_test.c": "33d6978c9cd7e2feafddeda76245543e44d999d13826c78adfabf96c86efd3ab",
+    "nvidia-uvm/uvm_pushbuffer.c": "7031f10fc2215d792d58675b503623be5792e13fa4304d14f9b60b811a0a812c",
+    "nvidia-uvm/uvm_range_allocator.c": "a12b06e101831b28e44903c4e9fa5abf81c184e9249c8b3c95d5d25fbd032a31",
+    "nvidia-uvm/uvm_range_allocator_test.c": "61a0efa18b056f325663debc609f973ffad083efd60f6b0eec27c3aabcefc86b",
+    "nvidia-uvm/uvm_range_group.c": "18d3cd5875914ee7583b19f33877e06e8f0447da93b704e0887403975abc7d90",
+    "nvidia-uvm/uvm_range_group_tree_test.c": "d16a39f27e25f5424f76e9ba70a4e2369db39b7be12c9947347e43230b12e0cb",
+    "nvidia-uvm/uvm_range_tree.c": "cd455bb8852b131b052ffba315abd057020edfb6689a681d7806feb28d2bf3f0",
+    "nvidia-uvm/uvm_range_tree_test.c": "7ae4a41421b984acdfd3506f5dc268c40f90d07f616a4535d3489ea36a7ec747",
+    "nvidia-uvm/uvm_rb_tree.c": "df4b1d157bc9736dccf6c3d3392bb3f8a434ccab9aa084c51e91f58ada7f2803",
+    "nvidia-uvm/uvm_rb_tree_test.c": "a552153306ecb5cfd6f9cd0749744f3e4500218039fe3246d1f1a40d445f5e88",
+    "nvidia-uvm/uvm_rm_mem.c": "fdf517f711ce9ae3421e4af2e7fe128f0db4182000eeed32504eacc82d1a43d7",
+    "nvidia-uvm/uvm_rm_mem_test.c": "eb4a886963fc226830e58268797a25f0d5b3f8af2aaba645ccfb16106aafb2f4",
+    "nvidia-uvm/uvm_sec2_test.c": "da3f733aec3739cb1f963dfac526278f690b785ea887e9958467bff2a5a35ad4",
+    "nvidia-uvm/uvm_test.c": "28114c2b6616aaac935c1995a280c55099117444f491325918f64e61a6e51ba4",
+    "nvidia-uvm/uvm_test_file.c": "f13ccf6f781408d266da2f907ef3babc33e6c2e03f2be36bf97d8b0fc7f21bf7",
+    "nvidia-uvm/uvm_test_rng.c": "1328d5f2ff55d855966e4ee33fe98fd73960fbfd0b22cf8073047ee9503d671d",
+    "nvidia-uvm/uvm_thread_context.c": "2f1dcc4cc667bfc1255cfe91b15a122e7227b5eab396e9c11a6c20a0fbb25d4b",
+    "nvidia-uvm/uvm_thread_context_test.c": "ee4cbcef3bb97b27594edb15191b9270135843b0a693bbf27d74685498f4505b",
+    "nvidia-uvm/uvm_tlb_batch.c": "50b483edb848257dd789b4e64490372942124116ab60bd99e8dc27a8d1c22907",
+    "nvidia-uvm/uvm_tools.c": "42557042482532ac9ec39918663bfb0ea8c78ac0cd977a2725168c632e37ba1e",
+    "nvidia-uvm/uvm_tracker.c": "756ce284db092691c5e346c9180299c98e050d4391242c53c19d14fcdff13e41",
+    "nvidia-uvm/uvm_tracker_test.c": "517fe4ab345c0d90fc53a53dbf715bea1fea945dafc171142f74c5ae7240a0b9",
+    "nvidia-uvm/uvm_turing.c": "23d1275e5d81e740999d89e50001617c5241707553284fdabf46054c172ffa68",
+    "nvidia-uvm/uvm_turing_access_counter_buffer.c": "c069e85c6e35e0a30a5e50b31752f0d2b758491fdecca28389f9ad8027cdd702",
+    "nvidia-uvm/uvm_turing_fault_buffer.c": "62dd37f0eb055600964d2e2433402e5603726d1841558a4bdde9bb483bec2820",
+    "nvidia-uvm/uvm_turing_host.c": "2542e3dd1ce48c9b8c1edaecd4e2bbe09f9fa0e6adbd0a9e1974ff6ba7116147",
+    "nvidia-uvm/uvm_turing_mmu.c": "a48952c2c382e21563558a1dac95cf31230eeb91059259101a172f18d6c0bb45",
+    "nvidia-uvm/uvm_user_channel.c": "8fe5ce63871dbf7509c4ebbe7d0eeee8e0008693622479aed452d3b7c42015b6",
+    "nvidia-uvm/uvm_va_block.c": "dd2821620e83cfaeb03fd765d64dcb75d82da83a38107afa4b0c2882570a7b03",
+    "nvidia-uvm/uvm_va_block_test.c": "a520de4d5b1fd128e7c43984b05e8a7a807e711152b4e435578788bc3eb8dadf",
+    "nvidia-uvm/uvm_va_policy.c": "619ad2aaf2760e7edcf31b05e3e204b4ccbb5514a40ebd0a7eb67cd84bba135f",
+    "nvidia-uvm/uvm_va_range.c": "10c80433314c9b38cc84f82ac156f2df9d0f5c9d3c73a9e64179047eb2148878",
+    "nvidia-uvm/uvm_va_range_device_p2p.c": "64090e24a6cd722769bf2023d3299485ce516eb03334adfbc459ebc0738c19b5",
+    "nvidia-uvm/uvm_va_space.c": "cff2ab99e9b45143865413cd15d78381ead57b370f4b3bc32ac7584ca9e91693",
+    "nvidia-uvm/uvm_va_space_mm.c": "f9a8e86af533a538834fc55b04896703da16d76bb57d4f481532a85d287e905c",
+    "nvidia-uvm/uvm_volta.c": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653",
+    "nvidia-uvm/uvm_volta_ce.c": "fd8758e28cf978335a97de557ee77e2f7c0797ff49f5363183fc99fbab657d3b",
+    "nvidia-uvm/uvm_volta_fault_buffer.c": "d0b8cfcf715246b49741314e0009b78c798719b634269ee44a75ee12f9874e77",
+    "nvidia-uvm/uvm_volta_host.c": "582c18a24986db6de49ce0c36fa98430062324b0bffd7e2390b2451e5b45f3fb",
+    "nvidia-uvm/uvm_volta_mmu.c": "a4ff6d7ea69fbef25cad7ef1e7b85c3c8fe85e6e9cd1f3be4306a274d3f8e709",
+    "nvidia/nv_uvm_interface.c": "b41c704d29363dd52dd0ea669ee253a37185f5826c7db56a07dec21c3d24eddc"
+  },
+  "source_version": "580.178.04"
+}
