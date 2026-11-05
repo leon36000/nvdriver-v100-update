@@ -1,0 +1,84 @@
+{
+  "canonical_project": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+  "canonical_storage_writable": false,
+  "hardware_access": {
+    "experimental_modules_installed_or_loaded": false,
+    "gpu_accessed": false,
+    "naos_first_page_launch_unknown": 2,
+    "naos_first_page_sessions": 10,
+    "naos_guardians_reachable": 0,
+    "naos_has_more": true,
+    "naos_list_observation_incomplete": false,
+    "remote_runner_invoked": false,
+    "rtx5080_tested": false,
+    "tailscale_pc3_last_seen_utc": "2026-10-29T10:55:57.1Z",
+    "tailscale_pc3_online": false,
+    "v100_tested": false
+  },
+  "implementation": {
+    "artifact": {
+      "bytes": 16120,
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/driver-hybrid/build/experiments/rm-p2p-fault-v3-20261030/libhybrid_rm_p2p_fault.so",
+      "sha256": "5b019f0cbf34eac4e1dccfe59d7a2c784a20c1599e6e376b8601c4f48274d01c"
+    },
+    "build_report": {
+      "path": "evidence/rm-p2p-fault-injector-build-v3-20261030.json",
+      "sha256": "3ce20fedc547cae1cccb9847ddfe9891a5713e483e9569ac7299a3b6462cc81c"
+    },
+    "builder": "tools/build_rm_p2p_fault_injector.py",
+    "builder_sha256": "d59cabb385432916e5d3232253260a6c43d935ae7d73118f5d7c38257bf67ce4",
+    "dependency_hash_count": 20,
+    "pinned_header_count": 6,
+    "runner": "tools/run_pc3_v100_guest_reference.py",
+    "runner_sha256": "04298938f074d7a5a31e4ae8bb0766b9a2c94d41452014fcd68bd1ed94d84868",
+    "shim_source": "src/rm_p2p_fault_injector.c",
+    "shim_source_sha256": "7458f770be976c137b2c9dac1e2f8a126d4055c20755319ef5c5781a1dec28d0"
+  },
+  "limits": [
+    "Synthetic fake-ioctl tests validate selected-request matching and forwarding only; they do not exercise Linux RM, libcuda, a physical GPU, or real CUDA behavior.",
+    "The full runner suite exercises report and process-environment contracts only; no remote host was contacted.",
+    "Same-process V100 plus Blackwell CUDA execution, UVM, peer transfer, and performance remain unvalidated."
+  ],
+  "observed_at_utc": "2026-10-30T01:16:46+00:00",
+  "probe_bundle": {
+    "fatbin": {
+      "bytes": 19016,
+      "images": [
+        "sm_70",
+        "sm_120"
+      ],
+      "matches_manifest": true,
+      "path": "build/probe-pci-target-contract-v6-20261028T1330Z/hybrid_probe.sm70-sm120.fatbin",
+      "sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741"
+    },
+    "probe": {
+      "bytes": 173312,
+      "matches_manifest": true,
+      "path": "build/probe-pci-target-contract-v6-20261028T1330Z/hybrid_cuda_probe",
+      "sha256": "df4ab2558a7315680eb55d91cfacd807926d0adf15d9835424e256a5eb43b71d"
+    },
+    "provenance": "read-only hash match to the canonical Infrastructure build-manifest.json; copied unchanged into the local mirror",
+    "source_manifest_sha256": "b45f9a9db91ae830c596840a1697d725debd1675d8382f376f954adb72a977b1"
+  },
+  "qualification": "local-software-validation-only",
+  "schema": "nvidia-hybrid-rm-p2p-fault-software-validation-v1",
+  "software_checks": {
+    "full_v100_runner_contracts": {
+      "command": "python3 -B -m unittest -v tests.test_run_pc3_v100_guest_reference",
+      "failed": 0,
+      "log": "control/runs/rm-p2p-runner-contract-full-v1-20261030.log",
+      "log_sha256": "9a622f78df1fb45c8a8fee38782500a26fcca395a33f91e75f9d37d58f2af688",
+      "optional_compressed_archive": {
+        "path": "control/runs/rm-p2p-runner-contract-full-v1-20261030.log.gz",
+        "sha256": "d01c62177dd33586b8509994c7ac78f257296a348e25ea96b68222b0a4a20bbc"
+      },
+      "passed": 110
+    },
+    "injector_and_runner_contracts": {
+      "command": "python3 -B -m unittest -v tests.test_rm_p2p_fault_injector tests.test_pc3_v100_p2p_fault_contract",
+      "failed": 0,
+      "passed": 7
+    }
+  },
+  "workspace": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/driver-hybrid"
+}

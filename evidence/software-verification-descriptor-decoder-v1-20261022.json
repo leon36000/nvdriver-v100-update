@@ -1,0 +1,44 @@
+{
+  "schema": "nvidia-hybrid-software-verification-v1",
+  "generated_utc": "2026-10-22T04:36:37Z",
+  "qualification": "software-tests-passed-no-hardware-kernel-execution",
+  "change": {
+    "tool": {
+      "path": "tools/r580_descriptor_key.py",
+      "sha256": "5b034a1bb1f6d6581b469760cc0942d9271d442ae266be5af603b9cc34fcf5bc"
+    },
+    "test": {
+      "path": "tests/test_r580_descriptor_key.py",
+      "sha256": "02e999ef0bdaef4cd87f11a05761aac222a33d31c56f816982f9b1814cff04d2"
+    }
+  },
+  "focused_test": {
+    "command": "python3 -m unittest discover -s tests -p 'test_r580_descriptor_key.py' -v",
+    "result": "5 passed",
+    "tdd_red": "The same five tests first failed because the expected CLI tool did not exist; they passed after implementation."
+  },
+  "suite": {
+    "command": "python3 -B -m unittest discover -v -s tests",
+    "environment": {
+      "HYBRID_PROBE": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+      "HYBRID_CUDA_PROBE": "build/probe-current-src-v1-20261022/hybrid_cuda_probe"
+    },
+    "probe_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+    "tests_run": 703,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "duration_seconds": 36.012,
+    "exit_code": 0,
+    "log": {
+      "path": "evidence/logs/software-verification-descriptor-decoder-v1-20261022.log",
+      "sha256": "6f3c6815b11ac40f7ec82135e0737817eaf87cb3cf0a66c2d3c385117cc2b6c8",
+      "bytes": 169044,
+      "mode": "0600"
+    }
+  },
+  "interpretation": [
+    "The first suite attempt omitted the repository-required probe environment variables and used the historical build/hybrid_cuda_probe from 2026-10-18; that binary rejects --expected-pci. It is not the accepted verification run.",
+    "The passing run pins both variables to the current built probe. This suite validates CPU/source contracts and includes a read-only PC3 libcuda inspection; it does not execute the hybrid module or certify CUDA kernels on V100 or RTX5080."
+  ]
+}

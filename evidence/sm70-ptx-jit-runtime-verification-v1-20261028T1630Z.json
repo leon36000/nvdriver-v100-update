@@ -1,0 +1,64 @@
+{
+  "artifact": {
+    "bytes": 744,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/ptx-jit-sm70-v1-20261028T1620Z/hybrid_probe.sm70-ptx.fatbin",
+    "sha256": "4212cdbbac67071733db9786fdf462e1d536f1c9f12e95c5c78e002186f084a5"
+  },
+  "base_probe_manifest": {
+    "bytes": 8126,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-pci-target-contract-v6-20261028T1330Z/build-manifest.json",
+    "sha256": "b45f9a9db91ae830c596840a1697d725debd1675d8382f376f954adb72a977b1"
+  },
+  "build_report": {
+    "path": "evidence/sm70-ptx-jit-image-build-v1-20261028T1620Z.json",
+    "sha256": "f13616a7e5ad89881ae914675f29a7f48b154044068917786b7b5e627de39ecc"
+  },
+  "candidate_module_loaded_or_installed": false,
+  "cleanup_passed": true,
+  "cuobjdump": {
+    "bytes": 744744,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/tools/cuda13.1-front/usr/local/cuda-13.1/bin/cuobjdump",
+    "sha256": "d76bde61348813d19643b18d7ae1b8287eabcdb2195cc4d6e6d860a9b1995900"
+  },
+  "cuobjdump_sha256": "d76bde61348813d19643b18d7ae1b8287eabcdb2195cc4d6e6d860a9b1995900",
+  "elf_image_count": 0,
+  "entrypoints": [
+    "hybrid_add",
+    "hybrid_arch",
+    "hybrid_empty"
+  ],
+  "gpu": {
+    "driver_version": "580.178.04",
+    "guest": "pc3-v100",
+    "host": "pc3",
+    "kernel_release": "6.8.0-147-generic",
+    "name": "Tesla V100-SXM2-16GB",
+    "pci": "0000:00:05.0"
+  },
+  "kernel_sizes": [
+    1,
+    31,
+    256,
+    4096,
+    65537
+  ],
+  "observed_at_utc": "2026-10-28T16:12:24.146901+00:00",
+  "ptx_image_count": 1,
+  "ptx_only_image": true,
+  "ptx_target": "sm_70",
+  "ptx_version": "8.8",
+  "qualification": "stock-v100-ptx-jit-kernel-validated",
+  "runtime_probe": {
+    "bytes": 173312,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-pci-target-contract-v6-20261028T1330Z/hybrid_cuda_probe",
+    "sha256": "df4ab2558a7315680eb55d91cfacd807926d0adf15d9835424e256a5eb43b71d"
+  },
+  "runtime_report": {
+    "path": "evidence/pc3-v100-sm70-ptx-jit-v1-20261028T1625Z.json",
+    "sha256": "caa75bb0a5fd547366e2d587d07b5ce53f5b60cac395be93467f8e132f2b40f6"
+  },
+  "same_linux_hybrid_validated": false,
+  "schema": "nvidia-hybrid-sm70-ptx-jit-runtime-verification-v1",
+  "scope": "offline verification of prior stock-guest CUDA execution; not hybrid certification",
+  "status": "ptx-only-sm70-kernel-executed-on-v100"
+}

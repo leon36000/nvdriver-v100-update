@@ -1,0 +1,34 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-v",
+    "-s",
+    "tests"
+  ],
+  "elapsed_seconds": 44.874208515000646,
+  "environment": {
+    "HYBRID_CUDA_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "HYBRID_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "probe_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808"
+  },
+  "exit_code": 0,
+  "log": {
+    "bytes": 200529,
+    "mode": "0600",
+    "path": "evidence/logs/software-verification-engine-alloc-v2-20261023T051824Z.log",
+    "sha256": "40977ee4a497c39a7163d0a16329ea8b7f485cc7bed98bba8f57f70319d104b0"
+  },
+  "observed_at": "2026-10-23T05:19:09.155832+00:00",
+  "qualification": "software-verification-only",
+  "schema": "nvidia-hybrid-software-verification-v1",
+  "scope": "CPU/source/build tests; no NVIDIA hardware or experimental module was exercised",
+  "started_at": "2026-10-23T05:18:24.281551+00:00",
+  "summary_line": "OK",
+  "tests_run": 867,
+  "unittest_elapsed_seconds": 44.709,
+  "working_directory": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid"
+}

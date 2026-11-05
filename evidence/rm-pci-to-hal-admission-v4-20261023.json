@@ -1,0 +1,564 @@
+{
+  "common_pci_table_sha256": "bcb34b1ccec6310a428fc7019a842d03d4c8f19577f57a30535489f029a19cd3",
+  "decision": {
+    "architecture_a": "no GV100 admission path is established in the audited generated OpenRM profiles; restoring PCI IDs alone is insufficient",
+    "architecture_c": "preferred next integration experiment because it retains the already working stock Volta backend, but same-process cross-backend CUDA remains unproven",
+    "next_discriminator": "exercise exact stock RM control initialization through the existing frontend with both backend descriptors in a CPU harness, then run the least invasive canary only after ABI and rollback gates pass"
+  },
+  "driver_installed_or_loaded": false,
+  "hardware_validated": false,
+  "implementation_sha256": {
+    "tests/test_audit_rm_gpu_probe_admission.py": "a2685d5fb846ab34557eed0e966d7077f407fcc2883cb337f4539034be42ddbe",
+    "tools/audit_rm_gpu_probe_admission.py": "cfdeb99f333d07b91c385f3f5d64eb46467444f5334de75b0ad6d1ba7290e670",
+    "tools/compare_openrm_gv100.py": "629b66f889b430fa30eee8d35d0832c79e12da2df6c61ef724fa96e35d44770a",
+    "tools/probe_r615_gv100_dispatch.py": "2ae07936c49289b478248c7f5bcd36668f2bb5ebd27592848a28b53c89359ee8"
+  },
+  "inputs": [
+    {
+      "archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+      "archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+      "firmware_capability_does_not_accept_missing_hal": true,
+      "generated_profile": {
+        "chip_flags": {
+          "GV100": 0,
+          "GV10X": 0,
+          "VOLTA_CLASSIC_GPUS": 0
+        },
+        "chiphal_gv100_label_present": false,
+        "files": {},
+        "gv100_chip_id_row": "{                               0x0,                            0x0,   0x0 } , // GV100  (disabled)",
+        "gv100_chip_row_nonzero": false,
+        "gv100_legacy_registration_symbol_present": false,
+        "source_profile": "gv100-disabled-in-generated-profile",
+        "version": "580.178.04"
+      },
+      "generated_profile_disables_gv100": true,
+      "generic_pci_filter": {
+        "classifier_form": "inline-in-pci-predicate",
+        "display_class": 3,
+        "display_subclasses": [
+          0,
+          2
+        ],
+        "generic_pci_filter_has_no_hal_lookup": true,
+        "legacy_device_filter_returns_false": true,
+        "minimum_device_id": 32,
+        "vendor_id": 4318
+      },
+      "generic_pci_filter_has_no_hal_lookup": true,
+      "hal_manager_no_match_status": "NV_ERR_NOT_SUPPORTED",
+      "hal_manager_skips_null_hal_entries": true,
+      "pci_table": {
+        "device_id_entries": [
+          "PCI_ANY_ID",
+          "PCI_ANY_ID"
+        ],
+        "display_classes": [
+          "PCI_CLASS_DISPLAY_3D",
+          "PCI_CLASS_DISPLAY_VGA"
+        ],
+        "generation_agnostic": true,
+        "matches_specific_generation_id": false,
+        "vendor_entries": [
+          "PCI_VENDOR_ID_NVIDIA",
+          "PCI_VENDOR_ID_NVIDIA"
+        ]
+      },
+      "pci_table_is_generation_agnostic": true,
+      "pci_table_sha256": "bcb34b1ccec6310a428fc7019a842d03d4c8f19577f57a30535489f029a19cd3",
+      "probe_gate_order": [
+        "rm_is_supported_pci_device(",
+        "pci_enable_device(",
+        "rm_is_supported_device(",
+        "rm_init_private_state("
+      ],
+      "probe_gate_precedes_private_rm_init": true,
+      "repository_commit": "c8e699821c23e4335bf23330a54a23d15cfb95e9",
+      "repository_tag": "580.178.04",
+      "rm_is_legacy_arch_returns_false": true,
+      "rm_is_supported_device_calls_hal_selector": true,
+      "rm_support_gate_requires_registered_hal": true,
+      "source_conclusion": "generic-pci-match-no-gv100-admission-established-in-audited-generated-openrm-profile",
+      "source_files": {
+        "kernel-open/nvidia/nv-pci-table.c": {
+          "bytes": 3037,
+          "sha256": "bcb34b1ccec6310a428fc7019a842d03d4c8f19577f57a30535489f029a19cd3"
+        },
+        "kernel-open/nvidia/nv-pci.c": {
+          "bytes": 67500,
+          "sha256": "c6de3c7a78902ceb934fe485cf43893c3a2dc613edf05dd3e92119f09d002a53"
+        },
+        "src/nvidia/arch/nvalloc/unix/src/osapi.c": {
+          "bytes": 174819,
+          "sha256": "bbb08710a4674408530e40146913b2ea328e2ba921c61f2a05bc31f8593416aa"
+        },
+        "src/nvidia/generated/g_chips2halspec_nvoc.c": {
+          "bytes": 5609,
+          "sha256": "570b18afd7ac89ab066f190d6010cc2a0f3b91bbae28d07b4114682187b5ac9b"
+        },
+        "src/nvidia/generated/g_hal_archimpl.h": {
+          "bytes": 8958,
+          "sha256": "560c6c4e51afe7e907269fd9901936f14b679fd3049e717669008c054ff77dfc"
+        },
+        "src/nvidia/generated/g_hal_register.h": {
+          "bytes": 6719,
+          "sha256": "05fa8a99486fb7427b0c604f8d72a63bdafe895781005de9d71c88741be012d3"
+        },
+        "src/nvidia/generated/rmconfig.h": {
+          "bytes": 51512,
+          "sha256": "f67a2a4ad7a7639925401159b474dabf1cfeff845a5646d7c6692db598e1f64a"
+        },
+        "src/nvidia/src/kernel/core/hal_mgr.c": {
+          "bytes": 5794,
+          "sha256": "80923fa0e9f519e2d40b02885d3d0e7ccd63d6842d89e8ba3c8e9c1d2f8c9c49"
+        }
+      },
+      "source_locations": {
+        "halmgrGetHalForGpu_IMPL": 157,
+        "nv_pci_probe": 1303,
+        "rm_is_supported_device": 3545,
+        "rm_is_supported_pci_device": 3692
+      },
+      "version": "580.178.04"
+    },
+    {
+      "archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/open-gpu-kernel-modules-595.112.07-d8257d95.tar.gz",
+      "archive_sha256": "567d4ba082a54ef733e7ce87c87401da488a3aabe29837c92feb19011c8250c4",
+      "firmware_capability_does_not_accept_missing_hal": true,
+      "generated_profile": {
+        "chip_flags": {
+          "GV100": 0,
+          "GV10X": 0,
+          "VOLTA_CLASSIC_GPUS": 0
+        },
+        "chiphal_gv100_label_present": false,
+        "files": {},
+        "gv100_chip_id_row": "{                               0x0,                            0x0,   0x0 } , // GV100  (disabled)",
+        "gv100_chip_row_nonzero": false,
+        "gv100_legacy_registration_symbol_present": false,
+        "source_profile": "gv100-disabled-in-generated-profile",
+        "version": "595.112.07"
+      },
+      "generated_profile_disables_gv100": true,
+      "generic_pci_filter": {
+        "classifier_form": "inline-in-pci-predicate",
+        "display_class": 3,
+        "display_subclasses": [
+          0,
+          2
+        ],
+        "generic_pci_filter_has_no_hal_lookup": true,
+        "legacy_device_filter_returns_false": true,
+        "minimum_device_id": 32,
+        "vendor_id": 4318
+      },
+      "generic_pci_filter_has_no_hal_lookup": true,
+      "hal_manager_no_match_status": "NV_ERR_NOT_SUPPORTED",
+      "hal_manager_skips_null_hal_entries": true,
+      "pci_table": {
+        "device_id_entries": [
+          "PCI_ANY_ID",
+          "PCI_ANY_ID"
+        ],
+        "display_classes": [
+          "PCI_CLASS_DISPLAY_3D",
+          "PCI_CLASS_DISPLAY_VGA"
+        ],
+        "generation_agnostic": true,
+        "matches_specific_generation_id": false,
+        "vendor_entries": [
+          "PCI_VENDOR_ID_NVIDIA",
+          "PCI_VENDOR_ID_NVIDIA"
+        ]
+      },
+      "pci_table_is_generation_agnostic": true,
+      "pci_table_sha256": "bcb34b1ccec6310a428fc7019a842d03d4c8f19577f57a30535489f029a19cd3",
+      "probe_gate_order": [
+        "rm_is_supported_pci_device(",
+        "pci_enable_device(",
+        "rm_is_supported_device(",
+        "rm_init_private_state("
+      ],
+      "probe_gate_precedes_private_rm_init": true,
+      "repository_commit": "d8257d95ae5fed364163e4df51db66df8b1ee0d2",
+      "repository_tag": "595.112.07",
+      "rm_is_legacy_arch_returns_false": true,
+      "rm_is_supported_device_calls_hal_selector": true,
+      "rm_support_gate_requires_registered_hal": true,
+      "source_conclusion": "generic-pci-match-no-gv100-admission-established-in-audited-generated-openrm-profile",
+      "source_files": {
+        "kernel-open/nvidia/nv-pci-table.c": {
+          "bytes": 3037,
+          "sha256": "bcb34b1ccec6310a428fc7019a842d03d4c8f19577f57a30535489f029a19cd3"
+        },
+        "kernel-open/nvidia/nv-pci.c": {
+          "bytes": 84686,
+          "sha256": "bd6533c26090fbe775a079e5413fcc34f7cd99ce087684456cc63206d95757ab"
+        },
+        "src/nvidia/arch/nvalloc/unix/src/osapi.c": {
+          "bytes": 175741,
+          "sha256": "3e2d32fd16a802b91c41a5219b74576c505358d12da31cf9ba06a465726060f9"
+        },
+        "src/nvidia/generated/g_chips2halspec_nvoc.c": {
+          "bytes": 5609,
+          "sha256": "f112674d8191a09662bf8e1a3f5b920773a95d6aae6e61fe79382d405fbade3e"
+        },
+        "src/nvidia/generated/g_hal_archimpl.h": {
+          "bytes": 8930,
+          "sha256": "c261f6a4ef4363ecaabbf9604943c11e8c54678d32dadebf8e9a1c4c2112ada7"
+        },
+        "src/nvidia/generated/g_hal_register.h": {
+          "bytes": 6691,
+          "sha256": "8399d29f4f8c1e56ce27f010fd1b066e38395ddffa6a00aad51d556b37fbd15a"
+        },
+        "src/nvidia/generated/rmconfig.h": {
+          "bytes": 51452,
+          "sha256": "52f6a2ed2c5dff0de85db4239b26658ded0fbf69297c0bbfa18367bc3c7e7912"
+        },
+        "src/nvidia/src/kernel/core/hal_mgr.c": {
+          "bytes": 5794,
+          "sha256": "80923fa0e9f519e2d40b02885d3d0e7ccd63d6842d89e8ba3c8e9c1d2f8c9c49"
+        }
+      },
+      "source_locations": {
+        "halmgrGetHalForGpu_IMPL": 157,
+        "nv_pci_probe": 1771,
+        "rm_is_supported_device": 3669,
+        "rm_is_supported_pci_device": 3816
+      },
+      "version": "595.112.07"
+    },
+    {
+      "archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/open-gpu-kernel-modules-610.57.04-e4a5faa.tar.gz",
+      "archive_sha256": "619d7b5ce1f79c3211afdbf87d02b2174d268b10d005c5b8f994be22299be681",
+      "firmware_capability_does_not_accept_missing_hal": true,
+      "generated_profile": {
+        "chip_flags": {
+          "GV100": 0,
+          "GV10X": 0,
+          "VOLTA_CLASSIC_GPUS": 0
+        },
+        "chiphal_gv100_label_present": false,
+        "files": {},
+        "gv100_chip_id_row": "{                               0x0,                            0x0,   0x0 } , // GV100  (disabled)",
+        "gv100_chip_row_nonzero": false,
+        "gv100_legacy_registration_symbol_present": false,
+        "source_profile": "gv100-disabled-in-generated-profile",
+        "version": "610.57.04"
+      },
+      "generated_profile_disables_gv100": true,
+      "generic_pci_filter": {
+        "classifier_form": "inline-in-pci-predicate",
+        "display_class": 3,
+        "display_subclasses": [
+          0,
+          2
+        ],
+        "generic_pci_filter_has_no_hal_lookup": true,
+        "legacy_device_filter_returns_false": true,
+        "minimum_device_id": 32,
+        "vendor_id": 4318
+      },
+      "generic_pci_filter_has_no_hal_lookup": true,
+      "hal_manager_no_match_status": "NV_ERR_NOT_SUPPORTED",
+      "hal_manager_skips_null_hal_entries": true,
+      "pci_table": {
+        "device_id_entries": [
+          "PCI_ANY_ID",
+          "PCI_ANY_ID"
+        ],
+        "display_classes": [
+          "PCI_CLASS_DISPLAY_3D",
+          "PCI_CLASS_DISPLAY_VGA"
+        ],
+        "generation_agnostic": true,
+        "matches_specific_generation_id": false,
+        "vendor_entries": [
+          "PCI_VENDOR_ID_NVIDIA",
+          "PCI_VENDOR_ID_NVIDIA"
+        ]
+      },
+      "pci_table_is_generation_agnostic": true,
+      "pci_table_sha256": "bcb34b1ccec6310a428fc7019a842d03d4c8f19577f57a30535489f029a19cd3",
+      "probe_gate_order": [
+        "rm_is_supported_pci_device(",
+        "pci_enable_device(",
+        "rm_is_supported_device(",
+        "rm_init_private_state("
+      ],
+      "probe_gate_precedes_private_rm_init": true,
+      "repository_commit": "e4a5faa2567f28c8eabe0ebb6422b6d0abcf37eb",
+      "repository_tag": "610.57.04",
+      "rm_is_legacy_arch_returns_false": true,
+      "rm_is_supported_device_calls_hal_selector": true,
+      "rm_support_gate_requires_registered_hal": true,
+      "source_conclusion": "generic-pci-match-no-gv100-admission-established-in-audited-generated-openrm-profile",
+      "source_files": {
+        "kernel-open/nvidia/nv-pci-table.c": {
+          "bytes": 3037,
+          "sha256": "bcb34b1ccec6310a428fc7019a842d03d4c8f19577f57a30535489f029a19cd3"
+        },
+        "kernel-open/nvidia/nv-pci.c": {
+          "bytes": 91140,
+          "sha256": "6de3c374335978b8fad18f2824bf76e7fb77a7765254a9f0d14c40178e2ade48"
+        },
+        "src/nvidia/arch/nvalloc/unix/src/osapi.c": {
+          "bytes": 176374,
+          "sha256": "7b349926c3b3cd0f309b25a8e466639ed184102dee133a7286bb899f1928ebf8"
+        },
+        "src/nvidia/generated/g_chips2halspec_nvoc.c": {
+          "bytes": 6053,
+          "sha256": "f4103c97a974cabeb7bbe434e4832c50cb8b05053560fbaaedf99d29b06ec9b9"
+        },
+        "src/nvidia/generated/g_hal_archimpl.h": {
+          "bytes": 9218,
+          "sha256": "46bda888f8bf32b195cd7ee90687951da43d74e77eea96ab6d656440e9a0edda"
+        },
+        "src/nvidia/generated/g_hal_register.h": {
+          "bytes": 7323,
+          "sha256": "c071b5759ee5ccfafe26009b1dad36cd503d3ab2175ccd4a5592442776c8e6f2"
+        },
+        "src/nvidia/generated/rmconfig.h": {
+          "bytes": 52632,
+          "sha256": "993424e65d5a00abba8c0c7bf64e4eb66694364b918c05a8aa5d43d5dd6b0e8a"
+        },
+        "src/nvidia/src/kernel/core/hal_mgr.c": {
+          "bytes": 5794,
+          "sha256": "80923fa0e9f519e2d40b02885d3d0e7ccd63d6842d89e8ba3c8e9c1d2f8c9c49"
+        }
+      },
+      "source_locations": {
+        "halmgrGetHalForGpu_IMPL": 157,
+        "nv_pci_probe": 1903,
+        "rm_is_supported_device": 3693,
+        "rm_is_supported_pci_device": 3840
+      },
+      "version": "610.57.04"
+    },
+    {
+      "archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/open-gpu-kernel-modules-615.71.10-6f3be8c9.tar.gz",
+      "archive_sha256": "c01605048cab3d988b1b3028fbee0646ba0937407949dc43514b3e4694f40f6c",
+      "firmware_capability_does_not_accept_missing_hal": true,
+      "generated_profile": {
+        "chip_flags": {
+          "GV100": 0,
+          "GV10X": 0,
+          "VOLTA_CLASSIC_GPUS": 0
+        },
+        "chiphal_gv100_label_present": false,
+        "files": {},
+        "gv100_chip_id_row": "{                               0x0,                            0x0,   0x0 } , // GV100  (disabled)",
+        "gv100_chip_row_nonzero": false,
+        "gv100_legacy_registration_symbol_present": false,
+        "source_profile": "gv100-disabled-in-generated-profile",
+        "version": "615.71.10"
+      },
+      "generated_profile_disables_gv100": true,
+      "generic_pci_filter": {
+        "classifier_form": "shared-helper",
+        "display_class": 3,
+        "display_subclasses": [
+          0,
+          2
+        ],
+        "generic_pci_filter_has_no_hal_lookup": true,
+        "legacy_device_filter_returns_false": true,
+        "minimum_device_id": 32,
+        "vendor_id": 4318
+      },
+      "generic_pci_filter_has_no_hal_lookup": true,
+      "hal_manager_no_match_status": "NV_ERR_NOT_SUPPORTED",
+      "hal_manager_skips_null_hal_entries": true,
+      "pci_table": {
+        "device_id_entries": [
+          "PCI_ANY_ID",
+          "PCI_ANY_ID"
+        ],
+        "display_classes": [
+          "PCI_CLASS_DISPLAY_3D",
+          "PCI_CLASS_DISPLAY_VGA"
+        ],
+        "generation_agnostic": true,
+        "matches_specific_generation_id": false,
+        "vendor_entries": [
+          "PCI_VENDOR_ID_NVIDIA",
+          "PCI_VENDOR_ID_NVIDIA"
+        ]
+      },
+      "pci_table_is_generation_agnostic": true,
+      "pci_table_sha256": "bcb34b1ccec6310a428fc7019a842d03d4c8f19577f57a30535489f029a19cd3",
+      "probe_gate_order": [
+        "rm_is_supported_pci_device(",
+        "pci_enable_device(",
+        "rm_is_supported_device(",
+        "rm_init_private_state("
+      ],
+      "probe_gate_precedes_private_rm_init": true,
+      "repository_commit": "6f3be8c9c3fb4ed6ffc607a0d32d31ce4db7fba5",
+      "repository_tag": "615.71.10",
+      "rm_is_legacy_arch_returns_false": true,
+      "rm_is_supported_device_calls_hal_selector": true,
+      "rm_support_gate_requires_registered_hal": true,
+      "source_conclusion": "generic-pci-match-no-gv100-admission-established-in-audited-generated-openrm-profile",
+      "source_files": {
+        "kernel-open/nvidia/nv-pci-table.c": {
+          "bytes": 3037,
+          "sha256": "bcb34b1ccec6310a428fc7019a842d03d4c8f19577f57a30535489f029a19cd3"
+        },
+        "kernel-open/nvidia/nv-pci.c": {
+          "bytes": 110672,
+          "sha256": "6a5e39f37d86bd6d09cc5867647ecbc8e240298bc138bf651ad7d9346bc1b1c8"
+        },
+        "src/nvidia/arch/nvalloc/unix/src/osapi.c": {
+          "bytes": 178132,
+          "sha256": "43017499b404600beac7f5c2b5f09f39774b71f50ba15fd3317399fa29c02b7e"
+        },
+        "src/nvidia/generated/g_chips2halspec_nvoc.c": {
+          "bytes": 6160,
+          "sha256": "ec0f299b4dffa6160d102e2dc3d7e4db776116354649b676987146c52542548a"
+        },
+        "src/nvidia/generated/g_hal_archimpl.h": {
+          "bytes": 9284,
+          "sha256": "0c6943a230d7dd7af933d045caeb68bd58fb0dc183c5967fa080202d346399a9"
+        },
+        "src/nvidia/generated/g_hal_register.h": {
+          "bytes": 7435,
+          "sha256": "bbf9c9648d9b95f9246facea944129967825b6675c91a8f46df8c36313e419e1"
+        },
+        "src/nvidia/generated/rmconfig.h": {
+          "bytes": 53486,
+          "sha256": "cf582b8d0e21a4acf4a290b27ac6a1d6dff43aa9d63f3d57923bb84accfda402"
+        },
+        "src/nvidia/src/kernel/core/hal_mgr.c": {
+          "bytes": 5794,
+          "sha256": "80923fa0e9f519e2d40b02885d3d0e7ccd63d6842d89e8ba3c8e9c1d2f8c9c49"
+        }
+      },
+      "source_locations": {
+        "halmgrGetHalForGpu_IMPL": 157,
+        "nv_pci_probe_body": 2148,
+        "rm_is_supported_device": 3745,
+        "rm_is_supported_pci_device": 3929
+      },
+      "version": "615.71.10"
+    },
+    {
+      "archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/open-gpu-kernel-modules-1a82fbfda8f321b056eb3568850f9316c5e465c5.tar.gz",
+      "archive_sha256": "590ee6a5a780f946322edd17f9d235c6664eb7e6839073ac0d68c0f263e7184f",
+      "firmware_capability_does_not_accept_missing_hal": true,
+      "generated_profile": {
+        "chip_flags": {
+          "GV100": 0,
+          "GV10X": 0,
+          "VOLTA_CLASSIC_GPUS": 0
+        },
+        "chiphal_gv100_label_present": false,
+        "files": {},
+        "gv100_chip_id_row": "{                               0x0,                            0x0,   0x0 } , // GV100  (disabled)",
+        "gv100_chip_row_nonzero": false,
+        "gv100_legacy_registration_symbol_present": false,
+        "source_profile": "gv100-disabled-in-generated-profile",
+        "version": "615.78.08"
+      },
+      "generated_profile_disables_gv100": true,
+      "generic_pci_filter": {
+        "classifier_form": "shared-helper",
+        "display_class": 3,
+        "display_subclasses": [
+          0,
+          2
+        ],
+        "generic_pci_filter_has_no_hal_lookup": true,
+        "legacy_device_filter_returns_false": true,
+        "minimum_device_id": 32,
+        "vendor_id": 4318
+      },
+      "generic_pci_filter_has_no_hal_lookup": true,
+      "hal_manager_no_match_status": "NV_ERR_NOT_SUPPORTED",
+      "hal_manager_skips_null_hal_entries": true,
+      "pci_table": {
+        "device_id_entries": [
+          "PCI_ANY_ID",
+          "PCI_ANY_ID"
+        ],
+        "display_classes": [
+          "PCI_CLASS_DISPLAY_3D",
+          "PCI_CLASS_DISPLAY_VGA"
+        ],
+        "generation_agnostic": true,
+        "matches_specific_generation_id": false,
+        "vendor_entries": [
+          "PCI_VENDOR_ID_NVIDIA",
+          "PCI_VENDOR_ID_NVIDIA"
+        ]
+      },
+      "pci_table_is_generation_agnostic": true,
+      "pci_table_sha256": "bcb34b1ccec6310a428fc7019a842d03d4c8f19577f57a30535489f029a19cd3",
+      "probe_gate_order": [
+        "rm_is_supported_pci_device(",
+        "pci_enable_device(",
+        "rm_is_supported_device(",
+        "rm_init_private_state("
+      ],
+      "probe_gate_precedes_private_rm_init": true,
+      "repository_commit": "1a82fbfda8f321b056eb3568850f9316c5e465c5",
+      "repository_tag": "615.78.08",
+      "rm_is_legacy_arch_returns_false": true,
+      "rm_is_supported_device_calls_hal_selector": true,
+      "rm_support_gate_requires_registered_hal": true,
+      "source_conclusion": "generic-pci-match-no-gv100-admission-established-in-audited-generated-openrm-profile",
+      "source_files": {
+        "kernel-open/nvidia/nv-pci-table.c": {
+          "bytes": 3037,
+          "sha256": "bcb34b1ccec6310a428fc7019a842d03d4c8f19577f57a30535489f029a19cd3"
+        },
+        "kernel-open/nvidia/nv-pci.c": {
+          "bytes": 110672,
+          "sha256": "6a5e39f37d86bd6d09cc5867647ecbc8e240298bc138bf651ad7d9346bc1b1c8"
+        },
+        "src/nvidia/arch/nvalloc/unix/src/osapi.c": {
+          "bytes": 178169,
+          "sha256": "e4336f0e3bb55122680e0d344f970c123664122c2415134b7a6b517c98fcbe75"
+        },
+        "src/nvidia/generated/g_chips2halspec_nvoc.c": {
+          "bytes": 6160,
+          "sha256": "ec0f299b4dffa6160d102e2dc3d7e4db776116354649b676987146c52542548a"
+        },
+        "src/nvidia/generated/g_hal_archimpl.h": {
+          "bytes": 9284,
+          "sha256": "0c6943a230d7dd7af933d045caeb68bd58fb0dc183c5967fa080202d346399a9"
+        },
+        "src/nvidia/generated/g_hal_register.h": {
+          "bytes": 7435,
+          "sha256": "bbf9c9648d9b95f9246facea944129967825b6675c91a8f46df8c36313e419e1"
+        },
+        "src/nvidia/generated/rmconfig.h": {
+          "bytes": 53486,
+          "sha256": "cf582b8d0e21a4acf4a290b27ac6a1d6dff43aa9d63f3d57923bb84accfda402"
+        },
+        "src/nvidia/src/kernel/core/hal_mgr.c": {
+          "bytes": 5794,
+          "sha256": "80923fa0e9f519e2d40b02885d3d0e7ccd63d6842d89e8ba3c8e9c1d2f8c9c49"
+        }
+      },
+      "source_locations": {
+        "halmgrGetHalForGpu_IMPL": 157,
+        "nv_pci_probe_body": 2148,
+        "rm_is_supported_device": 3747,
+        "rm_is_supported_pci_device": 3931
+      },
+      "version": "615.78.08"
+    }
+  ],
+  "limits": [
+    "Source audit covers pinned NVIDIA OpenRM source only; R580.178.04 open-source profile is not the proprietary stock backend used by the V100 reference.",
+    "The conclusion is limited to the audited generated OpenRM admission profile; GV100-suffixed methods may remain in source or linked objects without proving catalog registration or runtime admission.",
+    "Generated profile, selector source, and error-path analysis do not prove the complete physical HAL is absent from every linked object.",
+    "No physical RM initialization, CUDA API, kernel execution, UVM, P2P, stability, or performance was tested by this audit."
+  ],
+  "observed_at_utc": "2026-10-23T16:35:34.651525+00:00",
+  "qualification": "analyzed-statically",
+  "runtime_or_hybrid_cuda_validated": false,
+  "schema": "rm-pci-to-hal-admission-v3",
+  "source_conclusion": "generic-pci-match-no-gv100-admission-established-in-audited-generated-openrm-profile"
+}

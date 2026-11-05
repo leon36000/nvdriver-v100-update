@@ -1,0 +1,42 @@
+{
+  "candidate_module_installed_or_loaded": false,
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "tests.test_rm_p2p_fault_injector",
+    "tests.test_pc3_v100_p2p_fault_contract",
+    "-v"
+  ],
+  "finished_at_utc": "2026-10-31T21:03:28+00:00",
+  "hardware_validated": false,
+  "log": {
+    "bytes": 7304,
+    "mode": "0600",
+    "path": "evidence/logs/rm-p2p-focused-tests-v1-20261031T2103Z.log",
+    "sha256": "7872f3000706155454fe2301e496c36c787d6daab8efa0748b8ca473d982afc4"
+  },
+  "prebuilt_injector_artifact": {
+    "exists": false,
+    "loaded": false,
+    "path": "build/experiments/rm-p2p-fault-v8-canonical-20261030/libhybrid_rm_p2p_fault.so",
+    "sha256": null
+  },
+  "process_exit_code": 0,
+  "reported_duration_seconds": 0.318,
+  "schema": "rm-p2p-focused-tests-v1",
+  "software_only": true,
+  "source_hashes": {
+    "src/rm_p2p_fault_injector.S": "1b67c7cc8d2cc2fde222843fb08f5a506aa6b8204ad6567a905ff8e0119d135b",
+    "src/rm_p2p_fault_injector.c": "a4a95764404101daed39a95371a73be288dbca4002a832268afbbdb27da70e03",
+    "tests/test_pc3_v100_p2p_fault_contract.py": "25e2d133e62c52be2575d878460138c70ca224f75bf1128b852b2905efeca487",
+    "tests/test_rm_p2p_fault_injector.py": "cd9231442b4f4ba1c7a069d1dd0964ec77d86967ee40a26c4daf4a4b383f9786",
+    "tools/build_rm_p2p_fault_injector.py": "9ba3d8338414562c5268d712b10f25a9fc2a9cbaa6725bfdab02f4b93ea27022",
+    "tools/run_pc3_v100_guest_reference.py": "c61afd0ead3b9351f52e812ac79dc740d9e49b65bdab50197dedf6807f1e9445"
+  },
+  "started_at_utc": "2026-10-31T21:03:28+00:00",
+  "status": "passed",
+  "tests_run": 13,
+  "working_directory": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid"
+}

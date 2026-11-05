@@ -1,0 +1,112 @@
+{
+  "schema": "nvidia-hybrid-rm-namespace-link-v1",
+  "probe_tool_sha256": "0814c12641b36a8b766be0f72cf3500de75c53c86513278578f023abea4bd279",
+  "observed_at_utc": "2026-10-19T00:11:25.832223+00:00",
+  "scope": "relocatable-object-namespace-only",
+  "input_sha256": {
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nv-kernel.o_binary": "5269a23ffba19a17fe16f076463e7ad4151254659441d1711bee6c6221ff6f4b",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/_out/Linux_x86_64/nv-kernel.o": "5e9219a4a263315d20757159852b35be61dfd2ce75dcd2ca90b1cd1764d6bb8a"
+  },
+  "transformed_input": "copy-of-open-object-only",
+  "prefix": "hybrid580_",
+  "steps": [
+    {
+      "name": "legacy-symbols",
+      "argv": [
+        "readelf",
+        "-Ws",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nv-kernel.o_binary"
+      ],
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/same-branch-rm-link-v2/legacy-symbols.log",
+      "log_sha256": "ed0a74375d519b6f18d34c77f297030f146159a12b22fe00bd461f56c39fe805"
+    },
+    {
+      "name": "open-symbols",
+      "argv": [
+        "readelf",
+        "-Ws",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/_out/Linux_x86_64/nv-kernel.o"
+      ],
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/same-branch-rm-link-v2/open-symbols.log",
+      "log_sha256": "199b4fa9a46ef26bc48dd648bef12220d892878baf214b1b12634c1d3a3d0153"
+    },
+    {
+      "name": "objcopy",
+      "argv": [
+        "objcopy",
+        "--redefine-syms",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/same-branch-rm-link-v2/open-symbol-renames.txt",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/openrm580-baseline-v1/NVIDIA-kernel-module-source-580.178.04/src/nvidia/_out/Linux_x86_64/nv-kernel.o",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/same-branch-rm-link-v2/open-namespaced.o"
+      ],
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/same-branch-rm-link-v2/objcopy.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "namespaced-symbols",
+      "argv": [
+        "readelf",
+        "-Ws",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/same-branch-rm-link-v2/open-namespaced.o"
+      ],
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/same-branch-rm-link-v2/namespaced-symbols.log",
+      "log_sha256": "ce00016881e48091e016ae8c28c70ed0f2b15575f90a72932985445192d11626"
+    },
+    {
+      "name": "relocatable-link",
+      "argv": [
+        "ld",
+        "-r",
+        "-o",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/same-branch-rm-link-v2/combined-rm.o",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/vendor-proprietary/r580.178.04-ubuntu/usr/src/nvidia-580.178.04/nvidia/nv-kernel.o_binary",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/same-branch-rm-link-v2/open-namespaced.o"
+      ],
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/same-branch-rm-link-v2/relocatable-link.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "combined-symbols",
+      "argv": [
+        "readelf",
+        "-Ws",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/same-branch-rm-link-v2/combined-rm.o"
+      ],
+      "exit_code": 0,
+      "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/same-branch-rm-link-v2/combined-symbols.log",
+      "log_sha256": "2737ea3a112bb3cb817520e3a2dcc2cdedacf85f9501eb274d62729b1a130277"
+    }
+  ],
+  "loaded_or_installed": false,
+  "undefined_symbol_classification": "not-established",
+  "kernel_exports_or_abi_validated": false,
+  "cuda_routing_implemented": false,
+  "uvm_ownership_integrated": false,
+  "proprietary_input_modified": false,
+  "redistribution_rights_established": false,
+  "implicit_cross_backend_references": {
+    "legacy_to_open": [],
+    "open_to_legacy": []
+  },
+  "renamed_symbol_count": 213,
+  "symbol_map": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/same-branch-rm-link-v2/open-symbol-renames.txt",
+  "symbol_map_sha256": "e34c92656c60ee4c84e225d9a20caffae6b7a44c04d118f511ee783fa9327ad8",
+  "qualification": "linked-objects-only",
+  "combined_strong_symbol_count": 13585,
+  "combined_undefined_symbol_count": 411,
+  "namespaced_open_object": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/same-branch-rm-link-v2/open-namespaced.o",
+    "sha256": "6409a46900407906a1f59cc638d51249eea51fb504a057a8f89b3c190f6b3d30"
+  },
+  "combined_object": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/same-branch-rm-link-v2/combined-rm.o",
+    "sha256": "74b89d249bac02c9d17ad24371dbd13fa06b9ea087dc13231e3a8e5349c31442",
+    "bytes": 130171128
+  },
+  "inputs_unchanged": true
+}

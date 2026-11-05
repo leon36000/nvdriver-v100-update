@@ -1,0 +1,147 @@
+{
+  "canonical_project": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+  "canonical_storage": {
+    "available_bytes_at_observation": 58219110400,
+    "integration_patch_status": "tracked in the parent checkpoint manifest",
+    "mount": "/run/media/pc1/Infrastructure",
+    "mount_options": "rw",
+    "patch_applied_at_observation": false
+  },
+  "canonical_storage_writable": true,
+  "hardware_access": {
+    "experimental_modules_installed_or_loaded": false,
+    "gpu_accessed": false,
+    "local_nvidia_smi_inventory": [
+      "NVIDIA GeForce RTX 5090"
+    ],
+    "naos_first_page_launch_unknown": 2,
+    "naos_first_page_sessions": 10,
+    "naos_guardians_reachable": 0,
+    "naos_list_observation_incomplete": false,
+    "observed_at_utc": "2026-10-30T04:48:25+00:00",
+    "pc3_tailscale_last_seen_utc": "2026-10-29T10:55:57.1Z",
+    "pc3_tailscale_online": false,
+    "pc6_claude_cli_present": false,
+    "pc6_host": "gx10-e526",
+    "remote_runner_invoked": false,
+    "rtx5080_tested": false,
+    "v100_tested": false
+  },
+  "implementation": {
+    "artifact": {
+      "bytes": 16432,
+      "path": "build/experiments/rm-p2p-fault-v7-20261030/libhybrid_rm_p2p_fault.so",
+      "sha256": "5b36f90c12f56d3ca1956b8aac61db3d8df9306a96deb1cfd4a81c52683e298e"
+    },
+    "assembly_source": {
+      "path": "src/rm_p2p_fault_injector.S",
+      "sha256": "1b67c7cc8d2cc2fde222843fb08f5a506aa6b8204ad6567a905ff8e0119d135b"
+    },
+    "build_report": {
+      "path": "evidence/rm-p2p-fault-injector-build-v7-20261030.json",
+      "sha256": "a0d7caf4c44f553f292969ace56a8413a4ae4adf6a3b3931f4665c969714042d"
+    },
+    "builder": "tools/build_rm_p2p_fault_injector.py",
+    "builder_sha256": "0c9bd780d92dc36599f5aa9d77bf6ea4cec0811013d82f26f2e9d96716930b10",
+    "dependency_hash_count": 21,
+    "pinned_header_count": 6,
+    "runner": "tools/run_pc3_v100_guest_reference.py",
+    "runner_sha256": "c61afd0ead3b9351f52e812ac79dc740d9e49b65bdab50197dedf6807f1e9445",
+    "shim_source": "src/rm_p2p_fault_injector.c",
+    "shim_source_sha256": "a4a95764404101daed39a95371a73be288dbca4002a832268afbbdb27da70e03"
+  },
+  "independent_review": {
+    "aggregate_patch_review": "pending",
+    "assembly_trampoline_initial_review": "passed with no concrete blocker",
+    "follow_up_review": "passed: reviewer verified cold-path register preservation, alignment, direct tail-jump, ENOSYS behavior, fresh-process scalar-first fixture, promoted-int va_arg, and focused 10/10 tests",
+    "review_finding_fixed": "cold unrelated ioctl now resolves through C and tail-jumps from assembly with original argument registers restored; scalar fixture reads the actual promoted int type"
+  },
+  "limits": [
+    "Synthetic fake-ioctl tests validate ABI forwarding and the test fixture only; they do not exercise NVIDIA RM, libcuda, physical GPU state, CUDA initialization, memory, kernels, UVM, or peer DMA.",
+    "The full runner suite exercises report and process-environment contracts only; no remote host was contacted.",
+    "Same-process V100 plus Blackwell CUDA execution, UVM, peer transfer, and performance remain unvalidated.",
+    "Free/handle-reuse serialization is established by source inspection and transaction locking; the fixture does not model concurrent real RM operations."
+  ],
+  "observed_at_utc": "2026-10-30T04:48:25+00:00",
+  "probe_bundle": {
+    "fatbin": {
+      "bytes": 19016,
+      "images": [
+        "sm_70",
+        "sm_120"
+      ],
+      "matches_manifest": true,
+      "path": "build/probe-pci-target-contract-v6-20261028T1330Z/hybrid_probe.sm70-sm120.fatbin",
+      "sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741"
+    },
+    "probe": {
+      "bytes": 173312,
+      "matches_manifest": true,
+      "path": "build/probe-pci-target-contract-v6-20261028T1330Z/hybrid_cuda_probe",
+      "sha256": "df4ab2558a7315680eb55d91cfacd807926d0adf15d9835424e256a5eb43b71d"
+    },
+    "provenance": "read-only hash match to the canonical Infrastructure build-manifest.json; copied unchanged into the local mirror",
+    "source_manifest_sha256": "b45f9a9db91ae830c596840a1697d725debd1675d8382f376f954adb72a977b1"
+  },
+  "qualification": "local-software-validation-only",
+  "schema": "nvidia-hybrid-rm-p2p-fault-software-validation-v3",
+  "software_checks": {
+    "elf_inspection": {
+      "command": "readelf -d; nm -D; objdump -d --disassemble=ioctl on v7 artifact",
+      "result": "BIND_NOW present; no TEXTREL; only ioctl is exported; cold path saves/restores RAX and RDI/RSI/RDX/RCX/R8/R9 around resolver then indirect tail-jumps; unresolved target returns -1 with resolver-set ENOSYS"
+    },
+    "focused_injector_and_runner_contracts": {
+      "command": "python3 -B -m unittest -v tests.test_rm_p2p_fault_injector tests.test_pc3_v100_p2p_fault_contract",
+      "failed": 0,
+      "log": "control/runs/rm-p2p-fault-focused-v7-20261030.log",
+      "log_sha256": "fd503167d2d3cef8e6dd412d2925582f3dfd8c4eec1729eff819e4369d666f89",
+      "passed": 10,
+      "scope": [
+        "matching and mismatched character-device identity",
+        "allocation/control/free tracking model and overflow rejection",
+        "four fault families and child-process isolation",
+        "zero-argument FIOCLEX on a fresh process",
+        "integer _IOW request as the first ioctl on a fresh process and after resolution",
+        "source-level assertion that cold forwarding restores RAX and all integer argument registers before the tail jump"
+      ],
+      "ubsan": "-fsanitize=undefined -fno-sanitize-recover=all"
+    },
+    "full_v100_runner_contracts": {
+      "command": "python3 -B -m unittest -v tests.test_run_pc3_v100_guest_reference",
+      "failed": 0,
+      "log": "control/runs/rm-p2p-runner-contract-full-v6-20261030.log",
+      "log_sha256": "391f5642b523664ce59fb464a4c57eece8dfd00640c40b8d04574da3f515fed8",
+      "passed": 110
+    },
+    "gcc_static_analyzer": {
+      "artifact": {
+        "path": "build/experiments/rm-p2p-fault-v7-20261030/libhybrid_rm_p2p_fault-analyzer.so",
+        "sha256": "423405e0f6d3121a9c3f6d251972fe9392488721f8894c317d3f6902943ae371"
+      },
+      "command": "cc -std=gnu11 -Wall -Wextra -Wformat=2 -Werror -fanalyzer -DNVRM=1 <four pinned include dirs> -fPIC -shared src/rm_p2p_fault_injector.c src/rm_p2p_fault_injector.S -ldl -pthread",
+      "diagnostics_log": "control/runs/rm-p2p-fault-gcc-analyzer-v3-20261030.log",
+      "diagnostics_log_representation": "run metadata records compiler exit status and zero stderr bytes; GCC emitted no diagnostics",
+      "diagnostics_log_sha256": "9c7e86af4c9e6dad7958c9c7a17f07ba1588646e22f4cd21dfe43ad19605b47b",
+      "exit_code": 0
+    },
+    "python_bytecompile": {
+      "command": "python3 -B -m py_compile tools/run_pc3_v100_guest_reference.py tools/build_rm_p2p_fault_injector.py tests/test_rm_p2p_fault_injector.py tests/test_pc3_v100_p2p_fault_contract.py",
+      "exit_code": 0
+    },
+    "python_source_compilation": {
+      "files": [
+        "tests/test_rm_p2p_fault_injector.py",
+        "tools/build_rm_p2p_fault_injector.py",
+        "tools/run_pc3_v100_guest_reference.py"
+      ],
+      "method": "compile() without writing bytecode",
+      "result": "passed"
+    }
+  },
+  "test_source_sha256": {
+    "tests/fixtures/rm_p2p_fake_ioctl.c": "032e97768f1dceff5be77640fa7410ae42481cbb69c177b46bda3feb9f10aec7",
+    "tests/fixtures/rm_p2p_fault_injector_test.c": "168e7da50eece3770627fe7b671ef8a9f08986d969ca2f2aa4c499d3104f88f7",
+    "tests/test_rm_p2p_fault_injector.py": "61e465fdff38e9b84f2dc827bc4f40e0515770ca42fab3d366c6268a1c57c0b1"
+  },
+  "workspace": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/driver-hybrid"
+}

@@ -1,0 +1,124 @@
+{
+  "canonical_project": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid",
+  "canonical_storage": {
+    "available_bytes_at_observation": 58222460928,
+    "mount": "/run/media/pc1/Infrastructure",
+    "mount_options": "rw",
+    "patch_applied": false
+  },
+  "canonical_storage_writable": true,
+  "hardware_access": {
+    "experimental_modules_installed_or_loaded": false,
+    "gpu_accessed": false,
+    "local_nvidia_smi_inventory": [
+      "NVIDIA GeForce RTX 5090"
+    ],
+    "naos_first_page_launch_unknown": 2,
+    "naos_first_page_sessions": 10,
+    "naos_guardians_reachable": 0,
+    "naos_has_more": true,
+    "naos_list_observation_incomplete": false,
+    "remote_runner_invoked": false,
+    "rtx5080_tested": false,
+    "tailscale_pc3_last_seen_utc": "2026-10-29T10:55:57.1Z",
+    "tailscale_pc3_online": false,
+    "v100_tested": false
+  },
+  "implementation": {
+    "artifact": {
+      "bytes": 16456,
+      "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/driver-hybrid/build/experiments/rm-p2p-fault-v6-20261030/libhybrid_rm_p2p_fault.so",
+      "sha256": "85e7b4c17882fb829f0ff24ff4dc4afd9d993ef7e2e058bf8797119a2fe3a6ae"
+    },
+    "assembly_source": {
+      "path": "src/rm_p2p_fault_injector.S",
+      "sha256": "99334ad77a8b4b47350643de70e55b488e878e7954146578d39d9473eeae3305"
+    },
+    "build_report": {
+      "path": "evidence/rm-p2p-fault-injector-build-v6-20261030.json",
+      "sha256": "169760249e0b5291c6d4d49edd86525beb10ef5a665699d8784f2ca0cdff7670"
+    },
+    "builder": "tools/build_rm_p2p_fault_injector.py",
+    "builder_sha256": "0c9bd780d92dc36599f5aa9d77bf6ea4cec0811013d82f26f2e9d96716930b10",
+    "dependency_hash_count": 21,
+    "pinned_header_count": 6,
+    "runner": "tools/run_pc3_v100_guest_reference.py",
+    "runner_sha256": "c61afd0ead3b9351f52e812ac79dc740d9e49b65bdab50197dedf6807f1e9445",
+    "shim_source": "src/rm_p2p_fault_injector.c",
+    "shim_source_sha256": "18e8fdd97524a8153a226476e13a8c4c65ec62009c7d95f9ab08d91fcb0393a8"
+  },
+  "limits": [
+    "Synthetic fake-ioctl tests validate dispatch scope and ABI forwarding only; they do not exercise Linux NVIDIA RM, libcuda, a physical GPU, or real CUDA behavior.",
+    "The full runner suite exercises report and process-environment contracts only; no remote host was contacted.",
+    "Same-process V100 plus Blackwell CUDA execution, UVM, peer transfer, and performance remain unvalidated.",
+    "Free/handle-reuse serialization is established by source inspection and transaction locking, but fixture traffic does not model concurrent real RM operations."
+  ],
+  "observed_at_utc": "2026-10-30T04:42:51+00:00",
+  "probe_bundle": {
+    "fatbin": {
+      "bytes": 19016,
+      "images": [
+        "sm_70",
+        "sm_120"
+      ],
+      "matches_manifest": true,
+      "path": "build/probe-pci-target-contract-v6-20261028T1330Z/hybrid_probe.sm70-sm120.fatbin",
+      "sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741"
+    },
+    "probe": {
+      "bytes": 173312,
+      "matches_manifest": true,
+      "path": "build/probe-pci-target-contract-v6-20261028T1330Z/hybrid_cuda_probe",
+      "sha256": "df4ab2558a7315680eb55d91cfacd807926d0adf15d9835424e256a5eb43b71d"
+    },
+    "provenance": "read-only hash match to the canonical Infrastructure build-manifest.json; copied unchanged into the local mirror",
+    "source_manifest_sha256": "b45f9a9db91ae830c596840a1697d725debd1675d8382f376f954adb72a977b1"
+  },
+  "qualification": "local-software-validation-only",
+  "schema": "nvidia-hybrid-rm-p2p-fault-software-validation-v2",
+  "software_checks": {
+    "elf_inspection": {
+      "command": "readelf -d; nm -D; objdump -d --disassemble=ioctl on v6 artifact",
+      "result": "BIND_NOW present; no TEXTREL entry; only ioctl is exported among shim dispatch symbols; unrelated requests tail-jump without argument decoding"
+    },
+    "focused_injector_and_runner_contracts": {
+      "command": "python3 -B -m unittest -v tests.test_rm_p2p_fault_injector tests.test_pc3_v100_p2p_fault_contract",
+      "failed": 0,
+      "log": "control/runs/rm-p2p-fault-focused-v4-20261030.log",
+      "log_sha256": "c2d97c6db1c7bf3425ddc4afdeb3ad3e9bbb298e00c717ccb4883bb32ad9205a",
+      "passed": 9,
+      "scope": [
+        "matching and mismatched character-device identity",
+        "allocation/control/free tracking model",
+        "65-object tracking overflow and fail-closed report validation",
+        "four fault families",
+        "zero-argument FIOCLEX forwarding",
+        "integer _IOW argument forwarding"
+      ],
+      "ubsan": "-fsanitize=undefined -fno-sanitize-recover=all"
+    },
+    "full_v100_runner_contracts": {
+      "command": "python3 -B -m unittest -v tests.test_run_pc3_v100_guest_reference",
+      "failed": 0,
+      "log": "control/runs/rm-p2p-runner-contract-full-v3-20261030.log",
+      "log_sha256": "bf291b5f0b7f65dd753df1f9cbd4bf511308d2f21f0c763df0d9f2929cd66da0",
+      "passed": 110
+    },
+    "gcc_static_analyzer": {
+      "analyzer_artifact": {
+        "bytes": 17256,
+        "path": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/driver-hybrid/build/experiments/rm-p2p-fault-v6-20261030/libhybrid_rm_p2p_fault-analyzer.so",
+        "sha256": "767cf676b8c60bacc7f158d5945cfcd24e3ab3800422701bb07ebd99a7b1bf60"
+      },
+      "command": "cc -std=gnu11 -Wall -Wextra -Wformat=2 -Werror -fanalyzer -DNVRM=1 <four pinned include dirs> -fPIC -shared src/rm_p2p_fault_injector.c src/rm_p2p_fault_injector.S -ldl -pthread -o build/experiments/rm-p2p-fault-v6-20261030/libhybrid_rm_p2p_fault-analyzer.so",
+      "diagnostics_log": "control/runs/rm-p2p-fault-gcc-analyzer-v2-20261030.log",
+      "diagnostics_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exit_code": 0
+    },
+    "python_bytecompile": {
+      "command": "python3 -B -m py_compile tools/run_pc3_v100_guest_reference.py tools/build_rm_p2p_fault_injector.py tests/test_rm_p2p_fault_injector.py tests/test_pc3_v100_p2p_fault_contract.py",
+      "exit_code": 0
+    }
+  },
+  "workspace": "/home/pc1/Documents/Codex/2026-10-18-mandat-codex-projet-nvidia-hybrid-driver/evidence/implementation-20261030-rm90e6/driver-hybrid"
+}

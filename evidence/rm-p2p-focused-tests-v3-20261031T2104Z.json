@@ -1,0 +1,40 @@
+{
+  "candidate_module_installed_or_loaded": false,
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "tests.test_rm_p2p_fault_injector",
+    "tests.test_pc3_v100_p2p_fault_contract",
+    "tests.test_run_pc3_v100_guest_reference",
+    "-v"
+  ],
+  "finished_at_utc": "2026-10-31T21:04:42+00:00",
+  "hardware_validated": false,
+  "injector_artifact": {
+    "build_report_path": "evidence/rm-p2p-fault-injector-build-v9-canonical-20261031.json",
+    "build_report_sha256": "573722ef1cba0a8b29a2cbb3ff305f2a0596142e5160bf5098774545fad3f35d",
+    "loaded": false,
+    "path": "build/experiments/rm-p2p-fault-v9-canonical-20261031/libhybrid_rm_p2p_fault.so",
+    "sha256": "5b36f90c12f56d3ca1956b8aac61db3d8df9306a96deb1cfd4a81c52683e298e"
+  },
+  "log": {
+    "bytes": 103814,
+    "mode": "0600",
+    "path": "evidence/logs/rm-p2p-focused-tests-v3-20261031T2104Z.log",
+    "sha256": "18eda063856a630c78fbd05a90802148c9bf3c2e34d11eab0b930533950b6d23"
+  },
+  "process_exit_code": 0,
+  "reported_duration_seconds": 0.795,
+  "schema": "rm-p2p-focused-tests-v3",
+  "software_only": true,
+  "started_at_utc": "2026-10-31T21:04:41+00:00",
+  "status": "passed",
+  "tests": {
+    "P2P runner fail-closed contract": "included",
+    "complete guest reference runner contract": "included",
+    "injector_unit_contract": "included"
+  },
+  "tests_run": 123
+}

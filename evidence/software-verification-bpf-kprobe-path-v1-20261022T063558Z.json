@@ -1,0 +1,25 @@
+{
+  "failures_or_errors": 0,
+  "finished_utc": "2026-10-22T06:36:40+00:00",
+  "hardware_validation": false,
+  "log": "evidence/logs/software-verification-bpf-kprobe-path-v1-20261022T063558Z.log",
+  "log_mode": "0600",
+  "log_sha256": "2bd392046d2007a141f9d96c5bd76a875b5f50332b69b003358b98748cc3f18f",
+  "metadata_repair_reason": "Initial status detector incorrectly required OK to be the final log line; test helpers printed diagnostics after the successful unittest summary. Metadata was repaired from the unchanged mode-0600 log.",
+  "probe_environment": {
+    "HYBRID_CUDA_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "HYBRID_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808"
+  },
+  "returncode": 0,
+  "schema": "nvidia-hybrid-software-verification-v1",
+  "scope": "CPU/static repository suite only; no experimental driver module was loaded.",
+  "skips": 0,
+  "started_utc": "2026-10-22T06:35:58+00:00",
+  "status": "passed",
+  "summary_metadata_repaired_from_pinned_log": true,
+  "test_command": "python3 -m unittest discover -s tests -v",
+  "test_count": 760,
+  "unittest_elapsed_seconds": 42.742,
+  "wall_elapsed_seconds": 42.84
+}

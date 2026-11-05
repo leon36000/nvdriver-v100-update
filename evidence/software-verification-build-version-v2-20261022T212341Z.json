@@ -1,0 +1,30 @@
+{
+  "schema": "driver-hybrid-software-verification-v1",
+  "started_at_utc": "2026-10-22T21:23:41.455215+00:00",
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-v",
+    "-s",
+    "tests"
+  ],
+  "returncode": 0,
+  "qualification": "passed-software-suite",
+  "tests_run": 858,
+  "suite_reported_seconds": 45.013,
+  "elapsed_seconds": 45.114,
+  "failures_or_errors": false,
+  "skipped_count": 0,
+  "probe": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+    "HYBRID_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "HYBRID_CUDA_PROBE": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-current-src-v1-20261022/hybrid_cuda_probe"
+  },
+  "log": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/software-verification-build-version-v2-20261022T212341Z.log",
+  "log_sha256": "7180a93bc1b2585176c266fb4e00eeb00435a016a8ad1a7bcbcb37a11992fa64",
+  "log_mode": "0600"
+}

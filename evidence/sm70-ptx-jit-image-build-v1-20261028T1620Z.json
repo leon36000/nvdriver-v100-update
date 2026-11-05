@@ -1,0 +1,50 @@
+{
+  "artifact": {
+    "bytes": 744,
+    "mode": "0o600",
+    "path": "build/ptx-jit-sm70-v1-20261028T1620Z/hybrid_probe.sm70-ptx.fatbin",
+    "sha256": "4212cdbbac67071733db9786fdf462e1d536f1c9f12e95c5c78e002186f084a5"
+  },
+  "base_probe_manifest": {
+    "base_fatbin_sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741",
+    "base_probe_sha256": "df4ab2558a7315680eb55d91cfacd807926d0adf15d9835424e256a5eb43b71d",
+    "path": "build/probe-pci-target-contract-v6-20261028T1330Z/build-manifest.json",
+    "sha256": "b45f9a9db91ae830c596840a1697d725debd1675d8382f376f954adb72a977b1"
+  },
+  "builder": {
+    "cuobjdump_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/tools/cuda13.1-front/usr/local/cuda-13.1/bin/cuobjdump",
+    "cuobjdump_sha256": "d76bde61348813d19643b18d7ae1b8287eabcdb2195cc4d6e6d860a9b1995900",
+    "fatbinary_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/tools/cuda13.1-front/usr/local/cuda-13.1/bin/fatbinary",
+    "fatbinary_sha256": "54ad3cda647855ac018eb6829513d80d65dfdc320b526f6817ba8df606951c10",
+    "version_output": "fatbinary: NVIDIA (R) Cuda fat binary constructor\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Tue_Dec_16_07:23:41_PM_PST_2025\nCuda compilation tools, release 13.1, V13.1.115\nBuild cuda_13.1.r13.1/compiler.37061995_0"
+  },
+  "command": [
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/tools/cuda13.1-front/usr/local/cuda-13.1/bin/fatbinary",
+    "--64",
+    "--create=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/ptx-jit-sm70-v1-20261028T1620Z/hybrid_probe.sm70-ptx.fatbin",
+    "--image3=kind=ptx,sm=70,file=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-pci-target-contract-v6-20261028T1330Z/hybrid_probe.sm70.ptx"
+  ],
+  "cuda_or_gpu_execution_tested": false,
+  "inspection": {
+    "dump_ptx_sha256": "245daede7c9b18e0183a7548d9efbcac3c58e11aac262742ef51dce372276edf",
+    "list_elf": "cuobjdump info    : No ELF file found to extract from '/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/ptx-jit-sm70-v1-20261028T1620Z/hybrid_probe.sm70-ptx.fatbin'. You may try with -all option.",
+    "list_ptx": "PTX file    1: hybrid_probe.sm70-ptx.1.sm_70.ptx"
+  },
+  "module_loaded_or_installed": false,
+  "observed_at_utc": "2026-10-28T16:05:41+00:00",
+  "qualification": "static build and container inspection only; no CUDA runtime or GPU execution",
+  "schema": "nvidia-hybrid-sm70-ptx-jit-image-build-v1",
+  "source_ptx": {
+    "bytes": 2710,
+    "entrypoints": [
+      "hybrid_arch",
+      "hybrid_empty",
+      "hybrid_add"
+    ],
+    "path": "build/probe-pci-target-contract-v6-20261028T1330Z/hybrid_probe.sm70.ptx",
+    "ptx_version": "8.8",
+    "sha256": "2bdcf221440c41fa2cd2ab06868764ad30eaa6ba02a65723c34efdf91095ee03",
+    "target": "sm_70"
+  },
+  "status": "ptx-only-sm70-fatbin-built-and-statically-inspected"
+}

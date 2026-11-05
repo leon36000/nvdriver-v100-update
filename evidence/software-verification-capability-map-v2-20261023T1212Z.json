@@ -1,0 +1,25 @@
+{
+  "command": "HYBRID_PROBE=build/probe-current-src-v1-20261022/hybrid_cuda_probe HYBRID_CUDA_PROBE=build/probe-current-src-v1-20261022/hybrid_cuda_probe python3 -B -m unittest discover -v -s tests",
+  "created_at_utc": "2026-10-23T12:12:00Z",
+  "duration_seconds": 47.661,
+  "errors": 0,
+  "exit_code": 0,
+  "failures": 0,
+  "log": {
+    "mode": "0600",
+    "path": "evidence/logs/software-verification-capability-map-v2-20261023T1212Z.log",
+    "sha256": "736aee536d46f5e1a9cad41e1c5072cf0d6e6deb0a03152cae56ef05315f2d38",
+    "size_bytes": 224674
+  },
+  "note": "The suite mocks the read-only PC3 libcuda inspector; it did not execute GPU work.",
+  "probe": {
+    "expected_sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808",
+    "path": "build/probe-current-src-v1-20261022/hybrid_cuda_probe",
+    "sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808"
+  },
+  "qualification": "software-source-cpu-only",
+  "runtime_or_hardware_validated": false,
+  "schema_version": 1,
+  "skipped": 0,
+  "tests_run": 995
+}
