@@ -1,0 +1,66 @@
+{
+  "all_pinned_build_input_hashes_equal": true,
+  "baseline": {
+    "bytes": 57165008,
+    "sha256": "453b257fdc6f09aa3c67a0a530fd2431ab3dedaa825e6657372a47288dd97048",
+    "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+    "version": "595.112.07"
+  },
+  "build_input_hashes": {
+    "build_implementation": "1f7b9fe31241f4e676fff594a97aeba009344b00c409824e7d3cb2875b4adcfb",
+    "compiler": "b5f1b773a7c733738352000c92a077dc5852a1a2fc6d836b1e411be1e9ec5f88",
+    "extra_conftest_kbuild": "dc90d02badd5d8b0a28b2ff9b9de5ef9bc9430df8982c5f598ce98d7a8f2d972",
+    "frontend_module_symvers": "dbcf0cc653a970395534635d7ef533c3626112a41b12f8b5cbaf6504bb903e08",
+    "kernel_config": "6cb18717c6914d4947489eedf8cb69ac23db3faa8ef9b9f563ff02c346dcd32d",
+    "kernel_module_symvers": "ea539a464a3beb960dc84288afaf41c1e2d6a4506902af14affe80111d1bf97e",
+    "kernel_release_file": "61cafccad934c3a098f66b55ede259d2230340eb2d95e11b077f7ab3a9f2c32f"
+  },
+  "elf_section_comparison": {
+    "all_loadable_sections_except_build_id_identical": true,
+    "baseline_section_count": 69,
+    "changed_sections": [
+      ".debug_line_str",
+      ".note.gnu.build-id",
+      ".rela.debug_info"
+    ],
+    "excluded_section": ".note.gnu.build-id",
+    "loadable_section_count_excluding_build_id": 28,
+    "repeat_section_count": 69
+  },
+  "focused_test": {
+    "failed": 0,
+    "passed": 4,
+    "suite": "tests/test_compare_elf_loadable_sections.py"
+  },
+  "frontend_public_uvm_abi": {
+    "control_fd_dispatch_crc": "0xee6dd59d",
+    "control_fd_dispatch_symbol": "nvUvmInterfaceDupAddressSpaceWithControlFd",
+    "declared_count": 79,
+    "direct_imports_matched": 78,
+    "mismatches": 0,
+    "verified": true
+  },
+  "observed_on": "2026-11-02",
+  "qualification": "repeat-build-loadable-elf-sections-match-except-build-id-note",
+  "repeat": {
+    "build_duration_seconds": 11.333,
+    "build_exit_code": 0,
+    "build_log_sha256": "7ea42ad4294a78ea8b2a317dea7d8207af40a5cb320762b4f9556c8a44860ffd",
+    "bytes": 57165008,
+    "sha256": "7c3b30107b3522829064ef4af97128c8b6b16ef97989a16118b300b58d130174",
+    "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+    "version": "595.112.07"
+  },
+  "runtime": {
+    "cuda_execution_validated": false,
+    "gpu_accessed": false,
+    "module_installed": false,
+    "module_loaded": false
+  },
+  "schema": "nvidia-r595-hybrid-uvm-reproducibility-sanitized-v1",
+  "scope": "Static build and ELF section evidence only. Different debug metadata/build ID prevents claiming a byte-for-byte reproducible module; section parity does not prove module loading, hardware initialization, CUDA, UVM, P2P, stability, or performance.",
+  "source_copy_matches_input": true,
+  "source_regular_files": 446,
+  "source_tree_sha256": "438de403568dc865f4080112f28b37d91794c3598086c1f75287180dec80328f",
+  "whole_module_byte_identical": false
+}

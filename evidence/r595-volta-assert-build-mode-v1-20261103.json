@@ -1,0 +1,39 @@
+{
+  "classification": "source-pinned-kbuild-command-and-preprocessor-configuration-audit",
+  "created_utc": "2026-11-03T02:24:29.447022+00:00",
+  "limitations": [
+    "The R595.99.02 assertion result applies only to the pinned v15 Volta UVM overlay source and recorded build command.",
+    "The newer R595.112.07 hybrid UVM module is a distinct source tree and contains no Volta fault-buffer source; this receipt does not establish Volta support in that module.",
+    "No kernel module was installed or loaded; no GPU, MMIO, runtime fault, CUDA, UVM, or hardware behavior was exercised."
+  ],
+  "r595_112_07_hybrid_uvm_baseline": {
+    "build_receipt": "evidence/r595112-hybrid-uvm-reproducibility-sanitized-v2-20261102.json",
+    "module_loaded_or_installed": false,
+    "module_sha256": "b467e051c4af84011d512859751c20d0ef042e5c24d3281fbfb248173c18f4f2",
+    "qualification": "COMPILED; source inventory shows no uvm_volta_fault_buffer.c in this R595.112.07 UVM candidate",
+    "source_tree_regular_file_count": 446,
+    "source_tree_sha256": "438de403568dc865f4080112f28b37d91794c3598086c1f75287180dec80328f",
+    "volta_fault_source_present": false
+  },
+  "r595_99_02_volta_overlay": {
+    "assertion_mode": "release; pinned uvm_common.h maps UVM_ASSERT to the unevaluated release branch",
+    "build_exit_code": 0,
+    "build_log_sha256": "944a53104b921bcc5c049b177ffefc1c435b4721f849e175f16b392766660adf",
+    "build_report_sha256": "2532a7ced3caf3e9d8217077efffca99adc21b54135e37b9c93ebdba79d8864c",
+    "conclusion": "The built R595.99.02 Volta overlay uses the same release assertion mode exercised by the v4 host regression. The raw GET OVERFLOW status probe therefore does not trip UVM_ASSERT in this build configuration.",
+    "coverity_define_present": false,
+    "debug_define_present": false,
+    "module_loaded_or_installed": false,
+    "module_sha256": "21c6b16c4fc64d81b4326866ea708b8229735035724fcc8bfb95788b8c442b1b",
+    "nvidia_uvm_develop_define_present": false,
+    "preprocessed_uvm_is_debug": "0",
+    "qualification": "COMPILED; assertion mode statically confirmed; no module load or hardware execution",
+    "uvm_common_header_sha256": "c93140e96f0dc70b6ae94a80aca1015f95464161f2af2d719dde849c80c8f977",
+    "volta_fault_kbuild_command_sha256": "c618da76e5e6c4289b97469781db3a8fa7da5b81ba42c66e3f48f027cb9a0764",
+    "volta_fault_object_sha256": "1d72bf4103055fa784896f575e3882dac9561026de3203cf84bc05a16e94a181",
+    "volta_fault_source_sha256": "d0b8cfcf715246b49741314e0009b78c798719b634269ee44a75ee12f9874e77"
+  },
+  "reference": "R595.99.02 GV100 UVM v15 overlay build",
+  "schema": "nvidia-hybrid.r595-volta-assert-build-mode.v1",
+  "status": "ANALYZED_STATICALLY"
+}

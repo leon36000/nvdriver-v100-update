@@ -1,0 +1,85 @@
+{
+  "callback_port_differences": [
+    {
+      "callback": "disable_prefetch_faults",
+      "r580_symbol": "uvm_hal_pascal_mmu_disable_prefetch_faults",
+      "r595_symbol": "uvm_hal_turing_mmu_disable_prefetch_faults",
+      "table": "arch_table"
+    },
+    {
+      "callback": "enable_prefetch_faults",
+      "r580_symbol": "uvm_hal_pascal_mmu_enable_prefetch_faults",
+      "r595_symbol": "uvm_hal_turing_mmu_enable_prefetch_faults",
+      "table": "arch_table"
+    },
+    {
+      "callback": "mmu_mode_hal",
+      "r580_symbol": "uvm_hal_mmu_mode_volta",
+      "r595_symbol": "uvm_hal_mmu_mode_volta_r595",
+      "table": "arch_table"
+    }
+  ],
+  "candidate_module_symbol_closure": {
+    "all_selected_callbacks_defined": true,
+    "callback_source_definitions_missing": 0,
+    "callback_symbol_references": 85,
+    "duplicate_callback_source_definitions": 0,
+    "missing_callback_symbols": 0,
+    "module_sha256": "dea278c8e2593ebf5054da6ff22622f6c2fd8e4a6c9186973a70222d481f99f5",
+    "table_count": 6
+  },
+  "classification": "pinned-source-and-compiled-module-symbol-closure",
+  "created_utc": "2026-11-03T14:55:50.915763+00:00",
+  "cuda_validated": false,
+  "gv100_hal_dispatch": {
+    "candidate_selector_count": 6,
+    "r580_targets_present": true,
+    "r595_candidate_targets_present": true,
+    "required_tables": 6,
+    "selectors_fail_closed": true,
+    "source_dispatch_complete": true
+  },
+  "hardware_validated": false,
+  "limitations": [
+    "The RM source audit does not observe live GPU architecture or class-list values.",
+    "The fail-closed class-list and cleanup contract is source-derived; live RM error handling was not exercised.",
+    "The compiled module was not installed or loaded; no GPU or CUDA runtime was exercised.",
+    "Callback-name substitutions identify source differences but do not prove semantic equivalence or hardware stability."
+  ],
+  "module_loaded": false,
+  "r580_gpu_info_producer": {
+    "allocation_error_checked": true,
+    "architecture_field": "gpuArch",
+    "architecture_query": "NV2080_CTRL_CMD_MC_GET_ARCH_INFO",
+    "architecture_source": "archInfoParams.architecture",
+    "architecture_status_checked": true,
+    "class_list_freed_before_status_return": true,
+    "class_list_query": "NV0080_CTRL_CMD_GPU_GET_CLASSLIST",
+    "class_list_query_count": 2,
+    "class_read_error_checked_before_scan": true,
+    "class_read_error_path": "Cleanup_classlist",
+    "live_rm_values_observed": false,
+    "predicates": {
+      "ceClass": "switch includes VOLTA_DMA_COPY_A",
+      "computeClass": "switch includes VOLTA_COMPUTE_A",
+      "hostClass": "RM channel class type is GPFIFO"
+    },
+    "producer_stops_on_class_query_error": true,
+    "selected_fields": [
+      "hostClass",
+      "ceClass",
+      "computeClass"
+    ],
+    "sizing_query_error_checked": true
+  },
+  "raw_report_sha256": "bafaefad984bdea9a159d94dfe5bcf4eb3f583b24693d07133aec815de047262",
+  "sanitized_utc": "2026-11-03T14:55:50.953887+00:00",
+  "schema": "r595-gv100-gpu-info-hal-static-audit-sanitized-v2",
+  "source_inputs": {
+    "candidate_module_sha256": "dea278c8e2593ebf5054da6ff22622f6c2fd8e4a6c9186973a70222d481f99f5",
+    "r580_archive_sha256": "21914a460f17190c43cffb75f0c35aef957e267bfefea267bc18638beae17084",
+    "r580_gpu_ops_source_sha256": "98e4fcca21a17eb9b52793805f4d3a0f8ab9468a4f7154c0eddc2714b1443722",
+    "r580_uvm_hal_source_sha256": "9e1c8c1e0e70d26328809713fc7af7f79e49a57a545ea474b36d70a07d56325d",
+    "r595_uvm_hal_source_sha256": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248"
+  }
+}

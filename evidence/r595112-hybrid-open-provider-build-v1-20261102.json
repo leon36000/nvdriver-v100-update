@@ -1,0 +1,55 @@
+{
+  "build": {
+    "btf_generated": false,
+    "btf_skip_reason": "pahole 1.31 was not available on PATH and the target header tree lacks vmlinux",
+    "error_count": 0,
+    "modpost_completed": true,
+    "module_selection": [
+      "nvidia"
+    ],
+    "other_warning_classes": {
+      "expansion-to-defined": 7,
+      "missing-prototypes": 6,
+      "pahole-or-btf": 1
+    },
+    "other_warning_count": 14,
+    "raw_log": "build/experiments/r595112-hybrid-open-provider-rethunk-build-v1-20261102/build.log",
+    "raw_log_sha256": "f8afe39b008c49ee4a6f18b990e5f05097a59e127d59b538219263ffd7a4d6d5",
+    "rethunk_objtool_warning_count": 11145
+  },
+  "module": {
+    "bytes": 37308024,
+    "depends": "",
+    "license": "Dual MIT/GPL",
+    "name": "hybrid580_open",
+    "path": "build/experiments/r595112-hybrid-open-provider-rethunk-build-v1-20261102/source/kernel-open/hybrid580_open.ko",
+    "retpoline": "Y",
+    "sha256": "bd8179e5c2af74359ac5ee5811201a24e261375b0a1a57fd6183245ac824aab0",
+    "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+    "version": "595.112.07"
+  },
+  "qualification": "compiled",
+  "qualification_limits": {
+    "cuda_validated": false,
+    "hardware_accessed": false,
+    "installed": false,
+    "loaded": false,
+    "performance_validated": false,
+    "same_process_volta_blackwell_validated": false,
+    "uvm_p2p_validated": false
+  },
+  "schema": "r595112-hybrid-open-provider-build-v1",
+  "source": {
+    "commit": "d8257d95ae5fed364163e4df51db66df8b1ee0d2",
+    "hybrid_replay_report_sha256": "a744f33eb9ead5e523e5ac477d6d08d9c108ce4776c34262bf88ee551b7b0460",
+    "r580_patch_count": 45,
+    "r580_patch_failures": 0,
+    "repository": "NVIDIA/open-gpu-kernel-modules",
+    "source_preparation_patch": "patches/r595.112.07/0001-open-core-rethunk-return-thunk.patch",
+    "source_preparation_patch_sha256": "8382686ee6626a0b01ad4d05757751fb054fcf1410cae02d990f2575d975ddec",
+    "source_preparation_report_sha256": "c6d9bc2b260f646785cc99ae3170d3efce054cc420ea2a64e37313388beafe16",
+    "tree_fingerprint": "a800b7c9069b1d0d820ea9ee0d21501db878b0fbe72061e27c0496851a1be447",
+    "version": "595.112.07"
+  },
+  "target_kernel": "7.0.0-38-generic"
+}

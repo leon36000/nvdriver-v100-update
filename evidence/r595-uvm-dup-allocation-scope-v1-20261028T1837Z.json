@@ -1,0 +1,69 @@
+{
+  "confidential_pushbuffer": {
+    "basis": "channel manager supplies gpu; alloc_and_map_cpu(gpu) sets rm_mem->gpu_owner=gpu; subsequent map target is gpu",
+    "channel_gpu_is_owner_and_target": true
+  },
+  "dup_allocation": {
+    "frontend_policy": "provider-affine; cross-provider returns NV_ERR_NOT_SUPPORTED before backend callback",
+    "mapping_guard": "UVM_ASSERT(rm_mem->type == UVM_RM_MEM_TYPE_SYS)",
+    "production_call_sites": [
+      {
+        "file": "uvm_rm_mem.c",
+        "line": 326,
+        "text": "status = uvm_rm_locked_call(nvUvmInterfaceDupAllocation(gpu_owner->rm_address_space,"
+      }
+    ],
+    "source_and_target": "owner and destination RM address-space handles"
+  },
+  "focused_test": {
+    "path": "tests/test_r595_dup_allocation_scope.py",
+    "sha256": "6bf0bc86c23c2b86905b55de3be06c4dc4ea6dec979af80583ed287d64440c63",
+    "tests_passed": 3
+  },
+  "hybrid_address_space_route": {
+    "cross_provider_behavior": "returns not_supported_status before selected backend duplicate callback",
+    "existing_regression_test": "tests/test_hybrid580_uvm_address_space_route.py",
+    "function": "hybrid580_uvm_address_space_route_dup_allocation",
+    "sha256": "741ef4746d8a9b3d80e7d7eaf1fcc0c801728b001849b90d9ecab36ce2552882",
+    "source": "src/hybrid580_uvm_address_space_route.h",
+    "test_sha256": "81d060dbc33de25c411ac422ea5b04bf8e7505ea29c7b3beeaf0372dfce927f8"
+  },
+  "limits": [
+    "This scopes the DupAllocation and RM system-memory helper paths only; it is not an exhaustive proof of every UVM fault or managed-memory migration path.",
+    "No RM callback, UVM ioctl, module insertion, GPU execution, P2P transfer, or performance test occurred."
+  ],
+  "map_all_gpus": {
+    "candidate_semaphore_path": "replaced all-GPU mapping with CPU mapping plus same-provider GPU mapping",
+    "other_call_sites": [
+      {
+        "file": "uvm_gpu_semaphore.c",
+        "line": 180,
+        "text": "return uvm_rm_mem_alloc_and_map_all(gpu, memory_type, memory_size, 0, &page->memory);"
+      },
+      {
+        "file": "uvm_rm_mem.c",
+        "line": 449,
+        "text": "NV_STATUS uvm_rm_mem_alloc_and_map_all(uvm_gpu_t *gpu,"
+      }
+    ],
+    "production_call_sites": [
+      {
+        "file": "uvm_gpu_semaphore.c",
+        "line": 180,
+        "text": "return uvm_rm_mem_alloc_and_map_all(gpu, memory_type, memory_size, 0, &page->memory);"
+      }
+    ],
+    "provider_query_present": true
+  },
+  "observed_at_utc": "2026-10-28T18:37:07Z",
+  "qualification": "analyzed-statically",
+  "schema": "r595-uvm-dup-allocation-scope-v1",
+  "source_base": "NVIDIA Open GPU Kernel Modules R595.99.02",
+  "source_sha256": {
+    "candidate_uvm_gpu_semaphore.c": "19f0ce4f4a7dfaa329eb5eebb72418126a6be05887d28b40c1279736d9b72ee2",
+    "uvm_gpu_semaphore.c": "1472d3bdcd91b35095fb7ae6aa1f66a075ea495c08d106ed7da497176a3d629f",
+    "uvm_pushbuffer.c": "7031f10fc2215d792d58675b503623be5792e13fa4304d14f9b60b811a0a812c",
+    "uvm_rm_mem.c": "fdf517f711ce9ae3421e4af2e7fe128f0db4182000eeed32504eacc82d1a43d7",
+    "uvm_rm_mem.h": "ced992530152a8fc0e0c9b099cad16a857bcf09b0a1bc4407c0598c53d239c7e"
+  }
+}

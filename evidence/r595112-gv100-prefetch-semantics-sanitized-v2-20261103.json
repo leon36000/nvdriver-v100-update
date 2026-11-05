@@ -1,0 +1,62 @@
+{
+  "build": {
+    "build_log_sha256": "8a3b6c5dc2379a5078467ee4b5744ffd22504d4e5e438ce77969a65515b731db",
+    "candidate_callback_count": 85,
+    "candidate_object_count": 14,
+    "installed_or_loaded": false,
+    "kernel_release": "7.0.0-38-generic",
+    "module_sha256": "ca7fcf8fc5cb1dfe0254273eff60f045a38e446db7f64b011730a8b0f18eaaf9",
+    "warning_count": 1
+  },
+  "classification": "isolated-source-and-module-compile-link-only",
+  "created_utc": "2026-11-03T11:28:17.172945+00:00",
+  "cuda_validated": false,
+  "gv100_dispatch": {
+    "all_module_callbacks_defined": true,
+    "all_rows_explicit_and_parentless": true,
+    "all_selectors_fail_closed": true,
+    "complete_table_count": 6,
+    "runtime_or_hardware_validated": false
+  },
+  "hardware_validated": false,
+  "limitations": [
+    "The result proves isolated source compilation and module link closure only.",
+    "The candidate module was not installed or loaded; no GPU or CUDA runtime was exercised.",
+    "R580's capability assertion is debug-only in release builds; static source equivalence does not prove runtime behavior or hardware stability."
+  ],
+  "module_loaded": false,
+  "prefetch_semantics": {
+    "direct_r595_turing_callbacks_selected": true,
+    "low_level_actions_identical_to_r595_turing_helpers": true,
+    "private_capability_field_added": false,
+    "r580_assert_is_debug_only_in_release": true,
+    "r580_gv100_capability_true": true,
+    "r595_assert_is_debug_only_in_release": true,
+    "r595_fault_buffer_prefetch_state_initialized_true": true,
+    "runtime_support_proven": false,
+    "volta_wrapper_added": false
+  },
+  "raw_report_sha256": "af5fdfb8b938ed79fb909591a3df1b3658539f0fa0d26d0defaac7d0c6b396f7",
+  "sanitized_utc": "2026-11-03T11:28:20.419860+00:00",
+  "schema": "r595-gv100-prefetch-semantics-build-sanitized-v1",
+  "source_inputs": {
+    "prefetch_callback_sources_sha256": {
+      "r580_pascal_mmu": "ffe96be7a232418066906963b7d868a4f271b3fe4eeefe083c79c9b9cb7e4664",
+      "r595_gpu_header": "76c578d204b32499e0004d1f1f43f9a1ce6718be13faa1394a5a63d0d1c7f9b5",
+      "r595_hal_header": "beff37583ed0cf39610abc30da5fbb83eadb9ca40b4ca8f4a551a8ffbf676569",
+      "r595_turing_mmu": "3b990ed6bfb555bff063515e13752b0627a6e68936d5261c6eb812b85c777b8a"
+    },
+    "prefetch_semantic_sources_sha256": {
+      "r580_common_header": "0666a8f60e034f8461b06b208b1ebe8b8425ff91149fa956533c0a6bda3914d6",
+      "r580_volta_source": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653",
+      "r595_common_header": "c93140e96f0dc70b6ae94a80aca1015f95464161f2af2d719dde849c80c8f977",
+      "r595_fault_source": "e2b98f550ad6ef3efb062d931834f09acd79ecd5fa140a2f54de8e77a5dfac2b",
+      "r595_gpu_header": "76c578d204b32499e0004d1f1f43f9a1ce6718be13faa1394a5a63d0d1c7f9b5",
+      "r595_hal_header": "a55fa72efd34c3f3242757e9bf0b78e3886242ae52b02b80a0af676abc3e45fc",
+      "r595_volta_source": "ca662fc33698586ec524c939593b6a67fb196d1b03fc6eea19116e5a0553254e"
+    },
+    "r580_archive_sha256": "21914a460f17190c43cffb75f0c35aef957e267bfefea267bc18638beae17084",
+    "r595_adapted_hal_sha256": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248"
+  },
+  "status": "passed"
+}

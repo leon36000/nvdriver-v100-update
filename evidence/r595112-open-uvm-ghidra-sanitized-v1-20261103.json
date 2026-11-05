@@ -1,0 +1,30 @@
+{
+  "classification": "static-decompilation-of-project-built-open-module",
+  "ghidra_version": "12.1.4",
+  "java_version": "21.0.13",
+  "limitations": [
+    "Ghidra pseudocode is static analysis output and is not original NVIDIA source.",
+    "The module was compiled but never installed or loaded; no UVM or GPU behavior was exercised.",
+    "Field occurrence confirms that the compiled procedure refers to these selectors, not successful RM lookup or callback dispatch."
+  ],
+  "module": {
+    "license": "Dual MIT/GPL",
+    "sha256": "7284d09d2f3ddafc24805ce9702d3bc596a3f2919468f79c5d9a9ac586f3cd48",
+    "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+    "version": "595.112.07"
+  },
+  "normalized_pseudocode_bytes": 6342,
+  "normalized_pseudocode_sha256": "d61a8b31e7b16fa2e7d5dba2fb9cdb9e1eec5dd55f0b6ed716a0d68f7ac4a67e",
+  "procedure": "uvm_hal_init_gpu",
+  "pseudocode_retained": false,
+  "qualification": "ANALYZED_STATICALLY",
+  "rea_report_sha256": "3e36dbc73ec9d6256f5b4a23b26e53366ad306dc83c8d9ee20cf0ac23bebc702",
+  "rea_version": "6.8.0",
+  "runtime_or_hardware_validated": false,
+  "schema": "r595112-open-uvm-ghidra-sanitized-v1",
+  "selector_field_occurrences_in_bounded_body": {
+    "ceClass": 2,
+    "gpuArch": 5,
+    "hostClass": 2
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "build": {
+    "build_log_sha256": "af5d943b96db3176383739a48c580e2cbca198ec7160cb57bd2a18380feb9f58",
+    "candidate_callback_count": 85,
+    "candidate_object_count": 14,
+    "installed_or_loaded": false,
+    "kernel_release": "7.0.0-38-generic",
+    "module_sha256": "261ee68840d4e011bdaea2bc70e86d85331f3a0c454249c141636386cc36f9f8",
+    "warning_count": 1
+  },
+  "classification": "isolated-source-and-module-compile-link-only",
+  "created_utc": "2026-11-03T10:46:46.030467+00:00",
+  "cuda_validated": false,
+  "gv100_dispatch": {
+    "all_module_callbacks_defined": true,
+    "all_rows_explicit_and_parentless": true,
+    "all_selectors_fail_closed": true,
+    "complete_table_count": 6,
+    "runtime_or_hardware_validated": false
+  },
+  "hardware_validated": false,
+  "limitations": [
+    "The result proves isolated source compilation and module link closure only.",
+    "The candidate module was not installed or loaded; no GPU or CUDA runtime was exercised.",
+    "The preserved Volta prefetch capability guard and source-identical register actions do not prove runtime behavior or hardware stability."
+  ],
+  "module_loaded": false,
+  "prefetch_guard": {
+    "capability_set_after_gv100_assertion": true,
+    "disable_action_unguarded_like_r580": true,
+    "enable_assert_preserved": true,
+    "low_level_actions_identical_to_r595_turing_helpers": true,
+    "parent_gpu_capability_restored": true,
+    "runtime_support_proven": false,
+    "user_abi_changed": false
+  },
+  "raw_report_sha256": "e16564f610b6b75c041657e6406cf25d5c120ecbb00c03b43b6f7afd77d312c0",
+  "sanitized_utc": "2026-11-03T10:52:24.994350+00:00",
+  "schema": "r595-gv100-prefetch-contract-build-sanitized-v1",
+  "source_inputs": {
+    "prefetch_callback_sources_sha256": {
+      "r580_pascal_mmu": "ffe96be7a232418066906963b7d868a4f271b3fe4eeefe083c79c9b9cb7e4664",
+      "r595_hal_header": "f902abbce7ef6e9a6135c4e05056d924c2ff639930ba5c49d6b5a0b616e00dcc",
+      "r595_turing_mmu": "3b990ed6bfb555bff063515e13752b0627a6e68936d5261c6eb812b85c777b8a"
+    },
+    "prefetch_wrapper_sources_sha256": {
+      "adapted_gpu_header": "2740d033376f0e8993be662cc710b5d2267301a8cc281bc92e0896a9d6150052",
+      "adapted_hal_header": "2072b003c7e859bbafbc256ab72f485ff5a7abbd105ac469bec9458dc96d65bc",
+      "adapted_volta_source": "7f43765ffcf094955721f726fd1d36087679bd4e7137f4096ccf3c2cddd2e04e",
+      "input_gpu_header": "76c578d204b32499e0004d1f1f43f9a1ce6718be13faa1394a5a63d0d1c7f9b5",
+      "input_hal_header": "a55fa72efd34c3f3242757e9bf0b78e3886242ae52b02b80a0af676abc3e45fc",
+      "input_volta_source": "ca662fc33698586ec524c939593b6a67fb196d1b03fc6eea19116e5a0553254e"
+    },
+    "r580_archive_sha256": "21914a460f17190c43cffb75f0c35aef957e267bfefea267bc18638beae17084",
+    "r595_adapted_hal_sha256": "f61d076b0d0eb6a9eb093851c71b9f6eec5d2b54d83d05611bcac6130c74ab01"
+  },
+  "status": "passed"
+}

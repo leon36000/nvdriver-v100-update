@@ -1,0 +1,163 @@
+{
+  "generated_overlay": {
+    "adapted_callbacks": [
+      "arch_table.enable_prefetch_faults: R595 Turing helper",
+      "arch_table.disable_prefetch_faults: R595 Turing helper",
+      "arch_table.mmu_mode_hal: R580 Volta factory adapter with 64 KiB selector"
+    ],
+    "compile": {
+      "all_callbacks_defined": true,
+      "kernel_vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "module_sha256": "7284d09d2f3ddafc24805ce9702d3bc596a3f2919468f79c5d9a9ac586f3cd48",
+      "module_version": "595.112.07",
+      "orphan_helper_linkage_audit_passed": true,
+      "orphan_helpers_localized": 32,
+      "raw_log_sha256": "904fc0ecd128022f1b3acc5471065f69eea740bcfdd5086c4ea335645fdbda31",
+      "raw_report_sha256": "459a51b2180fe25057f2a2bf3cd486f28b154ed8e39c1e41cddf5124ceb55e39",
+      "required_objects": 14,
+      "status": "passed",
+      "warning": "pahole version differs from the one used to build the kernel"
+    },
+    "explicit_parentless_rows": true,
+    "hardware_validated": false,
+    "module_installed": false,
+    "module_loaded": false,
+    "selected_rows": {
+      "access_counter_buffer_table": {
+        "callback_count": 7,
+        "callbacks_complete": true,
+        "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+        "parent_id": null
+      },
+      "arch_table": {
+        "callback_count": 5,
+        "callbacks_complete": true,
+        "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+        "parent_id": null
+      },
+      "ce_table": {
+        "callback_count": 22,
+        "callbacks_complete": true,
+        "id": "VOLTA_DMA_COPY_A",
+        "parent_id": null
+      },
+      "fault_buffer_table": {
+        "callback_count": 14,
+        "callbacks_complete": true,
+        "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+        "parent_id": null
+      },
+      "host_table": {
+        "callback_count": 33,
+        "callbacks_complete": true,
+        "id": "VOLTA_CHANNEL_GPFIFO_A",
+        "parent_id": null
+      },
+      "sec2_table": {
+        "callback_count": 5,
+        "callbacks_complete": true,
+        "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+        "parent_id": null
+      }
+    },
+    "selector_contract": {
+      "access_counter_buffer_table": {
+        "class_id_field": "gpu_info->gpuArch",
+        "installed_pointer": "parent_gpu->access_counter_buffer_hal -> u.access_counter_buffer_ops",
+        "installs_hal_pointer": true,
+        "missing_class_status": "NV_ERR_INVALID_CLASS",
+        "null_checked_before_install": true
+      },
+      "arch_table": {
+        "class_id_field": "gpu_info->gpuArch",
+        "installed_pointer": "parent_gpu->arch_hal -> u.arch_ops",
+        "installs_hal_pointer": true,
+        "missing_class_status": "NV_ERR_INVALID_CLASS",
+        "null_checked_before_install": true
+      },
+      "ce_table": {
+        "class_id_field": "gpu_info->ceClass",
+        "installed_pointer": "parent_gpu->ce_hal -> u.ce_ops",
+        "installs_hal_pointer": true,
+        "missing_class_status": "NV_ERR_INVALID_CLASS",
+        "null_checked_before_install": true
+      },
+      "fault_buffer_table": {
+        "class_id_field": "gpu_info->gpuArch",
+        "installed_pointer": "parent_gpu->fault_buffer_hal -> u.fault_buffer_ops",
+        "installs_hal_pointer": true,
+        "missing_class_status": "NV_ERR_INVALID_CLASS",
+        "null_checked_before_install": true
+      },
+      "host_table": {
+        "class_id_field": "gpu_info->hostClass",
+        "installed_pointer": "parent_gpu->host_hal -> u.host_ops",
+        "installs_hal_pointer": true,
+        "missing_class_status": "NV_ERR_INVALID_CLASS",
+        "null_checked_before_install": true
+      },
+      "sec2_table": {
+        "class_id_field": "gpu_info->gpuArch",
+        "installed_pointer": "parent_gpu->sec2_hal -> u.sec2_ops",
+        "installs_hal_pointer": true,
+        "missing_class_status": "NV_ERR_INVALID_CLASS",
+        "null_checked_before_install": true
+      }
+    },
+    "selector_count": 6,
+    "static_dispatch_candidate": true,
+    "unique_r580_callback_count": 82
+  },
+  "limits": [
+    "The static table and selector proof does not show which class IDs the RM returns for a physical GV100.",
+    "The experimental UVM module remains uninstalled and unloaded; no V100 or RTX hardware was exercised in this increment.",
+    "CUDA execution, UVM faults and migration, P2P, same-process Volta plus Blackwell execution, prolonged stability, and performance are unvalidated."
+  ],
+  "qualification": "ANALYZED_STATICALLY_AND_COMPILED",
+  "recorded_at_utc": "2026-11-03T04:06:15Z",
+  "schema": "r595112-gv100-hal-dispatch-gate-sanitized-v1",
+  "stock_r595": {
+    "all_six_gv100_rows_present": false,
+    "missing_class_returns_nv_err_invalid_class": true,
+    "missing_rows": {
+      "access_counter_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+      "arch_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+      "ce_table": "VOLTA_DMA_COPY_A",
+      "fault_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+      "host_table": "VOLTA_CHANNEL_GPFIFO_A",
+      "sec2_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100"
+    },
+    "runtime_or_hardware_validated": false
+  },
+  "tests": {
+    "fixture_sha256": {
+      "tests/fixtures/candidates/r595112-gv100-hal-r580196/uvm_hal.c": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248",
+      "tests/fixtures/upstream/nvidia-kernel-module-source/580.196.07/uvm_hal.c": "9e1c8c1e0e70d26328809713fc7af7f79e49a57a545ea474b36d70a07d56325d",
+      "tests/fixtures/upstream/nvidia-open-gpu-kernel-modules/595.112.07/uvm_hal.c": "d3815691e974e551b0fb51ac0d7c3101b31452a56f20f8ba4098e873f6673199"
+    },
+    "focused_dispatch_and_overlay_tests": "33/33 passed",
+    "full_software_suite": {
+      "elapsed_seconds": 182.63,
+      "implementation_inputs": 153,
+      "implementation_source_changes": [],
+      "private_log_sha256": "27d9be28c7a9a6e09a4e766864e2cd279c5c0bee348e2888e11c0d5e7414ca30",
+      "private_report_sha256": "f144a19e8500145606c5d14eabcfe57fb89698a062e015472783522e0f4ec23a",
+      "qualification": "software-suite-only",
+      "status": "pass",
+      "test_inputs": 400,
+      "test_source_changes": [],
+      "tests_run": 2665
+    },
+    "probe_source_sha256": "b12ec0c0e9e29c1da735f2d1c64cdc5e25e434530cde7efb30749ae2d633c296",
+    "test_source_sha256": "840afdc26bc1a98e0495f8cbdd02cf514a4e7851df30f0e6d8bd0ea2549d6f21"
+  },
+  "upstream": {
+    "generated_gv100_overlay_uvm_hal_sha256": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248",
+    "r580_release": "580.196.07",
+    "r580_source_subset_sha256": "21914a460f17190c43cffb75f0c35aef957e267bfefea267bc18638beae17084",
+    "r580_uvm_hal_sha256": "9e1c8c1e0e70d26328809713fc7af7f79e49a57a545ea474b36d70a07d56325d",
+    "r595_open_gpu_kernel_modules_commit": "d8257d95ae5fed364163e4df51db66df8b1ee0d2",
+    "r595_release": "595.112.07",
+    "r595_stock_uvm_hal_sha256": "d3815691e974e551b0fb51ac0d7c3101b31452a56f20f8ba4098e873f6673199"
+  }
+}

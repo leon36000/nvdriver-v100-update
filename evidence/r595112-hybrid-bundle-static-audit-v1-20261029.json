@@ -1,0 +1,389 @@
+{
+  "created_utc": "2026-10-29T11:32:08.607924+00:00",
+  "implementation_sha256": {
+    "tools/audit_hybrid_candidate_bundle.py": "fe132dc20ab3309e73628ac1fb7ffa4d4cca29279badb1f6ce9afdb450d5fdfe",
+    "tools/audit_r595_uvm_symbol_closure.py": "df15241c7a44e9420e260f9db460eff11e15abadfb49cb24bf5904604269553d",
+    "tools/build_hybrid_frontend.py": "6e4860ff503fb69173f98536af4b51cfb0951c7d1be2df2384b68bbb29804f98",
+    "tools/probe_r595_gv100_complete_hal.py": "9cb72f5e2a2f1a9c4a377d4d8afa19db68e59c40269b6bdaeaf8493c66b9ed1b",
+    "tools/probe_volta_uvm_port.py": "6e63e007caab12b73f37a1c404fadc8fe56a3f04643fe49451416796f86e8d1f"
+  },
+  "issues": [],
+  "kernel_release": "7.0.0-38-generic",
+  "module_installed": false,
+  "module_loaded": false,
+  "modules": {
+    "frontend": {
+      "depends": [
+        "hybrid580_legacy",
+        "hybrid580_open"
+      ],
+      "license": "Dual MIT/GPL",
+      "name": "nvidia",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/modules/nvidia.ko",
+      "sha256": "cd8552ee542d8a2f4ebaa3000b411289a742f3d8ed5905a972b97cba2b886935",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": ""
+    },
+    "legacy": {
+      "depends": [],
+      "license": "NVIDIA",
+      "name": "hybrid580_legacy",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r58019607-sync-boost-legacy-build-v2/source/hybrid580_legacy.ko",
+      "sha256": "cab25d3156cd20fbe262e4bdd0f41df6a8af6a188655240b58b1b543820dec33",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.196.07"
+    },
+    "open": {
+      "depends": [],
+      "license": "Dual MIT/GPL",
+      "name": "hybrid580_open",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/modules/hybrid580_open.ko",
+      "sha256": "3bf2b6943bbde7e9ba282422e30b37099b3ccfec141f9f8aaa987155e1fffb91",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "595.112.07"
+    },
+    "uvm": {
+      "depends": [
+        "nvidia"
+      ],
+      "license": "Dual MIT/GPL",
+      "name": "nvidia_uvm",
+      "parameters": {
+        "uvm_ats_mode": {
+          "description": "Set to 0 to disable ATS (Address Translation Services). Any other value is ignored. Has no effect unless the platform supports ATS. (int)",
+          "type": "int"
+        },
+        "uvm_block_cpu_to_cpu_copy_with_ce": {
+          "description": "Use GPU CEs for CPU-to-CPU migrations. (int)",
+          "type": "int"
+        },
+        "uvm_channel_gpfifo_loc": {
+          "description": "(charp)",
+          "type": "charp"
+        },
+        "uvm_channel_gpput_loc": {
+          "description": "(charp)",
+          "type": "charp"
+        },
+        "uvm_channel_num_gpfifo_entries": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_channel_pushbuffer_loc": {
+          "description": "(charp)",
+          "type": "charp"
+        },
+        "uvm_conf_computing_channel_iv_rotation_limit": {
+          "description": "(ulong)",
+          "type": "ulong"
+        },
+        "uvm_cpu_chunk_allocation_sizes": {
+          "description": "OR'ed value of all CPU chunk allocation sizes. (uint)",
+          "type": "uint"
+        },
+        "uvm_debug_enable_push_acquire_info": {
+          "description": "Enable push acquire information tracking (uint)",
+          "type": "uint"
+        },
+        "uvm_debug_enable_push_desc": {
+          "description": "Enable push description tracking (uint)",
+          "type": "uint"
+        },
+        "uvm_debug_prints": {
+          "description": "Enable uvm debug prints. (int)",
+          "type": "int"
+        },
+        "uvm_disable_hmm": {
+          "description": "Force-disable HMM functionality in the UVM driver. Default: false (HMM is enabled if possible). However, even with uvm_disable_hmm=false, HMM will not be enabled if is not supported in this driver build configuration, or if ATS settings conflict with HMM. (bool)",
+          "type": "bool"
+        },
+        "uvm_downgrade_force_membar_sys": {
+          "description": "Force all TLB invalidation downgrades to use MEMBAR_SYS (uint)",
+          "type": "uint"
+        },
+        "uvm_enable_builtin_tests": {
+          "description": "Enable the UVM built-in tests. (This is a security risk) (int)",
+          "type": "int"
+        },
+        "uvm_enable_debug_procfs": {
+          "description": "Enable debug procfs entries in /proc/driver/nvidia-uvm (int)",
+          "type": "int"
+        },
+        "uvm_enable_va_space_mm": {
+          "description": "Set to 0 to disable UVM from using mmu_notifiers to create an association between a UVM VA space and a process. This will also disable pageable memory access via either ATS or HMM. (int)",
+          "type": "int"
+        },
+        "uvm_exp_gpu_cache_peermem": {
+          "description": "Force caching for mappings to peer memory. This is an experimental parameter that may cause correctness issues if used. (uint)",
+          "type": "uint"
+        },
+        "uvm_exp_gpu_cache_sysmem": {
+          "description": "Force caching for mappings to system memory. This is an experimental parameter that may cause correctness issues if used. (uint)",
+          "type": "uint"
+        },
+        "uvm_fault_force_sysmem": {
+          "description": "Force (1) using sysmem storage for pages that faulted. Default: 0. (int)",
+          "type": "int"
+        },
+        "uvm_global_oversubscription": {
+          "description": "Enable (1) or disable (0) global oversubscription support. (int)",
+          "type": "int"
+        },
+        "uvm_hybrid_isolated_gpu_execution": {
+          "description": "Reject cross-provider UVM dependencies in hybrid mode (bool)",
+          "type": "bool"
+        },
+        "uvm_leak_checker": {
+          "description": "Enable uvm memory leak checking. 0 = disabled, 1 = count total bytes allocated and freed, 2 = per-allocation origin tracking. (int)",
+          "type": "int"
+        },
+        "uvm_page_table_location": {
+          "description": "Set the location for UVM-allocated page tables. Choices are: vid, sys. (charp)",
+          "type": "charp"
+        },
+        "uvm_peer_copy": {
+          "description": "Choose the addressing mode for peer copying, options: phys [default] or virt. Valid for Ampere+ GPUs. (charp)",
+          "type": "charp"
+        },
+        "uvm_perf_access_counter_batch_count": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_perf_access_counter_migration_enable": {
+          "description": "Whether access counters will trigger migrations.Valid values: <= -1 (default policy), 0 (off), >= 1 (on) (int)",
+          "type": "int"
+        },
+        "uvm_perf_access_counter_threshold": {
+          "description": "Number of remote accesses on a region required to trigger a notification.Valid values: [1, 65535] (uint)",
+          "type": "uint"
+        },
+        "uvm_perf_fault_batch_count": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_perf_fault_coalesce": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_perf_fault_max_batches_per_service": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_perf_fault_max_throttle_per_service": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_perf_fault_replay_policy": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_perf_fault_replay_update_put_ratio": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_perf_lapse_vote_threshold": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_perf_map_remote_on_eviction": {
+          "description": "(int)",
+          "type": "int"
+        },
+        "uvm_perf_map_remote_on_native_atomics_fault": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_perf_migrate_cpu_preunmap_block_order": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_perf_migrate_cpu_preunmap_enable": {
+          "description": "(int)",
+          "type": "int"
+        },
+        "uvm_perf_pma_batch_nonpinned_order": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_perf_prefetch_enable": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_perf_prefetch_min_faults": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_perf_prefetch_threshold": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_perf_reenable_prefetch_faults_lapse_msec": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_perf_thrashing_enable": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_perf_thrashing_epoch": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_perf_thrashing_lapse_usec": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_perf_thrashing_max_resets": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_perf_thrashing_nap": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_perf_thrashing_pin": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_perf_thrashing_pin_threshold": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_perf_thrashing_threshold": {
+          "description": "(uint)",
+          "type": "uint"
+        },
+        "uvm_release_asserts": {
+          "description": "Enable uvm asserts included in release builds. (int)",
+          "type": "int"
+        },
+        "uvm_release_asserts_dump_stack": {
+          "description": "dump_stack() on failed UVM release asserts. (int)",
+          "type": "int"
+        },
+        "uvm_release_asserts_set_global_error": {
+          "description": "Set UVM global fatal error on failed release asserts. (int)",
+          "type": "int"
+        }
+      },
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/modules/nvidia-uvm.ko",
+      "sha256": "857bdb2c08027f5beab45b0044016f8d90692204b2b16e1b22b67d2197222141",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "595.112.07"
+    }
+  },
+  "qualification": "static-module-bundle-closure",
+  "reports": {
+    "frontend": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/reports/audit-inputs-v1/frontend-build-audit-input.json",
+      "sha256": "029c5f4e65f68c44e4890443c32e186a3d186fd5bf2942cc678c9f0fb3c07d8b"
+    },
+    "legacy": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/r58019607-sync-boost-legacy-build-v2.json",
+      "sha256": "595fc1d3541fe61efab02d3ba19fd0ae1ef359c58384089eaef545b95e6e8e88"
+    },
+    "open": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/reports/audit-inputs-v1/open-provider-audit-input.json",
+      "sha256": "faf01d861e47ac4f62f4788e6ff354996c4041c92ec06ba6bbe1fad297814668"
+    },
+    "uvm": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/reports/audit-inputs-v1/uvm-build-audit-input.json",
+      "sha256": "5449be5b91440e178527eb23b25821c392a8420627b0f8d9d1cdc111d3a31759"
+    }
+  },
+  "runtime_or_hardware_validated": false,
+  "schema": "hybrid-module-bundle-static-audit-v1",
+  "status": "passed",
+  "symbol_closure": {
+    "frontend_imports": {
+      "ambiguous_matches": [],
+      "crc_mismatches": [],
+      "import_count": 305,
+      "matched_by_provider": {
+        "kernel": 66,
+        "legacy": 118,
+        "open": 121
+      }
+    },
+    "frontend_private_import_count": 239,
+    "module_exports": {
+      "frontend": {
+        "actual_export_count": 83,
+        "crc_mismatches": [],
+        "expected_export_count": 83,
+        "missing_exports": [],
+        "unexpected_exports": []
+      },
+      "legacy": {
+        "actual_export_count": 146,
+        "crc_mismatches": [],
+        "expected_export_count": 146,
+        "missing_exports": [],
+        "unexpected_exports": []
+      },
+      "open": {
+        "actual_export_count": 146,
+        "crc_mismatches": [],
+        "expected_export_count": 146,
+        "missing_exports": [],
+        "unexpected_exports": []
+      }
+    },
+    "provider_imports": {
+      "legacy": {
+        "ambiguous_matches": [],
+        "crc_mismatches": [],
+        "import_count": 305,
+        "matched_by_provider": {
+          "kernel": 305
+        }
+      },
+      "open": {
+        "ambiguous_matches": [],
+        "crc_mismatches": [],
+        "import_count": 462,
+        "matched_by_provider": {
+          "kernel": 462
+        }
+      }
+    },
+    "standard_uvm_interface_closure": {
+      "crc_mismatches": [],
+      "frontend_only_extensions": [
+        "nvUvmInterfaceAreGpuProvidersSame"
+      ],
+      "missing_exports": [],
+      "missing_frontend_extensions": [],
+      "unexpected_exports": []
+    },
+    "standard_uvm_interface_export_count": 83,
+    "standard_uvm_interface_import_count": 81,
+    "uvm_imports": {
+      "ambiguous_matches": [],
+      "crc_mismatches": [],
+      "import_count": 331,
+      "matched_by_provider": {
+        "frontend": 81,
+        "kernel": 250
+      }
+    }
+  },
+  "symvers": {
+    "frontend": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/inputs/r595112-hybrid-frontend-Module.symvers",
+      "sha256": "dbcf0cc653a970395534635d7ef533c3626112a41b12f8b5cbaf6504bb903e08"
+    },
+    "kernel": {
+      "path": "/usr/src/linux-headers-7.0.0-38-generic/Module.symvers",
+      "sha256": "ea539a464a3beb960dc84288afaf41c1e2d6a4506902af14affe80111d1bf97e"
+    },
+    "legacy": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r58019607-sync-boost-legacy-build-v2/source/Module.symvers",
+      "sha256": "854b5ed94334b32e5fc74b20d8a23b4ddce1af0348ef4e7e23152f3f38353d86"
+    },
+    "open": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/modules/Module.symvers",
+      "sha256": "0cb20019db66ddf5d1a6b3b750104d96b4d6d2e6fee4922bab93cd8174141037"
+    }
+  }
+}

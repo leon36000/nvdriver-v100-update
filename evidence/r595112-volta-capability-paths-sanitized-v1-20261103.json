@@ -1,0 +1,140 @@
+{
+  "capabilities": [
+    {
+      "candidate_disposition": "volta-host-hal-callback-selected",
+      "candidate_interpretation": "The modern batch path dispatches invalidation through host_hal; the GV100 candidate row selects the Volta VA callback.",
+      "field": "va_invalidate_supported",
+      "runtime_or_hardware_validated": false,
+      "validation_needed": "Validate address, page-size, and membar semantics on GV100 hardware."
+    },
+    {
+      "candidate_disposition": "range-batching-policy-reworked",
+      "candidate_interpretation": "The candidate batches range records, uses max_ranges=8 to choose between recorded-range invalidations and invalidate-all, and dispatches each recorded range through the Volta VA callback. This is not the old capability-bit branch.",
+      "field": "va_range_invalidate_supported",
+      "runtime_or_hardware_validated": false,
+      "validation_needed": "Check range count, fallback threshold, ordering, and invalidation coverage on hardware."
+    },
+    {
+      "candidate_disposition": "page-tree-and-mmu-hal-reworked",
+      "candidate_interpretation": "R595 selects sysmem mapping page sizes from the active page tree. The candidate's no-argument GV100 MMU factory wraps the Volta 64 KiB mode and clones the Pascal MMU operations before applying Volta PTE/PDE callbacks; this establishes a static candidate path, not successful large-page sysmem mapping.",
+      "field": "can_map_sysmem_with_large_pages",
+      "runtime_or_hardware_validated": false,
+      "validation_needed": "Validate exposed page-size masks, CPU-page contiguity, PTE formats, and sysmem mappings on GV100."
+    },
+    {
+      "candidate_disposition": "runtime-state-and-hal-reworked-with-guard-delta",
+      "candidate_interpretation": "R595 uses runtime prefetch state and dispatches through the arch HAL. The GV100 candidate selects Turing MMU prefetch helpers; the callback closure audit found the same low-level control operation, but the R580 prefetch_supported assertion is absent from this caller.",
+      "field": "prefetch_fault_supported",
+      "runtime_or_hardware_validated": false,
+      "validation_needed": "Resolve the removed capability guard and validate prefetch-fault control and delivery on GV100."
+    },
+    {
+      "candidate_disposition": "location-policy-forwarded-to-rm",
+      "candidate_interpretation": "The old capability gate is absent. The candidate policy can choose VID memory for GPFIFO and forwards that location in channel allocation parameters; this source path does not prove RM acceptance.",
+      "field": "gpfifo_in_vidmem_supported",
+      "runtime_or_hardware_validated": false,
+      "validation_needed": "Validate GV100 RM allocation, mapping, coherency, and channel execution with GPFIFO in video memory."
+    },
+    {
+      "candidate_disposition": "mandatory-fault-buffer-init-with-gv100-hal-row",
+      "candidate_interpretation": "The modern ISR path initializes the fault buffer without the old capability branch. The candidate contains a GV100 fault-buffer HAL row; class and callback presence do not prove RM interrupt or replay behavior.",
+      "field": "replayable_faults_supported",
+      "runtime_or_hardware_validated": false,
+      "validation_needed": "Validate RM fault-buffer metadata, interrupts, replay, recovery, and teardown on GV100."
+    },
+    {
+      "candidate_disposition": "mandatory-init-with-gv100-fault-buffer-row",
+      "candidate_interpretation": "Modern fault-buffer initialization invokes the non-replayable path unconditionally once replayable setup succeeds. The GV100 table row is present, but entry layout and RM-provided buffer data remain unverified.",
+      "field": "non_replayable_faults_supported",
+      "runtime_or_hardware_validated": false,
+      "validation_needed": "Validate GV100 non-replayable entry sizing, ISR delivery, and error handling on hardware."
+    },
+    {
+      "candidate_disposition": "mandatory-host-hal-callback-selected",
+      "candidate_interpretation": "R595 dispatches VA cancellation through host_hal. The candidate GV100 host row selects the Volta cancellation callback; the old capability fallback is no longer represented as a property bit.",
+      "field": "fault_cancel_va_supported",
+      "runtime_or_hardware_validated": false,
+      "validation_needed": "Validate VA targeting, cancellation mode, and synchronization on GV100."
+    },
+    {
+      "candidate_disposition": "legacy-system-wide-atomics-uapi-removed",
+      "candidate_interpretation": "R580 sets this flag for GV100 and uses it only to reject the legacy system-wide-atomics UVM ioctl policy. The R595 candidate contains neither ioctl definition nor route nor policy helper, so this is a retired UVM policy surface rather than an unmapped modern HAL capability. This says nothing about CUDA C++ atomic-scope support or older user-mode ABI compatibility.",
+      "field": "scoped_atomics_supported",
+      "runtime_or_hardware_validated": false,
+      "validation_needed": "Confirm the R595 user-mode ABI does not issue the retired ioctls, and separately validate system-scope atomic correctness on GV100 hardware."
+    },
+    {
+      "candidate_disposition": "mmu-hal-sparse-pte-dispatch-with-pascal-inheritance",
+      "candidate_interpretation": "External sparse mappings call the active MMU HAL. The candidate Volta MMU mode clones Pascal operations and overrides PTE/PDE builders, so its sparse-PTE callback is inherited; the GV100 encoding is not hardware-verified.",
+      "field": "sparse_mappings_supported",
+      "runtime_or_hardware_validated": false,
+      "validation_needed": "Validate the inherited sparse PTE encoding and invalid-PTE fault behavior on GV100."
+    },
+    {
+      "candidate_disposition": "gv100-restriction-restored-before-unmap",
+      "candidate_interpretation": "The candidate replaces R580's false PLC property with an explicit GV100 rejection of EnabledNoPlc, returning before overlap removal. This is a candidate-specific compatibility guard, not stock R595 behavior.",
+      "field": "plc_supported",
+      "runtime_or_hardware_validated": false,
+      "validation_needed": "Keep the exact rejection status and ordering under regression tests; validate RM and external-map behavior on a safe GV100 canary."
+    }
+  ],
+  "capability_count": 11,
+  "classification": "pinned-static-source-callpath-audit",
+  "created_utc": "2026-11-03T04:10:51.252305+00:00",
+  "limitations": [
+    "Source anchors establish candidate call paths and callback table selections only; they do not prove that the RM accepts the requests or that GV100 behaves correctly at runtime.",
+    "The R580 and candidate prefetch MMU control helper bodies are statically identical after C comment/literal masking and whitespace elision; this does not prove register access safety, fault delivery, replay, or suspend/resume behavior on GV100.",
+    "The old scoped-atoms flag only gated R580 system-wide-atomics ioctls; the R595 candidate lacks those definitions, routes, and helpers. User-mode ABI compatibility and GV100 atomic correctness remain untested.",
+    "The R595 candidate's SYS_NON_COHERENT peer-aperture path is source-compatible with the pinned GV100 PTE/copy-engine encodings, but RM P2P capabilities, actual PCIe atomics, BAR1 mappings, transfers, and mixed-GPU behavior have not been tested on hardware.",
+    "The P2P direction audit proves only the open UVM consumer's index usage and finds no RM capability producer definition in the scanned candidate C/H tree; capability-value direction and hardware behavior remain unknown.",
+    "The PLC guard is a hybrid-candidate change and is not stock R595 behavior.",
+    "No module was loaded and no GPU, UVM, CUDA, P2P, performance, or endurance test was run."
+  ],
+  "noncoherent_aperture": {
+    "candidate_checks": {
+      "bar1_p2p_selects_noncoherent_when_pcie_atomics_unavailable": true,
+      "pte_sets_noncoherent_aperture_value": true,
+      "pte_uses_system_address_for_noncoherent_aperture": true,
+      "volta_ce_maps_noncoherent_sysmem": true
+    },
+    "interpretation": "The R595 candidate adds a Volta path that selects SYS_NON_COHERENT for PCIe BAR1 peers when RM says PCIe atomics are unavailable, encodes the GV100 VER2 PTE aperture value, and maps it to Volta copy-engine NONCOHERENT_SYSMEM. R580 exposes the relevant enum and hardware constants but its UVM peer/CE/MMU paths do not select or encode this aperture.",
+    "runtime_or_hardware_validated": false,
+    "validation_needed": "On a GV100 pair or safe canary, validate RM P2P capability reports in both directions, BAR1 address mapping, CE source/destination transfers, external-map PTEs, PCIe atomic suppression, and numerical integrity under concurrency."
+  },
+  "p2p_consumer": {
+    "consumer_direction_contract": {
+      "bar1PcieAtomics_index_0": "consumer uses for lower-ID local GPU accessing higher-ID peer",
+      "bar1PcieAtomics_index_1": "consumer uses for higher-ID local GPU accessing lower-ID peer",
+      "capability_query_handle_order": "ascending UVM parent GPU ID",
+      "index_copy_behavior": "UVM copies indices 0 and 1 without swapping",
+      "interpretation": "Static consumer-side direction only; it does not establish how RM populates the fields or whether hardware honors the reported capability."
+    },
+    "rm_capability_values_observed": false,
+    "rm_p2p_capability_definition_count": 0,
+    "runtime_or_hardware_validated": false,
+    "scanned_candidate_c_header_file_count": 625,
+    "source_scan_qualification": "no-definition-found-in-scanned-candidate-C-H-source",
+    "validation_needed": "Inspect the authorized RM producer contract or capture asymmetric [true,false] and [false,true] capability responses on a safe V100-capable canary; verify aperture choice and numeric transfer integrity in both directions."
+  },
+  "prefetch_control": {
+    "candidate_and_R580_control_helper_normalized_equal": true,
+    "candidate_callback_selection": "GV100 row directly selects Turing MMU enable/disable callbacks",
+    "candidate_prefetch_fault_supported_assertion": false,
+    "interpretation": "For the GV100 path, the removed assertion is replaced by explicit modern callback selection and unconditional fault-buffer prefetch enablement. Source establishes this candidate path, not hardware correctness or delivery behavior.",
+    "r580_prefetch_fault_supported_assertion": true,
+    "runtime_or_hardware_validated": false,
+    "validation_needed": "On a GV100 canary, validate RM-provided prefetch control mapping, enable/disable transitions, prefetch-fault delivery, replay, suspend/resume, and teardown."
+  },
+  "qualification": "ANALYZED_STATICALLY",
+  "runtime_or_hardware_validated": false,
+  "schema": "r595-volta-capability-paths-sanitized-v1",
+  "source_identity": {
+    "candidate_branch": "R595.112.07+R580.196.07-GV100-HAL-dispatch-gate-v1",
+    "candidate_hal_source_sha256": "3a7c5f6f892102663af00fdcb9e638a3a96a2b8cddd00af25d9054169106c248",
+    "candidate_uvm_source_file_count": 242,
+    "candidate_uvm_source_manifest_sha256": "c0fbbd9549fd8347da11b3b53f10d2be514f90f9a33d03a123416a3c34bc5ccb",
+    "r580_source_archive_sha256": "21914a460f17190c43cffb75f0c35aef957e267bfefea267bc18638beae17084",
+    "r580_volta_initializer_sha256": "2f6bb4ea1fd81e3a495802b0181573ff339e317c22dfb745ee3b2f4207343653"
+  },
+  "source_report_sha256": "ffaaf70eaf42b03ccf7a0736272882a9494f3429d7050aa3a2dfd6fd9373527d"
+}

@@ -1,0 +1,60 @@
+{
+  "all_loadable_sections_except_build_id_identical": true,
+  "baseline_section_count": 69,
+  "baseline_sha256": "9f0275643bd38b588d56906cc7ca946f30bc77bd1b6a876f9b45645d7b55ad0c",
+  "candidate_section_count": 69,
+  "candidate_sha256": "ca7fcf8fc5cb1dfe0254273eff60f045a38e446db7f64b011730a8b0f18eaaf9",
+  "changed_sections": [
+    {
+      "baseline": {
+        "flags": 48,
+        "sha256": "f16bfa0a30b23db8cc313fab4a21680aacba46e315723c2d03c627c470ec3a71",
+        "size": 535637,
+        "type": 1
+      },
+      "candidate": {
+        "flags": 48,
+        "sha256": "b4442ca950b6d74b2cdc0bfd184b4669de13d2932d2684709056b6788abc4ff6",
+        "size": 535637,
+        "type": 1
+      },
+      "name": ".debug_line_str"
+    },
+    {
+      "baseline": {
+        "flags": 2,
+        "sha256": "788f3debebcfd4dd88e2739dfec5f181ef004b648555713af1fff67e8885e1c9",
+        "size": 36,
+        "type": 7
+      },
+      "candidate": {
+        "flags": 2,
+        "sha256": "b983091f45c609bbcfd002a8492adda8a8b0a76ba2f8ba700fb98771822b6b90",
+        "size": 36,
+        "type": 7
+      },
+      "name": ".note.gnu.build-id"
+    },
+    {
+      "baseline": {
+        "flags": 64,
+        "sha256": "d2d8b777274de5238361efc38cb666eec7a274806ba5a992d7e4174a51fffa56",
+        "size": 24288576,
+        "type": 4
+      },
+      "candidate": {
+        "flags": 64,
+        "sha256": "1d12ac4bd2927009a4575a6e830ad7905b02a43cc9ae3e7d9fbe68e288d99a22",
+        "size": 24288576,
+        "type": 4
+      },
+      "name": ".rela.debug_info"
+    }
+  ],
+  "excluded_section": ".note.gnu.build-id",
+  "loadable_section_count_excluding_build_id": 28,
+  "qualification": "repeat-build-loadable-elf-sections-match-except-build-id-note",
+  "schema": "nvidia-hybrid-elf-loadable-section-comparison-v1",
+  "scope": "Static ELF comparison only; it does not validate module loading or runtime behavior.",
+  "whole_file_identical": false
+}

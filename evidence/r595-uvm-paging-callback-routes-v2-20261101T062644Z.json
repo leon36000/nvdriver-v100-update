@@ -1,0 +1,128 @@
+{
+  "bridge": {
+    "path": "src/hybrid580_uvm_callback_bridge.c",
+    "sha256": "d98803c63d2d8b50a858cc9a9b08207f61f991244bd2ce468d98f1adc5e8a9fe"
+  },
+  "observed_at_utc": "2026-11-01T06:26:55.480358+00:00",
+  "qualification": {
+    "compiled": false,
+    "guest_virtualization_mode_verified": false,
+    "module_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false,
+    "source_analysis": true
+  },
+  "result": {
+    "checks": {
+      "595.112.07:paging_allocate_remains_fail_closed": true,
+      "595.112.07:paging_callback_call_sites_are_single_and_proxy_scoped": true,
+      "595.112.07:paging_destroy_and_unmap_do_not_forward_foreign_handles": true,
+      "595.112.07:paging_map_remains_fail_closed_and_zeroes_output": true,
+      "595.112.07:paging_push_remains_fail_closed": true,
+      "595.112.07:proxy_allocator_is_selected_only_for_proxy_channels": true,
+      "595.112.07:proxy_pool_capacity_is_heavy_mode_gated": true,
+      "595.112.07:proxy_pool_creation_is_heavy_mode_gated": true,
+      "595.112.07:proxy_pool_requires_sriov_heavy": true,
+      "595.112.07:proxy_pool_type_is_the_proxy_channel_discriminator": true,
+      "595.112.07:proxy_va_mapping_is_heavy_mode_gated": true,
+      "595.112.07:proxy_va_unmap_requires_prior_proxy_mapping": true,
+      "595.99.02:paging_allocate_remains_fail_closed": true,
+      "595.99.02:paging_callback_call_sites_are_single_and_proxy_scoped": true,
+      "595.99.02:paging_destroy_and_unmap_do_not_forward_foreign_handles": true,
+      "595.99.02:paging_map_remains_fail_closed_and_zeroes_output": true,
+      "595.99.02:paging_push_remains_fail_closed": true,
+      "595.99.02:proxy_allocator_is_selected_only_for_proxy_channels": true,
+      "595.99.02:proxy_pool_capacity_is_heavy_mode_gated": true,
+      "595.99.02:proxy_pool_creation_is_heavy_mode_gated": true,
+      "595.99.02:proxy_pool_requires_sriov_heavy": true,
+      "595.99.02:proxy_pool_type_is_the_proxy_channel_discriminator": true,
+      "595.99.02:proxy_va_mapping_is_heavy_mode_gated": true,
+      "595.99.02:proxy_va_unmap_requires_prior_proxy_mapping": true,
+      "r595_99_and_112_gate_sources_are_identical": true,
+      "reviewed_bridge_hash_matches": true
+    },
+    "failed_checks": [],
+    "status": "source_contracts_passed"
+  },
+  "schema": "r595-uvm-paging-callback-routes-audit-v2",
+  "scope": {
+    "bridge": "current hybrid R580 callback bridge source",
+    "scanned_call_sites": "all *.c files under each pinned nvidia-uvm source root",
+    "upstream_sources": "R595.99.02 and R595.112.07 UVM C trees"
+  },
+  "source_branches": {
+    "595.112.07": {
+      "files": {
+        "uvm_channel.c": "34a6816a77e55515179607558c4ddae65a8ae2bb591bc6e481a918370d1bc675",
+        "uvm_channel.h": "1e2c72f5c00fd632f99b2d51aa7f88513f4a00c2dab3cf2a03e703487a5df4ac",
+        "uvm_gpu.h": "76c578d204b32499e0004d1f1f43f9a1ce6718be13faa1394a5a63d0d1c7f9b5",
+        "uvm_rm_mem.c": "fdf517f711ce9ae3421e4af2e7fe128f0db4182000eeed32504eacc82d1a43d7"
+      },
+      "result": {
+        "callback_call_site_counts": {
+          "nvUvmInterfacePagingChannelAllocate": 1,
+          "nvUvmInterfacePagingChannelDestroy": 1,
+          "nvUvmInterfacePagingChannelPushStream": 1,
+          "nvUvmInterfacePagingChannelsMap": 1,
+          "nvUvmInterfacePagingChannelsUnmap": 1
+        },
+        "checks": {
+          "paging_allocate_remains_fail_closed": true,
+          "paging_callback_call_sites_are_single_and_proxy_scoped": true,
+          "paging_destroy_and_unmap_do_not_forward_foreign_handles": true,
+          "paging_map_remains_fail_closed_and_zeroes_output": true,
+          "paging_push_remains_fail_closed": true,
+          "proxy_allocator_is_selected_only_for_proxy_channels": true,
+          "proxy_pool_capacity_is_heavy_mode_gated": true,
+          "proxy_pool_creation_is_heavy_mode_gated": true,
+          "proxy_pool_requires_sriov_heavy": true,
+          "proxy_pool_type_is_the_proxy_channel_discriminator": true,
+          "proxy_va_mapping_is_heavy_mode_gated": true,
+          "proxy_va_unmap_requires_prior_proxy_mapping": true
+        },
+        "failed_checks": [],
+        "interpretation": "The pinned R595 UVM creates its CE proxy pool only when the parent GPU is SR-IOV Heavy. Paging-channel allocate, destroy, and push are used only for those proxy channels. PagingChannelsMap/Unmap are separate: the pinned uvm_rm_mem.c calls them only for proxy-VA mappings, with Map returning before the callback unless the same SR-IOV-heavy predicate is true, and Unmap requiring a previously recorded proxy mapping. The hybrid bridge's fail-closed paging callbacks therefore do not block the ordinary non-SR-IOV-heavy path. This is a source-level conclusion for the pinned trees. It does not establish the virtualization mode reported by the PC3 V100 guest or validate UVM on a GPU.",
+        "status": "source_contracts_passed"
+      },
+      "upstream_commit": "d8257d95ae5fed364163e4df51db66df8b1ee0d2"
+    },
+    "595.99.02": {
+      "files": {
+        "uvm_channel.c": "34a6816a77e55515179607558c4ddae65a8ae2bb591bc6e481a918370d1bc675",
+        "uvm_channel.h": "1e2c72f5c00fd632f99b2d51aa7f88513f4a00c2dab3cf2a03e703487a5df4ac",
+        "uvm_gpu.h": "76c578d204b32499e0004d1f1f43f9a1ce6718be13faa1394a5a63d0d1c7f9b5",
+        "uvm_rm_mem.c": "fdf517f711ce9ae3421e4af2e7fe128f0db4182000eeed32504eacc82d1a43d7"
+      },
+      "result": {
+        "callback_call_site_counts": {
+          "nvUvmInterfacePagingChannelAllocate": 1,
+          "nvUvmInterfacePagingChannelDestroy": 1,
+          "nvUvmInterfacePagingChannelPushStream": 1,
+          "nvUvmInterfacePagingChannelsMap": 1,
+          "nvUvmInterfacePagingChannelsUnmap": 1
+        },
+        "checks": {
+          "paging_allocate_remains_fail_closed": true,
+          "paging_callback_call_sites_are_single_and_proxy_scoped": true,
+          "paging_destroy_and_unmap_do_not_forward_foreign_handles": true,
+          "paging_map_remains_fail_closed_and_zeroes_output": true,
+          "paging_push_remains_fail_closed": true,
+          "proxy_allocator_is_selected_only_for_proxy_channels": true,
+          "proxy_pool_capacity_is_heavy_mode_gated": true,
+          "proxy_pool_creation_is_heavy_mode_gated": true,
+          "proxy_pool_requires_sriov_heavy": true,
+          "proxy_pool_type_is_the_proxy_channel_discriminator": true,
+          "proxy_va_mapping_is_heavy_mode_gated": true,
+          "proxy_va_unmap_requires_prior_proxy_mapping": true
+        },
+        "failed_checks": [],
+        "interpretation": "The pinned R595 UVM creates its CE proxy pool only when the parent GPU is SR-IOV Heavy. Paging-channel allocate, destroy, and push are used only for those proxy channels. PagingChannelsMap/Unmap are separate: the pinned uvm_rm_mem.c calls them only for proxy-VA mappings, with Map returning before the callback unless the same SR-IOV-heavy predicate is true, and Unmap requiring a previously recorded proxy mapping. The hybrid bridge's fail-closed paging callbacks therefore do not block the ordinary non-SR-IOV-heavy path. This is a source-level conclusion for the pinned trees. It does not establish the virtualization mode reported by the PC3 V100 guest or validate UVM on a GPU.",
+        "status": "source_contracts_passed"
+      },
+      "upstream_commit": "e394a404108a9ce5bba988c1dddf694dabbd4a43"
+    }
+  },
+  "supersedes": {
+    "reason": "v1 counted callback references only in uvm_channel.c and missed the proxy-VA Map/Unmap route in uvm_rm_mem.c; v2 scans the full pinned UVM C tree and verifies that memory route's SR-IOV-heavy guard.",
+    "report": "evidence/r595-uvm-proxy-paging-gate-v1-20261101T062250Z.json"
+  }
+}

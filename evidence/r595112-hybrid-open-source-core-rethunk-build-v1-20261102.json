@@ -1,0 +1,51 @@
+{
+  "build": {
+    "commands_exit_codes": [
+      0,
+      0
+    ],
+    "error_lines": 0,
+    "kernel_release": "7.0.0-38-generic",
+    "modinfo": {
+      "depends": "",
+      "license": "Dual MIT/GPL",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "595.112.07"
+    },
+    "module_bytes": 38426776,
+    "module_path": "build/experiments/r595112-hybrid-open-source-core-rethunk-build-v1-20261102/source/kernel-open/hybrid580_open.ko",
+    "module_selection": [
+      "nvidia"
+    ],
+    "module_sha256": "7880311074045543b5f08d1f53ddb312e0e263b3497386054edda36c2500f6d0",
+    "rethunk_warning_rows": 0,
+    "rethunk_warning_unique_symbols": 0
+  },
+  "evidence": {
+    "raw_log": "build/experiments/r595112-hybrid-open-source-core-rethunk-build-v1-20261102/build.log",
+    "raw_log_mode": "0o600",
+    "raw_log_sha256": "03ba487183925ce08364a97cbfa503069a54a7419ff1fa0a91a0c7495468d73f"
+  },
+  "inputs": {
+    "hybrid_build_report_sha256": "85e6c92e7e581522ca625ab702cceafaa7790d44ab4097622f0250e620b2579f",
+    "hybrid_source_report_sha256": "a744f33eb9ead5e523e5ac477d6d08d9c108ce4776c34262bf88ee551b7b0460",
+    "original_package_core_sha256": "3fc6978a377b6303c8e0438897ba139729fea274345e8b528ecf289488ba1d1a",
+    "replacement_core_bytes": 18260016,
+    "replacement_source_core_sha256": "6d2bafae2e27162b05e4d9be4780eead71aa6939231d4d6c57e1ecb39d4889b5",
+    "source_commit": "d8257d95ae5fed364163e4df51db66df8b1ee0d2"
+  },
+  "limits": [
+    "Only the R595.112.07 open provider module was built; modeset, UVM, and package integration were not part of this build.",
+    "The replacement core object was built from the public R595.112.07 source with the RETHUNK compiler patch; this build does not establish functional equivalence to the package-supplied object.",
+    "No closed binary was decompiled and no GPU or kernel module was accessed."
+  ],
+  "observed_at_utc": "2026-11-02T20:17:31.038033+00:00",
+  "qualification": {
+    "compiled": true,
+    "cuda_runtime_validated": false,
+    "hardware_tested": false,
+    "installed_or_loaded": false
+  },
+  "schema": "nvidia-hybrid.r595112-open-provider-source-core-build.v1",
+  "status": "BUILD_PASS"
+}

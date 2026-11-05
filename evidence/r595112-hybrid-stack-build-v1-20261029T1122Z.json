@@ -1,0 +1,178 @@
+{
+  "build": {
+    "frontend_command": "python3 tools/build_hybrid_frontend.py --uvm-abi r595 --module-name nvidia --open-backend <R595.112.07 private provider> --legacy-backend <R580.196.07 private provider>",
+    "frontend_symvers_sha256": "dbcf0cc653a970395534635d7ef533c3626112a41b12f8b5cbaf6504bb903e08",
+    "gpu_or_hardware_tested": false,
+    "installed_or_loaded": false,
+    "kernel_headers": "/usr/src/linux-headers-7.0.0-38-generic",
+    "kernel_release": "7.0.0-38-generic",
+    "open_provider_command": "make -C kernel-open KERNEL_UNAME=7.0.0-38-generic NV_KERNEL_MODULES=nvidia -j8 modules",
+    "provider_symvers_export_rows_match_rebuild": 146,
+    "provider_symvers_sha256": "0cb20019db66ddf5d1a6b3b750104d96b4d6d2e6fee4922bab93cd8174141037",
+    "software_module_build_only": true,
+    "uvm_command": "make -C kernel-open KERNEL_UNAME=7.0.0-38-generic NV_KERNEL_MODULES=\"nvidia nvidia-uvm\" KBUILD_EXTRA_SYMBOLS=<frontend Module.symvers> -j8 modules"
+  },
+  "dependency_dry_run": {
+    "command": "depmod -b <private staging root> -n -a 7.0.0-38-generic",
+    "output_path": "build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/logs/depmod-dry-run.txt",
+    "output_sha256": "ce6fcb686644a85d7e6637abfe035b18782c75b490804c5c40cbc6c355441f34",
+    "qualification": "dry-run only; modules.order supplied; no system module database changed",
+    "reported_dependencies": {
+      "nvidia-uvm.ko": [
+        "nvidia.ko",
+        "hybrid580_legacy.ko",
+        "hybrid580_open.ko"
+      ],
+      "nvidia.ko": [
+        "hybrid580_legacy.ko",
+        "hybrid580_open.ko"
+      ]
+    }
+  },
+  "logs": [
+    {
+      "bytes": 26622,
+      "path": "build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/logs/depmod-dry-run.txt",
+      "sha256": "ce6fcb686644a85d7e6637abfe035b18782c75b490804c5c40cbc6c355441f34"
+    },
+    {
+      "bytes": 878,
+      "path": "build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/logs/frontend-build.log",
+      "sha256": "f4c125c402daa0316c9d80de60140f3bb09d0193ce9f07a0f43e445a290b4cc7"
+    },
+    {
+      "bytes": 1365744,
+      "path": "build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/logs/hybrid-nvidia-uvm-combined-build.log",
+      "sha256": "a8dda84f2f159738eb3f461292ab02a99977d51c7d6e31b1f7903117f239b83c"
+    },
+    {
+      "bytes": 1360279,
+      "path": "build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/logs/private-open-provider-build.log",
+      "sha256": "0942e7cf1ab3d763d833f1cfb30fdd2366e776ceac5c1a902de1c9b59edb0873"
+    }
+  ],
+  "modules": {
+    "frontend": {
+      "bytes": 3113112,
+      "depends": "hybrid580_legacy,hybrid580_open",
+      "license": "Dual MIT/GPL",
+      "path": "build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/modules/nvidia.ko",
+      "sha256": "cd8552ee542d8a2f4ebaa3000b411289a742f3d8ed5905a972b97cba2b886935",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": ""
+    },
+    "legacy_provider": {
+      "bytes": 136948176,
+      "depends": "",
+      "license": "NVIDIA",
+      "path": "build/experiments/r58019607-sync-boost-legacy-build-v2/source/hybrid580_legacy.ko",
+      "sha256": "cab25d3156cd20fbe262e4bdd0f41df6a8af6a188655240b58b1b543820dec33",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.196.07"
+    },
+    "open_provider": {
+      "bytes": 37274976,
+      "depends": "",
+      "license": "Dual MIT/GPL",
+      "path": "build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/modules/hybrid580_open.ko",
+      "sha256": "3bf2b6943bbde7e9ba282422e30b37099b3ccfec141f9f8aaa987155e1fffb91",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "595.112.07"
+    },
+    "uvm": {
+      "bytes": 57144392,
+      "depends": "nvidia",
+      "license": "Dual MIT/GPL",
+      "path": "build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/modules/nvidia-uvm.ko",
+      "sha256": "857bdb2c08027f5beab45b0044016f8d90692204b2b16e1b22b67d2197222141",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "595.112.07"
+    }
+  },
+  "observed_at_utc": "2026-10-29T11:22:03Z",
+  "patching": {
+    "anchor_updates": {
+      "0006-private-open-resource-names.patch": "line 823 to 866 after unique literal context verification",
+      "0044-private-open-system-features.patch": "line 5957 to 5969",
+      "0045-private-open-fabric-status.patch": "line 6053 to 6065"
+    },
+    "r580_open_patch_replay": "all 43 applied; report records zero fuzz/offset after exact line-anchor updates",
+    "r580_open_patch_report": "build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/reports/open-patch-port-v4.json",
+    "r580_open_patch_report_sha256": "3cf7ec51acde725a192282c6759977a403e97909776b200386ffedc15ccc9c4e",
+    "r580_open_provider_patch_count": 43,
+    "r595_hybrid_uvm_patch_count": 12,
+    "r595_hybrid_uvm_replay": "all applied with zero fuzz/offset to the same R595.112.07 source tree",
+    "remaining_generated_overlays": [
+      {
+        "path": "build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/overlays/0006-private-open-resource-names.patch",
+        "sha256": "af4f4f9bdf126d5b7756e1805a870031e2d7632c91e14d60d176c4606967d21d"
+      },
+      {
+        "path": "build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/overlays/0044-private-open-system-features.patch",
+        "sha256": "86ee1e8a42738b441c9eb3a69e62968c9ca7d3d96324b3af83446b294652216c"
+      },
+      {
+        "path": "build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/overlays/0045-private-open-fabric-status.patch",
+        "sha256": "1d444c52833bb9a29ffce56784bb70ade7ba8d7970abba06fd7687a535bbdafa"
+      },
+      {
+        "path": "build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/overlays/0047-private-open-client-share-policy.patch",
+        "sha256": "46488da7742b9a08131df13f9bad8c145fa48a54ee499080a1869cfb0d908d6a"
+      },
+      {
+        "path": "build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/overlays/0048-private-open-sync-boost-groups.patch",
+        "sha256": "d78961f6b3acdacecaafcbb864ad347df94c6cc9d2ab146c228b99190b2eb2ec"
+      }
+    ]
+  },
+  "qualification": "compiled-module-set-plus-static-dependency-resolution",
+  "reports": [
+    {
+      "bytes": 414582,
+      "path": "build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/reports/frontend-build.json",
+      "sha256": "69a6d148ed4f0bdbde2f5b882b3ef3120a63473a6cc81f7135d13a1fd6d29991"
+    },
+    {
+      "bytes": 34184,
+      "path": "build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/reports/open-patch-port-v2.json",
+      "sha256": "4ecb074290cc37c42016d1f082b54887ae8f12ab6dc4d57ef72460b2892d1b17"
+    },
+    {
+      "bytes": 35075,
+      "path": "build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/reports/open-patch-port-v3.json",
+      "sha256": "6f21b31e892f91555435bab9d0f4b8e7a47e3cf903c278308e528642d773d708"
+    },
+    {
+      "bytes": 42234,
+      "path": "build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/reports/open-patch-port-v4.json",
+      "sha256": "3cf7ec51acde725a192282c6759977a403e97909776b200386ffedc15ccc9c4e"
+    }
+  ],
+  "schema": "nvidia-r595112-hybrid-kernel-modules-build-v1",
+  "source": {
+    "archive": ".cache/upstream/open-gpu-kernel-modules-595.112.07-d8257d95.tar.gz",
+    "archive_sha256": "567d4ba082a54ef733e7ce87c87401da488a3aabe29837c92feb19011c8250c4",
+    "codeload_content_identical": true,
+    "commit": "d8257d95ae5fed364163e4df51db66df8b1ee0d2",
+    "official_release_notes": "https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-595-112-07/index.html",
+    "open_gpu_kernel_modules_tag": "595.112.07"
+  },
+  "vendor_openrm_core": {
+    "extracted_core_bytes": 17607880,
+    "extracted_core_path": ".cache/vendor-proprietary/r595.112.07/nv-kernel.o_binary",
+    "extracted_core_sha256": "3fc6978a377b6303c8e0438897ba139729fea274345e8b528ecf289488ba1d1a",
+    "extraction_integrity": "NVIDIA self-extractor archive integrity OK",
+    "installer_bytes": 423351953,
+    "installer_not_retained": true,
+    "installer_sha256": "1a38ecd538a2da6232a7330184063af59e9fc946c908cca555bd07909848b9f0",
+    "official_installer_url": "https://us.download.nvidia.com/XFree86/Linux-x86_64/595.112.07/NVIDIA-Linux-x86_64-595.112.07.run",
+    "redistribution": "not authorized by this local experiment"
+  },
+  "warnings_and_limits": [
+    "No pahole executable was present; BTF generation was skipped because vmlinux was unavailable. Module ELF output and modpost succeeded.",
+    "objtool emitted naked-return warnings in the proprietary OpenRM binary under MITIGATION_RETHUNK; no runtime safety conclusion follows.",
+    "The legacy R580.196.07 provider is a separately compiled proprietary module. The frontend and UVM module set is a compile/dependency result only.",
+    "No V100 or Blackwell initialization, module load, CUDA context/kernel execution, UVM migration, P2P, sustained stability, or performance was tested.",
+    "Current R595.99.02 PC3 canary remains the production-matched candidate; this R595.112.07 stack is an isolated source/build modernization track."
+  ]
+}

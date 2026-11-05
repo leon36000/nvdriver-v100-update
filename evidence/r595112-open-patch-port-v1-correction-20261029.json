@@ -1,0 +1,27 @@
+{
+  "cause": "The first diagnostic regex selected the first hunk in the multi-file patch (line 176), not the target hunk containing alloc_chrdev_region.",
+  "corrected_fact": "The nv-caps alloc_chrdev_region hunk is at line 866 in the pinned R595.112.07 source and in the applied overlay.",
+  "corrected_tool_sha256": "0443de845090f788e316deb93c90a3f7dcf6fa0c0212ff1e4eaad0a8a37e0d97",
+  "field": "patch_records[0006-private-open-resource-names.patch].output",
+  "focused_test_command": "python3 -B -m unittest tests.test_replay_r580_open_patches_on_r595 tests.test_build_hybrid_frontend tests.test_prepare_r595_hybrid_source -v",
+  "focused_test_exit_code": 0,
+  "focused_test_log": "evidence/logs/r595112-patch-replay-focused-tests-v1-20261029.log",
+  "focused_test_log_sha256": "f6d67797b353fa1e582306d0e98fd35bae33df00c15aa31f4c4c190544f7627d",
+  "observed_at_utc": "2026-10-29T11:31:48.858144+00:00",
+  "original_report": "evidence/r595112-open-patch-port-v1-20261029.json",
+  "original_report_sha256": "44fae48c7dbcbb9a26fedbe8beff5620436d56da82eee32d52bc82452d2dd9d9",
+  "original_report_text": "R595 exact-anchor resource-name rebase targets the unique nv-caps allocation call at line 176; no fuzz or offset.",
+  "schema": "r595112-open-patch-port-report-correction-v1",
+  "scope": "Corrects one descriptive line number only; replay output, patch application and qualification are unchanged.",
+  "verification": {
+    "baseline_symvers_unchanged": true,
+    "overlay_path": "build/experiments/r595112-r580-open-patch-port-v1-20261029/source/.hybrid-local-overlays/0006-private-open-resource-names.patch",
+    "overlay_sha256": "af4f4f9bdf126d5b7756e1805a870031e2d7632c91e14d60d176c4606967d21d",
+    "patches_attempted": 43,
+    "replay_report_qualification": "all-r580-open-patches-apply-to-r595-source",
+    "source_manifest_sha256": "8e29bef1a16a00952024fbe0224d90ce115a72b393e89d5cff337fe5f908d2d1",
+    "source_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/research/open-gpu-kernel-modules-595.112.07/source/open-gpu-kernel-modules-d8257d95ae5fed364163e4df51db66df8b1ee0d2/kernel-open/nvidia/nv-caps.c",
+    "source_tree_unchanged": true,
+    "target_hunk_line": 866
+  }
+}

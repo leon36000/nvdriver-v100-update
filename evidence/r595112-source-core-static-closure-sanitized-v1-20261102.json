@@ -1,0 +1,162 @@
+{
+  "abi_closure": {
+    "frontend_imports": 311,
+    "issues": 0,
+    "legacy_provider_imports": 305,
+    "module_exports_complete": true,
+    "open_provider_imports": 459,
+    "runtime_or_hardware_validated": false,
+    "status": "passed",
+    "uvm_imports": 331,
+    "uvm_interface_imports": 81
+  },
+  "date_utc": "2026-11-02",
+  "dependency_map": {
+    "hard_order_for_frontend": [
+      "hybrid580_open.ko",
+      "hybrid580_legacy.ko",
+      "nvidia.ko"
+    ],
+    "hard_order_for_uvm": [
+      "hybrid580_open.ko",
+      "hybrid580_legacy.ko",
+      "nvidia.ko",
+      "nvidia_uvm.ko"
+    ],
+    "isolated_stage_only": true,
+    "open_provider_softdeps_pre": [
+      "ecdh_generic",
+      "ecdsa_generic"
+    ],
+    "softdep_targets_resolved": false
+  },
+  "driver_release": "595.112.07",
+  "kernel_release": "7.0.0-38-generic",
+  "modules": {
+    "frontend": {
+      "name": "nvidia",
+      "sha256": "ae7f2f72e8214b1d5b970e3b2f202c059d82a290f61a99fa07cce24188a58748",
+      "size_bytes": 3182824
+    },
+    "legacy": {
+      "name": "hybrid580_legacy",
+      "sha256": "f38e9bf452d4d28c6ac1281eaa5095523daf231a129721db2176a4e8fa2ee02f",
+      "size_bytes": 137000840
+    },
+    "open": {
+      "name": "hybrid580_open",
+      "sha256": "7880311074045543b5f08d1f53ddb312e0e263b3497386054edda36c2500f6d0",
+      "size_bytes": 38426776
+    },
+    "uvm": {
+      "name": "nvidia_uvm",
+      "sha256": "453b257fdc6f09aa3c67a0a530fd2431ab3dedaa825e6657372a47288dd97048",
+      "size_bytes": 57165008
+    }
+  },
+  "qualification": {
+    "compiled": true,
+    "cpu_software_suite_passed": true,
+    "cuda_runtime_validated": false,
+    "dependency_map_generated": true,
+    "gpu_accessed": false,
+    "installed_or_loaded": false,
+    "p2p_runtime_validated": false,
+    "performance_validated": false,
+    "same_process_volta_blackwell_validated": false,
+    "static_import_closure": true,
+    "uvm_runtime_validated": false
+  },
+  "raw_local_receipt_sha256": {
+    "depmod_stage": "8bc22965d8a7fb0954b9bb45c275c690e12d00a777cf30d6c36bd33c4f963142",
+    "frontend_build": "f07620f9accc87c409547804986136d14348884c0b48888125842afce541bb88",
+    "module_closure": "5f696c7161ae039f8695e62743d53336daa4294549772ac7c61716f31b4e4a8a",
+    "open_core_build": "7f75c6b123994423c580d540d97775cccedc0b427af2561a0bd066d9c6fe117e",
+    "rea_frontend_control_fd_decompile": "3a3565632e9a479ea1a5968b006120ce9f95f65973d5dba2005d8f1e61610b08",
+    "rea_uvm_ioctl_decompile": "240ec232383c959d6cc4fe694959a545e827a13709d24c0bb7184a5bea76419a",
+    "software_suite": "7eb9dd32eefe885045c64eee1b021898d860636e8d14ae27a1a677185bbaf00f",
+    "uvm_build": "363b993aef2d9d9f9c0277f09d449619dc0944f81657d077af877d07eb6912b4",
+    "uvm_source_port": "dbaf0861c59e45b641dd9e6d86426931de3d678aae236e528c95749e5ec00eee"
+  },
+  "raw_rea_output_sha256": "240ec232383c959d6cc4fe694959a545e827a13709d24c0bb7184a5bea76419a",
+  "rea_static_analysis": {
+    "artifact": "compiled hybrid nvidia-uvm.ko",
+    "artifact_sha256": "453b257fdc6f09aa3c67a0a530fd2431ab3dedaa825e6657372a47288dd97048",
+    "call_paths_observed": [
+      "uvm_api_enable_peer_access",
+      "uvm_api_disable_peer_access",
+      "uvm_api_alloc_device_p2p",
+      "uvm_api_migrate",
+      "uvm_test_ioctl"
+    ],
+    "decompilation_is_original_source": false,
+    "frontend_control_fd_dispatch": {
+      "artifact": "compiled hybrid nvidia.ko",
+      "artifact_sha256": "ae7f2f72e8214b1d5b970e3b2f202c059d82a290f61a99fa07cce24188a58748",
+      "call_paths_observed": [
+        "hybrid580_frontend_uvm_address_space_owner_pin_v1",
+        "hybrid580_uvm_device_registry_lookup",
+        "hybrid580_open_address_space_duplicate",
+        "hybrid580_frontend_uvm_address_space_owner_quarantine_v1",
+        "hybrid580_frontend_uvm_address_space_owner_unpin_v1"
+      ],
+      "decompilation_is_original_source": false,
+      "function": "nvUvmInterfaceDupAddressSpaceWithControlFd",
+      "guards_observed": [
+        "null control file rejected",
+        "null device handle rejected",
+        "registered device provider must match the owner backend",
+        "ambiguous duplicated identity pins/quarantines frontend state"
+      ],
+      "limitations": [
+        "No module was loaded and no GPU was accessed.",
+        "Ghidra reports one unreachable block; unresolved local variable annotations are not source declarations.",
+        "The decompiled control flow is not runtime proof of root ownership or address-space lifetime."
+      ],
+      "pseudocode_line_count": 249,
+      "pseudocode_sha256": "aaeefaee06162a77d7d4c5e1f2805be879917169ba94f7e20c307a12432ec7e5",
+      "pseudocode_transferred": false,
+      "qualification": "static decompilation of local compiled artifact only",
+      "source_file_sha256": "5caebaa36e77cd704a7d4f430f39bd6e9878f1021d4a3dca385750d7d3e431e4",
+      "source_reference": "src/hybrid580_uvm_callback_bridge.c:3732"
+    },
+    "function": "uvm_ioctl",
+    "limitations": [
+      "No module was loaded and no GPU was accessed.",
+      "Ghidra reports one unreachable block at a return-thunk site; this receipt does not infer its runtime behavior.",
+      "A source-level call and binary decompilation do not establish live ioctl behavior or GPU semantics."
+    ],
+    "provider": "Ghidra 12.1.4",
+    "pseudocode_line_count": 1199,
+    "pseudocode_sha256": "b6e951a9226d422f2e510864d006f09d07e01b04aaca37a6377d72ded58c7462",
+    "pseudocode_transferred": false,
+    "qualification": "static decompilation of local compiled artifact only",
+    "source_function_file_sha256": "5e0f8e0c531ee33f2add193ca7ca9c391e2428b194c6b8e3570ea0a99d7c0812",
+    "source_reference": "kernel-open/nvidia-uvm/uvm.c:996",
+    "tool": "REA 6.8.0"
+  },
+  "schema": "nvidia-hybrid-r595112-source-core-static-closure-v1",
+  "software_suite": {
+    "duration_seconds": 180.131,
+    "implementation_source_changes": 0,
+    "qualification": "software-suite-only",
+    "status": "pass",
+    "test_source_changes": 0,
+    "tests_passed": 2600
+  },
+  "source_port": {
+    "all_zero_offset_zero_fuzz": true,
+    "input_files": 443,
+    "input_tree_fingerprint_sha256": "216dbc5a76e85fbaa75faf3652c5a6d8f52af4724497e2e405edf7b495419c56",
+    "output_files": 446,
+    "output_tree_fingerprint_sha256": "cdcf18c954c3893e9d7a14201b7a068ca66194e79dd85e1a1448709c9832ecaa",
+    "patch_series": "R595.99.02 hybrid UVM patches 0001-0012",
+    "patches_applied": 12
+  },
+  "uvm_binding": {
+    "address_space_dispatch_crc": "0xee6dd59d",
+    "address_space_dispatch_symbol": "nvUvmInterfaceDupAddressSpaceWithControlFd",
+    "matched_public_imports": 78,
+    "replaces": "nvUvmInterfaceDupAddressSpace"
+  }
+}

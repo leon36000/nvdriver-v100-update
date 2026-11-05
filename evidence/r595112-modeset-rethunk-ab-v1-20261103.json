@@ -1,0 +1,94 @@
+{
+  "comparisons": [
+    {
+      "build_exit_code": 0,
+      "case": "unpatched_control",
+      "hardware_tested": false,
+      "kbuild_modpost_warn_enabled": true,
+      "modpost_warning": "nvidia_get_rm_ops [nvidia-modeset.ko] undefined in this reduced hybrid link",
+      "modpost_warning_rows": 1,
+      "module_bytes": 3657280,
+      "module_loaded": false,
+      "module_relative_path": "build/experiments/r595112-hybrid-open-rethunk-modesetcontrol-v1-20261103/source/kernel-open/nvidia-modeset.ko",
+      "module_sha256": "0d5ca9fd9fa74ecde1be3a26829b485e8f779069ff24c1f0ba42c6e163e6a0f9",
+      "nvidia_modeset_objtool_warning_classes": {
+        "call_without_frame_pointer": 251,
+        "naked_return": 2685
+      },
+      "nvidia_modeset_objtool_warning_rows_total": 2936,
+      "nvidia_modeset_rethunk_warning_rows": 2685,
+      "raw_log_relative_path": "build/experiments/r595112-hybrid-open-rethunk-modesetcontrol-v1-20261103/control-build.log",
+      "raw_log_sha256": "317f7822aaa2b70980ec166294b28b6355360b24783927c3727506ffd4f63aa4"
+    },
+    {
+      "build_exit_code": 0,
+      "case": "return_thunk_only",
+      "hardware_tested": false,
+      "kbuild_modpost_warn_enabled": true,
+      "modpost_warning": "nvidia_get_rm_ops [nvidia-modeset.ko] undefined in this reduced hybrid link",
+      "modpost_warning_rows": 1,
+      "module_bytes": 3893008,
+      "module_loaded": false,
+      "module_relative_path": "build/experiments/r595112-hybrid-open-rethunk-modesetfix-v1-20261103/source/kernel-open/nvidia-modeset.ko",
+      "module_sha256": "ed6fe858fcf8721cbe6bec34ea8a4f452ad265f58355c4ed87aadb7c210fd3a4",
+      "nvidia_modeset_objtool_warning_classes": {
+        "bp_used_as_scratch_register": 236,
+        "call_without_frame_pointer_save_setup": 1715
+      },
+      "nvidia_modeset_objtool_warning_rows_total": 1951,
+      "nvidia_modeset_rethunk_warning_rows": 0,
+      "raw_log_relative_path": "build/experiments/r595112-hybrid-open-rethunk-modesetfix-v1-20261103/build-rebuild.log",
+      "raw_log_sha256": "46c74a6ae6ed0f1b9417e450f4c0c0884454ebfcd91308ef6653602a3a4a15c2"
+    },
+    {
+      "build_exit_code": 0,
+      "case": "return_thunk_plus_frame_pointer_probe",
+      "hardware_tested": false,
+      "kbuild_modpost_warn_enabled": true,
+      "modpost_warning": "nvidia_get_rm_ops [nvidia-modeset.ko] undefined in this reduced hybrid link",
+      "modpost_warning_rows": 1,
+      "module_bytes": 3899672,
+      "module_loaded": false,
+      "module_relative_path": "build/experiments/r595112-hybrid-open-rethunk-modeset-framepointer-probe-v1-20261103/source/kernel-open/nvidia-modeset.ko",
+      "module_sha256": "031d99c39d44e8dc0aafbfab53c42508af9f70c564493de2ecc7cd094a911479",
+      "nvidia_modeset_objtool_warning_classes": {},
+      "nvidia_modeset_objtool_warning_rows_total": 0,
+      "nvidia_modeset_rethunk_warning_rows": 0,
+      "raw_log_relative_path": "build/experiments/r595112-hybrid-open-rethunk-modeset-framepointer-probe-v1-20261103/build.log",
+      "raw_log_sha256": "80f25d5ac0d9200ba2d92172c6c9b5cdab911fc825657ee2f70fb5718dea0d7a"
+    }
+  ],
+  "interpretation": {
+    "adding_fno_omit_frame_pointer_in_a_separate_probe_emitted_zero_objtool_warnings": true,
+    "frame_pointer_flag_not_added_to_retained_patch": true,
+    "frame_pointer_probe_performance_not_measured": true,
+    "no_runtime_or_hardware_validation": true,
+    "return_thunk_only_still_emits_1951_other_objtool_warnings": true,
+    "return_thunk_patch_removes_all_2685_control_rethunk_warnings_in_this_objtool_run": true,
+    "unresolved_modpost_import_requires_intended_frontend_bundle_validation": true
+  },
+  "kernel": {
+    "config_cc_version_text": "x86_64-linux-gnu-gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+    "config_mitigation_rethunk": true,
+    "release": "7.0.0-38-generic"
+  },
+  "method": {
+    "common_build": "make KERNEL_UNAME=7.0.0-38-generic NV_KERNEL_MODULES=\"nvidia nvidia-modeset\" KBUILD_MODPOST_WARN=1 -j8 modules",
+    "compile_only_no_install_load_or_gpu_access": true,
+    "each_case_started_from_separate_copy": true,
+    "each_modeset_source_output_cleaned_before_build": true,
+    "environment_cflags_and_cc_overrides_cleared": true
+  },
+  "observed_at_utc": "2026-11-03T13:52:43.174445+00:00",
+  "qualification": "isolated_compile_and_objtool_comparison_only",
+  "schema": "r595112-modeset-rethunk-ab-v1",
+  "source": {
+    "modeset_makefile_postimage_sha256": "c0a924e120846ea6e83c984a791f71afb0eda27f091bd25c7268cf31c28914e9",
+    "modeset_makefile_preimage_sha256": "138c4f2777e03c68f5b2ffc1a7b31902af513315fda2b0522b93fb879db1f0a6",
+    "modeset_makefile_rethunk_patch_sha256": "a14f89a0f648d7816dd3df63e23bb3cad4b264b102bed0249d9d17c2a06899f5",
+    "original_source_unchanged": true,
+    "source_core_makefile_sha256": "5d8734c91b9721054e222fddd65e14b5b4567d893e943c798fbc7665503e980d",
+    "upstream_commit": "d8257d95ae5fed364163e4df51db66df8b1ee0d2",
+    "version": "595.112.07"
+  }
+}

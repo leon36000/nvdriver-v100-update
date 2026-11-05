@@ -1,0 +1,82 @@
+{
+  "build": {
+    "command": [
+      "make",
+      "-B",
+      "NV_KERNEL_MODULES=nvidia-uvm",
+      "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-provider-identity-frontend-v1-20261028T2032Z/Module.symvers",
+      "NV_KERNEL_EXTRA_CONFTEST_KBUILD=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-tracker-detach-lifetime-v3-20261028T2054Z/candidate/nvidia-conftest-only.Kbuild",
+      "modules",
+      "-j4"
+    ],
+    "exit_code": 0,
+    "kernel_release": "7.0.0-38-generic",
+    "log": {
+      "mode": "0600",
+      "path": "evidence/logs/r595-tracker-detach-lifetime-v3-20261028T2054Z-build.log",
+      "sha256": "565640cec85b425db464ddd35d04186e76af0a2a99b6baa98dce613ed345aa84"
+    },
+    "warnings": [
+      "pahole is unavailable and vmlinux is unavailable; BTF generation skipped"
+    ],
+    "working_directory": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-tracker-detach-lifetime-v3-20261028T2054Z/candidate"
+  },
+  "candidate_module": {
+    "depends": "nvidia",
+    "installed_by_this_run": false,
+    "loaded_by_this_run": false,
+    "name": "nvidia_uvm",
+    "path": "build/experiments/r595-tracker-detach-lifetime-v3-20261028T2054Z/candidate/nvidia-uvm.ko",
+    "sha256": "15625eeda5ffdba3a38c1dcf622d707c44c8adc68bff20674c94e1d86c6a3547",
+    "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+    "version": "595.99.02"
+  },
+  "contract_tests": {
+    "command": "python3 -B -m unittest -v tests/test_r595_tracker_detach_lifetime.py tests/test_r595_isolated_provider_guard.py",
+    "status": "pass",
+    "tests_passed": 6
+  },
+  "limitations": [
+    "Static source/ABI/build evidence only; no RM/UVM/CUDA execution through the candidate.",
+    "Same-Linux same-process V100 plus Blackwell execution remains unvalidated.",
+    "No UVM race, sanitizer, stress, performance, P2P, or recovery proof."
+  ],
+  "observed_at_utc": "2026-10-28T20:56:58.063709+00:00",
+  "qualification": "compiled-and-static-symbol-closure-only",
+  "runtime_or_hardware_validated": false,
+  "schema": "r595-tracker-detach-lifetime-build-v1",
+  "scope": "R595 UVM candidate build and static import/export CRC closure. No candidate module install/load or runtime GPU path.",
+  "source": {
+    "base_preimage_sha256": {
+      "nvidia-uvm/uvm_tracker.c": "b31982b1f3df6cac9f8eb1d7ba91d333853678d6cf78693910dc81f720c87ba9",
+      "nvidia-uvm/uvm_tracker.h": "c418834db3fe5ddd18688b6915394f5ab55dd681c657af50942c13624fe95804"
+    },
+    "modified_source_sha256": {
+      "nvidia-uvm/uvm_tracker.c": "1b7fd32a785b78af5492c30a297e148f421af3e04108a587a641932d4ca7499a",
+      "nvidia-uvm/uvm_tracker.h": "d094522d6af1ae62bf31560ccd81c35b22c45b1949d2258506564cbd7365d4b3"
+    },
+    "new_patch": "patches/r595.99.02/0006-uvm-reject-completed-foreign-tracker-refs-before-detach.patch",
+    "parent_overlay": "build/experiments/r595-isolated-provider-cache-v2-20261028T2040Z/candidate",
+    "patch_application": "exact v2 preimage; zero fuzz and zero offsets enforced by tests",
+    "patch_sha256": "3975d34c0b282f6a69ed86e4e96c1c05ba12ffd6ec00e16e60d20d17b6124778",
+    "patch_stack_sha256": {
+      "patches/r595.99.02/0001-uvm-rm-control-fd-address-space-dispatch.patch": "ea8b78632e55f80ab5ef717b9250131ad599bd427ffad7bdc6d4b3328a881c2d",
+      "patches/r595.99.02/0002-uvm-provider-local-system-semaphore-pools.patch": "6c37c2274ce940ab1c287b2dbf6300624087ed745321d504f8ce9c0971ef8bf3",
+      "patches/r595.99.02/0003-uvm-external-allocation-control-fd.patch": "7f43c90b720162f0d1c4af584a97d4400f1768dd6b67986cb68c6e9d7489ee1d",
+      "patches/r595.99.02/0004-uvm-device-p2p-control-fd.patch": "f7e6b6ba565ddd0c4059a4ae100ae25e70b37261abd6651ada2983a0c4f68de8",
+      "patches/r595.99.02/0005-uvm-cache-provider-and-isolate-cross-provider-tracking.patch": "4898722d0b101f567369d17e89b386b0aa6ce138e27d2157cb237de3c6e3001b",
+      "patches/r595.99.02/0006-uvm-reject-completed-foreign-tracker-refs-before-detach.patch": "3975d34c0b282f6a69ed86e4e96c1c05ba12ffd6ec00e16e60d20d17b6124778"
+    },
+    "release": "NVIDIA open-gpu-kernel-modules 595.99.02"
+  },
+  "static_symbol_closure": {
+    "frontend_exports": 79,
+    "hybrid_extensions": 3,
+    "installed_imports": 81,
+    "issue_count": 0,
+    "private_imports": 145,
+    "qualification": "static-r595-uvm-symbol-closure",
+    "report": "evidence/r595-tracker-detach-lifetime-v3-symbol-closure-v1-20261028T2054Z.json",
+    "sha256": "27fc28308c956f4d330cc6030d576602039616d0e01c5789a98c35356bd80fc0"
+  }
+}

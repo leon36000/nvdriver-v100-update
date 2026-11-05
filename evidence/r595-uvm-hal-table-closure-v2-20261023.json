@@ -1,0 +1,617 @@
+{
+  "classification": "pinned-source-static-table-census",
+  "comparison": {
+    "architecture_table_has_gv100": false,
+    "r580_all_required_targets_present": true,
+    "r580_present_targets": {
+      "access_counter_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+      "arch_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+      "ce_table": "VOLTA_DMA_COPY_A",
+      "fault_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+      "host_table": "VOLTA_CHANNEL_GPFIFO_A",
+      "sec2_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100"
+    },
+    "r595_all_required_targets_present": false,
+    "r595_missing_targets": {
+      "access_counter_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+      "arch_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+      "ce_table": "VOLTA_DMA_COPY_A",
+      "fault_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+      "host_table": "VOLTA_CHANNEL_GPFIFO_A",
+      "sec2_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100"
+    },
+    "r595_present_targets": {},
+    "required_table_count": 6,
+    "required_targets": {
+      "access_counter_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+      "arch_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+      "ce_table": "VOLTA_DMA_COPY_A",
+      "fault_buffer_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+      "host_table": "VOLTA_CHANNEL_GPFIFO_A",
+      "sec2_table": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100"
+    },
+    "table_inventory": {
+      "R580": {
+        "access_counter_buffer_table": [
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM000",
+            "parent_id": null,
+            "union": "access_counter_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM200",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM000",
+            "union": "access_counter_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GP100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM200",
+            "union": "access_counter_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GP100",
+            "union": "access_counter_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+            "union": "access_counter_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GA100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100",
+            "union": "access_counter_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_AD100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GA100",
+            "union": "access_counter_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GH100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_AD100",
+            "union": "access_counter_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GH100",
+            "union": "access_counter_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB200",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB100",
+            "union": "access_counter_buffer_ops"
+          }
+        ],
+        "arch_table": [
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM000",
+            "parent_id": null,
+            "union": "arch_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM200",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM000",
+            "union": "arch_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GP100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM200",
+            "union": "arch_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GP100",
+            "union": "arch_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+            "union": "arch_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GA100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100",
+            "union": "arch_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_AD100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GA100",
+            "union": "arch_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GH100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_AD100",
+            "union": "arch_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GH100",
+            "union": "arch_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB200",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB100",
+            "union": "arch_ops"
+          }
+        ],
+        "ce_table": [
+          {
+            "id": "MAXWELL_DMA_COPY_A",
+            "parent_id": null,
+            "union": "ce_ops"
+          },
+          {
+            "id": "PASCAL_DMA_COPY_A",
+            "parent_id": "MAXWELL_DMA_COPY_A",
+            "union": "ce_ops"
+          },
+          {
+            "id": "PASCAL_DMA_COPY_B",
+            "parent_id": "PASCAL_DMA_COPY_A",
+            "union": "ce_ops"
+          },
+          {
+            "id": "VOLTA_DMA_COPY_A",
+            "parent_id": "PASCAL_DMA_COPY_B",
+            "union": "ce_ops"
+          },
+          {
+            "id": "TURING_DMA_COPY_A",
+            "parent_id": "VOLTA_DMA_COPY_A",
+            "union": "ce_ops"
+          },
+          {
+            "id": "AMPERE_DMA_COPY_A",
+            "parent_id": "TURING_DMA_COPY_A",
+            "union": "ce_ops"
+          },
+          {
+            "id": "AMPERE_DMA_COPY_B",
+            "parent_id": "AMPERE_DMA_COPY_A",
+            "union": "ce_ops"
+          },
+          {
+            "id": "HOPPER_DMA_COPY_A",
+            "parent_id": "AMPERE_DMA_COPY_B",
+            "union": "ce_ops"
+          },
+          {
+            "id": "BLACKWELL_DMA_COPY_A",
+            "parent_id": "HOPPER_DMA_COPY_A",
+            "union": "ce_ops"
+          },
+          {
+            "id": "BLACKWELL_DMA_COPY_B",
+            "parent_id": "BLACKWELL_DMA_COPY_A",
+            "union": "ce_ops"
+          }
+        ],
+        "chip_table": [
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB100 | NV2080_CTRL_MC_ARCH_INFO_IMPLEMENTATION_GB10B",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB100",
+            "union": "arch_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB200 | NV2080_CTRL_MC_ARCH_INFO_IMPLEMENTATION_GB20B",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB200",
+            "union": "arch_ops"
+          }
+        ],
+        "fault_buffer_table": [
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM000",
+            "parent_id": null,
+            "union": "fault_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM200",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM000",
+            "union": "fault_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GP100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM200",
+            "union": "fault_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GP100",
+            "union": "fault_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+            "union": "fault_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GA100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100",
+            "union": "fault_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_AD100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GA100",
+            "union": "fault_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GH100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_AD100",
+            "union": "fault_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GH100",
+            "union": "fault_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB200",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB100",
+            "union": "fault_buffer_ops"
+          }
+        ],
+        "host_table": [
+          {
+            "id": "KEPLER_CHANNEL_GPFIFO_B",
+            "parent_id": null,
+            "union": "host_ops"
+          },
+          {
+            "id": "MAXWELL_CHANNEL_GPFIFO_A",
+            "parent_id": "KEPLER_CHANNEL_GPFIFO_B",
+            "union": "host_ops"
+          },
+          {
+            "id": "PASCAL_CHANNEL_GPFIFO_A",
+            "parent_id": "MAXWELL_CHANNEL_GPFIFO_A",
+            "union": "host_ops"
+          },
+          {
+            "id": "VOLTA_CHANNEL_GPFIFO_A",
+            "parent_id": "PASCAL_CHANNEL_GPFIFO_A",
+            "union": "host_ops"
+          },
+          {
+            "id": "TURING_CHANNEL_GPFIFO_A",
+            "parent_id": "VOLTA_CHANNEL_GPFIFO_A",
+            "union": "host_ops"
+          },
+          {
+            "id": "AMPERE_CHANNEL_GPFIFO_A",
+            "parent_id": "TURING_CHANNEL_GPFIFO_A",
+            "union": "host_ops"
+          },
+          {
+            "id": "HOPPER_CHANNEL_GPFIFO_A",
+            "parent_id": "AMPERE_CHANNEL_GPFIFO_A",
+            "union": "host_ops"
+          },
+          {
+            "id": "BLACKWELL_CHANNEL_GPFIFO_A",
+            "parent_id": "HOPPER_CHANNEL_GPFIFO_A",
+            "union": "host_ops"
+          },
+          {
+            "id": "BLACKWELL_CHANNEL_GPFIFO_B",
+            "parent_id": "BLACKWELL_CHANNEL_GPFIFO_A",
+            "union": "host_ops"
+          }
+        ],
+        "sec2_table": [
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM000",
+            "parent_id": null,
+            "union": "sec2_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM200",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM000",
+            "union": "sec2_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GP100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GM200",
+            "union": "sec2_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GP100",
+            "union": "sec2_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GV100",
+            "union": "sec2_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GA100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100",
+            "union": "sec2_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_AD100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GA100",
+            "union": "sec2_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GH100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_AD100",
+            "union": "sec2_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GH100",
+            "union": "sec2_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB200",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB100",
+            "union": "sec2_ops"
+          }
+        ]
+      },
+      "R595": {
+        "access_counter_buffer_table": [
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100",
+            "parent_id": null,
+            "union": "access_counter_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GA100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100",
+            "union": "access_counter_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_AD100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GA100",
+            "union": "access_counter_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GH100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_AD100",
+            "union": "access_counter_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GH100",
+            "union": "access_counter_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB200",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB100",
+            "union": "access_counter_buffer_ops"
+          }
+        ],
+        "arch_table": [
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100",
+            "parent_id": null,
+            "union": "arch_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GA100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100",
+            "union": "arch_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_AD100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GA100",
+            "union": "arch_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GH100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_AD100",
+            "union": "arch_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GH100",
+            "union": "arch_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB200",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB100",
+            "union": "arch_ops"
+          }
+        ],
+        "ce_table": [
+          {
+            "id": "TURING_DMA_COPY_A",
+            "parent_id": null,
+            "union": "ce_ops"
+          },
+          {
+            "id": "AMPERE_DMA_COPY_A",
+            "parent_id": "TURING_DMA_COPY_A",
+            "union": "ce_ops"
+          },
+          {
+            "id": "AMPERE_DMA_COPY_B",
+            "parent_id": "AMPERE_DMA_COPY_A",
+            "union": "ce_ops"
+          },
+          {
+            "id": "HOPPER_DMA_COPY_A",
+            "parent_id": "AMPERE_DMA_COPY_B",
+            "union": "ce_ops"
+          },
+          {
+            "id": "BLACKWELL_DMA_COPY_A",
+            "parent_id": "HOPPER_DMA_COPY_A",
+            "union": "ce_ops"
+          },
+          {
+            "id": "BLACKWELL_DMA_COPY_B",
+            "parent_id": "BLACKWELL_DMA_COPY_A",
+            "union": "ce_ops"
+          }
+        ],
+        "chip_table": [
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB100 | NV2080_CTRL_MC_ARCH_INFO_IMPLEMENTATION_GB10B",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB100",
+            "union": "arch_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB200 | NV2080_CTRL_MC_ARCH_INFO_IMPLEMENTATION_GB20B",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB200",
+            "union": "arch_ops"
+          }
+        ],
+        "fault_buffer_table": [
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100",
+            "parent_id": null,
+            "union": "fault_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GA100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100",
+            "union": "fault_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_AD100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GA100",
+            "union": "fault_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GH100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_AD100",
+            "union": "fault_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GH100",
+            "union": "fault_buffer_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB200",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB100",
+            "union": "fault_buffer_ops"
+          }
+        ],
+        "host_table": [
+          {
+            "id": "TURING_CHANNEL_GPFIFO_A",
+            "parent_id": null,
+            "union": "host_ops"
+          },
+          {
+            "id": "AMPERE_CHANNEL_GPFIFO_A",
+            "parent_id": "TURING_CHANNEL_GPFIFO_A",
+            "union": "host_ops"
+          },
+          {
+            "id": "HOPPER_CHANNEL_GPFIFO_A",
+            "parent_id": "AMPERE_CHANNEL_GPFIFO_A",
+            "union": "host_ops"
+          },
+          {
+            "id": "BLACKWELL_CHANNEL_GPFIFO_A",
+            "parent_id": "HOPPER_CHANNEL_GPFIFO_A",
+            "union": "host_ops"
+          },
+          {
+            "id": "BLACKWELL_CHANNEL_GPFIFO_B",
+            "parent_id": "BLACKWELL_CHANNEL_GPFIFO_A",
+            "union": "host_ops"
+          }
+        ],
+        "sec2_table": [
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100",
+            "parent_id": null,
+            "union": "sec2_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GA100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_TU100",
+            "union": "sec2_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_AD100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GA100",
+            "union": "sec2_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GH100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_AD100",
+            "union": "sec2_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB100",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GH100",
+            "union": "sec2_ops"
+          },
+          {
+            "id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB200",
+            "parent_id": "NV2080_CTRL_MC_ARCH_INFO_ARCHITECTURE_GB100",
+            "union": "sec2_ops"
+          }
+        ]
+      }
+    }
+  },
+  "created_utc": "2026-10-23T09:02:28.448244+00:00",
+  "hardware_validated": false,
+  "limitations": [
+    "The census inventories source initializers and row identifiers; it does not execute UVM table initialization or prove the runtime RM class identifiers.",
+    "GV100 rows absent from R595 indicate missing source dispatch entries; this report does not assess whether every listed table is reached in every workload.",
+    "No module was installed or loaded and no GPU was exercised."
+  ],
+  "r580_archive": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/.cache/upstream/NVIDIA-kernel-module-source-580.178.04.tar.xz",
+  "r580_archive_sha256": "060749a0df733af2d0bc863fff4581faca398048d17dbc691d039141ead391d8",
+  "r580_hal_source_sha256": "9e1c8c1e0e70d26328809713fc7af7f79e49a57a545ea474b36d70a07d56325d",
+  "r595_gpu_selector_contract": {
+    "access_counter_buffer_table": {
+      "class_id_field": "gpu_info->gpuArch",
+      "installed_pointer": "parent_gpu->access_counter_buffer_hal -> u.access_counter_buffer_ops",
+      "installs_hal_pointer": true,
+      "missing_class_status": "NV_ERR_INVALID_CLASS",
+      "null_checked_before_install": true
+    },
+    "arch_table": {
+      "class_id_field": "gpu_info->gpuArch",
+      "installed_pointer": "parent_gpu->arch_hal -> u.arch_ops",
+      "installs_hal_pointer": true,
+      "missing_class_status": "NV_ERR_INVALID_CLASS",
+      "null_checked_before_install": true
+    },
+    "ce_table": {
+      "class_id_field": "gpu_info->ceClass",
+      "installed_pointer": "parent_gpu->ce_hal -> u.ce_ops",
+      "installs_hal_pointer": true,
+      "missing_class_status": "NV_ERR_INVALID_CLASS",
+      "null_checked_before_install": true
+    },
+    "fault_buffer_table": {
+      "class_id_field": "gpu_info->gpuArch",
+      "installed_pointer": "parent_gpu->fault_buffer_hal -> u.fault_buffer_ops",
+      "installs_hal_pointer": true,
+      "missing_class_status": "NV_ERR_INVALID_CLASS",
+      "null_checked_before_install": true
+    },
+    "host_table": {
+      "class_id_field": "gpu_info->hostClass",
+      "installed_pointer": "parent_gpu->host_hal -> u.host_ops",
+      "installs_hal_pointer": true,
+      "missing_class_status": "NV_ERR_INVALID_CLASS",
+      "null_checked_before_install": true
+    },
+    "sec2_table": {
+      "class_id_field": "gpu_info->gpuArch",
+      "installed_pointer": "parent_gpu->sec2_hal -> u.sec2_ops",
+      "installs_hal_pointer": true,
+      "missing_class_status": "NV_ERR_INVALID_CLASS",
+      "null_checked_before_install": true
+    }
+  },
+  "r595_hal_source": "/usr/src/nvidia-595.99.02/nvidia-uvm/uvm_hal.c",
+  "r595_hal_source_sha256": "d3815691e974e551b0fb51ac0d7c3101b31452a56f20f8ba4098e873f6673199",
+  "r595_source": "/usr/src/nvidia-595.99.02",
+  "schema": "r595-uvm-hal-table-closure-v2",
+  "source_dispatch_complete_for_gv100": false
+}

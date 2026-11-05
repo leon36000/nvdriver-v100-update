@@ -1,0 +1,32 @@
+{
+  "analysis": {
+    "evidence_id": "ev_48d6297c04c76c22874ea7010330d934f60d0c5cef1f54fe48ca750d1b0fdd57",
+    "ghidra_warning_comment_count": 9,
+    "jdk": "21.0.13",
+    "normalized_result_bytes": 48309,
+    "normalized_result_sha256": "b6e951a9226d422f2e510864d006f09d07e01b04aaca37a6377d72ded58c7462",
+    "operation": "procedure_pseudo_code",
+    "procedure": "uvm_ioctl",
+    "provider": "Ghidra 12.1.4",
+    "raw_report_bytes": 53649,
+    "raw_report_sha256": "5083c93f5d83ee42fbe04435d875433fac215d58022f9d72bcd79d039e8331f8",
+    "rea_limitation_count": 8,
+    "rea_version": "6.8.0"
+  },
+  "evidence_level": "ANALYZED_STATICALLY",
+  "limits": [
+    "Pseudocode is reconstructed analysis output, not original source.",
+    "No proprietary NVIDIA binary, module insertion, GPU access, CUDA execution, UVM migration, or P2P test was performed."
+  ],
+  "repeat_check": {
+    "normalized_result_byte_identical": true,
+    "prior_normalized_result_sha256": "b6e951a9226d422f2e510864d006f09d07e01b04aaca37a6377d72ded58c7462",
+    "prior_raw_report_sha256": "ef64d4f505389a87368b29cdca6856775d4a2ca9c896786ce0dc0fe083615505"
+  },
+  "schema": "nvidia-open-uvm-ghidra-repeat-sanitized-v1",
+  "target": {
+    "artifact": "project-built R595.112.07 nvidia-uvm.ko",
+    "license": "Dual MIT/GPL",
+    "sha256": "b467e051c4af84011d512859751c20d0ef042e5c24d3281fbfb248173c18f4f2"
+  }
+}

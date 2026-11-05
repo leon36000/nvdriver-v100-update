@@ -1,0 +1,59 @@
+{
+  "classification": "isolated-complete-gv100-uvm-hal-compile-link-probe-only",
+  "evidence_level": "COMPILED",
+  "inputs": {
+    "compiler_identity": "x86_64-linux-gnu-gcc 15.2.0 (Ubuntu 15.2.0-16ubuntu1)",
+    "frontend_module_symvers_sha256": "dbcf0cc653a970395534635d7ef533c3626112a41b12f8b5cbaf6504bb903e08",
+    "r580_installer_sha256": "0aab0518db53cf73c412dc7f32bbc850ca95e839d8923d0de4bff42c1c9169ce",
+    "r580_release": "580.196.07",
+    "r580_source_license": "MIT for individual source files per NVIDIA COPYING",
+    "r580_source_subset_sha256": "21914a460f17190c43cffb75f0c35aef957e267bfefea267bc18638beae17084",
+    "r595_kernel_open_tree": "3076623c4aae49985df488e5266cf0a003042603",
+    "r595_open_gpu_kernel_modules_commit": "d8257d95ae5fed364163e4df51db66df8b1ee0d2",
+    "r595_release": "595.112.07",
+    "target_kernel": "7.0.0-38-generic"
+  },
+  "limits": [
+    "The result proves isolated source compile/link and selected callback symbol closure only.",
+    "It does not prove RM registration or runtime class selection, callback correctness on GV100, initialization, CUDA execution, memory migration, P2P, stability, or performance.",
+    "The module is an experimental build artifact and was not installed or loaded."
+  ],
+  "observed_on": "2026-11-03",
+  "result": {
+    "all_selected_callbacks_defined": true,
+    "compiled_candidate_object_count": 14,
+    "explicit_parentless_gv100_rows_in_six_hal_tables": true,
+    "link_succeeded": true,
+    "module_bytes": 61986376,
+    "module_license": "Dual MIT/GPL",
+    "module_sha256": "4a63050fcda848faa096d7d05d96819579c184cb068b4a940c6f2784e4553aa7",
+    "module_vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+    "module_version": "595.112.07",
+    "selected_callback_count": 82,
+    "volta_fault_buffer_object_compiled": true,
+    "warning_scope": "pahole version differs from the kernel build; no compiler/source diagnostics",
+    "warnings": [
+      "warning: pahole version differs from the one used to build the kernel"
+    ]
+  },
+  "runtime": {
+    "cuda_execution_validated": false,
+    "gpu_accessed": false,
+    "module_installed": false,
+    "module_loaded": false,
+    "p2p_validated": false,
+    "uvm_runtime_validated": false
+  },
+  "schema": "nvidia-r595112-gv100-hal-compile-sanitized-v1",
+  "validation": {
+    "build_log_sha256": "749bb47b095ec8526de9fddb4f40663b00d8dabb0314571a5cb4337fc6075bd7",
+    "build_tool_sha256": "5d5e86e6f4be67d06d0808194440f402aa034917c8954bdceee58646a9cb62ae",
+    "focused_tests": "50/50 passed",
+    "report_sha256": "3343ee7d0fedcd70ff8881fdba59f8659aba004cb2d9878a511ef41d2d8c6b4b",
+    "source_port_tool_sha256": "7cae7d03ace73766da88972ab6115ca05b3fe6f13e62e81480e06bfdac1e0f36",
+    "test_source_sha256": {
+      "tests/test_r595_gv100_complete_hal.py": "553866b4ee0922e9b6b939795f82f250ac9fbab04c6c8119d8cb03bd44c0266f",
+      "tests/test_uvm_port_overlay.py": "f6ecc0b1df13c8b9b9284fb50eba276f157f491d9e9a4d54dbb0e8514ffca1fc"
+    }
+  }
+}

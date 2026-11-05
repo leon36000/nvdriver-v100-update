@@ -1,0 +1,42 @@
+{
+  "limitations": [
+    "Decompiler output is pseudocode, not original source.",
+    "Ghidra reports an unreachable block and terminal-flow/thunk annotations whose runtime meaning is not independently established.",
+    "Static analysis proves neither module loading nor GPU, CUDA, UVM, P2P, stability, or performance behavior."
+  ],
+  "observed_on": "2026-11-02",
+  "procedure": {
+    "call_route_occurrences": {
+      "uvm_api_alloc_device_p2p": 1,
+      "uvm_api_disable_peer_access": 1,
+      "uvm_api_enable_peer_access": 1,
+      "uvm_api_migrate": 2,
+      "uvm_test_ioctl": 1
+    },
+    "ghidra_warning_count": 9,
+    "name": "uvm_ioctl",
+    "pseudocode_bytes": 48309,
+    "source_reference": "kernel-open/nvidia-uvm/uvm.c:996"
+  },
+  "qualification": "static-decompilation-of-exact-reproducible-module",
+  "raw_analysis": {
+    "bytes": 53577,
+    "included_in_git": false,
+    "mode": "0600",
+    "retained_locally": true,
+    "sha256": "ef64d4f505389a87368b29cdca6856775d4a2ca9c896786ce0dc0fe083615505"
+  },
+  "schema": "nvidia-r595-uvm-ghidra-decompilation-sanitized-v1",
+  "subject": {
+    "architecture": "x86_64",
+    "module": "nvidia-uvm.ko",
+    "sha256": "b467e051c4af84011d512859751c20d0ef042e5c24d3281fbfb248173c18f4f2",
+    "source_tree_sha256": "438de403568dc865f4080112f28b37d91794c3598086c1f75287180dec80328f"
+  },
+  "tool": {
+    "name": "REA",
+    "provider": "Ghidra",
+    "provider_version": "12.1.4",
+    "version": "6.8.0"
+  }
+}

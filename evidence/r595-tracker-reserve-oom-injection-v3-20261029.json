@@ -1,0 +1,101 @@
+{
+  "base_candidate": "build/experiments/r595-pmm-tracker-wait-outside-root-bitlock-final-v1-20261029/candidate",
+  "build": {
+    "btf": "skipped because vmlinux and pahole were unavailable",
+    "command": [
+      "make",
+      "-B",
+      "-C",
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-tracker-reserve-oom-injection-v1-20261029/candidate",
+      "KERNEL_UNAME=7.0.0-38-generic",
+      "NV_KERNEL_MODULES=nvidia-uvm",
+      "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-provider-identity-frontend-v1-20261028T2032Z/Module.symvers",
+      "NV_KERNEL_EXTRA_CONFTEST_KBUILD=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-tracker-reserve-oom-injection-v1-20261029/candidate/nvidia-conftest-only.Kbuild",
+      "KCFLAGS=-DUVM_TEST_TRACKER_OOM_INJECTION",
+      "-j2",
+      "modules"
+    ],
+    "exit_code": 0,
+    "kernel_release": "7.0.0-38-generic",
+    "log": "evidence/logs/r595-tracker-reserve-oom-injection-v1-20261029-build-v3.log",
+    "log_sha256": "c676607a6fea1d997337401f0cd0dd22711d9c5f83b1dc20c8e593acaa761335"
+  },
+  "canary_preflight_refreshed": false,
+  "candidate_source": {
+    "compile_macro": "UVM_TEST_TRACKER_OOM_INJECTION",
+    "path": "build/experiments/r595-tracker-reserve-oom-injection-v1-20261029/candidate",
+    "source_sha256": {
+      "uvm_tracker.c": "2b158f8253659085b349aab3cc7b4321df54a06a22776085bb303a7d0452a10e",
+      "uvm_tracker.h": "48a1c6f031b79f55c57a5acd5414c46b5ba8d4d4699d933716b708853fd43771",
+      "uvm_tracker_test.c": "3286bdff14c462801a89522164a390bd6033dfe28c331aabd691fdbf433e07d5"
+    }
+  },
+  "contract_test": {
+    "focused_result": "2/2 passed",
+    "negative_mutations": [
+      "unscoped tracker target",
+      "missing cleanup reset",
+      "injection outside compile guard"
+    ],
+    "path": "tests/test_r595_tracker_reserve_failure_hook.py",
+    "sha256": "0e7644ae54bdb06d9fefbc42148d3e2f16fa166074a7dd49a062ac8fd5ecca28"
+  },
+  "limitations": [
+    "UVM test ioctl not executed",
+    "no module inserted or installed",
+    "no GPU semaphore or UVM runtime exercised",
+    "no lockdep/KASAN/KCSAN run"
+  ],
+  "module": {
+    "bytes": 62070280,
+    "depends": "nvidia",
+    "installed": false,
+    "loaded": false,
+    "name": "nvidia_uvm",
+    "path": "build/experiments/r595-tracker-reserve-oom-injection-v1-20261029/candidate/nvidia-uvm.ko",
+    "sha256": "63e513225d26358e27e1339244ca76eb66a98ad04aed6eae711bd27c813027b8",
+    "signed": false,
+    "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+    "version": "595.99.02"
+  },
+  "observed_at_utc": "2026-10-29T05:19:49.444033+00:00",
+  "patch": {
+    "apply_result": "clean, no offset or fuzz",
+    "files": [
+      "nvidia-uvm/uvm_tracker.c",
+      "nvidia-uvm/uvm_tracker.h",
+      "nvidia-uvm/uvm_tracker_test.c"
+    ],
+    "path": "patches/r595.99.02/0012-test-only-tracker-reserve-oom-injection.patch",
+    "sha256": "e85a9443bd743acd8b5d448678b491a9403e0d62c9b7785086cd0a285ebfb5c6"
+  },
+  "pc3_host_snapshot": {
+    "collected_at_utc": "2026-10-29T05:02:30.877191Z",
+    "driver": "595.99.02",
+    "gpu_state": {
+      "rtx5080": "0000:02:00.0 bound to nvidia",
+      "v100": "0000:81:00.0 bound to vfio-pci"
+    },
+    "kernel_release": "7.0.0-38-generic",
+    "lockdown": "integrity",
+    "module_sig_enforce": true,
+    "path": "evidence/pc3-canary-host-state-20261029.json",
+    "secure_boot": true,
+    "sha256": "1101e9c7450e60d8dd124605f6a40f620c7af14729c6dd008bce9cecfef61aaf"
+  },
+  "qualification": "isolated-test-candidate-compiled; software-suite-passed",
+  "runtime_or_hardware_validated": false,
+  "schema": "r595-tracker-reserve-oom-injection-build-v3",
+  "software_suite": {
+    "exit_code": 0,
+    "log": "evidence/logs/software-verification-r595-tracker-reserve-oom-injection-v3-20261029.log",
+    "log_sha256": "6329cc4bc70f6381fa98f2a1c6b2e86d7782a13219f398f3513fe1fd675b96e4",
+    "path": "evidence/software-verification-r595-tracker-reserve-oom-injection-v3-20261029.json",
+    "qualification": "software-suite-only",
+    "seconds": 128.53,
+    "sha256": "4eca59253e0e1cef312ed41f50345fb7d3596ea0d285f5520039b3d98b31e254",
+    "status": "pass",
+    "tests_run": 1998
+  },
+  "source_release": "NVIDIA Open GPU Kernel Modules R595.99.02"
+}

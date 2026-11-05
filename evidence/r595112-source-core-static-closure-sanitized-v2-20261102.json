@@ -1,0 +1,109 @@
+{
+  "build_inputs_identical_across_clean_builds": true,
+  "build_inputs_sha256": {
+    "build_implementation": "d30b3dd764c7e1913f35215e390a51ce0eca06aa3669bc4884aff55deeff6be8",
+    "compiler": "b5f1b773a7c733738352000c92a077dc5852a1a2fc6d836b1e411be1e9ec5f88",
+    "extra_conftest_kbuild": "dc90d02badd5d8b0a28b2ff9b9de5ef9bc9430df8982c5f598ce98d7a8f2d972",
+    "frontend_module_symvers": "dbcf0cc653a970395534635d7ef533c3626112a41b12f8b5cbaf6504bb903e08",
+    "kernel_config": "6cb18717c6914d4947489eedf8cb69ac23db3faa8ef9b9f563ff02c346dcd32d",
+    "kernel_module_symvers": "ea539a464a3beb960dc84288afaf41c1e2d6a4506902af14affe80111d1bf97e",
+    "kernel_release_file": "61cafccad934c3a098f66b55ede259d2230340eb2d95e11b077f7ab3a9f2c32f"
+  },
+  "isolated_depmod": {
+    "audit_report_sha256": "675c1a65a154809fad203a87d36f14021b9720e4f0f3c97ad5756e882f317ffb",
+    "depmod_report_sha256": "9ee7630233e451255e2c7be144caca47cd45b27c5bb451d6c70481fc4ca841cd",
+    "module_load_attempted": false,
+    "nvidia_insert_order": [
+      "hybrid580_open.ko",
+      "hybrid580_legacy.ko",
+      "nvidia.ko"
+    ],
+    "nvidia_uvm_insert_order": [
+      "hybrid580_open.ko",
+      "hybrid580_legacy.ko",
+      "nvidia.ko",
+      "nvidia_uvm.ko"
+    ],
+    "soft_dependency_targets": {
+      "ecdh_generic": "kernel-builtin",
+      "ecdsa_generic": "loadable-module"
+    }
+  },
+  "kernel_release": "7.0.0-38-generic",
+  "modules": {
+    "frontend": {
+      "depends": [
+        "hybrid580_legacy",
+        "hybrid580_open"
+      ],
+      "name": "nvidia",
+      "sha256": "ae7f2f72e8214b1d5b970e3b2f202c059d82a290f61a99fa07cce24188a58748",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions"
+    },
+    "legacy": {
+      "depends": [],
+      "name": "hybrid580_legacy",
+      "sha256": "f38e9bf452d4d28c6ac1281eaa5095523daf231a129721db2176a4e8fa2ee02f",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions"
+    },
+    "open": {
+      "depends": [],
+      "name": "hybrid580_open",
+      "sha256": "7880311074045543b5f08d1f53ddb312e0e263b3497386054edda36c2500f6d0",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions"
+    },
+    "uvm": {
+      "depends": [
+        "nvidia"
+      ],
+      "name": "nvidia_uvm",
+      "sha256": "b467e051c4af84011d512859751c20d0ef042e5c24d3281fbfb248173c18f4f2",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions"
+    }
+  },
+  "observed_on": "2026-11-02",
+  "qualification": "four-module-static-symbol-closure-and-isolated-dependency-resolution",
+  "rea_ghidra": {
+    "module_sha256": "b467e051c4af84011d512859751c20d0ef042e5c24d3281fbfb248173c18f4f2",
+    "procedure": "uvm_ioctl",
+    "provider": "Ghidra",
+    "provider_version": "12.1.4",
+    "raw_pseudocode_included": false,
+    "receipt_sha256": "f53fc12d07df104dec8d2671417259cf1445410c34008d1170ae4b3f2800f9a0"
+  },
+  "runtime": {
+    "cuda_execution_validated": false,
+    "gpu_accessed": false,
+    "module_installed": false,
+    "module_loaded": false
+  },
+  "schema": "nvidia-r595-source-core-static-closure-sanitized-v2",
+  "scope": "Static source/build/ABI/ELF and isolated kmod evidence only. It does not validate module activation, GPU initialization, CUDA, UVM/P2P execution, stability, recovery, or performance.",
+  "software_suite": {
+    "qualification": "software-suite-only",
+    "receipt_sha256": "4afb6c20a9edaccdeefe19254cf91eb8b8ca181c800f00ed1e6411807a6418f6",
+    "status": "pass",
+    "tests_run": 2607
+  },
+  "source_tree": {
+    "copied_source_matches_input": true,
+    "regular_file_count": 446,
+    "tree_sha256": "438de403568dc865f4080112f28b37d91794c3598086c1f75287180dec80328f"
+  },
+  "symbol_closure": {
+    "crc_mismatches": 0,
+    "export_sets_complete": true,
+    "frontend_imports": 311,
+    "frontend_imports_by_provider": {
+      "kernel": 66,
+      "legacy": 122,
+      "open": 123
+    },
+    "issues": 0,
+    "legacy_provider_imports": 305,
+    "open_provider_imports": 459,
+    "uvm_imports": 331,
+    "uvm_interface_exports": 83,
+    "uvm_interface_imports": 81
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "bundle_checks": {
+    "depmod_report_sha256": "2a89ea638185d7ea703e7c46bc0fb13f5de40b6c96bbf974902272bb57fb2325",
+    "depmod_status": "passed",
+    "four_module_audit_issue_count": 0,
+    "four_module_static_audit_sha256": "2dd95bc43925fd55fdfbd056b03237248c2913f26ec7721627cc4b1fb988138a",
+    "four_module_static_audit_status": "passed",
+    "frontend_import_count": 311,
+    "load_order_for_nvidia": [
+      "hybrid580_open.ko",
+      "hybrid580_legacy.ko",
+      "nvidia.ko"
+    ],
+    "load_order_for_nvidia_uvm": [
+      "hybrid580_open.ko",
+      "hybrid580_legacy.ko",
+      "nvidia.ko",
+      "nvidia_uvm.ko"
+    ],
+    "uvm_import_count": 331,
+    "uvm_public_interface_import_count": 81
+  },
+  "classification": "isolated-complete-gv100-uvm-hal-compile-link-probe-only",
+  "evidence_level": "COMPILED_AND_LINKED",
+  "inputs": {
+    "frontend_module_symvers_sha256": "dbcf0cc653a970395534635d7ef533c3626112a41b12f8b5cbaf6504bb903e08",
+    "hybrid_patch_count": 12,
+    "r580_installer_sha256": "0aab0518db53cf73c412dc7f32bbc850ca95e839d8923d0de4bff42c1c9169ce",
+    "r580_release": "580.196.07",
+    "r580_source_license": "MIT for individual UVM source files per NVIDIA COPYING",
+    "r580_source_subset_sha256": "21914a460f17190c43cffb75f0c35aef957e267bfefea267bc18638beae17084",
+    "r595_hybrid_destination_tree_sha256": "cdcf18c954c3893e9d7a14201b7a068ca66194e79dd85e1a1448709c9832ecaa",
+    "r595_hybrid_source_port_report_sha256": "dbaf0861c59e45b641dd9e6d86426931de3d678aae236e528c95749e5ec00eee",
+    "r595_kernel_open_tree": "3076623c4aae49985df488e5266cf0a003042603",
+    "r595_open_gpu_kernel_modules_commit": "d8257d95ae5fed364163e4df51db66df8b1ee0d2",
+    "r595_release": "595.112.07",
+    "target_kernel": "7.0.0-38-generic"
+  },
+  "limits": [
+    "Successful source compile/link and static closure do not prove runtime behavior.",
+    "The candidate has not been installed or loaded; no GPU was accessed.",
+    "The R595 MMU callback adaptation and inherited Volta HAL semantics require hardware validation.",
+    "A compile warning remains because pahole differs from the kernel build version.",
+    "The proprietary R580 backend is excluded; this receipt contains hashes and public metadata only.",
+    "Same-process CUDA on V100 and RTX 5080, UVM migration, P2P, performance, endurance, and rollback remain unvalidated."
+  ],
+  "raw_build_report_sha256": "9adf01bac04d1c4c0b1423ee681697a14a53644bccd927a47abf1da88ffc2e85",
+  "result": {
+    "all_selected_callbacks_defined": true,
+    "all_six_rows_explicit_and_parentless": true,
+    "build_exit_code": 0,
+    "build_log_sha256": "471db958a5189a168edc83cae48e95f54db5403d8e8c5a97a583698882cdec45",
+    "build_warnings": [
+      "warning: pahole version differs from the one used to build the kernel"
+    ],
+    "candidate_object_count": 14,
+    "compiled_volta_objects": [
+      "nvidia-uvm/uvm_volta.o",
+      "nvidia-uvm/uvm_volta_ce.o",
+      "nvidia-uvm/uvm_volta_fault_buffer.o",
+      "nvidia-uvm/uvm_volta_host.o",
+      "nvidia-uvm/uvm_volta_mmu.o"
+    ],
+    "complete_hal_rows": [
+      "ce_table",
+      "host_table",
+      "arch_table",
+      "access_counter_buffer_table",
+      "sec2_table",
+      "fault_buffer_table"
+    ],
+    "hybrid_isolation_parameter": {
+      "description": "Reject cross-provider UVM dependencies in hybrid mode (bool)",
+      "type": "bool"
+    },
+    "linked_this_run": true,
+    "module_bytes": 62021304,
+    "module_license": "Dual MIT/GPL",
+    "module_name": "nvidia_uvm",
+    "module_sha256": "dea278c8e2593ebf5054da6ff22622f6c2fd8e4a6c9186973a70222d481f99f5",
+    "module_vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+    "module_version": "595.112.07",
+    "selected_callback_count": 82
+  },
+  "runtime": {
+    "cuda_execution_validated": false,
+    "gpu_accessed": false,
+    "module_installed": false,
+    "module_loaded": false,
+    "p2p_validated": false,
+    "performance_validated": false,
+    "stability_validated": false,
+    "uvm_runtime_validated": false
+  },
+  "schema": "nvidia-r595112-hybrid-gv100-uvm-hal-compile-sanitized-v1",
+  "validation": {
+    "focused_tests": "78/78 passed",
+    "full_software_suite": "2661/2661 passed",
+    "full_suite_log_sha256": "44c13b97a71f1d0fb7911fcff7d495b5f29c01e5ba5521120eea941ff30c4ec8",
+    "full_suite_report_sha256": "b170b640823d522dcbb0497971f54e70e9f5f332d2be86f955aa4e1f835fd44a",
+    "rea_ghidra_receipt_sha256": "b6581b968bd28640f8581083946c03441cc38a0f4136d89918fd27475c67dfbb"
+  }
+}

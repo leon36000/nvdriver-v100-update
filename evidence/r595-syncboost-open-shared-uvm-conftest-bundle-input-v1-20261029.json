@@ -1,0 +1,50 @@
+{
+  "activation_performed": false,
+  "build_provenance": {
+    "argv": [
+      "make",
+      "-C",
+      "/tmp/nvidia-r59599-cdmm-control-v1-20261029/source/kernel-open",
+      "KERNEL_UNAME=7.0.0-38-generic",
+      "NV_KERNEL_MODULES=nvidia nvidia-uvm",
+      "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-syncboost-nvidia-frontend-v1/Module.symvers",
+      "-j2",
+      "modules"
+    ],
+    "builder_invoked": false,
+    "exit_code": 0,
+    "kind": "manual isolated make invocation",
+    "log": {
+      "bytes": 1365112,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/r595-open-shared-uvm-conftest-control-v1-20261029.log",
+      "sha256": "e733b995377344c37189c037a40d92aa5dc1a5ea0f7dd7fc1dc061d68a7decf3"
+    }
+  },
+  "conftest_types_header": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-syncboost-open-build-v2/source/kernel-open/conftest/cdmm-control-v1-types.h",
+    "sha256": "924a6b0710ee322b79b4f0204426a27244c638db9bead8284a7ec50a51c051da",
+    "shared_with_uvm_probe": true
+  },
+  "correction_report": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/r595-open-shared-uvm-conftest-symbol-count-correction-v1-20261029.json",
+    "sha256": "737bede424466b8c493cbf38627613162c490f4bcd8ab5f10127075a04ed2ff1"
+  },
+  "hardware_tested": false,
+  "kernel_release": "7.0.0-38-generic",
+  "module": {
+    "name": "hybrid580_open",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-syncboost-open-build-v2/source/kernel-open/hybrid580_open-shared-uvm-conftest-v1.ko",
+    "sha256": "34a5967a27b979f4af3653881ac9981aea639d4081d3e4a7609d78f51b4a497a"
+  },
+  "module_installed": false,
+  "module_loaded": false,
+  "observed_at_utc": "2026-10-29T11:56:15.443752+00:00",
+  "qualification": "compiled-static-input-only",
+  "runtime_or_hardware_validated": false,
+  "schema": "r595-open-static-bundle-audit-input-v1",
+  "source_control_report": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/r595-syncboost-open-shared-uvm-conftest-control-v1-20261029.json",
+    "sha256": "3532476ca18854baf9bd2129227237080e0325190871f228046e62d15ddc26d7"
+  },
+  "symvers_sha256": "0cb20019db66ddf5d1a6b3b750104d96b4d6d2e6fee4922bab93cd8174141037"
+}

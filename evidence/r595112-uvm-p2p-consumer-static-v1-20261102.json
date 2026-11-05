@@ -1,0 +1,65 @@
+{
+  "analysis": {
+    "ghidra": {
+      "call_signature_reconstructed": false,
+      "evidence_id": "ev_2fbbd20784e91d7d5c63151b8c71d3e01c6ced032a1d9b7dc96d3410c4889e49",
+      "interpretation": "Ghidra identifies the external call but omits its output-pointer argument; the source declaration and object-code register flow are recorded separately.",
+      "named_call": "nvUvmInterfaceGetP2PCaps",
+      "procedure": "get_parent_p2p_caps",
+      "provider": {
+        "id": "ghidra",
+        "version": "12.1.4"
+      },
+      "pseudocode_retained": false
+    },
+    "objdump": {
+      "analysis_kind": "static x86_64 disassembly",
+      "call_address": "0x116ed",
+      "call_relocation": "nvUvmInterfaceGetP2PCaps",
+      "output_pointer_preserved_through_call": true,
+      "output_pointer_register": "rdx",
+      "zero_fill_bytes": 72,
+      "zero_fill_qwords": 9
+    },
+    "raw_rea_report": {
+      "bytes": 5929,
+      "path": "evidence/logs/rea-r595112-get-parent-p2p-caps-20261102T223658Z.json",
+      "pseudocode_retained_in_receipt": false,
+      "sha256": "7995dabc82d6132d6a9ca7f93abc4d5fe666a4934e2b52aa61d439b9a179ee4c"
+    },
+    "source_observations": [
+      "The R595 consumer orders the RM handles by ascending UVM parent-GPU ID.",
+      "It zeroes the 72-byte P2P-capability output before the RM query.",
+      "The three-argument nvUvmInterfaceGetP2PCaps call is made inside uvm_rm_locked_call.",
+      "The caller returns the RM status and rejects INVALID or C2C link types during peer initialization."
+    ]
+  },
+  "hardware_execution_validated": false,
+  "limitations": [
+    "Ghidra pseudocode is analysis output, not NVIDIA source; its external call signature is incomplete here.",
+    "The register-flow finding is static x86_64 object-code evidence, cross-checked against the pinned source signature.",
+    "No module insertion, GPU access, RM response, CUDA execution, or P2P transfer occurred.",
+    "This does not establish whether PCIe P2P or atomics are supported by any particular topology."
+  ],
+  "module": {
+    "license_metadata": "Dual MIT/GPL",
+    "path": "build/experiments/r595112-hybrid-uvm-prefixmap-a-v1-20261102/source/nvidia-uvm.ko",
+    "sha256": "b467e051c4af84011d512859751c20d0ef042e5c24d3281fbfb248173c18f4f2",
+    "srcversion": "B39FC35C400BFBD192167CE",
+    "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions"
+  },
+  "observed_at_utc": "2026-11-02T22:47:26.340601+00:00",
+  "schema": "nvidia-hybrid.r595-uvm-p2p-consumer-ghidra.v1",
+  "source": {
+    "commit": "d8257d95ae5fed364163e4df51db66df8b1ee0d2",
+    "excerpt_sha256": "33913c7fffc5c5307969a1fd15ebdb735259705edc0e4923c3ae9897099a2af2",
+    "full_source_sha256": "66881c4ae46461314d41342b2a27df9119d68d68f90d181e3a32670dcc19f590",
+    "release": "595.112.07",
+    "repository": "NVIDIA/open-gpu-kernel-modules"
+  },
+  "status": "ANALYZED_STATICALLY",
+  "tools": {
+    "ghidra": "12.1.4",
+    "rea": "6.8.0"
+  }
+}

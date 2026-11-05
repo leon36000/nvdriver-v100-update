@@ -1,0 +1,154 @@
+{
+  "dependency_map": {
+    "loaded_or_installed": false,
+    "nvidia_order": [
+      "hybrid580_open.ko",
+      "hybrid580_legacy.ko",
+      "nvidia.ko"
+    ],
+    "qualification": "isolated-dependency-map-only",
+    "report_sha256": "2a89ea638185d7ea703e7c46bc0fb13f5de40b6c96bbf974902272bb57fb2325",
+    "runtime_or_hardware_validated": false,
+    "status": "passed",
+    "uvm_order": [
+      "hybrid580_open.ko",
+      "hybrid580_legacy.ko",
+      "nvidia.ko",
+      "nvidia_uvm.ko"
+    ]
+  },
+  "evidence_reports": {
+    "depmod": {
+      "file": "r595112-hybrid-bundle-gv100-hal-depmod-v2-20261103.json",
+      "sha256": "2a89ea638185d7ea703e7c46bc0fb13f5de40b6c96bbf974902272bb57fb2325"
+    },
+    "software_suite": {
+      "file": "software-verification-r595112-hybrid-gv100-bundle-v2-20261103.json",
+      "sha256": "b170b640823d522dcbb0497971f54e70e9f5f332d2be86f955aa4e1f835fd44a"
+    },
+    "static_bundle_audit": {
+      "file": "r595112-hybrid-bundle-gv100-hal-r580196-v2-20261103.json",
+      "sha256": "2dd95bc43925fd55fdfbd056b03237248c2913f26ec7721627cc4b1fb988138a"
+    },
+    "uvm_build_report": {
+      "file": "r595112-hybrid-gv100-hal-r580196-v1-20261103.json",
+      "sha256": "9adf01bac04d1c4c0b1423ee681697a14a53644bccd927a47abf1da88ffc2e85"
+    }
+  },
+  "limitations": [
+    "A successful compile and closed static module bundle do not establish hardware initialization or CUDA execution.",
+    "No module was installed or loaded and no GPU or remote PC was accessed in this increment.",
+    "Same-process V100 and RTX 5080 kernels, UVM runtime, P2P, performance, endurance, installation, and rollback remain unvalidated.",
+    "REA/Ghidra pseudocode is incomplete for the selected callback; the sanitized report records that limitation and an independent object disassembly observation.",
+    "The proprietary R580 backend module is represented by hashes and metadata only and is not included in this receipt."
+  ],
+  "modules": {
+    "frontend": {
+      "depends": [
+        "hybrid580_legacy",
+        "hybrid580_open"
+      ],
+      "license": "Dual MIT/GPL",
+      "name": "nvidia",
+      "sha256": "ae7f2f72e8214b1d5b970e3b2f202c059d82a290f61a99fa07cce24188a58748",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": ""
+    },
+    "legacy": {
+      "depends": [],
+      "license": "NVIDIA",
+      "name": "hybrid580_legacy",
+      "sha256": "f38e9bf452d4d28c6ac1281eaa5095523daf231a129721db2176a4e8fa2ee02f",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.196.07"
+    },
+    "open": {
+      "depends": [],
+      "license": "Dual MIT/GPL",
+      "name": "hybrid580_open",
+      "sha256": "7880311074045543b5f08d1f53ddb312e0e263b3497386054edda36c2500f6d0",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "595.112.07"
+    },
+    "uvm": {
+      "depends": [
+        "nvidia"
+      ],
+      "license": "Dual MIT/GPL",
+      "name": "nvidia_uvm",
+      "sha256": "dea278c8e2593ebf5054da6ff22622f6c2fd8e4a6c9186973a70222d481f99f5",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "595.112.07"
+    }
+  },
+  "observed_on": "2026-11-03",
+  "qualification": "compile-link-static-bundle-closure-only",
+  "reverse_engineering": {
+    "module_sha256_matches_candidate": true,
+    "qualification": "targeted-static-analysis-incomplete-decompiler-output",
+    "receipt": "r595112-hybrid-gv100-read-get-rea-sanitized-v1-20261103.json",
+    "receipt_sha256": "b6581b968bd28640f8581083946c03441cc38a0f4136d89918fd27475c67dfbb"
+  },
+  "runtime": {
+    "cuda_execution_validated": false,
+    "gpu_accessed": false,
+    "module_installed": false,
+    "module_loaded": false,
+    "p2p_validated": false,
+    "performance_validated": false,
+    "stability_validated": false,
+    "uvm_runtime_validated": false
+  },
+  "schema": "nvidia-hybrid.r595112-r580196-gv100-static-bundle-sanitized-v1",
+  "software_validation": {
+    "implementation_sources_unchanged_during_run": true,
+    "qualification": "software-suite-only",
+    "seconds": 180.922,
+    "status": "pass",
+    "suite_log_sha256": "44c13b97a71f1d0fb7911fcff7d495b5f29c01e5ba5521120eea941ff30c4ec8",
+    "suite_report_sha256": "b170b640823d522dcbb0497971f54e70e9f5f332d2be86f955aa4e1f835fd44a",
+    "test_sources_unchanged_during_run": true,
+    "tests_run": 2661
+  },
+  "source_inputs": {
+    "frontend_module_symvers_sha256": "dbcf0cc653a970395534635d7ef533c3626112a41b12f8b5cbaf6504bb903e08",
+    "hybrid_uvm_patch_count": 12,
+    "hybrid_uvm_source_port_report_sha256": "dbaf0861c59e45b641dd9e6d86426931de3d678aae236e528c95749e5ec00eee",
+    "hybrid_uvm_source_tree_fingerprint": "cdcf18c954c3893e9d7a14201b7a068ca66194e79dd85e1a1448709c9832ecaa",
+    "r580_installer_sha256": "0aab0518db53cf73c412dc7f32bbc850ca95e839d8923d0de4bff42c1c9169ce",
+    "r580_volta_uvm_release": "580.196.07",
+    "r580_volta_uvm_source_archive_sha256": "21914a460f17190c43cffb75f0c35aef957e267bfefea267bc18638beae17084",
+    "r595_kernel_open_tree": "3076623c4aae49985df488e5266cf0a003042603",
+    "r595_open_gpu_kernel_modules_commit": "d8257d95ae5fed364163e4df51db66df8b1ee0d2",
+    "r595_release": "595.112.07",
+    "target_kernel": "7.0.0-38-generic"
+  },
+  "static_closure": {
+    "frontend_import_count": 311,
+    "installed": false,
+    "issue_count": 0,
+    "loaded": false,
+    "public_uvm_interface_import_count": 81,
+    "report_sha256": "2dd95bc43925fd55fdfbd056b03237248c2913f26ec7721627cc4b1fb988138a",
+    "runtime_or_hardware_validated": false,
+    "status": "passed",
+    "uvm_import_count": 331
+  },
+  "status": "passed",
+  "uvm_hal": {
+    "build_warnings": [
+      "warning: pahole version differs from the one used to build the kernel"
+    ],
+    "callbacks_all_defined": true,
+    "candidate_module_sha256": "dea278c8e2593ebf5054da6ff22622f6c2fd8e4a6c9186973a70222d481f99f5",
+    "candidate_object_count": 14,
+    "explicit_parentless_gv100_rows": true,
+    "isolation_parameter": {
+      "description": "Reject cross-provider UVM dependencies in hybrid mode (bool)",
+      "type": "bool"
+    },
+    "linked_this_run": true,
+    "selected_callback_count": 82,
+    "volta_fault_buffer_object_compiled": true
+  }
+}

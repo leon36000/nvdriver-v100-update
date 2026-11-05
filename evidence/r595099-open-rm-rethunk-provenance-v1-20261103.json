@@ -1,0 +1,25 @@
+{
+  "classification": {
+    "match_basis": "defined-symbol-name-only",
+    "opaque_and_source_rows": 0,
+    "opaque_only_rows": 11141,
+    "source_only_rows": 0,
+    "unique_warning_symbols": 10948,
+    "unmatched_rows": 0,
+    "warning_rows": 11141
+  },
+  "inputs": {
+    "objtool_log_sha256": "0c336ed6320f9c27f2a24f90a4dc671b5f9f3ea135f2a101693fc7d80036d9a6",
+    "opaque_object_sha256": "c19870e43606b4358d9274c4d3dec2adb1822d65ce1203520a8184cf043cafe8",
+    "source_object_count": 60
+  },
+  "limits": [
+    "Classification compares warning symbol names with defined symbol tables only.",
+    "It does not inspect instruction bytes, disassemble, decompile, or prove control flow.",
+    "A name match does not establish which duplicate definition objtool analyzed.",
+    "It does not establish module safety or justify loading the module."
+  ],
+  "observed_at_utc": "2026-11-03T13:16:29.239023+00:00",
+  "schema": "nvidia-hybrid.rethunk-warning-provenance.v1",
+  "status": "ANALYZED_STATICALLY"
+}

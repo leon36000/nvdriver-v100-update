@@ -1,0 +1,63 @@
+{
+  "analysis": {
+    "analysis_profile_sha256": "ae80ece8c83379eddabbdf379bbffca5da84c7df7fa7c159f45fa810468f85d9",
+    "function_symbol": "resIsPartialUnmapSupported_d69453",
+    "ghidra_body_size_bytes": 7,
+    "ghidra_entry_address": "0xcde8b0",
+    "ghidra_instructions": [
+      {
+        "mnemonic": "ENDBR64",
+        "offset": "0x0",
+        "operands": ""
+      },
+      {
+        "mnemonic": "XOR",
+        "offset": "0x4",
+        "operands": "EAX, EAX"
+      },
+      {
+        "mnemonic": "RET",
+        "offset": "0x6",
+        "operands": ""
+      }
+    ],
+    "ghidra_ret_instruction_offset": "0x6",
+    "ghidra_version": "12.1.4",
+    "objtool_output_units": [
+      "hybrid580_open.o"
+    ],
+    "objtool_warning_offsets_for_symbol": {
+      "0x6": 94
+    },
+    "objtool_warning_rows_for_symbol": 94,
+    "opaque_object_symbol_definitions": 94,
+    "provenance_classification": {
+      "match_basis": "defined-symbol-name-only",
+      "opaque_and_source_rows": 0,
+      "opaque_only_rows": 11141,
+      "source_only_rows": 0,
+      "unique_warning_symbols": 10948,
+      "unmatched_rows": 0,
+      "warning_rows": 11141
+    },
+    "rea_version": "rea-agents@6.8.0",
+    "warning_rows_at_ghidra_ret_offset": 94
+  },
+  "inputs": {
+    "objtool_log_sha256": "0c336ed6320f9c27f2a24f90a4dc671b5f9f3ea135f2a101693fc7d80036d9a6",
+    "opaque_object_sha256": "c19870e43606b4358d9274c4d3dec2adb1822d65ce1203520a8184cf043cafe8",
+    "opaque_object_size_bytes": 17583896,
+    "warning_provenance_report_sha256": "444406042d89997a7e70cac52dec2261476d946d1a917a4b0643e2a87ad398f1"
+  },
+  "interpretation": "Ghidra observes a RET in the supplied opaque ELF at an offset reported by objtool for the same symbol in the linked module object.",
+  "limits": [
+    "Symbol-name and relative-offset correlation does not identify each linked duplicate body.",
+    "One selected function instance does not prove every duplicate instance is byte-identical.",
+    "The source-provenance aggregate is symbol-name-based and is not section-level linker provenance.",
+    "Pseudocode is not retained; no source is reconstructed or claimed.",
+    "Static analysis establishes neither exploitability nor kernel/module safety; no module was loaded."
+  ],
+  "observed_at_utc": "2026-11-03T13:32:36.281245+00:00",
+  "schema": "nvidia-hybrid.rethunk-ghidra-sample.v1",
+  "status": "ANALYZED_STATICALLY"
+}

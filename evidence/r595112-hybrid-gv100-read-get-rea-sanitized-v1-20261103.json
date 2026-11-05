@@ -1,0 +1,52 @@
+{
+  "classification": "targeted-static-analysis-incomplete-decompiler-output",
+  "independent_object_disassembly": {
+    "function_section_offset": "0x73a90",
+    "function_size_bytes": 31,
+    "interpretation": "The compiled body visibly reads the GET register value and keeps its low 20 pointer bits. It contains no compare/test branch corresponding to the source UVM_ASSERT on this path; assertion elision is consistent with the observed release artifact, but this does not characterize other build modes.",
+    "observed_instructions": [
+      "call __fentry__",
+      "load 32-bit GET-register pointer from parent_gpu offset 0x1090",
+      "load 32-bit value through GET-register pointer",
+      "mask value with 0x000fffff",
+      "jump __x86_return_thunk"
+    ],
+    "relocations": [
+      "__fentry__-0x4",
+      "__x86_return_thunk-0x4"
+    ],
+    "report_sha256": "a9b254786a2a2312b50d301dc5035821beea42b46aae348c121b1bc0011c4910",
+    "tool": "GNU objdump -dr"
+  },
+  "limitations": [
+    "Static analysis only; no execution on Volta or any GPU.",
+    "The Ghidra pseudocode is incomplete because of the fentry control-flow classification.",
+    "The objdump instruction interpretation is based on the compiled module and does not prove MMIO behavior, GPU register semantics, callback selection, or fault-buffer correctness.",
+    "The raw Ghidra report and disassembly are local ignored artifacts; only this path-free receipt is suitable for transfer."
+  ],
+  "procedure": "uvm_hal_volta_fault_buffer_read_get",
+  "rea": {
+    "authority": "shipped-artifact",
+    "confidence": "observed",
+    "decompiler_output_complete": false,
+    "evidence_id": "ev_9f72005d79533aa95760a713a14e7af2b9819350b10bfb2dbf8fc17e0de105ef",
+    "observed_limitation": "Ghidra reports the entry call to __fentry__ as terminal (hasNoReturn=true); its pseudocode leaves the loaded GET value unresolved. The pseudocode is not used as recovered source.",
+    "output_sha256": "3e2c3cd63697e3f2f8195c79550ddf987b1c958191a25b95bed1e8c527725efe",
+    "provider": "Ghidra",
+    "provider_version": "12.1.4",
+    "report_sha256": "68a0b172ae16ef1a7d9a79f2d8f41bb4149535ccb94693996d4166eccafcecc5",
+    "version": "6.8.0"
+  },
+  "schema": "nvidia-hybrid.r595112-gv100-rea-ghidra-sanitized-v1",
+  "source_reference": {
+    "behavior": "UVM_GPU_READ_ONCE of pFaultBufferGet; UVM_ASSERT that GET is below max_faults; READ_HWVALUE extracts FAULT_BUFFER_GET.PTR.",
+    "file": "uvm_volta_fault_buffer.c",
+    "sha256": "d0b8cfcf715246b49741314e0009b78c798719b634269ee44a75ee12f9874e77"
+  },
+  "subject": {
+    "architecture": "x86_64",
+    "kernel_release": "7.0.0-38-generic",
+    "name": "nvidia-uvm.ko",
+    "sha256": "dea278c8e2593ebf5054da6ff22622f6c2fd8e4a6c9186973a70222d481f99f5"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema": "nvidia-hybrid.r595112-gv100-rea-ghidra-sanitized-v2",
+  "status": "analyzed_statically",
+  "subject": {
+    "name": "nvidia-uvm.ko",
+    "architecture": "x86_64",
+    "kernel_release": "7.0.0-38-generic",
+    "sha256": "dea278c8e2593ebf5054da6ff22622f6c2fd8e4a6c9186973a70222d481f99f5"
+  },
+  "tools": {
+    "rea": "6.8.0",
+    "ghidra": "12.1.4",
+    "entry_hook_script": {
+      "path": "tools/ghidra/ReclassifyKernelEntryHookAndDecompile.java",
+      "sha256": "ede924c4c3ed45cbebb7bbb385bc2e46dd48fb5d8eb10a0865b53f5b3f0662ef"
+    },
+    "independent_disassembler": "GNU objdump -dr"
+  },
+  "procedure": "uvm_hal_volta_fault_buffer_read_get",
+  "ghidra_follow_up": {
+    "initial_entry_hook_state": {
+      "symbol": "__fentry__",
+      "is_thunk": true,
+      "is_external": false,
+      "has_no_return": true
+    },
+    "corrected_analysis_state": {
+      "has_no_return": false,
+      "elf_modified": false
+    },
+    "pseudocode_output_sha256": "d4f93aa8c839fb4d04c880271ca33d3120d35c3c12f18a3f68fc97c35753e591",
+    "decompiler_output_complete": false,
+    "remaining_limitation": "After correcting the entry-hook flow metadata, Ghidra emits a return path but still leaves the optimized local GET value unresolved. The pseudocode is not used as recovered source."
+  },
+  "independent_object_disassembly": {
+    "function_section_offset": "0x73a90",
+    "function_size_bytes": 31,
+    "observed_instructions": [
+      "call __fentry__",
+      "load 32-bit GET-register pointer from parent_gpu offset 0x1090",
+      "load 32-bit value through GET-register pointer",
+      "mask value with 0x000fffff",
+      "jump __x86_return_thunk"
+    ],
+    "relocations": [
+      "__fentry__-0x4",
+      "__x86_return_thunk-0x4"
+    ],
+    "report_sha256": "a9b254786a2a2312b50d301dc5035821beea42b46aae348c121b1bc0011c4910",
+    "interpretation": "The compiled body reads the GET-register value and retains its low 20 pointer bits. It has no compare/test branch corresponding to the source UVM_ASSERT on this path; assertion elision is consistent with this release artifact only."
+  },
+  "source_reference": {
+    "file": "uvm_volta_fault_buffer.c",
+    "sha256": "d0b8cfcf715246b49741314e0009b78c798719b634269ee44a75ee12f9874e77",
+    "behavior": "Read pFaultBufferGet once, assert the GET value is below max_faults, and extract FAULT_BUFFER_GET.PTR."
+  },
+  "limitations": [
+    "Static analysis only; no execution on Volta or any GPU.",
+    "Ghidra output remains incomplete and does not establish the source-level implementation.",
+    "The disassembly does not establish MMIO semantics, callback selection, register correctness, or fault-buffer behavior on GV100 hardware.",
+    "The local REA report, Ghidra project, pseudocode, and raw disassembly are excluded from the transfer snapshot; this receipt contains no workstation paths."
+  ],
+  "supersedes": "r595112-hybrid-gv100-read-get-rea-sanitized-v1-20261103.json"
+}

@@ -1,0 +1,106 @@
+{
+  "comparison": {
+    "btf_generation_skipped": true,
+    "btf_skip_reason": "target header tree lacks vmlinux",
+    "core_object_references_x86_return_thunk": true,
+    "kernel_exports_x86_return_thunk": true,
+    "modpost_completed": true,
+    "patched_build_exit_code": 0,
+    "patched_build_log": "build/experiments/r595112-rethunk-prepared-20261102/build.log",
+    "patched_build_log_sha256": "fb94cf0a55a5e8187174f726b7511d69810bac9e5120eaa2f016b6ade69f8e48",
+    "patched_error_count": 0,
+    "patched_other_warning_count": 19,
+    "patched_rethunk_warning_count": 0,
+    "prepared_source_build_exit_code": 0,
+    "remaining_warning_classes": {
+      "Wexpansion-to-defined": 7,
+      "Wmissing-prototypes": 6,
+      "Woverloaded-virtual": 6
+    },
+    "unpatched_build_log_sha256": "43907a1d826f243e68245e08af8d9ac18f9c7a175d0bf26b26eabf44aae644c8",
+    "unpatched_rethunk_warning_count": 11101,
+    "unpatched_total_warning_lines": 11120
+  },
+  "modules": {
+    "nvidia-uvm.ko": {
+      "bytes": 57133072,
+      "depends": "nvidia",
+      "license": "Dual MIT/GPL",
+      "sha256": "6a92c3b0a9fa1b03deccd1b3f8b00c1b71665712672e8b51e089291f5ddfd820",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "595.112.07"
+    },
+    "nvidia.ko": {
+      "bytes": 37726528,
+      "depends": "",
+      "license": "Dual MIT/GPL",
+      "sha256": "a122428da29d909b3bfa2d6b5a5bd1bab7ae237f590eb8ef58e35b81a4f04298",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "595.112.07"
+    }
+  },
+  "observed_at_utc_date": "2026-11-02",
+  "patch": {
+    "exact_patch_replay": true,
+    "fixture_makefile_sha256": "a5b0653bd0142ca0d1ffeaac895750a3c76bd66f4d24b8ae9496bd04025112ee",
+    "focused_tests": "2/2",
+    "path": "patches/r595.112.07/0001-open-core-rethunk-return-thunk.patch",
+    "sha256": "8382686ee6626a0b01ad4d05757751fb054fcf1410cae02d990f2575d975ddec",
+    "zero_offset_zero_fuzz": true
+  },
+  "qualification": {
+    "cuda_validated": false,
+    "gpu_accessed": false,
+    "hybrid_stack_validated": false,
+    "loaded_or_installed": false,
+    "runtime_or_hardware_validated": false,
+    "state": "compiled",
+    "uvm_or_p2p_runtime_validated": false
+  },
+  "schema": "r595112-linux70-rethunk-source-build-v1",
+  "software_suite": {
+    "implementation_source_count": 92,
+    "log_path": "evidence/logs/software-verification-r595112-rethunk-v2-20261102.log",
+    "log_sha256": "868f73eb93403cc11983f5547fcf93a2719c0db4817f193039349dac66262b87",
+    "qualification": "software-suite-only",
+    "report_path": "evidence/logs/software-verification-r595112-rethunk-v2-20261102.json",
+    "report_sha256": "53cc153529336cdb71f1a4cfe1e00fd2992e72d32077cd15f657fe1cfbc2e1ac",
+    "reported_seconds": 178.251,
+    "status": "pass",
+    "test_source_count": 388,
+    "tests_run": 2590
+  },
+  "source": {
+    "checkout_clean_before_build": true,
+    "commit": "d8257d95ae5fed364163e4df51db66df8b1ee0d2",
+    "patched_makefile_sha256": "5d8734c91b9721054e222fddd65e14b5b4567d893e943c798fbc7665503e980d",
+    "repository": "NVIDIA/open-gpu-kernel-modules",
+    "upstream_makefile": "src/nvidia/Makefile",
+    "upstream_makefile_sha256": "a5b0653bd0142ca0d1ffeaac895750a3c76bd66f4d24b8ae9496bd04025112ee",
+    "version": "595.112.07"
+  },
+  "source_preparation": {
+    "exact_patch_replay": true,
+    "prepared_tree_fingerprint": "731a36f5ff8df5153ce117d06ab87c9de1aeae7817040f0a6428a4a5aab8c410",
+    "raw_report": "build/experiments/r595112-rethunk-prepared-20261102/prepare-report.json",
+    "raw_report_sha256": "0c92f6fb2b7771fbb602c24861f161dc2663362840281efce9c68db13a435922",
+    "source_fingerprint": "5e44d12a34705f915da7365e23b29904f509dd56eb9c99705713bc497c693e52",
+    "source_tree_modified": false,
+    "status": "prepared",
+    "tool": "tools/prepare_r595_hybrid_source.py",
+    "zero_offset_zero_fuzz": true
+  },
+  "target_kernel": {
+    "config_cc_has_return_thunk": true,
+    "config_mitigation_rethunk": true,
+    "config_objtool_werror": false,
+    "module_symvers_sha256": "ea539a464a3beb960dc84288afaf41c1e2d6a4506902af14affe80111d1bf97e",
+    "release": "7.0.0-38-generic"
+  },
+  "toolchain": {
+    "build_jobs": 4,
+    "compiler": "x86_64-linux-gnu-gcc 15.2.0-16ubuntu1",
+    "pahole": "v1.31",
+    "pahole_system_install": false
+  }
+}

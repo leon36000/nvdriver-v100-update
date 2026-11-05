@@ -1,0 +1,52 @@
+{
+  "classification": "static-decompilation-of-project-built-open-module",
+  "ghidra_version": "12.1.4",
+  "java_version": "21.0.13",
+  "limitations": [
+    "Ghidra relationships confirm only resolved static references in this exact compiled open module.",
+    "uvm_gpu_init is a global table initializer; add_gpu is the per-GPU path that references uvm_hal_init_gpu.",
+    "The result does not prove returned RM architecture/classes, successful table lookup, module load, UVM behavior, CUDA execution, or GPU initialization.",
+    "The full Ghidra dossier, pseudocode, assembly, and workstation paths are excluded from this receipt."
+  ],
+  "module": {
+    "license": "Dual MIT/GPL",
+    "sha256": "7284d09d2f3ddafc24805ce9702d3bc596a3f2919468f79c5d9a9ac586f3cd48",
+    "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+    "version": "595.112.07"
+  },
+  "procedures": {
+    "global_init": {
+      "address": "0x11b990",
+      "direct_callee_count": 6,
+      "direct_caller_count": 1,
+      "procedure": "uvm_gpu_init",
+      "pseudocode_retained": false,
+      "rea_evidence_sha256": "8dfed0177307927e23128f4d465a10a6a941a03bfbc38628c3878edac3b5cd9b",
+      "relationship_coverage": "complete",
+      "required_direct_callee": "uvm_hal_init_table",
+      "required_direct_callee_observed": true,
+      "required_direct_caller": "uvm_global_init",
+      "required_direct_caller_observed": true,
+      "scope": "global UVM HAL table initialization"
+    },
+    "per_gpu_add": {
+      "address": "0x11c270",
+      "direct_callee_count": 66,
+      "direct_caller_count": 1,
+      "procedure": "add_gpu",
+      "pseudocode_retained": false,
+      "rea_evidence_sha256": "fe2505f1258fb4c705b4b64cd3a225009f5648bfa69d797a65d1daa2b2550af5",
+      "relationship_coverage": "complete",
+      "required_direct_callee": "uvm_hal_init_gpu",
+      "required_direct_callee_observed": true,
+      "required_direct_caller": "uvm_gpu_retain_by_uuid",
+      "required_direct_caller_observed": true,
+      "scope": "per-GPU registration and HAL dispatch path"
+    }
+  },
+  "pseudocode_retained": false,
+  "qualification": "ANALYZED_STATICALLY",
+  "rea_version": "6.8.0",
+  "runtime_or_hardware_validated": false,
+  "schema": "r595112-open-uvm-add-gpu-ghidra-sanitized-v1"
+}

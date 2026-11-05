@@ -1,0 +1,229 @@
+{
+  "actions": {
+    "cuda_api_called": false,
+    "gpu_accessed": false,
+    "module_loaded_or_installed": false,
+    "package_installed": false,
+    "package_scripts_run": false,
+    "system_library_paths_changed": false
+  },
+  "observed_at_utc": "2026-11-01T01:25:14.714764+00:00",
+  "package": {
+    "apt_filename": "pool/restricted/n/nvidia-graphics-drivers-595/libnvidia-compute-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+    "architecture": "amd64",
+    "archive": "packages/libnvidia-compute-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+    "bytes": 85770234,
+    "deb_identity": {
+      "fields": {
+        "Architecture": "amd64",
+        "Package": "libnvidia-compute-595",
+        "Version": "595.99.02-0ubuntu0.26.04.1"
+      },
+      "method": "dpkg-deb --field; no extraction or maintainer scripts",
+      "verified": true
+    },
+    "package": "libnvidia-compute-595",
+    "packages_index_sha256": "58754027a2f17d9ab09eb4dcf4c22f14ad6221695b8de57fecc5160a5e1414f5",
+    "path": ".cache/canary/pc3-r595-recovery-20261028T1629Z/packages/libnvidia-compute-595_595.99.02-0ubuntu0.26.04.1_amd64.deb",
+    "sha256": "a8f3ed02c0a89502b24a4fdf6a8dd88ffd646c254896cb3e12e8f74bebb06136",
+    "signed_release_sha256": "ebbcd81b1c46264144baa563be8d74971303ef8008ef291b8a01ec44f786f829",
+    "signed_source": "resolute-updates/restricted",
+    "version": "595.99.02-0ubuntu0.26.04.1"
+  },
+  "provenance": {
+    "archive_audit": {
+      "path": "evidence/pc3-r595-recovery-archive-audit-v5-20261029T0205Z.json",
+      "schema": "pc3-r595-recovery-archive-audit-v1",
+      "sha256": "2f70be2ee82521b5822a0b960cffc29d3cbfd907825c10550708040bf7be1f23",
+      "status": "all-archives-match-signed-ubuntu-indexes"
+    },
+    "manifest": {
+      "path": ".cache/canary/pc3-r595-recovery-20261028T1629Z/manifest.json",
+      "sha256": "eedb4723859f6c737ee8d0dbf975a8d77ea9076bc84824b0e16d2fb89bcccad2"
+    },
+    "package_signed_source": "resolute-updates/restricted",
+    "packages_index_sha256": "58754027a2f17d9ab09eb4dcf4c22f14ad6221695b8de57fecc5160a5e1414f5",
+    "signed_release_sha256": "ebbcd81b1c46264144baa563be8d74971303ef8008ef291b8a01ec44f786f829",
+    "signing_fingerprint": "F6ECB3762474EDA9D21B7022871920D1991BC93C"
+  },
+  "qualification": "pinned-r595-compute-userland-staged; no runtime test",
+  "schema": "r595.99.02-compute-userland-stage-v1",
+  "stage": {
+    "file_count": 24,
+    "files": [
+      {
+        "bytes": 22,
+        "path": "etc/OpenCL/vendors/nvidia.icd",
+        "sha256": "4ad07f8afc189894374aecb91023e6ff16bbceedf82496c04c0fdb0e2fe81e73",
+        "type": "file"
+      },
+      {
+        "path": "usr/lib/x86_64-linux-gnu/libcuda.so",
+        "target": "libcuda.so.1",
+        "type": "symlink"
+      },
+      {
+        "path": "usr/lib/x86_64-linux-gnu/libcuda.so.1",
+        "target": "libcuda.so.595.99.02",
+        "type": "symlink"
+      },
+      {
+        "bytes": 91505672,
+        "path": "usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+        "sha256": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d",
+        "type": "file"
+      },
+      {
+        "path": "usr/lib/x86_64-linux-gnu/libcudadebugger.so.1",
+        "target": "libcudadebugger.so.595.99.02",
+        "type": "symlink"
+      },
+      {
+        "bytes": 11732000,
+        "path": "usr/lib/x86_64-linux-gnu/libcudadebugger.so.595.99.02",
+        "sha256": "29937241be4f960d9af9e1dd6330289f44405bf5a2c7e363c92bacfb30283928",
+        "type": "file"
+      },
+      {
+        "path": "usr/lib/x86_64-linux-gnu/libnvidia-ml.so",
+        "target": "libnvidia-ml.so.1",
+        "type": "symlink"
+      },
+      {
+        "path": "usr/lib/x86_64-linux-gnu/libnvidia-ml.so.1",
+        "target": "libnvidia-ml.so.595.99.02",
+        "type": "symlink"
+      },
+      {
+        "bytes": 2621336,
+        "path": "usr/lib/x86_64-linux-gnu/libnvidia-ml.so.595.99.02",
+        "sha256": "770e9de75c14b07cce9718b214700b10e6d6866f7383101d6fe530352543b1de",
+        "type": "file"
+      },
+      {
+        "path": "usr/lib/x86_64-linux-gnu/libnvidia-nvvm.so",
+        "target": "libnvidia-nvvm.so.4",
+        "type": "symlink"
+      },
+      {
+        "path": "usr/lib/x86_64-linux-gnu/libnvidia-nvvm.so.4",
+        "target": "libnvidia-nvvm.so.595.99.02",
+        "type": "symlink"
+      },
+      {
+        "bytes": 78298472,
+        "path": "usr/lib/x86_64-linux-gnu/libnvidia-nvvm.so.595.99.02",
+        "sha256": "c46912fc1ae348d34c5235bed3df50ee4d2bbabaa66218485f8759a3d8f87d85",
+        "type": "file"
+      },
+      {
+        "path": "usr/lib/x86_64-linux-gnu/libnvidia-nvvm70.so",
+        "target": "libnvidia-nvvm70.so.4",
+        "type": "symlink"
+      },
+      {
+        "bytes": 24829456,
+        "path": "usr/lib/x86_64-linux-gnu/libnvidia-nvvm70.so.4",
+        "sha256": "e327630af7997043cac342471bb303fdc212ae00c687b53b68e60cee1f910b24",
+        "type": "file"
+      },
+      {
+        "path": "usr/lib/x86_64-linux-gnu/libnvidia-opencl.so.1",
+        "target": "libnvidia-opencl.so.595.99.02",
+        "type": "symlink"
+      },
+      {
+        "bytes": 87287440,
+        "path": "usr/lib/x86_64-linux-gnu/libnvidia-opencl.so.595.99.02",
+        "sha256": "31fda0312671d9ab7373ce58fc8ce1f0572ce8afdf52f73f124c9a2e321c5154",
+        "type": "file"
+      },
+      {
+        "bytes": 14336,
+        "path": "usr/lib/x86_64-linux-gnu/libnvidia-pkcs11-openssl3.so.595.99.02",
+        "sha256": "4af69049c35ac00e8522492bc62398800bfd46f072200bb06745a9e2cecd50e3",
+        "type": "file"
+      },
+      {
+        "bytes": 14328,
+        "path": "usr/lib/x86_64-linux-gnu/libnvidia-pkcs11.so.595.99.02",
+        "sha256": "fa6fece755b9a51f86a57c1821cf5a2fa51400f384564ae47e3f275995941e8b",
+        "type": "file"
+      },
+      {
+        "path": "usr/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so",
+        "target": "libnvidia-ptxjitcompiler.so.1",
+        "type": "symlink"
+      },
+      {
+        "path": "usr/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so.1",
+        "target": "libnvidia-ptxjitcompiler.so.595.99.02",
+        "type": "symlink"
+      },
+      {
+        "bytes": 32826968,
+        "path": "usr/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so.595.99.02",
+        "sha256": "d7815bf9ed9eb33cf47055208cc6f5fc0d09c530508ccf59b1c3dd5c338ad2d0",
+        "type": "file"
+      },
+      {
+        "bytes": 97276648,
+        "path": "usr/lib/x86_64-linux-gnu/libnvidia-tileiras.so.595.99.02",
+        "sha256": "bf1403596147d9a51fce134b08ce6a68190f139315a6385b80a7b8785b5a2dae",
+        "type": "file"
+      },
+      {
+        "bytes": 537,
+        "path": "usr/share/doc/libnvidia-compute-595/changelog.Debian.gz",
+        "sha256": "1ff55e3deb1d0d0bbfe5f2418c898764bf2bc957a0d6f2818a8427ef800f967b",
+        "type": "file"
+      },
+      {
+        "bytes": 29736,
+        "path": "usr/share/doc/libnvidia-compute-595/copyright",
+        "sha256": "d088d505751b1a2246744d16bdb5846d0df1a804700ab8d09330b6e79165edef",
+        "type": "file"
+      }
+    ],
+    "libraries": {
+      "cuda_debugger": {
+        "bytes": 11732000,
+        "path": "usr/lib/x86_64-linux-gnu/libcudadebugger.so.595.99.02",
+        "sha256": "29937241be4f960d9af9e1dd6330289f44405bf5a2c7e363c92bacfb30283928"
+      },
+      "libcuda": {
+        "bytes": 91505672,
+        "path": "usr/lib/x86_64-linux-gnu/libcuda.so.595.99.02",
+        "sha256": "192d4eedb1b39f0568f2b5423d35227d13b32b9025599e1968a9081982da207d"
+      },
+      "nvml": {
+        "bytes": 2621336,
+        "path": "usr/lib/x86_64-linux-gnu/libnvidia-ml.so.595.99.02",
+        "sha256": "770e9de75c14b07cce9718b214700b10e6d6866f7383101d6fe530352543b1de"
+      },
+      "nvvm": {
+        "bytes": 78298472,
+        "path": "usr/lib/x86_64-linux-gnu/libnvidia-nvvm.so.595.99.02",
+        "sha256": "c46912fc1ae348d34c5235bed3df50ee4d2bbabaa66218485f8759a3d8f87d85"
+      },
+      "nvvm70": {
+        "bytes": 24829456,
+        "path": "usr/lib/x86_64-linux-gnu/libnvidia-nvvm70.so.4",
+        "sha256": "e327630af7997043cac342471bb303fdc212ae00c687b53b68e60cee1f910b24"
+      },
+      "opencl": {
+        "bytes": 87287440,
+        "path": "usr/lib/x86_64-linux-gnu/libnvidia-opencl.so.595.99.02",
+        "sha256": "31fda0312671d9ab7373ce58fc8ce1f0572ce8afdf52f73f124c9a2e321c5154"
+      },
+      "ptx_jit_compiler": {
+        "bytes": 32826968,
+        "path": "usr/lib/x86_64-linux-gnu/libnvidia-ptxjitcompiler.so.595.99.02",
+        "sha256": "d7815bf9ed9eb33cf47055208cc6f5fc0d09c530508ccf59b1c3dd5c338ad2d0"
+      }
+    },
+    "mode": "0700",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595.99.02-compute-userland-v1-20261031"
+  },
+  "tool_sha256": "a7a04eb40533899b1fdb9b9e43bd3d17bf64a491a50d2d5c941c7fdc28749a0a"
+}

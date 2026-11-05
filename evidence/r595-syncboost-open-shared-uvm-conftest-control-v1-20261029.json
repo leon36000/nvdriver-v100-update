@@ -1,0 +1,134 @@
+{
+  "activation_performed": false,
+  "baseline": {
+    "coherent_page_macro_present_in_provider_conftest": false,
+    "open_module_sha256": "1d9909b3857ad4c00b3afdc9c92da8bdcfa03afae8e7269ea95cd6cc06dd38b1",
+    "undefined_symbol_names": 457,
+    "undefined_symbol_table_entries": 457,
+    "uvm_candidate_coherent_page_macro_present": true,
+    "uvm_candidate_module_sha256": "6a7828ca9c9008b20028fdbe9e55b56f153d25465f045331e81f8cbe47c1068e"
+  },
+  "controlled_r595_99": {
+    "conftest": {
+      "coherent_page_macro_present": true,
+      "kbuild_targets": [
+        "nvidia",
+        "nvidia-uvm"
+      ],
+      "normalized_macro_map_matches_candidate_uvm": true,
+      "types_header": {
+        "bytes": 1678,
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-syncboost-open-build-v2/source/kernel-open/conftest/cdmm-control-v1-types.h",
+        "sha256": "924a6b0710ee322b79b4f0204426a27244c638db9bead8284a7ec50a51c051da"
+      }
+    },
+    "module": {
+      "bytes": 37226240,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-syncboost-open-build-v2/source/kernel-open/hybrid580_open-shared-uvm-conftest-v1.ko",
+      "sha256": "34a5967a27b979f4af3653881ac9981aea639d4081d3e4a7609d78f51b4a497a"
+    },
+    "module_name": "hybrid580_open",
+    "new_kernel_imports_vs_provider_only": [
+      "__rcu_read_lock",
+      "__rcu_read_unlock",
+      "get_dev_pagemap"
+    ],
+    "objects": {
+      "nv-dma.o": {
+        "bytes": 422360,
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-open-shared-uvm-conftest-v1-20261029/objects/r59599-nv-dma.o",
+        "sha256": "0d91285c6137f0205d83eceed3938952aab4f90fdb12f93fe6c7bf5a3f9c5bfb"
+      },
+      "nv-dma.o_new_undefined_symbols": [
+        "__rcu_read_lock",
+        "__rcu_read_unlock",
+        "get_dev_pagemap"
+      ],
+      "os-mlock.o": {
+        "bytes": 296824,
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-open-shared-uvm-conftest-v1-20261029/objects/r59599-os-mlock.o",
+        "sha256": "06445d80b9bcef7859f7406c0e2d7386e91583706ae32e16bdab023e62bb4b07"
+      },
+      "os-mlock.o_mem_section_import": false
+    },
+    "provider_export_count": 146,
+    "provider_symvers_sha256": "0cb20019db66ddf5d1a6b3b750104d96b4d6d2e6fee4922bab93cd8174141037",
+    "undefined_symbol_names": 460,
+    "undefined_symbol_table_entries": 460
+  },
+  "hardware_tested": false,
+  "hypothesis": "The original R595.99 provider-only Kbuild omitted UVM-registered conftests, leaving provider and UVM with different coherent-page feature flags.",
+  "interpretation": {
+    "applicability": "CDMM is conditionally gated by CONFIG_ZONE_DEVICE, coherent GPU mode and RM-provided cdmmEnabled state. No evidence shows V100 enables CDMM or receives a throughput benefit.",
+    "mem_section_delta": "R595.112 source-level PFN safety check adds this x86 sparse-memory reference.",
+    "qualification_boundary": "Static source, symbol-table and compile evidence only. No modules installed or loaded; no GPU runtime or hardware validation.",
+    "three_symbol_delta": "Build-target/configuration effect, not a code-only R595.99-to-R595.112 delta. The provider-only R595.99 invocation omitted the UVM conftest; compiling provider and UVM together enables the same coherent-page feature flag in both."
+  },
+  "kernel_release": "7.0.0-38-generic",
+  "manual_build": {
+    "argv": [
+      "make",
+      "-C",
+      "/tmp/nvidia-r59599-cdmm-control-v1-20261029/source/kernel-open",
+      "KERNEL_UNAME=7.0.0-38-generic",
+      "NV_KERNEL_MODULES=nvidia nvidia-uvm",
+      "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-syncboost-nvidia-frontend-v1/Module.symvers",
+      "-j2",
+      "modules"
+    ],
+    "builder_invoked": false,
+    "cwd": "/tmp/nvidia-r59599-cdmm-control-v1-20261029/source",
+    "exit_code": 0,
+    "log": {
+      "bytes": 1365112,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/r595-open-shared-uvm-conftest-control-v1-20261029.log",
+      "sha256": "e733b995377344c37189c037a40d92aa5dc1a5ea0f7dd7fc1dc061d68a7decf3"
+    },
+    "recipe_matches_updated_builder": true,
+    "stale_provider_only_conftest_moved_aside": "/tmp/nvidia-r59599-cdmm-control-v1-20261029/conftest-from-provider-only-build"
+  },
+  "module_installed": false,
+  "module_loaded": false,
+  "observed_at_utc": "2026-10-29T11:53:27.631080+00:00",
+  "qualification": "compiled-and-static-configuration-control",
+  "r595_112": {
+    "additional_import_vs_controlled_r595_99": [
+      "mem_section"
+    ],
+    "conftest_functions_header": {
+      "bytes": 2243,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-open-shared-uvm-conftest-v1-20261029/r595112-functions.h",
+      "sha256": "5d9ad118dcc2cf7f9f3c77d1384092164cd528cddb22925b4f0bd531b03240c4"
+    },
+    "module_sha256": "3bf2b6943bbde7e9ba282422e30b37099b3ccfec141f9f8aaa987155e1fffb91",
+    "os_mlock_object": {
+      "bytes": 310704,
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-open-shared-uvm-conftest-v1-20261029/objects/r595112-os-mlock.o",
+      "sha256": "d5e1ac774f61b28ff9a6b72f55ebefa449a2fa8bd795a949ac2a0f8d98b95f3e"
+    },
+    "performance_gain_demonstrated": false,
+    "source_file": "build/research/open-gpu-kernel-modules-595.112.07/source/open-gpu-kernel-modules-d8257d95ae5fed364163e4df51db66df8b1ee0d2/kernel-open/nvidia/os-mlock.c",
+    "source_safety_change": "Adds nv_pfn_has_page_backing() and rejects page-backed PFNs in get_io_ptes(). On this x86-64 configuration NV_PFN_IS_MAP_MEMORY_PRESENT is absent, so the helper uses pfn_valid(); the object contains an R_X86_64_PC32 relocation to mem_section.",
+    "undefined_symbol_names": 461,
+    "undefined_symbol_table_entries": 461
+  },
+  "runtime_or_hardware_validated": false,
+  "schema": "r595-open-shared-uvm-conftest-control-v1",
+  "source_pins": {
+    "baseline_open_build_report": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/r595-syncboost-open-build-v2.json",
+      "sha256": "1b7ade33c57102877e6e889e2915b10b10561b7fc59a0dc22f25a0be22d5dc8f"
+    },
+    "frontend_symvers": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-syncboost-nvidia-frontend-v1/Module.symvers",
+      "sha256": "dbcf0cc653a970395534635d7ef533c3626112a41b12f8b5cbaf6504bb903e08"
+    },
+    "replay_report": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/r595-syncboost-replay-v3.json",
+      "sha256": "5bdab15c82ec0e9865d372a0768900a676aa94199519ff7f4d137af5f0227c43"
+    },
+    "replayed_source_artifacts_unchanged": true,
+    "updated_builder_sha256": "c5fcd78e644c9246a0412a2e610c837f029a4240a3f6d28a5c38cf12a09431fc",
+    "verified_replayed_artifact_count": 23
+  }
+}
