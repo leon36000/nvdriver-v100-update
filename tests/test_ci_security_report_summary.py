@@ -3,7 +3,6 @@ import io
 import json
 from pathlib import Path
 import tempfile
-import traceback
 import unittest
 from unittest.mock import patch
 
@@ -197,6 +196,40 @@ class CiSecurityReportSummaryTests(unittest.TestCase):
         ):
             self.assertNotIn(marker, rendered)
 
+    def test_invalid_trivy_report_writes_safe_summary_artifact(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "gitleaks-report.json").write_text("[]", encoding="utf-8")
+            (root / "semgrep-report.json").write_text(
+                '{"results": [], "errors": [], "paths": {"scanned": [], "skipped": []}}',
+                encoding="utf-8")
+            (root / "trivy-report.json").write_text(json.dumps({
+                "SchemaVersion": "SCHEMA_VALUE_MARKER",
+                "Results": False,
+                "private": "REPORT_VALUE_MARKER",
+            }), encoding="utf-8")
+            output_path = root / "safe-summary.json"
+            stdout, stderr = io.StringIO(), io.StringIO()
+            with patch("sys.argv", [
+                    "summarize", "--root", str(root), "--output", str(output_path)
+            ]), redirect_stdout(stdout), redirect_stderr(stderr):
+                exit_code = main()
+            artifact = output_path.read_text(encoding="utf-8")
+            result = json.loads(artifact)
+
+        self.assertEqual(exit_code, 2)
+        self.assertEqual(stderr.getvalue(), "")
+        self.assertEqual(result["status"], "reports_invalid")
+        self.assertEqual(result["invalid_reports"], ["trivy"])
+        self.assertEqual(
+            result["reports"]["trivy"]["schema_observation"],
+            {"schema_version_type": "string", "results_type": "boolean"},
+        )
+        self.assertIsNone(result["reports"]["trivy"]["finding_count"])
+        self.assertNotIn("SCHEMA_VALUE_MARKER", artifact)
+        self.assertNotIn("REPORT_VALUE_MARKER", artifact)
+        self.assertEqual(stdout.getvalue(), artifact)
+
     def test_invalid_or_incomplete_report_shapes_fail_closed(self):
         cases = (
             ("gitleaks-report.json", '{"findings": []}', "Gitleaks report"),
@@ -240,8 +273,13 @@ class CiSecurityReportSummaryTests(unittest.TestCase):
             with self.subTest(filename=filename, expected=expected), \
                     tempfile.TemporaryDirectory() as temporary:
                 Path(temporary, filename).write_text(content, encoding="utf-8")
-                with self.assertRaisesRegex(ValueError, expected):
-                    summarize_reports(Path(temporary))
+                result = summarize_reports(Path(temporary))
+                report_name = filename.removesuffix("-report.json")
+                self.assertEqual(result["status"], "reports_invalid")
+                self.assertEqual(result["invalid_reports"], [report_name])
+                self.assertEqual(
+                    result["reports"][report_name]["status"], "invalid_schema")
+                self.assertIsNone(result["reports"][report_name]["finding_count"])
 
     def test_cli_suppresses_filesystem_error_paths(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -257,7 +295,7 @@ class CiSecurityReportSummaryTests(unittest.TestCase):
         self.assertNotIn("PRIVATE_PATH_MARKER", stderr.getvalue())
         self.assertIn("details suppressed", stderr.getvalue())
 
-    def test_cli_reports_fixed_schema_error_without_scanner_values(self):
+    def test_cli_writes_safe_schema_error_without_scanner_values(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             (root / "gitleaks-report.json").write_text(
@@ -267,12 +305,14 @@ class CiSecurityReportSummaryTests(unittest.TestCase):
                     redirect_stdout(stdout), redirect_stderr(stderr):
                 exit_code = main()
         self.assertEqual(exit_code, 2)
-        self.assertEqual(stdout.getvalue(), "")
-        self.assertIn("Gitleaks report must be a JSON array", stderr.getvalue())
-        self.assertNotIn("PRIVATE_CONTENT_MARKER", stderr.getvalue())
-        self.assertNotIn(str(root), stderr.getvalue())
+        self.assertEqual(stderr.getvalue(), "")
+        result = json.loads(stdout.getvalue())
+        self.assertEqual(result["status"], "reports_invalid")
+        self.assertEqual(result["invalid_reports"], ["gitleaks"])
+        self.assertNotIn("PRIVATE_CONTENT_MARKER", stdout.getvalue())
+        self.assertNotIn(str(root), stdout.getvalue())
 
-    def test_deeply_nested_json_fails_without_recursion_trace(self):
+    def test_deeply_nested_json_is_classified_without_recursion_trace(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             (root / "gitleaks-report.json").write_text("[]", encoding="utf-8")
@@ -280,15 +320,10 @@ class CiSecurityReportSummaryTests(unittest.TestCase):
                 "tools.summarize_ci_security_reports.json.loads",
                 side_effect=RecursionError("PRIVATE_CONTENT_MARKER"),
             ):
-                with self.assertRaisesRegex(
-                    ValueError, "gitleaks report is not valid JSON"
-                ) as raised:
-                    summarize_reports(root)
-        self.assertTrue(raised.exception.__suppress_context__)
-        self.assertNotIn(
-            "PRIVATE_CONTENT_MARKER",
-            "".join(traceback.format_exception(raised.exception)),
-        )
+                result = summarize_reports(root)
+        self.assertEqual(result["status"], "reports_invalid")
+        self.assertEqual(result["invalid_reports"], ["gitleaks"])
+        self.assertEqual(result["reports"]["gitleaks"]["status"], "invalid_json")
 
 
 if __name__ == "__main__":

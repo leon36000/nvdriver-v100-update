@@ -23,6 +23,34 @@ _SEVERITIES = frozenset({
 _Finding = tuple[str, str, str, int | None]
 
 
+class _ReportInvalid(ValueError):
+    """A malformed scanner report with a fixed, non-sensitive category."""
+
+    def __init__(self, category: str):
+        super().__init__(category)
+        self.category = category
+
+
+def _json_type(value: Any, *, present: bool = True) -> str:
+    if not present:
+        return "missing"
+    if value is None:
+        return "null"
+    if type(value) is bool:
+        return "boolean"
+    if type(value) is int:
+        return "integer"
+    if type(value) is float:
+        return "number"
+    if isinstance(value, str):
+        return "string"
+    if isinstance(value, list):
+        return "array"
+    if isinstance(value, dict):
+        return "object"
+    return "other"
+
+
 def _severity(value: Any) -> str:
     if isinstance(value, str):
         normalized = value.strip().upper()
@@ -75,7 +103,7 @@ def _read_report(path: Path, name: str) -> tuple[Any, dict[str, Any]]:
     try:
         document = json.loads(raw)
     except (UnicodeDecodeError, json.JSONDecodeError, RecursionError):
-        raise ValueError(f"{name} report is not valid JSON") from None
+        raise _ReportInvalid("invalid_json") from None
     return document, {"status": "parsed", "size_bytes": len(raw)}
 
 
@@ -195,6 +223,17 @@ def _trivy(document: Any, limit: int, *, group_key: bytes) -> dict[str, Any]:
     }
 
 
+def _trivy_schema_observation(document: Any) -> dict[str, str]:
+    if not isinstance(document, dict):
+        return {"document_type": _json_type(document)}
+    return {
+        "schema_version_type": _json_type(
+            document.get("SchemaVersion"), present="SchemaVersion" in document),
+        "results_type": _json_type(
+            document.get("Results"), present="Results" in document),
+    }
+
+
 def summarize_reports(root: Path, *, max_groups: int = 20) -> dict[str, Any]:
     if max_groups < 1 or max_groups > 200:
         raise ValueError("max-groups must be between 1 and 200")
@@ -205,6 +244,7 @@ def summarize_reports(root: Path, *, max_groups: int = 20) -> dict[str, Any]:
     )
     reports: dict[str, Any] = {}
     missing: list[str] = []
+    invalid: list[str] = []
     group_key = secrets.token_bytes(32)
     for name, filename, summarize in specifications:
         path = root / filename
@@ -212,16 +252,36 @@ def summarize_reports(root: Path, *, max_groups: int = 20) -> dict[str, Any]:
             reports[name] = {"status": "missing", "finding_count": None, "top_groups": []}
             missing.append(name)
             continue
-        document, metadata = _read_report(path, name)
-        metadata.update(summarize(document, max_groups, group_key=group_key))
-        reports[name] = metadata
+        document = None
+        try:
+            document, metadata = _read_report(path, name)
+            metadata.update(summarize(document, max_groups, group_key=group_key))
+            reports[name] = metadata
+        except _ReportInvalid as error:
+            invalid.append(name)
+            reports[name] = {
+                "status": error.category,
+                "finding_count": None,
+                "top_groups": [],
+            }
+        except ValueError:
+            invalid.append(name)
+            report = {
+                "status": "invalid_schema",
+                "finding_count": None,
+                "top_groups": [],
+            }
+            if name == "trivy" and document is not None:
+                report["schema_observation"] = _trivy_schema_observation(document)
+            reports[name] = report
     scanner_error_count = sum(
         report.get("scanner_error_count", 0)
         for report in reports.values()
         if isinstance(report.get("scanner_error_count", 0), int)
     )
     status = (
-        "reports_partial" if missing
+        "reports_invalid" if invalid
+        else "reports_partial" if missing
         else "reports_with_scanner_errors" if scanner_error_count
         else "reports_complete"
     )
@@ -232,6 +292,7 @@ def summarize_reports(root: Path, *, max_groups: int = 20) -> dict[str, Any]:
         "scanner_error_count": scanner_error_count,
         "scanner_completion_verified": False,
         "missing_reports": missing,
+        "invalid_reports": invalid,
         "reports": reports,
         "raw_finding_values_retained": False,
         "scanner_identifiers_retained": False,
