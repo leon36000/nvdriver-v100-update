@@ -1,0 +1,41 @@
+stages:
+  - software
+  - quality
+
+variables:
+  PYTHONDONTWRITEBYTECODE: "1"
+
+cpu-focused-regression:
+  stage: software
+  image: python:3.12-bookworm
+  script:
+    - python3 --version
+    - cc --version
+    - python3 -B -m unittest tests.test_hybrid580_uvm_csl_rotate_key -v
+    - python3 -B tools/audit_transfer_document_links.py --root "$CI_PROJECT_DIR"
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+
+sonarqube-analysis:
+  stage: quality
+  image:
+    name: sonarsource/sonar-scanner-cli:7.0.2
+    entrypoint: [""]
+  variables:
+    GIT_DEPTH: "0"
+  script:
+    - test -n "$SONAR_HOST_URL"
+    - test -n "$SONAR_TOKEN"
+    - >-
+      sonar-scanner
+      -Dsonar.projectKey=nvdriver-v100-update
+      -Dsonar.projectName=NVIDIA_V100_Blackwell_Hybrid_Driver
+      -Dsonar.sources=src,kernels,probes,tools
+      -Dsonar.tests=tests
+      -Dsonar.exclusions=evidence/**,patches/**,build/**,tests/fixtures/**
+      -Dsonar.qualitygate.wait=true
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $SONAR_HOST_URL && $SONAR_TOKEN'
+    - if: '$CI_PIPELINE_SOURCE == "push" && $SONAR_HOST_URL && $SONAR_TOKEN'
+  allow_failure: true
