@@ -1,0 +1,293 @@
+{
+  "cuda_execution_tested": false,
+  "depmod": {
+    "exit_code": 0,
+    "hard_dependency_graph": {
+      "ecc": [],
+      "ecdh_generic": [
+        "ecc"
+      ],
+      "ecdsa_generic": [
+        "ecc"
+      ],
+      "hybrid580_legacy": [],
+      "hybrid580_open": [
+        "ecc"
+      ],
+      "nvidia": [
+        "ecc",
+        "hybrid580_legacy",
+        "hybrid580_open"
+      ],
+      "nvidia_uvm": [
+        "ecc",
+        "hybrid580_legacy",
+        "hybrid580_open",
+        "nvidia"
+      ]
+    },
+    "modules_dep_sha256": "674ce02c997422bab4a38f2b5652ca2ef21170d26e81f9d7c26f302540726c43",
+    "softdep_lines": [
+      "softdep hybrid580_open pre: ecdh_generic ecdsa_generic"
+    ],
+    "stdout_lines": [],
+    "warning_lines": []
+  },
+  "dry_run": {
+    "executed": false,
+    "exit_code": null,
+    "insertion_order": [],
+    "loaded_name_collisions": [
+      "nvidia",
+      "nvidia_uvm"
+    ],
+    "skipped_reason": "one or more module names needed by the candidate already exist in the runner's active kernel; a dry-run would omit those candidates and cannot represent this target-kernel insertion plan",
+    "stderr_empty": null
+  },
+  "guest_hostname": "pc3-v100",
+  "implementation": {
+    "path": "tools/stage_pc3_v100_r580_depmod.py",
+    "sha256": "d69bc26b26b135046ed16c6e1081215c4cd8137dd51af0a20bad76dc568f24ed"
+  },
+  "input_evidence": {
+    "bundle_audit": {
+      "path": "evidence/pc3-v100-r580-hybrid-static-stack-audit-v3-20261029T0120Z.json",
+      "sha256": "c25bc465c16660b5a8d56960dd8cb453ef957b7be7bb574b8a0f0529a014db83"
+    },
+    "kernel_dependency_capture": {
+      "path": "evidence/pc3-v100-kernel-dependencies-20261029T011956Z.json",
+      "sha256": "a7438efbf1c2556b1979e3eea66df1f6de8baba5effa7b457256300bf1157850"
+    }
+  },
+  "kernel_release": "6.8.0-147-generic",
+  "kmod": {
+    "depmod_version": "34.2",
+    "version": "34.2"
+  },
+  "kmod_probe_list_source_inspection": {
+    "observation": "the v34.2 insertion probe-list traversal marks a module visited before walking dependencies and returns on revisits",
+    "qualification": "upstream-code-inspection-only; no candidate insertion attempted",
+    "source_url": "https://github.com/kmod-project/kmod/blob/v34.2/libkmod/libkmod-module.c#L3604-L3721"
+  },
+  "module_installed": false,
+  "module_load_attempted": false,
+  "module_loaded": false,
+  "observed_at_utc": "2026-10-29T01:29:36+00:00",
+  "qualification": "isolated-depmod-and-dependency-walk-validated",
+  "resolved_dependency_walk": {
+    "exit_code": 0,
+    "first_occurrence_module_names": [
+      "ecc",
+      "ecdh_generic",
+      "ecdsa_generic",
+      "hybrid580_open",
+      "hybrid580_legacy",
+      "nvidia",
+      "nvidia_uvm"
+    ],
+    "is_insert_order_proof": false,
+    "raw_module_names": [
+      "ecc",
+      "ecc",
+      "ecdh_generic",
+      "ecc",
+      "ecdsa_generic",
+      "hybrid580_open",
+      "hybrid580_legacy",
+      "nvidia",
+      "nvidia_uvm"
+    ],
+    "repeated_module_names": {
+      "ecc": 3
+    },
+    "semantics": "kmod --show-depends flat dependency listing; repeated ecc paths reflect shared transitive dependencies",
+    "stderr_empty": true
+  },
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-pc3-v100-r580-depmod-stage-v1",
+  "staging": {
+    "candidate_module_order_entries": [
+      "updates/extra/hybrid580_open.ko",
+      "updates/extra/hybrid580_legacy.ko",
+      "updates/extra/nvidia.ko",
+      "updates/extra/nvidia_uvm.ko"
+    ],
+    "copied_kernel_metadata": {
+      "modules.builtin": "508ae45959f569e45b1e6f1888b254cdc02da5c4bb8b3edc043539b6dd2d735d",
+      "modules.builtin.modinfo": "0bfb2407d4ff23d68735c6643e65f738d6ae4bc62ef79486a1afbac8d55393ad"
+    },
+    "modules": {
+      "hybrid580_legacy": {
+        "bytes": 128074552,
+        "depends": [],
+        "identity": {
+          "depends": "",
+          "name": "hybrid580_legacy",
+          "vermagic": "6.8.0-147-generic SMP preempt mod_unload modversions",
+          "version": "580.178.04"
+        },
+        "relative_path": "lib/modules/6.8.0-147-generic/updates/extra/hybrid580_legacy.ko",
+        "sha256": "d1489ce08bed40db1c9268d4ac3a90cb4d266eb26b450baeefa23b1dfe540e6c"
+      },
+      "hybrid580_open": {
+        "bytes": 34286264,
+        "depends": [
+          "ecc"
+        ],
+        "identity": {
+          "depends": "ecc",
+          "name": "hybrid580_open",
+          "vermagic": "6.8.0-147-generic SMP preempt mod_unload modversions",
+          "version": "580.178.04"
+        },
+        "relative_path": "lib/modules/6.8.0-147-generic/updates/extra/hybrid580_open.ko",
+        "sha256": "70453d17b6054fab67e8dd839226f4184fe9610b979662483a973b8f7b395492"
+      },
+      "nvidia": {
+        "bytes": 2854000,
+        "depends": [
+          "hybrid580_legacy",
+          "hybrid580_open"
+        ],
+        "identity": {
+          "depends": "hybrid580_open,hybrid580_legacy",
+          "name": "nvidia",
+          "vermagic": "6.8.0-147-generic SMP preempt mod_unload modversions",
+          "version": ""
+        },
+        "relative_path": "lib/modules/6.8.0-147-generic/updates/extra/nvidia.ko",
+        "sha256": "d3b359b8f0ae839ee7d227102e283c45f515db039ce5d9651e53d7fa44ec9eed"
+      },
+      "nvidia_uvm": {
+        "bytes": 61292768,
+        "depends": [
+          "nvidia"
+        ],
+        "identity": {
+          "depends": "nvidia",
+          "name": "nvidia_uvm",
+          "vermagic": "6.8.0-147-generic SMP preempt mod_unload modversions",
+          "version": "580.178.04"
+        },
+        "relative_path": "lib/modules/6.8.0-147-generic/updates/extra/nvidia_uvm.ko",
+        "sha256": "1024e0032aba523f3d652a416b199b19afee2f710daf7d50b38e0bf29bfbbf30"
+      }
+    },
+    "selected_kernel_order": [
+      "kernel/crypto/ecdsa_generic.ko.zst",
+      "kernel/crypto/ecc.ko.zst",
+      "kernel/crypto/ecdh_generic.ko.zst"
+    ],
+    "source_kernel_modules_order_sha256": "08e373f249757b5ffc7d53649049bd828f16420be248d588fafed06d032fc679",
+    "stage_root": "build/experiments/pc3-v100-r580-depmod-20261029T012934Z-07f5559c",
+    "tree_files": [
+      {
+        "bytes": 19131,
+        "relative_path": "lib/modules/6.8.0-147-generic/kernel/crypto/ecc.ko.zst",
+        "sha256": "97a82a7011c93b6acc9ceb33f80907ba510988375ba50df9eef69038bab12d02"
+      },
+      {
+        "bytes": 4748,
+        "relative_path": "lib/modules/6.8.0-147-generic/kernel/crypto/ecdh_generic.ko.zst",
+        "sha256": "a7afa413d7aa6caaf477de2a34c04e851889341a1a3775a1349df6528ea14243"
+      },
+      {
+        "bytes": 5584,
+        "relative_path": "lib/modules/6.8.0-147-generic/kernel/crypto/ecdsa_generic.ko.zst",
+        "sha256": "e80680795815722e159c78ac1dd929ff3212a407008d2681fe7bc539f5cc6d5e"
+      },
+      {
+        "bytes": 412,
+        "relative_path": "lib/modules/6.8.0-147-generic/modules.alias",
+        "sha256": "eff5178198d4f5214e170d547414111c3515dd3e904b6fe3a3cd26a6bd3efce7"
+      },
+      {
+        "bytes": 503,
+        "relative_path": "lib/modules/6.8.0-147-generic/modules.alias.bin",
+        "sha256": "318ef0b56556ff6007500f2f32f823f90b6f855a4e4084cf1075d09fd5a4cdfe"
+      },
+      {
+        "bytes": 9714,
+        "relative_path": "lib/modules/6.8.0-147-generic/modules.builtin",
+        "sha256": "508ae45959f569e45b1e6f1888b254cdc02da5c4bb8b3edc043539b6dd2d735d"
+      },
+      {
+        "bytes": 10690,
+        "relative_path": "lib/modules/6.8.0-147-generic/modules.builtin.alias.bin",
+        "sha256": "fae3452ce696e8a8c3ca839de87ed2819e84a9596c4a33e75439809bfa7ad4af"
+      },
+      {
+        "bytes": 11907,
+        "relative_path": "lib/modules/6.8.0-147-generic/modules.builtin.bin",
+        "sha256": "7c337e0a5785a6dce547b32dbe7797fb296c08e0812f146e39e72502b018ceb6"
+      },
+      {
+        "bytes": 87651,
+        "relative_path": "lib/modules/6.8.0-147-generic/modules.builtin.modinfo",
+        "sha256": "0bfb2407d4ff23d68735c6643e65f738d6ae4bc62ef79486a1afbac8d55393ad"
+      },
+      {
+        "bytes": 500,
+        "relative_path": "lib/modules/6.8.0-147-generic/modules.dep",
+        "sha256": "674ce02c997422bab4a38f2b5652ca2ef21170d26e81f9d7c26f302540726c43"
+      },
+      {
+        "bytes": 745,
+        "relative_path": "lib/modules/6.8.0-147-generic/modules.dep.bin",
+        "sha256": "3d0cc1e7a5cccddd5c9e7b80e462552667f329ec582df28e872cacc2c291024d"
+      },
+      {
+        "bytes": 0,
+        "relative_path": "lib/modules/6.8.0-147-generic/modules.devname",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 212,
+        "relative_path": "lib/modules/6.8.0-147-generic/modules.order",
+        "sha256": "6eaed5e491e12a7bf457ace47e7be46411ff3a0e8ccd276d143c9be5b313c63e"
+      },
+      {
+        "bytes": 110,
+        "relative_path": "lib/modules/6.8.0-147-generic/modules.softdep",
+        "sha256": "03070036ef525ec8010e5a6c77d09a85a8e73b23856b5c848229fb813b6852e1"
+      },
+      {
+        "bytes": 26607,
+        "relative_path": "lib/modules/6.8.0-147-generic/modules.symbols",
+        "sha256": "dda8771a7bef6e097be8cc8499cea46985ca4086de55de0e249b6100e943b5e0"
+      },
+      {
+        "bytes": 23869,
+        "relative_path": "lib/modules/6.8.0-147-generic/modules.symbols.bin",
+        "sha256": "4dffd9d35395f9e64c87a6d4d56c0c4b34016c24c245f9e0e7b09dc87ba968c4"
+      },
+      {
+        "bytes": 55,
+        "relative_path": "lib/modules/6.8.0-147-generic/modules.weakdep",
+        "sha256": "a1fffe1059d8150b5d402b3f284f507025a8d4b5881810cb17b3fda8b8ab9304"
+      },
+      {
+        "bytes": 128074552,
+        "relative_path": "lib/modules/6.8.0-147-generic/updates/extra/hybrid580_legacy.ko",
+        "sha256": "d1489ce08bed40db1c9268d4ac3a90cb4d266eb26b450baeefa23b1dfe540e6c"
+      },
+      {
+        "bytes": 34286264,
+        "relative_path": "lib/modules/6.8.0-147-generic/updates/extra/hybrid580_open.ko",
+        "sha256": "70453d17b6054fab67e8dd839226f4184fe9610b979662483a973b8f7b395492"
+      },
+      {
+        "bytes": 2854000,
+        "relative_path": "lib/modules/6.8.0-147-generic/updates/extra/nvidia.ko",
+        "sha256": "d3b359b8f0ae839ee7d227102e283c45f515db039ce5d9651e53d7fa44ec9eed"
+      },
+      {
+        "bytes": 61292768,
+        "relative_path": "lib/modules/6.8.0-147-generic/updates/extra/nvidia_uvm.ko",
+        "sha256": "1024e0032aba523f3d652a416b199b19afee2f710daf7d50b38e0bf29bfbbf30"
+      }
+    ]
+  },
+  "status": "passed",
+  "target": "pc3@pc3"
+}

@@ -1,0 +1,71 @@
+{
+  "acceptance_bundle": {
+    "files": 6344,
+    "manifest_sha256": "d771a989f6fef5a9415785b09569ebdec8536bc89b7bf288c1f96589d717ee6c",
+    "payload_bytes": 3068303059
+  },
+  "execution_scope": {
+    "driver_changed": false,
+    "gpu_workload_executed": false,
+    "module_loaded": false,
+    "pci_binding_changed": false,
+    "vm_management_issued": false
+  },
+  "guest": {
+    "cuda_roots": {
+      "/opt/cuda-12.9": false,
+      "/opt/cuda-13.1": false,
+      "/usr/local/cuda-12.9": false,
+      "/usr/local/cuda-13.1": false
+    },
+    "disk_root": {
+      "free_bytes": 5645684736,
+      "total_bytes": 61285326848,
+      "used_bytes": 55622864896
+    },
+    "gpu": {
+      "driver_version": "580.178.04",
+      "memory_total_mib": "16384",
+      "memory_used_mib": "0",
+      "name": "Tesla V100-SXM2-16GB",
+      "pci_bus_id": "00000000:00:05.0",
+      "temperature_c": "51",
+      "utilization_percent": "0",
+      "uuid": "GPU-42d06a85-027a-75ea-7857-a8de27ad465e"
+    },
+    "hostname": "pc3-v100",
+    "kernel_release": "6.8.0-147-generic",
+    "nvcc_on_path": null,
+    "os": "Ubuntu 24.04.5 LTS"
+  },
+  "nvidia_smi_temperature_fields": {
+    "GPU Current Temp": "51 C",
+    "GPU Max Operating Temp": "83 C",
+    "GPU Shutdown Temp": "90 C",
+    "GPU Slowdown Temp": "87 C",
+    "GPU T.Limit Temp": "N/A"
+  },
+  "nvidia_smi_temperature_query_exit_code": 0,
+  "observed_at_utc": "2026-10-20T21:57:35+00:00",
+  "pc3_host": {
+    "hostname": "pc3",
+    "kernel_release": "7.0.0-38-generic",
+    "tmp_free_bytes": 16354304000
+  },
+  "physical_cooling_confirmation_from_user": true,
+  "project_code": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/hardware/v100-r580/thermal_telemetry.py",
+    "sha256": "25f49abf8f6527686604e42c5c16234961af6363ef957f60362a0daa0b0881a6"
+  },
+  "schema": "pc3-v100-r580-thermal-preflight-v1",
+  "status": "THERMAL_GUARD_HW_PROBE_PASS",
+  "thermal_sample_from_project_code": {
+    "margin_c": 32.0,
+    "power_draw_w": "36.64",
+    "power_limit_w": "300.00",
+    "temperature_c": 51.0,
+    "threshold_c": 83.0,
+    "threshold_source": "NVML_GPU_MAX",
+    "timestamp": "2026/10/20 21:57:34.628"
+  }
+}

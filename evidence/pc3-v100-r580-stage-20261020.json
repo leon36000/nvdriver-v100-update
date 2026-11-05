@@ -1,0 +1,37 @@
+{
+  "archive_bytes": 1800055705,
+  "archive_cleanup_passed": true,
+  "archive_sha256": "c392fb98ffa78cf0813eb0a940d0e7ee8a1877a523ec79cc544294bc61591509",
+  "bundle": {
+    "files_verified": 6344,
+    "hardware_status": "BUILD_VERIFIED_NO_HARDWARE_EXECUTION / V100_HARDWARE_PENDING",
+    "manifest_sha256": "d771a989f6fef5a9415785b09569ebdec8536bc89b7bf288c1f96589d717ee6c",
+    "status": "PORTABLE_BUNDLE_INTEGRITY_PASS"
+  },
+  "gpu_query": "Tesla V100-SXM2-16GB, 580.178.04, GPU-42d06a85-027a-75ea-7857-a8de27ad465e, 00000000:00:05.0",
+  "guest_host_key_fingerprint": "SHA256:wqpBfvwVW7iYhOk7LWB8y438NOQHSgfcUgnOGaRK6ts",
+  "manifest_payload_bytes": 3070072139,
+  "minimum_margin_c": 5,
+  "nonce": "edaea9b6745e419abad18d7de16312ae",
+  "observed_at_utc": "2026-10-20T22:08:16+00:00",
+  "preflight": {
+    "driver_version": "580.178.04",
+    "free_bytes": 5645508608,
+    "hostname": "pc3-v100",
+    "kernel_release": "6.8.0-147-generic",
+    "name": "Tesla V100-SXM2-16GB",
+    "pci_bus_id": "00000000:00:05.0",
+    "uuid": "GPU-42d06a85-027a-75ea-7857-a8de27ad465e"
+  },
+  "schema": "pc3-v100-r580-stage-v1",
+  "stage": "/home/ubuntu/codex-v100-r580-edaea9b6745e419abad18d7de16312ae",
+  "thermal_sample": {
+    "margin_c": 32.0,
+    "power_draw_w": "35.69",
+    "power_limit_w": "300.00",
+    "temperature_c": 51.0,
+    "threshold_c": 83.0,
+    "threshold_source": "NVML_GPU_MAX",
+    "timestamp": "2026/10/20 22:08:15.689"
+  }
+}

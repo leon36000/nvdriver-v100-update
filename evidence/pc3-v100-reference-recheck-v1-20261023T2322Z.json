@@ -1,0 +1,48 @@
+{
+  "attached_ids_capture_requested": false,
+  "binapi_alloc_capture_requested": false,
+  "binapi_control_capture_requested": false,
+  "channel_alloc_capture_requested": false,
+  "credential_file": "/home/pc6/Desktop/ACCES-BANC-GPU.env",
+  "credential_host": "gx10-e526",
+  "credential_value_logged": false,
+  "credential_value_persisted": false,
+  "cuda_graphs_requested": true,
+  "device_alloc_capture_requested": false,
+  "error": "CUDA probe report contract is incompatible",
+  "exit_code": 2,
+  "failure_stage": "local_preflight",
+  "gpu_id_info_capture_requested": false,
+  "managed_prefetch_requested": true,
+  "map_memory_capture_requested": false,
+  "memory_mode": "managed",
+  "module": {
+    "bytes": 15608,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-managed-prefetch-v2/hybrid_probe.sm70-sm120.fatbin",
+    "sha256": "fab88676e569054a612a7cf450f8d780cb657709164ab97056d9bc2495d7a305"
+  },
+  "observed_at_utc": "2026-10-23T23:22:54+00:00",
+  "p2p_alloc_capture_requested": false,
+  "p2p_control_capture_requested": false,
+  "phase": null,
+  "phase_capture_requested": false,
+  "probe": {
+    "bytes": 125168,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-managed-prefetch-v2/hybrid_cuda_probe",
+    "sha256": "a35740f5b7bf625b05a03a33b8697b9e733986a68904ea693fbf7375690a3808"
+  },
+  "probed_ids_capture_requested": false,
+  "qualification": "failed",
+  "remote_script_sha256": "3ec1d57cd3da64a0ee8c3e27d031cf453740e3726be3756cc9723ccf3708387b",
+  "rm_control_capture_requested": false,
+  "rm_control_headers_capture_requested": false,
+  "runner_source": {
+    "bytes": 154190,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/run_pc3_v100_guest_reference.py",
+    "sha256": "3d3604c5ff60da015156fbfe9d814730cc47be46b1c426bc5e8afedda26f5e43"
+  },
+  "rusd_alloc_capture_requested": false,
+  "schema": "nvidia-hybrid-pc3-v100-reference-transport-v1",
+  "subdevice_alloc_capture_requested": false,
+  "target": "pc3@pc3"
+}

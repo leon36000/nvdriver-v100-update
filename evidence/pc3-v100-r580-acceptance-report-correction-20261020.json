@@ -1,0 +1,36 @@
+{
+  "schema": "pc3-v100-r580-acceptance-report-correction-v1",
+  "corrected_at_utc": "2026-10-20T22:26:27.688550+00:00",
+  "report_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-v100-r580-acceptance-final-20261020.json",
+  "report_original_sha256": "a587da7b27cca8dc295416ce4cdce7edbf8f36b5d51a96edb408f0842c77aeff",
+  "report_corrected_sha256": "4f5c881d8a7c76749dcfef2a20b3e7e1c775fd527ace0071ddab7cf8ffce4925",
+  "corrections": [
+    {
+      "field": "manifest_file_count",
+      "previous_value": 226,
+      "correct_value": 6347,
+      "basis": "Count of entries in hardware/v100-r580/bundle-manifest.json; the manifest digest matches the acceptance report."
+    },
+    {
+      "field": "log_archive.members",
+      "previous_value": 226,
+      "correct_value": 227,
+      "basis": "Independent tarfile enumeration of the SHA-256-pinned archive."
+    }
+  ],
+  "cross_checks": {
+    "bundle_manifest_sha256": "1d075b689d4f74144a7a648cb3be95fc551104e8cd1efbe69a70d8e17d1838a1",
+    "bundle_manifest_entries": 6347,
+    "summary_sha256_matches": true,
+    "run_records_sha256_matches": true,
+    "archive_sha256": "d113c7c9032ea19122585cf771122250c16872e04a6954df9c135a8b720e1ffd",
+    "archive_member_count": 227,
+    "archive_member_types": {
+      "regular": 219,
+      "symlink": 8
+    },
+    "unsafe_member_names_or_links": 0,
+    "accepted_steps": 21,
+    "failed_steps": 0
+  }
+}

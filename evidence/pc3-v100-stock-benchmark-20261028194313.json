@@ -1,0 +1,725 @@
+{
+  "attached_ids_capture_requested": false,
+  "binapi_alloc_capture_requested": false,
+  "binapi_control_capture_requested": false,
+  "channel_alloc_capture_requested": false,
+  "credential_file": "/home/pc6/Desktop/ACCES-BANC-GPU.env",
+  "credential_host": "gx10-e526",
+  "credential_value_logged": false,
+  "credential_value_persisted": false,
+  "cuda_graphs_requested": false,
+  "device_alloc_capture_requested": false,
+  "exit_code": 0,
+  "fabric_status_capture_requested": false,
+  "gpu_id_info_capture_requested": false,
+  "ioctl_shapes_capture_requested": false,
+  "managed_prefetch_requested": false,
+  "map_memory_capture_requested": false,
+  "memory_mode": "device",
+  "module": {
+    "bytes": 19016,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-pci-target-contract-v6-20261028T1330Z/hybrid_probe.sm70-sm120.fatbin",
+    "sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741"
+  },
+  "module_after": {
+    "bytes": 19016,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-pci-target-contract-v6-20261028T1330Z/hybrid_probe.sm70-sm120.fatbin",
+    "sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741"
+  },
+  "observed_at_utc": "2026-10-28T19:43:13+00:00",
+  "p2p_alloc_capture_requested": false,
+  "p2p_control_capture_requested": false,
+  "payload_cleanup_passed": true,
+  "payload_staging": {
+    "bytes": 257318,
+    "path": "/tmp/codex-v100-payload-5039e92868c94f9dba9a77969469abd6.json",
+    "sha256": "5edeed0daaf274617d60519ab5ca91cfdc67211aa391766a0af22c92343d7c6f",
+    "uploaded": true
+  },
+  "pc3_ssh_exit_code": 0,
+  "performance_benchmark_requested": true,
+  "phase": null,
+  "phase_capture_requested": false,
+  "probe": {
+    "bytes": 173312,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-pci-target-contract-v6-20261028T1330Z/hybrid_cuda_probe",
+    "sha256": "df4ab2558a7315680eb55d91cfacd807926d0adf15d9835424e256a5eb43b71d"
+  },
+  "probe_after": {
+    "bytes": 173312,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/probe-pci-target-contract-v6-20261028T1330Z/hybrid_cuda_probe",
+    "sha256": "df4ab2558a7315680eb55d91cfacd807926d0adf15d9835424e256a5eb43b71d"
+  },
+  "probe_contract": {
+    "contract_version": 6,
+    "probe_report_schema": "nvidia-hybrid-probe-v2",
+    "probe_sha256": "df4ab2558a7315680eb55d91cfacd807926d0adf15d9835424e256a5eb43b71d",
+    "schema": "nvidia-hybrid-probe-contract-v1"
+  },
+  "probed_ids_capture_requested": false,
+  "qualification": "v100-reference-validated",
+  "remote": {
+    "artifacts_after": {
+      "/tmp/codex-v100-ref-0f0b2f5de771459d98bffd223ecf4fab.fatbin": {
+        "bytes": 19016,
+        "sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741"
+      },
+      "/tmp/codex-v100-ref-0f0b2f5de771459d98bffd223ecf4fab.probe": {
+        "bytes": 173312,
+        "sha256": "df4ab2558a7315680eb55d91cfacd807926d0adf15d9835424e256a5eb43b71d"
+      }
+    },
+    "artifacts_before": {
+      "module": {
+        "bytes": 19016,
+        "guest_path": "/tmp/codex-v100-ref-0f0b2f5de771459d98bffd223ecf4fab.fatbin",
+        "sha256": "74cd97aabd47ab1abe720493bf54012a494472d9047b249d049300cda57e1741"
+      },
+      "probe": {
+        "bytes": 173312,
+        "guest_path": "/tmp/codex-v100-ref-0f0b2f5de771459d98bffd223ecf4fab.probe",
+        "sha256": "df4ab2558a7315680eb55d91cfacd807926d0adf15d9835424e256a5eb43b71d"
+      }
+    },
+    "attached_ids_capture_requested": false,
+    "attached_ids_records_seen": null,
+    "binapi_alloc_capture_requested": false,
+    "binapi_alloc_payload_snapshots_read": null,
+    "binapi_alloc_records_seen": null,
+    "binapi_control_capture_requested": false,
+    "binapi_control_records_seen": null,
+    "binapi_payload_snapshots_read": null,
+    "channel_alloc_capture_requested": false,
+    "channel_alloc_records_seen": null,
+    "compute_process_count_after": 0,
+    "compute_process_count_after_probe": 0,
+    "compute_process_count_prelaunch": 0,
+    "compute_process_query_after_valid": true,
+    "cuda_graphs_requested": false,
+    "device_alloc_capture_requested": false,
+    "device_alloc_payload_snapshots_read": null,
+    "device_alloc_records_seen": null,
+    "driver_library": {
+      "bytes": 96284520,
+      "path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+      "sha256": "dcdf334aeb177c95b3385b797c9b871d03a287895713c6d107f79096b0985aa9"
+    },
+    "execution_scope": {
+      "guest_driver_changed": false,
+      "module_loaded": false,
+      "pci_binding_changed": false,
+      "vm_management_issued": false
+    },
+    "fabric_status_capture_requested": false,
+    "fabric_status_record_count": null,
+    "fabric_status_records_seen": null,
+    "fabric_status_values": null,
+    "gpu_id_info_capture_requested": false,
+    "gpu_id_info_records_seen": null,
+    "guest": {
+      "compute_process_count_before": 0,
+      "driver_version": "580.178.04",
+      "hostname": "pc3-v100",
+      "kernel_release": "6.8.0-147-generic",
+      "memory_total_mib": "16384",
+      "memory_used_mib_before": "0",
+      "name": "Tesla V100-SXM2-16GB",
+      "pci": "0000:00:05.0",
+      "temperature_c_before": "50",
+      "utilization_percent_before": "0",
+      "uuid": "GPU-42d06a85-027a-75ea-7857-a8de27ad465e"
+    },
+    "guest_after": {
+      "compute_process_count": 0,
+      "memory_used_mib": "0",
+      "temperature_c": "51",
+      "utilization_percent": "0"
+    },
+    "guest_cleanup_passed": true,
+    "guest_hostkey_fingerprint": "SHA256:wqpBfvwVW7iYhOk7LWB8y438NOQHSgfcUgnOGaRK6ts",
+    "host": "pc3",
+    "host_kernel_release": "7.0.0-38-generic",
+    "ioctl_shape_record_count": null,
+    "ioctl_shape_records_seen": null,
+    "ioctl_shape_request_counts": null,
+    "ioctl_shapes_capture_requested": false,
+    "managed_prefetch_requested": false,
+    "map_memory_capture_requested": false,
+    "map_memory_records_seen": null,
+    "memory_mode": "device",
+    "p2p_alloc_capture_requested": false,
+    "p2p_alloc_records_seen": null,
+    "p2p_control_capture_requested": false,
+    "p2p_control_records_seen": null,
+    "payload_file_cleanup_passed": true,
+    "performance_benchmark_requested": true,
+    "phase": null,
+    "phase_capture_requested": false,
+    "probe": {
+      "concurrent_kernel_execution_validated": false,
+      "context_coexistence_passed": false,
+      "cuda_graph_api": "cuGraphInstantiateWithFlags",
+      "cuda_graphs_requested": false,
+      "devices": [
+        {
+          "architecture_kernel_passed": true,
+          "asynchronous_passed": true,
+          "asynchronous_sizes": [
+            1,
+            31,
+            256,
+            4096,
+            65537
+          ],
+          "cleanup_errors": [],
+          "cleanup_passed": true,
+          "compute_capability": "7.0",
+          "concurrent_managed_access": true,
+          "cuda_graph_launches": 0,
+          "cuda_graphs_passed": false,
+          "error": "",
+          "managed_memory_passed": false,
+          "managed_prefetch_passed": false,
+          "name": "Tesla V100-SXM2-16GB",
+          "ordinal": 0,
+          "pageable_memory_access": false,
+          "pageable_memory_access_uses_host_page_tables": false,
+          "pci_bus_id": "0000:00:05.0",
+          "performance_benchmark": {
+            "cuda_graph_launch": {
+              "device_elapsed_us": {
+                "median": 2.23600002937,
+                "p95": 2.26400000975,
+                "samples": 9,
+                "values": [
+                  2.21999990754,
+                  2.23600002937,
+                  2.22799996845,
+                  2.26400000975,
+                  2.24000005983,
+                  2.26400000975,
+                  2.23600002937,
+                  2.25199991837,
+                  2.21600010991
+                ]
+              },
+              "host_api_us": {
+                "median": 1.23958984375,
+                "p95": 1.28003125,
+                "samples": 9,
+                "values": [
+                  1.26023046875,
+                  1.1405,
+                  1.28003125,
+                  1.136609375,
+                  1.24167578125,
+                  1.13967578125,
+                  1.23958984375,
+                  1.16136328125,
+                  1.243734375
+                ]
+              }
+            },
+            "kernel_launch": {
+              "device_elapsed_us_median": 2.09999992512,
+              "device_elapsed_us_p95": 2.12000007741,
+              "device_elapsed_us_samples": [
+                2.12000007741,
+                2.09999992512,
+                2.09999992512,
+                2.09999992512,
+                2.10399995558,
+                2.10799998604,
+                2.09999992512,
+                2.09599989466,
+                2.09200009704
+              ],
+              "host_api_us_median": 1.65841015625,
+              "host_api_us_p95": 1.6780625,
+              "host_api_us_samples": [
+                1.657015625,
+                1.67697265625,
+                1.65841015625,
+                1.64001171875,
+                1.67514453125,
+                1.64251953125,
+                1.6780625,
+                1.64687109375,
+                1.6671484375
+              ],
+              "kernel": "hybrid_empty",
+              "samples": 9
+            },
+            "launches_per_sample": 256,
+            "samples": 9,
+            "schema": "nvidia-cuda-performance-benchmark-v2",
+            "status": "completed",
+            "timing_sources": {
+              "device": "CUDA events (cuEventElapsedTime)",
+              "host": "std::chrono::steady_clock"
+            },
+            "transfers": [
+              {
+                "bytes": 4096,
+                "d_to_h": {
+                  "data_integrity_passed": true,
+                  "device_elapsed_us_per_copy_median": 2.91893747635,
+                  "device_elapsed_us_per_copy_p95": 2.92073446326,
+                  "device_elapsed_us_per_copy_samples": [
+                    2.9191407375,
+                    2.92073446326,
+                    2.91893747635,
+                    2.91782803833,
+                    2.91893747635,
+                    2.91840615682,
+                    2.91842198931
+                  ],
+                  "gb_per_second_median": 1.4032503379,
+                  "gb_per_second_p95": 1.40378389205,
+                  "gb_per_second_samples": [
+                    1.40315262891,
+                    1.40238698571,
+                    1.4032503379,
+                    1.40378389205,
+                    1.4032503379,
+                    1.40350581101,
+                    1.40349819697
+                  ],
+                  "host_api_us_per_copy_median": 1.46713574219,
+                  "host_api_us_per_copy_p95": 1.46806884766,
+                  "host_api_us_per_copy_samples": [
+                    1.46743310547,
+                    1.46806884766,
+                    1.46680908203,
+                    1.46626757813,
+                    1.46714648437,
+                    1.46713574219,
+                    1.46666845703
+                  ]
+                },
+                "data_integrity_passed": true,
+                "h_to_d": {
+                  "data_integrity_passed": true,
+                  "device_elapsed_us_per_copy_median": 4.37396857888,
+                  "device_elapsed_us_per_copy_p95": 4.37653111294,
+                  "device_elapsed_us_per_copy_samples": [
+                    4.37367195264,
+                    4.37120301649,
+                    4.37396857888,
+                    4.37653111294,
+                    4.3746875599,
+                    4.37531247735,
+                    4.37176553532
+                  ],
+                  "gb_per_second_median": 0.936449342545,
+                  "gb_per_second_p95": 0.9370418131,
+                  "gb_per_second_samples": [
+                    0.936512853355,
+                    0.9370418131,
+                    0.936449342545,
+                    0.935901035386,
+                    0.936295436854,
+                    0.936161707582,
+                    0.936921243123
+                  ],
+                  "host_api_us_per_copy_median": 2.1896484375,
+                  "host_api_us_per_copy_p95": 2.19058154297,
+                  "host_api_us_per_copy_samples": [
+                    2.18873828125,
+                    2.18818310547,
+                    2.1896484375,
+                    2.19058056641,
+                    2.19058154297,
+                    2.19016894531,
+                    2.18756640625
+                  ]
+                },
+                "iterations_per_sample": 2048,
+                "samples": 7
+              },
+              {
+                "bytes": 65536,
+                "d_to_h": {
+                  "data_integrity_passed": true,
+                  "device_elapsed_us_per_copy_median": 21.5817503631,
+                  "device_elapsed_us_per_copy_p95": 21.6102506965,
+                  "device_elapsed_us_per_copy_samples": [
+                    21.577000618,
+                    21.5787496418,
+                    21.5910002589,
+                    21.5817503631,
+                    21.6102506965,
+                    21.588999778,
+                    21.5462502092
+                  ],
+                  "gb_per_second_median": 3.0366397024,
+                  "gb_per_second_p95": 3.04164294778,
+                  "gb_per_second_samples": [
+                    3.0373081579,
+                    3.03706197476,
+                    3.03533876217,
+                    3.0366397024,
+                    3.03263487871,
+                    3.03562002287,
+                    3.04164294778
+                  ],
+                  "host_api_us_per_copy_median": 0.78615625,
+                  "host_api_us_per_copy_p95": 0.82184375,
+                  "host_api_us_per_copy_samples": [
+                    0.78615625,
+                    0.7850234375,
+                    0.805546875,
+                    0.78384375,
+                    0.82184375,
+                    0.7780625,
+                    0.7986015625
+                  ]
+                },
+                "data_integrity_passed": true,
+                "h_to_d": {
+                  "data_integrity_passed": true,
+                  "device_elapsed_us_per_copy_median": 22.7885004133,
+                  "device_elapsed_us_per_copy_p95": 22.7927491069,
+                  "device_elapsed_us_per_copy_samples": [
+                    22.7885004133,
+                    22.7875001729,
+                    22.7924995124,
+                    22.7927491069,
+                    22.7892491966,
+                    22.7877497673,
+                    22.7869991213
+                  ],
+                  "gb_per_second_median": 2.87583644432,
+                  "gb_per_second_p95": 2.87602591509,
+                  "gb_per_second_samples": [
+                    2.87583644432,
+                    2.87596267703,
+                    2.87533185925,
+                    2.87530037262,
+                    2.87574195334,
+                    2.87593117658,
+                    2.87602591509
+                  ],
+                  "host_api_us_per_copy_median": 0.8237109375,
+                  "host_api_us_per_copy_p95": 0.825953125,
+                  "host_api_us_per_copy_samples": [
+                    0.82478125,
+                    0.822171875,
+                    0.825953125,
+                    0.8239609375,
+                    0.8229453125,
+                    0.8237109375,
+                    0.820421875
+                  ]
+                },
+                "iterations_per_sample": 128,
+                "samples": 7
+              },
+              {
+                "bytes": 1048576,
+                "d_to_h": {
+                  "data_integrity_passed": true,
+                  "device_elapsed_us_per_copy_median": 320.755988359,
+                  "device_elapsed_us_per_copy_p95": 320.775985718,
+                  "device_elapsed_us_per_copy_samples": [
+                    320.775985718,
+                    320.751994848,
+                    320.767998695,
+                    320.755988359,
+                    320.771992207,
+                    320.724010468,
+                    320.751994848
+                  ],
+                  "gb_per_second_median": 3.26907692468,
+                  "gb_per_second_p95": 3.26940286906,
+                  "gb_per_second_samples": [
+                    3.26887312856,
+                    3.26911762621,
+                    3.26895452247,
+                    3.26907692468,
+                    3.26891382501,
+                    3.26940286906,
+                    3.26911762621
+                  ],
+                  "host_api_us_per_copy_median": 0.82375,
+                  "host_api_us_per_copy_p95": 0.8355,
+                  "host_api_us_per_copy_samples": [
+                    0.833875,
+                    0.819625,
+                    0.811875,
+                    0.8355,
+                    0.82375,
+                    0.806625,
+                    0.826875
+                  ]
+                },
+                "data_integrity_passed": true,
+                "h_to_d": {
+                  "data_integrity_passed": true,
+                  "device_elapsed_us_per_copy_median": 319.384008646,
+                  "device_elapsed_us_per_copy_p95": 319.424003363,
+                  "device_elapsed_us_per_copy_samples": [
+                    319.384008646,
+                    319.424003363,
+                    319.379985332,
+                    319.400012493,
+                    319.375991821,
+                    319.384008646,
+                    319.335997105
+                  ],
+                  "gb_per_second_median": 3.28311991713,
+                  "gb_per_second_p95": 3.28361352778,
+                  "gb_per_second_samples": [
+                    3.28311991713,
+                    3.28270884142,
+                    3.28316127546,
+                    3.28295541323,
+                    3.28320232845,
+                    3.28311991713,
+                    3.28361352778
+                  ],
+                  "host_api_us_per_copy_median": 0.848375,
+                  "host_api_us_per_copy_p95": 0.860375,
+                  "host_api_us_per_copy_samples": [
+                    0.84425,
+                    0.850875,
+                    0.8505,
+                    0.860375,
+                    0.848375,
+                    0.847375,
+                    0.8465
+                  ]
+                },
+                "iterations_per_sample": 8,
+                "samples": 7
+              },
+              {
+                "bytes": 16777216,
+                "d_to_h": {
+                  "data_integrity_passed": true,
+                  "device_elapsed_us_per_copy_median": 5097.69582748,
+                  "device_elapsed_us_per_copy_p95": 5098.04821014,
+                  "device_elapsed_us_per_copy_samples": [
+                    5098.04821014,
+                    5097.69582748,
+                    5097.6319313,
+                    5097.69582748,
+                    5097.6319313,
+                    5097.7602005,
+                    5097.59998322
+                  ],
+                  "gb_per_second_median": 3.291137127,
+                  "gb_per_second_p95": 3.29119900644,
+                  "gb_per_second_samples": [
+                    3.29090964001,
+                    3.291137127,
+                    3.2911783797,
+                    3.291137127,
+                    3.2911783797,
+                    3.29109556749,
+                    3.29119900644
+                  ],
+                  "host_api_us_per_copy_median": 0.956,
+                  "host_api_us_per_copy_p95": 1.013,
+                  "host_api_us_per_copy_samples": [
+                    0.888,
+                    0.95,
+                    0.913,
+                    0.956,
+                    0.986,
+                    1.013,
+                    0.983
+                  ]
+                },
+                "data_integrity_passed": true,
+                "h_to_d": {
+                  "data_integrity_passed": true,
+                  "device_elapsed_us_per_copy_median": 5055.16815186,
+                  "device_elapsed_us_per_copy_p95": 5055.64785004,
+                  "device_elapsed_us_per_copy_samples": [
+                    5055.64785004,
+                    5055.20009995,
+                    5055.10377884,
+                    5054.8157692,
+                    5054.78382111,
+                    5055.16815186,
+                    5055.16815186
+                  ],
+                  "gb_per_second_median": 3.31882451701,
+                  "gb_per_second_p95": 3.31907685744,
+                  "gb_per_second_samples": [
+                    3.31850961492,
+                    3.31880354255,
+                    3.31886677979,
+                    3.31905587979,
+                    3.31907685744,
+                    3.31882451701,
+                    3.31882451701
+                  ],
+                  "host_api_us_per_copy_median": 1.033,
+                  "host_api_us_per_copy_p95": 1.106,
+                  "host_api_us_per_copy_samples": [
+                    1.033,
+                    1.106,
+                    1.028,
+                    1.057,
+                    1.078,
+                    0.903,
+                    0.951
+                  ]
+                },
+                "iterations_per_sample": 1,
+                "samples": 7
+              },
+              {
+                "bytes": 67108864,
+                "d_to_h": {
+                  "data_integrity_passed": true,
+                  "device_elapsed_us_per_copy_median": 20372.8313446,
+                  "device_elapsed_us_per_copy_p95": 20373.6000061,
+                  "device_elapsed_us_per_copy_samples": [
+                    20373.1842041,
+                    20372.7684021,
+                    20373.0239868,
+                    20372.7359772,
+                    20372.6711273,
+                    20373.6000061,
+                    20372.8313446
+                  ],
+                  "gb_per_second_median": 3.29403718437,
+                  "gb_per_second_p95": 3.29406308974,
+                  "gb_per_second_samples": [
+                    3.2939801323,
+                    3.29404736143,
+                    3.29400603678,
+                    3.29405260419,
+                    3.29406308974,
+                    3.29391290591,
+                    3.29403718437
+                  ],
+                  "host_api_us_per_copy_median": 0.946,
+                  "host_api_us_per_copy_p95": 1.147,
+                  "host_api_us_per_copy_samples": [
+                    0.946,
+                    0.937,
+                    0.919,
+                    0.906,
+                    1.147,
+                    0.981,
+                    0.992
+                  ]
+                },
+                "data_integrity_passed": true,
+                "h_to_d": {
+                  "data_integrity_passed": true,
+                  "device_elapsed_us_per_copy_median": 20243.0400848,
+                  "device_elapsed_us_per_copy_p95": 20249.4716644,
+                  "device_elapsed_us_per_copy_samples": [
+                    20249.4716644,
+                    20243.8087463,
+                    20243.9041138,
+                    20243.0400848,
+                    20242.3038483,
+                    20241.0240173,
+                    20241.1842346
+                  ],
+                  "gb_per_second_median": 3.31515739329,
+                  "gb_per_second_p95": 3.31548759305,
+                  "gb_per_second_samples": [
+                    3.31410444243,
+                    3.3150315161,
+                    3.31501589925,
+                    3.31515739329,
+                    3.3152779695,
+                    3.31548759305,
+                    3.3154613496
+                  ],
+                  "host_api_us_per_copy_median": 1,
+                  "host_api_us_per_copy_p95": 1.026,
+                  "host_api_us_per_copy_samples": [
+                    1.022,
+                    1.026,
+                    1.016,
+                    1,
+                    0.955,
+                    0.931,
+                    0.93
+                  ]
+                },
+                "iterations_per_sample": 1,
+                "samples": 7
+              }
+            ],
+            "warmup_launches": 64
+          },
+          "performance_benchmark_passed": true,
+          "sm": 70,
+          "synchronous_passed": true,
+          "synchronous_sizes": [
+            1,
+            31,
+            256,
+            4096,
+            65537
+          ],
+          "targeted": true,
+          "tested": true
+        }
+      ],
+      "driver_api": 13000,
+      "driver_library_path": "/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04",
+      "execution_mode": "resident-contexts-sequential-kernels",
+      "expected_device_pci_by_sm": {},
+      "hybrid_validated": false,
+      "managed_prefetch_api": "not-requested",
+      "managed_prefetch_requested": false,
+      "memory_mode": "device",
+      "missing_sm": [],
+      "performance_benchmark_requested": true,
+      "required_set_passed": true,
+      "required_sm": [
+        70
+      ],
+      "schema": "nvidia-hybrid-probe-v2",
+      "status": "control-passed"
+    },
+    "probe_exit_code": 0,
+    "probe_stderr": "",
+    "probe_stdout": "{\"schema\":\"nvidia-hybrid-probe-v2\",\"status\":\"control-passed\",\"hybrid_validated\":false,\"required_set_passed\":true,\"context_coexistence_passed\":false,\"memory_mode\":\"device\",\"managed_prefetch_requested\":false,\"managed_prefetch_api\":\"not-requested\",\"cuda_graphs_requested\":false,\"cuda_graph_api\":\"cuGraphInstantiateWithFlags\",\"performance_benchmark_requested\":true,\"execution_mode\":\"resident-contexts-sequential-kernels\",\"concurrent_kernel_execution_validated\":false,\"driver_library_path\":\"/usr/lib/x86_64-linux-gnu/libcuda.so.580.178.04\",\"driver_api\":13000,\"expected_device_pci_by_sm\":{},\"required_sm\":[70],\"missing_sm\":[],\"devices\":[{\"ordinal\":0,\"name\":\"Tesla V100-SXM2-16GB\",\"pci_bus_id\":\"0000:00:05.0\",\"compute_capability\":\"7.0\",\"sm\":70,\"concurrent_managed_access\":true,\"pageable_memory_access\":false,\"pageable_memory_access_uses_host_page_tables\":false,\"targeted\":true,\"tested\":true,\"architecture_kernel_passed\":true,\"synchronous_passed\":true,\"synchronous_sizes\":[1,31,256,4096,65537],\"asynchronous_passed\":true,\"managed_memory_passed\":false,\"managed_prefetch_passed\":false,\"cuda_graphs_passed\":false,\"cuda_graph_launches\":0,\"performance_benchmark_passed\":true,\"performance_benchmark\":{\"schema\":\"nvidia-cuda-performance-benchmark-v2\",\"status\":\"completed\",\"timing_sources\":{\"host\":\"std::chrono::steady_clock\",\"device\":\"CUDA events (cuEventElapsedTime)\"},\"samples\":9,\"warmup_launches\":64,\"launches_per_sample\":256,\"kernel_launch\":{\"kernel\":\"hybrid_empty\",\"samples\":9,\"host_api_us_samples\":[1.657015625,1.67697265625,1.65841015625,1.64001171875,1.67514453125,1.64251953125,1.6780625,1.64687109375,1.6671484375],\"host_api_us_median\":1.65841015625,\"host_api_us_p95\":1.6780625,\"device_elapsed_us_samples\":[2.12000007741,2.09999992512,2.09999992512,2.09999992512,2.10399995558,2.10799998604,2.09999992512,2.09599989466,2.09200009704],\"device_elapsed_us_median\":2.09999992512,\"device_elapsed_us_p95\":2.12000007741},\"cuda_graph_launch\":{\"host_api_us\":{\"samples\":9,\"values\":[1.26023046875,1.1405,1.28003125,1.136609375,1.24167578125,1.13967578125,1.23958984375,1.16136328125,1.243734375],\"median\":1.23958984375,\"p95\":1.28003125},\"device_elapsed_us\":{\"samples\":9,\"values\":[2.21999990754,2.23600002937,2.22799996845,2.26400000975,2.24000005983,2.26400000975,2.23600002937,2.25199991837,2.21600010991],\"median\":2.23600002937,\"p95\":2.26400000975}},\"transfers\":[{\"bytes\":4096,\"iterations_per_sample\":2048,\"samples\":7,\"h_to_d\":{\"host_api_us_per_copy_samples\":[2.18873828125,2.18818310547,2.1896484375,2.19058056641,2.19058154297,2.19016894531,2.18756640625],\"host_api_us_per_copy_median\":2.1896484375,\"host_api_us_per_copy_p95\":2.19058154297,\"device_elapsed_us_per_copy_samples\":[4.37367195264,4.37120301649,4.37396857888,4.37653111294,4.3746875599,4.37531247735,4.37176553532],\"device_elapsed_us_per_copy_median\":4.37396857888,\"device_elapsed_us_per_copy_p95\":4.37653111294,\"gb_per_second_samples\":[0.936512853355,0.9370418131,0.936449342545,0.935901035386,0.936295436854,0.936161707582,0.936921243123],\"gb_per_second_median\":0.936449342545,\"gb_per_second_p95\":0.9370418131,\"data_integrity_passed\":true},\"d_to_h\":{\"host_api_us_per_copy_samples\":[1.46743310547,1.46806884766,1.46680908203,1.46626757813,1.46714648437,1.46713574219,1.46666845703],\"host_api_us_per_copy_median\":1.46713574219,\"host_api_us_per_copy_p95\":1.46806884766,\"device_elapsed_us_per_copy_samples\":[2.9191407375,2.92073446326,2.91893747635,2.91782803833,2.91893747635,2.91840615682,2.91842198931],\"device_elapsed_us_per_copy_median\":2.91893747635,\"device_elapsed_us_per_copy_p95\":2.92073446326,\"gb_per_second_samples\":[1.40315262891,1.40238698571,1.4032503379,1.40378389205,1.4032503379,1.40350581101,1.40349819697],\"gb_per_second_median\":1.4032503379,\"gb_per_second_p95\":1.40378389205,\"data_integrity_passed\":true},\"data_integrity_passed\":true},{\"bytes\":65536,\"iterations_per_sample\":128,\"samples\":7,\"h_to_d\":{\"host_api_us_per_copy_samples\":[0.82478125,0.822171875,0.825953125,0.8239609375,0.8229453125,0.8237109375,0.820421875],\"host_api_us_per_copy_median\":0.8237109375,\"host_api_us_per_copy_p95\":0.825953125,\"device_elapsed_us_per_copy_samples\":[22.7885004133,22.7875001729,22.7924995124,22.7927491069,22.7892491966,22.7877497673,22.7869991213],\"device_elapsed_us_per_copy_median\":22.7885004133,\"device_elapsed_us_per_copy_p95\":22.7927491069,\"gb_per_second_samples\":[2.87583644432,2.87596267703,2.87533185925,2.87530037262,2.87574195334,2.87593117658,2.87602591509],\"gb_per_second_median\":2.87583644432,\"gb_per_second_p95\":2.87602591509,\"data_integrity_passed\":true},\"d_to_h\":{\"host_api_us_per_copy_samples\":[0.78615625,0.7850234375,0.805546875,0.78384375,0.82184375,0.7780625,0.7986015625],\"host_api_us_per_copy_median\":0.78615625,\"host_api_us_per_copy_p95\":0.82184375,\"device_elapsed_us_per_copy_samples\":[21.577000618,21.5787496418,21.5910002589,21.5817503631,21.6102506965,21.588999778,21.5462502092],\"device_elapsed_us_per_copy_median\":21.5817503631,\"device_elapsed_us_per_copy_p95\":21.6102506965,\"gb_per_second_samples\":[3.0373081579,3.03706197476,3.03533876217,3.0366397024,3.03263487871,3.03562002287,3.04164294778],\"gb_per_second_median\":3.0366397024,\"gb_per_second_p95\":3.04164294778,\"data_integrity_passed\":true},\"data_integrity_passed\":true},{\"bytes\":1048576,\"iterations_per_sample\":8,\"samples\":7,\"h_to_d\":{\"host_api_us_per_copy_samples\":[0.84425,0.850875,0.8505,0.860375,0.848375,0.847375,0.8465],\"host_api_us_per_copy_median\":0.848375,\"host_api_us_per_copy_p95\":0.860375,\"device_elapsed_us_per_copy_samples\":[319.384008646,319.424003363,319.379985332,319.400012493,319.375991821,319.384008646,319.335997105],\"device_elapsed_us_per_copy_median\":319.384008646,\"device_elapsed_us_per_copy_p95\":319.424003363,\"gb_per_second_samples\":[3.28311991713,3.28270884142,3.28316127546,3.28295541323,3.28320232845,3.28311991713,3.28361352778],\"gb_per_second_median\":3.28311991713,\"gb_per_second_p95\":3.28361352778,\"data_integrity_passed\":true},\"d_to_h\":{\"host_api_us_per_copy_samples\":[0.833875,0.819625,0.811875,0.8355,0.82375,0.806625,0.826875],\"host_api_us_per_copy_median\":0.82375,\"host_api_us_per_copy_p95\":0.8355,\"device_elapsed_us_per_copy_samples\":[320.775985718,320.751994848,320.767998695,320.755988359,320.771992207,320.724010468,320.751994848],\"device_elapsed_us_per_copy_median\":320.755988359,\"device_elapsed_us_per_copy_p95\":320.775985718,\"gb_per_second_samples\":[3.26887312856,3.26911762621,3.26895452247,3.26907692468,3.26891382501,3.26940286906,3.26911762621],\"gb_per_second_median\":3.26907692468,\"gb_per_second_p95\":3.26940286906,\"data_integrity_passed\":true},\"data_integrity_passed\":true},{\"bytes\":16777216,\"iterations_per_sample\":1,\"samples\":7,\"h_to_d\":{\"host_api_us_per_copy_samples\":[1.033,1.106,1.028,1.057,1.078,0.903,0.951],\"host_api_us_per_copy_median\":1.033,\"host_api_us_per_copy_p95\":1.106,\"device_elapsed_us_per_copy_samples\":[5055.64785004,5055.20009995,5055.10377884,5054.8157692,5054.78382111,5055.16815186,5055.16815186],\"device_elapsed_us_per_copy_median\":5055.16815186,\"device_elapsed_us_per_copy_p95\":5055.64785004,\"gb_per_second_samples\":[3.31850961492,3.31880354255,3.31886677979,3.31905587979,3.31907685744,3.31882451701,3.31882451701],\"gb_per_second_median\":3.31882451701,\"gb_per_second_p95\":3.31907685744,\"data_integrity_passed\":true},\"d_to_h\":{\"host_api_us_per_copy_samples\":[0.888,0.95,0.913,0.956,0.986,1.013,0.983],\"host_api_us_per_copy_median\":0.956,\"host_api_us_per_copy_p95\":1.013,\"device_elapsed_us_per_copy_samples\":[5098.04821014,5097.69582748,5097.6319313,5097.69582748,5097.6319313,5097.7602005,5097.59998322],\"device_elapsed_us_per_copy_median\":5097.69582748,\"device_elapsed_us_per_copy_p95\":5098.04821014,\"gb_per_second_samples\":[3.29090964001,3.291137127,3.2911783797,3.291137127,3.2911783797,3.29109556749,3.29119900644],\"gb_per_second_median\":3.291137127,\"gb_per_second_p95\":3.29119900644,\"data_integrity_passed\":true},\"data_integrity_passed\":true},{\"bytes\":67108864,\"iterations_per_sample\":1,\"samples\":7,\"h_to_d\":{\"host_api_us_per_copy_samples\":[1.022,1.026,1.016,1,0.955,0.931,0.93],\"host_api_us_per_copy_median\":1,\"host_api_us_per_copy_p95\":1.026,\"device_elapsed_us_per_copy_samples\":[20249.4716644,20243.8087463,20243.9041138,20243.0400848,20242.3038483,20241.0240173,20241.1842346],\"device_elapsed_us_per_copy_median\":20243.0400848,\"device_elapsed_us_per_copy_p95\":20249.4716644,\"gb_per_second_samples\":[3.31410444243,3.3150315161,3.31501589925,3.31515739329,3.3152779695,3.31548759305,3.3154613496],\"gb_per_second_median\":3.31515739329,\"gb_per_second_p95\":3.31548759305,\"data_integrity_passed\":true},\"d_to_h\":{\"host_api_us_per_copy_samples\":[0.946,0.937,0.919,0.906,1.147,0.981,0.992],\"host_api_us_per_copy_median\":0.946,\"host_api_us_per_copy_p95\":1.147,\"device_elapsed_us_per_copy_samples\":[20373.1842041,20372.7684021,20373.0239868,20372.7359772,20372.6711273,20373.6000061,20372.8313446],\"device_elapsed_us_per_copy_median\":20372.8313446,\"device_elapsed_us_per_copy_p95\":20373.6000061,\"gb_per_second_samples\":[3.2939801323,3.29404736143,3.29400603678,3.29405260419,3.29406308974,3.29391290591,3.29403718437],\"gb_per_second_median\":3.29403718437,\"gb_per_second_p95\":3.29406308974,\"data_integrity_passed\":true},\"data_integrity_passed\":true}]},\"asynchronous_sizes\":[1,31,256,4096,65537],\"cleanup_passed\":true,\"cleanup_errors\":[],\"error\":\"\"}]}\n",
+    "probed_ids_capture_requested": false,
+    "probed_ids_records_seen": null,
+    "qualification": "v100-reference-validated",
+    "rm_control_capture_requested": false,
+    "rm_control_headers_capture_requested": false,
+    "rm_control_headers_record_count": null,
+    "rm_control_headers_records_seen": null,
+    "rm_control_records_seen": null,
+    "rusd_alloc_capture_requested": false,
+    "rusd_alloc_records_seen": null,
+    "schema": "nvidia-hybrid-pc3-v100-guest-reference-v1",
+    "subdevice_alloc_capture_requested": false,
+    "subdevice_alloc_payload_snapshots_read": null,
+    "subdevice_alloc_records_seen": null,
+    "system_features_capture_requested": false,
+    "system_features_masks": null,
+    "system_features_record_count": null,
+    "system_features_records_seen": null,
+    "uvm_map_external_records_seen": null,
+    "uvm_vaspace_fd_capture_requested": false,
+    "uvm_vaspace_records_seen": null
+  },
+  "remote_script_sha256": "cf52a9bc31da0d83911ae5773661e59e6fdb86777e981a7d2ba15b57a4081a8b",
+  "rm_control_capture_requested": false,
+  "rm_control_headers_capture_requested": false,
+  "runner_source": {
+    "bytes": 205785,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/tools/run_pc3_v100_guest_reference.py",
+    "sha256": "a01489fa28b940c264910c11cb4afdd65c78f1c9ad4f01a6e5b0efabb4ec3f54"
+  },
+  "rusd_alloc_capture_requested": false,
+  "schema": "nvidia-hybrid-pc3-v100-reference-transport-v1",
+  "subdevice_alloc_capture_requested": false,
+  "system_features_capture_requested": false,
+  "target": "pc3@pc3",
+  "uvm_vaspace_fd_capture_requested": false
+}

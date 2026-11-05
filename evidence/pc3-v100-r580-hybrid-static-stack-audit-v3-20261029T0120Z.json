@@ -1,0 +1,259 @@
+{
+  "audit_wrapper_sha256": "6b5a0e91a0667e1400e020270105a38972cd308f5db01a6ff81133aae188643f",
+  "cuda_execution_tested": false,
+  "gpu_accessed": false,
+  "guest_hostname": "pc3-v100",
+  "kernel_release": "6.8.0-147-generic",
+  "module_installed": false,
+  "module_loaded": false,
+  "normalized_reports": {
+    "frontend": {
+      "path": "build/experiments/pc3-v100-r580-stack-audit-20261029T011214Z-19ef38a1/frontend.json",
+      "sha256": "698fb44b5fbba205736ae44bbd87a655958f820394c11797026545f736582a27"
+    },
+    "legacy": {
+      "path": "build/experiments/pc3-v100-r580-stack-audit-20261029T011214Z-19ef38a1/legacy.json",
+      "sha256": "2eff85f1ae10513ba4185424df2b167400e8c978f55cc6abf31e9191600bf622"
+    },
+    "open": {
+      "path": "build/experiments/pc3-v100-r580-stack-audit-20261029T011214Z-19ef38a1/open.json",
+      "sha256": "3b709f97f891d7dc3c95850737ba9344ec8f1e9fa21bac99c9fa58fc99eb1c88"
+    },
+    "uvm": {
+      "path": "build/experiments/pc3-v100-r580-stack-audit-20261029T011214Z-19ef38a1/uvm.json",
+      "sha256": "ff64f0b2ec207e9d69abe0b3db372a43752de7ddf3bd1fc9f3d427b64bf1b291"
+    }
+  },
+  "observed_at_utc": "2026-10-29T01:12:14+00:00",
+  "qualification": "static-module-bundle-closure",
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-pc3-v100-r580-hybrid-static-stack-audit-v1",
+  "source_captures": {
+    "frontend": {
+      "path": "evidence/pc3-v100-hybrid-frontend-build-20261029T010921Z.json",
+      "sha256": "c66bbce031d36dad876bbaa0a45674c8873e2ee6a03418b89e9e438c7b7a15d2"
+    },
+    "legacy": {
+      "path": "evidence/pc3-v100-private-proprietary580-build-v12-20261029T0111Z.json",
+      "sha256": "d2cdc4c44771d6030594353253d2066a12dd424eb9e439fb60c65b55f233f8da"
+    },
+    "open": {
+      "path": "evidence/pc3-v100-private-open580-build-v10-20261029T0110Z.json",
+      "sha256": "7babbca7423255d9a950efe6dcf9fa8076e64dd2ee39de97474e717d87f4498b"
+    },
+    "uvm": {
+      "path": "evidence/pc3-v100-uvm-consumer-build-v6-20261029T0112Z.json",
+      "sha256": "0f03cd797767c86e6240de5ba9d94f152b80f295025ef421a91deb541fffa0ff"
+    }
+  },
+  "static_audit": {
+    "created_utc": "2026-10-29T01:12:14.600104+00:00",
+    "implementation_sha256": {
+      "tools/audit_hybrid_candidate_bundle.py": "371fcebe2594f1e34f393d61e9ae7ffd9346fba8d3fb05a1c0c849df81711273",
+      "tools/audit_r595_uvm_symbol_closure.py": "df15241c7a44e9420e260f9db460eff11e15abadfb49cb24bf5904604269553d",
+      "tools/build_hybrid_frontend.py": "d7cb5cfab40e14c9c88457564b2d1ea2e6ef161981296b7cc6d4dd644e2d13d5",
+      "tools/probe_r595_gv100_complete_hal.py": "5f2325ec151a3606fa71ddcdb3e0c92271b606ad591a46846f529fda0b7d0c25",
+      "tools/probe_volta_uvm_port.py": "539d55209d845359831ae80e025b2a2772620184d5514486fe1712e2b6b6bd08"
+    },
+    "issues": [],
+    "kernel_release": "6.8.0-147-generic",
+    "module_installed": false,
+    "module_loaded": false,
+    "modules": {
+      "frontend": {
+        "depends": [
+          "hybrid580_legacy",
+          "hybrid580_open"
+        ],
+        "license": "Dual MIT/GPL",
+        "name": "nvidia",
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/pc3-v100-hybrid-frontend-78617e7357ed4b9391a9755d3edaa7f2/nvidia.ko",
+        "sha256": "d3b359b8f0ae839ee7d227102e283c45f515db039ce5d9651e53d7fa44ec9eed",
+        "vermagic": "6.8.0-147-generic SMP preempt mod_unload modversions",
+        "version": ""
+      },
+      "legacy": {
+        "depends": [],
+        "license": "NVIDIA",
+        "name": "hybrid580_legacy",
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/pc3-v100-private-proprietary580-9acb6b5b071245f6aa474e1e7fae3f43/nvidia-580.178.04/hybrid580_legacy.ko",
+        "sha256": "d1489ce08bed40db1c9268d4ac3a90cb4d266eb26b450baeefa23b1dfe540e6c",
+        "vermagic": "6.8.0-147-generic SMP preempt mod_unload modversions",
+        "version": "580.178.04"
+      },
+      "open": {
+        "depends": [
+          "ecc"
+        ],
+        "license": "Dual MIT/GPL",
+        "name": "hybrid580_open",
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/pc3-v100-private-open580-9b88c6bbd40046efb10478e4e3184e9e/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/hybrid580_open.ko",
+        "sha256": "70453d17b6054fab67e8dd839226f4184fe9610b979662483a973b8f7b395492",
+        "vermagic": "6.8.0-147-generic SMP preempt mod_unload modversions",
+        "version": "580.178.04"
+      },
+      "uvm": {
+        "depends": [
+          "nvidia"
+        ],
+        "license": "Dual MIT/GPL",
+        "name": "nvidia_uvm",
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/pc3-v100-uvm-consumer-e51e0e7c240b433b8610d876f40eb1c2/scratch/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm.ko",
+        "sha256": "1024e0032aba523f3d652a416b199b19afee2f710daf7d50b38e0bf29bfbbf30",
+        "vermagic": "6.8.0-147-generic SMP preempt mod_unload modversions",
+        "version": "580.178.04"
+      }
+    },
+    "qualification": "static-module-bundle-closure",
+    "reports": {
+      "frontend": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/pc3-v100-r580-stack-audit-20261029T011214Z-19ef38a1/frontend.json",
+        "sha256": "698fb44b5fbba205736ae44bbd87a655958f820394c11797026545f736582a27"
+      },
+      "legacy": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/pc3-v100-r580-stack-audit-20261029T011214Z-19ef38a1/legacy.json",
+        "sha256": "2eff85f1ae10513ba4185424df2b167400e8c978f55cc6abf31e9191600bf622"
+      },
+      "open": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/pc3-v100-r580-stack-audit-20261029T011214Z-19ef38a1/open.json",
+        "sha256": "3b709f97f891d7dc3c95850737ba9344ec8f1e9fa21bac99c9fa58fc99eb1c88"
+      },
+      "uvm": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/pc3-v100-r580-stack-audit-20261029T011214Z-19ef38a1/uvm.json",
+        "sha256": "ff64f0b2ec207e9d69abe0b3db372a43752de7ddf3bd1fc9f3d427b64bf1b291"
+      }
+    },
+    "runtime_or_hardware_validated": false,
+    "schema": "hybrid-module-bundle-static-audit-v1",
+    "status": "passed",
+    "symbol_closure": {
+      "frontend_imports": {
+        "ambiguous_matches": [],
+        "crc_mismatches": [],
+        "import_count": 301,
+        "matched_by_provider": {
+          "kernel": 63,
+          "legacy": 119,
+          "open": 119
+        }
+      },
+      "frontend_private_import_count": 238,
+      "module_exports": {
+        "frontend": {
+          "actual_export_count": 80,
+          "crc_mismatches": [],
+          "expected_export_count": 80,
+          "missing_exports": [],
+          "unexpected_exports": []
+        },
+        "legacy": {
+          "actual_export_count": 144,
+          "crc_mismatches": [],
+          "expected_export_count": 144,
+          "missing_exports": [],
+          "unexpected_exports": []
+        },
+        "open": {
+          "actual_export_count": 145,
+          "crc_mismatches": [],
+          "expected_export_count": 145,
+          "missing_exports": [],
+          "unexpected_exports": []
+        }
+      },
+      "provider_imports": {
+        "legacy": {
+          "ambiguous_matches": [],
+          "crc_mismatches": [],
+          "import_count": 304,
+          "matched_by_provider": {
+            "kernel": 304
+          }
+        },
+        "open": {
+          "ambiguous_matches": [],
+          "crc_mismatches": [],
+          "import_count": 433,
+          "matched_by_provider": {
+            "kernel": 433
+          }
+        }
+      },
+      "standard_uvm_interface_closure": {
+        "crc_mismatches": [],
+        "frontend_only_extensions": [
+          "nvUvmInterfaceAreGpuProvidersSame",
+          "nvUvmInterfaceGetGpuProvider"
+        ],
+        "missing_exports": [],
+        "missing_frontend_extensions": [],
+        "unexpected_exports": []
+      },
+      "standard_uvm_interface_export_count": 80,
+      "standard_uvm_interface_import_count": 77,
+      "uvm_imports": {
+        "ambiguous_matches": [],
+        "crc_mismatches": [],
+        "import_count": 321,
+        "matched_by_provider": {
+          "frontend": 77,
+          "kernel": 244
+        }
+      }
+    },
+    "symvers": {
+      "frontend": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/pc3-v100-hybrid-frontend-78617e7357ed4b9391a9755d3edaa7f2/Module.symvers",
+        "sha256": "1d783d5d41fa944ebf4149ffd306963f31e90b0105f6521dc194ee5850187f4f"
+      },
+      "kernel": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/pc3-v100-hybrid-frontend-78617e7357ed4b9391a9755d3edaa7f2/kernel-inputs/Module.symvers",
+        "sha256": "8e7eb5798789b9610c324b3d9b13373d88c30ae17bb9e41e622efd05e0277a87"
+      },
+      "legacy": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/pc3-v100-private-proprietary580-9acb6b5b071245f6aa474e1e7fae3f43/nvidia-580.178.04/Module.symvers",
+        "sha256": "a78d0db7182fc703d423133f3d0bf872436af50d9299bcfb9bfacb9c4ad8ec75"
+      },
+      "open": {
+        "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/pc3-v100-private-open580-9b88c6bbd40046efb10478e4e3184e9e/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/Module.symvers",
+        "sha256": "2e666eba0adf490ed586f4b5c81b1e281fafc89594709fb3d3abe06de570549b"
+      }
+    }
+  },
+  "status": "passed",
+  "target": "pc3@pc3",
+  "verified_artifacts": {
+    "frontend": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/pc3-v100-hybrid-frontend-78617e7357ed4b9391a9755d3edaa7f2/nvidia.ko",
+      "sha256": "d3b359b8f0ae839ee7d227102e283c45f515db039ce5d9651e53d7fa44ec9eed"
+    },
+    "frontend_symvers": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/pc3-v100-hybrid-frontend-78617e7357ed4b9391a9755d3edaa7f2/Module.symvers",
+      "sha256": "1d783d5d41fa944ebf4149ffd306963f31e90b0105f6521dc194ee5850187f4f"
+    },
+    "kernel_symvers": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/pc3-v100-hybrid-frontend-78617e7357ed4b9391a9755d3edaa7f2/kernel-inputs/Module.symvers",
+      "sha256": "8e7eb5798789b9610c324b3d9b13373d88c30ae17bb9e41e622efd05e0277a87"
+    },
+    "legacy": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/pc3-v100-private-proprietary580-9acb6b5b071245f6aa474e1e7fae3f43/nvidia-580.178.04/hybrid580_legacy.ko",
+      "sha256": "d1489ce08bed40db1c9268d4ac3a90cb4d266eb26b450baeefa23b1dfe540e6c"
+    },
+    "legacy_symvers": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/pc3-v100-private-proprietary580-9acb6b5b071245f6aa474e1e7fae3f43/nvidia-580.178.04/Module.symvers",
+      "sha256": "a78d0db7182fc703d423133f3d0bf872436af50d9299bcfb9bfacb9c4ad8ec75"
+    },
+    "open": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/pc3-v100-private-open580-9b88c6bbd40046efb10478e4e3184e9e/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/hybrid580_open.ko",
+      "sha256": "70453d17b6054fab67e8dd839226f4184fe9610b979662483a973b8f7b395492"
+    },
+    "open_symvers": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/pc3-v100-private-open580-9b88c6bbd40046efb10478e4e3184e9e/private/NVIDIA-kernel-module-source-580.178.04/kernel-open/Module.symvers",
+      "sha256": "2e666eba0adf490ed586f4b5c81b1e281fafc89594709fb3d3abe06de570549b"
+    },
+    "uvm": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/pc3-v100-uvm-consumer-e51e0e7c240b433b8610d876f40eb1c2/scratch/NVIDIA-kernel-module-source-580.178.04/kernel-open/nvidia-uvm.ko",
+      "sha256": "1024e0032aba523f3d652a416b199b19afee2f710daf7d50b38e0bf29bfbbf30"
+    }
+  }
+}
