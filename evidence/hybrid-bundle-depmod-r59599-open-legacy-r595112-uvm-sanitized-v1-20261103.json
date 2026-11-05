@@ -1,0 +1,75 @@
+{
+  "audit_report_sha256": "769d3868c72bfd3b37333f60a524215fc17f8d89d0ea360919e82d7b55582b3e",
+  "audit_report_status": "passed",
+  "created_utc": "2026-11-03T17:04:55.684579+00:00",
+  "cuda_execution_validated": false,
+  "dependency_resolution": {
+    "nvidia": [
+      "hybrid580_open.ko",
+      "hybrid580_legacy.ko",
+      "nvidia.ko"
+    ],
+    "nvidia_uvm": [
+      "hybrid580_open.ko",
+      "hybrid580_legacy.ko",
+      "nvidia.ko",
+      "nvidia_uvm.ko"
+    ],
+    "show_depends_included_verified_pre_softdep": {
+      "nvidia": true,
+      "nvidia_uvm": true
+    },
+    "verified_pre_softdeps": {
+      "kernel_builtin": [
+        "ecdh_generic"
+      ],
+      "loadable_module": [
+        {
+          "filename": "ecdsa_generic.ko.zst",
+          "name": "ecdsa_generic",
+          "sha256": "ed3f2051d7847de589bfd27a68a1e98382b698d73ae88d71ecf28a94630e3b3e"
+        }
+      ]
+    }
+  },
+  "depmod_metadata_sha256": {
+    "modules_dep": "95048429cfbcc8a45f95a43ed03bd726b2e5b883812956cc573f6b7c535c7180",
+    "modules_softdep": "03070036ef525ec8010e5a6c77d09a85a8e73b23856b5c848229fb813b6852e1"
+  },
+  "implementation_sha256": {
+    "tools/summarize_hybrid_bundle_depmod.py": "9d4b56bda08cfe6c344a0272b762caf2145387c89c6369ae8f0b3c47a5ffa66a",
+    "tools/verify_hybrid_bundle_depmod.py": "59f206510e6175a011d6dd4bb13c18d4d43db7f16c515e4d3465f3e583abc228"
+  },
+  "kernel_release": "7.0.0-38-generic",
+  "loaded_or_installed": false,
+  "modules": {
+    "frontend": {
+      "filename": "nvidia.ko",
+      "name": "nvidia",
+      "sha256": "5a07385bea9730ddf83c5e482a630ee1b5a71a24604b5583be489ab1754b2c40",
+      "size_bytes": 3183968
+    },
+    "legacy": {
+      "filename": "hybrid580_legacy.ko",
+      "name": "hybrid580_legacy",
+      "sha256": "f38e9bf452d4d28c6ac1281eaa5095523daf231a129721db2176a4e8fa2ee02f",
+      "size_bytes": 137000840
+    },
+    "open": {
+      "filename": "hybrid580_open.ko",
+      "name": "hybrid580_open",
+      "sha256": "67052f19d331f10f463f8b04dc8746819fbc4040487009fa7a079c97cd2d4d05",
+      "size_bytes": 37265448
+    },
+    "uvm": {
+      "filename": "nvidia_uvm.ko",
+      "name": "nvidia_uvm",
+      "sha256": "dea278c8e2593ebf5054da6ff22622f6c2fd8e4a6c9186973a70222d481f99f5",
+      "size_bytes": 62021304
+    }
+  },
+  "qualification": "isolated-dependency-map-only",
+  "raw_report_sha256": "41c0b37193232e07d076038ceb51b0abc34563275abea06f86390d20fae44f71",
+  "runtime_or_hardware_validated": false,
+  "schema": "hybrid-module-bundle-depmod-sanitized-v1"
+}

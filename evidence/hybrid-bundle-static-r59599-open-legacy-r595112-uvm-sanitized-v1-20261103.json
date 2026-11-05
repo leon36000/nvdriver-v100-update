@@ -1,0 +1,78 @@
+{
+  "created_utc": "2026-11-03T17:04:55.656897+00:00",
+  "implementation_sha256": {
+    "tools/audit_hybrid_candidate_bundle.py": "61e85d6dec0261c3724d8ff54807da75368a3b844f155031b5490be1fb34d5bf",
+    "tools/summarize_hybrid_candidate_bundle.py": "0b343b58b1d6b1e7dbc912ad8f1a7dcc7f378b5f80a0bc9894e141897fb99405"
+  },
+  "kernel_release": "7.0.0-38-generic",
+  "limitations": [
+    "Static ELF, module metadata, and symbol CRC closure only.",
+    "Does not establish module loading, GPU initialization, CUDA or UVM execution.",
+    "Does not establish P2P, performance, rollback, or stability."
+  ],
+  "modules": {
+    "frontend": {
+      "depends": [
+        "hybrid580_legacy",
+        "hybrid580_open"
+      ],
+      "license": "Dual MIT/GPL",
+      "name": "nvidia",
+      "sha256": "5a07385bea9730ddf83c5e482a630ee1b5a71a24604b5583be489ab1754b2c40",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": ""
+    },
+    "legacy": {
+      "depends": [],
+      "license": "NVIDIA",
+      "name": "hybrid580_legacy",
+      "sha256": "f38e9bf452d4d28c6ac1281eaa5095523daf231a129721db2176a4e8fa2ee02f",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "580.196.07"
+    },
+    "open": {
+      "depends": [],
+      "license": "Dual MIT/GPL",
+      "name": "hybrid580_open",
+      "sha256": "67052f19d331f10f463f8b04dc8746819fbc4040487009fa7a079c97cd2d4d05",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "595.99.02"
+    },
+    "uvm": {
+      "depends": [
+        "nvidia"
+      ],
+      "license": "Dual MIT/GPL",
+      "name": "nvidia_uvm",
+      "sha256": "dea278c8e2593ebf5054da6ff22622f6c2fd8e4a6c9186973a70222d481f99f5",
+      "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+      "version": "595.112.07"
+    }
+  },
+  "qualification": "static-module-bundle-closure-only",
+  "raw_report_sha256": "769d3868c72bfd3b37333f60a524215fc17f8d89d0ea360919e82d7b55582b3e",
+  "runtime": {
+    "gpu_accessed": false,
+    "module_installed": false,
+    "module_loaded": false,
+    "runtime_or_hardware_validated": false
+  },
+  "schema": "hybrid-module-bundle-static-sanitized-v1",
+  "status": "passed",
+  "symbol_closure": {
+    "frontend_import_count": 311,
+    "issue_count": 0,
+    "module_export_counts": {
+      "frontend": 83,
+      "legacy": 150,
+      "open": 148
+    },
+    "provider_import_counts": {
+      "legacy": 305,
+      "open": 461
+    },
+    "public_uvm_interface_export_count": 83,
+    "public_uvm_interface_import_count": 81,
+    "uvm_import_count": 331
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "candidate_bundle_audit": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/hybrid-bundle-audit-r59559599-r58019607-linux70-v4-20261101T1008Z.json",
+    "sha256": "5126b9309c19f5a32f31238711c55e6f4ef4c3b672ca4c383be06e8f45e96766"
+  },
+  "duration_seconds": 17.971,
+  "errors": 0,
+  "failures": 0,
+  "gpu_accessed": false,
+  "log": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/hybrid-bundle-r595-uvm-regressions-v2-20261101T1016Z.log",
+    "sha256": "7a6e65be681ed6bafc216998056645f64effcc87ce0311b5bda4067aa75572a4"
+  },
+  "module_installed": false,
+  "module_loaded": false,
+  "observed_at_utc": "2026-11-01T10:16:52.336873+00:00",
+  "patterns": [
+    "test_audit_hybrid_candidate_bundle.py",
+    "test_build_r595_hybrid_uvm_target.py",
+    "test_gt200_debugger_alloc_contract.py",
+    "test_gt200_debugger_dispatch_source.py",
+    "test_hybrid580_debugger_provider_bridge.py",
+    "test_r595_uvm_control_fd_dispatch.py",
+    "test_build_hybrid_frontend.py"
+  ],
+  "qualification": "focused-software-regression-only",
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-hybrid-focused-regression-v1",
+  "status": "passed",
+  "test_file_sha256": {
+    "tests/test_audit_hybrid_candidate_bundle.py": "8d7ca7de34f3c6cde8d12509f6b6c95bffdd742ec009c52b8f7616f4e46ca0a4",
+    "tests/test_build_hybrid_frontend.py": "6c9e161025368c6d209e8b4d070dfd1efa96e74793212544cbe76fc34ac5f562",
+    "tests/test_build_r595_hybrid_uvm_target.py": "3fa998703c0d7f634d5a49f86cea0b5fd0913ebd4a94b539a663eaa4a0643ce3",
+    "tests/test_gt200_debugger_alloc_contract.py": "86707ebd6ecbdb8627e13e5fc2831886b1a928a57d317599ce166db257e748cd",
+    "tests/test_gt200_debugger_dispatch_source.py": "669ffddbbbd7a6e7629cd874a022ccddc15e4dd20877d32050c79ce49b44c22d",
+    "tests/test_hybrid580_debugger_provider_bridge.py": "0437c6ee45c73b6254df56de813794ec9a7326b44063782bcef83a2dd9180bbb",
+    "tests/test_r595_uvm_control_fd_dispatch.py": "abcedbdea300c6bb11eec854ac003095e4b9e7845af74f41463c5048de90c619"
+  },
+  "tests_run": 93
+}

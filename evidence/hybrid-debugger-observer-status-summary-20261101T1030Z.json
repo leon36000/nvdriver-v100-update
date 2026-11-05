@@ -1,0 +1,53 @@
+{
+  "argv": [
+    "python3",
+    "-m",
+    "unittest",
+    "test_remote_selected_gpu",
+    "test_rm_ioctl_observer",
+    "test_gt200_debugger_alloc_contract",
+    "test_gt200_debugger_dispatch_source",
+    "test_hybrid_frontend.HybridFrontendTests.test_actual_frontend_lifecycle_and_broker_cpu_contract",
+    "-v"
+  ],
+  "duration_seconds": 23.422,
+  "errors": 0,
+  "exit_code": 0,
+  "failures": 0,
+  "gpu_accessed": false,
+  "log": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/hybrid-debugger-observer-status-summary-20261101T1030Z.log",
+    "sha256": "eff43ea09fa94da3492cc670ccd7ef61869a051fc2fa87fd58310692f331d87d"
+  },
+  "module_installed": false,
+  "module_loaded": false,
+  "observed_at_utc": "2026-11-01T10:30:00Z",
+  "patterns": [
+    "test_remote_selected_gpu",
+    "test_rm_ioctl_observer",
+    "test_gt200_debugger_alloc_contract",
+    "test_gt200_debugger_dispatch_source",
+    "test_hybrid_frontend.HybridFrontendTests.test_actual_frontend_lifecycle_and_broker_cpu_contract"
+  ],
+  "py_compile_exit_code": 0,
+  "py_compile_files": [
+    "tests/run_hybrid_acceptance.py",
+    "tools/run_remote_selected_gpu.py",
+    "tests/test_remote_selected_gpu.py",
+    "tests/test_hybrid_frontend.py",
+    "tests/test_gt200_debugger_dispatch_source.py"
+  ],
+  "qualification": "focused-software-regression-only",
+  "remote_pc_accessed": false,
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-hybrid-focused-regression-v1",
+  "source_file_sha256": {
+    "tests/run_hybrid_acceptance.py": "37857b9ceea14ea305653df3ebe0128c855d16430deaf537b5a8b8057e539529",
+    "tests/test_gt200_debugger_dispatch_source.py": "a58e8ea7e059d87118aad3129d29606f68873d80c45ac1d19b6c054b57b1a5ad",
+    "tests/test_hybrid_frontend.py": "f9e1edb49e84c6c864d03defa80b416c0e4c6327b399cdca4429c0f5b4b45555",
+    "tests/test_remote_selected_gpu.py": "4f66d757ea18607c4bf482310487b66e4f7d7bc2c74ce868f53da9836ecf59b7",
+    "tools/run_remote_selected_gpu.py": "fb78a50cf0ea0a36ede382e121a4481354ce93d90e65cc79738476e9fd0eb3dc"
+  },
+  "status": "passed",
+  "tests_run": 180
+}
