@@ -1,0 +1,43 @@
+{
+  "candidate_module": {
+    "built_for_kernel": "7.0.0-38-generic",
+    "import_crc": "0x211f9d4e",
+    "imported_symbol": "mem_section",
+    "path": "build/experiments/r595-syncboost-open-build-v2/source/kernel-open/hybrid580_open-pfn-guard-v1.ko",
+    "sha256": "1d4325e12ad360319bb0e6f0275f5baea6dc95fa63a0856ba9977cce2f956187"
+  },
+  "comparison": {
+    "crc_matches": false,
+    "interpretation": "The Linux 7.0 candidate is not evidence of a Linux 6.8 build. Rebuild against the exact 6.8.0-147 headers and generated conftest before making a target-kernel compatibility claim."
+  },
+  "limitations": [
+    "The exact target kernel headers are not present on PC1 or the reachable PC6 host.",
+    "PC3 was offline during this check.",
+    "This comparison did not load a module or access a GPU.",
+    "A CRC mismatch between artifacts built against different kernels does not determine whether a rebuild against the target headers succeeds."
+  ],
+  "observed_at_utc": "2026-10-29T12:15:48Z",
+  "provenance": {
+    "candidate_build_receipt": "evidence/r595-open-pfn-guard-r59599-build-v1-20261029.json",
+    "candidate_build_receipt_sha256": "6785dc0c7b0684472b5cd6dea96fdcc94b958755307deee287e0e08d7895dbbe",
+    "candidate_module_loaded_or_installed": false,
+    "gpu_accessed_in_recorded_v100_build": false,
+    "v100_build_exit_code": 0,
+    "v100_build_qualification": "compiled-native-private-open580-provider-only",
+    "v100_build_receipt": "evidence/pc3-v100-private-open580-build-v9-20261029T0030Z.json",
+    "v100_build_receipt_sha256": "6252eb4a30a5f9076782cbc901185d9549cb321a87512f3b5e4307675e310866",
+    "v100_inner_builder_report_sha256": "66a2ac3c06f348118fc49d6e972f44bf2f28366ef7f755c4995e3c19aa85ef25"
+  },
+  "qualification": "static-symbol-version-comparison",
+  "schema": "nvidia.hybrid.cross-kernel-symbol-crc.v1",
+  "status": "cross-kernel-crc-mismatch-requires-exact-target-build",
+  "target_v100_guest": {
+    "export_crc": "0x3199fbeb",
+    "export_kind": "EXPORT_SYMBOL",
+    "exported_symbol": "mem_section",
+    "hostname": "pc3-v100",
+    "kernel_release": "6.8.0-147-generic",
+    "module_symvers_path": "build/experiments/pc3-v100-hybrid-frontend-6375541cb1054f1292ca2d02b0592653/kernel-inputs/Module.symvers",
+    "module_symvers_sha256": "8e7eb5798789b9610c324b3d9b13373d88c30ae17bb9e41e622efd05e0277a87"
+  }
+}

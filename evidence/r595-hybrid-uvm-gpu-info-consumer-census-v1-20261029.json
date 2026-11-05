@@ -1,0 +1,949 @@
+{
+  "branches": {
+    "R580.196.07": {
+      "field_consumers": {
+        "accessCntrBufferCount": {
+          "files": [
+            {
+              "path": "uvm_blackwell_host.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_gpu.c",
+              "references": 5
+            },
+            {
+              "path": "uvm_gpu.h",
+              "references": 1
+            },
+            {
+              "path": "uvm_gpu_access_counters.c",
+              "references": 9
+            },
+            {
+              "path": "uvm_gpu_isr.c",
+              "references": 7
+            }
+          ],
+          "total_references": 23
+        },
+        "atsSupport": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "cdmmEnabled": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "ceClass": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_hal.c",
+              "references": 2
+            },
+            {
+              "path": "uvm_maxwell_ce.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_page_tree_test.c",
+              "references": 1
+            }
+          ],
+          "total_references": 5
+        },
+        "computeClass": {
+          "files": [],
+          "total_references": 0
+        },
+        "connectedToSwitch": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "egmBaseAddr": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "egmEnabled": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "egmPeerId": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "gpcCount": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_pascal.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_turing.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_volta.c",
+              "references": 1
+            }
+          ],
+          "total_references": 4
+        },
+        "gpuArch": {
+          "files": [
+            {
+              "path": "uvm_ampere.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_blackwell.c",
+              "references": 2
+            },
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_hal.c",
+              "references": 11
+            },
+            {
+              "path": "uvm_page_tree_test.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_pascal.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_volta.c",
+              "references": 1
+            }
+          ],
+          "total_references": 18
+        },
+        "gpuConfComputeCaps": {
+          "files": [
+            {
+              "path": "uvm_conf_computing.c",
+              "references": 2
+            }
+          ],
+          "total_references": 2
+        },
+        "gpuImplementation": {
+          "files": [
+            {
+              "path": "uvm_ampere.c",
+              "references": 2
+            },
+            {
+              "path": "uvm_blackwell.c",
+              "references": 2
+            },
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_hal.c",
+              "references": 2
+            },
+            {
+              "path": "uvm_page_tree_test.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_pascal.c",
+              "references": 2
+            }
+          ],
+          "total_references": 10
+        },
+        "gpuInTcc": {
+          "files": [],
+          "total_references": 0
+        },
+        "hostClass": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_hal.c",
+              "references": 2
+            },
+            {
+              "path": "uvm_page_tree_test.c",
+              "references": 1
+            }
+          ],
+          "total_references": 4
+        },
+        "isSimulated": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 2
+            },
+            {
+              "path": "uvm_gpu_access_counters.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_gpu_replayable_faults.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_pmm_gpu.c",
+              "references": 2
+            }
+          ],
+          "total_references": 6
+        },
+        "maxGpcCount": {
+          "files": [
+            {
+              "path": "uvm_ada.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_ampere.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_blackwell.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_hopper.c",
+              "references": 1
+            }
+          ],
+          "total_references": 5
+        },
+        "maxTpcPerGpcCount": {
+          "files": [
+            {
+              "path": "uvm_ada_fault_buffer.h",
+              "references": 1
+            },
+            {
+              "path": "uvm_ampere_fault_buffer.h",
+              "references": 1
+            },
+            {
+              "path": "uvm_blackwell_fault_buffer.h",
+              "references": 1
+            },
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_hopper_fault_buffer.h",
+              "references": 1
+            },
+            {
+              "path": "uvm_pascal_fault_buffer.h",
+              "references": 1
+            },
+            {
+              "path": "uvm_turing_fault_buffer.h",
+              "references": 1
+            },
+            {
+              "path": "uvm_volta_fault_buffer.h",
+              "references": 1
+            }
+          ],
+          "total_references": 8
+        },
+        "name": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "nonPasidAtsSupport": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "nvlDirectConnect": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "nvlDirectConnectMemoryWindowStart": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "nvswitchEgmMemoryWindowStart": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "nvswitchMemoryWindowStart": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "smcEnabled": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 3
+            }
+          ],
+          "total_references": 3
+        },
+        "smcSwizzId": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 2
+            }
+          ],
+          "total_references": 2
+        },
+        "smcUserClientInfo": {
+          "files": [],
+          "total_references": 0
+        },
+        "subdeviceCount": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "sysmemLink": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "sysmemLinkRateMBps": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "systemMemoryWindowSize": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 4
+            }
+          ],
+          "total_references": 4
+        },
+        "systemMemoryWindowStart": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 2
+            }
+          ],
+          "total_references": 2
+        },
+        "tpcCount": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "uuid": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "virtMode": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 2
+            }
+          ],
+          "total_references": 2
+        }
+      },
+      "source_tree_file_count": 243,
+      "source_tree_manifest_sha256": "5c88b07ebeab4a03d15ffff11e1a2e774f7f20a40369bfc53d33d0621bc86c44"
+    },
+    "R595.99.02": {
+      "field_consumers": {
+        "accessCntrBufferCount": {
+          "files": [
+            {
+              "path": "uvm_blackwell.c",
+              "references": 3
+            },
+            {
+              "path": "uvm_blackwell_host.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_gpu.c",
+              "references": 3
+            },
+            {
+              "path": "uvm_gpu.h",
+              "references": 1
+            },
+            {
+              "path": "uvm_gpu_access_counters.c",
+              "references": 9
+            },
+            {
+              "path": "uvm_gpu_isr.c",
+              "references": 7
+            }
+          ],
+          "total_references": 24
+        },
+        "atsSupport": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "cdmmEnabled": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "ceClass": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_hal.c",
+              "references": 2
+            },
+            {
+              "path": "uvm_page_tree_test.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_turing_ce.c",
+              "references": 1
+            }
+          ],
+          "total_references": 5
+        },
+        "computeClass": {
+          "files": [],
+          "total_references": 0
+        },
+        "connectedToSwitch": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "egmBaseAddr": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "egmEnabled": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "egmPeerId": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "gpcCount": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_turing.c",
+              "references": 1
+            }
+          ],
+          "total_references": 2
+        },
+        "gpuArch": {
+          "files": [
+            {
+              "path": "uvm_ampere.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_blackwell.c",
+              "references": 3
+            },
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_hal.c",
+              "references": 10
+            },
+            {
+              "path": "uvm_page_tree_test.c",
+              "references": 1
+            }
+          ],
+          "total_references": 16
+        },
+        "gpuConfComputeCaps": {
+          "files": [
+            {
+              "path": "uvm_conf_computing.c",
+              "references": 2
+            }
+          ],
+          "total_references": 2
+        },
+        "gpuImplementation": {
+          "files": [
+            {
+              "path": "uvm_ampere.c",
+              "references": 2
+            },
+            {
+              "path": "uvm_blackwell.c",
+              "references": 4
+            },
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_hal.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_page_tree_test.c",
+              "references": 1
+            }
+          ],
+          "total_references": 9
+        },
+        "gpuInTcc": {
+          "files": [],
+          "total_references": 0
+        },
+        "hostClass": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_hal.c",
+              "references": 2
+            },
+            {
+              "path": "uvm_page_tree_test.c",
+              "references": 1
+            }
+          ],
+          "total_references": 4
+        },
+        "isSimulated": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 2
+            },
+            {
+              "path": "uvm_gpu_access_counters.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_gpu_replayable_faults.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_pmm_gpu.c",
+              "references": 2
+            }
+          ],
+          "total_references": 6
+        },
+        "maxGpcCount": {
+          "files": [
+            {
+              "path": "uvm_ada.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_ampere.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_blackwell.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_hopper.c",
+              "references": 1
+            }
+          ],
+          "total_references": 5
+        },
+        "maxTpcPerGpcCount": {
+          "files": [
+            {
+              "path": "uvm_ada_fault_buffer.h",
+              "references": 1
+            },
+            {
+              "path": "uvm_ampere_fault_buffer.h",
+              "references": 1
+            },
+            {
+              "path": "uvm_blackwell_fault_buffer.h",
+              "references": 1
+            },
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            },
+            {
+              "path": "uvm_hopper_fault_buffer.h",
+              "references": 1
+            },
+            {
+              "path": "uvm_turing_fault_buffer.h",
+              "references": 1
+            }
+          ],
+          "total_references": 6
+        },
+        "name": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "nonPasidAtsSupport": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "nvlDirectConnect": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "nvlDirectConnectMemoryWindowStart": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "nvswitchEgmMemoryWindowStart": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "nvswitchMemoryWindowStart": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "smcEnabled": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 3
+            }
+          ],
+          "total_references": 3
+        },
+        "smcSwizzId": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 2
+            }
+          ],
+          "total_references": 2
+        },
+        "smcUserClientInfo": {
+          "files": [],
+          "total_references": 0
+        },
+        "subdeviceCount": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "sysmemLink": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "sysmemLinkRateMBps": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "systemMemoryWindowSize": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 4
+            }
+          ],
+          "total_references": 4
+        },
+        "systemMemoryWindowStart": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 2
+            }
+          ],
+          "total_references": 2
+        },
+        "tpcCount": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "uuid": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 1
+            }
+          ],
+          "total_references": 1
+        },
+        "virtMode": {
+          "files": [
+            {
+              "path": "uvm_gpu.c",
+              "references": 2
+            }
+          ],
+          "total_references": 2
+        }
+      },
+      "source_tree_file_count": 213,
+      "source_tree_manifest_sha256": "d1d91fb455bfafbbfb7acebcd34a12522ba5fddc2194ded0023bdaade00a2772"
+    }
+  },
+  "classification": "regex-source-consumer-census",
+  "fields": [
+    "name",
+    "uuid",
+    "gpuArch",
+    "gpuImplementation",
+    "hostClass",
+    "ceClass",
+    "computeClass",
+    "gpuInTcc",
+    "subdeviceCount",
+    "virtMode",
+    "isSimulated",
+    "gpcCount",
+    "maxGpcCount",
+    "tpcCount",
+    "maxTpcPerGpcCount",
+    "accessCntrBufferCount",
+    "smcEnabled",
+    "smcSwizzId",
+    "smcUserClientInfo",
+    "gpuConfComputeCaps",
+    "sysmemLink",
+    "sysmemLinkRateMBps",
+    "systemMemoryWindowStart",
+    "systemMemoryWindowSize",
+    "connectedToSwitch",
+    "nvswitchMemoryWindowStart",
+    "egmEnabled",
+    "egmPeerId",
+    "egmBaseAddr",
+    "nvswitchEgmMemoryWindowStart",
+    "atsSupport",
+    "nonPasidAtsSupport",
+    "cdmmEnabled",
+    "nvlDirectConnect",
+    "nvlDirectConnectMemoryWindowStart"
+  ],
+  "hardware_validated": false,
+  "method": {
+    "expression": "(?:gpu_info\\s*->\\s*|rm_info\\s*\\.\\s*)<field>\\b",
+    "file_scope": "all C and header files under each pinned nvidia-uvm source tree",
+    "interpretation_limit": "counts direct gpu_info->FIELD and rm_info.FIELD references; no alias/dataflow or runtime analysis"
+  },
+  "observations": {
+    "computeClass_direct_consumer_count": 0,
+    "gpuArch_direct_consumers": {
+      "R580.196.07": 18,
+      "R595.99.02": 16
+    },
+    "sysmemLink_direct_consumers": {
+      "R580.196.07": 1,
+      "R595.99.02": 1
+    },
+    "virtMode_direct_consumers": {
+      "R580.196.07": 2,
+      "R595.99.02": 2
+    }
+  },
+  "observed_at_utc": "2026-10-29T16:21:55.616548+00:00",
+  "schema": "hybrid-uvm-gpu-info-consumer-census-v1"
+}

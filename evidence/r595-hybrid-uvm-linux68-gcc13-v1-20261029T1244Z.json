@@ -1,0 +1,148 @@
+{
+  "schema": "nvidia-r595-hybrid-uvm-consumer-build-v1",
+  "observed_at_utc": "2026-10-29T12:45:01.321360+00:00",
+  "status": "compiled-static-closure",
+  "qualification": "compiled-hybrid-uvm-consumer-and-static-import-closure",
+  "source_version": "595.99.02",
+  "source_basis": {
+    "open_replay_report": "evidence/r595-syncboost-replay-v3.json",
+    "open_replay_report_sha256": "5bdab15c82ec0e9865d372a0768900a676aa94199519ff7f4d137af5f0227c43",
+    "source_tree_copy": "/tmp/nvidia-r59599-baseline-linux68-gcc13-v1/source",
+    "source_tree_was_copied_before_patching": true
+  },
+  "target_kernel_release": "6.8.0-147-generic",
+  "target_headers": {
+    "source": "Ubuntu Noble updates signed archive packages",
+    "module_symvers_sha256": "8e7eb5798789b9610c324b3d9b13373d88c30ae17bb9e41e622efd05e0277a87",
+    "config_sha256": "cf8454bc2e67effab87a5bff3c39042f2d8d106b6a777c4302e52f50d23b7400"
+  },
+  "compiler": {
+    "binary": "x86_64-linux-gnu-gcc-13",
+    "version": "13.3.0-6ubuntu2~24.04.1",
+    "not_installed_on_host": true
+  },
+  "patch_series": [
+    {
+      "path": "patches/r595.99.02/0001-uvm-rm-control-fd-address-space-dispatch.patch",
+      "sha256": "ea8b78632e55f80ab5ef717b9250131ad599bd427ffad7bdc6d4b3328a881c2d",
+      "applied_with_fuzz_zero": true
+    },
+    {
+      "path": "patches/r595.99.02/0002-uvm-provider-local-system-semaphore-pools.patch",
+      "sha256": "6c37c2274ce940ab1c287b2dbf6300624087ed745321d504f8ce9c0971ef8bf3",
+      "applied_with_fuzz_zero": true
+    },
+    {
+      "path": "patches/r595.99.02/0003-uvm-external-allocation-control-fd.patch",
+      "sha256": "7f43c90b720162f0d1c4af584a97d4400f1768dd6b67986cb68c6e9d7489ee1d",
+      "applied_with_fuzz_zero": true
+    },
+    {
+      "path": "patches/r595.99.02/0004-uvm-device-p2p-control-fd.patch",
+      "sha256": "f7e6b6ba565ddd0c4059a4ae100ae25e70b37261abd6651ada2983a0c4f68de8",
+      "applied_with_fuzz_zero": true
+    },
+    {
+      "path": "patches/r595.99.02/0005-uvm-cache-provider-and-isolate-cross-provider-tracking.patch",
+      "sha256": "4898722d0b101f567369d17e89b386b0aa6ce138e27d2157cb237de3c6e3001b",
+      "applied_with_fuzz_zero": true
+    },
+    {
+      "path": "patches/r595.99.02/0006-uvm-reject-completed-foreign-tracker-refs-before-detach.patch",
+      "sha256": "3975d34c0b282f6a69ed86e4e96c1c05ba12ffd6ec00e16e60d20d17b6124778",
+      "applied_with_fuzz_zero": true
+    },
+    {
+      "path": "patches/r595.99.02/0007-prune-completed-block-trackers-before-eviction-guard.patch",
+      "sha256": "ab27df8934e2069c683d2711c6162b021eb907a7010fe5d0c5370f8a739ec806",
+      "applied_with_fuzz_zero": true
+    },
+    {
+      "path": "patches/r595.99.02/0008-validate-hybrid-provider-id-before-gpu-publication.patch",
+      "sha256": "d0d6faba52ec98b3fd633c7b98785bd0d1066d539ce382a6fae3e97310cc2a81",
+      "applied_with_fuzz_zero": true
+    },
+    {
+      "path": "patches/r595.99.02/0009-r595-hmm-isolated-mode-cpu-fallback.patch",
+      "sha256": "4669ccbdda43742e253b802a96ab452abfa489465b97bd07b1fe26de71062739",
+      "applied_with_fuzz_zero": true
+    },
+    {
+      "path": "patches/r595.99.02/0010-r595-hmm-migration-aggregate-guard.patch",
+      "sha256": "54a691668b1428d9f4ede71f35297fbcd8ba84d5255131934f484097486cdc5a",
+      "applied_with_fuzz_zero": true
+    },
+    {
+      "path": "patches/r595.99.02/0011-pmm-wait-source-tracker-outside-root-bitlock.patch",
+      "sha256": "38d72f8c20c5b149c31f121a804cb24baa371005d7665f61beaaca65e9ef0e6d",
+      "applied_with_fuzz_zero": true
+    },
+    {
+      "path": "patches/r595.99.02/0012-test-only-tracker-reserve-oom-injection.patch",
+      "sha256": "a6db1b49852d36ac751876d62f38e3fda539ce3b90e54dda7eb136e8ee22222b",
+      "applied_with_fuzz_zero": true
+    }
+  ],
+  "build": {
+    "command": [
+      "make",
+      "-C",
+      "/tmp/nvidia-r595-hybrid-uvm-linux68-gcc13-v1/source/kernel-open",
+      "KERNEL_UNAME=6.8.0-147-generic",
+      "NV_KERNEL_MODULES=nvidia-uvm",
+      "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-hybrid-frontend-linux68-gcc13-v4/Module.symvers",
+      "CC=/tmp/nvidia-hybrid-linux68-headers-20261029/gcc13-root/usr/bin/x86_64-linux-gnu-gcc-13",
+      "-j2",
+      "modules"
+    ],
+    "exit_code": 0,
+    "log_path": "evidence/logs/r595-hybrid-uvm-linux68-gcc13-v1-20261029T1244Z.log",
+    "log_sha256": "92c54c5071ed8040f87a3ad66e342396715de8e0ffcf5dff36e711e71379a30d",
+    "warning_count": 0,
+    "btf_skipped_due_to_missing_vmlinux": true,
+    "frontend_module_symvers": {
+      "path": "build/experiments/r595-hybrid-frontend-linux68-gcc13-v4/Module.symvers",
+      "sha256": "40b11e3f5c9a5d54e1f5ec08216f1536d3d0061ad89f1a6c8030e16b0dd16f78",
+      "unchanged": true
+    }
+  },
+  "candidate_module": {
+    "path": "build/experiments/r595-hybrid-uvm-linux68-gcc13-v1/nvidia-uvm.ko",
+    "sha256": "b3ab7a93a964aeeebb4c68d222dddf468e79ee9fd138a0e84105bad9538086ec",
+    "bytes": 56022720,
+    "name": "nvidia_uvm",
+    "version": "595.99.02",
+    "vermagic": "6.8.0-147-generic SMP preempt mod_unload modversions",
+    "depends": [
+      "nvidia"
+    ],
+    "linked_this_run": true
+  },
+  "public_uvm_api_import_binding": {
+    "frontend_report": "evidence/r595-hybrid-frontend-linux68-gcc13-v4-20261029T1237Z.json",
+    "frontend_report_sha256": "723a2143e6d218c2a4c86ff84265346b9f492834ef43737b68b28f5c3c4124eb",
+    "imports_total": 328,
+    "kernel_imports": 247,
+    "frontend_imports": 81,
+    "frontend_crc_matches": 81,
+    "unresolved_or_mismatched_imports": 0,
+    "ambiguous_providers": 0,
+    "public_api_imports": 81,
+    "public_frontend_exports": 83,
+    "public_api_crc_mismatches": [],
+    "public_api_missing_exports": [],
+    "public_api_unexpected_exports": [],
+    "hybrid_frontend_extension_only": [
+      "nvUvmInterfaceAreGpuProvidersSame"
+    ]
+  },
+  "module_parameter": {
+    "uvm_hybrid_isolated_gpu_execution": "bool",
+    "present": true
+  },
+  "loaded_or_installed": false,
+  "module_loaded": false,
+  "module_installed": false,
+  "gpu_accessed": false,
+  "runtime_or_hardware_validated": false
+}

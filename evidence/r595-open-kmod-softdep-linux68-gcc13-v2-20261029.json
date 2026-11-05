@@ -1,0 +1,71 @@
+{
+  "build": {
+    "base_build_report": {
+      "base_warning_count": 9,
+      "path": "evidence/r595-open-pfn-guard-linux68-gcc13-v1-20261029T1224Z.json",
+      "sha256": "3206ba4ddb05bab9875bd8c0e0d1a3e1735684703327d38b25c91e32262d1731"
+    },
+    "btf_skipped_due_to_missing_vmlinux": true,
+    "command": [
+      "make",
+      "-C",
+      "/tmp/nvidia-r59599-6.8.0-147-pfn-guard-gcc13-v1/source/kernel-open",
+      "KERNEL_UNAME=6.8.0-147-generic",
+      "SYSSRC=/tmp/nvidia-hybrid-linux68-headers-20261029/tree/usr/src/linux-headers-6.8.0-147-generic",
+      "NV_KERNEL_MODULES=nvidia nvidia-uvm",
+      "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-syncboost-nvidia-frontend-v1/Module.symvers",
+      "CC=/tmp/nvidia-hybrid-linux68-headers-20261029/gcc13-root/usr/bin/x86_64-linux-gnu-gcc-13",
+      "-j2",
+      "modules"
+    ],
+    "exit_code": 0,
+    "incremental_rebuild": true,
+    "log_path": "evidence/logs/r595-open-kmod-softdep-linux68-gcc13-v2-20261029.log",
+    "log_sha256": "fc5c3d6f2245a42c9777ebf1c25f1f0b2ecb26e733e929f38fb74e4e3a236bd0",
+    "provider_symvers_after_sha256": "99f9ef7a9a6bce431d4b0a19591ba6a9754da7aca4c50b7f9a178965833a678f",
+    "provider_symvers_before_sha256": "99f9ef7a9a6bce431d4b0a19591ba6a9754da7aca4c50b7f9a178965833a678f",
+    "provider_symvers_unchanged": true,
+    "target_kernel_symvers_sha256": "8e7eb5798789b9610c324b3d9b13373d88c30ae17bb9e41e622efd05e0277a87",
+    "warnings_in_incremental_log": 0
+  },
+  "compiler": "x86_64-linux-gnu-gcc-13 13.3.0",
+  "gpu_accessed": false,
+  "loaded_or_installed": false,
+  "module": {
+    "bytes": 34190968,
+    "identity": {
+      "depends": "ecc",
+      "license": "Dual MIT/GPL",
+      "name": "hybrid580_open",
+      "softdep": "pre: ecdh_generic ecdsa_generic",
+      "vermagic": "6.8.0-147-generic SMP preempt mod_unload modversions",
+      "version": "595.99.02"
+    },
+    "path": "build/experiments/r595-open-softdep-linux68-gcc13-v2/hybrid580_open.ko",
+    "sha256": "c2cf6650b9aac369b4467d4fa5b3f5f0a194c869c9142a9c7b37e0ee4f2f45e1"
+  },
+  "module_installed": false,
+  "module_loaded": false,
+  "module_symvers": {
+    "path": "build/experiments/r595-open-softdep-linux68-gcc13-v2/Module.symvers",
+    "sha256": "99f9ef7a9a6bce431d4b0a19591ba6a9754da7aca4c50b7f9a178965833a678f"
+  },
+  "observed_at_utc": "2026-10-29T12:57:39.887587+00:00",
+  "qualification": "compiled-exact-target-incremental-relink",
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia.r59599-open-kmod-softdep-target-build.v1",
+  "source_overlay": {
+    "expected_postimage_sha256": "ffb79501c6725ade872304e5b826973011097002f122fed11f7f201c47f965ac",
+    "expected_preimage_sha256": "9dc820124a9f568d38d35c324bac8e845ddbc7158959ac94ed0000248749fb61",
+    "fuzz_used": false,
+    "kmod_softdep_value": "pre: ecdh_generic ecdsa_generic",
+    "offset_used": false,
+    "patch_path": "patches/r595.99.02/0014-open-kmod-softdep-space-separators.patch",
+    "patch_sha256": "6384b2ec99b5768a751cc71edda3bdda4c326fe9f60f80a7b76dd8afc4bfaeaf",
+    "postimage_sha256": "ffb79501c6725ade872304e5b826973011097002f122fed11f7f201c47f965ac",
+    "preimage_sha256": "9dc820124a9f568d38d35c324bac8e845ddbc7158959ac94ed0000248749fb61"
+  },
+  "source_version": "595.99.02",
+  "status": "compiled-softdep-corrected",
+  "target_kernel_release": "6.8.0-147-generic"
+}

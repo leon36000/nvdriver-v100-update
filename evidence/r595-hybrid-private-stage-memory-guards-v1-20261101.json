@@ -1,0 +1,236 @@
+{
+  "candidate_stage_manifest": {
+    "path": "candidate-stage-manifest.json",
+    "sha256": "3980da31fa427aa6956282751a6e48c901284321578e71095385dfcfa26558d3"
+  },
+  "candidate_uvm_config": {
+    "option": "uvm_hybrid_isolated_gpu_execution=1",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/packaging/modprobe.d/hybrid595-standard-uvm.conf",
+    "sha256": "6948c243c4a223a9ead75310e7830ca0c41d133f04bc4571543f12bfd2358d2d",
+    "staged_path": "etc/modprobe.d/hybrid595-standard-uvm.conf",
+    "staged_sha256": "6948c243c4a223a9ead75310e7830ca0c41d133f04bc4571543f12bfd2358d2d"
+  },
+  "captured_metadata_sha256": {
+    "modules.builtin": "508ae45959f569e45b1e6f1888b254cdc02da5c4bb8b3edc043539b6dd2d735d",
+    "modules.builtin.modinfo": "0bfb2407d4ff23d68735c6643e65f738d6ae4bc62ef79486a1afbac8d55393ad"
+  },
+  "commands": {
+    "depmod": {
+      "argv": [
+        "depmod",
+        "-b",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595-linux68-hybrid-7f3ea853c87d4b5b",
+        "6.8.0-147-generic"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": ""
+    }
+  },
+  "cuda_execution_tested": false,
+  "gpu_accessed": false,
+  "guest_hostname": "pc3-v100",
+  "hard_dependency_graph": {
+    "ecc": [],
+    "ecdh_generic": [
+      "ecc"
+    ],
+    "ecdsa_generic": [
+      "ecc"
+    ],
+    "hybrid580_legacy": [],
+    "hybrid580_open": [
+      "ecc"
+    ],
+    "nvidia": [
+      "ecc",
+      "hybrid580_legacy",
+      "hybrid580_open"
+    ],
+    "nvidia_uvm": [
+      "ecc",
+      "hybrid580_legacy",
+      "hybrid580_open",
+      "nvidia"
+    ]
+  },
+  "implementation_sha256": "6f7e72a47b2019a772d0f65600314ff41493c1bdb08967b5a1437633b399a90e",
+  "kernel_release": "6.8.0-147-generic",
+  "kernel_support_capture": {
+    "guest_mutation_performed": false,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/pc3-v100-kernel-dependencies-20261029T011956Z.json",
+    "sha256": "a7438efbf1c2556b1979e3eea66df1f6de8baba5effa7b457256300bf1157850"
+  },
+  "kmod_version": "34.2",
+  "limitations": [
+    "depmod and modprobe only build and print a proposed dependency plan; no module was loaded.",
+    "this does not validate module init, RM/GPU initialization, CUDA, UVM runtime, P2P, performance, or endurance."
+  ],
+  "module_installed": false,
+  "module_loaded": false,
+  "modules_order": [
+    "kernel/crypto/ecdsa_generic.ko.zst",
+    "kernel/crypto/ecc.ko.zst",
+    "kernel/crypto/ecdh_generic.ko.zst",
+    "updates/extra/hybrid580_open.ko",
+    "updates/extra/hybrid580_legacy.ko",
+    "updates/extra/nvidia.ko",
+    "updates/extra/nvidia-uvm.ko"
+  ],
+  "observed_at_utc": "2026-11-01T01:20:22.620337+00:00",
+  "qualification": "private-static-depmod-and-modprobe-plan",
+  "resolution": {
+    "nvidia": {
+      "command": [
+        "modprobe",
+        "-C",
+        "/dev/null",
+        "-d",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595-linux68-hybrid-7f3ea853c87d4b5b",
+        "--set-version",
+        "6.8.0-147-generic",
+        "--show-depends",
+        "nvidia"
+      ],
+      "first_occurrences": [
+        "ecc",
+        "ecdh_generic",
+        "ecdsa_generic",
+        "hybrid580_open",
+        "hybrid580_legacy",
+        "nvidia"
+      ],
+      "raw_module_names": [
+        "ecc",
+        "ecc",
+        "ecdh_generic",
+        "ecc",
+        "ecdsa_generic",
+        "hybrid580_open",
+        "hybrid580_legacy",
+        "nvidia"
+      ],
+      "repeated_dependencies": {
+        "ecc": 3
+      },
+      "stderr": "",
+      "stdout": "insmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595-linux68-hybrid-7f3ea853c87d4b5b/lib/modules/6.8.0-147-generic/kernel/crypto/ecc.ko.zst \ninsmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595-linux68-hybrid-7f3ea853c87d4b5b/lib/modules/6.8.0-147-generic/kernel/crypto/ecc.ko.zst \ninsmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595-linux68-hybrid-7f3ea853c87d4b5b/lib/modules/6.8.0-147-generic/kernel/crypto/ecdh_generic.ko.zst \ninsmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595-linux68-hybrid-7f3ea853c87d4b5b/lib/modules/6.8.0-147-generic/kernel/crypto/ecc.ko.zst \ninsmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595-linux68-hybrid-7f3ea853c87d4b5b/lib/modules/6.8.0-147-generic/kernel/crypto/ecdsa_generic.ko.zst \ninsmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595-linux68-hybrid-7f3ea853c87d4b5b/lib/modules/6.8.0-147-generic/updates/extra/hybrid580_open.ko \ninsmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595-linux68-hybrid-7f3ea853c87d4b5b/lib/modules/6.8.0-147-generic/updates/extra/hybrid580_legacy.ko \ninsmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595-linux68-hybrid-7f3ea853c87d4b5b/lib/modules/6.8.0-147-generic/updates/extra/nvidia.ko \n"
+    },
+    "nvidia_uvm": {
+      "command": [
+        "modprobe",
+        "-C",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595-linux68-hybrid-7f3ea853c87d4b5b/etc/modprobe.d/hybrid595-standard-uvm.conf",
+        "-d",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595-linux68-hybrid-7f3ea853c87d4b5b",
+        "--set-version",
+        "6.8.0-147-generic",
+        "--show-depends",
+        "nvidia_uvm"
+      ],
+      "first_occurrences": [
+        "ecc",
+        "ecdh_generic",
+        "ecdsa_generic",
+        "hybrid580_open",
+        "hybrid580_legacy",
+        "nvidia",
+        "nvidia_uvm"
+      ],
+      "raw_module_names": [
+        "ecc",
+        "ecc",
+        "ecdh_generic",
+        "ecc",
+        "ecdsa_generic",
+        "hybrid580_open",
+        "hybrid580_legacy",
+        "nvidia",
+        "nvidia_uvm"
+      ],
+      "repeated_dependencies": {
+        "ecc": 3
+      },
+      "stderr": "",
+      "stdout": "insmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595-linux68-hybrid-7f3ea853c87d4b5b/lib/modules/6.8.0-147-generic/kernel/crypto/ecc.ko.zst \ninsmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595-linux68-hybrid-7f3ea853c87d4b5b/lib/modules/6.8.0-147-generic/kernel/crypto/ecc.ko.zst \ninsmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595-linux68-hybrid-7f3ea853c87d4b5b/lib/modules/6.8.0-147-generic/kernel/crypto/ecdh_generic.ko.zst \ninsmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595-linux68-hybrid-7f3ea853c87d4b5b/lib/modules/6.8.0-147-generic/kernel/crypto/ecc.ko.zst \ninsmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595-linux68-hybrid-7f3ea853c87d4b5b/lib/modules/6.8.0-147-generic/kernel/crypto/ecdsa_generic.ko.zst \ninsmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595-linux68-hybrid-7f3ea853c87d4b5b/lib/modules/6.8.0-147-generic/updates/extra/hybrid580_open.ko \ninsmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595-linux68-hybrid-7f3ea853c87d4b5b/lib/modules/6.8.0-147-generic/updates/extra/hybrid580_legacy.ko \ninsmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595-linux68-hybrid-7f3ea853c87d4b5b/lib/modules/6.8.0-147-generic/updates/extra/nvidia.ko \ninsmod /run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595-linux68-hybrid-7f3ea853c87d4b5b/lib/modules/6.8.0-147-generic/updates/extra/nvidia-uvm.ko uvm_hybrid_isolated_gpu_execution=1 \n"
+    }
+  },
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-r595-linux68-static-depmod-plan-v3",
+  "softdep_lines": [
+    "softdep hybrid580_open pre: ecdh_generic ecdsa_generic"
+  ],
+  "stage_root": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/staging/r595-linux68-hybrid-7f3ea853c87d4b5b",
+  "staged_configuration": {
+    "option": "uvm_hybrid_isolated_gpu_execution=1",
+    "relative_path": "etc/modprobe.d/hybrid595-standard-uvm.conf",
+    "sha256": "6948c243c4a223a9ead75310e7830ca0c41d133f04bc4571543f12bfd2358d2d"
+  },
+  "staged_modules": {
+    "frontend": {
+      "bytes": 2891792,
+      "depends": [
+        "hybrid580_legacy",
+        "hybrid580_open"
+      ],
+      "name": "nvidia",
+      "relative_path": "updates/extra/nvidia.ko",
+      "sha256": "dd6c827b736598304b0dcf9845edfea107c8212ac07ded7740a33bff97c7ec0d"
+    },
+    "legacy": {
+      "bytes": 128132696,
+      "depends": [],
+      "name": "hybrid580_legacy",
+      "relative_path": "updates/extra/hybrid580_legacy.ko",
+      "sha256": "1678da440b32df3f113954cffed561016664f300f2b5df02bca55353e71c0bff"
+    },
+    "open": {
+      "bytes": 34196608,
+      "depends": [
+        "ecc"
+      ],
+      "name": "hybrid580_open",
+      "relative_path": "updates/extra/hybrid580_open.ko",
+      "sha256": "f606065d34d789875bcc6bfa663f633bb0093d6e3158c10c2373391b7e2e68c3"
+    },
+    "uvm": {
+      "bytes": 60743520,
+      "depends": [
+        "nvidia"
+      ],
+      "name": "nvidia_uvm",
+      "relative_path": "updates/extra/nvidia-uvm.ko",
+      "sha256": "0420ea9b8d7adcb8d8a3cd11b4daabe3e9d1eebfb2d63b8264552df5ef61e166"
+    }
+  },
+  "staged_support_modules": {
+    "ecc": {
+      "bytes": 19131,
+      "depends": [],
+      "guest_path": "kernel/crypto/ecc.ko.zst",
+      "sha256": "97a82a7011c93b6acc9ceb33f80907ba510988375ba50df9eef69038bab12d02"
+    },
+    "ecdh_generic": {
+      "bytes": 4748,
+      "depends": [
+        "ecc"
+      ],
+      "guest_path": "kernel/crypto/ecdh_generic.ko.zst",
+      "sha256": "a7afa413d7aa6caaf477de2a34c04e851889341a1a3775a1349df6528ea14243"
+    },
+    "ecdsa_generic": {
+      "bytes": 5584,
+      "depends": [
+        "ecc"
+      ],
+      "guest_path": "kernel/crypto/ecdsa_generic.ko.zst",
+      "sha256": "e80680795815722e159c78ac1dd929ff3212a407008d2681fe7bc539f5cc6d5e"
+    }
+  },
+  "static_bundle_audit": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/r595-hybrid-bundle-static-audit-memory-guards-v1-20261101.json",
+    "sha256": "a3692af43c9414a449534e979373ddee1f7bf06db1939804abc0467351bf1116"
+  },
+  "status": "passed",
+  "target": "pc3@pc3"
+}

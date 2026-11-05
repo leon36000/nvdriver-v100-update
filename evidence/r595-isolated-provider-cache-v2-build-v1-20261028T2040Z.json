@@ -1,0 +1,135 @@
+{
+  "build": {
+    "command": [
+      "make",
+      "-B",
+      "NV_KERNEL_MODULES=nvidia-uvm",
+      "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-provider-identity-frontend-v1-20261028T2032Z/Module.symvers",
+      "NV_KERNEL_EXTRA_CONFTEST_KBUILD=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-isolated-provider-cache-v2-20261028T2040Z/candidate/nvidia-conftest-only.Kbuild",
+      "modules",
+      "-j4"
+    ],
+    "exit_code": 0,
+    "log": {
+      "mode": "0o600",
+      "path": "evidence/logs/r595-isolated-provider-cache-v2-20261028T2040Z-build.log",
+      "sha256": "89763ede5fb597e4ab046495562975b9360b774682d4ac7e83189e6907340e87"
+    },
+    "warnings": [
+      "pahole is not installed; BTF generation was skipped because vmlinux is unavailable"
+    ],
+    "working_directory": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-isolated-provider-cache-v2-20261028T2040Z/candidate"
+  },
+  "candidate_module": {
+    "bytes": 62020280,
+    "depends": "nvidia",
+    "installed": false,
+    "loaded": false,
+    "name": "nvidia_uvm",
+    "parameters": [
+      "uvm_conf_computing_channel_iv_rotation_limit: (ulong)",
+      "uvm_ats_mode:Set to 0 to disable ATS (Address Translation Services). Any other value is ignored. Has no effect unless the platform supports ATS. (int)",
+      "uvm_perf_prefetch_enable: (uint)",
+      "uvm_perf_prefetch_threshold: (uint)",
+      "uvm_perf_prefetch_min_faults: (uint)",
+      "uvm_perf_thrashing_enable: (uint)",
+      "uvm_perf_thrashing_threshold: (uint)",
+      "uvm_perf_thrashing_pin_threshold: (uint)",
+      "uvm_perf_thrashing_lapse_usec: (uint)",
+      "uvm_perf_lapse_vote_threshold: (uint)",
+      "uvm_perf_thrashing_nap: (uint)",
+      "uvm_perf_thrashing_epoch: (uint)",
+      "uvm_perf_thrashing_pin: (uint)",
+      "uvm_perf_thrashing_max_resets: (uint)",
+      "uvm_perf_map_remote_on_native_atomics_fault: (uint)",
+      "uvm_disable_hmm:Force-disable HMM functionality in the UVM driver. Default: false (HMM is enabled if possible). However, even with uvm_disable_hmm=false, HMM will not be enabled if is not supported in this driver build configuration, or if ATS settings conflict with HMM. (bool)",
+      "uvm_perf_migrate_cpu_preunmap_enable: (int)",
+      "uvm_perf_migrate_cpu_preunmap_block_order: (uint)",
+      "uvm_global_oversubscription:Enable (1) or disable (0) global oversubscription support. (int)",
+      "uvm_perf_pma_batch_nonpinned_order: (uint)",
+      "uvm_cpu_chunk_allocation_sizes:OR'ed value of all CPU chunk allocation sizes. (uint)",
+      "uvm_leak_checker:Enable uvm memory leak checking. 0 = disabled, 1 = count total bytes allocated and freed, 2 = per-allocation origin tracking. (int)",
+      "uvm_debug_enable_push_desc:Enable push description tracking (uint)",
+      "uvm_debug_enable_push_acquire_info:Enable push acquire information tracking (uint)",
+      "uvm_hybrid_isolated_gpu_execution:Reject cross-provider UVM dependencies in hybrid mode (bool)",
+      "uvm_page_table_location:Set the location for UVM-allocated page tables. Choices are: vid, sys. (charp)",
+      "uvm_perf_access_counter_migration_enable:Whether access counters will trigger migrations.Valid values: <= -1 (default policy), 0 (off), >= 1 (on) (int)",
+      "uvm_perf_access_counter_batch_count: (uint)",
+      "uvm_perf_access_counter_threshold:Number of remote accesses on a region required to trigger a notification.Valid values: [1, 65535] (uint)",
+      "uvm_perf_reenable_prefetch_faults_lapse_msec: (uint)",
+      "uvm_perf_fault_batch_count: (uint)",
+      "uvm_perf_fault_replay_policy: (uint)",
+      "uvm_perf_fault_replay_update_put_ratio: (uint)",
+      "uvm_perf_fault_max_batches_per_service: (uint)",
+      "uvm_perf_fault_max_throttle_per_service: (uint)",
+      "uvm_perf_fault_coalesce: (uint)",
+      "uvm_fault_force_sysmem:Force (1) using sysmem storage for pages that faulted. Default: 0. (int)",
+      "uvm_perf_map_remote_on_eviction: (int)",
+      "uvm_block_cpu_to_cpu_copy_with_ce:Use GPU CEs for CPU-to-CPU migrations. (int)",
+      "uvm_exp_gpu_cache_peermem:Force caching for mappings to peer memory. This is an experimental parameter that may cause correctness issues if used. (uint)",
+      "uvm_exp_gpu_cache_sysmem:Force caching for mappings to system memory. This is an experimental parameter that may cause correctness issues if used. (uint)",
+      "uvm_downgrade_force_membar_sys:Force all TLB invalidation downgrades to use MEMBAR_SYS (uint)",
+      "uvm_channel_num_gpfifo_entries: (uint)",
+      "uvm_channel_gpfifo_loc: (charp)",
+      "uvm_channel_gpput_loc: (charp)",
+      "uvm_channel_pushbuffer_loc: (charp)",
+      "uvm_enable_va_space_mm:Set to 0 to disable UVM from using mmu_notifiers to create an association between a UVM VA space and a process. This will also disable pageable memory access via either ATS or HMM. (int)",
+      "uvm_enable_debug_procfs:Enable debug procfs entries in /proc/driver/nvidia-uvm (int)",
+      "uvm_peer_copy:Choose the addressing mode for peer copying, options: phys [default] or virt. Valid for Ampere+ GPUs. (charp)",
+      "uvm_debug_prints:Enable uvm debug prints. (int)",
+      "uvm_enable_builtin_tests:Enable the UVM built-in tests. (This is a security risk) (int)",
+      "uvm_release_asserts:Enable uvm asserts included in release builds. (int)",
+      "uvm_release_asserts_dump_stack:dump_stack() on failed UVM release asserts. (int)",
+      "uvm_release_asserts_set_global_error:Set UVM global fatal error on failed release asserts. (int)"
+    ],
+    "path": "build/experiments/r595-isolated-provider-cache-v2-20261028T2040Z/candidate/nvidia-uvm.ko",
+    "sha256": "b2c67ece7d3a89cb9a5299e93afc3d1e008209407c002d60ff4ffc08cf303570",
+    "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+    "version": "595.99.02"
+  },
+  "frontend": {
+    "build_report": "evidence/r595-provider-identity-frontend-build-v1-20261028T2032Z.json",
+    "module_symvers": "build/experiments/r595-provider-identity-frontend-v1-20261028T2032Z/Module.symvers",
+    "module_symvers_sha256": "dbcf0cc653a970395534635d7ef533c3626112a41b12f8b5cbaf6504bb903e08",
+    "path": "build/experiments/r595-provider-identity-frontend-v1-20261028T2032Z/nvidia.ko",
+    "sha256": "dd08aafccdc3612df065173b0ed112505fe9e9848175a21b046d4ba5fd7a68ab"
+  },
+  "kernel_release": "7.0.0-38-generic",
+  "limitations": [
+    "No candidate module was installed or loaded.",
+    "No RM/UVM runtime, CUDA context, kernel, allocation, migration, P2P transfer, stress, or performance test ran through this candidate.",
+    "Cross-provider GPU dependencies are rejected only when uvm_hybrid_isolated_gpu_execution=1; this parameter defaults to 0.",
+    "The PMM tracker guards are conservative at detach/lifetime boundaries and have no runtime race or KASAN proof.",
+    "Same-Linux same-process V100 plus Blackwell CUDA remains unvalidated."
+  ],
+  "observed_at_utc": "2026-10-28T20:43:20.851818+00:00",
+  "patch_application": {
+    "candidate_generation": "v2; provider identity is cached by the registered parent GPU UUID",
+    "fuzz": 0,
+    "offsets": 0,
+    "patch": "patches/r595.99.02/0005-uvm-cache-provider-and-isolate-cross-provider-tracking.patch"
+  },
+  "patch_stack_sha256": {
+    "patches/r595.99.02/0001-uvm-rm-control-fd-address-space-dispatch.patch": "ea8b78632e55f80ab5ef717b9250131ad599bd427ffad7bdc6d4b3328a881c2d",
+    "patches/r595.99.02/0002-uvm-provider-local-system-semaphore-pools.patch": "6c37c2274ce940ab1c287b2dbf6300624087ed745321d504f8ce9c0971ef8bf3",
+    "patches/r595.99.02/0003-uvm-external-allocation-control-fd.patch": "7f43c90b720162f0d1c4af584a97d4400f1768dd6b67986cb68c6e9d7489ee1d",
+    "patches/r595.99.02/0004-uvm-device-p2p-control-fd.patch": "f7e6b6ba565ddd0c4059a4ae100ae25e70b37261abd6651ada2983a0c4f68de8",
+    "patches/r595.99.02/0005-uvm-cache-provider-and-isolate-cross-provider-tracking.patch": "4898722d0b101f567369d17e89b386b0aa6ce138e27d2157cb237de3c6e3001b"
+  },
+  "qualification": "compiled-and-static-symbol-closure-only",
+  "runtime_or_hardware_validated": false,
+  "schema": "r595-isolated-provider-cache-build-v1",
+  "source_base": {
+    "candidate_overlay": "build/experiments/r595-isolated-provider-cache-v2-20261028T2040Z/candidate",
+    "release": "NVIDIA open-gpu-kernel-modules 595.99.02",
+    "tree_sha256": "6d4ae86fb03f3afac63007c3c13422b114c93f5ab6a271ccb3dde5fb2440c066"
+  },
+  "static_symbol_closure": {
+    "hybrid_extension_imports": 3,
+    "issues": 0,
+    "path": "evidence/r595-isolated-provider-cache-v2-symbol-closure-v1-20261028T2040Z.json",
+    "private_imports": 145,
+    "qualification": "static-r595-uvm-symbol-closure",
+    "sha256": "c4ec5de1078136747fe64b6803bba0f0b506cbc9e64d6f56ec46382f7d5bd598"
+  }
+}

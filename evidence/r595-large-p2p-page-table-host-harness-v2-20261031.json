@@ -1,0 +1,60 @@
+{
+  "baseline_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/research/open-gpu-kernel-modules-595.99.02/source/open-gpu-kernel-modules-595.99.02/kernel-open/nvidia/nv.c",
+  "baseline_sha256": "5d31dc828b62e74366e41884d27cdddc01fb44219ecdb3900cab7a3f1758757e",
+  "compile_command": [
+    "gcc",
+    "-std=gnu11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "/tmp/r595-large-p2p-table-6kvq4i_3/host-harness.c",
+    "-o",
+    "/tmp/r595-large-p2p-table-6kvq4i_3/host-harness"
+  ],
+  "compile_exit_code": 0,
+  "compiler": "gcc",
+  "compiler_version": "gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+  "harness_sha256": "e4a0e20bb8ab71920065c037f567500b97e37036f729e45d83bd5c1079813f97",
+  "module_loaded_or_installed": false,
+  "observed_at_utc": "2026-10-31T23:28:20.356798+00:00",
+  "output": [
+    "small_and_INT_MAX_boundary=pass",
+    "oversized_vmalloc_zeroed_and_matching_vfree=pass",
+    "overflow_count_bounds_alloc_failure_and_busy_free=pass"
+  ],
+  "overlay": {
+    "apply_exit_code": 0,
+    "dry_run_exit_code": 0,
+    "expected_replay_line_offset": 56,
+    "fuzz_used": false,
+    "offset_lines": 56,
+    "offset_used": true,
+    "patch": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r595.99.02/0015-open-large-page-table-vmalloc.patch",
+    "patch_sha256": "92cad31b353b9be74d89805f9b942c11901c7c9d623febd93341513699eddb0c",
+    "patched_paths": [
+      "kernel-open/common/inc/nv-linux.h",
+      "kernel-open/nvidia/os-interface.c",
+      "kernel-open/nvidia/nv.c"
+    ],
+    "postimage_sha256": {
+      "kernel-open/common/inc/nv-linux.h": "77652d97ef1873066e776be6ce06686c10ebef03099712d49f4b62107b5bd6d3",
+      "kernel-open/nvidia/nv.c": "bfd37cdb02d03b1b619cd4361f7cd99fd470cfa11f6329c771d3cfd704534735",
+      "kernel-open/nvidia/os-interface.c": "754593fc20cb1e663861a734959608f1ba68b73aff3ccaf9499a974118ec1394"
+    },
+    "preimage_sha256": {
+      "kernel-open/common/inc/nv-linux.h": "167ea8813202a758d4a70c113822de44bd82cd686a6de6891f445da74e27ccdb",
+      "kernel-open/nvidia/nv.c": "609c30cfd12f92496e21f788c095721f6668c5a5d12e7f119f3e34a3d1c0a827",
+      "kernel-open/nvidia/os-interface.c": "75aa2f569379a3ccce2f438c09db68cc9ce0b0affd73612739561939fe982c35"
+    }
+  },
+  "patch_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r595.99.02/0015-open-large-page-table-vmalloc.patch",
+  "patch_sha256": "92cad31b353b9be74d89805f9b942c11901c7c9d623febd93341513699eddb0c",
+  "qualification": "exact-patched-replay-source-host-cpu-execution",
+  "run_exit_code": 0,
+  "runtime_or_hardware_validated": false,
+  "schema": "r595-large-p2p-page-table-host-harness-v2",
+  "source_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-syncboost-replay-v3/source",
+  "source_sha256": "963f6508a2a361fdce162f3e9917be0045f8fbe596a314c86d09ca07bdbf22af",
+  "status": "passed"
+}

@@ -1,0 +1,48 @@
+{
+  "build": {
+    "argv": [
+      "make",
+      "-C",
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-hybrid-uvm-linux70-samekernel-v1-20261101054646Z/source",
+      "KERNEL_UNAME=7.0.0-38-generic",
+      "SYSSRC=/usr/src/linux-headers-7.0.0-38-generic",
+      "CC=/usr/bin/x86_64-linux-gnu-gcc-15",
+      "NV_KERNEL_MODULES=nvidia-uvm",
+      "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-hybrid-linux70-hostmatch-v2-20261101054347Z/Module.symvers",
+      "NV_KERNEL_EXTRA_CONFTEST_KBUILD=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-hybrid-uvm-linux68-samekernel-v2-20261031/nvidia-conftest-only.Kbuild",
+      "modules",
+      "-j4"
+    ],
+    "duration_seconds": 2.726,
+    "environment_names_cleared": [],
+    "exit_code": 2,
+    "log_mode": "0600",
+    "log_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/r595-hybrid-uvm-linux70-samekernel-v1-20261101054646Z.log",
+    "log_sha256": "f1d18a3983aedb1dc824314d61fe403d88088c3481b06652e5b9eade55e64e5d"
+  },
+  "cuda_execution_validated": false,
+  "error": "RuntimeError: target-kernel R595 hybrid UVM Kbuild failed",
+  "frontend_public_uvm_api_count": 79,
+  "gpu_accessed": false,
+  "inputs_sha256": {
+    "build_implementation": "1f9fa5907555b573af171275ab08b9916f91123933c135726bb0bfed72ff582d",
+    "compiler": "b5f1b773a7c733738352000c92a077dc5852a1a2fc6d836b1e411be1e9ec5f88",
+    "extra_conftest_kbuild": "dc90d02badd5d8b0a28b2ff9b9de5ef9bc9430df8982c5f598ce98d7a8f2d972",
+    "frontend_module_symvers": "dbcf0cc653a970395534635d7ef533c3626112a41b12f8b5cbaf6504bb903e08",
+    "kernel_config": "6cb18717c6914d4947489eedf8cb69ac23db3faa8ef9b9f563ff02c346dcd32d",
+    "kernel_module_symvers": "ea539a464a3beb960dc84288afaf41c1e2d6a4506902af14affe80111d1bf97e",
+    "kernel_release_file": "61cafccad934c3a098f66b55ede259d2230340eb2d95e11b077f7ab3a9f2c32f"
+  },
+  "kernel_release": "7.0.0-38-generic",
+  "module_installed": false,
+  "module_loaded": false,
+  "observed_at_utc": "2026-11-01T05:46:49.216637+00:00",
+  "qualification": "failed",
+  "schema": "nvidia-r595-hybrid-uvm-target-build-v1",
+  "source": {
+    "path": "/tmp/nvidia-hybrid-r595-hybrid-uvm-linux68-v3-20261031/kernel-open",
+    "regular_file_count": 459,
+    "tree_sha256": "ace7e02f3ff469ef5940faf7eebe603fdef9676f356bd5fc1c879522b95f9b7f"
+  },
+  "status": "failed"
+}

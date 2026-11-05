@@ -1,0 +1,146 @@
+{
+  "classification": "pinned-open-source-static-audit",
+  "created_utc": "2026-11-02T16:07:17.406699+00:00",
+  "cross_release_comparison": {
+    "compared_functions": [
+      "getSystemP2PCaps",
+      "_nvGpuOpsIsBar1P2pAtomicEnabled",
+      "nvGpuOpsGetP2PCaps"
+    ],
+    "directional_producer_functions_identical_after_comment_literal_and_whitespace_masking": true
+  },
+  "license_review": "The analyzed RM source file identifies MIT; no NVIDIA proprietary binary or pseudocode is included.",
+  "releases": {
+    "595.112.07": {
+      "checks": {
+        "access_and_bar1_gates_precede_directional_queries": true,
+        "atomic_architecture_floor_is_blackwell_gb1xx": true,
+        "atomic_architecture_query_uses_owning_gpu": true,
+        "atomic_flags_default_false": true,
+        "bar1_support_is_a_separate_rm_capability": true,
+        "index_one_maps_device2_to_device1_bar1": true,
+        "index_zero_maps_device1_to_device2_bar1": true,
+        "mapping_gpu_parameter_is_not_used_by_atomic_helper": true,
+        "rm_access_requires_both_reads_and_writes": true,
+        "source_retains_topology_and_routing_todo": true
+      },
+      "commit": "d8257d95ae5fed364163e4df51db66df8b1ee0d2",
+      "direction_contract": {
+        "atomic_helper": "returns true when the BAR1 owning GPU architecture is at least Blackwell GB1xx; the mapping-GPU argument is not used in this helper",
+        "bar1PcieAtomics_index_0": {
+          "atomic_architecture_query": "device2 architecture",
+          "bar1_owner_gpu": "device2 / pRemoteGpu",
+          "dma_bar_target": "device2 BAR1",
+          "local_gpu": "device1 / pLocalGpu"
+        },
+        "bar1PcieAtomics_index_1": {
+          "atomic_architecture_query": "device1 architecture",
+          "bar1_owner_gpu": "device1 / pLocalGpu",
+          "dma_bar_target": "device1 BAR1",
+          "local_gpu": "device2 / pRemoteGpu"
+        },
+        "eligibility_gates": "RM first requires reads and writes in the P2P control response; BAR1 availability is separately gated before these two direction entries are populated",
+        "topology_limit": "the helper is architecture-based; nearby source retains a TODO to account for bus topology and routing. This is not proof that PCIe atomics work on a given path"
+      },
+      "file_license": "MIT",
+      "functions": {
+        "_nvGpuOpsIsBar1P2pAtomicEnabled": {
+          "end_line": 3189,
+          "normalized_sha256": "dc22a176b880c8ee3649e6200e09f39bb86463978f1fa0e4a5efb11ef24f3acf",
+          "sha256": "448c1aff9616da53282279f51a32da42a07ad7b1016a55cf8050750f9e98f9a7",
+          "start_line": 3178
+        },
+        "getSystemP2PCaps": {
+          "end_line": 3112,
+          "normalized_sha256": "0d5d76f167769b5c41692db3b56ec9c70855221b9409b9550c88d513724afd69",
+          "sha256": "18352aaaec6f5e3f545afac6f3bb8d42f5bfcd32fc2c6f6c4e0b6feaa0ee96c9",
+          "start_line": 3032
+        },
+        "nvGpuOpsGetP2PCaps": {
+          "end_line": 3331,
+          "normalized_sha256": "37e772c1306a93bad97b879a0c73b77eae6af14fcc6d8b93064dc8e6376fbc55",
+          "sha256": "9f867ae5c40c6c179dd40c17ad9cc6ce327c249712adf85ae1228f7c7e9ab637",
+          "start_line": 3190
+        }
+      },
+      "repository": "https://github.com/NVIDIA/open-gpu-kernel-modules.git",
+      "runtime_or_hardware_validated": false,
+      "source_file": "src/nvidia/src/kernel/rmapi/nv_gpu_ops.c",
+      "source_file_sha256": "e3cd52c0eb84554ad92e8ab6436e949492f45591307ff0b149a239367a837c8f",
+      "tag": "595.112.07",
+      "topology_todo_lines": [
+        3179
+      ],
+      "version": "595.112.07",
+      "version_file_sha256": "10fd21cb82f0444b73501ce2f0728b1b61bf477fbe019ecc9431458efc3a1baa"
+    },
+    "595.99.02": {
+      "checks": {
+        "access_and_bar1_gates_precede_directional_queries": true,
+        "atomic_architecture_floor_is_blackwell_gb1xx": true,
+        "atomic_architecture_query_uses_owning_gpu": true,
+        "atomic_flags_default_false": true,
+        "bar1_support_is_a_separate_rm_capability": true,
+        "index_one_maps_device2_to_device1_bar1": true,
+        "index_zero_maps_device1_to_device2_bar1": true,
+        "mapping_gpu_parameter_is_not_used_by_atomic_helper": true,
+        "rm_access_requires_both_reads_and_writes": true,
+        "source_retains_topology_and_routing_todo": true
+      },
+      "direction_contract": {
+        "atomic_helper": "returns true when the BAR1 owning GPU architecture is at least Blackwell GB1xx; the mapping-GPU argument is not used in this helper",
+        "bar1PcieAtomics_index_0": {
+          "atomic_architecture_query": "device2 architecture",
+          "bar1_owner_gpu": "device2 / pRemoteGpu",
+          "dma_bar_target": "device2 BAR1",
+          "local_gpu": "device1 / pLocalGpu"
+        },
+        "bar1PcieAtomics_index_1": {
+          "atomic_architecture_query": "device1 architecture",
+          "bar1_owner_gpu": "device1 / pLocalGpu",
+          "dma_bar_target": "device1 BAR1",
+          "local_gpu": "device2 / pRemoteGpu"
+        },
+        "eligibility_gates": "RM first requires reads and writes in the P2P control response; BAR1 availability is separately gated before these two direction entries are populated",
+        "topology_limit": "the helper is architecture-based; nearby source retains a TODO to account for bus topology and routing. This is not proof that PCIe atomics work on a given path"
+      },
+      "file_license": "MIT",
+      "functions": {
+        "_nvGpuOpsIsBar1P2pAtomicEnabled": {
+          "end_line": 3157,
+          "normalized_sha256": "dc22a176b880c8ee3649e6200e09f39bb86463978f1fa0e4a5efb11ef24f3acf",
+          "sha256": "448c1aff9616da53282279f51a32da42a07ad7b1016a55cf8050750f9e98f9a7",
+          "start_line": 3146
+        },
+        "getSystemP2PCaps": {
+          "end_line": 3080,
+          "normalized_sha256": "0d5d76f167769b5c41692db3b56ec9c70855221b9409b9550c88d513724afd69",
+          "sha256": "18352aaaec6f5e3f545afac6f3bb8d42f5bfcd32fc2c6f6c4e0b6feaa0ee96c9",
+          "start_line": 3000
+        },
+        "nvGpuOpsGetP2PCaps": {
+          "end_line": 3299,
+          "normalized_sha256": "37e772c1306a93bad97b879a0c73b77eae6af14fcc6d8b93064dc8e6376fbc55",
+          "sha256": "9f867ae5c40c6c179dd40c17ad9cc6ce327c249712adf85ae1228f7c7e9ab637",
+          "start_line": 3158
+        }
+      },
+      "runtime_or_hardware_validated": false,
+      "source_archive": "build/research/open-gpu-kernel-modules-595.99.02/source.tar.gz",
+      "source_archive_sha256": "b8891cb617683e28ef1e4c3add8dbc30e648b8cd6429a3d521f20dde44633262",
+      "source_file": "src/nvidia/src/kernel/rmapi/nv_gpu_ops.c",
+      "source_file_sha256": "2f20858c33c165820f4bddd72174b4a7a57248a259b413db588f9f8927384512",
+      "topology_todo_lines": [
+        3147
+      ],
+      "version": "595.99.02",
+      "version_file_sha256": "f4e13a41ce676591b322c47d821ecf9d9b3f70171a0e221286162c5fada17234"
+    }
+  },
+  "schema": "nvidia-open-rm-r595-p2p-producer-audit-v1",
+  "scope_limits": [
+    "Static source proves the reported code path and field direction only; it does not prove NVML/CUDA exposure or a working P2P mapping.",
+    "The atomic flag is architecture-gated in the helper, while the source retains a TODO about PCIe topology and routing.",
+    "No V100/RTX 5080 P2P capability response, PCIe atomic transaction, BAR1 mapping, transfer, or runtime test was observed in this audit."
+  ]
+}

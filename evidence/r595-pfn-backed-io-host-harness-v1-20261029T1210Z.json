@@ -1,0 +1,73 @@
+{
+  "cases": [
+    {
+      "binary_sha256": "d64138fc0f99af8e3d3be21fdd23656f701e6f87258e59e407dff6a8c7eef085",
+      "command": [
+        "gcc",
+        "-std=gnu11",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-DNV_PFN_IS_MAP_MEMORY_PRESENT",
+        "-x",
+        "c",
+        "-o",
+        "/tmp/r595-pfn-backed-host-6gvgcipz/guard-pfn_is_map_memory",
+        "-"
+      ],
+      "compile_exit_code": 0,
+      "compiler": "gcc",
+      "compiler_version": "gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+      "exit_code": 0,
+      "generated_c_sha256": "b579c045cb5698d27554642b3cc247f8b7d013de346ce8f8ae604507642ceecd",
+      "output": [
+        "probe=pfn_is_map_memory",
+        "guard_rejects_backed_without_publish=pass",
+        "allows_unbacked_contiguous_io=pass"
+      ],
+      "patch_sha256": "018fd72247d5865639f5ea867226b9da9afa49a66aed3e2d7c711b2b0d2c625f",
+      "qualification": "exact-source-host-cpu-execution",
+      "source_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/research/open-gpu-kernel-modules-595.112.07/source/open-gpu-kernel-modules-d8257d95ae5fed364163e4df51db66df8b1ee0d2/kernel-open/nvidia/os-mlock.c",
+      "source_sha256": "760a5ee564cd0f151aea337eca146578bed157c80c8152f9aa9b414db6576609",
+      "variant": "pfn_is_map_memory"
+    },
+    {
+      "binary_sha256": "9ce6f24e6887b7f3f8a2ab4edbf3f2743ba4ce2a986e136a8e25dd28b3b2b79f",
+      "command": [
+        "gcc",
+        "-std=gnu11",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-x",
+        "c",
+        "-o",
+        "/tmp/r595-pfn-backed-host-6gvgcipz/guard-pfn_valid",
+        "-"
+      ],
+      "compile_exit_code": 0,
+      "compiler": "gcc",
+      "compiler_version": "gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+      "exit_code": 0,
+      "generated_c_sha256": "b579c045cb5698d27554642b3cc247f8b7d013de346ce8f8ae604507642ceecd",
+      "output": [
+        "probe=pfn_valid",
+        "guard_rejects_backed_without_publish=pass",
+        "allows_unbacked_contiguous_io=pass"
+      ],
+      "patch_sha256": "018fd72247d5865639f5ea867226b9da9afa49a66aed3e2d7c711b2b0d2c625f",
+      "qualification": "exact-source-host-cpu-execution",
+      "source_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/research/open-gpu-kernel-modules-595.112.07/source/open-gpu-kernel-modules-d8257d95ae5fed364163e4df51db66df8b1ee0d2/kernel-open/nvidia/os-mlock.c",
+      "source_sha256": "760a5ee564cd0f151aea337eca146578bed157c80c8152f9aa9b414db6576609",
+      "variant": "pfn_valid"
+    }
+  ],
+  "module_loaded_or_installed": false,
+  "observed_at_utc": "2026-10-29T12:08:49.535395+00:00",
+  "qualification": "exact-source-host-cpu-execution",
+  "runtime_or_hardware_validated": false,
+  "schema": "r595-pfn-backed-io-host-harness-v1",
+  "status": "passed"
+}

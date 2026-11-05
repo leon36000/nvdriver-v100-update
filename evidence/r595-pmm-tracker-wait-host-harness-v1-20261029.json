@@ -1,0 +1,58 @@
+{
+  "compile": {
+    "command": [
+      "/usr/bin/cc",
+      "-std=c11",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wno-unused-parameter",
+      "-pthread",
+      "/tmp/r595-pmm-tracker-wait-sn06vwbh/harness.c",
+      "-o",
+      "/tmp/r595-pmm-tracker-wait-sn06vwbh/harness"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "compiler": "/usr/bin/cc",
+  "execution": {
+    "checks": {
+      "chunk_unavailable_during_wait": true,
+      "competitor_acquired_root_bitlock_during_wait": true,
+      "free_delayed_until_wait_completion": true,
+      "oom_merge_did_not_partially_copy_entries": true,
+      "root_tracker_sibling_entries_preserved": true,
+      "wait_calls": 1,
+      "wait_root_bitlock_depth": 0
+    },
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "{\"wait_calls\":1,\"wait_root_bitlock_depth\":0,\"competitor_acquired_root_bitlock_during_wait\":true,\"chunk_unavailable_during_wait\":true,\"free_delayed_until_wait_completion\":true,\"root_tracker_sibling_entries_preserved\":true,\"oom_merge_did_not_partially_copy_entries\":true}\n"
+  },
+  "generated_at_utc": "2026-10-29T04:54:40.022919+00:00",
+  "implementation_sha256": {
+    "tools/run_r595_pmm_tracker_wait_host_harness.py": "d14c68bdd93c704b5cb16d18f9bdb20c1850d32a7c8c434909423f9c464102ef",
+    "tools/run_volta_fault_decode_host_harness.py": "428bf994993b82edde6bda2300626ec1036810b8aed11bef26300bb5039bcd59"
+  },
+  "qualification": {
+    "level": "tested-isolated",
+    "loaded_or_installed": false,
+    "mutation_negative_control": false,
+    "runtime_or_hardware_validated": false
+  },
+  "schema": "r595-pmm-tracker-wait-host-harness-v1",
+  "scope": "Exact hash-pinned R595 uvm_pmm_gpu_free, reserve_for_entries_from_tracker and uvm_tracker_add_tracker function bodies compiled on the host. pthread mutexes, tracker completion, chunk free-list state and allocation failure are narrow stubs; this does not execute UVM kernel code, lockdep, a GPU, or hardware semaphores.",
+  "sources": {
+    "uvm_pmm_gpu.c": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-pmm-tracker-wait-outside-root-bitlock-final-v1-20261029/candidate/nvidia-uvm/uvm_pmm_gpu.c",
+      "sha256": "f184f336b632575f077801db74e03635351ed56fe8cec1225bb066471911e52b"
+    },
+    "uvm_tracker.c": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-pmm-tracker-wait-outside-root-bitlock-final-v1-20261029/candidate/nvidia-uvm/uvm_tracker.c",
+      "sha256": "1b7fd32a785b78af5492c30a297e148f421af3e04108a587a641932d4ca7499a"
+    }
+  }
+}

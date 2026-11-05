@@ -1,0 +1,35 @@
+{
+  "baseline_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/research/open-gpu-kernel-modules-595.99.02/source/open-gpu-kernel-modules-595.99.02/kernel-open/nvidia/nv.c",
+  "baseline_sha256": "5d31dc828b62e74366e41884d27cdddc01fb44219ecdb3900cab7a3f1758757e",
+  "compile_command": [
+    "gcc",
+    "-std=gnu11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "/tmp/r595-large-p2p-table-9d71qbtj/host-harness.c",
+    "-o",
+    "/tmp/r595-large-p2p-table-9d71qbtj/host-harness"
+  ],
+  "compile_exit_code": 0,
+  "compiler": "gcc",
+  "compiler_version": "gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+  "harness_sha256": "bf931002c4cb3de335734767fc2b80131021687dedd1b8f406d1971093f2b36f",
+  "module_loaded_or_installed": false,
+  "observed_at_utc": "2026-10-31T23:06:23.155628+00:00",
+  "output": [
+    "small_and_INT_MAX_boundary=pass",
+    "oversized_vmalloc_zeroed_and_matching_vfree=pass",
+    "overflow_count_bounds_alloc_failure_and_busy_free=pass"
+  ],
+  "patch_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r595.99.02/0015-open-large-page-table-vmalloc.patch",
+  "patch_sha256": "825414fc643169c03de91f3e2a1226ad91d6def184627ba45de2dda75e886420",
+  "qualification": "exact-source-host-cpu-execution",
+  "run_exit_code": 0,
+  "runtime_or_hardware_validated": false,
+  "schema": "r595-large-p2p-page-table-host-harness-v1",
+  "source_path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/research/open-gpu-kernel-modules-595.112.07/source/open-gpu-kernel-modules-d8257d95ae5fed364163e4df51db66df8b1ee0d2/kernel-open/nvidia/nv.c",
+  "source_sha256": "963f6508a2a361fdce162f3e9917be0045f8fbe596a314c86d09ca07bdbf22af",
+  "status": "passed"
+}

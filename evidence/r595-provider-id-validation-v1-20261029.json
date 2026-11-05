@@ -1,0 +1,111 @@
+{
+  "audit_history": {
+    "superseded_attempt": {
+      "corrected_by": "evidence/r595-provider-id-validation-v2-20261029-symbol-closure.json",
+      "report": "evidence/r595-provider-id-validation-v1-20261029-symbol-closure.json",
+      "report_sha256": "c3f476219d19fa100cd575afa1b942254a3704d1bbf878bdd81c91114456e858",
+      "status": "failed because the audit was pointed at a frontend Module.symvers different from the one used for this UVM build; the three mismatches were the hybrid extension CRCs"
+    }
+  },
+  "build": {
+    "candidate_module": "build/experiments/r595-provider-id-validation-v1-20261029/candidate/nvidia-uvm.ko",
+    "candidate_module_sha256": "9bc17aca8620cf0f628074dfb98f28939961f7d00c2916db026ddaf445090184",
+    "candidate_module_size_bytes": 62017304,
+    "command": [
+      "make",
+      "-B",
+      "NV_KERNEL_MODULES=nvidia-uvm",
+      "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-provider-identity-frontend-v1-20261028T2032Z/Module.symvers",
+      "NV_KERNEL_EXTRA_CONFTEST_KBUILD=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-provider-id-validation-v1-20261029/candidate/nvidia-conftest-only.Kbuild",
+      "modules",
+      "-j4"
+    ],
+    "exit_code": 0,
+    "frontend_module": "build/experiments/r595-provider-identity-frontend-v1-20261028T2032Z/nvidia.ko",
+    "frontend_module_sha256": "dd08aafccdc3612df065173b0ed112505fe9e9848175a21b046d4ba5fd7a68ab",
+    "frontend_symvers": "build/experiments/r595-provider-identity-frontend-v1-20261028T2032Z/Module.symvers",
+    "frontend_symvers_sha256": "dbcf0cc653a970395534635d7ef533c3626112a41b12f8b5cbaf6504bb903e08",
+    "kernel_release": "7.0.0-38-generic",
+    "log": "evidence/logs/r595-provider-id-validation-v1-20261029-build.log",
+    "log_mode": "0o600",
+    "log_sha256": "257c46fec2372b101c9ab0a2055e01711cf7c1cc663db27014be7c62e9aeba6e",
+    "module_version": "595.99.02",
+    "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+    "warnings": [
+      "pahole version differs from the one used to build the kernel",
+      "BTF generation skipped because vmlinux is unavailable"
+    ],
+    "working_directory": "build/experiments/r595-provider-id-validation-v1-20261029/candidate"
+  },
+  "next_action": "Refresh read-only PC3 canary evidence before any runtime change. Continue preparing the exact hybrid acceptance path, but keep this candidate uninstalled and unloaded while Secure Boot trust and live nvidia/nvidia-uvm device-name/major-number conflicts remain.",
+  "observed_at_utc": "2026-10-29T00:17:23.721518+00:00",
+  "qualification": "compiled-static-symbol-closure-and-software-tested-only",
+  "schema": "r595-provider-id-validation-build-v1",
+  "scope": "Compile-only R595.99.02 UVM provider-ID fail-closed guard, with exact static symbol closure and software contract tests.",
+  "source": {
+    "behavior": "After provider lookup succeeds, accept only OPEN=1U or LEGACY=2U. Unknown IDs return NV_ERR_NOT_SUPPORTED before gpu_supports_uvm, parent/GPU initialization, and GPU publication, using the existing add_gpu error unwind.",
+    "exact_preimage": "build/experiments/r595-tracker-detach-prune-v4-20261028T2100Z/candidate/nvidia-uvm/uvm_gpu.c",
+    "parent_build_report": "evidence/r595-tracker-detach-prune-v4-build-v1-20261028T2100Z.json",
+    "parent_build_report_sha256": "cb949a381d89ffe56f98a0355860e98190e384175e489c331002027c33404d16",
+    "parent_experiment": "r595-tracker-detach-prune-v4-20261028T2100Z",
+    "patch": "patches/r595.99.02/0008-validate-hybrid-provider-id-before-gpu-publication.patch",
+    "patch_application": {
+      "command": "patch --batch --forward --fuzz=0 -p1 -i patches/r595.99.02/0008-validate-hybrid-provider-id-before-gpu-publication.patch",
+      "exit_code": 0,
+      "offset_or_fuzz": false
+    },
+    "patch_sha256": "d0d6faba52ec98b3fd633c7b98785bd0d1066d539ce382a6fae3e97310cc2a81",
+    "patched_source": "build/experiments/r595-provider-id-validation-v1-20261029/candidate/nvidia-uvm/uvm_gpu.c",
+    "patched_source_sha256": "b90bd772b641cf8b06bb434ee18e96d0cab2a5bc2a9515410313d2c7fc25fb05",
+    "preimage_sha256": "925ffe7bad8362431e71985c77b76c8a84f16ab3b08e7c32115c503ea81f760d",
+    "provider_id_definition_sha256": "4516ee3bd6bf40eefed2f89d08a2e8cf07b2e60478f4879496c6bc1956c05eb4",
+    "provider_id_definition_source": "build/experiments/r595-provider-identity-frontend-v1-20261028T2032Z/hybrid580_uvm_provider_dispatch.h",
+    "provider_lookup_source": "build/experiments/r595-provider-identity-frontend-v1-20261028T2032Z/hybrid580_uvm_callback_bridge.c",
+    "provider_lookup_source_sha256": "12b158311bc0c36c316a41154574c0c48e477d738f9fe66ebd03428565cc13e8"
+  },
+  "static_symbol_closure": {
+    "exact_frontend_used_for_build_and_audit": true,
+    "frontend_exports": 79,
+    "hybrid_extension_imports": 3,
+    "issue_count": 0,
+    "private_provider_imports": 145,
+    "qualification": "static-r595-uvm-symbol-closure",
+    "r595_api_count": 79,
+    "report": "evidence/r595-provider-id-validation-v2-20261029-symbol-closure.json",
+    "report_sha256": "d83623d21b5fba300b76e088f203a3244c48daa7f8bd48ce53764391babf2c33",
+    "uvm_imports": 81
+  },
+  "system_state": {
+    "cuda_runtime_tested": false,
+    "gpu_accessed_by_candidate": false,
+    "module_installed": false,
+    "module_loaded": false,
+    "runtime_or_hardware_validated": false,
+    "same_process_volta_blackwell_validated": false
+  },
+  "tests": {
+    "focused_command": "python3 -B -m unittest -v tests.test_r595_provider_id_validation tests.test_r595_isolated_provider_guard tests.test_r595_tracker_detach_lifetime",
+    "focused_failures": 0,
+    "focused_tests_passed": 18,
+    "full_suite_command": [
+      "/usr/bin/python3",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-v",
+      "-s",
+      "tests"
+    ],
+    "full_suite_exit_code": 0,
+    "full_suite_log": "evidence/logs/software-verification-provider-id-validation-v1-20261029.log",
+    "full_suite_log_mode": "0o600",
+    "full_suite_log_sha256": "940ce93dc7e480a34f9dc043b122d96b0f4f6e15f8c253ed059f042025fa9a05",
+    "full_suite_qualification": "software-suite-only",
+    "full_suite_report": "evidence/software-verification-provider-id-validation-v1-20261029.json",
+    "full_suite_report_sha256": "1f1cff8943465a352eaeb6c6d380c3e1b2fa8f4b54a4ae770802c9fa6956cdf9",
+    "full_suite_seconds": 123.599,
+    "full_suite_status": "pass",
+    "full_suite_tests_run": 1879
+  }
+}

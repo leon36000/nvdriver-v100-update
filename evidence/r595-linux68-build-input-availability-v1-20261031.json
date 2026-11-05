@@ -1,0 +1,39 @@
+{
+  "schema": "r595-linux68-build-input-availability-v1",
+  "observed_at_utc": "2026-10-31T23:18:24Z",
+  "qualification": "local_read_only_artifact_inventory",
+  "scan_root": "build",
+  "scan_counts": {
+    "ko_files_sha256_checked": 689,
+    "module_symvers_files_sha256_checked": 531
+  },
+  "required_inputs": {
+    "frontend_module_symvers": {
+      "path": "build/experiments/r595-hybrid-frontend-linux68-gcc13-v4/Module.symvers",
+      "expected_sha256": "40b11e3f5c9a5d54e1f5ec08216f1536d3d0061ad89f1a6c8030e16b0dd16f78",
+      "observed_sha256": "40b11e3f5c9a5d54e1f5ec08216f1536d3d0061ad89f1a6c8030e16b0dd16f78",
+      "status": "present_exact_hash"
+    },
+    "reference_open_module": {
+      "path": "build/experiments/r595-open-softdep-linux68-gcc13-v2/hybrid580_open.ko",
+      "expected_sha256": "c2cf6650b9aac369b4467d4fa5b3f5f0a194c869c9142a9c7b37e0ee4f2f45e1",
+      "observed_sha256": "c2cf6650b9aac369b4467d4fa5b3f5f0a194c869c9142a9c7b37e0ee4f2f45e1",
+      "status": "present_exact_hash"
+    },
+    "linux_6_8_build_tree": {
+      "required_path": "/tmp/nvidia-hybrid-linux68-headers-20261029/tree/usr/src/linux-headers-6.8.0-147-generic",
+      "required_module_symvers_sha256": "8e7eb5798789b9610c324b3d9b13373d88c30ae17bb9e41e622efd05e0277a87",
+      "status": "absent"
+    },
+    "gcc_13_3_compiler": {
+      "required_path": "/tmp/nvidia-hybrid-linux68-headers-20261029/gcc13-root/usr/bin/x86_64-linux-gnu-gcc-13",
+      "required_sha256": "1b99826121ae6682a634e5efe09bd3e3df58ce58e0b28f849114ab5b89139c26",
+      "status": "absent"
+    }
+  },
+  "build_started": false,
+  "module_installed_or_loaded": false,
+  "gpu_accessed": false,
+  "remote_hosts_accessed": [],
+  "pc3_access_constraint": "User reports PC3 powered off; wait for direct user notice before any PC3 reachability or hardware access. No other PC may be used."
+}

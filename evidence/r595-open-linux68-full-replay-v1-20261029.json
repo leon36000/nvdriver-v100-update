@@ -1,0 +1,87 @@
+{
+  "build": {
+    "argv": [
+      "make",
+      "-C",
+      "/tmp/nvidia-r595-linux68-full-replay-v1/source/kernel-open",
+      "KERNEL_UNAME=6.8.0-147-generic",
+      "SYSSRC=/tmp/nvidia-hybrid-linux68-headers-20261029/tree/usr/src/linux-headers-6.8.0-147-generic",
+      "NV_KERNEL_MODULES=nvidia nvidia-uvm",
+      "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-hybrid-frontend-linux68-gcc13-v4/Module.symvers",
+      "CC=/tmp/nvidia-hybrid-linux68-headers-20261029/gcc13-root/usr/bin/x86_64-linux-gnu-gcc-13",
+      "-j2",
+      "modules"
+    ],
+    "duration_seconds": 35.91,
+    "environment_names_cleared": [],
+    "exit_code": 0,
+    "log": {
+      "mode": "0600",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/r595-open-linux68-full-replay-v1-20261029.log",
+      "sha256": "5d24de10b289fb668bde524798117143b48eaff2b2bcfb99d97efe15248a918a"
+    },
+    "warning_count": 9,
+    "warning_samples": [
+      "/tmp/nvidia-r595-linux68-full-replay-v1/source/kernel-open/nvidia/nv.c:6207:11: warning: no previous prototype for \u2018hybrid580_open_control_session_client_share_policy_v1\u2019 [-Wmissing-prototypes]",
+      "/tmp/nvidia-r595-linux68-full-replay-v1/source/kernel-open/nvidia/nv.c:6301:11: warning: no previous prototype for \u2018hybrid580_open_control_session_sync_boost_groups_v1\u2019 [-Wmissing-prototypes]",
+      "./include/linux/fs.h:2522:11: warning: the address of \u2018nvidia_fops\u2019 will always evaluate as \u2018true\u2019 [-Waddress]",
+      "/tmp/nvidia-r595-linux68-full-replay-v1/source/kernel-open/nvidia/nv-vm.c:601:1: warning: no previous prototype for \u2018nv_mem_pool_alloc_pages\u2019 [-Wmissing-prototypes]",
+      "/tmp/nvidia-r595-linux68-full-replay-v1/source/kernel-open/nvidia/nv-vm.c:709:1: warning: no previous prototype for \u2018nv_mem_pool_destroy\u2019 [-Wmissing-prototypes]",
+      "/tmp/nvidia-r595-linux68-full-replay-v1/source/kernel-open/nvidia/nv-vm.c:739:17: warning: no previous prototype for \u2018nv_mem_pool_init\u2019 [-Wmissing-prototypes]",
+      "/tmp/nvidia-r595-linux68-full-replay-v1/source/kernel-open/nvidia/nv-vm.c:793:1: warning: no previous prototype for \u2018nv_mem_pool_free_pages\u2019 [-Wmissing-prototypes]",
+      "/tmp/nvidia-r595-linux68-full-replay-v1/source/kernel-open/nvidia/nv-vm.c:873:11: warning: no previous prototype for \u2018nv_init_page_pools\u2019 [-Wmissing-prototypes]",
+      "/tmp/nvidia-r595-linux68-full-replay-v1/source/kernel-open/nvidia/nv-vm.c:899:6: warning: no previous prototype for \u2018nv_destroy_page_pools\u2019 [-Wmissing-prototypes]"
+    ]
+  },
+  "error": "ValueError: exact-target R595 provider Module.symvers hash mismatch: got 187c392461ef14610d4bd73b31ddbcb71d6389ad52beb56d80d8b18f5d37c296, expected 99f9ef7a9a6bce431d4b0a19591ba6a9754da7aca4c50b7f9a178965833a678f",
+  "gpu_accessed": false,
+  "guest_hostname": "pc3-v100",
+  "inputs_sha256": {
+    "frontend_module_symvers": "40b11e3f5c9a5d54e1f5ec08216f1536d3d0061ad89f1a6c8030e16b0dd16f78",
+    "gcc13": "1b99826121ae6682a634e5efe09bd3e3df58ce58e0b28f849114ab5b89139c26",
+    "kernel_headers_module_symvers": "8e7eb5798789b9610c324b3d9b13373d88c30ae17bb9e41e622efd05e0277a87",
+    "r595_rm_core": "c19870e43606b4358d9274c4d3dec2adb1822d65ce1203520a8184cf043cafe8",
+    "reference_open_module": "c2cf6650b9aac369b4467d4fa5b3f5f0a194c869c9142a9c7b37e0ee4f2f45e1",
+    "replay_report": "5bdab15c82ec0e9865d372a0768900a676aa94199519ff7f4d137af5f0227c43"
+  },
+  "kernel_release": "6.8.0-147-generic",
+  "module_installed": false,
+  "module_loaded": false,
+  "observed_at_utc": "2026-10-29T13:18:18.626063+00:00",
+  "qualification": "failed",
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-r595-linux68-full-replayed-open-build-v1",
+  "source_overlays": {
+    "kmod_softdep": {
+      "apply_exit_code": 0,
+      "dry_run_exit_code": 0,
+      "fuzz_used": false,
+      "offset_used": false,
+      "patch": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r595.99.02/0014-open-kmod-softdep-space-separators.patch",
+      "patch_sha256": "6384b2ec99b5768a751cc71edda3bdda4c326fe9f60f80a7b76dd8afc4bfaeaf",
+      "postimage_sha256": "ffb79501c6725ade872304e5b826973011097002f122fed11f7f201c47f965ac",
+      "preimage_sha256": "9dc820124a9f568d38d35c324bac8e845ddbc7158959ac94ed0000248749fb61",
+      "value": "pre: ecdh_generic ecdsa_generic"
+    },
+    "pfn_backing_guard": {
+      "apply_exit_code": 0,
+      "dry_run_exit_code": 0,
+      "fuzz_used": false,
+      "offset_used": false,
+      "patch": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r595.99.02/0013-open-pfn-backed-io-guard.patch",
+      "patch_sha256": "018fd72247d5865639f5ea867226b9da9afa49a66aed3e2d7c711b2b0d2c625f",
+      "postimage_sha256": "760a5ee564cd0f151aea337eca146578bed157c80c8152f9aa9b414db6576609",
+      "preimage_sha256": "dcee9c5d88286ab8b07b6a9e991b64da7f125c0c8a387f11ab1aecbf5a0cd15e"
+    }
+  },
+  "source_replay": {
+    "patch_count": 43,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/r595-syncboost-replay-v3.json",
+    "sha256": "5bdab15c82ec0e9865d372a0768900a676aa94199519ff7f4d137af5f0227c43",
+    "source_artifacts_verified": 23
+  },
+  "source_version": "595.99.02",
+  "status": "failed",
+  "target": "pc3@pc3",
+  "work_dir": "/tmp/nvidia-r595-linux68-full-replay-v1"
+}

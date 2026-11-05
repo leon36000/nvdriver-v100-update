@@ -1,0 +1,39 @@
+{
+  "build_dir": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-private-open-wrapper-v1-20261023/baseline/source",
+  "command": [
+    "make",
+    "-C",
+    "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-private-open-wrapper-v1-20261023/baseline/source/kernel-open",
+    "KERNEL_UNAME=7.0.0-38-generic",
+    "NV_KERNEL_MODULES=nvidia",
+    "-j4",
+    "modules"
+  ],
+  "core": "/usr/src/nvidia-595.99.02/nvidia/nv-kernel.o_binary",
+  "core_sha256": "c19870e43606b4358d9274c4d3dec2adb1822d65ce1203520a8184cf043cafe8",
+  "duration_seconds": 10.069,
+  "exit_code": 0,
+  "gpu_accessed": false,
+  "kernel_release": "7.0.0-38-generic",
+  "log": "evidence/logs/r595-open-baseline-build-v1-20261023.log",
+  "log_sha256": "09dffbc38fd08cb9e69407701337620188e21f8aab56757f153d0c3c2417a5d4",
+  "module": {
+    "bytes": 36553960,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-private-open-wrapper-v1-20261023/baseline/source/kernel-open/nvidia.ko",
+    "sha256": "acd96f214a3f94f832801f81ba8e03f57b716ded3098cd5d203ec9c422563954"
+  },
+  "module_loaded_or_installed": false,
+  "observed_at_utc": "2026-10-23T06:01:52.988681+00:00",
+  "qualification": "compiled-official-r595-open-baseline-only",
+  "schema": "r595-open-baseline-build-v1",
+  "source_file_count": 3810,
+  "source_tree": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/research/open-gpu-kernel-modules-595.99.02/source/open-gpu-kernel-modules-595.99.02",
+  "source_tree_manifest_sha256": "6d4ae86fb03f3afac63007c3c13422b114c93f5ab6a271ccb3dde5fb2440c066",
+  "source_tree_unchanged": true,
+  "source_version": "595.99.02",
+  "symvers": {
+    "bytes": 6125,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-private-open-wrapper-v1-20261023/baseline/source/kernel-open/Module.symvers",
+    "sha256": "1afbdc5d864d0d8f7ae7c57b6def32b82a0d99da73772fafc85f5da07baaa918"
+  }
+}

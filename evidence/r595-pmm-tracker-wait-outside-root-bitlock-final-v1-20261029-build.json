@@ -1,0 +1,56 @@
+{
+  "build": {
+    "btf": "skipped: vmlinux unavailable; pahole is not installed",
+    "command": [
+      "make",
+      "-B",
+      "-C",
+      "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-pmm-tracker-wait-outside-root-bitlock-final-v1-20261029/candidate",
+      "KERNEL_UNAME=7.0.0-38-generic",
+      "NV_KERNEL_MODULES=nvidia-uvm",
+      "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-provider-identity-frontend-v1-20261028T2032Z/Module.symvers",
+      "NV_KERNEL_EXTRA_CONFTEST_KBUILD=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-pmm-tracker-wait-outside-root-bitlock-final-v1-20261029/candidate/nvidia-conftest-only.Kbuild",
+      "-j2"
+    ],
+    "exit_code": 0,
+    "frontend_symvers": "build/experiments/r595-provider-identity-frontend-v1-20261028T2032Z/Module.symvers",
+    "frontend_symvers_sha256": "dbcf0cc653a970395534635d7ef533c3626112a41b12f8b5cbaf6504bb903e08",
+    "kernel_release": "7.0.0-38-generic",
+    "log": "evidence/logs/r595-pmm-tracker-wait-outside-root-bitlock-final-v1-20261029-build.log",
+    "log_sha256": "c256d9b78b6cd7b15f61111246993f05257de62ac17e979d1ca5065d08efea0d"
+  },
+  "created_utc": "2026-10-29T04:46:39.101668+00:00",
+  "module": {
+    "bytes": 62027800,
+    "depends": "nvidia",
+    "installed": false,
+    "license": "Dual MIT/GPL",
+    "loaded": false,
+    "name": "nvidia_uvm",
+    "path": "build/experiments/r595-pmm-tracker-wait-outside-root-bitlock-final-v1-20261029/candidate/nvidia-uvm.ko",
+    "sha256": "c2d69cc6ddee4c629762342f38c8520a88930320eeecf7963861d55f3f47e251",
+    "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+    "version": "595.99.02"
+  },
+  "qualification": "compiled-static-abi-closure",
+  "schema": "nvidia-r595-pmm-rootlock-wait-build-v1",
+  "scope": "Build and static module-version closure only. The candidate was not installed or loaded and no UVM runtime path or GPU was exercised.",
+  "source": {
+    "base_tree": "build/experiments/r595-hmm-migrate-aggregate-guard-v1-20261029/candidate",
+    "candidate_tree": "build/experiments/r595-pmm-tracker-wait-outside-root-bitlock-final-v1-20261029/candidate",
+    "patch": "patches/r595.99.02/0011-pmm-wait-source-tracker-outside-root-bitlock.patch",
+    "patch_sha256": "38d72f8c20c5b149c31f121a804cb24baa371005d7665f61beaaca65e9ef0e6d",
+    "patched_uvm_pmm_gpu_c": "build/experiments/r595-pmm-tracker-wait-outside-root-bitlock-final-v1-20261029/candidate/nvidia-uvm/uvm_pmm_gpu.c",
+    "patched_uvm_pmm_gpu_c_sha256": "f184f336b632575f077801db74e03635351ed56fe8cec1225bb066471911e52b",
+    "release": "NVIDIA Open GPU Kernel Modules R595.99.02"
+  },
+  "symbol_closure": {
+    "frontend_exports": 79,
+    "issues": 0,
+    "path": "evidence/r595-pmm-tracker-wait-outside-root-bitlock-final-v1-20261029-symbol-closure.json",
+    "private_imports": 145,
+    "qualification": "static-r595-uvm-symbol-closure",
+    "sha256": "9a6cc799b7a918dbeade502cf9c62d96e73810a9511c8330c98fb7c042a72db9",
+    "uvm_imports": 81
+  }
+}

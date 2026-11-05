@@ -1,0 +1,191 @@
+{
+  "build": {
+    "argv": [
+      "make",
+      "-C",
+      "/tmp/nvidia-hybrid-r595-mmap-readonly-v2-20261101/source/kernel-open",
+      "KERNEL_UNAME=6.8.0-147-generic",
+      "SYSSRC=/tmp/nvidia-hybrid-linux68-headers-20261029/tree/usr/src/linux-headers-6.8.0-147-generic",
+      "NV_KERNEL_MODULES=nvidia nvidia-uvm",
+      "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-hybrid-frontend-linux68-gcc13-v4/Module.symvers",
+      "CC=/tmp/nvidia-hybrid-linux68-headers-20261029/gcc13-root/usr/bin/x86_64-linux-gnu-gcc-13",
+      "-j8",
+      "modules"
+    ],
+    "duration_seconds": 12.883,
+    "environment_names_cleared": [],
+    "exit_code": 0,
+    "log": {
+      "mode": "0600",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/r595-open-linux68-dmabuf-mmap-v2-20261101.log",
+      "sha256": "8e2a4de1272f95ef3ecfd2a527eb500f745950344038531d694f640b2a3cfd12"
+    },
+    "warning_count": 1,
+    "warning_samples": [
+      "./include/linux/fs.h:2522:11: warning: the address of \u2018nvidia_fops\u2019 will always evaluate as \u2018true\u2019 [-Waddress]"
+    ]
+  },
+  "gpu_accessed": false,
+  "guest_hostname": "pc3-v100",
+  "implementation_sha256": {
+    "tools/build_r595_open_linux68_full.py": "70474d5e865fb4bd744c6cab685dc38114940bba0e014dc31098a39b76340ecb"
+  },
+  "inputs_sha256": {
+    "frontend_module_symvers": "40b11e3f5c9a5d54e1f5ec08216f1536d3d0061ad89f1a6c8030e16b0dd16f78",
+    "gcc13": "1b99826121ae6682a634e5efe09bd3e3df58ce58e0b28f849114ab5b89139c26",
+    "kernel_headers_module_symvers": "8e7eb5798789b9610c324b3d9b13373d88c30ae17bb9e41e622efd05e0277a87",
+    "r595_dmabuf_unmap_patch": "15aa502cf2f1e94c11dca726fcf9025a8c2665960b35aeb6de76da60884733d8",
+    "r595_large_page_table_patch": "92cad31b353b9be74d89805f9b942c11901c7c9d623febd93341513699eddb0c",
+    "r595_mmap_readonly_patch": "fe4879b3d6ea319e3c417dba7aa483034cfaac919dcf856ba54878c552be795d",
+    "r595_page_pool_prototypes_patch": "2627993857d15e2ab17a5f6e43b83751e149c8a7ca78d5cd002f1904ea21471f",
+    "r595_rm_core": "c19870e43606b4358d9274c4d3dec2adb1822d65ce1203520a8184cf043cafe8",
+    "reference_open_module": "c2cf6650b9aac369b4467d4fa5b3f5f0a194c869c9142a9c7b37e0ee4f2f45e1",
+    "replay_report": "2c5b2e78e036dbe13bb1c72e9efdc2709c1624347f503ffff7743be087c26727"
+  },
+  "inputs_unchanged": true,
+  "kernel_release": "6.8.0-147-generic",
+  "module": {
+    "bytes": 34196752,
+    "identity": {
+      "depends": "ecc",
+      "license": "Dual MIT/GPL",
+      "name": "hybrid580_open",
+      "softdep": "pre: ecdh_generic ecdsa_generic",
+      "vermagic": "6.8.0-147-generic SMP preempt mod_unload modversions",
+      "version": "595.99.02"
+    },
+    "path": "/tmp/nvidia-hybrid-r595-mmap-readonly-v2-20261101/source/kernel-open/hybrid580_open.ko",
+    "sha256": "e8c34ea0a9a66eaadc243e3a03d6509a502ee9f8c66de5d801c047e782d19731"
+  },
+  "module_installed": false,
+  "module_loaded": false,
+  "observed_at_utc": "2026-11-01T01:06:31.567239+00:00",
+  "provider_module_symvers": {
+    "normalization": "sort rows by symbol and replace the Kbuild module path with hybrid580_open",
+    "path": "/tmp/nvidia-hybrid-r595-mmap-readonly-v2-20261101/source/kernel-open/Module.symvers",
+    "raw_sha256": "071490a4bca184ddcafc0e38a79037fb46a1a03fbb8e3ec678c99bff97d35cff",
+    "semantic_abi_sha256": "285db44e3d654091312049a2bb94d3b312ed806ec0169ec830a7362d6c56a549"
+  },
+  "qualification": "compiled-full-source-replayed-exact-linux68",
+  "reference_incremental_module": {
+    "identical_binary": false,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-open-softdep-linux68-gcc13-v2/hybrid580_open.ko",
+    "sha256": "c2cf6650b9aac369b4467d4fa5b3f5f0a194c869c9142a9c7b37e0ee4f2f45e1"
+  },
+  "runtime_or_hardware_validated": false,
+  "schema": "nvidia-r595-linux68-full-replayed-open-build-v3",
+  "shared_conftest": {
+    "types_header_sha256": "adfa0ec20a999228538d561868cdeefa72bfcfaa21a02301f5f6dff827cba532",
+    "uvm_sidecar_in_hybrid_bundle": false,
+    "uvm_sidecar_sha256": "a416209a343745fe0c325d9c146fabf5195a58396ca5df09fe1cf1790fd8ae74"
+  },
+  "source_overlays": {
+    "dmabuf_original_nents_unmap": {
+      "apply_exit_code": 0,
+      "dry_run_exit_code": 0,
+      "fuzz_used": false,
+      "offset_used": false,
+      "patch": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r595.99.02/0017-open-dmabuf-unmap-original-nents.patch",
+      "patch_sha256": "15aa502cf2f1e94c11dca726fcf9025a8c2665960b35aeb6de76da60884733d8",
+      "patched_paths": [
+        "kernel-open/nvidia/nv-dmabuf.c"
+      ],
+      "postimage_sha256": "582cb50a00f8ad560a95db2e84356df8d0e56e0e560680f25859a4a1bea41909",
+      "preimage_sha256": "a2c81ed69a537cf7c508ecd4e567a2d3016c5a1ae3dc534ca3f5a492b0a523f4"
+    },
+    "kmod_softdep": {
+      "apply_exit_code": 0,
+      "dry_run_exit_code": 0,
+      "fuzz_used": false,
+      "offset_used": false,
+      "patch": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r595.99.02/0014-open-kmod-softdep-space-separators.patch",
+      "patch_sha256": "6384b2ec99b5768a751cc71edda3bdda4c326fe9f60f80a7b76dd8afc4bfaeaf",
+      "postimage_sha256": "ffb79501c6725ade872304e5b826973011097002f122fed11f7f201c47f965ac",
+      "preimage_sha256": "9dc820124a9f568d38d35c324bac8e845ddbc7158959ac94ed0000248749fb61",
+      "value": "pre: ecdh_generic ecdsa_generic"
+    },
+    "large_page_table_vmalloc": {
+      "apply_exit_code": 0,
+      "dry_run_exit_code": 0,
+      "expected_replay_line_offset": 56,
+      "fuzz_used": false,
+      "offset_lines": 56,
+      "offset_used": true,
+      "patch": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r595.99.02/0015-open-large-page-table-vmalloc.patch",
+      "patch_sha256": "92cad31b353b9be74d89805f9b942c11901c7c9d623febd93341513699eddb0c",
+      "patched_paths": [
+        "kernel-open/common/inc/nv-linux.h",
+        "kernel-open/nvidia/os-interface.c",
+        "kernel-open/nvidia/nv.c"
+      ],
+      "postimage_sha256": {
+        "kernel-open/common/inc/nv-linux.h": "77652d97ef1873066e776be6ce06686c10ebef03099712d49f4b62107b5bd6d3",
+        "kernel-open/nvidia/nv.c": "bfd37cdb02d03b1b619cd4361f7cd99fd470cfa11f6329c771d3cfd704534735",
+        "kernel-open/nvidia/os-interface.c": "754593fc20cb1e663861a734959608f1ba68b73aff3ccaf9499a974118ec1394"
+      },
+      "preimage_sha256": {
+        "kernel-open/common/inc/nv-linux.h": "167ea8813202a758d4a70c113822de44bd82cd686a6de6891f445da74e27ccdb",
+        "kernel-open/nvidia/nv.c": "609c30cfd12f92496e21f788c095721f6668c5a5d12e7f119f3e34a3d1c0a827",
+        "kernel-open/nvidia/os-interface.c": "75aa2f569379a3ccce2f438c09db68cc9ce0b0affd73612739561939fe982c35"
+      }
+    },
+    "mmap_readonly_before_pte_install": {
+      "apply_exit_code": 0,
+      "dry_run_exit_code": 0,
+      "fuzz_used": false,
+      "offset_used": false,
+      "patch": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r595.99.02/0018-open-mmap-readonly-before-pte-install.patch",
+      "patch_sha256": "fe4879b3d6ea319e3c417dba7aa483034cfaac919dcf856ba54878c552be795d",
+      "patched_paths": [
+        "kernel-open/nvidia/nv-mmap.c"
+      ],
+      "postimage_sha256": "4f77149d44565df8e6306bb05482a112ebb3e563e1653a8d8b80851ca4665c97",
+      "preimage_sha256": "6d83c986765d48d3c2df679a5e62c419c4df213967b1804d96ab25ed67a4e65a"
+    },
+    "page_pool_prototypes": {
+      "apply_exit_code": 0,
+      "dry_run_exit_code": 0,
+      "fuzz_used": false,
+      "offset_used": false,
+      "patch": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r595.99.02/0016-open-page-pool-prototypes.patch",
+      "patch_sha256": "2627993857d15e2ab17a5f6e43b83751e149c8a7ca78d5cd002f1904ea21471f",
+      "patched_paths": [
+        "kernel-open/common/inc/nv-linux.h",
+        "kernel-open/nvidia/nv-vm.c",
+        "kernel-open/nvidia/nv.c"
+      ],
+      "postimage_sha256": {
+        "kernel-open/common/inc/nv-linux.h": "b9a8822c3c54efbec9cad25e69de97d40768d73c7bb132152b9de764b1086f98",
+        "kernel-open/nvidia/nv-vm.c": "7f9a78fa179a238fdabde00534d8c0bcde0fa22110e73fe05ddec3338f99edb0",
+        "kernel-open/nvidia/nv.c": "9a52caa0181cac587cec0c0e0f8f4fc99faf49b87ddc3eb92ec6dbce5f602358"
+      },
+      "preimage_sha256": {
+        "kernel-open/common/inc/nv-linux.h": "77652d97ef1873066e776be6ce06686c10ebef03099712d49f4b62107b5bd6d3",
+        "kernel-open/nvidia/nv-vm.c": "899ccf12b9c94effcb344be999878063cc6447d08a49def30131ba0c4692fcea",
+        "kernel-open/nvidia/nv.c": "bfd37cdb02d03b1b619cd4361f7cd99fd470cfa11f6329c771d3cfd704534735"
+      }
+    },
+    "pfn_backing_guard": {
+      "apply_exit_code": 0,
+      "dry_run_exit_code": 0,
+      "fuzz_used": false,
+      "offset_used": false,
+      "patch": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r595.99.02/0013-open-pfn-backed-io-guard.patch",
+      "patch_sha256": "018fd72247d5865639f5ea867226b9da9afa49a66aed3e2d7c711b2b0d2c625f",
+      "postimage_sha256": "760a5ee564cd0f151aea337eca146578bed157c80c8152f9aa9b414db6576609",
+      "preimage_sha256": "dcee9c5d88286ab8b07b6a9e991b64da7f125c0c8a387f11ab1aecbf5a0cd15e"
+    }
+  },
+  "source_replay": {
+    "patch_count": 44,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/r595-syncboost-replay-v5.json",
+    "sha256": "2c5b2e78e036dbe13bb1c72e9efdc2709c1624347f503ffff7743be087c26727",
+    "source_artifacts_verified": 25
+  },
+  "source_unchanged": true,
+  "source_version": "595.99.02",
+  "status": "passed",
+  "symvers_sha256": "071490a4bca184ddcafc0e38a79037fb46a1a03fbb8e3ec678c99bff97d35cff",
+  "target": "pc3@pc3",
+  "work_dir": "/tmp/nvidia-hybrid-r595-mmap-readonly-v2-20261101"
+}

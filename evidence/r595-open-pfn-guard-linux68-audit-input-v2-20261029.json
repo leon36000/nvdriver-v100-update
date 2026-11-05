@@ -1,0 +1,152 @@
+{
+  "audit_input_normalization": {
+    "reason": "Uses the exact build-tree module and adjacent Module.symvers because the frontend report pins these exact paths; both module and symvers hashes match the canonical project copies.",
+    "source_report": "evidence/r595-open-pfn-guard-linux68-gcc13-v1-20261029T1224Z.json",
+    "source_report_sha256": "3206ba4ddb05bab9875bd8c0e0d1a3e1735684703327d38b25c91e32262d1731"
+  },
+  "build": {
+    "btf_skipped_due_to_missing_vmlinux": true,
+    "compiler_version_mismatch_warning": false,
+    "exit_code": 0,
+    "gpu_accessed": false,
+    "log_path": "evidence/logs/r595-open-pfn-guard-linux68-gcc13-v1-20261029T1224Z.log",
+    "log_sha256": "155bcff6b96061af41f7c9a290c923ed73e9d8375d2ca770bbe2c220b19126b7",
+    "module_installed": false,
+    "module_loaded": false,
+    "runtime_or_hardware_validated": false,
+    "warning_count": 9,
+    "warning_lines": [
+      "/tmp/nvidia-r59599-6.8.0-147-pfn-guard-gcc13-v1/source/kernel-open/nvidia/nv.c:6207:11: warning: no previous prototype for \u2018hybrid580_open_control_session_client_share_policy_v1\u2019 [-Wmissing-prototypes]",
+      "/tmp/nvidia-r59599-6.8.0-147-pfn-guard-gcc13-v1/source/kernel-open/nvidia/nv.c:6301:11: warning: no previous prototype for \u2018hybrid580_open_control_session_sync_boost_groups_v1\u2019 [-Wmissing-prototypes]",
+      "./include/linux/fs.h:2522:11: warning: the address of \u2018nvidia_fops\u2019 will always evaluate as \u2018true\u2019 [-Waddress]",
+      "/tmp/nvidia-r59599-6.8.0-147-pfn-guard-gcc13-v1/source/kernel-open/nvidia/nv-vm.c:601:1: warning: no previous prototype for \u2018nv_mem_pool_alloc_pages\u2019 [-Wmissing-prototypes]",
+      "/tmp/nvidia-r59599-6.8.0-147-pfn-guard-gcc13-v1/source/kernel-open/nvidia/nv-vm.c:709:1: warning: no previous prototype for \u2018nv_mem_pool_destroy\u2019 [-Wmissing-prototypes]",
+      "/tmp/nvidia-r59599-6.8.0-147-pfn-guard-gcc13-v1/source/kernel-open/nvidia/nv-vm.c:739:17: warning: no previous prototype for \u2018nv_mem_pool_init\u2019 [-Wmissing-prototypes]",
+      "/tmp/nvidia-r59599-6.8.0-147-pfn-guard-gcc13-v1/source/kernel-open/nvidia/nv-vm.c:793:1: warning: no previous prototype for \u2018nv_mem_pool_free_pages\u2019 [-Wmissing-prototypes]",
+      "/tmp/nvidia-r59599-6.8.0-147-pfn-guard-gcc13-v1/source/kernel-open/nvidia/nv-vm.c:873:11: warning: no previous prototype for \u2018nv_init_page_pools\u2019 [-Wmissing-prototypes]",
+      "/tmp/nvidia-r59599-6.8.0-147-pfn-guard-gcc13-v1/source/kernel-open/nvidia/nv-vm.c:899:6: warning: no previous prototype for \u2018nv_destroy_page_pools\u2019 [-Wmissing-prototypes]"
+    ]
+  },
+  "build_command": [
+    "make",
+    "-C",
+    "/tmp/nvidia-r59599-6.8.0-147-pfn-guard-gcc13-v1/source/kernel-open",
+    "KERNEL_UNAME=6.8.0-147-generic",
+    "SYSSRC=/tmp/nvidia-hybrid-linux68-headers-20261029/tree/usr/src/linux-headers-6.8.0-147-generic",
+    "NV_KERNEL_MODULES=nvidia nvidia-uvm",
+    "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-syncboost-nvidia-frontend-v1/Module.symvers",
+    "CC=/tmp/nvidia-hybrid-linux68-headers-20261029/gcc13-root/usr/bin/x86_64-linux-gnu-gcc-13",
+    "-j2",
+    "modules"
+  ],
+  "generated_conftest": {
+    "NV_MEMORY_DEVICE_COHERENT_PRESENT": true,
+    "NV_PFN_IS_MAP_MEMORY_PRESENT": false,
+    "selected_guard_branch": "pfn_valid",
+    "types_header_sha256": "adfa0ec20a999228538d561868cdeefa72bfcfaa21a02301f5f6dff827cba532"
+  },
+  "inputs": {
+    "apt_source_file_sha256": "c40c7cb4dac3cce22db16bbb3a1ae00fa55c9162b01a78ac7e33247ebe2a47d9",
+    "compiler_package_version": "13.3.0-6ubuntu2~24.04.1",
+    "guarded_os_mlock_sha256": "760a5ee564cd0f151aea337eca146578bed157c80c8152f9aa9b414db6576609",
+    "packages": [
+      {
+        "bytes": 13677052,
+        "filename": "linux-headers-6.8.0-147_6.8.0-147.147_all.deb",
+        "sha256": "16c59831600aa76bbf2ce56000a7874a5c7b52f9507ae3deb0e633f1d71078bf"
+      },
+      {
+        "bytes": 3893810,
+        "filename": "linux-headers-6.8.0-147-generic_6.8.0-147.147_amd64.deb",
+        "sha256": "8acc8adee7f81b66adc95dfad5989c03a154bcc20dd91e52efd7f1e63db82109"
+      },
+      {
+        "bytes": 21084546,
+        "filename": "gcc-13-x86-64-linux-gnu_13.3.0-6ubuntu2~24.04.1_amd64.deb",
+        "sha256": "a134b0319a82d14581b3a14820d2832af4ec9778ed8b9b4ddaeecfb0555ec325"
+      },
+      {
+        "bytes": 10714542,
+        "filename": "cpp-13-x86-64-linux-gnu_13.3.0-6ubuntu2~24.04.1_amd64.deb",
+        "sha256": "2ca48bf0c2d6465bc39322899715a85d934b4d7442dd5586a7bebbe3ce0f806b"
+      },
+      {
+        "bytes": 51616,
+        "filename": "gcc-13-base_13.3.0-6ubuntu2~24.04.1_amd64.deb",
+        "sha256": "e859aca26585bb91113a451f1e66bc0e5283cb08797d679aacc1d936ae6dff8e"
+      },
+      {
+        "bytes": 2680642,
+        "filename": "libgcc-13-dev_13.3.0-6ubuntu2~24.04.1_amd64.deb",
+        "sha256": "cd689db2691edaa10f37329307292796bb599e722e0505c79e14caaa1fe9a93a"
+      }
+    ],
+    "pfn_guard_patch": {
+      "path": "patches/r595.99.02/0013-open-pfn-backed-io-guard.patch",
+      "sha256": "018fd72247d5865639f5ea867226b9da9afa49a66aed3e2d7c711b2b0d2c625f"
+    },
+    "r595_open_replay_report": {
+      "path": "evidence/r595-syncboost-replay-v3.json",
+      "replayed_source_artifacts_verified": 23,
+      "sha256": "5bdab15c82ec0e9865d372a0768900a676aa94199519ff7f4d137af5f0227c43"
+    },
+    "r595_rm_core_sha256": "c19870e43606b4358d9274c4d3dec2adb1822d65ce1203520a8184cf043cafe8",
+    "target_headers_config_sha256": "cf8454bc2e67effab87a5bff3c39042f2d8d106b6a777c4302e52f50d23b7400",
+    "target_headers_module_symvers_sha256": "8e7eb5798789b9610c324b3d9b13373d88c30ae17bb9e41e622efd05e0277a87",
+    "target_kernel_compiler": "x86_64-linux-gnu-gcc-13 13.3.0",
+    "ubuntu_archive_keyring_sha256": "80a36b0a6de2f69f49d2df75ef473ccde121e9e190b9ea01d20a4f63778d5c31",
+    "ubuntu_package_origin": "https://archive.ubuntu.com/ubuntu noble-updates/main amd64",
+    "v100_guest_build_receipt_sha256": "6252eb4a30a5f9076782cbc901185d9549cb321a87512f3b5e4307675e310866",
+    "verified_apt_inrelease_indexes": [
+      {
+        "path": "/tmp/nvidia-hybrid-linux68-headers-20261029/lists/archive.ubuntu.com_ubuntu_dists_noble-updates_InRelease",
+        "sha256": "89ad2f985a8959b207f598f833feb5f852d145be5bd4efcb97c4934ecb45723e"
+      },
+      {
+        "path": "/tmp/nvidia-hybrid-linux68-headers-20261029/lists/security.ubuntu.com_ubuntu_dists_noble-security_InRelease",
+        "sha256": "38f7d01ad74eaeefd526677cdfaee36a81a2370dfa9a7936ab0f8fe5accc34a4"
+      }
+    ]
+  },
+  "kernel_import_closure": {
+    "all_target_kernel_imports_match": true,
+    "crc_mismatches": 0,
+    "matched_in_target_symvers": 460,
+    "mem_section_module_import_crc": "0x3199fbeb",
+    "mem_section_target_crc": "0x3199fbeb",
+    "missing": 0,
+    "missing_crc_metadata": 0,
+    "undefined_symbols": 460
+  },
+  "kernel_release": "6.8.0-147-generic",
+  "limitations": [
+    "This is one exact-target R595 Open provider build plus kernel-symbol CRC closure, not a complete four-module static bundle audit.",
+    "The R595 frontend and isolated hybrid UVM still need their own exact 6.8.0-147 builds and cross-module CRC closure.",
+    "No module insertion, device registration, CUDA, UVM runtime, GPU, P2P, endurance, or performance test was run.",
+    "The host-built module is not installed; no system, VM, PCI, firmware, boot, or security configuration changed."
+  ],
+  "module": {
+    "bytes": 34190968,
+    "name": "hybrid580_open",
+    "path": "/tmp/nvidia-r59599-6.8.0-147-pfn-guard-gcc13-v1/source/kernel-open/hybrid580_open.ko",
+    "sha256": "4f3ce1377d99e6adb7ad8967a9b1cee4cf51d759be5bea6f1bcf1dff5d45976c",
+    "vermagic": "6.8.0-147-generic SMP preempt mod_unload modversions",
+    "version": "595.99.02"
+  },
+  "module_installed": false,
+  "module_loaded": false,
+  "observed_at_utc": "2026-10-29T12:24:45Z",
+  "qualification": "compiled-exact-target-kernel-static-kernel-symbol-closure",
+  "schema": "nvidia.r595-target-kernel-open-provider-build.v1",
+  "shared_conftest_uvm_sidecar": {
+    "built_in_same_kbuild_invocation": true,
+    "included_as_candidate": false,
+    "note": "The UVM sidecar was built only so the provider and UVM generate a coherent shared conftest. It is not the isolated hybrid UVM module and must not be used as a target-stack artifact.",
+    "runtime_or_hardware_validated": false
+  },
+  "source_version": "595.99.02",
+  "status": "compiled-and-target-kernel-import-crcs-closed",
+  "symvers_sha256": "99f9ef7a9a6bce431d4b0a19591ba6a9754da7aca4c50b7f9a178965833a678f",
+  "target_architecture": "amd64",
+  "target_kernel_release": "6.8.0-147-generic"
+}

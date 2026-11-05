@@ -1,0 +1,85 @@
+{
+  "activation_performed": false,
+  "build_command": [
+    "make",
+    "-C",
+    "/tmp/nvidia-r59599-pfn-guard-control-v1-20261029/source/kernel-open",
+    "KERNEL_UNAME=7.0.0-38-generic",
+    "NV_KERNEL_MODULES=nvidia nvidia-uvm",
+    "KBUILD_EXTRA_SYMBOLS=/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-syncboost-nvidia-frontend-v1/Module.symvers",
+    "-j2",
+    "modules"
+  ],
+  "build_duration_seconds": 37.781,
+  "build_exit_code": 0,
+  "build_log": {
+    "mode": "0600",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/logs/r595-open-pfn-guard-r59599-build-v1-20261029.log",
+    "sha256": "e7ea51b40d93030ae03f5a8cfb5231cc68f35030b3a673e7ab5ce63c38985967"
+  },
+  "environment_names_cleared": [],
+  "hardware_tested": false,
+  "inputs": {
+    "base_os_mlock_sha256": "dcee9c5d88286ab8b07b6a9e991b64da7f125c0c8a387f11ab1aecbf5a0cd15e",
+    "control_report": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/r595-syncboost-open-shared-uvm-conftest-control-v1-20261029.json",
+      "sha256": "3532476ca18854baf9bd2129227237080e0325190871f228046e62d15ddc26d7"
+    },
+    "frontend_symvers": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-syncboost-nvidia-frontend-v1/Module.symvers",
+      "sha256": "dbcf0cc653a970395534635d7ef533c3626112a41b12f8b5cbaf6504bb903e08"
+    },
+    "patch": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r595.99.02/0013-open-pfn-backed-io-guard.patch",
+      "sha256": "018fd72247d5865639f5ea867226b9da9afa49a66aed3e2d7c711b2b0d2c625f"
+    },
+    "patched_os_mlock_sha256": "760a5ee564cd0f151aea337eca146578bed157c80c8152f9aa9b414db6576609",
+    "r595_core": {
+      "path": "/usr/src/nvidia-595.99.02/nvidia/nv-kernel.o_binary",
+      "sha256": "c19870e43606b4358d9274c4d3dec2adb1822d65ce1203520a8184cf043cafe8"
+    },
+    "replay_report": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/r595-syncboost-replay-v3.json",
+      "sha256": "5bdab15c82ec0e9865d372a0768900a676aa94199519ff7f4d137af5f0227c43"
+    },
+    "replayed_source_artifacts_verified": 23
+  },
+  "kernel_release": "7.0.0-38-generic",
+  "limitations": [
+    "Compile and static source overlay only; no load, device init, UVM runtime, CUDA, P2P, or performance test.",
+    "The patch rejects page-backed PFNs on the os_lookup_user_io_memory path; no runtime caller or V100 trigger is proven.",
+    "Built against Linux 7.0.0-38-generic only in this experiment."
+  ],
+  "module": {
+    "bytes": 37239912,
+    "name": "hybrid580_open",
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-syncboost-open-build-v2/source/kernel-open/hybrid580_open-pfn-guard-v1.ko",
+    "sha256": "1d4325e12ad360319bb0e6f0275f5baea6dc95fa63a0856ba9977cce2f956187"
+  },
+  "module_installed": false,
+  "module_loaded": false,
+  "object": {
+    "mem_section_relocation_present": true,
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-pfn-guard-control-v1-20261029/objects/os-mlock.o",
+    "sha256": "fbdc14ab7adff22221c0a19ca60a09f5a28807baeffc9c73925bab4f70a9200f"
+  },
+  "observed_at_utc": "2026-10-29T12:04:09.878991+00:00",
+  "provider_symvers_sha256": "0cb20019db66ddf5d1a6b3b750104d96b4d6d2e6fee4922bab93cd8174141037",
+  "provider_symvers_unchanged_from_shared_conftest_control": true,
+  "qualification": "compiled-source-overlay",
+  "runtime_or_hardware_validated": false,
+  "schema": "r595-open-page-backed-pfn-guard-build-v1",
+  "shared_conftest": {
+    "NV_MEMORY_DEVICE_COHERENT_PRESENT": true,
+    "types_header": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-pfn-guard-control-v1-20261029/conftest/types.h",
+      "sha256": "924a6b0710ee322b79b4f0204426a27244c638db9bead8284a7ec50a51c051da"
+    },
+    "uvm_sidecar": {
+      "included_in_bundle": false,
+      "path": "/tmp/nvidia-r59599-pfn-guard-control-v1-20261029/source/kernel-open/nvidia-uvm.ko",
+      "sha256": "a66cccfbb6d8b63bba54b1a996cd42659843a974dd13c1aae35eaa7620b8483a"
+    }
+  },
+  "source_version": "595.99.02"
+}

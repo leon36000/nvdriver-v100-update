@@ -1,0 +1,41 @@
+{
+  "created_utc": "2026-10-31T23:57:53.838663+00:00",
+  "destination_fingerprint": {
+    "algorithm": "sha256(path NUL mode-octal NUL file-sha256 LF), sorted by relative path",
+    "regular_file_count": 3829,
+    "sha256": "f0c94306f58938e018c0540cad60269ccb41f36d6a2d2fedc7fe27ba2bb323c3",
+    "total_bytes": 144960933
+  },
+  "destination_overwritten": false,
+  "destination_tree": "/tmp/nvidia-hybrid-r595-hybrid-uvm-linux68-v2-20261031/source",
+  "error": "PatchSeriesError: patch did not apply exactly: 0001-uvm-rm-control-fd-address-space-dispatch.patch: can't find file to patch at input line 3\nPerhaps you used the wrong -p or --strip option?\nThe text leading up to this was:\n--------------------------\n|--- a/nvidia-uvm/uvm_va_space.c\n|+++ b/nvidia-uvm/uvm_va_space.c\n--------------------------\nNo file to patch.  Skipping patch.\n3 out of 3 hunks ignored\npatching file nvidia-uvm/hybrid580_uvm_control_fd_dispatch.h",
+  "patches": [
+    {
+      "command": [
+        "patch",
+        "--batch",
+        "--forward",
+        "--fuzz=0",
+        "--no-backup-if-mismatch",
+        "-p1",
+        "--input",
+        "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r595.99.02/0001-uvm-rm-control-fd-address-space-dispatch.patch"
+      ],
+      "exit_code": 1,
+      "output": "can't find file to patch at input line 3\nPerhaps you used the wrong -p or --strip option?\nThe text leading up to this was:\n--------------------------\n|--- a/nvidia-uvm/uvm_va_space.c\n|+++ b/nvidia-uvm/uvm_va_space.c\n--------------------------\nNo file to patch.  Skipping patch.\n3 out of 3 hunks ignored\npatching file nvidia-uvm/hybrid580_uvm_control_fd_dispatch.h\n",
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/patches/r595.99.02/0001-uvm-rm-control-fd-address-space-dispatch.patch",
+      "sha256": "ea8b78632e55f80ab5ef717b9250131ad599bd427ffad7bdc6d4b3328a881c2d",
+      "zero_offset_zero_fuzz": false
+    }
+  ],
+  "schema": "r595-hybrid-source-preparation-v1",
+  "source_fingerprint": {
+    "algorithm": "sha256(path NUL mode-octal NUL file-sha256 LF), sorted by relative path",
+    "regular_file_count": 3828,
+    "sha256": "75aafd2f07584847683b79197a67ff9e13d30670d9fc59df3c61b9467820a4a3",
+    "total_bytes": 144960484
+  },
+  "source_tree": "/tmp/nvidia-hybrid-r595-open-linux68-v7-20261031/source",
+  "source_tree_modified": false,
+  "status": "failed"
+}

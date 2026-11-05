@@ -1,0 +1,78 @@
+{
+  "inputs": {
+    "files": {
+      "uvm_kvmalloc.c": {
+        "bytes": 13052,
+        "path": "build/experiments/r595-provider-id-validation-v1-20261029/candidate/nvidia-uvm/uvm_kvmalloc.c",
+        "sha256": "c076016dc5fcad9619eb935af1e187070653b1a97b34d392c66e0b320356d9db"
+      },
+      "uvm_linux.h": {
+        "bytes": 8717,
+        "path": "build/experiments/r595-provider-id-validation-v1-20261029/candidate/nvidia-uvm/uvm_linux.h",
+        "sha256": "9fed68595b1d9fe2a63ef1ed90625b3cd0fe58c69c88bb7d0801ac7244a968e7"
+      },
+      "uvm_lock.h": {
+        "bytes": 58676,
+        "path": "build/experiments/r595-provider-id-validation-v1-20261029/candidate/nvidia-uvm/uvm_lock.h",
+        "sha256": "09a9f44192b270ce7f08217306a38f1a2d08b5cf1f0b713d0f12d352bacca20d"
+      },
+      "uvm_mmu.c": {
+        "bytes": 114759,
+        "path": "build/experiments/r595-provider-id-validation-v1-20261029/candidate/nvidia-uvm/uvm_mmu.c",
+        "sha256": "4b1b2234c78b24881c8b8854961f00d575e8b70df4e2be08d881833308b03297"
+      },
+      "uvm_pmm_gpu.c": {
+        "bytes": 149594,
+        "path": "build/experiments/r595-provider-id-validation-v1-20261029/candidate/nvidia-uvm/uvm_pmm_gpu.c",
+        "sha256": "753fe5ac7220b7035ae9e641fb6595769166bf556e1aadc3cdfa9ae5c6d5cb31"
+      },
+      "uvm_tracker.c": {
+        "bytes": 14249,
+        "path": "build/experiments/r595-provider-id-validation-v1-20261029/candidate/nvidia-uvm/uvm_tracker.c",
+        "sha256": "1b7fd32a785b78af5492c30a297e148f421af3e04108a587a641932d4ca7499a"
+      },
+      "uvm_va_block.c": {
+        "bytes": 596572,
+        "path": "build/experiments/r595-provider-id-validation-v1-20261029/candidate/nvidia-uvm/uvm_va_block.c",
+        "sha256": "faf15872daf79ea83894ce24f7f8c4034809c03114a99da1fd0817288785c931"
+      }
+    },
+    "source_root": "build/experiments/r595-provider-id-validation-v1-20261029/candidate/nvidia-uvm"
+  },
+  "observed_at_utc": "2026-10-29T04:13:20.903821+00:00",
+  "qualification": {
+    "level": "analyzed-statically",
+    "module_loaded_or_installed": false,
+    "runtime_or_hardware_validated": false
+  },
+  "result": {
+    "checks": {
+      "block_population_cleanup_calls_pmm_free_under_block_lock": true,
+      "eviction_merges_after_va_block_unlock": true,
+      "gpu_state_teardown_calls_pmm_free_under_block_lock": true,
+      "merge_retries_after_pruning_completed_entries": true,
+      "mmu_page_table_free_calls_pmm_free_under_tree_lock": true,
+      "pmm_alloc_merges_under_root_lock_after_isolated_other_gpu_guard": true,
+      "pmm_comment_warns_synchronization_may_be_long": true,
+      "pmm_free_merges_under_root_lock": true,
+      "root_chunk_lock_uses_sleepable_bitlock": true,
+      "root_chunk_return_to_pma_waits_under_root_lock": true,
+      "safe_merge_waits_on_source_only_after_no_memory": true,
+      "tracker_reserve_uses_kernel_allocation_flags": true
+    },
+    "failed_checks": [],
+    "interpretation": "When uvm_tracker_add_tracker_safe() sees NV_ERR_NO_MEMORY after the merge's reserve/prune/retry sequence, it waits for the source tracker. uvm_pmm_gpu_free() calls that helper while holding the root-chunk bitlock; source callsites include GPU-chunk cleanup under the VA-block mutex. This is a conditional latency and progress risk under allocation pressure, not a demonstrated deadlock or an observed runtime failure. The bitlock is sleepable (wait_on_bit_lock), so this audit does not classify it as a spinlock/atomic-context violation. The isolated provider guard in pmm_gpu_alloc() does not guard pmm_gpu_free(); the free path does not revalidate tracker GPU/provider identity, and same-GPU fallback waits remain possible.",
+    "next_falsifier": "On a disposable candidate canary, inject tracker-vector allocation failure while the source tracker has a pending entry whose GPU completion needs UVM service for the same VA block. Capture lockdep and bounded completion/recovery. The pinned source has no dedicated tracker-reserve fault-injection hook; candidate activation remains blocked by the separate PC3 module/signature/device-node preflight.",
+    "source_sites": {
+      "block_population_free_line": 2928,
+      "block_teardown_free_line": 8991,
+      "mmu_page_table_free_line": 225,
+      "pmm_alloc_safe_merge_line": 580,
+      "pmm_gpu_free_safe_merge_line": 717,
+      "root_chunk_free_wait_line": 2078
+    },
+    "status": "conditional-lock-held-wait-risk"
+  },
+  "schema": "nvidia-r595-pmm-tracker-wait-context-v1",
+  "source_release": "R595.99.02 / provider-id-validation-v1"
+}

@@ -1,0 +1,52 @@
+{
+  "artifacts": {
+    "provider_only_r595_99": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-syncboost-open-build-v2/source/kernel-open/hybrid580_open.ko",
+      "sha256": "1d9909b3857ad4c00b3afdc9c92da8bdcfa03afae8e7269ea95cd6cc06dd38b1"
+    },
+    "r595_112": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595112-hybrid-stack-build-v1-20261029T1122Z/modules/hybrid580_open.ko",
+      "sha256": "3bf2b6943bbde7e9ba282422e30b37099b3ccfec141f9f8aaa987155e1fffb91"
+    },
+    "shared_conftest_r595_99": {
+      "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/build/experiments/r595-syncboost-open-build-v2/source/kernel-open/hybrid580_open-shared-uvm-conftest-v1.ko",
+      "sha256": "34a5967a27b979f4af3653881ac9981aea639d4081d3e4a7609d78f51b4a497a"
+    }
+  },
+  "correction": "The original receipt placed named-unique undefined symbol counts into fields labeled as total ELF undefined table entries. Each module has one unnamed ELF null-symbol UND row. The original file is preserved.",
+  "count_method": "readelf -Ws; count rows whose Ndx column is UND; separately count nonempty unique symbol names after version suffix normalization.",
+  "counts": {
+    "provider_only_r595_99": {
+      "elf_undefined_table_entries": 458,
+      "named_undefined_unique": 457,
+      "unnamed_undefined_entries": 1
+    },
+    "r595_112": {
+      "elf_undefined_table_entries": 462,
+      "named_undefined_unique": 461,
+      "unnamed_undefined_entries": 1
+    },
+    "shared_conftest_r595_99": {
+      "elf_undefined_table_entries": 461,
+      "named_undefined_unique": 460,
+      "unnamed_undefined_entries": 1
+    }
+  },
+  "named_symbol_deltas": {
+    "provider_only_to_shared_conftest_r595_99": [
+      "__rcu_read_lock",
+      "__rcu_read_unlock",
+      "get_dev_pagemap"
+    ],
+    "shared_conftest_r595_99_to_r595_112": [
+      "mem_section"
+    ]
+  },
+  "observed_at_utc": "2026-10-29T11:56:15.384118+00:00",
+  "qualification": "static-ELF-count correction; no module or hardware action",
+  "schema": "r595-open-shared-uvm-conftest-symbol-count-correction-v1",
+  "supersedes_interpretation_of": {
+    "path": "/run/media/pc1/Infrastructure/Naos/60_travaux/cuda13-volta-compat-20260927/driver-hybrid/evidence/r595-syncboost-open-shared-uvm-conftest-control-v1-20261029.json",
+    "sha256": "3532476ca18854baf9bd2129227237080e0325190871f228046e62d15ddc26d7"
+  }
+}
