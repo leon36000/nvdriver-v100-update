@@ -1,0 +1,132 @@
+{
+  "active_char_devices": [
+    {
+      "major": 195,
+      "minor": 254,
+      "path": "/dev/nvidia-modeset"
+    },
+    {
+      "major": 511,
+      "minor": 0,
+      "path": "/dev/nvidia-uvm"
+    },
+    {
+      "major": 511,
+      "minor": 1,
+      "path": "/dev/nvidia-uvm-tools"
+    },
+    {
+      "major": 195,
+      "minor": 0,
+      "path": "/dev/nvidia0"
+    },
+    {
+      "major": 195,
+      "minor": 255,
+      "path": "/dev/nvidiactl"
+    }
+  ],
+  "active_modules": [
+    {
+      "name": "nvidia_drm"
+    },
+    {
+      "name": "nvidia_uvm"
+    },
+    {
+      "name": "nvidia_modeset"
+    },
+    {
+      "name": "nvidia"
+    }
+  ],
+  "char_device_major_names": [
+    {
+      "major": 195,
+      "name": "nvidia"
+    },
+    {
+      "major": 195,
+      "name": "nvidia-modeset"
+    },
+    {
+      "major": 195,
+      "name": "nvidiactl"
+    },
+    {
+      "major": 234,
+      "name": "nvidia-nvswitch"
+    },
+    {
+      "major": 235,
+      "name": "nvidia-nvlink"
+    },
+    {
+      "major": 236,
+      "name": "nvidia-caps"
+    },
+    {
+      "major": 237,
+      "name": "nvidia-caps-imex-channels"
+    },
+    {
+      "major": 511,
+      "name": "nvidia-uvm"
+    }
+  ],
+  "collector_metadata": {
+    "local_collector_sha256": "de832529fec1a4bda2da62f183c6984e2861a18e0e2f5660596940940591bc77",
+    "qualification": "read-only-host-inventory",
+    "remote_script_sha256": "43ed11930b2041190134e7664135b70324b3f4cc4866ef16b8c8fa800e1afef4",
+    "schema": "nvidia-hybrid-canary-host-state-collection-v1",
+    "transport": {
+      "credential_host": "gx10-e526",
+      "credential_value_logged": false,
+      "credential_value_persisted": false,
+      "target": "pc3@pc3"
+    }
+  },
+  "gpu_ownership": [
+    {
+      "class": "030000",
+      "device_id": "2c02",
+      "driver": "nvidia",
+      "model": "VGA compatible controller [0300]: NVIDIA Corporation GB203 [GeForce RTX 5080] [10de:2c02] (rev a1)",
+      "pci": "0000:02:00.0",
+      "vendor_id": "10de"
+    },
+    {
+      "class": "030200",
+      "device_id": "1db1",
+      "driver": "vfio-pci",
+      "model": "3D controller [0302]: NVIDIA Corporation GV100GL [Tesla V100 SXM2 16GB] [10de:1db1] (rev a1)",
+      "pci": "0000:81:00.0",
+      "vendor_id": "10de"
+    }
+  ],
+  "host": "pc3",
+  "installed_nvidia_module": {
+    "signer": "Canonical Ltd. Kernel Module Signing",
+    "vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+    "version": "595.99.02"
+  },
+  "kernel_release": "7.0.0-38-generic",
+  "kernel_vermagic": "7.0.0-38-generic SMP preempt mod_unload modversions",
+  "loaded_nvidia_module_version": "595.99.02",
+  "loaded_nvidia_modules": [
+    "nvidia_drm",
+    "nvidia_uvm",
+    "nvidia_modeset",
+    "nvidia"
+  ],
+  "local_module_signing_key_metadata": {
+    "certificate_enrolled": false,
+    "certificate_present": true,
+    "mok_test_result": "not_enrolled"
+  },
+  "lockdown": "integrity",
+  "module_sig_enforce": true,
+  "observed_at_utc": "2026-10-24T00:13:35.626430Z",
+  "schema": "nvidia-hybrid-canary-host-state-v1",
+  "secure_boot_enabled": true
+}
